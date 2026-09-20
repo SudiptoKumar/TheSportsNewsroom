@@ -24,11 +24,63 @@ class PipelineReport:
         self.sources: list[dict] = []
         self.timings: dict[str, float] = {}
         self.published: list[dict] = []
-        self.ai: dict[str, int] = {"reserved": 0, "used": 0, "mandatory_used": 0}
+        self.ai: dict[str, int] = {"reserved": 0, "used": 0, "mandatory_used": 0, "reserve_released": 0}
+        self.candidate_ledger: dict[str, dict] = {}
         self.errors: list[str] = []
 
     def count(self, key: str, n: int = 1) -> None:
         self.counts[key] = self.counts.get(key, 0) + n
+
+    def candidate(self, stage: str, candidate_id: str, outcome: str, reason: str = "") -> None:
+        if not candidate_id:
+            return
+        row = self.candidate_ledger.setdefault(candidate_id, {"stages": {}})
+        row.setdefault("stages", {})[stage] = {
+            "outcome": outcome,
+            "reason": reason[:180],
+        }
+        row["last_stage"] = stage
+        row["last_outcome"] = outcome
+
+    def candidate_gate(self, stage: str, candidate_ids: Iterable[str]) -> list[str]:
+        expected = {str(cid) for cid in candidate_ids if str(cid)}
+        seen = {cid for cid, row in self.candidate_ledger.items() if stage in row.get("stages", {})}
+        missing = sorted(expected - seen)
+        self.count(f"ledger.{stage}.expected", len(expected))
+        self.count(f"ledger.{stage}.accounted", len(expected) - len(missing))
+        self.count(f"ledger.{stage}.unaccounted", len(missing))
+        for cid in missing:
+            self.candidate(stage, cid, "unaccounted", "no_terminal_decision")
+        return missing
+
+    def candidate_terminal(self, candidate_id: str, outcome: str, reason: str = "") -> None:
+        self.candidate("terminal", candidate_id, outcome, reason)
+
+    def finalize_candidates(self, candidate_ids: Iterable[str]) -> list[str]:
+        """Require every run candidate to reach an explicit terminal outcome.
+
+        A terminal outcome is deliberately separate from intermediate states such as
+        classified/verified/selected. This prevents a candidate from disappearing simply
+        because a later stage narrowed its list.
+        """
+        expected = [str(cid) for cid in candidate_ids if str(cid)]
+        missing = self.candidate_gate("terminal", expected)
+        return missing
+
+    def problems(self) -> list[str]:
+        return [
+            f"{key}={value}"
+            for key, value in self.counts.items()
+            if "unaccounted" in key and int(value) > 0
+        ]
+
+    def assert_no_unaccounted(self) -> None:
+        # Any stage-level accounting leak is a correctness failure, not only the final
+        # terminal gate. This keeps intermediate funnel shrinkage from being hidden by a
+        # later stage or by a fixture that happens to terminally label the candidate.
+        problems = self.problems()
+        if problems:
+            raise RuntimeError("Candidate ledger has unaccounted item(s): " + "; ".join(problems))
 
     def reject(self, stage: str, reason: str, title: str = "", detail: str = "", candidate_id: str = "") -> None:
         self.reasons[stage][reason] += 1
@@ -88,6 +140,7 @@ class PipelineReport:
             "timings": {k: round(v, 3) for k, v in self.timings.items()},
             "published": list(self.published),
             "ai": dict(self.ai),
+            "candidate_ledger": dict(self.candidate_ledger),
             "errors": list(self.errors),
         }
 
@@ -107,7 +160,8 @@ class PipelineReport:
                 lines += [f"  {name:<30}{n:5d}" for name, n in rows]
         lines += [
             "", "AI Budget",
-            f"  reserved                    {self.ai.get('reserved', 0):5d}",
+            f"  reserved (initial)          {self.ai.get('reserved', 0):5d}",
+            f"  reserve currently held      {self.ai.get('reserve_held', 0):5d}",
             f"  used                        {self.ai.get('used', 0):5d}",
             f"  mandatory used               {self.ai.get('mandatory_used', 0):5d}",
         ]
@@ -167,16 +221,19 @@ class PipelineReport:
 
 
 class AiBudget:
-    """Logical AI-operation budget. The mandatory lane has a protected reserve."""
+    """Logical AI-operation budget with a protected, releasable mandatory reserve."""
 
     def __init__(self, total: int, reserved_for_mandatory: int = 8, report: PipelineReport | None = None) -> None:
         self.total = max(0, int(total))
-        self.reserved = min(max(0, int(reserved_for_mandatory)), self.total)
+        self.reserved_initial = min(max(0, int(reserved_for_mandatory)), self.total)
+        self.reserved = self.reserved_initial
         self.used = 0
         self.mandatory_used = 0
+        self.reserve_released = 0
         self.report = report
         if report:
-            report.ai["reserved"] = self.reserved
+            report.ai["reserved"] = self.reserved_initial
+            report.ai["reserve_held"] = self.reserved
 
     def take(self, lane: str) -> bool:
         if self.used >= self.total:
@@ -194,11 +251,26 @@ class AiBudget:
             self.report.ai["mandatory_used"] = self.mandatory_used
         return True
 
+    def release_unused_mandatory(self) -> int:
+        unused = max(0, self.reserved - self.mandatory_used)
+        if unused:
+            self.reserved -= unused
+            self.reserve_released += unused
+            if self.report:
+                self.report.ai["reserved"] = self.reserved_initial
+                self.report.ai["reserve_held"] = self.reserved
+                self.report.ai["reserve_released"] = self.reserve_released
+        return unused
+
     def remaining(self, lane: str = "discovery") -> int:
         if lane == "mandatory":
             return max(0, self.total - self.used)
         remaining_reserved = max(0, self.reserved - self.mandatory_used)
         return max(0, self.total - self.used - remaining_reserved)
+
+    @property
+    def exhausted(self) -> bool:
+        return self.used >= self.total
 
 
 def balanced_pool(

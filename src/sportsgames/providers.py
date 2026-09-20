@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 import time
 from dataclasses import dataclass
 from typing import Any
@@ -82,10 +83,20 @@ class Providers:
         temperature: float = 0.15,
         lane: str = "discovery",
     ) -> dict:
-        if self.ai_budget is not None and not self.ai_budget.take(lane):
-            raise RuntimeError(f"AI budget exhausted for lane={lane}")
         last_exc: Exception | None = None
+        reasoning_effort = os.getenv("CEREBRAS_REASONING_EFFORT", "low").strip().lower()
+        if reasoning_effort not in {"low", "medium", "high"}:
+            reasoning_effort = "low"
         for attempt in range(1, 3):
+            # AI_MAX_CALLS_PER_RUN is an API-call budget, so each actual Cerebras request
+            # consumes one unit, including a retry.
+            if self.ai_budget is not None and not self.ai_budget.take(lane):
+                if self.report:
+                    self.report.count(f"ai.budget_exhausted.{lane}")
+                raise RuntimeError(f"AI budget exhausted for lane={lane}")
+            if self.report:
+                self.report.count("ai.api_attempts")
+                self.report.count(f"ai.api_attempts.{lane}")
             try:
                 t0 = time.monotonic()
                 response = self.cerebras.chat.completions.create(
@@ -98,17 +109,24 @@ class Providers:
                         "type": "json_schema",
                         "json_schema": {"name": schema_name, "strict": True, "schema": schema},
                     },
-                    reasoning_effort="low",
+                    reasoning_effort=reasoning_effort,
                     temperature=temperature,
                     max_completion_tokens=max_tokens,
                 )
                 elapsed = time.monotonic() - t0
+                finish_reason = text(getattr(response.choices[0], "finish_reason", ""))
                 logger.info(
-                    "Cerebras success schema=%s lane=%s elapsed=%.2fs",
+                    "Cerebras success schema=%s lane=%s finish_reason=%s elapsed=%.2fs",
                     schema_name,
                     lane,
+                    finish_reason or "unknown",
                     elapsed,
                 )
+                if self.report:
+                    self.report.count("ai.calls")
+                    self.report.count(f"ai.finish.{finish_reason or 'unknown'}")
+                if finish_reason in {"length", "max_tokens"}:
+                    raise RuntimeError(f"Cerebras output truncated: finish_reason={finish_reason}")
                 content = text(response.choices[0].message.content)
                 if content.startswith("```"):
                     content = content.strip().strip("`").replace("json\n", "", 1)
@@ -125,6 +143,8 @@ class Providers:
                     lane,
                     exc,
                 )
+                if self.report:
+                    self.report.count("ai.failures")
                 if attempt < 2:
                     retry_after = 0
                     try:
@@ -358,31 +378,46 @@ def fetch_rss(feeds: list[dict], limit_per_feed: int = 30) -> list[dict]:
 
 
 def telegram_call(method: str, data: dict | None = None, files: dict | None = None) -> dict:
+    """Call Telegram with duplicate-safe retry semantics for send operations.
+
+    HTTP 429 is safe to retry because Telegram explicitly rejected the request.
+    HTTP 5xx and transport exceptions are treated as delivery-uncertain and are NOT retried: a
+    server/network failure can happen after Telegram accepted a non-idempotent send, and retrying
+    it here could create a duplicate before the persisted publish-intent guard can intervene.
+    """
     if not TELEGRAM_BOT_TOKEN:
         return {"ok": False, "description": "TELEGRAM_BOT_TOKEN missing"}
     if HTTP is None:
         return {"ok": False, "description": "requests unavailable"}
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/{method}"
-    last = {"ok": False, "description": "Unknown error"}
     for attempt in range(1, 4):
+        # requests multipart uploads advance file handles. A Telegram 429 is explicitly
+        # rejected, so retrying is safe, but only if the same file is rewound first.
+        for upload in (files or {}).values():
+            handle = upload[1] if isinstance(upload, tuple) and len(upload) > 1 else upload
+            if hasattr(handle, "seek"):
+                try:
+                    handle.seek(0)
+                except Exception:
+                    pass
         try:
             response = HTTP.post(url, data=data or {}, files=files, timeout=60)
             result = response.json()
             if result.get("ok"):
                 logger.info("Telegram %s success", method)
                 return result
-            last = result
             if response.status_code == 429:
                 retry_after = int(result.get("parameters", {}).get("retry_after", 5))
-                time.sleep(max(1, min(retry_after, 20)))
-                continue
+                if attempt < 3:
+                    time.sleep(max(1, min(retry_after, 20)))
+                    continue
+                return result
             if response.status_code >= 500:
-                time.sleep(1.5 * attempt)
-                continue
-            break
+                result["_delivery_uncertain"] = True
+                logger.warning("Telegram %s returned %s; delivery is uncertain, not retrying", method, response.status_code)
+                return result
+            return result
         except Exception as exc:
-            last = {"ok": False, "description": str(exc)}
-            if attempt < 3:
-                time.sleep(1.2 * attempt)
-    logger.warning("Telegram %s failed: %s", method, last.get("description"))
-    return last
+            logger.warning("Telegram %s transport failure; delivery is uncertain, not retrying: %s", method, exc)
+            return {"ok": False, "description": str(exc), "_delivery_uncertain": True}
+    return {"ok": False, "description": "Telegram request exhausted retries"}

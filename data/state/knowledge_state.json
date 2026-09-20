@@ -1,5 +1,6 @@
 {
   "angle_history": [],
+  "candidate_index": {},
   "candidate_ledger": [],
   "category_history": [],
   "claims": {},
@@ -9,7 +10,9 @@
   "events": {},
   "historical_events": {},
   "last_run_at": "2026-09-20T19:24:26.405692+00:00",
+  "mandatory_lanes": {},
   "posts": [],
+  "publish_intents": {},
   "queue": {},
   "run_history": [
     {
@@ -43,7 +46,7 @@
       "total_seconds": 34.222
     }
   ],
-  "schema_version": 2,
+  "schema_version": 4,
   "source_health": {},
   "subject_history": []
 }

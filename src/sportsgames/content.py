@@ -150,7 +150,7 @@ Rewrite in your own words. Return only JSON.
             user=user,
             schema_name="sports_games_story_v3",
             schema=POST_SCHEMA,
-            max_tokens=2500,
+            max_tokens=4200,
             lane=lane,
         )
     except Exception as exc:

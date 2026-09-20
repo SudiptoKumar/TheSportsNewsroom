@@ -17,7 +17,9 @@ def now_iso() -> str:
 
 def default_state() -> dict:
     return {
-        "schema_version": 3,
+        "schema_version": 4,
+        "mandatory_lanes": {},
+        "publish_intents": {},
         "created_at": now_iso(),
         "last_run_at": "",
         "posts": [],
@@ -32,18 +34,59 @@ def default_state() -> dict:
         "source_health": {},
         "queue": {},
         "candidate_ledger": [],
+        "candidate_index": {},
         "run_history": [],
     }
+
+
+def migrate_state(state: dict) -> dict:
+    """Migrate legacy state in place without discarding existing knowledge."""
+    state = dict(state or {})
+    version = int(state.get("schema_version", 1) or 1)
+
+    if version < 4:
+        state.setdefault("mandatory_lanes", {})
+        state.setdefault("publish_intents", {})
+        # Existing daily_flags are authoritative published markers. Mirror them into
+        # the richer lane records so the mandatory planner can resume safely.
+        for key, at in (state.get("daily_flags") or {}).items():
+            if ":" not in key:
+                continue
+            lane, target = key.split(":", 1)
+            if lane not in {"next", "past"} or not target:
+                continue
+            state["mandatory_lanes"].setdefault(key, {
+                "lane": lane,
+                "target_date": target,
+                "status": "published",
+                "attempts": 0,
+                "updated_at": at or now_iso(),
+                "last_error": "",
+                "trace": [{
+                    "at": at or now_iso(),
+                    "step": "migration",
+                    "status": "published",
+                    "reason": "imported_daily_flag",
+                }],
+            })
+        state["schema_version"] = 4
+
+    return state
 
 
 def ensure_state_shape(state: dict) -> dict:
     merged = default_state()
     if isinstance(state, dict):
-        merged.update(state)
+        merged.update(migrate_state(state))
     defaults = default_state()
     for key, value in defaults.items():
         if key not in merged or merged[key] is None:
             merged[key] = value
+    if not isinstance(merged.get("mandatory_lanes"), dict):
+        merged["mandatory_lanes"] = {}
+    if not isinstance(merged.get("publish_intents"), dict):
+        merged["publish_intents"] = {}
+    merged["schema_version"] = max(int(merged.get("schema_version", 1) or 1), 4)
     return merged
 
 
@@ -52,10 +95,14 @@ def load_state() -> dict:
     if not path.exists() or path.stat().st_size == 0:
         return default_state()
     try:
-        return ensure_state_shape(json.loads(path.read_text(encoding="utf-8")))
+        raw = json.loads(path.read_text(encoding="utf-8"))
     except Exception as exc:
-        logger.warning("State load failed, using fresh state: %s", exc)
-        return default_state()
+        # Never silently replace production memory with a blank state. A blank state can
+        # make a previously published lane/candidate look new and create duplicates.
+        raise RuntimeError(f"State file is unreadable; refusing to start fresh: {path}: {exc}") from exc
+    if not isinstance(raw, dict):
+        raise RuntimeError(f"State file must contain a JSON object: {path}")
+    return ensure_state_shape(raw)
 
 
 def save_state(state: dict) -> None:
@@ -97,9 +144,11 @@ def record_candidate(
     score: float | None = None,
 ) -> None:
     ledger = state.setdefault("candidate_ledger", [])
+    at = now_iso()
+    candidate_id = text(candidate.get("candidate_id"))
     ledger.append({
-        "at": now_iso(),
-        "candidate_id": text(candidate.get("candidate_id")),
+        "at": at,
+        "candidate_id": candidate_id,
         "title": text(candidate.get("title"))[:140],
         "family": text(candidate.get("query_family")),
         "category": text(candidate.get("category")),
@@ -110,6 +159,19 @@ def record_candidate(
         "score": score,
     })
     state["candidate_ledger"] = ledger[-1000:]
+    if candidate_id:
+        index = state.setdefault("candidate_index", {})
+        row = index.setdefault(candidate_id, {"history": []})
+        row.update({
+            "updated_at": at,
+            "title": text(candidate.get("title"))[:140],
+            "outcome": outcome,
+            "reason": reason[:160],
+            "category": text(candidate.get("category")),
+            "angle": text(candidate.get("angle")),
+        })
+        row.setdefault("history", []).append({"at": at, "outcome": outcome, "reason": reason[:160]})
+        row["history"] = row["history"][-12:]
 
 
 def record_run_summary(state: dict, report_dict: dict) -> None:
@@ -157,7 +219,11 @@ def prune_state(state: dict) -> None:
     state["angle_history"] = state.get("angle_history", [])[-2500:]
     state["category_history"] = state.get("category_history", [])[-2500:]
     state["subject_history"] = state.get("subject_history", [])[-2500:]
-    state["candidate_ledger"] = state.get("candidate_ledger", [])[-1000:]
+    state["candidate_ledger"] = state.get("candidate_ledger", [])[-1500:]
+    candidate_index = state.setdefault("candidate_index", {})
+    if len(candidate_index) > 5000:
+        ordered = sorted(candidate_index.items(), key=lambda kv: text(kv[1].get("updated_at")) if isinstance(kv[1], dict) else "")
+        state["candidate_index"] = dict(ordered[-5000:])
     state["run_history"] = state.get("run_history", [])[-60:]
     for domain, value in list(state.get("source_health", {}).items()):
         if not isinstance(value, dict):
@@ -166,6 +232,16 @@ def prune_state(state: dict) -> None:
         last = parse_dt(value.get("updated_at"))
         if last and last < cutoff:
             state["source_health"].pop(domain, None)
+    # Keep operational ledgers bounded. Published/unknown intents are retained longer
+    # because they protect the exactly-once publishing guard.
+    intents = state.setdefault("publish_intents", {})
+    if len(intents) > 5000:
+        ordered = sorted(intents.items(), key=lambda kv: text(kv[1].get("updated_at")) if isinstance(kv[1], dict) else "")
+        state["publish_intents"] = dict(ordered[-5000:])
+    lanes = state.setdefault("mandatory_lanes", {})
+    if len(lanes) > 1000:
+        ordered = sorted(lanes.items(), key=lambda kv: text(kv[1].get("updated_at")) if isinstance(kv[1], dict) else "")
+        state["mandatory_lanes"] = dict(ordered[-1000:])
 
 
 def claim_key(subject: str, claim: str, angle: str = "") -> str:
@@ -185,11 +261,39 @@ def entity_key(name: str) -> str:
 
 
 def mark_daily(state: dict, kind: str, target_date: str, at: str | None = None) -> None:
-    state.setdefault("daily_flags", {})[f"{kind}:{target_date}"] = at or now_iso()
+    timestamp = at or now_iso()
+    key = f"{kind}:{target_date}"
+    state.setdefault("daily_flags", {})[key] = timestamp
+    row = state.setdefault("mandatory_lanes", {}).setdefault(key, {
+        "lane": kind,
+        "target_date": target_date,
+        "attempts": 0,
+        "trace": [],
+    })
+    row.update({"status": "published", "updated_at": timestamp, "last_error": ""})
+    row.setdefault("trace", []).append({
+        "at": timestamp, "step": "publish", "status": "published",
+    })
+    row["trace"] = row["trace"][-20:]
 
 
 def daily_done(state: dict, kind: str, target_date: str) -> bool:
-    return bool(state.get("daily_flags", {}).get(f"{kind}:{target_date}"))
+    key = f"{kind}:{target_date}"
+    if state.get("daily_flags", {}).get(key):
+        return True
+    row = state.get("mandatory_lanes", {}).get(key, {})
+    return row.get("status") == "published"
+
+
+def publish_intent(state: dict, key: str) -> dict:
+    return state.setdefault("publish_intents", {}).get(key, {})
+
+
+def set_publish_intent(state: dict, key: str, **updates) -> dict:
+    intents = state.setdefault("publish_intents", {})
+    row = intents.setdefault(key, {"status": "", "attempts": 0})
+    row.update(updates)
+    return row
 
 
 def published_posts_today(state: dict) -> int:

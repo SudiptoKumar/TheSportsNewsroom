@@ -44,6 +44,11 @@ def _prelim_score(item: dict) -> float:
     return score
 
 
+def make_candidate_id(url: str, title: str, query_family: str = "") -> str:
+    """Stable candidate identity used across retries/runs regardless of AI output."""
+    return sha(f"{canonical_url(url)}|{normalize_text(title)}|{normalize_text(query_family)}", 24)
+
+
 def _dedupe(items: Iterable[dict]) -> list[dict]:
     seen_urls: set[str] = set()
     out = []
@@ -60,7 +65,7 @@ def _dedupe(items: Iterable[dict]) -> list[dict]:
             continue
         seen_urls.add(key)
         dt = parse_dt(item.get("published_date"))
-        candidate_id = sha(f"{key}|{normalize_text(title)}", 16)
+        candidate_id = make_candidate_id(url, title, text(item.get("query_family")) or "other")
         out.append({
             **item,
             "candidate_id": candidate_id,

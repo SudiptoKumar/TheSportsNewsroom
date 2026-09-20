@@ -14,7 +14,7 @@ RUN_REPORT_FILE = STATE_DIR / "last_run_report.json"
 BD_TZ = ZoneInfo("Asia/Dhaka")
 
 APP_NAME = "The Sports Newsroom Discovery Engine"
-APP_VERSION = "2.2.1"
+APP_VERSION = "0.1.0"
 CHANNEL_DEFAULT = "@TheSportsNewsroom"
 
 CEREBRAS_MODEL = os.getenv("CEREBRAS_MODEL", "gpt-oss-120b")
@@ -34,6 +34,7 @@ POST_DELAY_SECONDS = float(os.getenv("POST_DELAY_SECONDS", "3"))
 MAX_EXA_RESULTS = int(os.getenv("MAX_EXA_RESULTS", "6"))
 MAX_CANDIDATES = int(os.getenv("MAX_CANDIDATES", "100"))
 MAX_CLASSIFICATION_CANDIDATES = int(os.getenv("MAX_CLASSIFICATION_CANDIDATES", "36"))
+MAX_CLASSIFICATION_BATCH_SIZE = int(os.getenv("MAX_CLASSIFICATION_BATCH_SIZE", "8"))
 MAX_EDITORIAL_SHORTLIST = int(os.getenv("MAX_EDITORIAL_SHORTLIST", "12"))
 MAX_VERIFICATION_CANDIDATES = int(os.getenv("MAX_VERIFICATION_CANDIDATES", "3"))
 MAX_DISCOVERY_POSTS_PER_DAY = int(os.getenv("MAX_DISCOVERY_POSTS_PER_DAY", "4"))
@@ -44,6 +45,7 @@ STATE_RETENTION_DAYS = int(os.getenv("STATE_RETENTION_DAYS", "365"))
 AI_MAX_CALLS_PER_RUN = int(os.getenv("AI_MAX_CALLS_PER_RUN", "18"))
 AI_MAX_REPAIR_PER_STORY = int(os.getenv("AI_MAX_REPAIR_PER_STORY", "1"))
 AI_MANDATORY_CALLS_PER_DAILY = int(os.getenv("AI_MANDATORY_CALLS_PER_DAILY", "4"))
+MANDATORY_MAX_ATTEMPTS = int(os.getenv("MANDATORY_MAX_ATTEMPTS", "3"))
 
 # Daily anchors are deliberately independent of the evergreen quota.
 NEXT_UP_AFTER_HOUR = int(os.getenv("NEXT_UP_AFTER_HOUR", "6"))
@@ -56,7 +58,7 @@ MAX_RICH_CHARACTERS = 32768
 MAX_CAPTION_CHARACTERS = 1000
 
 HEADERS = {
-    "User-Agent": "TheSportsNewsroomDiscoveryEngine/2.2 (+https://t.me/TheSportsNewsroom)",
+    "User-Agent": "TheSportsNewsroomDiscoveryEngine/0.1 (+https://t.me/TheSportsNewsroom)",
     "Accept-Language": "en-US,en;q=0.8",
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
 }

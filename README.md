@@ -1,4 +1,4 @@
-# The Sports Newsroom Discovery Engine v2.2.1
+# The Sports Newsroom Discovery Engine v0.1.0
 
 Production-oriented Telegram bot for [@TheSportsNewsroom](https://t.me/TheSportsNewsroom).
 
@@ -21,7 +21,7 @@ Discovery posts are a separate quality-gated lane. Discovery can never consume t
 
 `GAME DISCOVERY` · `NEW BOARD GAME` · `NEW CARD GAME` · `NEW TABLETOP GAME` · `NEW SPORT` · `DID YOU KNOW?` · `RULE CHECK` · `HOW TO PLAY` · `GAME HISTORY` · `SPORT HISTORY` · `ON THIS DATE` · `100 YEARS AGO` · `WHY?` · `FIRST / LAST / ONLY` · `THEN → NOW` · `FORGOTTEN` · `SPORT DISCOVERY` · `MYTH VS FACT` · `GAME ANATOMY` · `THE STORY BEHIND THE NUMBER`
 
-## v2.2.1 architecture
+## v0.1.0 architecture
 
 ```text
 Internet / Exa / RSS
@@ -32,7 +32,13 @@ Cheap deterministic filters
         ↓
 Query-family balancing
         ↓
-One batch AI classifier
+Stable candidate IDs
+        ↓
+AI classifier in batches of 8
+        ↓
+Missing-ID-only retries
+        ↓
+Candidate accounting gate
         ↓
 Small verification pool
         ↓
@@ -61,7 +67,13 @@ Telegram Rich Message / sendPhoto fallback
 
 **Direct scraping is optional.** If a source returns 403/404/timeout, the run can fall back to Exa search-highlight evidence rather than dropping the candidate immediately. Fetching uses short timeouts and limited retries.
 
-**AI is budgeted.** The default is 18 logical AI operations per run, with a dynamic reserve of 4 AI operations per mandatory daily post (up to 8 when both daily anchors are due). Discovery has room for one classifier call, three verification calls, two writers, two final fact checks and up to two repair calls.
+**AI is budgeted.** The default is 18 Cerebras API attempts per run. The reserve is computed from the mandatory jobs actually due for their target dates, not from the current clock hour. Unused mandatory reserve is released back to discovery after the mandatory lane gets its turn.
+
+**Classification is bounded.** Candidates are classified in batches of 8 with batch-local IDs. A missing candidate is retried by itself rather than sending the entire 36-candidate batch again. Every classification input receives an explicit terminal accounting decision.
+
+**Mandatory lanes are target-date based.** `NEXT UP` catches up from midnight through the 06:00 cutoff for the current date, while the previous day's `THE DAY IN SPORTS` catches up through the same early-morning window. Missed windows are persisted as `expired` rather than silently disappearing. Repeated in-window `failed`/`no_data` attempts are bounded by `MANDATORY_MAX_ATTEMPTS` and then recorded as `gave_up`; an uncertain Telegram delivery is never auto-retried.
+
+**Publishing is guarded.** A deterministic publish intent is persisted before Telegram is touched. Confirmed success becomes `published`; network/5xx ambiguity becomes `unknown` and is never automatically resent.
 
 **No second editorial AI call.** Candidate classification is AI-assisted; final selection is deterministic and logged, which makes the selection auditable and reduces API usage.
 
@@ -78,7 +90,7 @@ data/state/
 └── last_run_report.json
 ```
 
-`knowledge_state.json` stores claims, entities, posts, source health, candidate decisions and recent run summaries.
+`knowledge_state.json` stores claims, entities, posts, source health, candidate decisions, target-date lane state, publish intents and recent run summaries. Existing `daily_flags` are migrated into the richer lane state automatically.
 
 ## Environment variables
 
@@ -96,6 +108,8 @@ Optional configuration:
 CEREBRAS_MODEL=gpt-oss-120b
 AI_MAX_CALLS_PER_RUN=18
 AI_MANDATORY_CALLS_PER_DAILY=4
+MAX_CLASSIFICATION_CANDIDATES=36
+MAX_CLASSIFICATION_BATCH_SIZE=8
 MAX_VERIFICATION_CANDIDATES=3
 MAX_DISCOVERY_POSTS_PER_RUN=2
 MAX_DISCOVERY_POSTS_PER_DAY=4
@@ -134,6 +148,7 @@ SportsGamesDiscoveryBot/
 │   ├── content.py
 │   ├── discovery.py
 │   ├── editorial.py
+│   ├── lanes.py
 │   ├── media.py
 │   ├── observability.py
 │   ├── pipeline.py
@@ -144,8 +159,12 @@ SportsGamesDiscoveryBot/
 │   ├── telegram.py
 │   ├── utils.py
 │   └── verification.py
-├── tests/test_core.py
+├── tests/
+│   ├── __init__.py
+│   └── test_core.py
 ├── main.py
 ├── requirements.txt
 └── README.md
 ```
+
+MANDATORY_MAX_ATTEMPTS=3

@@ -3,7 +3,7 @@ from __future__ import annotations
 import logging
 from collections import Counter
 
-from .config import MAX_CLASSIFICATION_CANDIDATES, MAX_DISCOVERY_POSTS_PER_DAY, MAX_DISCOVERY_POSTS_PER_RUN
+from .config import MAX_CLASSIFICATION_BATCH_SIZE, MAX_CLASSIFICATION_CANDIDATES, MAX_DISCOVERY_POSTS_PER_DAY, MAX_DISCOVERY_POSTS_PER_RUN, MAX_VERIFICATION_CANDIDATES
 from .discovery import is_video_game_contaminated
 from .providers import Providers
 from .schemas import CANDIDATE_SCHEMA
@@ -15,14 +15,7 @@ from .verification import is_claim_duplicate, verify_candidate
 logger = logging.getLogger("sports-games-hub.editorial")
 
 
-def classify_candidates(providers: Providers, candidates: list[dict], mode: str, report=None) -> list[dict]:
-    if not candidates:
-        if report:
-            report.count("classification.input", 0)
-        return []
-    candidates = sorted(candidates, key=lambda x: float(x.get("prelim_score", 0)), reverse=True)[:MAX_CLASSIFICATION_CANDIDATES]
-    if report:
-        report.count("classification.input", len(candidates))
+def _candidate_blocks(candidates: list[dict]) -> str:
     blocks = []
     for idx, item in enumerate(candidates, 1):
         blocks.append(
@@ -31,63 +24,200 @@ def classify_candidates(providers: Providers, candidates: list[dict], mode: str,
             f"TITLE: {item.get('title')}\n"
             f"SOURCE: {item.get('source')}\n"
             f"URL: {item.get('url')}\n"
-            f"EXCERPT: {item.get('excerpt','')[:1500]}"
+            f"EXCERPT: {item.get('excerpt', '')[:1800]}"
         )
+    return "\n\n".join(blocks)
+
+
+def _classify_batch(providers: Providers, batch: list[dict], mode: str) -> dict:
     system = f"""
 You are the discovery classifier for The Sports Newsroom.
 Mode: {mode}.
-Cover ONLY real-world sports and physical games: board, card, tabletop, party, mind, recreational and traditional games.
-Never return video games, esports, consoles, gaming hardware or gaming-industry news.
-Identify the smallest defensible factual claim/event supported by the candidate evidence.
-Choose a category and angle that accurately describe the candidate. Do not invent details.
-A new physical board/card/tabletop/party game is valid discovery content.
-Use an empty date_anchor unless the candidate genuinely refers to a specific date.
-Return only JSON.
+Classify ONLY real-world sports and physical games: board, card, tabletop, party, mind,
+recreational and traditional games. Never classify video games, esports, consoles,
+gaming hardware or gaming-industry news.
+The fields domain and type are hard gates: use domain=sports for physical sporting activity,
+domain=physical_games for board/card/tabletop/party/mind/traditional/recreational games,
+and domain=other when the evidence is outside scope. Use type=other when no allowed
+content type fits. Choose the smallest defensible factual claim/event supported by the
+candidate evidence. Do not invent a second source or URL. source_urls MUST contain only
+URLs present in the supplied candidate records. Return one item for each supplied ID when
+possible. Return only JSON.
 """.strip()
-    try:
-        data = providers.ai(
-            system=system,
-            user="\n\n".join(blocks),
-            schema_name="candidate_classifier_v3",
-            schema=CANDIDATE_SCHEMA,
-            max_tokens=3000,
-            lane="discovery",
-        )
-    except Exception as exc:
-        logger.warning("Candidate classification failed: %s", exc)
-        return []
-    by_id = {i + 1: c for i, c in enumerate(candidates)}
-    result = []
-    seen_ids = set()
-    for row in data.get("items", []):
+    from .schemas import CANDIDATE_SCHEMA
+    return providers.ai(
+        system=system,
+        user=_candidate_blocks(batch),
+        schema_name="candidate_classifier_v4",
+        schema=CANDIDATE_SCHEMA,
+        max_tokens=5000,
+        lane="discovery",
+    )
+
+
+def _merge_classification_rows(batch: list[dict], data: dict, report=None, stage: str = "classification", state: dict | None = None) -> tuple[list[dict], set[str]]:
+    by_id = {i + 1: c for i, c in enumerate(batch)}
+    result: list[dict] = []
+    seen_ids: set[int] = set()
+    for row in data.get("items", []) if isinstance(data, dict) else []:
         try:
             item_id = int(row.get("id", 0))
             original = by_id[item_id]
-            seen_ids.add(item_id)
         except Exception:
             if report:
-                report.reject("classification", "invalid_candidate_id")
+                report.reject(stage, "invalid_candidate_id")
             continue
+        if item_id in seen_ids:
+            if report:
+                report.reject(stage, "duplicate_returned_id", text(original.get("title")), candidate_id=text(original.get("candidate_id")))
+            continue
+        seen_ids.add(item_id)
+        candidate_id = text(original.get("candidate_id"))
         merged = {**original, **{k: row.get(k) for k in row if k != "id"}}
+        domain = text(merged.get("domain"))
+        kind = text(merged.get("kind"))
+        content_type = text(merged.get("type"))
+        if domain == "other" or content_type == "other" or kind == "other":
+            if report:
+                report.reject(stage, "out_of_scope", text(original.get("title")), candidate_id=candidate_id)
+                report.candidate(stage, candidate_id, "rejected", "out_of_scope")
+            if state is not None:
+                record_candidate(state, original, "rejected", "out_of_scope")
+            continue
         if merged.get("category") not in CATEGORIES:
             if report:
-                report.reject("classification", "invalid_category", text(original.get("title")), candidate_id=text(original.get("candidate_id")))
+                report.reject(stage, "invalid_category", text(original.get("title")), candidate_id=candidate_id)
+                report.candidate(stage, candidate_id, "rejected", "invalid_category")
+            if state is not None:
+                record_candidate(state, original, "rejected", "invalid_category")
             continue
         if merged.get("angle") not in ANGLES:
             if report:
-                report.reject("classification", "invalid_angle", text(original.get("title")), candidate_id=text(original.get("candidate_id")))
+                report.reject(stage, "invalid_angle", text(original.get("title")), candidate_id=candidate_id)
+                report.candidate(stage, candidate_id, "rejected", "invalid_angle")
+            if state is not None:
+                record_candidate(state, original, "rejected", "invalid_angle")
             continue
-        if is_video_game_contaminated(str(merged)):
+        if domain not in {"sports", "physical_games"}:
             if report:
-                report.reject("classification", "video_game", text(original.get("title")), candidate_id=text(original.get("candidate_id")))
+                report.reject(stage, "invalid_domain", text(original.get("title")), candidate_id=candidate_id)
+                report.candidate(stage, candidate_id, "rejected", "invalid_domain")
+            if state is not None:
+                record_candidate(state, original, "rejected", "invalid_domain")
             continue
-        if not merged.get("source_urls"):
-            merged["source_urls"] = [original.get("url", "")]
+        if is_video_game_contaminated(" ".join(str(merged.get(k, "")) for k in ("title", "subject", "claim_or_event", "game_or_sport"))):
+            if report:
+                report.reject(stage, "video_game", text(original.get("title")), candidate_id=candidate_id)
+                report.candidate(stage, candidate_id, "rejected", "video_game")
+            if state is not None:
+                record_candidate(state, original, "rejected", "video_game")
+            continue
+
+        # Never trust the model to introduce a source URL that was not retrieved by us.
+        original_url = text(original.get("url"))
+        supplied_urls = {original_url, text(original.get("canonical"))}
+        returned_urls = [u for u in (merged.get("source_urls") or []) if text(u) in supplied_urls]
+        merged["source_urls"] = [original_url] if original_url and original_url not in returned_urls else returned_urls[:1]
+        if not merged["source_urls"]:
+            merged["source_urls"] = [original_url] if original_url else []
         result.append(merged)
+        if report:
+            report.candidate(stage, candidate_id, "classified")
+        if state is not None:
+            record_candidate(state, merged, "classified", "classification")
+    return result, {str(by_id[i].get("candidate_id")) for i in seen_ids if i in by_id}
+
+
+def classify_candidates(providers: Providers, candidates: list[dict], mode: str, state: dict | None = None, report=None) -> list[dict]:
+    if not candidates:
+        if report:
+            report.count("classification.input", 0)
+        return []
+
+    # First account for the full discovery list. The previous production failure silently
+    # changed 100 candidates into 36 classification inputs. Here the 64 intentionally
+    # excluded by the AI-input capacity receive an explicit classification_capacity reason.
+    ordered_all = sorted(candidates, key=lambda x: float(x.get("prelim_score", 0)), reverse=True)
+    candidate_ids = [text(item.get("candidate_id")) for item in ordered_all if text(item.get("candidate_id"))]
     if report:
-        report.count("classification.output", len(result))
-        report.count("classification.unreturned", max(0, len(candidates) - len(seen_ids)))
-    return result
+        report.count("candidate.classification_pool_input", len(candidate_ids))
+        for item in ordered_all:
+            cid = text(item.get("candidate_id"))
+            if cid:
+                report.candidate("classification_pool", cid, "available")
+
+    ordered = ordered_all[:MAX_CLASSIFICATION_CANDIDATES]
+    overflow = ordered_all[MAX_CLASSIFICATION_CANDIDATES:]
+    if report:
+        report.count("classification.input", len(ordered))
+        report.count("classification.capacity_rejected", len(overflow))
+        for item in overflow:
+            cid = text(item.get("candidate_id"))
+            report.candidate("classification", cid, "rejected", "classification_capacity")
+            report.candidate_terminal(cid, "rejected", "classification_capacity")
+            report.reject("classification", "classification_capacity", text(item.get("title")), candidate_id=cid)
+            if state is not None:
+                record_candidate(state, item, "rejected", "classification_capacity")
+
+    output: list[dict] = []
+    for start in range(0, len(ordered), MAX_CLASSIFICATION_BATCH_SIZE):
+        batch = ordered[start:start + MAX_CLASSIFICATION_BATCH_SIZE]
+        try:
+            data = _classify_batch(providers, batch, mode)
+        except Exception as exc:
+            logger.warning("Candidate classification batch failed size=%d: %s", len(batch), exc)
+            for item in batch:
+                cid = text(item.get("candidate_id"))
+                if report:
+                    report.reject("classification", "ai_call_failed", text(item.get("title")), str(exc), candidate_id=cid)
+                    report.candidate("classification", cid, "rejected", "ai_call_failed")
+                    report.candidate_terminal(cid, "rejected", "ai_call_failed")
+                    if state is not None:
+                        record_candidate(state, item, "rejected", "ai_call_failed")
+            continue
+
+        batch_output, returned_ids = _merge_classification_rows(batch, data, report=report, state=state)
+        output.extend(batch_output)
+        missing = [item for item in batch if text(item.get("candidate_id")) not in returned_ids]
+        if missing:
+            if report:
+                report.count("classification.missing", len(missing))
+            # Retry ONLY missing candidates, with a fresh batch-local 1..N ID space.
+            try:
+                retry_data = _classify_batch(providers, missing, mode)
+            except Exception as exc:
+                logger.warning("Candidate missing-only retry failed size=%d: %s", len(missing), exc)
+                retry_data = {"items": []}
+                for item in missing:
+                    cid = text(item.get("candidate_id"))
+                    if report:
+                        report.reject("classification", "missing_retry_failed", text(item.get("title")), str(exc), candidate_id=cid)
+                        report.candidate("classification", cid, "rejected", "missing_retry_failed")
+                        report.candidate_terminal(cid, "rejected", "missing_retry_failed")
+                        if state is not None:
+                            record_candidate(state, item, "rejected", "missing_retry_failed")
+            retry_output, retry_ids = _merge_classification_rows(missing, retry_data, report=report, state=state)
+            output.extend(retry_output)
+            returned_ids |= retry_ids
+            for item in missing:
+                cid = text(item.get("candidate_id"))
+                if cid not in retry_ids:
+                    if report:
+                        report.reject("classification", "unreturned_after_retry", text(item.get("title")), candidate_id=cid)
+                        report.candidate("classification", cid, "rejected", "unreturned_after_retry")
+                        report.candidate_terminal(cid, "rejected", "unreturned_after_retry")
+                    if state is not None:
+                        record_candidate(state, item, "rejected", "unreturned_after_retry")
+
+    # Final accounting gate for ALL candidates that were eligible for classification, not only
+    # the first MAX_CLASSIFICATION_CANDIDATES. This is the direct regression protection for the
+    # former 100 -> 36 silent loss.
+    if report:
+        missing = report.candidate_gate("classification", candidate_ids)
+        report.count("classification.unreturned", len([cid for cid in missing if cid]))
+        report.count("classification.output", len(output))
+        report.count("classification.accounted", len(candidate_ids) - len(missing))
+    return output
 
 
 def score_candidate(candidate: dict, verification: dict, state: dict) -> tuple[float, dict]:
@@ -141,7 +271,7 @@ def score_candidate(candidate: dict, verification: dict, state: dict) -> tuple[f
     }
 
 
-def select_candidates(providers: Providers, candidates: list[dict], state: dict, max_items: int | None = None) -> list[dict]:
+def select_candidates(providers: Providers, candidates: list[dict], state: dict, max_items: int | None = None, report=None) -> list[dict]:
     remaining = max(0, MAX_DISCOVERY_POSTS_PER_DAY - discovery_posts_today(state))
     limit = min(MAX_DISCOVERY_POSTS_PER_RUN, remaining) if max_items is None else min(max_items, remaining)
     if limit <= 0:
@@ -150,15 +280,25 @@ def select_candidates(providers: Providers, candidates: list[dict], state: dict,
     prepared = []
     for candidate in candidates:
         verification = candidate.get("verification", {})
+        cid = text(candidate.get("candidate_id"))
         if verification.get("status") not in {"verified", "disputed"}:
             record_candidate(state, candidate, "rejected", "not_verified")
+            if report:
+                report.candidate("editorial", cid, "rejected", "not_verified")
+                report.candidate_terminal(cid, "rejected", "not_verified")
             continue
         if is_claim_duplicate(state, candidate):
             record_candidate(state, candidate, "rejected", "duplicate_claim")
+            if report:
+                report.candidate("editorial", cid, "rejected", "duplicate_claim")
+                report.candidate_terminal(cid, "rejected", "duplicate_claim")
             continue
         score, breakdown = score_candidate(candidate, verification, state)
         if score < 20:
             record_candidate(state, candidate, "rejected", "below_quality_gate", score)
+            if report:
+                report.candidate("editorial", cid, "rejected", "below_quality_gate")
+                report.candidate_terminal(cid, "rejected", "below_quality_gate")
             continue
         prepared.append({**candidate, "editor_score": score, "score_breakdown": breakdown})
 
@@ -201,10 +341,21 @@ def select_candidates(providers: Providers, candidates: list[dict], state: dict,
         used_families[text(best.get("query_family"))] += 1
         used_subjects.add(normalize_text(best.get("subject")))
         record_candidate(state, best, "selected", "editorial_selection", best.get("editor_score"))
+        if report:
+            report.candidate("editorial", text(best.get("candidate_id")), "selected", "editorial_selection")
+    selected_ids = {text(c.get("candidate_id")) for c in output}
+    if report:
+        for candidate in prepared:
+            cid = text(candidate.get("candidate_id"))
+            if cid not in selected_ids:
+                report.candidate("editorial", cid, "rejected", "editorial_capacity")
+                report.candidate_terminal(cid, "rejected", "editorial_capacity")
+                record_candidate(state, candidate, "rejected", "editorial_capacity", candidate.get("editor_score"))
+        report.candidate_gate("editorial", [text(c.get("candidate_id")) for c in candidates])
     return output
 
 
-def verify_shortlist(providers: Providers, candidates: list[dict], state: dict, max_items: int = 3, report=None) -> list[dict]:
+def verify_shortlist(providers: Providers, candidates: list[dict], state: dict, max_items: int = MAX_VERIFICATION_CANDIDATES, report=None) -> list[dict]:
     from .observability import balanced_pool
 
     quotas = {
@@ -221,12 +372,25 @@ def verify_shortlist(providers: Providers, candidates: list[dict], state: dict, 
     )
     if report:
         report.count("verification.pool", len(pool))
+
+    pool_ids = {text(c.get("candidate_id")) for c in pool}
+    for candidate in candidates:
+        cid = text(candidate.get("candidate_id"))
+        if cid not in pool_ids and report:
+            report.candidate("verification", cid, "rejected", "not_verification_pool")
+            report.candidate_terminal(cid, "rejected", "not_verification_pool")
+        if cid not in pool_ids:
+            record_candidate(state, candidate, "rejected", "not_verification_pool")
+
     verified = []
     for candidate in pool:
         ok, verification = verify_candidate(providers, candidate)
         candidate["verification"] = verification
+        cid = text(candidate.get("candidate_id"))
         if ok:
             verified.append(candidate)
+            if report:
+                report.candidate("verification", cid, "verified", text(verification.get("status")))
             record_candidate(
                 state,
                 candidate,
@@ -237,7 +401,9 @@ def verify_shortlist(providers: Providers, candidates: list[dict], state: dict, 
         else:
             reason = text(verification.get("reason")) or text(verification.get("status")) or "verification_failed"
             if report:
-                report.reject("verification", reason[:80], text(candidate.get("title")), candidate_id=text(candidate.get("candidate_id")))
+                report.reject("verification", reason[:80], text(candidate.get("title")), candidate_id=cid)
+                report.candidate("verification", cid, "rejected", reason)
+                report.candidate_terminal(cid, "rejected", reason)
             record_candidate(
                 state,
                 candidate,
@@ -245,4 +411,8 @@ def verify_shortlist(providers: Providers, candidates: list[dict], state: dict, 
                 reason,
                 float(verification.get("confidence", 0)),
             )
+
+    if report:
+        report.candidate_gate("verification", [text(c.get("candidate_id")) for c in candidates])
     return verified
+

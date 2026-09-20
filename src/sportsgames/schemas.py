@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from .taxonomy import ANGLES, CATEGORIES
+
 CANDIDATE_SCHEMA = {
     "type": "object",
     "properties": {
@@ -7,9 +9,11 @@ CANDIDATE_SCHEMA = {
             "type": "object",
             "properties": {
                 "id": {"type": "integer", "minimum": 1},
-                "kind": {"type": "string", "enum": ["fact", "game", "rule", "history", "sport_event", "new_game", "howto"]},
-                "category": {"type": "string"},
-                "angle": {"type": "string"},
+                "kind": {"type": "string", "enum": ["fact", "game", "rule", "history", "sport_event", "new_game", "howto", "other"]},
+                "domain": {"type": "string", "enum": ["sports", "physical_games", "other"]},
+                "type": {"type": "string", "enum": ["fact", "game", "rule", "history", "sport_event", "new_game", "howto", "other"]},
+                "category": {"type": "string", "enum": CATEGORIES},
+                "angle": {"type": "string", "enum": ANGLES},
                 "game_or_sport": {"type": "string"},
                 "subject": {"type": "string"},
                 "claim_or_event": {"type": "string"},
@@ -17,7 +21,7 @@ CANDIDATE_SCHEMA = {
                 "why_interesting": {"type": "string"},
                 "date_anchor": {"type": "string"},
             },
-            "required": ["id", "kind", "category", "angle", "game_or_sport", "subject", "claim_or_event", "source_urls", "why_interesting", "date_anchor"],
+            "required": ["id", "kind", "domain", "type", "category", "angle", "game_or_sport", "subject", "claim_or_event", "source_urls", "why_interesting", "date_anchor"],
             "additionalProperties": False,
         }},
     },
