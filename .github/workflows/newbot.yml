@@ -1,48 +1,46 @@
-name: The Sports Newsroom V0.1
+name: TheSportsNewsroom
 
 on:
   schedule:
-    - cron: "0 0,4,8,12,16,20 * * *"
-      timezone: "Asia/Dhaka"
+    - cron: "0 */3 * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: the-sports-newsroom-discovery
+  group: the-sports-newsroom
   cancel-in-progress: false
 
 jobs:
-  run-bot:
-    runs-on: ubuntu-latest
-    timeout-minutes: 35
+  run-sports-bot:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+
     env:
       EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
       CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
+      CEREBRAS_MODEL: ${{ secrets.CEREBRAS_MODEL || 'gpt-oss-120b' }}
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHANNEL: "@TheSportsNewsroom"
-      CEREBRAS_MODEL: "gpt-oss-120b"
       PYTHONUNBUFFERED: "1"
-      AI_MAX_CALLS_PER_RUN: "18"
-      AI_MANDATORY_CALLS_PER_DAILY: "4"
-      MANDATORY_MAX_ATTEMPTS: "3"
-      MAX_CLASSIFICATION_CANDIDATES: "36"
-      MAX_CLASSIFICATION_BATCH_SIZE: "8"
-      CEREBRAS_REASONING_EFFORT: "low"
-      HTTP_CONNECT_TIMEOUT: "6"
-      HTTP_READ_TIMEOUT: "12"
-      MAX_VERIFICATION_CANDIDATES: "3"
-      MAX_DISCOVERY_POSTS_PER_DAY: "4"
+      MAX_DISCOVERY_POSTS_PER_DAY: "5"
+      MAX_DISCOVERY_CANDIDATES: "60"
+      MAX_HISTORY_CANDIDATES: "30"
+      MAX_SPORT_EVENT_CANDIDATES: "70"
+      DISCOVERY_COOLDOWN_HOURS: "3"
+      STATE_RETENTION_DAYS: "120"
+      HTTP_TIMEOUT: "20"
+      POST_DELAY_SECONDS: "1.0"
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
-      - name: Set up Python 3.12
-        uses: actions/setup-python@v5
+      - name: Set up Python
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: "pip"
@@ -53,44 +51,36 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Verify repository structure
+        run: |
+          test -f main.py
+          test -f news_state.json
+          test -f posted_urls.txt
+          test -f requirements.txt
+          test -f .github/workflows/newbot.yml
+          test -f .github/workflows/import-zip.yml
+          test ! -d src
+          test ! -d tests
+
       - name: Compile check
-        run: python -m py_compile main.py src/sportsgames/*.py
+        run: python -m py_compile main.py
 
-      - name: Unit tests
-        run: python -m unittest discover -s tests -v
-
-      - name: Offline self-test
+      - name: Run self-test
         run: python main.py --self-test
 
-      - name: Run production bot
-        id: run_bot
+      - name: Run TheSportsNewsroom
         run: python main.py
 
-      - name: Validate persisted state files
-        id: validate_state
+      - name: Save state
         if: always()
         run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          for name in ["data/state/knowledge_state.json", "data/state/last_run_report.json"]:
-              path = Path(name)
-              if not path.exists():
-                  print(f"{name}: not present")
-                  continue
-              json.loads(path.read_text(encoding="utf-8"))
-              print(f"{name}: valid JSON")
-          PY
-
-      - name: Persist knowledge state
-        if: always() && steps.validate_state.outcome == 'success' && (steps.run_bot.outcome == 'success' || steps.run_bot.outcome == 'failure')
-        run: |
-          git config user.name "the-sports-newsroom-bot"
+          git config user.name "Sports News Bot"
           git config user.email "actions@github.com"
-          git add data/state/knowledge_state.json data/state/published_urls.txt data/state/last_run_report.json
+          git add news_state.json posted_urls.txt
+
           if git diff --cached --quiet; then
             echo "No state changes to commit."
           else
-            git commit -m "Persist sports newsroom state"
+            git commit -m "Update TheSportsNewsroom state"
             git push
           fi

@@ -1,0 +1,14 @@
+{
+  "schema_version": 2,
+  "created_at": "",
+  "last_run_at": "",
+  "queue": {},
+  "posts": [],
+  "claims": {},
+  "entities": {},
+  "historical_events": {},
+  "daily_flags": {},
+  "angle_history": [],
+  "category_history": [],
+  "source_health": {}
+}
