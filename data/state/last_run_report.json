@@ -1,3 +1,3674 @@
 {
-  "status": "not_run_yet"
+  "ai": {
+    "mandatory_used": 6,
+    "reserve_held": 6,
+    "reserve_released": 2,
+    "reserved": 8,
+    "used": 18
+  },
+  "candidate_ledger": {
+    "04dcecad28209fbef7393d38": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "07752b6a2cf1cc2a10e41ae6": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "1a8724d2de2fd73b41125a92": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "1ae56164bf5a7d66e4190cbf": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "1afa66df41efe365d07c5a53": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "1c72795c5cf9d5a440759671": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "1cfd09e48d115a1878bc8f65": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "226e122c5cd617e1ea6ac495": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "2329630381023dfb7e8b7814": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "2515286fd17e61c9eca239be": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "25a952e4da02f9de50c866a5": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "29d158c84b7addb9cff6d285": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "2dd6b645c9667e61b2b68d47": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "319494c819b6306f86cdda5c": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "354f720cab6124e51e9994e1": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "36aff7aaac1c652cb89dc30f": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "36de11c1892571a8ec35bbcb": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "378b657a8d44a4d936c47d21": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "37d2b83004766632b3a048e7": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "3cd591692088f7f487ecd522": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "417d268458f9c701ade9843e": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "44ffde8216bd85c862760e8e": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "45805e4ce1237a483e0bf820": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "45cf55d9d583244ba2f95e4d": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "45e2889d766c4443e700057e": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "468b1f5ab98c2283136b14cc": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "pre_filter": {
+          "outcome": "rejected",
+          "reason": "candidate_capacity"
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "candidate_capacity"
+        }
+      }
+    },
+    "4a86f07be1cb105cdde463bd": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "editorial": {
+          "outcome": "selected",
+          "reason": "editorial_selection"
+        },
+        "generation": {
+          "outcome": "rejected",
+          "reason": "story_generation_failed"
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "story_generation_failed"
+        },
+        "verification": {
+          "outcome": "verified",
+          "reason": "verified"
+        }
+      }
+    },
+    "4b137e23d323391bd901b53e": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "4c281181ba302025348e3caf": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "4d11bd4d6003a3184cd5cffe": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "513d854fde9d94b7404cf841": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "52ac7514b2c14d1044049ef1": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "563cb0aadf9790e5ff126aff": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "58b85b074477e9cc15fde762": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "59db59b0d0792d372104faca": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "59ee1b25679525c1ffacac92": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "5b0a47d872789e38506fbd8f": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "5b4cd5824cb50b2a1a190bcc": {
+      "last_outcome": "unaccounted",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "out_of_scope"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "unaccounted",
+          "reason": "no_terminal_decision"
+        }
+      }
+    },
+    "5eb4348927d8cfe8612db4ea": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "60dfe798927a1877125d88d7": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "63765140af92172b1be401e6": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "63bda5266fbf340f911f1a01": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "650eeb6a6da1e1f793c741bc": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "66958d3e7e8783934e82e2e8": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "68ff8cd58b81a65ef9008bd8": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "69c80d7cc8a0fcf6ef747c84": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "73afd8282e483176d317221d": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "73ef84f2cffa9f227da08942": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "7697d59bf269743d5451ae4c": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "pre_filter": {
+          "outcome": "rejected",
+          "reason": "candidate_capacity"
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "candidate_capacity"
+        }
+      }
+    },
+    "7befe2ee28c4edf62ea4b6c4": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "7ee74a5389e5c1a306741eae": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "7efa34b56f78ef1f6c45de0c": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "80868d587f20248ea2b65375": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "8103f1db30fff49abd92e15d": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "pre_filter": {
+          "outcome": "rejected",
+          "reason": "candidate_capacity"
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "candidate_capacity"
+        }
+      }
+    },
+    "833efaf66800bdc271b25be5": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "8782274f15363d1c4e9e6171": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "8a127b752764d9ae109241b0": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "91fb245c946f099e374b6089": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "9222b3afd289793765ec927d": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "940796d15d18bf6bdefd16e2": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "94cc8d4d76c253e2b01871ea": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "pre_filter": {
+          "outcome": "rejected",
+          "reason": "candidate_capacity"
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "candidate_capacity"
+        }
+      }
+    },
+    "965dfb9612da2d003b8c5c47": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "9805d158b8c6cb51d02cf61f": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "9a55fcbd7ecb3471e91b707d": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "9dee7df25479ca164ad153f7": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "9e830b31cb37d033490e9b22": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "9ef3711770f90cf41cd5e45e": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "pre_filter": {
+          "outcome": "rejected",
+          "reason": "candidate_capacity"
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "candidate_capacity"
+        }
+      }
+    },
+    "a1b3add58af555d7ea394fb0": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "a8c345f5bcce37440edc9325": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "aadbb7be5e407380231762d6": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "b19061260d0d1e1c0862a227": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "b3082b2ba53d969947632f6c": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "b85805d36646420683640da1": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "b978851c5238012d5dc62c23": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "bbea41c04023b6ad8115f6ad": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "c0cf144bbe453f1ae3ed492f": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "c292f04ed04257034c51cef4": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "c3d04bc5411f325f494f53af": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "c96e328b89cb62a46f6c1728": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "c9c9c3da03184245736f784c": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "ca51d196e4781c918296333e": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "cd3eb963547304f467e435a9": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "cd7f31f1bfb80ec61a408148": {
+      "last_outcome": "unaccounted",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "out_of_scope"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "unaccounted",
+          "reason": "no_terminal_decision"
+        }
+      }
+    },
+    "ce5491317871d0932380455a": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "d50d855776f0432dec4beba3": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "da80dfcb51582b8c6c4ec615": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "daa6c3212cd992daa734d0ca": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "dcb42577a232e9e1d3b004f1": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "de278c3db1ddb2ea8fa034f5": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "de7a92c91c2b3a1d993e5d2f": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "e39a38e11bd355a6b70fc011": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "e4f1de3e5b10787579bcee42": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "e57edc8e248a108b9d208d0a": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "e5e4647991a5ecaf17c1e7fb": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "pre_filter": {
+          "outcome": "rejected",
+          "reason": "candidate_capacity"
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "candidate_capacity"
+        }
+      }
+    },
+    "e60e41b080152261153dc836": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "e7ab37d927aa5fbc63bab971": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "not_verification_pool"
+        }
+      }
+    },
+    "e97f9ca98290abf0a0aee909": {
+      "last_outcome": "published",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "editorial": {
+          "outcome": "selected",
+          "reason": "editorial_selection"
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "publish": {
+          "outcome": "published",
+          "reason": "telegram_confirmed"
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "published",
+          "reason": "telegram_confirmed"
+        },
+        "verification": {
+          "outcome": "verified",
+          "reason": "verified"
+        }
+      }
+    },
+    "eb6258a7681cc15e55e5d7c4": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "classified",
+          "reason": ""
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "Only one reliable source (SportingNews) supplies the rule details. No second independent domain provides corroborating evidence, and the other cited sources do not contain usable c"
+        },
+        "verification": {
+          "outcome": "rejected",
+          "reason": "Only one reliable source (SportingNews) supplies the rule details. No second independent domain provides corroborating evidence, and the other cited sources do not contain usable c"
+        }
+      }
+    },
+    "eef8ac5bf618dde4f8c87d9a": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "f34b21f9bd75b41b404fa2f8": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "f55fc8fe4575471c3740128d": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "f5e6d67f3bea93db1b4a2557": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "f761ae202d4d33f74b560e6a": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "faeffb0f48f57d1a8494327f": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "fce9240bd888cea16ebd41b9": {
+      "last_outcome": "rejected",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "rejected",
+          "reason": "classification_capacity"
+        }
+      }
+    },
+    "feba0bacf0c7e3d503ddd24f": {
+      "last_outcome": "unaccounted",
+      "last_stage": "terminal",
+      "stages": {
+        "classification": {
+          "outcome": "rejected",
+          "reason": "out_of_scope"
+        },
+        "classification_pool": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "pre_filter": {
+          "outcome": "accepted",
+          "reason": ""
+        },
+        "raw": {
+          "outcome": "available",
+          "reason": ""
+        },
+        "terminal": {
+          "outcome": "unaccounted",
+          "reason": "no_terminal_decision"
+        }
+      }
+    }
+  },
+  "counts": {
+    "ai.api_attempts": 18,
+    "ai.api_attempts.discovery": 12,
+    "ai.api_attempts.mandatory": 6,
+    "ai.calls": 18,
+    "ai.finish.stop": 18,
+    "candidate.capacity_rejected": 6,
+    "candidate.classification_pool_input": 100,
+    "candidate.classified": 33,
+    "candidate.pre_filtered": 100,
+    "candidate.raw": 106,
+    "candidate.terminal_unaccounted": 3,
+    "classification.accounted": 100,
+    "classification.capacity_rejected": 64,
+    "classification.input": 36,
+    "classification.output": 33,
+    "classification.unreturned": 0,
+    "daily.next_candidates": 43,
+    "daily.next_due": 1,
+    "daily.next_events": 4,
+    "daily.next_failed": 1,
+    "daily.past_candidates": 47,
+    "daily.past_due": 1,
+    "daily.past_events": 4,
+    "daily.past_failed": 1,
+    "discovery.exa_results": 220,
+    "discovery.exa_searches": 40,
+    "editorial.selected": 2,
+    "ledger.classification.accounted": 100,
+    "ledger.classification.expected": 100,
+    "ledger.classification.unaccounted": 0,
+    "ledger.editorial.accounted": 2,
+    "ledger.editorial.expected": 2,
+    "ledger.editorial.unaccounted": 0,
+    "ledger.terminal.accounted": 103,
+    "ledger.terminal.expected": 106,
+    "ledger.terminal.unaccounted": 3,
+    "ledger.verification.accounted": 33,
+    "ledger.verification.expected": 33,
+    "ledger.verification.unaccounted": 0,
+    "verification.attempted": 3,
+    "verification.pool": 3,
+    "verification.verified": 2
+  },
+  "errors": [
+    "fatal: Candidate ledger has unaccounted item(s): ledger.terminal.unaccounted=3; candidate.terminal_unaccounted=3"
+  ],
+  "published": [
+    {
+      "lane": "game_discovery",
+      "ok": true,
+      "title": "Rithmomachia – the forgotten medieval ‘Battle of Numbers’"
+    }
+  ],
+  "reject_reasons": {
+    "classification": {
+      "classification_capacity": 64,
+      "out_of_scope": 3
+    },
+    "daily": {
+      "next_grounding_failed": 1,
+      "past_grounding_failed": 1
+    },
+    "generation": {
+      "story_generation_failed": 1
+    },
+    "ledger": {
+      "unaccounted_candidate": 3
+    },
+    "pre_filter": {
+      "candidate_capacity": 6
+    },
+    "verification": {
+      "Only one reliable source (SportingNews) supplies the rule details. No second ind": 1
+    }
+  },
+  "rejections": [
+    {
+      "candidate_id": "",
+      "detail": "",
+      "reason": "next_grounding_failed",
+      "stage": "daily",
+      "title": "Asian Games: Key Events Scheduled for September 21"
+    },
+    {
+      "candidate_id": "",
+      "detail": "",
+      "reason": "past_grounding_failed",
+      "stage": "daily",
+      "title": "September 20 – A Day of Championship Triumphs Across Sports"
+    },
+    {
+      "candidate_id": "9ef3711770f90cf41cd5e45e",
+      "detail": "",
+      "reason": "candidate_capacity",
+      "stage": "pre_filter",
+      "title": "Jack Dempsey vs. Gene Tunney explained"
+    },
+    {
+      "candidate_id": "8103f1db30fff49abd92e15d",
+      "detail": "",
+      "reason": "candidate_capacity",
+      "stage": "pre_filter",
+      "title": "Twenty Years Later, Mike Piazza’s Dramatic Post-Sept. 11 Home Run Remains a Moment of Hope – NBC 6 S"
+    },
+    {
+      "candidate_id": "e5e4647991a5ecaf17c1e7fb",
+      "detail": "",
+      "reason": "candidate_capacity",
+      "stage": "pre_filter",
+      "title": "September 21, 2001, What happened that day? | TakeMeBack.to"
+    },
+    {
+      "candidate_id": "94cc8d4d76c253e2b01871ea",
+      "detail": "",
+      "reason": "candidate_capacity",
+      "stage": "pre_filter",
+      "title": "Oman v Qatar, 21 September 2001 - 11v11 match report"
+    },
+    {
+      "candidate_id": "7697d59bf269743d5451ae4c",
+      "detail": "",
+      "reason": "candidate_capacity",
+      "stage": "pre_filter",
+      "title": "Manchester United Ipswich Town live | Premier League | 21 September 2001"
+    },
+    {
+      "candidate_id": "468b1f5ab98c2283136b14cc",
+      "detail": "",
+      "reason": "candidate_capacity",
+      "stage": "pre_filter",
+      "title": "Timeline for September following the September 11 attacks"
+    },
+    {
+      "candidate_id": "4d11bd4d6003a3184cd5cffe",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "$3.5 million for a card game? We talk with Exploding Kittens co-creator (correction)"
+    },
+    {
+      "candidate_id": "de278c3db1ddb2ea8fa034f5",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Palworld Card Game Shows Off New Legendary Cards"
+    },
+    {
+      "candidate_id": "69c80d7cc8a0fcf6ef747c84",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Bushiroad Unveils New ‘Palworld: Official Card Game’ Booster Set » kaiomics :: the blog"
+    },
+    {
+      "candidate_id": "3cd591692088f7f487ecd522",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "ICv2: Bushiroad Unveils New 'Palworld: Official Card Game' Booster Set"
+    },
+    {
+      "candidate_id": "91fb245c946f099e374b6089",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Iran's Burnt City Board Game Count Doubles; Season 21 Confirms Second Distinct Type"
+    },
+    {
+      "candidate_id": "4b137e23d323391bd901b53e",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "A New Type of 4,600-Year-Old Board Game Discovered at Iran’s Burnt City | Arkeonews"
+    },
+    {
+      "candidate_id": "c3d04bc5411f325f494f53af",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "4,600-year-old board game, decorated bone comb unearthed at Burnt City in southeast Iran - Tehran Ti"
+    },
+    {
+      "candidate_id": "f34b21f9bd75b41b404fa2f8",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Joe Wilhoit’s 69-Game Hit Streak: Baseball's Unbreakable Record"
+    },
+    {
+      "candidate_id": "e60e41b080152261153dc836",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "The Ancient Board Game That Predates Chess by 2,000 Years"
+    },
+    {
+      "candidate_id": "2dd6b645c9667e61b2b68d47",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Jackbox's Fibbage Is Now a 300-Card Tabletop Party Game - Backseat Gamer"
+    },
+    {
+      "candidate_id": "daa6c3212cd992daa734d0ca",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "From real nails to kangaroo leather: Soccer cleats went on a wild journey | Popular Science"
+    },
+    {
+      "candidate_id": "faeffb0f48f57d1a8494327f",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Royal Game of Ur"
+    },
+    {
+      "candidate_id": "dcb42577a232e9e1d3b004f1",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Yut Nori: Korea’s New Year Race Game of Sticks and Horses"
+    },
+    {
+      "candidate_id": "ca51d196e4781c918296333e",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Chinese playing cards"
+    },
+    {
+      "candidate_id": "63765140af92172b1be401e6",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "This Ancient Roman Game Board Was a Mystery. Researchers Used A.I. to Figure Out How to Play"
+    },
+    {
+      "candidate_id": "59db59b0d0792d372104faca",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Palworld is launching a trading card game, confirmed for ..."
+    },
+    {
+      "candidate_id": "7efa34b56f78ef1f6c45de0c",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Celebrate 10 Years Of Blowing Up Your Friends With Exploding Kittens"
+    },
+    {
+      "candidate_id": "b19061260d0d1e1c0862a227",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Curling. Together."
+    },
+    {
+      "candidate_id": "25a952e4da02f9de50c866a5",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Pelota purépecha"
+    },
+    {
+      "candidate_id": "a8c345f5bcce37440edc9325",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "What Does The Number Next To The Horse Mean? - Great American Adventures"
+    },
+    {
+      "candidate_id": "1afa66df41efe365d07c5a53",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "The Creation and Regulation of Sports Equipment"
+    },
+    {
+      "candidate_id": "36de11c1892571a8ec35bbcb",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Salena Zito: Baseball Legend Ron Necciai Recalls His 27-Strikeout Game | Homes & Lifestyle | Noozhaw"
+    },
+    {
+      "candidate_id": "d50d855776f0432dec4beba3",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "An ancient ball court sheds light on a game made famous by the Aztecs"
+    },
+    {
+      "candidate_id": "1cfd09e48d115a1878bc8f65",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "What does the number mean on Tour pros' golf ball? More than you think | FOX Sports"
+    },
+    {
+      "candidate_id": "45e2889d766c4443e700057e",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "13 sports records that will be nearly impossible to beat"
+    },
+    {
+      "candidate_id": "9805d158b8c6cb51d02cf61f",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "FAQ – Scythe – Stonemaier Games"
+    },
+    {
+      "candidate_id": "58b85b074477e9cc15fde762",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "This Card Game Just Raised More Money Than Veronica Mars | WIRED"
+    },
+    {
+      "candidate_id": "45805e4ce1237a483e0bf820",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "From a Pig's Bladder to Composite Microfiber"
+    },
+    {
+      "candidate_id": "563cb0aadf9790e5ff126aff",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "The Ancient Mesoamerican Ballgame"
+    },
+    {
+      "candidate_id": "36aff7aaac1c652cb89dc30f",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "1911 Encyclopædia Britannica/Cribbage - Wikisource, the free online library"
+    },
+    {
+      "candidate_id": "4c281181ba302025348e3caf",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Skip-Bo - Wikipedia"
+    },
+    {
+      "candidate_id": "63bda5266fbf340f911f1a01",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Ulama (game)"
+    },
+    {
+      "candidate_id": "f55fc8fe4575471c3740128d",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Charles Radbourn"
+    },
+    {
+      "candidate_id": "1a8724d2de2fd73b41125a92",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Rithmomachia"
+    },
+    {
+      "candidate_id": "b85805d36646420683640da1",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "cribbage, n. meanings, etymology and more | Oxford English Dictionary"
+    },
+    {
+      "candidate_id": "e39a38e11bd355a6b70fc011",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Cribbage"
+    },
+    {
+      "candidate_id": "eef8ac5bf618dde4f8c87d9a",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Cribbage. World English Historical Dictionary"
+    },
+    {
+      "candidate_id": "73ef84f2cffa9f227da08942",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Gin rummy"
+    },
+    {
+      "candidate_id": "f5e6d67f3bea93db1b4a2557",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Gin Rummy"
+    },
+    {
+      "candidate_id": "44ffde8216bd85c862760e8e",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "How to Play Exploding Kittens"
+    },
+    {
+      "candidate_id": "9222b3afd289793765ec927d",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "How To Play SKIP-BO® - AGES: 7 and Up"
+    },
+    {
+      "candidate_id": "52ac7514b2c14d1044049ef1",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Skip-Bo"
+    },
+    {
+      "candidate_id": "68ff8cd58b81a65ef9008bd8",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "JMM20_0970_DOM_IS(-9993, VNM)"
+    },
+    {
+      "candidate_id": "965dfb9612da2d003b8c5c47",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "What does 643 mean in baseball?"
+    },
+    {
+      "candidate_id": "354f720cab6124e51e9994e1",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "How to Read Kabaddi Betting Odds 2026"
+    },
+    {
+      "candidate_id": "c96e328b89cb62a46f6c1728",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Understanding Sports Betting Lines - Download & Bonus Info - Apps on Google Play"
+    },
+    {
+      "candidate_id": "37d2b83004766632b3a048e7",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Early evidence of the ballgame in Oaxaca, Mexico"
+    },
+    {
+      "candidate_id": "e57edc8e248a108b9d208d0a",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Sport"
+    },
+    {
+      "candidate_id": "e4f1de3e5b10787579bcee42",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Game — From Old English to English | etymologist.ai"
+    },
+    {
+      "candidate_id": "2515286fd17e61c9eca239be",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "2026/27 law changes explained"
+    },
+    {
+      "candidate_id": "833efaf66800bdc271b25be5",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Sagrada Artisans - Errata & Clarifications – Floodgate Games"
+    },
+    {
+      "candidate_id": "7ee74a5389e5c1a306741eae",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Official Errata 1.0"
+    },
+    {
+      "candidate_id": "5b0a47d872789e38506fbd8f",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Senet"
+    },
+    {
+      "candidate_id": "de7a92c91c2b3a1d993e5d2f",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Board game"
+    },
+    {
+      "candidate_id": "fce9240bd888cea16ebd41b9",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Over 600 Years, the Golf Ball Has Evolved From a Primitive Wood Sphere to a Smart Ball With Cutting-"
+    },
+    {
+      "candidate_id": "7befe2ee28c4edf62ea4b6c4",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Playing card"
+    },
+    {
+      "candidate_id": "9dee7df25479ca164ad153f7",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Humguti"
+    },
+    {
+      "candidate_id": "319494c819b6306f86cdda5c",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Enkeshui"
+    },
+    {
+      "candidate_id": "8a127b752764d9ae109241b0",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Native American Antecedents of Two Proprietary Board Games"
+    },
+    {
+      "candidate_id": "aadbb7be5e407380231762d6",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Celtic On This Day – 21st September – David Potter’s Diary | The Celtic Star"
+    },
+    {
+      "candidate_id": "940796d15d18bf6bdefd16e2",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "September 1926"
+    },
+    {
+      "candidate_id": "59ee1b25679525c1ffacac92",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "Jack Dempsey vs. Gene Tunney"
+    },
+    {
+      "candidate_id": "f761ae202d4d33f74b560e6a",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "September 21, 1926, What happened that day? | TakeMeBack.to"
+    },
+    {
+      "candidate_id": "513d854fde9d94b7404cf841",
+      "detail": "",
+      "reason": "classification_capacity",
+      "stage": "classification",
+      "title": "September 25, 1926, What happened that day? | TakeMeBack.to"
+    },
+    {
+      "candidate_id": "5b4cd5824cb50b2a1a190bcc",
+      "detail": "",
+      "reason": "out_of_scope",
+      "stage": "classification",
+      "title": "Sport Etymology — Word Origin & History (English) | WordHub"
+    },
+    {
+      "candidate_id": "feba0bacf0c7e3d503ddd24f",
+      "detail": "",
+      "reason": "out_of_scope",
+      "stage": "classification",
+      "title": "What Happened on September 21 — This Day in History | On This Day in History"
+    },
+    {
+      "candidate_id": "cd7f31f1bfb80ec61a408148",
+      "detail": "",
+      "reason": "out_of_scope",
+      "stage": "classification",
+      "title": "21 September 1926 History Events - What Happened on September 21st 1926"
+    },
+    {
+      "candidate_id": "eb6258a7681cc15e55e5d7c4",
+      "detail": "",
+      "reason": "Only one reliable source (SportingNews) supplies the rule details. No second ind",
+      "stage": "verification",
+      "title": "Savannah Bananas rules, explained: Points vs. runs and more 'Banana Ball' differences compared to ba"
+    },
+    {
+      "candidate_id": "4a86f07be1cb105cdde463bd",
+      "detail": "",
+      "reason": "story_generation_failed",
+      "stage": "generation",
+      "title": "The History of Senet: 3,000 Years, Not One Rule | PlayNook"
+    },
+    {
+      "candidate_id": "5b4cd5824cb50b2a1a190bcc",
+      "detail": "",
+      "reason": "unaccounted_candidate",
+      "stage": "ledger",
+      "title": ""
+    },
+    {
+      "candidate_id": "cd7f31f1bfb80ec61a408148",
+      "detail": "",
+      "reason": "unaccounted_candidate",
+      "stage": "ledger",
+      "title": ""
+    },
+    {
+      "candidate_id": "feba0bacf0c7e3d503ddd24f",
+      "detail": "",
+      "reason": "unaccounted_candidate",
+      "stage": "ledger",
+      "title": ""
+    }
+  ],
+  "sources": [
+    {
+      "domain": "playnook.io",
+      "elapsed": 0.573,
+      "error": "",
+      "evidence_chars": 6281,
+      "fallback": false,
+      "ok": true,
+      "tier": 3,
+      "url": "https://playnook.io/blog/history-of-senet"
+    },
+    {
+      "domain": "en.wikipedia.org",
+      "elapsed": 0.337,
+      "error": "",
+      "evidence_chars": 15405,
+      "fallback": false,
+      "ok": true,
+      "tier": 3,
+      "url": "https://en.wikipedia.org/wiki/Senet_(board_game)"
+    },
+    {
+      "domain": "journals.sagepub.com",
+      "elapsed": 0.181,
+      "error": "HTTP 403",
+      "evidence_chars": 0,
+      "fallback": false,
+      "ok": false,
+      "tier": 3,
+      "url": "https://journals.sagepub.com/doi/full/10.1177/0307513319896288"
+    },
+    {
+      "domain": "metmuseum.org",
+      "elapsed": 0.036,
+      "error": "HTTP 429",
+      "evidence_chars": 0,
+      "fallback": false,
+      "ok": false,
+      "tier": 3,
+      "url": "https://www.metmuseum.org/perspectives/ancient-egypt-board-games"
+    },
+    {
+      "domain": "discoveringegypt.com",
+      "elapsed": 4.137,
+      "error": "",
+      "evidence_chars": 1361,
+      "fallback": false,
+      "ok": true,
+      "tier": 3,
+      "url": "https://discoveringegypt.com/ancient-egyptian-game-senet/"
+    },
+    {
+      "domain": "sportingnews.com",
+      "elapsed": 0.438,
+      "error": "",
+      "evidence_chars": 5185,
+      "fallback": false,
+      "ok": true,
+      "tier": 3,
+      "url": "https://www.sportingnews.com/us/mlb/news/savannah-bananas-rules-explained-points-runs-banana-ball/394161d31996c57eff2cee25"
+    },
+    {
+      "domain": "espn.com",
+      "elapsed": 0.169,
+      "error": "",
+      "evidence_chars": 157,
+      "fallback": false,
+      "ok": true,
+      "tier": 2,
+      "url": "https://www.espn.com/mlb/story/_/id/46519615/savannah-bananas-101-teams-rules-baseball-facts"
+    },
+    {
+      "domain": "mlb.com",
+      "elapsed": 0.878,
+      "error": "",
+      "evidence_chars": 13133,
+      "fallback": false,
+      "ok": true,
+      "tier": 3,
+      "url": "https://www.mlb.com/news/savannah-bananas-the-dancing-globetrotters-of-baseball-explained"
+    },
+    {
+      "domain": "en.wikipedia.org",
+      "elapsed": 0.106,
+      "error": "",
+      "evidence_chars": 19660,
+      "fallback": false,
+      "ok": true,
+      "tier": 3,
+      "url": "https://en.wikipedia.org/wiki/Banana_Ball"
+    },
+    {
+      "domain": "apnews.com",
+      "elapsed": 0.21,
+      "error": "HTTP 403",
+      "evidence_chars": 0,
+      "fallback": false,
+      "ok": false,
+      "tier": 2,
+      "url": "https://apnews.com/article/savannah-bananas-baseball-hall-of-fame-f99340150e44c0545ee8eca68c49a4e4"
+    },
+    {
+      "domain": "sourcelibrary.org",
+      "elapsed": 0.639,
+      "error": "",
+      "evidence_chars": 21656,
+      "fallback": false,
+      "ok": true,
+      "tier": 3,
+      "url": "https://sourcelibrary.org/blog/rithmomachia"
+    },
+    {
+      "domain": "press.umich.edu",
+      "elapsed": 0.338,
+      "error": "",
+      "evidence_chars": 1744,
+      "fallback": false,
+      "ok": true,
+      "tier": 3,
+      "url": "https://press.umich.edu/Books/T/The-Philosophers-Game"
+    },
+    {
+      "domain": "en.wikipedia.org",
+      "elapsed": 0.253,
+      "error": "",
+      "evidence_chars": 12527,
+      "fallback": false,
+      "ok": true,
+      "tier": 3,
+      "url": "https://en.wikipedia.org/wiki/Rithmomachia"
+    },
+    {
+      "domain": "jducoeur.org",
+      "elapsed": 0.672,
+      "error": "",
+      "evidence_chars": 24000,
+      "fallback": false,
+      "ok": true,
+      "tier": 3,
+      "url": "https://jducoeur.org/game-hist/fulke.html"
+    },
+    {
+      "domain": "mathvoices.ams.org",
+      "elapsed": 0.463,
+      "error": "",
+      "evidence_chars": 14673,
+      "fallback": false,
+      "ok": true,
+      "tier": 3,
+      "url": "https://mathvoices.ams.org/featurecolumn/2021/07/01/the-battle-of-numbers/"
+    }
+  ],
+  "timings": {
+    "daily_next_discovery": 13.321,
+    "daily_next_generation": 0.72,
+    "daily_next_grounding": 0.0,
+    "daily_next_plan": 0.683,
+    "daily_past_discovery": 16.521,
+    "daily_past_generation": 0.92,
+    "daily_past_grounding": 0.0,
+    "daily_past_plan": 1.011,
+    "discovery_evergreen": 4.049,
+    "discovery_history": 0.777,
+    "editorial_selection": 0.0,
+    "generation": 121.954,
+    "publish": 2.831
+  },
+  "total_seconds": 296.376,
+  "version": 2
 }
