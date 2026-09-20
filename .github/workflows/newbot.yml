@@ -1,4 +1,4 @@
-name: The Sports Newsroom Discovery Bot
+name: The Sports Newsroom V0.1
 
 on:
   schedule:
@@ -24,11 +24,15 @@ jobs:
       TELEGRAM_CHANNEL: "@TheSportsNewsroom"
       CEREBRAS_MODEL: "gpt-oss-120b"
       PYTHONUNBUFFERED: "1"
-      AI_MIN_INTERVAL_SECONDS: "1.75"
       AI_MAX_CALLS_PER_RUN: "18"
+      AI_MANDATORY_CALLS_PER_DAILY: "4"
+      MANDATORY_MAX_ATTEMPTS: "3"
+      MAX_CLASSIFICATION_CANDIDATES: "36"
+      MAX_CLASSIFICATION_BATCH_SIZE: "8"
+      CEREBRAS_REASONING_EFFORT: "low"
       HTTP_CONNECT_TIMEOUT: "6"
       HTTP_READ_TIMEOUT: "12"
-      MAX_VERIFICATION_CANDIDATES: "10"
+      MAX_VERIFICATION_CANDIDATES: "3"
       MAX_DISCOVERY_POSTS_PER_DAY: "4"
 
     steps:
@@ -59,17 +63,34 @@ jobs:
         run: python main.py --self-test
 
       - name: Run production bot
+        id: run_bot
         run: python main.py
 
+      - name: Validate persisted state files
+        id: validate_state
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for name in ["data/state/knowledge_state.json", "data/state/last_run_report.json"]:
+              path = Path(name)
+              if not path.exists():
+                  print(f"{name}: not present")
+                  continue
+              json.loads(path.read_text(encoding="utf-8"))
+              print(f"{name}: valid JSON")
+          PY
+
       - name: Persist knowledge state
-        if: success()
+        if: always() && steps.validate_state.outcome == 'success' && (steps.run_bot.outcome == 'success' || steps.run_bot.outcome == 'failure')
         run: |
           git config user.name "the-sports-newsroom-bot"
           git config user.email "actions@github.com"
-          git add data/state/knowledge_state.json data/state/published_urls.txt
+          git add data/state/knowledge_state.json data/state/published_urls.txt data/state/last_run_report.json
           if git diff --cached --quiet; then
             echo "No state changes to commit."
           else
-            git commit -m "Update sports and games knowledge state"
+            git commit -m "Persist sports newsroom state"
             git push
           fi
