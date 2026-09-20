@@ -1,155 +1,121 @@
-# The Sports Newsroom Discovery Engine
+# The Sports Newsroom Discovery Engine v2.2.1
 
-Production-oriented Telegram bot for **[@TheSportsNewsroom](https://t.me/TheSportsNewsroom)**.
+Production-oriented Telegram bot for [@TheSportsNewsroom](https://t.me/TheSportsNewsroom).
 
-Version **2.1.0** keeps the previous project's Python/Exa/Cerebras/Telegram/GitHub Actions foundation while replacing the content system with a broader **Sports + Real-World Games Discovery Engine**.
+## Product
 
-## Product rule
+This is a **sports + real-world games discovery engine**, not a conventional sports-news scraper. It covers professional and obscure sports, board/card/tabletop/party/traditional/mind games, rules, how-to-play guides, history, facts, new physical games and historical date-based content.
 
-> Find something people would want to know, play, understand, remember, or share. Verify it before publishing.
+It explicitly excludes video games, consoles, PC/mobile gaming, esports, gaming hardware, DLC, patches and video-game industry news.
 
-The system covers:
+## Editorial backbone
 
-- sports and sporting events
-- board games
-- card games
-- tabletop games
-- party games
-- traditional/regional games
-- mind/puzzle games
-- newly discovered physical games
-- rules and rule clarifications
-- how-to-play guides
-- game/sport history and origins
-- unusual and forgotten sports/games
-- facts, first/last/only records and date-anchored history
+Two daily sports anchor posts are kept in a separate mandatory lane:
 
-It explicitly excludes video games, esports, consoles, Steam, DLC, patches, gaming hardware and video-game industry news.
+- `NEXT UP · [EXACT DATE]`
+- `THE DAY IN SPORTS · [EXACT DATE]`
 
-## Daily backbone
+Discovery posts are a separate quality-gated lane. Discovery can never consume the reserved AI budget for the mandatory lane.
 
-Two independent anchor jobs create a permanent date-based archive:
+## Discovery families
 
-1. **NEXT UP · YYYY-MM-DD**
-2. **THE DAY IN SPORTS · YYYY-MM-DD**
+`GAME DISCOVERY` · `NEW BOARD GAME` · `NEW CARD GAME` · `NEW TABLETOP GAME` · `NEW SPORT` · `DID YOU KNOW?` · `RULE CHECK` · `HOW TO PLAY` · `GAME HISTORY` · `SPORT HISTORY` · `ON THIS DATE` · `100 YEARS AGO` · `WHY?` · `FIRST / LAST / ONLY` · `THEN → NOW` · `FORGOTTEN` · `SPORT DISCOVERY` · `MYTH VS FACT` · `GAME ANATOMY` · `THE STORY BEHIND THE NUMBER`
 
-The posts are reference-oriented and use exact dates. The scheduler never depends on a source being published on the same day as the sporting event. Future schedules may have been published weeks earlier; past results may be reported shortly after the event date.
-
-## Discovery engines
-
-- Game discovery
-- New board/card/tabletop game discovery
-- Evergreen facts
-- Rules and official-vs-house-rule checks
-- How to play
-- Game/sport history
-- On this date
-- 25/50/75/100/125-year historical discovery
-- First / Last / Only
-- Why?
-- Then → Now
-- Forgotten games/sports
-- New physical sports
-- Interesting numbers and terminology
-
-Search is driven by surprise patterns, not only topic names.
-
-## Verification architecture
-
-The bot separates discovery from truth.
+## v2.2.1 architecture
 
 ```text
-Search
-  ↓
-Candidate
-  ↓
-Cheap Python filtering
-  ↓
-Cerebras classification
-  ↓
-Preliminary ranking
-  ↓
-Top-candidate verification
-  ↓
-Evidence packet
-  ↓
-Cerebras factual verification
-  ↓
-Novelty / archive check
-  ↓
-Cerebras writing
-  ↓
-Deterministic grounding
-  ↓
-Repair loop if needed
-  ↓
-Final factual grounding
-  ↓
-Visual
-  ↓
-Telegram
+Internet / Exa / RSS
+        ↓
+Raw candidates
+        ↓
+Cheap deterministic filters
+        ↓
+Query-family balancing
+        ↓
+One batch AI classifier
+        ↓
+Small verification pool
+        ↓
+Evidence packets
+        ↓
+Claim verification
+        ↓
+Deterministic editorial selection
+        ↓
+AI writer
+        ↓
+Structural + numeric checks
+        ↓
+One repair pass when needed
+        ↓
+Final evidence grounding
+        ↓
+Original visual
+        ↓
+Telegram Rich Message / sendPhoto fallback
 ```
 
-### Source handling
+### Important design changes
 
-Direct HTTP extraction is best-effort, not mandatory. A 403 or timeout no longer destroys the candidate. Exa highlights are retained as fallback evidence, and corroborating sources can be discovered when needed.
+**Event date is not source publication date.** Current and historical searches do not use Exa publication-date filters to represent an event date. Historical content is searched by the exact historical date/year.
 
-Known source hierarchy:
+**Direct scraping is optional.** If a source returns 403/404/timeout, the run can fall back to Exa search-highlight evidence rather than dropping the candidate immediately. Fetching uses short timeouts and limited retries.
 
-- Tier 1: official/primary
-- Tier 2: reputable secondary
-- Tier 3: reference sources
-- Tier 4: lead-only sources
-- Tier 5: unknown sources
+**AI is budgeted.** The default is 18 logical AI operations per run, with a dynamic reserve of 4 AI operations per mandatory daily post (up to 8 when both daily anchors are due). Discovery has room for one classifier call, three verification calls, two writers, two final fact checks and up to two repair calls.
 
-A primary source may verify a claim alone when it directly supports it. Otherwise the verification stage requires two independent credible domains.
+**No second editorial AI call.** Candidate classification is AI-assisted; final selection is deterministic and logged, which makes the selection auditable and reduces API usage.
 
-## AI budget
+**Claim-level memory.** Published claims are stored with both angle-specific and core-claim fingerprints so paraphrased duplicates are rejected.
 
-The pipeline intentionally delays expensive AI work.
+**Run telemetry.** Every run writes `data/state/last_run_report.json` and prints a funnel report to the GitHub Actions log and Step Summary. It records search counts, candidate counts, rejection reasons, source failures, timings, AI budget use and published posts.
+
+## State
 
 ```text
-Raw search results
-→ Python filters
-→ one batch classifier
-→ cheap preliminary ranking
-→ only top candidates verified
-→ deterministic editorial selection
-→ AI writing only for selected posts
+data/state/
+├── knowledge_state.json
+├── published_urls.txt
+└── last_run_report.json
 ```
 
-This reduces Cerebras calls and makes rate-limit bursts less likely.
+`knowledge_state.json` stores claims, entities, posts, source health, candidate decisions and recent run summaries.
 
-A per-run AI budget and minimum interval are configurable through environment variables.
+## Environment variables
 
-## Draft repair
-
-Invalid drafts are repaired instead of being discarded immediately:
+Required GitHub Actions secrets:
 
 ```text
-Draft
- ↓
-Validator
- ↓
-Failure reason
- ↓
-Evidence-constrained repair
- ↓
-Validator
- ↓
-Final grounding
+EXA_API_KEY
+CEREBRAS_API_KEY
+TELEGRAM_BOT_TOKEN
 ```
 
-## Telegram publishing
+Optional configuration:
 
-The bot uses a reliable two-step media flow:
+```text
+CEREBRAS_MODEL=gpt-oss-120b
+AI_MAX_CALLS_PER_RUN=18
+AI_MANDATORY_CALLS_PER_DAILY=4
+MAX_VERIFICATION_CANDIDATES=3
+MAX_DISCOVERY_POSTS_PER_RUN=2
+MAX_DISCOVERY_POSTS_PER_DAY=4
+SEARCHES_PER_RUN=18
+HTTP_CONNECT_TIMEOUT=6
+HTTP_READ_TIMEOUT=12
+HTTP_RETRY_COUNT=1
+```
 
-1. Upload the generated visual with `sendPhoto`.
-2. Upgrade its caption to Rich Message HTML with `editMessageCaption`.
+## Local validation
 
-If the rich upgrade fails, the already-published photo retains a plain Telegram-compatible fallback caption.
+```bash
+python -m py_compile main.py src/sportsgames/*.py
+python -m unittest discover -s tests -v
+python main.py --self-test
+```
 
-## Repository
+Live API execution requires the Exa, Cerebras and Telegram credentials.
+
+## Repository tree
 
 ```text
 SportsGamesDiscoveryBot/
@@ -161,13 +127,15 @@ SportsGamesDiscoveryBot/
 │   ├── sources.json
 │   └── state/
 │       ├── knowledge_state.json
-│       └── published_urls.txt
+│       ├── published_urls.txt
+│       └── last_run_report.json
 ├── src/sportsgames/
 │   ├── config.py
 │   ├── content.py
 │   ├── discovery.py
 │   ├── editorial.py
 │   ├── media.py
+│   ├── observability.py
 │   ├── pipeline.py
 │   ├── providers.py
 │   ├── schemas.py
@@ -176,43 +144,8 @@ SportsGamesDiscoveryBot/
 │   ├── telegram.py
 │   ├── utils.py
 │   └── verification.py
-├── tests/
-│   └── test_core.py
+├── tests/test_core.py
 ├── main.py
 ├── requirements.txt
-├── .gitignore
 └── README.md
 ```
-
-## Required GitHub Secrets
-
-```text
-EXA_API_KEY
-CEREBRAS_API_KEY
-TELEGRAM_BOT_TOKEN
-```
-
-The workflow targets `@TheSportsNewsroom` by default.
-
-## Useful configuration
-
-```text
-CEREBRAS_MODEL=gpt-oss-120b
-AI_MIN_INTERVAL_SECONDS=1.75
-AI_MAX_CALLS_PER_RUN=18
-HTTP_CONNECT_TIMEOUT=6
-HTTP_READ_TIMEOUT=12
-MAX_VERIFICATION_CANDIDATES=10
-MAX_DISCOVERY_POSTS_PER_DAY=4
-MAX_REPAIR_ATTEMPTS=2
-```
-
-## Local checks
-
-```bash
-python -m py_compile main.py src/sportsgames/*.py
-python -m unittest discover -s tests -v
-python main.py --self-test
-```
-
-Live production execution requires the three GitHub/API secrets.

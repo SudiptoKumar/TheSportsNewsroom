@@ -3,9 +3,9 @@
     "sports federations",
     "official competition sites",
     "official rulebooks",
+    "Olympic/Paralympic organizations",
     "museums and archives",
-    "original records/documents",
-    "physical-game publishers/rule owners"
+    "original records/documents"
   ],
   "tier_2_reputable": [
     "Reuters",
@@ -14,6 +14,7 @@
     "ESPN",
     "Sky Sports",
     "The Guardian",
+    "BoardGameGeek specialist material",
     "specialist sports publications"
   ],
   "tier_3_reference_discovery": [
@@ -21,8 +22,9 @@
     "Guinness World Records",
     "Wikipedia",
     "Atlas Obscura",
-    "BoardGameGeek",
-    "specialist reference publications"
+    "Merriam-Webster",
+    "specialist historical/reference sources",
+    "unclassified domains pending corroboration"
   ],
   "tier_4_lead_only": [
     "Reddit",
@@ -31,13 +33,16 @@
     "social media",
     "random blogs"
   ],
-  "tier_5_unknown": [
-    "unrated domains until evidence quality is established"
-  ],
-  "policy": {
-    "primary_alone_allowed": true,
-    "without_primary_min_independent_domains": 2,
-    "lead_only_alone_allowed": false,
-    "unknown_alone_allowed": false
+  "verification_policy": {
+    "primary_alone_allowed_if_directly_supporting": true,
+    "otherwise_min_independent_domains": 2,
+    "lead_only_cannot_verify_alone": true,
+    "unknown_domains_require_corroboration": true
+  },
+  "fetch_policy": {
+    "direct_fetch_is_optional": true,
+    "blocked_source_fallback": "search-highlight-evidence",
+    "fast_fail_403": true,
+    "limited_retries": true
   }
 }

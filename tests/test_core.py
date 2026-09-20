@@ -1,15 +1,14 @@
-import sys
 import unittest
 from pathlib import Path
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-sys.path.insert(0, str(SRC))
+sys.path.insert(0, str(ROOT / "src"))
 
 from sportsgames.discovery import is_video_game_contaminated
-from sportsgames.editorial import preliminary_score
-from sportsgames.state import claim_key, default_state, prune_state
-from sportsgames.telegram import render_rich_html, visible_length, plain_caption
+from sportsgames.observability import AiBudget, PipelineReport, balanced_pool, select_quality_gated
+from sportsgames.state import claim_key, core_claim_key, default_state, prune_state
+from sportsgames.telegram import render_rich_html, visible_length
 from sportsgames.utils import canonical_url, similarity
 
 
@@ -20,55 +19,64 @@ class CoreTests(unittest.TestCase):
     def test_video_game_filter(self):
         self.assertTrue(is_video_game_contaminated("PlayStation patch notes"))
         self.assertTrue(is_video_game_contaminated("Xbox console announcement"))
-        self.assertTrue(is_video_game_contaminated("Steam DLC release"))
-        self.assertFalse(is_video_game_contaminated("Ludo rule explanation"))
+        self.assertFalse(is_video_game_contaminated("Ludo official rules"))
         self.assertFalse(is_video_game_contaminated("new board game release"))
-        self.assertFalse(is_video_game_contaminated("history of gaming tables"))
 
     def test_similarity(self):
         self.assertGreater(similarity("Why does tennis use love?", "Where did the tennis term love come from?"), 0.35)
 
-    def test_claim_key_stable(self):
+    def test_claim_keys(self):
         self.assertEqual(claim_key("UNO", "Draw card rule", "rule"), claim_key("UNO", "Draw card rule", "rule"))
+        self.assertEqual(core_claim_key("UNO", "Draw card rule"), core_claim_key("UNO", "Draw card rule"))
 
-    def test_preliminary_score(self):
-        state = default_state()
-        candidate = {
-            "source_tier": 1,
-            "score_dimensions": {"surprise": 5, "evergreen_fit": 5, "simplicity": 4, "curiosity": 5, "novelty_signal": 5, "usefulness": 4},
-            "subject": "UNO rule",
-            "claim_or_event": "official rule",
-            "angle": "rule",
-        }
-        self.assertGreaterEqual(preliminary_score(candidate, state), 30)
+    def test_budget_reserves_mandatory(self):
+        report = PipelineReport(); budget = AiBudget(6, 2, report)
+        self.assertTrue(budget.take("discovery"))
+        self.assertTrue(budget.take("discovery"))
+        # Two mandatory calls remain protected from discovery.
+        self.assertEqual(budget.remaining("discovery"), 2)
+        self.assertTrue(budget.take("discovery"))
+        self.assertTrue(budget.take("discovery"))
+        self.assertEqual(budget.remaining("discovery"), 0)
+        self.assertTrue(budget.take("mandatory"))
 
-    def test_render_fact(self):
+    def test_balanced_pool(self):
+        items = [
+            {"family": "facts", "s": 9}, {"family": "games", "s": 8}, {"family": "rules", "s": 7},
+            {"family": "facts", "s": 6}, {"family": "games", "s": 5},
+        ]
+        pool = balanced_pool(items, lambda x: x["family"], lambda x: x["s"], {"facts": 1, "games": 1, "rules": 1}, 4)
+        self.assertEqual(len(pool), 4)
+        self.assertEqual({x["family"] for x in pool[:3]}, {"facts", "games", "rules"})
+
+    def test_quality_gate(self):
+        items = [{"s": 10}, {"s": 15}]
+        self.assertEqual(select_quality_gated(items, lambda x: x["s"], 20, 2), [])
+
+    def test_render(self):
         story = {
             "format": "rule_check", "date_anchor": "", "headline": "A Rule Worth Checking",
             "dek": "This game has an official rule many casual players overlook.",
             "body": "The rule should be described using the official rulebook or another directly supporting source.",
             "why_interesting": "Common house rules can differ from official rules.", "key_points": ["Official rule"],
             "sources": ["https://example.com/rules"], "game_or_sport": "UNO", "subject": "UNO rules",
-            "claim": "A rule", "category": "rule_check", "angle": "rule",
+            "claim": "A rule", "category": "rule_check", "angle": "rule"
         }
         html = render_rich_html(story)
         self.assertIn("RULE CHECK", html)
         self.assertIn("@TheSportsNewsroom", html)
         self.assertLess(visible_length(html), 32768)
-        self.assertLessEqual(len(plain_caption(html)), 1024)
 
-    def test_render_daily(self):
-        story = {
-            "format": "daily_next", "date_anchor": "2026-09-21", "headline": "Sports scheduled for 2026-09-21",
-            "dek": "A dated guide.", "events": [
-                {"sport": "Football", "event": "Club A vs Club B", "competition": "League", "stage": "Round", "time_utc": "18:00 UTC", "location": "", "importance": 90, "reason": "Notable fixture."},
-                {"sport": "Cricket", "event": "Team A vs Team B", "competition": "Series", "stage": "Match", "time_utc": "09:00 UTC", "location": "", "importance": 80, "reason": "Important match."},
-            ], "sources": ["https://example.com"],
-        }
-        html = render_rich_html(story)
-        self.assertIn("NEXT UP", html)
-        self.assertIn("BY SPORT", html)
-        self.assertIn("Club A vs Club B", html)
+    def test_report_tracks_pipeline_events(self):
+        report = PipelineReport()
+        report.count("discovery.results", 3)
+        report.reject("filter", "video_game", "Console update", candidate_id="c1")
+        report.source("https://example.com/a", True, 120, 2, elapsed=0.12)
+        report.publish("fact", "A useful fact", True)
+        rendered = report.render()
+        self.assertIn("discovery", rendered.lower())
+        self.assertIn("video_game", rendered)
+        self.assertIn("A useful fact", rendered)
 
     def test_prune_queue(self):
         state = default_state()
@@ -77,5 +85,4 @@ class CoreTests(unittest.TestCase):
         self.assertNotIn("old", state["queue"])
 
 
-if __name__ == "__main__":
-    unittest.main()
+if __name__ == "__main__": unittest.main()

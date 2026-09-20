@@ -3,143 +3,163 @@ from __future__ import annotations
 import logging
 from datetime import date
 
-from .config import MAX_REPAIR_ATTEMPTS
 from .discovery import is_video_game_contaminated
-from .providers import Providers
-from .schemas import DAILY_SCHEMA, POST_SCHEMA, REPAIR_SCHEMA
-from .utils import clamp, complete_sentence, sentence_count, text
-from .verification import build_evidence_packet, deterministic_story_checks, verify_story_against_evidence
+from .providers import Providers, source_tier
+from .schemas import DAILY_SCHEMA, POST_SCHEMA
+from .utils import complete_sentence, sentence_count, text
+from .verification import deterministic_story_checks, verify_story_against_evidence
 
 logger = logging.getLogger("sports-games-hub.content")
 
 
-FORMAT_MAP = {
-    "game_discovery": "game_discovery", "new_board_game": "game_discovery", "new_card_game": "game_discovery",
-    "new_tabletop_game": "game_discovery", "new_sport": "game_discovery", "rule_check": "rule_check",
-    "how_to_play": "how_to_play", "on_this_date": "on_this_date", "century_ago": "century_ago",
-    "game_history": "history", "sport_history": "history", "game_origin": "history", "sport_origin": "history",
-    "why_explained": "why", "first_last_only": "first_last_only", "then_vs_now": "then_vs_now",
-    "forgotten_game": "forgotten", "forgotten_sport": "forgotten", "interesting_number": "number",
-    "myth_vs_fact": "fact",
-}
-
-FORMAT_LIMITS = {
-    "fact": (2, 700), "game_discovery": (3, 1200), "rule_check": (3, 1000), "how_to_play": (4, 1200),
-    "history": (4, 1000), "on_this_date": (4, 1000), "century_ago": (4, 1000), "why": (4, 1000),
-    "first_last_only": (4, 1000), "then_vs_now": (5, 1200), "forgotten": (4, 1000), "number": (4, 900),
-}
-
-
 def format_for(candidate: dict) -> str:
-    return FORMAT_MAP.get(text(candidate.get("category")), "fact")
+    category = text(candidate.get("category"))
+    mapping = {
+        "game_discovery": "game_discovery",
+        "new_board_game": "game_discovery",
+        "new_card_game": "game_discovery",
+        "new_tabletop_game": "game_discovery",
+        "new_sport": "game_discovery",
+        "rule_check": "rule_check",
+        "how_to_play": "how_to_play",
+        "on_this_date": "on_this_date",
+        "century_ago": "century_ago",
+        "game_history": "history",
+        "sport_history": "history",
+        "game_origin": "history",
+        "sport_origin": "history",
+        "why_explained": "why",
+        "first_last_only": "first_last_only",
+        "then_vs_now": "then_vs_now",
+        "forgotten_game": "forgotten",
+        "forgotten_sport": "forgotten",
+        "interesting_number": "number",
+        "myth_vs_fact": "fact",
+    }
+    return mapping.get(category, "fact")
+
+
+def _evidence_text(candidate: dict) -> tuple[str, str]:
+    packets = candidate.get("evidence_packets") or []
+    if not packets:
+        return "", ""
+    blocks = []
+    for packet in packets[:5]:
+        blocks.append(
+            f"SOURCE: {packet.get('url')}\n"
+            f"TIER: {packet.get('tier')}\n"
+            f"TEXT:\n{packet.get('text', '')[:9000]}"
+        )
+    image_url = next(
+        (text(packet.get("image_url")) for packet in packets if text(packet.get("image_url"))),
+        "",
+    )
+    return "\n\n".join(blocks), image_url
+
+
+def _repair_story(
+    providers: Providers,
+    story: dict,
+    candidate: dict,
+    reason: str,
+    lane: str,
+) -> dict | None:
+    evidence, _ = _evidence_text(candidate)
+    system = """
+You repair a Telegram post for The Sports Newsroom.
+Fix ONLY the stated validation problem while preserving supported factual content.
+Use only the supplied evidence. Never add facts from memory.
+Keep the same format and write in original wording.
+Remove unsupported specifics and disposable time language.
+Return the complete JSON object using the supplied schema.
+""".strip()
+    user = (
+        f"REPAIR REASON: {reason}\n"
+        f"CURRENT POST:\n{story}\n\n"
+        f"EVIDENCE:\n{evidence[:24000]}"
+    )
+    try:
+        repaired = providers.ai(
+            system=system,
+            user=user,
+            schema_name="sports_games_story_repair_v3",
+            schema=POST_SCHEMA,
+            max_tokens=2400,
+            lane=lane,
+        )
+    except Exception as exc:
+        logger.warning("Story repair failed: %s", exc)
+        return None
+    repaired.update({
+        key: candidate.get(key, repaired.get(key, ""))
+        for key in ("game_or_sport", "subject", "claim", "category", "angle")
+    })
+    repaired["candidate"] = candidate
+    repaired["source_text"] = evidence
+    return repaired
 
 
 def validate_story(story: dict) -> tuple[bool, str]:
     for field in ("headline", "dek", "body", "why_interesting"):
         if not text(story.get(field)):
             return False, f"missing_{field}"
-        if field != "headline" and not complete_sentence(story[field]):
+        if not complete_sentence(story[field]) and field != "headline":
             return False, f"incomplete_{field}"
-    fmt = text(story.get("format"))
-    max_sentences, max_chars = FORMAT_LIMITS.get(fmt, (6, 1200))
-    if sentence_count(story.get("body")) > max_sentences:
+    if sentence_count(story["body"]) > 6:
         return False, "body_too_long"
-    if len(text(story.get("body"))) > max_chars:
-        return False, "body_over_char_limit"
     if len(story.get("key_points", [])) > 6:
         return False, "too_many_key_points"
-    if any("..." in text(x) or "…" in text(x) for x in [story.get("headline"), story.get("dek"), story.get("body"), story.get("why_interesting")]):
-        return False, "ellipsis_in_content"
     return True, "ok"
 
 
-def _repair_story(providers: Providers, story: dict, candidate: dict, issues: list[str], evidence_text: str) -> dict | None:
-    current = dict(story)
-    for attempt in range(1, MAX_REPAIR_ATTEMPTS + 1):
-        system = """
-You are the repair editor for The Sports Newsroom.
-Repair the supplied draft using ONLY the evidence packet.
-Preserve the central factual claim, remove unsupported details, fix incomplete sentences, and fit the format limits.
-Do not add any new factual information from memory.
-For historical/current content use exact dates instead of disposable relative words.
-Return only JSON matching the supplied schema.
-""".strip()
-        user = (
-            f"FORMAT: {current.get('format')}\nFAILURES: {', '.join(issues)}\n"
-            f"DRAFT: {current}\n\nEVIDENCE:\n{evidence_text[:26000]}"
-        )
-        try:
-            repaired = providers.ai(system=system, user=user, schema_name=f"story_repair_{attempt}", schema=REPAIR_SCHEMA, max_tokens=2200)
-        except Exception as exc:
-            logger.warning("Story repair %d failed: %s", attempt, exc)
-            return None
-        repaired.update({
-            "candidate": candidate,
-            "source_text": evidence_text,
-            "game_or_sport": candidate.get("game_or_sport", ""),
-            "subject": candidate.get("subject", ""),
-            "claim": candidate.get("claim_or_event", ""),
-            "category": candidate.get("category", ""),
-            "angle": candidate.get("angle", ""),
-        })
-        ok, reason = validate_story(repaired)
-        if not ok:
-            issues = [reason]
-            current = repaired
-            continue
-        numeric_ok, numeric_reason = deterministic_story_checks(repaired, evidence_text)
-        if not numeric_ok:
-            issues = [numeric_reason]
-            current = repaired
-            continue
-        if is_video_game_contaminated(" ".join([text(repaired.get("headline")), text(repaired.get("body")), text(repaired.get("why_interesting"))])):
-            issues = ["video_game_contamination"]
-            current = repaired
-            continue
-        return repaired
-    return None
-
-
-def generate_story(providers: Providers, candidate: dict) -> dict | None:
-    evidence_text = text(candidate.get("evidence_text"))
-    evidence_records = candidate.get("evidence_records") or []
-    if not evidence_text:
-        evidence_text, evidence_records = build_evidence_packet(candidate, max_sources=4)
-        candidate["evidence_text"] = evidence_text
-        candidate["evidence_records"] = evidence_records
-    if not evidence_text:
+def generate_story(
+    providers: Providers,
+    candidate: dict,
+    lane: str = "discovery",
+    max_repairs: int = 1,
+) -> dict | None:
+    source_text, image_url = _evidence_text(candidate)
+    if not source_text:
         return None
-
     fmt = format_for(candidate)
-    max_sentences, max_chars = FORMAT_LIMITS.get(fmt, (6, 1200))
     system = f"""
 You are the senior editor for @TheSportsNewsroom.
 Create one durable Telegram post in format: {fmt}.
-This channel covers real-world sports and physical games only: board, card, tabletop, party, mind and traditional games.
+The channel covers only real-world sports and physical games: board, card, tabletop, party, mind, recreational and traditional games.
 Never cover video games, esports, consoles, Steam, DLC, patches or gaming hardware.
-Use ONLY facts directly supported by the evidence packet. Never rely on memory.
-Do not manufacture dates, statistics, rules, origins, records, names or superlatives.
-For a current/historical event, use exact date(s), not today, yesterday, tomorrow, tonight or latest.
-Curiosity is welcome, clickbait is not.
-Body limit: {max_sentences} sentences and {max_chars} characters.
-Key points must be evidence-backed.
-Rewrite in original wording; never copy source sentences.
-Return only JSON.
+Use ONLY facts directly supported by the supplied evidence. Do not use memory.
+Do not invent dates, statistics, rules, origins, records, superlatives or causal explanations.
+Avoid disposable words such as today, yesterday, tomorrow, tonight and latest outside daily anchor formats.
+Curiosity is welcome; clickbait is not.
+Maximum body length is six sentences. Key points must be evidence-backed.
+Rewrite in your own words. Return only JSON.
 """.strip()
     user = (
-        f"CATEGORY: {candidate.get('category')}\nANGLE: {candidate.get('angle')}\n"
-        f"GAME/SPORT: {candidate.get('game_or_sport')}\nSUBJECT: {candidate.get('subject')}\n"
-        f"CLAIM/EVENT: {candidate.get('claim_or_event')}\nWHY INTERESTING: {candidate.get('why_interesting')}\n"
-        f"DATE ANCHOR: {candidate.get('date_anchor','')}\n\nEVIDENCE PACKET:\n{evidence_text[:28000]}"
+        f"CATEGORY: {candidate.get('category')}\n"
+        f"ANGLE: {candidate.get('angle')}\n"
+        f"GAME/SPORT: {candidate.get('game_or_sport')}\n"
+        f"SUBJECT: {candidate.get('subject')}\n"
+        f"CLAIM/EVENT: {candidate.get('claim_or_event')}\n"
+        f"WHY: {candidate.get('why_interesting')}\n"
+        f"DATE ANCHOR: {candidate.get('date_anchor', '')}\n\n"
+        f"EVIDENCE:\n{source_text[:30000]}"
     )
     try:
-        story = providers.ai(system=system, user=user, schema_name="sports_games_story_v3", schema=POST_SCHEMA, max_tokens=2400)
+        story = providers.ai(
+            system=system,
+            user=user,
+            schema_name="sports_games_story_v3",
+            schema=POST_SCHEMA,
+            max_tokens=2500,
+            lane=lane,
+        )
     except Exception as exc:
         logger.warning("Story generation failed: %s", exc)
         return None
     story.update({
         "candidate": candidate,
-        "source_text": evidence_text,
+        "source_text": source_text,
+        "image_url": image_url,
         "game_or_sport": candidate.get("game_or_sport", ""),
         "subject": candidate.get("subject", ""),
         "claim": candidate.get("claim_or_event", ""),
@@ -147,135 +167,224 @@ Return only JSON.
         "angle": candidate.get("angle", ""),
     })
 
-    ok, reason = validate_story(story)
-    if not ok:
-        repaired = _repair_story(providers, story, candidate, [reason], evidence_text)
-        if repaired is None:
-            logger.info("Story rejected after repair: %s", reason)
-            return None
-        story = repaired
+    for attempt in range(max_repairs + 1):
+        ok, reason = validate_story(story)
+        if not ok:
+            logger.info("Story validation failed: %s", reason)
+            if attempt >= max_repairs:
+                return None
+            repaired = _repair_story(providers, story, candidate, reason, lane)
+            if not repaired:
+                return None
+            story = repaired
+            continue
+        numeric_ok, numeric_reason = deterministic_story_checks(story, source_text)
+        if not numeric_ok:
+            logger.info("Story deterministic grounding failed: %s", numeric_reason)
+            if attempt >= max_repairs:
+                return None
+            repaired = _repair_story(providers, story, candidate, numeric_reason, lane)
+            if not repaired:
+                return None
+            story = repaired
+            continue
+        break
 
-    numeric_ok, numeric_reason = deterministic_story_checks(story, evidence_text)
-    if not numeric_ok:
-        repaired = _repair_story(providers, story, candidate, [numeric_reason], evidence_text)
-        if repaired is None:
-            logger.info("Story rejected by deterministic grounding: %s", numeric_reason)
-            return None
-        story = repaired
-
-    if is_video_game_contaminated(" ".join([text(story.get("headline")), text(story.get("body")), text(story.get("why_interesting"))])):
+    fields = " ".join([
+        text(story.get("headline")),
+        text(story.get("body")),
+        text(story.get("why_interesting")),
+    ])
+    if is_video_game_contaminated(fields):
         return None
-
-    fact_ok, factcheck = verify_story_against_evidence(providers, story, candidate)
-    if not fact_ok:
-        unsupported = factcheck.get("unsupported_statements") or [factcheck.get("reason", "unsupported content")]
-        repaired = _repair_story(providers, story, candidate, list(map(text, unsupported))[:5], evidence_text)
-        if repaired is None:
-            logger.info("Story failed final evidence grounding: %s", story.get("headline"))
-            return None
-        story = repaired
-        fact_ok, _ = verify_story_against_evidence(providers, story, candidate)
-        if not fact_ok:
-            logger.info("Story failed evidence grounding after repair: %s", story.get("headline"))
-            return None
+    if not verify_story_against_evidence(providers, story, candidate, lane=lane):
+        return None
     return story
 
 
-def build_daily_plan(providers: Providers, candidates: list[dict], mode: str, target: date) -> dict | None:
+def build_daily_plan(
+    providers: Providers,
+    candidates: list[dict],
+    mode: str,
+    target: date,
+    lane: str = "mandatory",
+) -> dict | None:
     rows = []
-    for idx, c in enumerate(candidates[:70], 1):
+    source_lookup = {}
+    allowed_urls = {text(c.get("url")) for c in candidates if text(c.get("url"))}
+    for idx, candidate in enumerate(candidates[:70], 1):
         rows.append(
-            f"ID: {idx}\nTITLE: {c.get('title')}\nSOURCE: {c.get('source')}\nURL: {c.get('url')}\n"
-            f"SOURCE TIER: {c.get('source_tier', 5)}\nEXCERPT: {c.get('excerpt','')[:1600]}"
+            f"ID: {idx}\n"
+            f"TITLE: {candidate.get('title')}\n"
+            f"SOURCE: {candidate.get('source')}\n"
+            f"URL: {candidate.get('url')}\n"
+            f"EXCERPT: {candidate.get('excerpt', '')[:1600]}"
         )
-    if not rows:
-        return None
+        source_lookup[text(candidate.get("url"))] = candidate
     system = f"""
 You are the sports calendar editor for @TheSportsNewsroom.
-Build a factual event plan for {mode} and exact target date {target.isoformat()}.
-Use only event information supported by the supplied candidate records.
-For NEXT, the event must actually be scheduled on the target date.
-For PAST, the event/result must actually belong to the target date.
-Choose events by reading the source title/excerpt. Do not invent event data.
-If the exact time, venue, stage or status is not supported, return an empty string.
-Every event must cite one or more source_ids from the supplied records.
-Prefer breadth across sports and include a compact set of notable events rather than padding.
-Return only JSON.
+Build a factual reference plan for {mode} and exact target date {target.isoformat()}.
+Only include real-world sports, not video games or esports.
+NEXT: an event must actually be scheduled on the target date.
+PAST: a result/event must actually belong to the target date.
+The source publication date is NOT the event date. Use evidence in the supplied title/excerpt for date, time, result and event identity.
+Never infer a fixture, result, venue, time or competition stage.
+A missing field must be an empty string, never a guess.
+Preserve breadth across sports. Return only JSON.
 """.strip()
     try:
-        result = providers.ai(system=system, user="\n\n".join(rows), schema_name="daily_sports_plan_v3", schema=DAILY_SCHEMA, max_tokens=3000)
+        result = providers.ai(
+            system=system,
+            user="\n\n".join(rows),
+            schema_name="daily_sports_plan_v3",
+            schema=DAILY_SCHEMA,
+            max_tokens=3600,
+            lane=lane,
+        )
     except Exception as exc:
         logger.warning("Daily plan failed: %s", exc)
         return None
-    by_id = {i + 1: c for i, c in enumerate(candidates[:70])}
+
     clean = []
-    target_iso = target.isoformat()
-    target_display = target.strftime("%d %B %Y").lower()
+    used = set()
     for event in result.get("events", []):
-        ids = [int(x) for x in event.get("source_ids", []) if int(x) in by_id]
-        if not ids or text(event.get("date")) != target_iso:
+        if text(event.get("date")) != target.isoformat():
             continue
-        source_text = " ".join(f"{by_id[i].get('title','')} {by_id[i].get('excerpt','')}" for i in ids).lower()
-        # Event dates are search-constrained, but still require some recognizable date signal when present.
-        date_signals = [target_display, target.strftime("%b %d, %Y").lower(), target.strftime("%B %d, %Y").lower(), target_iso]
-        if not any(sig in source_text for sig in date_signals):
-            # Relative phrasing is allowed only for current schedule searches, because the query itself is date-specific.
-            if mode == "PAST":
-                continue
-        # Only retain fields that have at least some source-text support.
-        event_name = text(event.get("event"))
-        source_joined = normalize_event(event_name)
-        if source_joined and not any(tok in source_text for tok in source_joined.split() if len(tok) >= 4):
+        urls = [
+            u for u in event.get("source_urls", [])
+            if text(u) in allowed_urls and not is_video_game_contaminated(u)
+        ]
+        if not urls:
             continue
-        event_clean = {**event, "source_ids": ids}
-        # Clear details that do not appear to be evidenced.
-        for field in ("time_utc", "competition", "stage", "location"):
-            value = text(event_clean.get(field))
-            if value and normalize_event(value) not in source_text:
-                # Keep some useful values when individual tokens occur.
-                tokens = [t for t in normalize_event(value).split() if len(t) >= 4]
-                if tokens and not all(tok in source_text for tok in tokens[:2]):
-                    event_clean[field] = ""
-        clean.append(event_clean)
+        key = f"{text(event.get('sport')).lower()}|{text(event.get('event')).lower()}|{target.isoformat()}"
+        if key in used:
+            continue
+        used.add(key)
+        evidence_packets = []
+        for url in urls[:4]:
+            candidate = source_lookup.get(url, {})
+            if text(candidate.get("excerpt")):
+                evidence_packets.append({
+                    "url": url,
+                    "tier": source_tier(url),
+                    "text": text(candidate.get("excerpt"))[:5000],
+                })
+        clean.append({**event, "source_urls": urls[:4], "evidence_packets": evidence_packets})
+    clean.sort(key=lambda x: int(x.get("importance", 0) or 0), reverse=True)
     if not clean:
         return None
-    # Deduplicate by sport+event and retain highest importance.
-    unique = {}
-    for e in clean:
-        key = (normalize_event(e.get("sport")), normalize_event(e.get("event")))
-        if key not in unique or int(e.get("importance", 0) or 0) > int(unique[key].get("importance", 0) or 0):
-            unique[key] = e
-    events = sorted(unique.values(), key=lambda x: int(x.get("importance", 0) or 0), reverse=True)
-    return {"mode": mode, "target_date": target_iso, "events": events[:50]}
+    return {"mode": mode, "target_date": target.isoformat(), "events": clean[:50]}
 
 
-def normalize_event(value: object) -> str:
-    import re
-    return re.sub(r"[^a-z0-9\s]", " ", text(value).lower())
-
-
-def build_daily_story(plan: dict) -> dict:
+def generate_daily_story(
+    providers: Providers,
+    plan: dict,
+    lane: str = "mandatory",
+    max_repairs: int = 1,
+) -> dict | None:
     mode = plan["mode"]
     target = plan["target_date"]
-    events = plan.get("events", [])
-    is_next = mode == "NEXT"
-    headline = f"Sports scheduled for {target}" if is_next else f"Notable sports events on {target}"
-    dek = (
-        "A dated guide to notable sporting events scheduled for this date, with exact times shown only when supported."
-        if is_next else
-        "A dated reference to notable sporting results and events from this calendar date."
+    events = plan["events"]
+    system = f"""
+You are the lead editor for a permanent sports calendar archive on @TheSportsNewsroom.
+Create the {mode} post for exact date {target}.
+NEXT explains notable sporting events scheduled for that exact date.
+PAST explains notable results/events that occurred on that exact date.
+Use exact date and UTC time when supplied. Never use today, tomorrow, yesterday, tonight or latest.
+Organize by sport. Start with the most notable events, then compactly list additional verified events.
+Use ONLY the event records supplied. Do not invent facts.
+Return only JSON.
+""".strip()
+    user = (
+        f"MODE: {mode}\nDATE: {target}\nEVENTS:\n"
+        + "\n".join(
+            f"- {event.get('sport')} | {event.get('event')} | {event.get('competition')} | "
+            f"{event.get('stage')} | {event.get('time_utc')} | {event.get('location')} | "
+            f"{event.get('status')} | {event.get('source_urls')}"
+            for event in events
+        )
     )
-    return {
-        "format": "daily_next" if is_next else "daily_past",
-        "headline": headline,
-        "dek": dek,
-        "body": "Events are grouped by sport and sorted by editorial importance. Details that could not be supported by the source records are omitted.",
-        "why_interesting": "A date-anchored sports reference remains understandable after the event itself has passed.",
-        "key_points": [f"{e.get('sport')}: {e.get('event')}" for e in events[:6]],
-        "date_anchor": target,
-        "sources": list(dict.fromkeys(
-            text(next((str(src),) for src in []), "") for _ in []
-        )),
-        "tags": ["sports", "calendar"],
-        "events": events,
+    try:
+        story = providers.ai(
+            system=system,
+            user=user,
+            schema_name="daily_sports_story_v3",
+            schema=POST_SCHEMA,
+            max_tokens=3200,
+            lane=lane,
+        )
+    except Exception as exc:
+        logger.warning("Daily story generation failed: %s", exc)
+        return None
+
+    source_urls = list(dict.fromkeys(u for event in events for u in event.get("source_urls", [])))[:6]
+    candidate = {
+        "source_urls": source_urls,
+        "excerpt": "",
+        "evidence_packets": [packet for event in events for packet in event.get("evidence_packets", [])][:8],
+        "game_or_sport": "Sports",
+        "subject": target,
+        "claim_or_event": f"Sports calendar for {target}",
     }
+    story.update({
+        "format": "daily_next" if mode == "NEXT" else "daily_past",
+        "game_or_sport": "Sports",
+        "subject": target,
+        "claim": f"Sports calendar for {target}",
+        "category": "sports_daily_next" if mode == "NEXT" else "sports_daily_past",
+        "angle": "calendar",
+        "date_anchor": target,
+        "sources": source_urls,
+        "key_points": [f"{event.get('sport')}: {event.get('event')}" for event in events[:6]],
+        "why_interesting": "A dated reference to notable sporting events.",
+        "candidate": candidate,
+        "source_text": "\n".join(packet.get("text", "") for packet in candidate["evidence_packets"]),
+    })
+
+    ok, reason = validate_story(story)
+    if not ok:
+        if not max_repairs:
+            return None
+        repaired = _repair_story(providers, story, candidate, reason, lane)
+        if not repaired:
+            return None
+        story = repaired
+        story.update({
+            "format": "daily_next" if mode == "NEXT" else "daily_past",
+            "category": "sports_daily_next" if mode == "NEXT" else "sports_daily_past",
+            "angle": "calendar",
+            "date_anchor": target,
+            "sources": source_urls,
+            "candidate": candidate,
+            "game_or_sport": "Sports",
+            "subject": target,
+            "claim": f"Sports calendar for {target}",
+        })
+    for attempt in range(1 + max_repairs):
+        numeric_ok, numeric_reason = deterministic_story_checks(story, story.get("source_text", ""))
+        if numeric_ok:
+            break
+        logger.info("Daily story grounding failed: %s", numeric_reason)
+        if attempt >= max_repairs:
+            return None
+        repaired = _repair_story(providers, story, candidate, numeric_reason, lane)
+        if not repaired:
+            return None
+        story = repaired
+        story.update({
+            "format": "daily_next" if mode == "NEXT" else "daily_past",
+            "category": "sports_daily_next" if mode == "NEXT" else "sports_daily_past",
+            "angle": "calendar",
+            "date_anchor": target,
+            "sources": source_urls,
+            "candidate": candidate,
+            "game_or_sport": "Sports",
+            "subject": target,
+            "claim": f"Sports calendar for {target}",
+            "source_text": "\n".join(packet.get("text", "") for packet in candidate["evidence_packets"]),
+        })
+    else:
+        return None
+    if is_video_game_contaminated(" ".join([text(story.get("headline")), text(story.get("body"))])):
+        return None
+    return story

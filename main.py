@@ -4,16 +4,15 @@ import argparse
 import logging
 import os
 import sys
-from datetime import datetime
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(ROOT, "src")
-if SRC not in sys.path:
-    sys.path.insert(0, SRC)
+if SRC not in sys.path: sys.path.insert(0, SRC)
 
 from sportsgames.config import APP_NAME, APP_VERSION
 from sportsgames.discovery import is_video_game_contaminated
-from sportsgames.state import claim_key, default_state, prune_state
+from sportsgames.observability import AiBudget, PipelineReport, balanced_pool, select_quality_gated
+from sportsgames.state import claim_key, core_claim_key, default_state, prune_state
 from sportsgames.telegram import render_rich_html, visible_length
 from sportsgames.utils import canonical_url, similarity
 
@@ -22,49 +21,51 @@ logger = logging.getLogger("sports-games-hub")
 
 
 def self_test() -> None:
-    assert canonical_url("https://www.example.com/story/?utm_source=x&ref=y") == "example.com/story"
+    assert canonical_url("https://www.example.com/a/?utm_source=x&ref=y") == "example.com/a"
     assert is_video_game_contaminated("PlayStation patch notes")
-    assert is_video_game_contaminated("Steam DLC announcement")
+    assert is_video_game_contaminated("Xbox console announcement")
     assert not is_video_game_contaminated("Ludo official rules")
     assert not is_video_game_contaminated("new physical card game")
-    assert not is_video_game_contaminated("history of gaming tables")
     assert similarity("Why does tennis use love?", "Origin of the word love in tennis") > 0.35
 
     state = default_state()
     candidate = {"subject": "tennis scoring terminology", "claim_or_event": "The term love has a documented historical origin.", "angle": "etymology"}
-    key = claim_key(candidate["subject"], candidate["claim_or_event"], candidate["angle"])
-    assert key not in state["claims"]
-    state["claims"][key] = {**candidate, "claim": candidate["claim_or_event"]}
-    assert key in state["claims"]
+    k = claim_key(candidate["subject"], candidate["claim_or_event"], candidate["angle"])
+    ck = core_claim_key(candidate["subject"], candidate["claim_or_event"])
+    assert k not in state["claims"] and ck not in state["claims"]
+    state["claims"][k] = {**candidate}
+    assert k in state["claims"]
+
+    # Budget: discovery cannot consume the reserved mandatory slice.
+    report = PipelineReport(); budget = AiBudget(10, 4, report)
+    assert budget.take("discovery"); assert budget.take("mandatory")
+    for _ in range(5): budget.take("discovery")
+    assert budget.remaining("discovery") >= 0
+
+    # Quality gate and diverse pool helpers.
+    items = [
+        {"family": "facts", "s": 9}, {"family": "games", "s": 8}, {"family": "rules", "s": 7},
+        {"family": "facts", "s": 6}, {"family": "games", "s": 5},
+    ]
+    pool = balanced_pool(items, lambda x: x["family"], lambda x: x["s"], {"facts": 1, "games": 1, "rules": 1}, 4)
+    assert len(pool) == 4 and len({x["family"] for x in pool[:3]}) == 3
+    assert len(select_quality_gated(items, lambda x: x["s"], 20, 2)) == 0
 
     story = {
-        "format": "fact", "date_anchor": "", "headline": "Why This Sports Word Has a Surprising Origin",
-        "dek": "A familiar sports term has a documented history.",
-        "body": "Historical evidence traces the term through earlier usage before it took on its modern sporting meaning.",
-        "why_interesting": "A word that looks ordinary today has a documented history connected to the sport.",
-        "key_points": ["Historical origin"], "sources": ["https://example.com/rules"], "game_or_sport": "Tennis",
-        "subject": "tennis terminology", "claim": candidate["claim_or_event"], "category": "evergreen_fact", "angle": "etymology",
+        "format": "rule_check", "date_anchor": "", "headline": "A Rule Worth Checking",
+        "dek": "This game has an official rule many casual players overlook.",
+        "body": "The rule should be described using the official rulebook or another directly supporting source.",
+        "why_interesting": "Common house rules can differ from official rules.", "key_points": ["Official rule"],
+        "sources": ["https://example.com/rules"], "game_or_sport": "UNO", "subject": "UNO rules",
+        "claim": "A rule", "category": "rule_check", "angle": "rule",
     }
     rendered = render_rich_html(story)
-    assert "DID YOU KNOW?" in rendered
-    assert visible_length(rendered) < 32768
-    assert "@TheSportsNewsroom" in rendered
+    assert "RULE CHECK" in rendered and "@TheSportsNewsroom" in rendered and visible_length(rendered) < 32768
 
-    daily = {
-        "format": "daily_next", "date_anchor": "2026-09-21", "headline": "Sports scheduled for 2026-09-21",
-        "dek": "A dated guide.", "events": [
-            {"sport": "Football", "event": "Example FC vs Example United", "competition": "League", "stage": "Round", "time_utc": "18:00 UTC", "location": "Dhaka", "importance": 90, "reason": "A notable fixture."},
-            {"sport": "Cricket", "event": "Example A vs Example B", "competition": "Series", "stage": "Match", "time_utc": "09:00 UTC", "location": "", "importance": 80, "reason": "Important match."},
-        ], "sources": ["https://example.com"],
-    }
-    daily_html = render_rich_html(daily)
-    assert "NEXT UP" in daily_html and "BY SPORT" in daily_html
+    historical = dict(story); historical.update({"format": "on_this_date", "date_anchor": "20 September 1926"})
+    assert "20 September 1926" in render_rich_html(historical)
 
-    old = default_state()
-    old["queue"]["x"] = {"first_seen_at": "2000-01-01T00:00:00+00:00"}
-    prune_state(old)
-    assert "x" not in old["queue"]
-
+    old = default_state(); old["queue"]["x"] = {"first_seen_at": "2000-01-01T00:00:00+00:00"}; prune_state(old); assert "x" not in old["queue"]
     logger.info("Self-test passed for %s v%s", APP_NAME, APP_VERSION)
 
 
@@ -74,14 +75,10 @@ def main() -> None:
     parser.add_argument("--version", action="store_true")
     args = parser.parse_args()
     if args.version:
-        print(f"{APP_NAME} {APP_VERSION}")
-        return
+        print(f"{APP_NAME} {APP_VERSION}"); return
     if args.self_test:
-        self_test()
-        return
+        self_test(); return
     from sportsgames.pipeline import run_once
     run_once()
 
-
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__": main()

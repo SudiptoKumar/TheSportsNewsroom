@@ -1,7 +1,8 @@
 __pycache__/
-*.pyc
-.pytest_cache/
+*.py[cod]
+*.tmp
 .env
 .venv/
-*.log
-/tmp/
+venv/
+.pytest_cache/
+.DS_Store

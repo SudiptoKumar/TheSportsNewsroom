@@ -16,18 +16,8 @@ CANDIDATE_SCHEMA = {
                 "source_urls": {"type": "array", "items": {"type": "string"}, "maxItems": 6},
                 "why_interesting": {"type": "string"},
                 "date_anchor": {"type": "string"},
-                "surprise": {"type": "integer", "minimum": 0, "maximum": 5},
-                "evergreen_fit": {"type": "integer", "minimum": 0, "maximum": 5},
-                "simplicity": {"type": "integer", "minimum": 0, "maximum": 5},
-                "curiosity": {"type": "integer", "minimum": 0, "maximum": 5},
-                "novelty_signal": {"type": "integer", "minimum": 0, "maximum": 5},
-                "usefulness": {"type": "integer", "minimum": 0, "maximum": 5},
             },
-            "required": [
-                "id", "kind", "category", "angle", "game_or_sport", "subject", "claim_or_event",
-                "source_urls", "why_interesting", "date_anchor", "surprise", "evergreen_fit",
-                "simplicity", "curiosity", "novelty_signal", "usefulness",
-            ],
+            "required": ["id", "kind", "category", "angle", "game_or_sport", "subject", "claim_or_event", "source_urls", "why_interesting", "date_anchor"],
             "additionalProperties": False,
         }},
     },
@@ -47,6 +37,15 @@ VERIFY_SCHEMA = {
     },
     "required": ["status", "confidence", "supported_claims", "unsupported_claims", "source_assessments", "conflicts", "reason"],
     "additionalProperties": False,
+}
+
+EDITORIAL_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "selected_ids": {"type": "array", "items": {"type": "integer"}, "maxItems": 12},
+        "editorial_note": {"type": "string"},
+    },
+    "required": ["selected_ids", "editorial_note"], "additionalProperties": False,
 }
 
 POST_SCHEMA = {
@@ -70,8 +69,6 @@ POST_SCHEMA = {
     "additionalProperties": False,
 }
 
-REPAIR_SCHEMA = POST_SCHEMA
-
 STORY_FACTCHECK_SCHEMA = {
     "type": "object",
     "properties": {
@@ -89,22 +86,13 @@ DAILY_SCHEMA = {
         "events": {"type": "array", "maxItems": 60, "items": {
             "type": "object",
             "properties": {
-                "source_ids": {"type": "array", "items": {"type": "integer"}, "minItems": 1, "maxItems": 3},
-                "sport": {"type": "string"},
-                "event": {"type": "string"},
-                "date": {"type": "string"},
-                "time_utc": {"type": "string"},
-                "competition": {"type": "string"},
-                "stage": {"type": "string"},
-                "location": {"type": "string"},
-                "status": {"type": "string"},
+                "sport": {"type": "string"}, "event": {"type": "string"}, "date": {"type": "string"},
+                "time_utc": {"type": "string"}, "competition": {"type": "string"}, "stage": {"type": "string"},
+                "location": {"type": "string"}, "status": {"type": "string"},
                 "importance": {"type": "integer", "minimum": 0, "maximum": 100},
-                "reason": {"type": "string"},
+                "reason": {"type": "string"}, "source_urls": {"type": "array", "items": {"type": "string"}, "maxItems": 5},
             },
-            "required": [
-                "source_ids", "sport", "event", "date", "time_utc", "competition", "stage",
-                "location", "status", "importance", "reason",
-            ],
+            "required": ["sport", "event", "date", "time_utc", "competition", "stage", "location", "status", "importance", "reason", "source_urls"],
             "additionalProperties": False,
         }},
     },

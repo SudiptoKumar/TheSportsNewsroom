@@ -2,41 +2,50 @@ from __future__ import annotations
 
 import logging
 import re
-from datetime import date, datetime, time as dtime, timedelta, timezone
+from collections import defaultdict
+from datetime import date
 from typing import Iterable
-from zoneinfo import ZoneInfo
 
-from .config import (
-    CONFIG, MAX_CANDIDATES, MAX_EXA_RESULTS, NEXT_SCHEDULE_LOOKBACK_DAYS,
-    PAST_RESULTS_PUBLISH_DAYS_AFTER, PAST_RESULTS_PUBLISH_DAYS_BEFORE, SEARCHES_PER_RUN,
-)
-from .providers import Providers, is_video_game_domain
+from .config import CONFIG, MAX_CANDIDATES, MAX_CLASSIFICATION_CANDIDATES, MAX_EXA_RESULTS, SEARCHES_PER_RUN
+from .providers import Providers, source_tier
 from .taxonomy import (
-    BOARD_GAMES, CARD_GAMES, EXPLICIT_VIDEO_GAME_TERMS, LEAD_ONLY_DOMAINS, MIND_GAMES, PARTY_GAMES,
-    SPORTS, SURPRISE_PATTERNS, TRADITIONAL_GAMES, VIDEO_GAME_QUERY_PATTERNS, VIDEO_GAME_DOMAINS,
+    BOARD_GAMES,
+    CARD_GAMES,
+    MIND_GAMES,
+    PARTY_GAMES,
+    SPORTS,
+    SURPRISE_PATTERNS,
+    TRADITIONAL_GAMES,
+    VIDEO_GAME_QUERY_PATTERNS,
 )
-from .utils import canonical_url, domain_of, iso, normalize_text, parse_dt, text
+from .utils import canonical_url, iso, normalize_text, parse_dt, sha, text
 
 logger = logging.getLogger("sports-games-hub.discovery")
 
 
 def is_video_game_contaminated(value: object) -> bool:
     s = text(value).lower()
-    # Domain-level block is unambiguous.
-    for domain in VIDEO_GAME_DOMAINS:
-        if domain in s:
-            return True
-    for term in EXPLICIT_VIDEO_GAME_TERMS:
-        if re.search(r"\b" + re.escape(term) + r"\b", s):
-            return True
-    # Ambiguous gaming-industry language only counts when paired with a strong video-game signal.
-    if re.search(r"\b(game studio|game developer|game publisher|gaming industry)\b", s):
-        return any(t in s for t in ("console", "playstation", "xbox", "steam", "pc", "mobile", "esports", "video game"))
-    return False
+    return any(re.search(r"\b" + re.escape(term) + r"\b", s) for term in VIDEO_GAME_QUERY_PATTERNS)
+
+
+def _prelim_score(item: dict) -> float:
+    title = normalize_text(item.get("title"))
+    excerpt = normalize_text(item.get("excerpt"))
+    score = float({1: 6, 2: 5, 3: 3, 4: 0}.get(source_tier(item.get("url", "")), 3))
+    curiosity_terms = ("why", "origin", "first", "only", "oldest", "strange", "unusual", "rule", "history", "forgotten")
+    if any(term in title for term in curiosity_terms):
+        score += 5
+    if any(term in title + " " + excerpt for term in ("new game", "new board game", "new card game", "new sport")):
+        score += 4
+    if len(excerpt) >= 200:
+        score += 2
+    if is_video_game_contaminated(item.get("title", "") + " " + item.get("excerpt", "")):
+        score -= 50
+    return score
 
 
 def _dedupe(items: Iterable[dict]) -> list[dict]:
-    seen = set()
+    seen_urls: set[str] = set()
     out = []
     for item in items:
         url = text(item.get("url"))
@@ -44,149 +53,157 @@ def _dedupe(items: Iterable[dict]) -> list[dict]:
         if not url or not title:
             continue
         key = canonical_url(url)
-        if not key or key in seen:
+        if not key or key in seen_urls:
             continue
         combined = " ".join([title, text(item.get("excerpt")), url])
-        if is_video_game_contaminated(combined) or is_video_game_domain(url):
+        if is_video_game_contaminated(combined):
             continue
-        seen.add(key)
+        seen_urls.add(key)
         dt = parse_dt(item.get("published_date"))
+        candidate_id = sha(f"{key}|{normalize_text(title)}", 16)
         out.append({
             **item,
+            "candidate_id": candidate_id,
             "url": url,
             "canonical": key,
             "title": re.sub(r"\s+", " ", title).strip(),
             "excerpt": re.sub(r"\s+", " ", text(item.get("excerpt"))).strip(),
             "published_date": iso(dt),
-            "source_tier": int(item.get("source_tier", 5) or 5),
+            "query_family": text(item.get("query_family")) or "other",
+            "prelim_score": _prelim_score(item),
         })
     return out
 
 
-def day_window(target: date, tz: ZoneInfo = CONFIG.tz) -> tuple[datetime, datetime]:
-    start = datetime.combine(target, dtime.min, tzinfo=tz)
-    return start, start + timedelta(days=1) - timedelta(seconds=1)
-
-
 def discover_next_sports(providers: Providers, target: date) -> list[dict]:
-    """Find events scheduled for target. Publication date filters are deliberately not tied to event date."""
     label = target.strftime("%d %B %Y")
-    pub_start = datetime.now(timezone.utc) - timedelta(days=NEXT_SCHEDULE_LOOKBACK_DAYS)
-    pub_end = datetime.now(timezone.utc)
     queries = [
-        f'"{label}" sports fixtures schedule major events finals championships',
-        f'"{label}" sports events scheduled official',
-        f'"{label}" football fixtures matches schedule',
-        f'"{label}" cricket fixtures schedule matches',
-        f'"{label}" tennis matches tournament schedule',
-        f'"{label}" badminton tournament schedule matches',
-        f'"{label}" basketball games schedule',
-        f'"{label}" formula 1 motorsport race schedule',
-        f'"{label}" athletics swimming cycling rowing sports events',
-        f'"{label}" rugby hockey volleyball handball sports schedule',
-        f'"{label}" boxing mma judo karate events',
-        f'"{label}" snooker darts squash bowling events',
-        f'"{label}" kabaddi kho kho sepak takraw events',
+        ("sports_now", f"sports events {label} schedule official fixtures tournaments championships"),
+        ("sports_now", f"{label} football fixtures schedule matches"),
+        ("sports_now", f"{label} cricket fixtures schedule matches"),
+        ("sports_now", f"{label} tennis badminton basketball schedule matches"),
+        ("sports_now", f"{label} formula 1 motogp motorsport race schedule"),
+        ("sports_now", f"{label} athletics swimming cycling rowing sports events"),
+        ("sports_now", f"{label} rugby hockey volleyball handball events"),
+        ("sports_now", f"{label} snooker darts squash bowling kabaddi sepak takraw events"),
     ]
-    return _dedupe(_search_many(providers, queries, start=pub_start, end=pub_end, num=MAX_EXA_RESULTS))
+    rows = []
+    for family, query in queries:
+        rows.extend(providers.exa_search(query, num=MAX_EXA_RESULTS, family=family))
+    return _dedupe(rows)[:MAX_CANDIDATES]
 
 
 def discover_past_sports(providers: Providers, target: date) -> list[dict]:
-    """Find results/events for target; reports can be published before or after the event date."""
     label = target.strftime("%d %B %Y")
-    pub_start = datetime.combine(target - timedelta(days=PAST_RESULTS_PUBLISH_DAYS_BEFORE), dtime.min, tzinfo=timezone.utc)
-    pub_end = datetime.combine(target + timedelta(days=PAST_RESULTS_PUBLISH_DAYS_AFTER), dtime.max, tzinfo=timezone.utc)
     queries = [
-        f'"{label}" sports results major results championships finals records',
-        f'"{label}" football results',
-        f'"{label}" cricket results scorecard',
-        f'"{label}" tennis results finals',
-        f'"{label}" badminton results finals',
-        f'"{label}" basketball results',
-        f'"{label}" formula 1 motorsport results',
-        f'"{label}" athletics swimming cycling records results',
-        f'"{label}" rugby hockey volleyball handball results',
-        f'"{label}" boxing mma judo karate results',
-        f'"{label}" snooker darts squash bowling results',
-        f'"{label}" kabaddi kho kho sepak takraw results',
+        ("sports_past", f"sports results {label} major results championships finals records"),
+        ("sports_past", f"{label} football results match reports"),
+        ("sports_past", f"{label} cricket results scorecard match report"),
+        ("sports_past", f"{label} tennis badminton basketball results finals"),
+        ("sports_past", f"{label} formula 1 motorsport results"),
+        ("sports_past", f"{label} athletics swimming cycling records results"),
+        ("sports_past", f"{label} rugby hockey volleyball handball results"),
+        ("sports_past", f"{label} snooker darts squash bowling kabaddi results"),
     ]
-    return _dedupe(_search_many(providers, queries, start=pub_start, end=pub_end, num=MAX_EXA_RESULTS))
+    rows = []
+    for family, query in queries:
+        rows.extend(providers.exa_search(query, num=MAX_EXA_RESULTS, family=family))
+    return _dedupe(rows)[:MAX_CANDIDATES]
 
 
-def discover_historical_date(providers: Providers, target: date) -> list[dict]:
-    out = []
-    for offset in (25, 50, 75, 100, 125):
-        year = target.year - offset
-        try:
-            historical = target.replace(year=year)
-        except ValueError:
-            historical = target.replace(year=year, day=28)
-        query = f'"{historical.strftime("%d %B %Y")}" sports games history on this date record unusual first last'
-        out.extend(_search_many(providers, [query], num=MAX_EXA_RESULTS))
-    out.extend(_search_many(providers, [
-        f'"{target.strftime("%d %B")}" sports history on this date games Olympics records',
-        f'"{target.strftime("%d %B")}" board game history card game history traditional games',
-    ], num=10))
-    return _dedupe(out)[:MAX_CANDIDATES]
-
-
-def build_evergreen_queries() -> list[tuple[str, str]]:
-    queries: list[tuple[str, str]] = []
-    game_pools = [
-        ("board", BOARD_GAMES), ("card", CARD_GAMES), ("party", PARTY_GAMES),
-        ("traditional", TRADITIONAL_GAMES), ("mind", MIND_GAMES), ("sport", SPORTS),
+def discover_historical_date(providers: Providers, target: date, day_index: int = 0) -> list[dict]:
+    years = [target.year - 100, target.year - 50, target.year - 25, target.year - 75, target.year - 125]
+    rotating = years[day_index % len(years)]
+    exact_date = target.strftime("%d %B")
+    queries = [
+        ("on_this_date", f'"{exact_date}" sports history on this date records championships unusual events'),
+        ("century_ago", f'"{target.day} {target.strftime("%B")} {target.year - 100}" sports history games'),
+        ("historical", f'"{target.day} {target.strftime("%B")} {rotating}" sports games history milestone record'),
     ]
-    for bucket, pool in game_pools:
-        for item in pool:
-            queries.append((bucket, f'{item} "official rules" history origin unusual fact'))
-            queries.append((bucket, f'{item} why called origin oldest first rule history'))
+    rows = []
+    for family, query in queries:
+        # Important: do not use Exa publication-date filters here. Modern pages can describe 100-year-old events.
+        rows.extend(providers.exa_search(query, num=min(8, MAX_EXA_RESULTS), family=family))
+    return _dedupe(rows)[:25]
+
+
+def _game_terms() -> list[tuple[str, str]]:
+    result: list[tuple[str, str]] = []
+    for bucket, pool in [
+        ("games", BOARD_GAMES),
+        ("games", CARD_GAMES),
+        ("games", PARTY_GAMES),
+        ("games", TRADITIONAL_GAMES),
+        ("games", MIND_GAMES),
+        ("sports", SPORTS),
+    ]:
+        for name in pool:
+            result.append((bucket, name))
+    return result
+
+
+def build_evergreen_queries(day_index: int) -> list[tuple[str, str]]:
+    pools: dict[str, list[str]] = defaultdict(list)
     for pattern in SURPRISE_PATTERNS:
-        queries.append(("surprise", f'"{pattern}" sports games board card traditional'))
-    queries.extend([
-        ("new_board_game", "new board game 2026 announced physical tabletop"),
-        ("new_card_game", "new card game 2026 announced physical tabletop"),
-        ("new_tabletop_game", "new tabletop game 2026 physical game announced"),
-        ("new_sport", "new sport invented 2025 2026 physical sport rules competition"),
-        ("forgotten_game", "forgotten traditional games around the world history"),
-        ("forgotten_sport", "forgotten sports no longer popular history"),
-        ("rule_change", "sports rule change 2026 official rules"),
-        ("game_rule", "board card game rule clarification official rulebook"),
+        pools["facts"].append(f'"{pattern}" sports games physical')
+    for bucket, name in _game_terms():
+        pools[bucket].append(f"{name} official rules history origin unusual fact")
+        pools[bucket].append(f"{name} why called origin first oldest rule history")
+    pools["games_new"].extend([
+        "new board game 2026 announced physical tabletop",
+        "new card game 2026 announced physical tabletop",
+        "new tabletop game 2026 announced physical game",
+        "new party game 2026 announced physical game",
+        "new traditional game discovered history",
+        "new physical sport invented 2025 2026 rules competition",
     ])
-    return queries
+    pools["rules"].extend([
+        "official board game rulebook clarification common mistake",
+        "official card game rule clarification house rule",
+        "sports rule change 2026 official rules",
+        "unusual sports rules explained official",
+        "historical sports rule changed origin",
+    ])
+    pools["history"].extend([
+        "sports history forgotten event on this date",
+        "board game history oldest known physical game",
+        "card game history origin traditional game",
+        "forgotten sport history unusual competition",
+        "sports equipment history why designed this way",
+    ])
+    pools["discovery"].extend([
+        "unusual traditional games around the world history rules",
+        "obscure physical sports around the world rules",
+        "games people may not know traditional regional",
+        "strange board games history mechanics",
+        "interesting card games around the world history",
+    ])
+
+    weights = [
+        ("games", 4),
+        ("facts", 4),
+        ("rules", 3),
+        ("history", 3),
+        ("games_new", 2),
+        ("discovery", 2),
+        ("sports", 2),
+    ]
+    selected: list[tuple[str, str]] = []
+    for family, quota in weights:
+        values = pools[family]
+        if not values:
+            continue
+        start = (day_index + len(family) * 17) % len(values)
+        take = min(quota, len(values))
+        for i in range(take):
+            selected.append((family, values[(start + i * 3) % len(values)]))
+    return selected[:SEARCHES_PER_RUN]
 
 
 def discover_evergreen(providers: Providers, day_index: int) -> list[dict]:
-    queries = build_evergreen_queries()
-    if not queries:
-        return []
-    # Walk through the complete query list over time. The old stride-based selector could revisit
-    # a small cycle repeatedly because gcd(len, stride) was greater than 1.
-    count = min(SEARCHES_PER_RUN, len(queries))
-    start = (day_index * count) % len(queries)
-    selected = [queries[(start + i) % len(queries)] for i in range(count)]
-    out = []
-    for bucket, query in selected:
-        rows = providers.exa_search(query, num=5)
-        for row in rows:
-            row["query_bucket"] = bucket
-        out.extend(rows)
-    return _dedupe(out)[:MAX_CANDIDATES]
-
-
-def candidate_source_records(candidate: dict) -> list[dict]:
-    records = candidate.get("source_records")
-    if isinstance(records, list) and records:
-        return records
-    return [{
-        "url": candidate.get("url", ""),
-        "title": candidate.get("title", ""),
-        "excerpt": candidate.get("excerpt", ""),
-        "source_tier": candidate.get("source_tier", 5),
-    }]
-
-
-def _search_many(providers: Providers, queries: list[str], *, start=None, end=None, num=8) -> list[dict]:
-    out: list[dict] = []
-    for query in queries:
-        out.extend(providers.exa_search(query, start=start, end=end, num=num))
-    return out
+    rows = []
+    for family, query in build_evergreen_queries(day_index):
+        rows.extend(providers.exa_search(query, num=5, family=family))
+    deduped = _dedupe(rows)
+    deduped.sort(key=lambda item: (item.get("prelim_score", 0), item.get("published_date", "")), reverse=True)
+    return deduped[:MAX_CANDIDATES]

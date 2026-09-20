@@ -1,81 +1,16 @@
 {
-  "angle_history": [
-    {
-      "angle": "calendar",
-      "at": "2026-09-20T17:47:54.404950+00:00"
-    }
-  ],
-  "category_history": [
-    {
-      "at": "2026-09-20T17:47:54.404954+00:00",
-      "category": "sports_daily_next"
-    }
-  ],
-  "claims": {
-    "3aa50206d3a3ca3381d6b349f2de": {
-      "angle": "calendar",
-      "category": "sports_daily_next",
-      "claim": "Sports calendar for 2026-09-21",
-      "published_at": "2026-09-20T17:47:54.404856+00:00",
-      "sources": [
-        "https://www.espn.com.sg/mlb/preview/_/gameId/401817017",
-        "https://www.nationpress.com/sports/upl-2026-starts-sep-21-womens-icons-named",
-        "https://radarbogor.jawapos.com/olahraga/2609190079/final-dbl-bogor-digelar-21-september-2026-pemenang-lanjut-ke-championship-jawa-barat",
-        "https://maltasport.mt/sailing/the-royal-malta-yacht-club-announced-that-the-dinghy-national-championships-supported-by-finductive-will-take-place-from-friday-19-to-sunday-21-september-2026-at-the-ramla-bay-resort/",
-        "https://www.f1-onlineliga.com/forum/thread/44681-aserbaijan-testrennen-rcs-alle-k%C3%B6nnen-teilnehmen-realistische-bolidenleistung-21/"
-      ],
-      "subject": "2026-09-21"
-    }
-  },
+  "schema_version": 2,
   "created_at": "",
-  "daily_flags": {
-    "next:2026-09-21": "2026-09-20T23:47:54.404966+06:00"
-  },
-  "entities": {
-    "sports": {
-      "angles": {
-        "calendar": 1
-      },
-      "categories": {
-        "sports_daily_next": 1
-      },
-      "last_posted_at": "2026-09-20T17:47:54.404893+00:00",
-      "name": "Sports",
-      "post_count": 1
-    }
-  },
+  "last_run_at": "",
+  "posts": [],
+  "claims": {},
+  "entities": {},
   "events": {},
   "historical_events": {},
-  "last_run_at": "2026-09-20T17:46:46.136067+00:00",
-  "posts": [
-    {
-      "angle": "calendar",
-      "canonical_url": "",
-      "category": "sports_daily_next",
-      "claim": "Sports calendar for 2026-09-21",
-      "date_anchor": "2026-09-21",
-      "format": "daily_next",
-      "game_or_sport": "Sports",
-      "headline": "Sports scheduled for 2026-09-21",
-      "message_id": 4,
-      "published_at": "2026-09-20T17:47:54.404940+00:00",
-      "source_urls": [
-        "https://www.espn.com.sg/mlb/preview/_/gameId/401817017",
-        "https://www.nationpress.com/sports/upl-2026-starts-sep-21-womens-icons-named",
-        "https://radarbogor.jawapos.com/olahraga/2609190079/final-dbl-bogor-digelar-21-september-2026-pemenang-lanjut-ke-championship-jawa-barat",
-        "https://maltasport.mt/sailing/the-royal-malta-yacht-club-announced-that-the-dinghy-national-championships-supported-by-finductive-will-take-place-from-friday-19-to-sunday-21-september-2026-at-the-ramla-bay-resort/",
-        "https://www.f1-onlineliga.com/forum/thread/44681-aserbaijan-testrennen-rcs-alle-k%C3%B6nnen-teilnehmen-realistische-bolidenleistung-21/"
-      ],
-      "subject": "2026-09-21"
-    }
-  ],
-  "queue": {},
-  "schema_version": 3,
+  "daily_flags": {},
+  "angle_history": [],
+  "category_history": [],
+  "subject_history": [],
   "source_health": {},
-  "subject_history": [
-    {
-      "at": "2026-09-20T17:47:54.404958+00:00",
-      "subject": "2026-09-21"
-    }
-  ]
+  "queue": {}
 }

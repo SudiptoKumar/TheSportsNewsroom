@@ -6,21 +6,43 @@ import time
 from datetime import datetime, timedelta
 
 from .config import (
-    APP_NAME, APP_VERSION, DAY_IN_SPORTS_AFTER_HOUR, MAX_CANDIDATES, NEXT_UP_AFTER_HOUR,
-    POST_DELAY_SECONDS, TELEGRAM_CHANNEL,
+    AI_MAX_CALLS_PER_RUN,
+    AI_MANDATORY_CALLS_PER_DAILY,
+    AI_MAX_REPAIR_PER_STORY,
+    APP_NAME,
+    APP_VERSION,
+    DAY_IN_SPORTS_AFTER_HOUR,
+    MAX_CANDIDATES,
+    MAX_DISCOVERY_POSTS_PER_DAY,
+    NEXT_UP_AFTER_HOUR,
+    POST_DELAY_SECONDS,
+    TELEGRAM_CHANNEL,
 )
-from .content import build_daily_plan, build_daily_story, generate_story
-from .discovery import discover_evergreen, discover_historical_date, discover_next_sports, discover_past_sports, is_video_game_contaminated
-from .editorial import classify_candidates, preliminary_score, select_candidates
+from .content import build_daily_plan, generate_daily_story, generate_story
+from .discovery import discover_evergreen, discover_historical_date, discover_next_sports, discover_past_sports
+from .editorial import classify_candidates, select_candidates, verify_shortlist
 from .media import create_visual
-from .providers import Providers, fetch_rss
+from .observability import AiBudget, PipelineReport
+from .providers import Providers
 from .state import (
-    CONFIG, claim_key, daily_done, entity_key, load_state, mark_daily, prune_state, remember_published_url, save_state,
+    CONFIG,
+    claim_key,
+    core_claim_key,
+    daily_done,
+    discovery_posts_today,
+    entity_key,
+    load_state,
+    mark_daily,
+    prune_state,
+    record_candidate,
+    record_run_summary,
+    remember_published_url,
+    save_state,
+    update_source_health,
 )
-from .telegram import fit_rich_html, plain_caption, send_story
-from .taxonomy import RSS_FEEDS
-from .utils import iso, normalize_text, text
-from .verification import build_evidence_packet, is_claim_duplicate, verify_candidate
+from .telegram import fit_rich_html, send_photo_fallback, send_story
+from .utils import iso, text
+from .verification import verify_story_against_evidence
 
 logger = logging.getLogger("sports-games-hub.pipeline")
 
@@ -29,179 +51,221 @@ def _record_post(state: dict, story: dict, message_id: object = None) -> None:
     subject = text(story.get("subject"))
     claim = text(story.get("claim"))
     angle = text(story.get("angle"))
-    key = claim_key(subject, claim, angle)
-    state.setdefault("claims", {})[key] = {
-        "subject": subject, "claim": claim, "angle": angle, "category": text(story.get("category")),
-        "published_at": iso(datetime.now(CONFIG.tz)), "sources": list(story.get("sources", []))[:6],
+    published_at = iso(datetime.now(CONFIG.tz))
+    entry = {
+        "subject": subject,
+        "claim": claim,
+        "angle": angle,
+        "category": text(story.get("category")),
+        "published_at": published_at,
+        "sources": list(story.get("sources", []))[:6],
     }
+    state.setdefault("claims", {})[claim_key(subject, claim, angle)] = entry
+    state.setdefault("claims", {})[core_claim_key(subject, claim)] = entry
+
     entity = entity_key(text(story.get("game_or_sport")))
     if entity:
         info = state.setdefault("entities", {}).setdefault(entity, {
-            "name": text(story.get("game_or_sport")), "post_count": 0, "categories": {}, "angles": {}, "last_posted_at": "",
+            "name": text(story.get("game_or_sport")),
+            "post_count": 0,
+            "categories": {},
+            "angles": {},
+            "last_posted_at": "",
         })
         info["post_count"] += 1
-        category = text(story.get("category")); angle = text(story.get("angle"))
+        category = text(story.get("category"))
         info["categories"][category] = info["categories"].get(category, 0) + 1
         info["angles"][angle] = info["angles"].get(angle, 0) + 1
-        info["last_posted_at"] = iso(datetime.now(CONFIG.tz))
+        info["last_posted_at"] = published_at
+
+    candidate = story.get("candidate", {}) or {}
     state.setdefault("posts", []).append({
-        "published_at": iso(datetime.now(CONFIG.tz)), "message_id": message_id, "format": text(story.get("format")),
-        "category": text(story.get("category")), "angle": angle, "game_or_sport": text(story.get("game_or_sport")),
-        "subject": subject, "claim": claim, "headline": text(story.get("headline")),
-        "date_anchor": text(story.get("date_anchor")), "source_urls": list(story.get("sources", []))[:6],
-        "canonical_url": text((story.get("candidate") or {}).get("canonical") or (story.get("candidate") or {}).get("url")),
+        "published_at": published_at,
+        "message_id": message_id,
+        "format": text(story.get("format")),
+        "category": text(story.get("category")),
+        "angle": angle,
+        "game_or_sport": text(story.get("game_or_sport")),
+        "subject": subject,
+        "claim": claim,
+        "headline": text(story.get("headline")),
+        "date_anchor": text(story.get("date_anchor")),
+        "source_urls": list(story.get("sources", []))[:6],
+        "canonical_url": text(candidate.get("canonical") or candidate.get("url")),
     })
-    state.setdefault("angle_history", []).append({"angle": angle, "at": iso(datetime.now(CONFIG.tz))})
-    state.setdefault("category_history", []).append({"category": text(story.get("category")), "at": iso(datetime.now(CONFIG.tz))})
-    state.setdefault("subject_history", []).append({"subject": subject, "at": iso(datetime.now(CONFIG.tz))})
+    state.setdefault("angle_history", []).append({"angle": angle, "at": published_at})
+    state.setdefault("category_history", []).append({"category": text(story.get("category")), "at": published_at})
+    state.setdefault("subject_history", []).append({"subject": subject, "at": published_at})
 
 
-def _publish(state: dict, story: dict, index: int) -> bool:
-    rich = fit_rich_html(story)
-    image = create_visual(story, index)
-    result = send_story(image, rich)
-    try:
-        os.remove(image)
-    except OSError:
-        pass
+def _publish(state: dict, story: dict, index: int, report: PipelineReport) -> bool:
+    with report.stage("publish"):
+        rich = fit_rich_html(story)
+        image = create_visual(story, index)
+        try:
+            result = send_story(image, rich)
+            if not result.get("ok"):
+                logger.warning("sendRichMessage failed; trying sendPhoto fallback: %s", result.get("description"))
+                result = send_photo_fallback(image, rich)
+        finally:
+            try:
+                os.remove(image)
+            except OSError:
+                pass
+
+    lane = text(story.get("format"))
     if not result.get("ok"):
+        report.publish(lane, text(story.get("headline")), False)
         logger.error("Telegram publish failed: %s", result.get("description"))
         return False
+
     message = result.get("result", {})
     message_id = message.get("message_id") if isinstance(message, dict) else None
-    candidate = story.get("candidate", {}) or {}
-    if candidate.get("url"):
-        remember_published_url(candidate["url"])
+    for url in story.get("sources", []):
+        remember_published_url(url)
     _record_post(state, story, message_id)
+    report.publish(lane, text(story.get("headline")), True)
     return True
 
 
-def _daily_story(providers: Providers, state: dict, kind: str, target) -> dict | None:
+def _daily_story(
+    providers: Providers,
+    state: dict,
+    kind: str,
+    target,
+    report: PipelineReport,
+) -> dict | None:
     flag_kind = "next" if kind == "next" else "past"
     if daily_done(state, flag_kind, target.isoformat()):
+        report.count(f"daily.{flag_kind}_already_done")
         return None
-    candidates = discover_next_sports(providers, target) if kind == "next" else discover_past_sports(providers, target)
+
+    with report.stage(f"daily_{flag_kind}_discovery"):
+        candidates = discover_next_sports(providers, target) if kind == "next" else discover_past_sports(providers, target)
+    report.count(f"daily.{flag_kind}_candidates", len(candidates))
     if not candidates:
+        report.reject("daily", f"{flag_kind}_no_candidates")
         return None
-    plan = build_daily_plan(providers, candidates, "NEXT" if kind == "next" else "PAST", target)
+
+    with report.stage(f"daily_{flag_kind}_plan"):
+        plan = build_daily_plan(providers, candidates, "NEXT" if kind == "next" else "PAST", target)
     if not plan:
+        report.reject("daily", f"{flag_kind}_plan_failed")
         return None
-    story = build_daily_story(plan)
-    source_urls = []
-    source_records = []
-    for event in plan.get("events", []):
-        for source_id in event.get("source_ids", []):
-            if 1 <= int(source_id) <= len(candidates):
-                c = candidates[int(source_id) - 1]
-                if c.get("url"):
-                    source_urls.append(c["url"])
-                    source_records.append(c)
-    story["sources"] = list(dict.fromkeys(source_urls))[:8]
-    story["candidate"] = {"source_urls": story["sources"], "source_records": source_records, "excerpt": ""}
-    story["source_text"] = "\n".join(text(x.get("excerpt")) for x in source_records)
-    story["game_or_sport"] = "Sports"
-    story["subject"] = plan["target_date"]
-    story["claim"] = f"Sports calendar for {plan['target_date']}"
-    story["category"] = "sports_daily_next" if kind == "next" else "sports_daily_past"
-    story["angle"] = "calendar"
+    report.count(f"daily.{flag_kind}_events", len(plan["events"]))
+
+    with report.stage(f"daily_{flag_kind}_generation"):
+        story = generate_daily_story(providers, plan)
+    if not story:
+        report.reject("daily", f"{flag_kind}_story_failed")
+        return None
+
+    with report.stage(f"daily_{flag_kind}_grounding"):
+        if not verify_story_against_evidence(providers, story, story.get("candidate", {}), lane="mandatory"):
+            report.reject("daily", f"{flag_kind}_grounding_failed", text(story.get("headline")))
+            return None
     return story
 
 
-def _evergreen_candidates(providers: Providers, state: dict) -> list[dict]:
+def _evergreen_candidates(providers: Providers, state: dict, report: PipelineReport) -> list[dict]:
     now = datetime.now(CONFIG.tz)
     day_index = now.timetuple().tm_yday + now.year * 13
-    raw = discover_evergreen(providers, day_index)
-    raw += discover_historical_date(providers, now.date())[:20]
-    # RSS improves current sports discovery without being mandatory.
-    raw += fetch_rss(RSS_FEEDS, limit_per_feed=15)[:60]
+    with report.stage("discovery_evergreen"):
+        raw = discover_evergreen(providers, day_index)
+    with report.stage("discovery_history"):
+        raw.extend(discover_historical_date(providers, now.date(), day_index)[:25])
+    report.count("candidate.raw", len(raw))
     if not raw:
         return []
 
-    filtered = []
-    for item in raw[:MAX_CANDIDATES]:
-        combined = " ".join(map(text, [item.get("title"), item.get("excerpt"), item.get("url")]))
-        if not text(item.get("excerpt")):
-            continue
-        if is_video_game_contaminated(combined):
-            continue
-        if any(text(item.get("url")) == text(p.get("canonical_url")) for p in state.get("posts", [])[-200:]):
-            continue
-        filtered.append(item)
-    if not filtered:
-        return []
+    raw = sorted(raw, key=lambda x: float(x.get("prelim_score", 0)), reverse=True)[:MAX_CANDIDATES]
+    report.count("candidate.pre_filtered", len(raw))
 
-    classified = classify_candidates(providers, filtered, mode="evergreen + discovery + history")
-    # Cheap ranking first. Only the strongest candidates consume verification AI calls.
-    classified.sort(key=lambda c: preliminary_score(c, state), reverse=True)
-    verify_pool = classified[:10]
-    verified = []
-    for candidate in verify_pool:
-        if is_claim_duplicate(state, candidate):
-            continue
-        category = text(candidate.get("category"))
-        if category in {"on_this_date", "century_ago"} and not text(candidate.get("date_anchor")):
-            continue
-        ok, verification = verify_candidate(providers, candidate)
-        candidate["verification"] = verification
-        if not ok:
-            continue
-        evidence_text, evidence_records = build_evidence_packet(candidate, max_sources=4)
-        if not evidence_text:
-            continue
-        candidate["evidence_text"] = evidence_text
-        candidate["evidence_records"] = evidence_records
-        verified.append(candidate)
+    classified = classify_candidates(providers, raw, mode="evergreen + discovery + history", report=report)
+    report.count("candidate.classified", len(classified))
+    verified = verify_shortlist(providers, classified, state, max_items=3, report=report)
+    report.count("verification.attempted", min(3, len(classified)))
+    report.count("verification.verified", len(verified))
     return verified
 
 
 def run_once() -> int:
-    providers = Providers.from_env(require=True)
+    report = PipelineReport()
     state = load_state()
     prune_state(state)
-    state["last_run_at"] = iso(datetime.now(CONFIG.tz))
-    logger.info("%s v%s | channel=%s", APP_NAME, APP_VERSION, TELEGRAM_CHANNEL)
-
     current = datetime.now(CONFIG.tz)
-    stories: list[dict] = []
+    due_lanes = int(current.hour >= NEXT_UP_AFTER_HOUR) + int(current.hour >= DAY_IN_SPORTS_AFTER_HOUR)
+    reserved = min(AI_MAX_CALLS_PER_RUN, due_lanes * max(0, AI_MANDATORY_CALLS_PER_DAILY))
+    budget = AiBudget(AI_MAX_CALLS_PER_RUN, reserved, report)
+    published = 0
+    try:
+        providers = Providers.from_env(require=True, report=report, ai_budget=budget)
+        state["last_run_at"] = iso(current)
+        logger.info(
+            "%s v%s | channel=%s | mandatory_reserve=%d",
+            APP_NAME, APP_VERSION, TELEGRAM_CHANNEL, reserved,
+        )
+        stories: list[dict] = []
 
-    if current.hour >= NEXT_UP_AFTER_HOUR:
-        target = current.date() + timedelta(days=1)
-        story = _daily_story(providers, state, "next", target)
-        if story:
-            stories.append(story)
-
-    if current.hour >= DAY_IN_SPORTS_AFTER_HOUR:
-        target = current.date() - timedelta(days=1)
-        story = _daily_story(providers, state, "past", target)
-        if story:
-            stories.append(story)
-
-    # Discovery is independent and capped separately.
-    from .state import discovery_posts_today
-    if discovery_posts_today(state) < int(os.getenv("MAX_DISCOVERY_POSTS_PER_DAY", "4")):
-        try:
-            raw_candidates = _evergreen_candidates(providers, state)
-        except Exception as exc:
-            logger.warning("Evergreen pipeline failed: %s", exc)
-            raw_candidates = []
-        selected = select_candidates(raw_candidates, state)
-        for candidate in selected:
-            story = generate_story(providers, candidate)
+        # Mandatory lane first. Its AI reserve cannot be consumed by discovery.
+        if current.hour >= NEXT_UP_AFTER_HOUR:
+            report.count("daily.next_due")
+            target = current.date() + timedelta(days=1)
+            story = _daily_story(providers, state, "next", target, report)
+            if story:
+                stories.append(story)
+        if current.hour >= DAY_IN_SPORTS_AFTER_HOUR:
+            report.count("daily.past_due")
+            target = current.date() - timedelta(days=1)
+            story = _daily_story(providers, state, "past", target, report)
             if story:
                 stories.append(story)
 
-    published = 0
-    for index, story in enumerate(stories, start=1):
-        if _publish(state, story, index):
-            published += 1
-            fmt = text(story.get("format"))
-            if fmt == "daily_next":
-                mark_daily(state, "next", text(story.get("date_anchor")))
-            elif fmt == "daily_past":
-                mark_daily(state, "past", text(story.get("date_anchor")))
-            save_state(state)
-            time.sleep(POST_DELAY_SECONDS)
+        if discovery_posts_today(state) < MAX_DISCOVERY_POSTS_PER_DAY and budget.remaining("discovery") > 0:
+            raw_candidates = _evergreen_candidates(providers, state, report)
+            with report.stage("editorial_selection"):
+                selected = select_candidates(providers, raw_candidates, state)
+            report.count("editorial.selected", len(selected))
+            for candidate in selected:
+                with report.stage("generation"):
+                    story = generate_story(providers, candidate, lane="discovery", max_repairs=AI_MAX_REPAIR_PER_STORY)
+                if story:
+                    stories.append(story)
+                else:
+                    record_candidate(state, candidate, "rejected", "story_generation_failed")
+                    report.reject(
+                        "generation",
+                        "story_generation_failed",
+                        text(candidate.get("title")),
+                        candidate_id=text(candidate.get("candidate_id")),
+                    )
+        else:
+            report.count("editorial.discovery_budget_or_quota_blocked")
 
-    save_state(state)
-    logger.info("Run complete. Published=%d | AI calls=%d", published, providers.ai_calls)
-    return published
+        for index, story in enumerate(stories, start=1):
+            if _publish(state, story, index, report):
+                published += 1
+                fmt = text(story.get("format"))
+                if fmt == "daily_next":
+                    mark_daily(state, "next", text(story.get("date_anchor")))
+                elif fmt == "daily_past":
+                    mark_daily(state, "past", text(story.get("date_anchor")))
+                save_state(state)
+                time.sleep(POST_DELAY_SECONDS)
+
+        update_source_health(state, report.sources)
+        report.count("published.total", published)
+        record_run_summary(state, report.to_dict())
+        save_state(state)
+        report.save(CONFIG.run_report_file)
+        return published
+    except Exception as exc:
+        report.error(f"fatal: {exc}")
+        logger.exception("Production run failed")
+        update_source_health(state, report.sources)
+        record_run_summary(state, report.to_dict())
+        save_state(state)
+        report.save(CONFIG.run_report_file)
+        raise
+    finally:
+        report.emit(logger)
