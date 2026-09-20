@@ -1,14 +1,62 @@
 {
-  "schema_version": 2,
+  "angle_history": [
+    {
+      "angle": "official rulebook",
+      "at": "2026-09-20T21:55:44.700314+00:00"
+    }
+  ],
+  "category_history": [
+    {
+      "at": "2026-09-20T21:55:44.700319+00:00",
+      "category": "board game"
+    }
+  ],
+  "claims": {
+    "c59c827d24f61c3ccc9a376b": {
+      "angle": "official rulebook",
+      "category": "board game",
+      "claim": "Provides the complete official rules for The Settlers of Catan as published by Catan GmbH in 2020",
+      "published_at": "2026-09-20T21:55:44.700263+00:00",
+      "subject": "Catan base game rules"
+    }
+  },
   "created_at": "",
-  "last_run_at": "",
-  "queue": {},
-  "posts": [],
-  "claims": {},
-  "entities": {},
-  "historical_events": {},
   "daily_flags": {},
-  "angle_history": [],
-  "category_history": [],
+  "entities": {
+    "catan": {
+      "angles": {
+        "official rulebook": 1
+      },
+      "categories": {
+        "board game": 1
+      },
+      "name": "Catan",
+      "post_count": 1
+    }
+  },
+  "historical_events": {},
+  "last_run_at": "2026-09-20T21:53:04.469410+00:00",
+  "posts": [
+    {
+      "angle": "official rulebook",
+      "canonical_url": "catan.com/sites/default/files/2021-06/catan_base_rules_2020_200707.pdf",
+      "category": "board game",
+      "claim": "Provides the complete official rules for The Settlers of Catan as published by Catan GmbH in 2020",
+      "date_anchor": "7 July 2020",
+      "format": "fact",
+      "game_or_sport": "Catan",
+      "headline": "The Settlers of Catan – Official Base‑Game Rules (2020)",
+      "message_id": 7,
+      "published_at": "2026-09-20T21:55:44.700295+00:00",
+      "source_urls": [
+        "https://www.catan.com/sites/default/files/2021-06/catan_base_rules_2020_200707.pdf",
+        "https://aadl.org/files/catalog_guides/catan_base_rules_2020_200707.pdf",
+        "https://games-for-you.oozmi-cdn.com/products/f3b4bbea-0533-4844-bcd6-c2518aeaeac9/pdfs/pravila-igre-na-engleskom-jeziku-pdf"
+      ],
+      "subject": "Catan base game rules"
+    }
+  ],
+  "queue": {},
+  "schema_version": 2,
   "source_health": {}
 }
