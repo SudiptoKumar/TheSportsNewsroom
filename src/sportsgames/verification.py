@@ -161,7 +161,13 @@ def deterministic_story_checks(story: dict, source_text: str) -> tuple[bool, str
         return False, "video_game_contamination"
     source_digits = set(re.findall(r"\d{3,}", source_text))
     output_digits = set(re.findall(r"\d{3,}", fields))
-    missing = sorted(value for value in output_digits if value not in source_digits)
+    # Daily posts deliberately carry an exact archive-friendly target date. Its year
+    # therefore does not need to appear verbatim in an individual source excerpt.
+    allowed_anchor_digits: set[str] = set()
+    if text(story.get("format")) in {"daily_next", "daily_past"}:
+        anchor = text(story.get("date_anchor"))
+        allowed_anchor_digits.update(re.findall(r"\d{3,}", anchor))
+    missing = sorted(value for value in output_digits if value not in source_digits and value not in allowed_anchor_digits)
     if missing:
         return False, f"unsupported_numeric_tokens:{','.join(missing[:5])}"
     if re.search(r"\b(today|yesterday|tomorrow|tonight|latest)\b", fields.lower()) and text(story.get("format")) not in {"daily_next", "daily_past"}:

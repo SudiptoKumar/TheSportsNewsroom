@@ -14,7 +14,7 @@ RUN_REPORT_FILE = STATE_DIR / "last_run_report.json"
 BD_TZ = ZoneInfo("Asia/Dhaka")
 
 APP_NAME = "The Sports Newsroom Discovery Engine"
-APP_VERSION = "0.1.0"
+APP_VERSION = "0.1.1"
 CHANNEL_DEFAULT = "@TheSportsNewsroom"
 
 CEREBRAS_MODEL = os.getenv("CEREBRAS_MODEL", "gpt-oss-120b")

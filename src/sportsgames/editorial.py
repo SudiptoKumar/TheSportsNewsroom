@@ -81,6 +81,7 @@ def _merge_classification_rows(batch: list[dict], data: dict, report=None, stage
             if report:
                 report.reject(stage, "out_of_scope", text(original.get("title")), candidate_id=candidate_id)
                 report.candidate(stage, candidate_id, "rejected", "out_of_scope")
+                report.candidate_terminal(candidate_id, "rejected", "out_of_scope")
             if state is not None:
                 record_candidate(state, original, "rejected", "out_of_scope")
             continue
@@ -88,6 +89,7 @@ def _merge_classification_rows(batch: list[dict], data: dict, report=None, stage
             if report:
                 report.reject(stage, "invalid_category", text(original.get("title")), candidate_id=candidate_id)
                 report.candidate(stage, candidate_id, "rejected", "invalid_category")
+                report.candidate_terminal(candidate_id, "rejected", "invalid_category")
             if state is not None:
                 record_candidate(state, original, "rejected", "invalid_category")
             continue
@@ -95,6 +97,7 @@ def _merge_classification_rows(batch: list[dict], data: dict, report=None, stage
             if report:
                 report.reject(stage, "invalid_angle", text(original.get("title")), candidate_id=candidate_id)
                 report.candidate(stage, candidate_id, "rejected", "invalid_angle")
+                report.candidate_terminal(candidate_id, "rejected", "invalid_angle")
             if state is not None:
                 record_candidate(state, original, "rejected", "invalid_angle")
             continue
@@ -102,6 +105,7 @@ def _merge_classification_rows(batch: list[dict], data: dict, report=None, stage
             if report:
                 report.reject(stage, "invalid_domain", text(original.get("title")), candidate_id=candidate_id)
                 report.candidate(stage, candidate_id, "rejected", "invalid_domain")
+                report.candidate_terminal(candidate_id, "rejected", "invalid_domain")
             if state is not None:
                 record_candidate(state, original, "rejected", "invalid_domain")
             continue
@@ -109,6 +113,7 @@ def _merge_classification_rows(batch: list[dict], data: dict, report=None, stage
             if report:
                 report.reject(stage, "video_game", text(original.get("title")), candidate_id=candidate_id)
                 report.candidate(stage, candidate_id, "rejected", "video_game")
+                report.candidate_terminal(candidate_id, "rejected", "video_game")
             if state is not None:
                 record_candidate(state, original, "rejected", "video_game")
             continue
@@ -304,6 +309,14 @@ def select_candidates(providers: Providers, candidates: list[dict], state: dict,
 
     prepared.sort(key=lambda x: (x["editor_score"], int(x.get("verification", {}).get("confidence", 0))), reverse=True)
     shortlist = prepared[:max(1, limit * 3)]
+    shortlist_ids = {text(c.get("candidate_id")) for c in shortlist}
+    if report:
+        for candidate in prepared:
+            cid = text(candidate.get("candidate_id"))
+            if cid and cid not in shortlist_ids:
+                report.candidate("editorial", cid, "rejected", "editorial_pool_capacity")
+                report.candidate_terminal(cid, "rejected", "editorial_pool_capacity")
+                record_candidate(state, candidate, "rejected", "editorial_pool_capacity", candidate.get("editor_score"))
     if not shortlist:
         return []
 

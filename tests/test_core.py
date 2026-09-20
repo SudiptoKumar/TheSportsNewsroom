@@ -73,6 +73,21 @@ class FakeCerebras:
 
 
 class CoreTests(unittest.TestCase):
+    def test_daily_anchor_year_is_allowed_by_numeric_grounding(self):
+        from sportsgames.verification import deterministic_story_checks
+        story = {
+            "format": "daily_next",
+            "date_anchor": "2026-09-21",
+            "headline": "NEXT UP · 21 September 2026",
+            "dek": "Upcoming sports events.",
+            "body": "The schedule contains events for the target date.",
+            "why_interesting": "A compact guide to the day.",
+            "key_points": [],
+        }
+        ok, reason = deterministic_story_checks(story, "Event schedule for 21 September")
+        self.assertTrue(ok, reason)
+
+
     def test_canonical_url(self):
         self.assertEqual(canonical_url("https://www.example.com/a/?utm_source=x&ref=y"), "example.com/a")
 
@@ -344,6 +359,38 @@ class CoreTests(unittest.TestCase):
         self.assertEqual(reason, "")
         self.assertEqual(state["mandatory_lanes"][job["key"]]["status"], "ready")
         self.assertTrue(any(item.get("step") == "ready" for item in state["mandatory_lanes"][job["key"]]["trace"]))
+
+    def test_classification_rejections_are_terminally_accounted(self):
+        class RejectingProvider(FakeClassifierProvider):
+            def ai(self, *, system, user, schema_name, schema, max_tokens, lane):
+                ids = []
+                for line in user.splitlines():
+                    if line.startswith("ID: "):
+                        ids.append(int(line.split(":", 1)[1].strip()))
+                items = []
+                for item_id in ids:
+                    if item_id == 1:
+                        items.append({"id": item_id, "kind": "other", "domain": "other", "type": "other"})
+                    else:
+                        items.append({
+                            "id": item_id, "kind": "rule", "domain": "sports", "type": "rule",
+                            "category": "rule_check", "angle": "rule", "game_or_sport": "Ludo",
+                            "subject": "Ludo rules", "claim_or_event": "A documented rule.",
+                            "source_urls": [], "why_interesting": "Interesting", "date_anchor": "",
+                        })
+                return {"items": items}
+
+        candidates = [
+            {"candidate_id": f"cid-{i}", "title": f"Candidate {i}", "query_family": "facts",
+             "source": "X", "url": f"https://example.com/{i}", "excerpt": "evidence", "prelim_score": 100-i}
+            for i in range(2)
+        ]
+        report = PipelineReport()
+        output = classify_candidates(RejectingProvider(), candidates, "integration", report=report)
+        self.assertEqual(len(output), 1)
+        self.assertEqual(report.counts.get("ledger.classification.unaccounted", 0), 0)
+        self.assertEqual(report.candidate_ledger["cid-0"]["stages"]["terminal"]["reason"], "out_of_scope")
+        self.assertEqual(report.finalize_candidates(["cid-0"]), [])
 
     def test_classification_capacity_accounts_for_100_to_36_without_loss(self):
         candidates = [
