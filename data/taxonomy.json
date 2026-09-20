@@ -1,0 +1,9 @@
+{
+  "scope": {
+    "included": ["sports", "board games", "card games", "party games", "tabletop games", "traditional games", "mind games", "recreational games", "new physical games"],
+    "excluded": ["video games", "console gaming", "pc gaming", "mobile gaming", "esports", "gaming hardware", "patches", "DLC", "trailers"]
+  },
+  "daily_anchors": ["sports_daily_next", "sports_daily_past"],
+  "discovery_categories": ["evergreen_fact", "game_discovery", "new_board_game", "new_card_game", "new_tabletop_game", "new_sport", "rule_check", "how_to_play", "game_history", "sport_history", "on_this_date", "century_ago", "why_explained", "first_last_only", "then_vs_now", "forgotten_game", "forgotten_sport", "sport_discovery", "myth_vs_fact", "game_anatomy", "interesting_number", "game_origin", "sport_origin"],
+  "angles": ["origin", "etymology", "rule", "house_rule", "myth", "number", "record", "accident", "banned", "weird", "design", "symbol", "tradition", "equipment", "measurement", "terminology", "scoring", "strategy", "geography", "culture", "evolution", "first", "last", "only", "oldest", "youngest", "rare", "historical_connection", "new_mechanic", "rules_change", "discovery", "timeline", "then_vs_now", "forgotten", "inventor", "how_to_play", "common_mistake", "why", "record_context", "game_anatomy"]
+}

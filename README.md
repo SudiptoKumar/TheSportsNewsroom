@@ -1,24 +1,99 @@
-# Sports & Games Discovery Bot
+# The Sports Newsroom Discovery Engine
 
-A Telegram bot for discovering and publishing **evergreen, source-verified sports and physical-game content**.
+Production-oriented Telegram bot for **[@TheSportsNewsroom](https://t.me/TheSportsNewsroom)**.
 
-This is intentionally **not** a video-game or esports bot. It covers real-world sports, board games, card games, party games, traditional games, mind games, tabletop games, new physical games, rules, history, origins, unusual facts and dated sports events.
+This project reuses the previous bot's proven engineering foundation, especially Python 3.12, Exa, Cerebras, requests/BeautifulSoup/trafilatura/Pillow/feedparser, GitHub Actions, persistent state and Telegram Bot API publishing. The content architecture is redesigned for a much broader product:
 
-## Product idea
+> **Sports + real-world games discovery, knowledge and history.**
 
-The channel is designed as a **living sports-and-games archive**, not a disposable news feed.
+It is not a conventional sports-news scraper and it does not cover video games or esports.
 
-The two daily sports anchors are:
+## Product vision
+
+The channel is built as a **living sports-and-games archive**.
+
+Every published item should answer at least one of these questions:
+
+- What important sporting event is happening on a specific date?
+- What happened on a specific sports date?
+- What game is this?
+- How do you play it?
+- What is the official rule?
+- Why does this strange rule exist?
+- Where did the game or sport come from?
+- What surprising fact is actually true?
+- What happened 25, 50, 75 or 100 years ago?
+- What new physical board/card/tabletop game is worth discovering?
+- What unusual or forgotten game/sport exists?
+
+The system deliberately favors **interesting + verified + evergreen** over high post volume.
+
+## Channel
 
 ```text
-NEXT UP · [EXACT DATE]
-What notable sporting events are scheduled for the next calendar day.
-
-THE DAY IN SPORTS · [EXACT DATE]
-What notable sporting events/results defined the previous calendar day.
+https://t.me/TheSportsNewsroom
+@TheSportsNewsroom
 ```
 
-Other posts are selected dynamically from the knowledge engine:
+## Explicit exclusion
+
+This project does not cover:
+
+```text
+PlayStation
+Xbox
+Nintendo video games
+PC gaming
+Mobile gaming
+Steam
+Video games
+Esports
+Gaming hardware
+DLC
+Patch notes
+Video-game trailers
+Video-game studios/publishers
+```
+
+The exclusion is enforced at multiple stages, including query/candidate screening and final-story validation.
+
+## Daily editorial backbone
+
+The system has two permanent sports anchor posts.
+
+### NEXT UP · exact date
+
+A reference-oriented preview for the next calendar day.
+
+It combines:
+
+- major matches/events
+- finals and championship events
+- notable races
+- important tournament stages
+- significant events across many sports
+- compact event listings
+- why the selected event is worth following
+- exact date and UTC time when supported
+
+### THE DAY IN SPORTS · exact date
+
+A historical-reference style recap for the previous calendar day.
+
+It combines:
+
+- major results
+- titles/championships decided
+- records
+- milestones
+- notable upsets/events
+- a compact cross-sport index
+
+Posts use exact dates instead of disposable language such as `today`, `yesterday`, `tomorrow`, `tonight` or `latest`.
+
+## Evergreen discovery system
+
+Discovery candidates are classified into content families such as:
 
 ```text
 GAME DISCOVERY
@@ -30,6 +105,8 @@ DID YOU KNOW?
 RULE CHECK
 OFFICIAL RULE vs HOUSE RULE
 HOW TO PLAY
+GAME HISTORY
+SPORT HISTORY
 ON THIS DATE
 100 YEARS AGO
 THEN → NOW
@@ -37,161 +114,364 @@ WHY?
 FIRST / LAST / ONLY
 FORGOTTEN GAME
 FORGOTTEN SPORT
+SPORT DISCOVERY
+MYTH VS FACT
+GAME ANATOMY
+THE STORY BEHIND THE NUMBER
 GAME ORIGIN
 SPORT ORIGIN
-STRANGE RULE
-GAME MECHANIC
 ```
 
-A post is designed to remain understandable years later. Exact calendar dates are preferred over disposable wording such as `today`, `yesterday`, or `tomorrow`.
+### Surprise-driven searching
 
-## Explicit exclusions
+The query engine intentionally searches for surprise patterns instead of only searching by sport/game name:
 
 ```text
-PlayStation
-Xbox
-PC gaming
-Mobile gaming
-Steam
-Video games
-Esports
-DLC
-Patch notes
-Game trailers
-Gaming hardware
-Video-game studios/publishers
+why is it called
+origin of
+oldest known
+first ever
+only time ever
+never been broken
+invented by accident
+originally called
+originally meant
+rule most people get wrong
+official rule
+house rule
+myth about
+banned in
+strange rule
+unusual tradition
+forgotten history
+why does it use
+where did it come from
+what changed
+then vs now
+first to
+only to
+what does the number mean
 ```
 
-The exclusion is enforced both during discovery and after AI classification/generation.
+This allows the system to discover facts and stories that do not look like normal sports news.
 
-## Architecture
+## History engine
+
+Historical discovery is date-driven.
+
+For the current calendar date, the system searches historical events around:
 
 ```text
-Internet
-  ↓
-RSS + Exa discovery
-  ↓
-Candidate normalization
-  ↓
-Video-game contamination filter
-  ↓
-AI classification
-  ↓
-Article/source extraction
-  ↓
-Claim-level verification
-  ↓
-Conflict + source-quality check
-  ↓
-Underlying-claim novelty check
-  ↓
-Interest + evergreen + diversity scoring
-  ↓
-AI editorial selection
-  ↓
-Format-specific generation
-  ↓
-Deterministic validation / grounding
-  ↓
-Original visual card
-  ↓
-Telegram Rich Message
-  ↓
-Persistent knowledge/archive state
+25 years ago
+50 years ago
+75 years ago
+100 years ago
+125 years ago
 ```
 
-The AI proposes. Python enforces the hard rules.
+It can also discover:
 
-## Knowledge model
+- first/last/only events
+- old rules
+- forgotten sports
+- game origins
+- rule evolution
+- historic milestones
+- equipment evolution
+- famous and obscure historical events
 
-The persistent state stores more than URLs. It keeps:
+The important design principle is **date-first permanence**. A post should still make sense months or years later.
+
+## Game universe
+
+The bot covers real-world games beyond professional sport:
 
 ```text
-claims
-entities
-posts
-historical records
-category history
-angle history
-source health
-queue
+Sports
+Board games
+Card games
+Tabletop games
+Party games
+Traditional games
+Mind games
+Recreational games
+Regional games
+Historical games
+New physical games
 ```
 
-That allows the bot to understand that:
+Examples include Ludo, UNO, Chess, Carrom, Monopoly, Catan, Go, Shogi, Mahjong, Codenames, Kabaddi, Kho Kho, Sepak Takraw and many other games/sports. The taxonomy is intentionally expandable.
+
+## Knowledge-object architecture
+
+The project does not treat an article as the permanent unit of knowledge.
 
 ```text
-"Why does tennis use love?"
+SOURCE
+  ↓
+CLAIM / EVENT / GAME
+  ↓
+KNOWLEDGE OBJECT
+  ↓
+CONTENT ANGLE
+  ↓
+POST
 ```
 
-and
+Example:
 
 ```text
-"Where did the tennis term love come from?"
+UNO
+├── history
+├── origin
+├── official rules
+├── house rules
+├── misconceptions
+├── interesting facts
+├── editions
+├── terminology
+└── strategy
 ```
 
-can be the same underlying claim even though the headlines differ.
+This allows multiple valid posts about a game without repeatedly publishing the same underlying fact.
 
-This is the main anti-repeat mechanism for evergreen content.
+## Claim-level verification
 
-## Verification policy
+The AI does not get to decide that a fact is true simply because it sounds plausible.
 
-Source quality is layered:
+Verification pipeline:
 
-1. **Primary / official**: federations, tournament organizers, official rulebooks, museums, archives, original records.
-2. **High-quality reference**: Britannica, Guinness World Records, established specialist/reference publications.
-3. **Discovery sources**: Wikipedia, BoardGameGeek, Atlas Obscura and specialist publications.
-4. **Lead only**: Reddit, Quora, forums and random blogs.
+```text
+candidate
+  ↓
+claim extraction
+  ↓
+source evidence retrieval
+  ↓
+primary-source check
+  ↓
+independent corroboration
+  ↓
+conflict detection
+  ↓
+verification status
+  ↓
+editorial selection
+  ↓
+story grounding
+```
 
-Rules:
+A known primary/official source can establish a claim if the source directly supports it. Without primary evidence, the default requirement is at least two independent credible domains.
 
-- One strong primary source can verify a claim.
-- Without a primary source, the bot requires at least two independent credible sources.
-- Conflicting evidence becomes `disputed`.
-- Missing evidence becomes `unverified` and is not published.
-- Dates, numbers, names, origins, rules and records must be supported by source evidence.
-- The writer is forbidden from filling missing details from memory.
+Lead-only sources such as Reddit, Quora, social posts, forums and random blogs cannot verify a fact by themselves.
+
+## Source hierarchy
+
+```text
+Tier 1
+Official federations
+Official competition/rulebook pages
+Museums / archives
+Original records/documents
+
+Tier 2
+Reuters
+AP
+BBC Sport
+ESPN
+Sky Sports
+The Guardian
+Specialist reputable publications
+
+Tier 3
+Britannica
+Guinness World Records
+Wikipedia
+Atlas Obscura
+BoardGameGeek and specialist discovery sources
+
+Tier 4
+Reddit
+Quora
+Forums
+Social media
+Random blogs
+```
+
+Unknown domains are treated conservatively as reference-level rather than trusted primary evidence.
 
 ## Editorial scoring
 
-Evergreen candidates are assessed across:
+Candidates are scored across:
 
 ```text
-Surprise
-Curiosity
-Usefulness
-Evergreen value
-Novelty
-Verifiability
-Shareability
+Surprise        0–5
+Verification    0–5
+Evergreen value 0–5
+Novelty         0–5
+Clarity         0–5
+Curiosity       0–5
+Shareability    0–5
 ```
 
-Hard gates override the score:
+Maximum = 35.
+
+Hard gates apply before publishing:
 
 ```text
-Weak verification  → reject
-Weak evergreen value → reject
-Duplicate underlying claim → reject
-Repeated subject/angle → penalize or reject
-Video-game contamination → reject
+insufficient verification → reject
+weak evergreen value      → reject
+duplicate underlying fact → reject
+video-game contamination  → reject
+unsupported factual text  → reject
 ```
 
-There is a daily ceiling for safety, but no requirement to manufacture posts when the candidate pool is weak.
+The system does not manufacture posts to satisfy a quota.
 
-## Content diversity
+## Novelty model
 
-The scheduler rotates:
+The archive remembers **claims**, not only URLs.
 
-- categories
-- angles
-- games/sports
-- geographic coverage
+For example:
+
+```text
+Why does tennis use “love”?
+
+Where did the tennis term “love” come from?
+```
+
+can represent the same underlying factual claim and will normally be treated as a repeat.
+
+Novelty checks consider:
+
+- normalized claim
+- subject
+- angle
+- semantic similarity
+- recent subject history
+- recent category history
+- recent angle history
+
+This prevents a large source ecosystem from producing repeated versions of the same fact.
+
+## Editorial diversity
+
+The scheduler deliberately rotates:
+
+- content category
+- content angle
+- sport/game entity
+- geography
 - current vs historical content
 
-A single game can have many legitimate knowledge angles, but the same angle is not repeatedly posted just because a new article exists.
+It is possible for one game to have many posts over time, but the same subject is not allowed to dominate the feed simply because it generates many search results.
 
-## Current technical stack
+## Multi-stage AI responsibilities
 
-The project intentionally reuses the previous project's core engineering foundation:
+### Discovery classifier
+Identifies what a candidate can actually support.
+
+### Verification editor
+Checks factual claims against source evidence.
+
+### Editorial selector
+Chooses candidates that are worth publishing and diverse.
+
+### Story editor
+Writes the post from supplied evidence only.
+
+### Final grounding checker
+Checks the generated story again against source evidence.
+
+Python code enforces deterministic constraints around the AI.
+
+## Deterministic safeguards
+
+```text
+video-game blacklist
+URL canonicalization
+claim fingerprinting
+source-domain counting
+date validation
+numeric grounding
+post-length validation
+HTML validation
+daily publish flags
+state persistence
+retry/backoff
+```
+
+The principle is:
+
+> **AI proposes. Python enforces.**
+
+## Repository
+
+```text
+SportsGamesDiscoveryBot/
+│
+├── .github/
+│   └── workflows/
+│       ├── newbot.yml
+│       └── import-zip.yml
+│
+├── data/
+│   ├── taxonomy.json
+│   ├── sources.json
+│   └── state/
+│       ├── knowledge_state.json
+│       └── published_urls.txt
+│
+├── src/
+│   └── sportsgames/
+│       ├── __init__.py
+│       ├── config.py
+│       ├── taxonomy.py
+│       ├── schemas.py
+│       ├── utils.py
+│       ├── state.py
+│       ├── providers.py
+│       ├── discovery.py
+│       ├── verification.py
+│       ├── editorial.py
+│       ├── content.py
+│       ├── media.py
+│       ├── telegram.py
+│       └── pipeline.py
+│
+├── tests/
+│   └── test_core.py
+│
+├── main.py
+├── requirements.txt
+└── README.md
+```
+
+## Why this structure
+
+The previous bot was intentionally consolidated in one file for easy deployment. That approach becomes difficult to maintain once the content universe expands.
+
+This project keeps the same lightweight GitHub Actions deployment model, but separates the important domains:
+
+```text
+config.py        environment + limits
+ taxonomy.py      sports/games/source taxonomy
+ schemas.py       Cerebras JSON contracts
+ utils.py         deterministic helpers
+ state.py         knowledge/archive persistence
+ providers.py     Exa, Cerebras, HTTP, RSS, Telegram
+ discovery.py     web search/query strategies
+ verification.py  claim verification + final grounding
+ editorial.py     classification + scoring + diversity
+ content.py       story and daily sports generation
+ media.py         original Pillow visual cards
+ telegram.py      Rich Message + sendPhoto fallback
+ pipeline.py      end-to-end orchestration
+```
+
+This keeps each part replaceable without turning the repository into a large framework.
+
+## Technical stack
 
 ```text
 Python 3.12
@@ -207,26 +487,9 @@ GitHub Actions
 Telegram Bot API
 ```
 
-Telegram Rich Messages are used when available, with a standard `sendPhoto` fallback. The implementation follows the current Bot API Rich Message `html` + `media` model. See: https://core.telegram.org/bots/api
+Telegram Rich Messages are preferred where available, with a `sendPhoto` fallback. Telegram's current Bot API supports Rich Messages, structured HTML/Markdown and media blocks. See the official Bot API documentation: https://core.telegram.org/bots/api
 
-## Repository
-
-```text
-SportsGamesDiscoveryBot/
-├── .github/
-│   └── workflows/
-│       ├── newbot.yml
-│       └── import-zip.yml
-├── README.md
-├── main.py
-├── knowledge_state.json
-├── published_urls.txt
-└── requirements.txt
-```
-
-The production components remain consolidated in `main.py` so the repository stays easy to deploy with GitHub Actions.
-
-## GitHub secrets
+## GitHub Secrets
 
 Required:
 
@@ -236,49 +499,77 @@ CEREBRAS_API_KEY
 TELEGRAM_BOT_TOKEN
 ```
 
-Optional:
+The workflow sets:
 
 ```text
-TELEGRAM_CHANNEL=@SportsGamesHub
-TELEGRAM_ADMIN_CHAT_ID=...
+TELEGRAM_CHANNEL=@TheSportsNewsroom
 CEREBRAS_MODEL=gpt-oss-120b
-MAX_DISCOVERY_POSTS_PER_DAY=5
-MAX_DISCOVERY_CANDIDATES=60
-POST_DELAY_SECONDS=3
-DISCOVERY_COOLDOWN_HOURS=3.5
 ```
 
-## Workflow schedule
+## Local validation
 
-The included workflow runs five times per day in `Asia/Dhaka` and can also be started manually.
-
-The runtime is idempotent. A dated sports anchor is only published once for its target date, and evergreen posts use persistent claim/angle memory to avoid repeating old content.
-
-## Self-test
-
-The workflow runs:
+Install:
 
 ```bash
-python -m py_compile main.py
+pip install -r requirements.txt
+```
+
+Compile:
+
+```bash
+python -m py_compile main.py src/sportsgames/*.py
+```
+
+Run tests:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+Run offline self-test:
+
+```bash
 python main.py --self-test
+```
+
+Show version:
+
+```bash
+python main.py --version
+```
+
+Run production pipeline:
+
+```bash
 python main.py
 ```
 
-The self-test does not call external APIs or Telegram. It checks canonicalization, video-game rejection, claim deduplication, verification gates, message generation, date anchoring, rendering and state retention.
+## GitHub Actions schedule
 
-## Deployment notes
+The production workflow runs six times per day using the `Asia/Dhaka` timezone. The run timing provides several opportunities to recover from temporary source/API failures while daily flags prevent duplicate anchor posts.
 
-1. Create a GitHub repository.
-2. Upload the repository files.
-3. Add the three required GitHub Actions secrets.
-4. Change `TELEGRAM_CHANNEL` in the workflow to the real channel if necessary.
-5. Run the workflow manually once.
-6. Review the first few posts and source quality before leaving the scheduled workflow active.
+The bot can publish the next-day preview after the configured morning cutoff and the previous-day recap after the configured evening cutoff.
 
-## Editorial goal
+## Important operational note
 
-The target feeling is:
+The system intentionally uses **broad discovery**, not a claim that the internet can be exhaustively crawled in a single run. `NEXT UP` and `THE DAY IN SPORTS` are generated from a broad tracked-sport search set and verified source candidates. The sport taxonomy is designed to grow over time.
 
-> Every time the user opens the channel, there should be a realistic chance of learning something they did not know about sports or physical games.
+## Production philosophy
 
-That can be a current sporting event, a new card game, an obscure traditional game, a surprising rule, a verified fact, a historical event from 100 years ago, an origin story, a game explanation or a piece of sports history.
+The quality hierarchy is:
+
+```text
+Truth
+↓
+Evidence
+↓
+Novelty
+↓
+Interest
+↓
+Editorial presentation
+↓
+Volume
+```
+
+The project should prefer publishing fewer excellent discoveries over filling the channel with repetitive or weakly supported material.
