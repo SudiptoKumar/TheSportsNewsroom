@@ -1,73 +1,16 @@
 {
-  "angle_history": [
-    {
-      "angle": "origin",
-      "at": "2026-09-20T17:24:36.888961+00:00"
-    }
-  ],
-  "category_history": [
-    {
-      "at": "2026-09-20T17:24:36.888965+00:00",
-      "category": "evergreen_fact"
-    }
-  ],
-  "claims": {
-    "4100f74d740a6f71645c77815e81": {
-      "angle": "origin",
-      "category": "evergreen_fact",
-      "claim": "Billiards originated in the 15th‑century European courts as a pastime for royalty",
-      "published_at": "2026-09-20T17:24:36.888922+00:00",
-      "sources": [
-        "https://en.wikipedia.org/wiki/Cue_sports",
-        "https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/billiardspool"
-      ],
-      "subject": "Cue sports"
-    }
-  },
+  "schema_version": 3,
   "created_at": "",
-  "daily_flags": {},
-  "entities": {
-    "billiards": {
-      "angles": {
-        "origin": 1
-      },
-      "categories": {
-        "evergreen_fact": 1
-      },
-      "last_posted_at": "2026-09-20T17:24:36.888949+00:00",
-      "name": "Billiards",
-      "post_count": 1
-    }
-  },
+  "last_run_at": "",
+  "posts": [],
+  "claims": {},
+  "entities": {},
   "events": {},
   "historical_events": {},
-  "last_run_at": "2026-09-20T17:17:44.525771+00:00",
-  "posts": [
-    {
-      "angle": "origin",
-      "canonical_url": "puzzling.stackexchange.com/questions/340/when-and-where-was-the-first-logic-grid-based-puzzle-published",
-      "category": "evergreen_fact",
-      "claim": "Billiards originated in the 15th‑century European courts as a pastime for royalty",
-      "date_anchor": "",
-      "format": "fact",
-      "game_or_sport": "Billiards",
-      "headline": "Billiards emerged in 15th‑century European courts",
-      "message_id": 3,
-      "published_at": "2026-09-20T17:24:36.888954+00:00",
-      "source_urls": [
-        "https://en.wikipedia.org/wiki/Cue_sports",
-        "https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/billiardspool"
-      ],
-      "subject": "Cue sports"
-    }
-  ],
-  "queue": {},
-  "schema_version": 2,
+  "daily_flags": {},
+  "angle_history": [],
+  "category_history": [],
+  "subject_history": [],
   "source_health": {},
-  "subject_history": [
-    {
-      "at": "2026-09-20T17:24:36.888968+00:00",
-      "subject": "Cue sports"
-    }
-  ]
+  "queue": {}
 }

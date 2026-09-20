@@ -4,9 +4,9 @@ import logging
 import re
 from typing import Iterable
 
-from .discovery import is_video_game_contaminated
+from .discovery import candidate_source_records, is_video_game_contaminated
 from .providers import Providers, fetch_article, source_tier
-from .schemas import VERIFY_SCHEMA, STORY_FACTCHECK_SCHEMA
+from .schemas import STORY_FACTCHECK_SCHEMA, VERIFY_SCHEMA
 from .state import claim_key
 from .utils import domain_of, normalize_text, similarity, text
 
@@ -17,112 +17,145 @@ def independent_domains(urls: Iterable[str]) -> set[str]:
     return {domain_of(u) for u in urls if domain_of(u)}
 
 
+def build_evidence_packet(candidate: dict, *, max_sources: int = 4, max_chars_each: int = 7000) -> tuple[str, list[dict]]:
+    """Collect reusable evidence once. Direct retrieval is optional when Exa supplied a useful excerpt."""
+    records = []
+    seen = set()
+    for raw in candidate_source_records(candidate):
+        url = text(raw.get("url"))
+        if not url:
+            continue
+        canonical = text(raw.get("canonical")) or text(url)
+        if canonical in seen:
+            continue
+        seen.add(canonical)
+        article = fetch_article(url, fallback_excerpt=text(raw.get("excerpt")))
+        evidence_text = text(article.get("text"))
+        if not evidence_text:
+            continue
+        records.append({
+            "url": url,
+            "title": text(raw.get("title")),
+            "excerpt": text(raw.get("excerpt")),
+            "evidence": evidence_text[:max_chars_each],
+            "source_tier": int(raw.get("source_tier", source_tier(url)) or source_tier(url)),
+            "direct_ok": bool(article.get("ok")),
+            "blocked": bool(article.get("blocked")),
+        })
+        if len(records) >= max_sources:
+            break
+    blocks = [
+        f"SOURCE: {r['url']}\nTIER: {r['source_tier']}\nDIRECT_FETCH: {r['direct_ok']}\nEVIDENCE:\n{r['evidence']}"
+        for r in records
+    ]
+    return "\n\n".join(blocks), records
+
+
 def verify_candidate(providers: Providers, candidate: dict) -> tuple[bool, dict]:
-    urls = list(dict.fromkeys(text(u) for u in candidate.get("source_urls", []) if text(u)))
+    records = candidate_source_records(candidate)
+    urls = [text(r.get("url")) for r in records if text(r.get("url"))]
     domains = independent_domains(urls)
 
-    # Conservative corroboration: discover another domain when we do not already
-    # have a known primary source plus enough evidence.
+    # Only add corroborating searches when the candidate does not already have enough independent evidence.
     if not any(source_tier(u) == 1 for u in urls) or len(domains) < 2:
         query = f"{candidate.get('subject','')} {candidate.get('claim_or_event','')} official history rules".strip()
-        for extra in providers.exa_search(query, num=6):
+        for extra in providers.exa_search(query, num=5):
             u = text(extra.get("url"))
-            if not u or domain_of(u) in domains or source_tier(u) == 4:
+            if not u or domain_of(u) in domains or source_tier(u) == 4 or is_video_game_contaminated(f"{extra.get('title','')} {extra.get('excerpt','')} {u}"):
                 continue
-            if is_video_game_contaminated(f"{extra.get('title','')} {extra.get('excerpt','')}"):
-                continue
-            urls.append(u)
+            records.append(extra)
             domains.add(domain_of(u))
-            if len(urls) >= 5:
+            if len(records) >= 5:
                 break
-    candidate["source_urls"] = urls[:6]
+    candidate["source_records"] = records[:6]
+    candidate["source_urls"] = list(dict.fromkeys(text(r.get("url")) for r in records if text(r.get("url"))))[:6]
 
-    evidence_blocks = []
-    for url in candidate["source_urls"][:5]:
-        article = fetch_article(url, fallback_excerpt=candidate.get("excerpt", ""))
-        if article.get("text"):
-            evidence_blocks.append(
-                f"SOURCE: {url}\nTIER: {source_tier(url)}\nTEXT:\n{article['text'][:8500]}"
-            )
-
-    if not evidence_blocks:
-        return False, {"status": "unverified", "confidence": 0, "reason": "No source evidence extracted."}
+    evidence_text, evidence_records = build_evidence_packet(candidate, max_sources=5)
+    candidate["evidence_records"] = evidence_records
+    if not evidence_records:
+        return False, {"status": "unverified", "confidence": 0, "reason": "No usable source evidence."}
 
     system = """
 You are the strict verification editor for The Sports Newsroom.
-Verify the candidate from the supplied source evidence only.
-A known primary/official source can establish a fact by itself when the source directly supports it.
-Otherwise, require at least two genuinely independent credible domains.
-Discovery sources can support context but do not automatically make a claim true.
-Lead-only sources (Reddit, Quora, social media, forums) cannot verify claims by themselves.
-Check every date, number, name, origin, rule, record and causal/historical statement.
-If sources conflict, mark disputed. If evidence is absent, mark unverified.
-Never use model memory to fill missing details.
-Return only the schema.
+Verify the candidate from supplied source evidence only.
+A primary/official source can verify a claim alone only when it directly supports the claim.
+Otherwise require at least two genuinely independent credible domains.
+Tier 4 lead-only sources and Tier 5 unknown sources cannot verify a claim by themselves.
+Check every date, number, name, rule, origin, record and causal/historical statement.
+If evidence conflicts, mark disputed. If evidence is absent, mark unverified.
+Never use model memory to fill gaps.
+Return only JSON.
 """.strip()
     user = (
         f"CANDIDATE\nSubject: {candidate.get('subject')}\n"
         f"Claim/Event: {candidate.get('claim_or_event')}\nAngle: {candidate.get('angle')}\n\n"
-        + "\n\n".join(evidence_blocks)
+        f"EVIDENCE\n{evidence_text}"
     )
-    result = providers.ai(system=system, user=user, schema_name="candidate_verification_v2", schema=VERIFY_SCHEMA, max_tokens=2000)
+    try:
+        result = providers.ai(system=system, user=user, schema_name="candidate_verification_v3", schema=VERIFY_SCHEMA, max_tokens=1800)
+    except Exception as exc:
+        logger.warning("Candidate verification failed: %s", exc)
+        return False, {"status": "unverified", "confidence": 0, "reason": str(exc)}
     status = text(result.get("status"))
     confidence = int(result.get("confidence", 0) or 0)
-
-    has_primary = any(source_tier(u) == 1 for u in candidate["source_urls"])
-    domain_count = len(independent_domains(candidate["source_urls"]))
+    source_tier_values = [int(r.get("source_tier", 5) or 5) for r in evidence_records]
+    has_primary = any(t == 1 for t in source_tier_values)
+    credible_domains = {
+        domain_of(r.get("url", "")) for r in evidence_records if domain_of(r.get("url", "")) and int(r.get("source_tier", 5) or 5) <= 3
+    }
     hard_ok = (
         status == "verified"
         and confidence >= 80
-        and (has_primary or domain_count >= 2)
+        and (has_primary or len(credible_domains) >= 2)
         and not is_video_game_contaminated(" ".join(map(text, [candidate.get("subject"), candidate.get("claim_or_event")])) )
     )
-    if status == "disputed" and candidate.get("kind") in {"fact", "history", "rule"} and confidence >= 85 and domain_count >= 2:
-        # Disputed facts can be publishable only when the dispute itself is the point.
+    if status == "disputed" and candidate.get("kind") in {"fact", "history", "rule"} and confidence >= 85 and len(credible_domains) >= 2:
         hard_ok = True
     return hard_ok, result
 
 
-def verify_story_against_evidence(providers: Providers, story: dict, candidate: dict) -> bool:
-    source_urls = list(dict.fromkeys(text(u) for u in story.get("sources", []) if text(u)))
-    if not source_urls:
-        source_urls = list(dict.fromkeys(text(u) for u in candidate.get("source_urls", []) if text(u)))
-
-    evidence = []
-    for url in source_urls[:5]:
-        article = fetch_article(url, fallback_excerpt=candidate.get("excerpt", ""))
-        if article.get("text"):
-            evidence.append(f"SOURCE: {url}\nTEXT:\n{article['text'][:7000]}")
+def verify_story_against_evidence(providers: Providers, story: dict, candidate: dict) -> tuple[bool, dict]:
+    evidence_records = candidate.get("evidence_records") or []
+    if not evidence_records:
+        _, evidence_records = build_evidence_packet(candidate, max_sources=4)
+    evidence = "\n\n".join(
+        f"SOURCE: {r.get('url')}\nTIER: {r.get('source_tier')}\nEVIDENCE:\n{text(r.get('evidence'))[:7000]}"
+        for r in evidence_records if text(r.get("evidence"))
+    )
     if not evidence:
-        return False
-
+        return False, {"status": "fail", "unsupported_statements": ["No evidence"], "reason": "No evidence available."}
     system = """
 You are the final factual grounding checker.
-Compare the generated post against the supplied source evidence.
-PASS only if every substantive factual statement in the generated post is supported by the evidence or is a harmless structural transition.
+Compare the generated post against the supplied evidence packet.
+PASS only if every substantive factual statement is supported by the evidence.
 Do not allow invented dates, numbers, names, rules, origins, records, causal explanations or superlatives.
-Do not reward plausibility. Evidence must be present.
+Do not infer from plausibility. Evidence must be present.
+A stylistic transition is harmless, but new factual content is not.
 Return only JSON.
 """.strip()
     user = (
         f"CANDIDATE: {candidate.get('claim_or_event')}\n"
         f"GENERATED:\nHeadline: {story.get('headline')}\nDek: {story.get('dek')}\n"
         f"Body: {story.get('body')}\nWhy: {story.get('why_interesting')}\n"
-        f"Key points: {story.get('key_points')}\n\n" + "\n\n".join(evidence)
+        f"Key points: {story.get('key_points')}\n\nEVIDENCE:\n{evidence}"
     )
-    result = providers.ai(system=system, user=user, schema_name="story_factcheck_v2", schema=STORY_FACTCHECK_SCHEMA, max_tokens=1400)
-    return result.get("status") == "pass"
+    try:
+        result = providers.ai(system=system, user=user, schema_name="story_factcheck_v3", schema=STORY_FACTCHECK_SCHEMA, max_tokens=1200)
+    except Exception as exc:
+        return False, {"status": "fail", "unsupported_statements": [str(exc)], "reason": "Factcheck AI failed."}
+    return result.get("status") == "pass", result
 
 
 def deterministic_story_checks(story: dict, source_text: str) -> tuple[bool, str]:
-    fields = " ".join(
-        [text(story.get("headline")), text(story.get("dek")), text(story.get("body")),
-         text(story.get("why_interesting")), " ".join(map(text, story.get("key_points", [])))]
-    )
+    fields = " ".join([
+        text(story.get("headline")), text(story.get("dek")), text(story.get("body")),
+        text(story.get("why_interesting")), " ".join(map(text, story.get("key_points", []))),
+    ])
     if is_video_game_contaminated(fields):
         return False, "video_game_contamination"
-    source_digits = set(re.findall(r"\d{3,}", source_text))
-    output_digits = set(re.findall(r"\d{3,}", fields))
+    # Ground 3+ digit numbers and years conservatively. Small numbers often arise from formatting (e.g. list counts).
+    source_digits = set(re.findall(r"\b\d{3,4}\b", source_text))
+    output_digits = set(re.findall(r"\b\d{3,4}\b", fields))
     missing = sorted(x for x in output_digits if x not in source_digits)
     if missing:
         return False, f"unsupported_numeric_tokens:{','.join(missing[:5])}"

@@ -16,7 +16,7 @@ concurrency:
 jobs:
   run-bot:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 35
     env:
       EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
       CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
@@ -24,6 +24,12 @@ jobs:
       TELEGRAM_CHANNEL: "@TheSportsNewsroom"
       CEREBRAS_MODEL: "gpt-oss-120b"
       PYTHONUNBUFFERED: "1"
+      AI_MIN_INTERVAL_SECONDS: "1.75"
+      AI_MAX_CALLS_PER_RUN: "18"
+      HTTP_CONNECT_TIMEOUT: "6"
+      HTTP_READ_TIMEOUT: "12"
+      MAX_VERIFICATION_CANDIDATES: "10"
+      MAX_DISCOVERY_POSTS_PER_DAY: "4"
 
     steps:
       - name: Checkout repository

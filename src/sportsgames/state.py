@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 
 from .config import CONFIG, STATE_RETENTION_DAYS
-from .utils import canonical_url, iso, normalize_text, parse_dt, sha, text
+from .utils import canonical_url, normalize_text, parse_dt, sha, text
 
 logger = logging.getLogger("sports-games-hub.state")
 
@@ -17,7 +17,7 @@ def now_iso() -> str:
 
 def default_state() -> dict:
     return {
-        "schema_version": 2,
+        "schema_version": 3,
         "created_at": now_iso(),
         "last_run_at": "",
         "posts": [],
@@ -37,6 +37,8 @@ def default_state() -> dict:
 def ensure_state_shape(state: dict) -> dict:
     merged = default_state()
     merged.update(state if isinstance(state, dict) else {})
+    if int(merged.get("schema_version", 0) or 0) < 3:
+        merged["schema_version"] = 3
     for key in default_state():
         if key not in merged or merged[key] is None:
             merged[key] = default_state()[key]
@@ -88,14 +90,10 @@ def prune_state(state: dict) -> None:
         seen = parse_dt(item.get("first_seen_at")) if isinstance(item, dict) else None
         if seen and seen < cutoff:
             state["queue"].pop(key, None)
-
-    # Posts form the searchable archive. Keep a large rolling window, while
-    # claims/entities/events are intentionally retained much longer.
-    state["posts"] = state.get("posts", [])[-10000:]
-    state["angle_history"] = state.get("angle_history", [])[-2500:]
-    state["category_history"] = state.get("category_history", [])[-2500:]
-    state["subject_history"] = state.get("subject_history", [])[-2500:]
-
+    state["posts"] = state.get("posts", [])[-12000:]
+    state["angle_history"] = state.get("angle_history", [])[-3000:]
+    state["category_history"] = state.get("category_history", [])[-3000:]
+    state["subject_history"] = state.get("subject_history", [])[-3000:]
     for key, value in list(state.get("source_health", {}).items()):
         if not isinstance(value, dict):
             state["source_health"].pop(key, None)
@@ -107,10 +105,6 @@ def prune_state(state: dict) -> None:
 
 def claim_key(subject: str, claim: str, angle: str = "") -> str:
     return sha(f"{normalize_text(subject)}|{normalize_text(claim)}|{normalize_text(angle)}", 28)
-
-
-def event_key(sport: str, event: str, target_date: str) -> str:
-    return sha(f"{normalize_text(sport)}|{normalize_text(event)}|{target_date}", 28)
 
 
 def entity_key(name: str) -> str:

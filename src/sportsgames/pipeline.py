@@ -1,74 +1,55 @@
 from __future__ import annotations
 
 import logging
+import os
 import time
 from datetime import datetime, timedelta
 
 from .config import (
-    APP_NAME, APP_VERSION, DAY_IN_SPORTS_AFTER_HOUR, NEXT_UP_AFTER_HOUR,
-    POST_DELAY_SECONDS, MAX_CANDIDATES, MAX_DISCOVERY_POSTS_PER_DAY, TELEGRAM_CHANNEL,
+    APP_NAME, APP_VERSION, DAY_IN_SPORTS_AFTER_HOUR, MAX_CANDIDATES, NEXT_UP_AFTER_HOUR,
+    POST_DELAY_SECONDS, TELEGRAM_CHANNEL,
 )
-from .content import build_daily_plan, generate_daily_story, generate_story
-from .discovery import (
-    discover_evergreen, discover_historical_date, discover_next_sports, discover_past_sports,
-)
-from .editorial import classify_candidates, select_candidates
+from .content import build_daily_plan, build_daily_story, generate_story
+from .discovery import discover_evergreen, discover_historical_date, discover_next_sports, discover_past_sports, is_video_game_contaminated
+from .editorial import classify_candidates, preliminary_score, select_candidates
 from .media import create_visual
 from .providers import Providers, fetch_rss
 from .state import (
-    CONFIG, claim_key, daily_done, entity_key, event_key, load_state, mark_daily,
-    prune_state, remember_published_url, save_state,
+    CONFIG, claim_key, daily_done, entity_key, load_state, mark_daily, prune_state, remember_published_url, save_state,
 )
-from .telegram import fit_rich_html, send_photo_fallback, send_story
-from .verification import is_claim_duplicate, verify_candidate
+from .telegram import fit_rich_html, plain_caption, send_story
 from .taxonomy import RSS_FEEDS
 from .utils import iso, normalize_text, text
+from .verification import build_evidence_packet, is_claim_duplicate, verify_candidate
 
 logger = logging.getLogger("sports-games-hub.pipeline")
 
 
 def _record_post(state: dict, story: dict, message_id: object = None) -> None:
-    candidate = story.get("candidate", {}) or {}
     subject = text(story.get("subject"))
     claim = text(story.get("claim"))
     angle = text(story.get("angle"))
     key = claim_key(subject, claim, angle)
     state.setdefault("claims", {})[key] = {
-        "subject": subject,
-        "claim": claim,
-        "angle": angle,
-        "category": text(story.get("category")),
-        "published_at": iso(datetime.now(CONFIG.tz)),
-        "sources": list(story.get("sources", []))[:6],
+        "subject": subject, "claim": claim, "angle": angle, "category": text(story.get("category")),
+        "published_at": iso(datetime.now(CONFIG.tz)), "sources": list(story.get("sources", []))[:6],
     }
     entity = entity_key(text(story.get("game_or_sport")))
     if entity:
         info = state.setdefault("entities", {}).setdefault(entity, {
-            "name": text(story.get("game_or_sport")),
-            "post_count": 0,
-            "categories": {},
-            "angles": {},
-            "last_posted_at": "",
+            "name": text(story.get("game_or_sport")), "post_count": 0, "categories": {}, "angles": {}, "last_posted_at": "",
         })
         info["post_count"] += 1
         category = text(story.get("category")); angle = text(story.get("angle"))
         info["categories"][category] = info["categories"].get(category, 0) + 1
         info["angles"][angle] = info["angles"].get(angle, 0) + 1
         info["last_posted_at"] = iso(datetime.now(CONFIG.tz))
-
     state.setdefault("posts", []).append({
-        "published_at": iso(datetime.now(CONFIG.tz)),
-        "message_id": message_id,
-        "format": text(story.get("format")),
-        "category": text(story.get("category")),
-        "angle": angle,
-        "game_or_sport": text(story.get("game_or_sport")),
-        "subject": subject,
-        "claim": claim,
-        "headline": text(story.get("headline")),
-        "date_anchor": text(story.get("date_anchor")),
-        "source_urls": list(story.get("sources", []))[:6],
-        "canonical_url": text(candidate.get("canonical") or candidate.get("url")),
+        "published_at": iso(datetime.now(CONFIG.tz)), "message_id": message_id, "format": text(story.get("format")),
+        "category": text(story.get("category")), "angle": angle, "game_or_sport": text(story.get("game_or_sport")),
+        "subject": subject, "claim": claim, "headline": text(story.get("headline")),
+        "date_anchor": text(story.get("date_anchor")), "source_urls": list(story.get("sources", []))[:6],
+        "canonical_url": text((story.get("candidate") or {}).get("canonical") or (story.get("candidate") or {}).get("url")),
     })
     state.setdefault("angle_history", []).append({"angle": angle, "at": iso(datetime.now(CONFIG.tz))})
     state.setdefault("category_history", []).append({"category": text(story.get("category")), "at": iso(datetime.now(CONFIG.tz))})
@@ -79,11 +60,7 @@ def _publish(state: dict, story: dict, index: int) -> bool:
     rich = fit_rich_html(story)
     image = create_visual(story, index)
     result = send_story(image, rich)
-    if not result.get("ok"):
-        logger.warning("sendRichMessage failed, trying sendPhoto fallback: %s", result.get("description"))
-        result = send_photo_fallback(image, rich)
     try:
-        import os
         os.remove(image)
     except OSError:
         pass
@@ -109,39 +86,70 @@ def _daily_story(providers: Providers, state: dict, kind: str, target) -> dict |
     plan = build_daily_plan(providers, candidates, "NEXT" if kind == "next" else "PAST", target)
     if not plan:
         return None
-    story = generate_daily_story(providers, plan)
-    if not story:
-        return None
-    # Final evidence grounding. This may fetch multiple official/news sources.
-    from .verification import verify_story_against_evidence
-    candidate = story.get("candidate", {})
-    if not verify_story_against_evidence(providers, story, candidate):
-        logger.warning("Daily story failed final evidence grounding: %s", story.get("headline"))
-        return None
+    story = build_daily_story(plan)
+    source_urls = []
+    source_records = []
+    for event in plan.get("events", []):
+        for source_id in event.get("source_ids", []):
+            if 1 <= int(source_id) <= len(candidates):
+                c = candidates[int(source_id) - 1]
+                if c.get("url"):
+                    source_urls.append(c["url"])
+                    source_records.append(c)
+    story["sources"] = list(dict.fromkeys(source_urls))[:8]
+    story["candidate"] = {"source_urls": story["sources"], "source_records": source_records, "excerpt": ""}
+    story["source_text"] = "\n".join(text(x.get("excerpt")) for x in source_records)
+    story["game_or_sport"] = "Sports"
+    story["subject"] = plan["target_date"]
+    story["claim"] = f"Sports calendar for {plan['target_date']}"
+    story["category"] = "sports_daily_next" if kind == "next" else "sports_daily_past"
+    story["angle"] = "calendar"
     return story
 
 
 def _evergreen_candidates(providers: Providers, state: dict) -> list[dict]:
-    day_index = datetime.now(CONFIG.tz).timetuple().tm_yday + datetime.now(CONFIG.tz).year * 13
+    now = datetime.now(CONFIG.tz)
+    day_index = now.timetuple().tm_yday + now.year * 13
     raw = discover_evergreen(providers, day_index)
-    # Historical date discovery is separately included because its search pattern is
-    # intentionally date-centric and should not be starved by general discovery.
-    raw += discover_historical_date(providers, datetime.now(CONFIG.tz).date())[:20]
+    raw += discover_historical_date(providers, now.date())[:20]
+    # RSS improves current sports discovery without being mandatory.
+    raw += fetch_rss(RSS_FEEDS, limit_per_feed=15)[:60]
     if not raw:
         return []
-    raw = raw[:MAX_CANDIDATES]
-    classified = classify_candidates(providers, raw, mode="evergreen + discovery + history")
+
+    filtered = []
+    for item in raw[:MAX_CANDIDATES]:
+        combined = " ".join(map(text, [item.get("title"), item.get("excerpt"), item.get("url")]))
+        if not text(item.get("excerpt")):
+            continue
+        if is_video_game_contaminated(combined):
+            continue
+        if any(text(item.get("url")) == text(p.get("canonical_url")) for p in state.get("posts", [])[-200:]):
+            continue
+        filtered.append(item)
+    if not filtered:
+        return []
+
+    classified = classify_candidates(providers, filtered, mode="evergreen + discovery + history")
+    # Cheap ranking first. Only the strongest candidates consume verification AI calls.
+    classified.sort(key=lambda c: preliminary_score(c, state), reverse=True)
+    verify_pool = classified[:10]
     verified = []
-    for candidate in classified:
+    for candidate in verify_pool:
         if is_claim_duplicate(state, candidate):
             continue
-        # Historical posts need a concrete date anchor. Never invent one.
-        if candidate.get("category") in {"on_this_date", "century_ago"} and not text(candidate.get("date_anchor")):
+        category = text(candidate.get("category"))
+        if category in {"on_this_date", "century_ago"} and not text(candidate.get("date_anchor")):
             continue
         ok, verification = verify_candidate(providers, candidate)
         candidate["verification"] = verification
         if not ok:
             continue
+        evidence_text, evidence_records = build_evidence_packet(candidate, max_sources=4)
+        if not evidence_text:
+            continue
+        candidate["evidence_text"] = evidence_text
+        candidate["evidence_records"] = evidence_records
         verified.append(candidate)
     return verified
 
@@ -168,14 +176,15 @@ def run_once() -> int:
         if story:
             stories.append(story)
 
-    if len([p for p in state.get("posts", []) if text(p.get("published_at")).startswith(current.date().isoformat())]) < 2:
-        # Even when daily anchors are successful, discovery remains independently capped.
-        pass
-
+    # Discovery is independent and capped separately.
     from .state import discovery_posts_today
-    if discovery_posts_today(state) < MAX_DISCOVERY_POSTS_PER_DAY:
-        raw_candidates = _evergreen_candidates(providers, state)
-        selected = select_candidates(providers, raw_candidates, state)
+    if discovery_posts_today(state) < int(os.getenv("MAX_DISCOVERY_POSTS_PER_DAY", "4")):
+        try:
+            raw_candidates = _evergreen_candidates(providers, state)
+        except Exception as exc:
+            logger.warning("Evergreen pipeline failed: %s", exc)
+            raw_candidates = []
+        selected = select_candidates(raw_candidates, state)
         for candidate in selected:
             story = generate_story(providers, candidate)
             if story:
@@ -194,5 +203,5 @@ def run_once() -> int:
             time.sleep(POST_DELAY_SECONDS)
 
     save_state(state)
-    logger.info("Run complete. Published=%d", published)
+    logger.info("Run complete. Published=%d | AI calls=%d", published, providers.ai_calls)
     return published
