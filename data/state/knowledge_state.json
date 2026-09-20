@@ -1,16 +1,49 @@
 {
-  "schema_version": 2,
-  "created_at": "",
-  "last_run_at": "",
-  "posts": [],
+  "angle_history": [],
+  "candidate_ledger": [],
+  "category_history": [],
   "claims": {},
+  "created_at": "",
+  "daily_flags": {},
   "entities": {},
   "events": {},
   "historical_events": {},
-  "daily_flags": {},
-  "angle_history": [],
-  "category_history": [],
-  "subject_history": [],
+  "last_run_at": "2026-09-20T19:24:26.405692+00:00",
+  "posts": [],
+  "queue": {},
+  "run_history": [
+    {
+      "ai": {
+        "mandatory_used": 0,
+        "reserved": 0,
+        "used": 1
+      },
+      "at": "2026-09-21T01:25:00.627392+06:00",
+      "counts": {
+        "candidate.classified": 0,
+        "candidate.pre_filtered": 100,
+        "candidate.raw": 106,
+        "classification.input": 36,
+        "classification.output": 0,
+        "classification.unreturned": 35,
+        "discovery.exa_results": 106,
+        "discovery.exa_searches": 21,
+        "editorial.selected": 0,
+        "published.total": 0,
+        "verification.attempted": 0,
+        "verification.pool": 0,
+        "verification.verified": 0
+      },
+      "published": [],
+      "reject_reasons": {
+        "classification": {
+          "invalid_category": 1
+        }
+      },
+      "total_seconds": 34.222
+    }
+  ],
+  "schema_version": 2,
   "source_health": {},
-  "queue": {}
+  "subject_history": []
 }
