@@ -1,3 +1,0 @@
-# Cerebras V4 Coverage Review
-
-Decide whether a candidate is NEW, RELATED, or DUPLICATE compared with a previously covered knowledge record. Base the decision on underlying knowledge, not wording or source. A materially different knowledge unit can be RELATED/NEW even when the sport is the same.
