@@ -1,10 +1,10 @@
-name: TheSportsNewsroom
+name: TheSportsNewsroom V4
 
 on:
   schedule:
-    # Hourly at minute 17 (off the busy top-of-hour). Each run only does what is due and not yet done,
-    # so delayed or skipped GitHub runs are caught up automatically.
-    - cron: "17 * * * *"
+    # Two production runs per day. GitHub Actions cron is UTC:
+    # 02:15 UTC = 08:15 Asia/Dhaka, 14:15 UTC = 20:15 Asia/Dhaka.
+    - cron: "15 2,14 * * *"
   workflow_dispatch:
     inputs:
       mode:
@@ -13,13 +13,12 @@ on:
         default: "run"
         type: choice
         options:
-          - run          # normal scheduler tick (posts what is due)
-          - diagnose     # live check of Telegram, AI, Exa, Wikipedia, ESPN, RSS (posts nothing)
-          - dry-run      # preview every slot in the log (posts nothing, saves nothing)
-          - test-post    # send one sample photo post + one sample digest
-          - self-test    # full offline test suite (30-day simulation)
+          - run
+          - diagnose
+          - dry-run
+          - self-test
       channel_override:
-        description: "Optional: send to this channel instead, e.g. @MyPrivateTestChannel"
+        description: "Optional test channel override, e.g. @MyPrivateTestChannel"
         required: false
         default: ""
         type: string
@@ -28,35 +27,31 @@ permissions:
   contents: write
 
 concurrency:
-  group: the-sports-newsroom
+  group: the-sports-newsroom-v4
   cancel-in-progress: false
 
 jobs:
   run-sports-bot:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 35
 
     env:
       EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
       CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
       CEREBRAS_MODEL: ${{ secrets.CEREBRAS_MODEL || 'gpt-oss-120b' }}
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-      # Optional: a Telegram chat id that receives short failure alerts (DM your bot first, then use your user id).
       TELEGRAM_ADMIN_CHAT_ID: ${{ secrets.TELEGRAM_ADMIN_CHAT_ID }}
-      # Optional: free key from cricketdata.org for cricket fixtures/results.
       CRICKETDATA_API_KEY: ${{ secrets.CRICKETDATA_API_KEY }}
-      # Repository VARIABLE (Settings > Secrets and variables > Actions > Variables) lets you point the schedule at a
-      # private test channel for the first days without editing any file. Leave unset for the real channel.
       TELEGRAM_CHANNEL: ${{ vars.TELEGRAM_CHANNEL || '@TheSportsNewsroom' }}
       BOT_MODE: ${{ inputs.mode || 'run' }}
       CHANNEL_OVERRIDE: ${{ inputs.channel_override }}
       PYTHONUNBUFFERED: "1"
-      POSTS_EVERGREEN_PER_DAY: "3"
-      NEXT_UP_OFFSET_DAYS: "1"
-      RUN_DEADLINE_SECONDS: "720"
+      RUN_DEADLINE_SECONDS: "1800"
       HTTP_TIMEOUT: "15"
       STATE_RETENTION_DAYS: "120"
       POST_DELAY_SECONDS: "3"
+      V4_POST_DELAY_SECONDS: "3"
+      V4_COVERAGE_RECENT_DAYS: "60"
 
     steps:
       - name: Checkout repository
@@ -75,56 +70,59 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          sudo apt-get install -y --no-install-recommends fonts-dejavu-core >/dev/null 2>&1 || true
 
-      - name: Verify repository structure
+      - name: Verify V4 repository structure
         run: |
           test -f main.py
           test -f news_state.json
           test -f posted_urls.txt
+          test -f coverage_index.json
           test -f requirements.txt
+          test -f README.md
+          test -f prompts/exa_daily_evergreen_v4.txt
+          test -f prompts/cerebras_rank_v4.txt
+          test -f prompts/cerebras_editorial_v4.txt
+          test -f prompts/cerebras_duplicate_review_v4.txt
+          test -f schemas/exa_daily_sports_games_output_schema_v1.json
+          test -f tests/test_v4.py
           test -f .github/workflows/newbot.yml
-          test -f .github/workflows/import-zip.yml
-          test ! -d src
-          test ! -d tests
 
       - name: Compile check
-        run: python -m py_compile main.py
+        run: |
+          python -m py_compile main.py
+          python -m py_compile tests/test_v4.py
 
-      # The offline self-test uses a fake network and a temp folder (never your real state or keys).
-      # Manual "self-test" mode is strict (red on failure). On normal runs it only WARNS, so a test problem
-      # can never stop the newsroom from posting.
-      - name: Offline self-test (fake network, no keys used)
+      - name: Offline regression and V4 architecture tests
         run: |
           if [ "$BOT_MODE" = "self-test" ]; then
             python main.py --self-test
           else
-            python main.py --self-test --fast || echo "::warning::Offline self-test failed. The bot will still run; check the log."
+            python main.py --self-test --fast
+            python -m unittest discover -v
           fi
 
-      - name: Run TheSportsNewsroom
+      - name: Run TheSportsNewsroom V4
         if: ${{ env.BOT_MODE != 'self-test' }}
         run: |
           case "$BOT_MODE" in
-            diagnose)  python main.py --diagnose ;;
-            dry-run)   python main.py --dry-run ;;
-            test-post) python main.py --test-post ;;
-            *)         python main.py ;;
+            diagnose) python main.py --diagnose ;;
+            dry-run)  python main.py --dry-run ;;
+            *)        python main.py ;;
           esac
 
-      - name: Save state
+      - name: Save newsroom state
         if: always()
         run: |
           git config user.name "Sports News Bot"
           git config user.email "actions@github.com"
-          git add news_state.json posted_urls.txt
+          git add news_state.json posted_urls.txt coverage_index.json
 
           if git diff --cached --quiet; then
             echo "No state changes to commit."
             exit 0
           fi
 
-          git commit -m "Update TheSportsNewsroom state"
+          git commit -m "Update TheSportsNewsroom V4 state"
           for attempt in 1 2 3 4; do
             if git push; then
               exit 0
