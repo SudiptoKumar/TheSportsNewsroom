@@ -2,8 +2,27 @@ name: TheSportsNewsroom
 
 on:
   schedule:
-    - cron: "0 */3 * * *"
+    # Hourly at minute 17 (off the busy top-of-hour). Each run only does what is due and not yet done,
+    # so delayed or skipped GitHub runs are caught up automatically.
+    - cron: "17 * * * *"
   workflow_dispatch:
+    inputs:
+      mode:
+        description: "What to do"
+        required: true
+        default: "run"
+        type: choice
+        options:
+          - run          # normal scheduler tick (posts what is due)
+          - diagnose     # live check of Telegram, AI, Exa, Wikipedia, ESPN, RSS (posts nothing)
+          - dry-run      # preview every slot in the log (posts nothing, saves nothing)
+          - test-post    # send one sample photo post + one sample digest
+          - self-test    # full offline test suite (30-day simulation)
+      channel_override:
+        description: "Optional: send to this channel instead, e.g. @MyPrivateTestChannel"
+        required: false
+        default: ""
+        type: string
 
 permissions:
   contents: write
@@ -15,23 +34,29 @@ concurrency:
 jobs:
   run-sports-bot:
     runs-on: ubuntu-24.04
-    timeout-minutes: 25
+    timeout-minutes: 20
 
     env:
       EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
       CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
       CEREBRAS_MODEL: ${{ secrets.CEREBRAS_MODEL || 'gpt-oss-120b' }}
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-      TELEGRAM_CHANNEL: "@TheSportsNewsroom"
+      # Optional: a Telegram chat id that receives short failure alerts (DM your bot first, then use your user id).
+      TELEGRAM_ADMIN_CHAT_ID: ${{ secrets.TELEGRAM_ADMIN_CHAT_ID }}
+      # Optional: free key from cricketdata.org for cricket fixtures/results.
+      CRICKETDATA_API_KEY: ${{ secrets.CRICKETDATA_API_KEY }}
+      # Repository VARIABLE (Settings > Secrets and variables > Actions > Variables) lets you point the schedule at a
+      # private test channel for the first days without editing any file. Leave unset for the real channel.
+      TELEGRAM_CHANNEL: ${{ vars.TELEGRAM_CHANNEL || '@TheSportsNewsroom' }}
+      BOT_MODE: ${{ inputs.mode || 'run' }}
+      CHANNEL_OVERRIDE: ${{ inputs.channel_override }}
       PYTHONUNBUFFERED: "1"
-      MAX_DISCOVERY_POSTS_PER_DAY: "5"
-      MAX_DISCOVERY_CANDIDATES: "60"
-      MAX_HISTORY_CANDIDATES: "30"
-      MAX_SPORT_EVENT_CANDIDATES: "70"
-      DISCOVERY_COOLDOWN_HOURS: "3"
+      POSTS_EVERGREEN_PER_DAY: "3"
+      NEXT_UP_OFFSET_DAYS: "1"
+      RUN_DEADLINE_SECONDS: "720"
+      HTTP_TIMEOUT: "15"
       STATE_RETENTION_DAYS: "120"
-      HTTP_TIMEOUT: "20"
-      POST_DELAY_SECONDS: "1.0"
+      POST_DELAY_SECONDS: "3"
 
     steps:
       - name: Checkout repository
@@ -50,6 +75,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          sudo apt-get install -y --no-install-recommends fonts-dejavu-core >/dev/null 2>&1 || true
 
       - name: Verify repository structure
         run: |
@@ -65,11 +91,26 @@ jobs:
       - name: Compile check
         run: python -m py_compile main.py
 
-      - name: Run self-test
-        run: python main.py --self-test
+      # The offline self-test uses a fake network and a temp folder (never your real state or keys).
+      # Manual "self-test" mode is strict (red on failure). On normal runs it only WARNS, so a test problem
+      # can never stop the newsroom from posting.
+      - name: Offline self-test (fake network, no keys used)
+        run: |
+          if [ "$BOT_MODE" = "self-test" ]; then
+            python main.py --self-test
+          else
+            python main.py --self-test --fast || echo "::warning::Offline self-test failed. The bot will still run; check the log."
+          fi
 
       - name: Run TheSportsNewsroom
-        run: python main.py
+        if: ${{ env.BOT_MODE != 'self-test' }}
+        run: |
+          case "$BOT_MODE" in
+            diagnose)  python main.py --diagnose ;;
+            dry-run)   python main.py --dry-run ;;
+            test-post) python main.py --test-post ;;
+            *)         python main.py ;;
+          esac
 
       - name: Save state
         if: always()
@@ -80,7 +121,17 @@ jobs:
 
           if git diff --cached --quiet; then
             echo "No state changes to commit."
-          else
-            git commit -m "Update TheSportsNewsroom state"
-            git push
+            exit 0
           fi
+
+          git commit -m "Update TheSportsNewsroom state"
+          for attempt in 1 2 3 4; do
+            if git push; then
+              exit 0
+            fi
+            echo "Push failed (attempt $attempt); rebasing and retrying..."
+            git pull --rebase origin "${GITHUB_REF_NAME}" || true
+            sleep 5
+          done
+          echo "::error::Could not push state after 4 attempts"
+          exit 1
