@@ -82,6 +82,63 @@ class TestV1Contracts(unittest.TestCase):
         self.assertEqual([], story["tags"])
         self.assertEqual([], story["people"])
 
+    def test_json_safe_serializes_datetime_for_ai_payloads(self):
+        from datetime import datetime, timezone
+        value = {"published": datetime(2026, 9, 22, 12, 30, tzinfo=timezone.utc), "nested": [datetime(2026, 9, 23, tzinfo=timezone.utc)]}
+        out = main.json_safe(value)
+        self.assertEqual("2026-09-22T12:30:00+00:00", out["published"])
+        self.assertEqual("2026-09-23T00:00:00+00:00", out["nested"][0])
+
+    def test_v1_editorialize_payload_is_json_serializable_with_datetime_candidate(self):
+        class FakeAI:
+            available = True
+            fatal = False
+            last_error = ""
+            def json(self, task, system, user, schema, **kwargs):
+                json.loads(user)
+                return {"headline":"A Proper Evergreen Sports Headline", "deck":"", "hook":"", "body":"This is a sufficiently long evergreen body that explains the verified sports knowledge without using current news language or unsupported claims in the generated publication.", "key_points":["One","Two","Three"], "why_it_matters":"Useful context.", "caption":"", "hashtags":["#Sports"], "angle":"knowledge", "image_index":0, "image_reason":""}
+        from datetime import datetime, timezone
+        c = {"sector":"Sport Origin","normalized_subject":"Example","central_knowledge_unit":"Example origin","central_claim":"Founded in 1901", "published":datetime(2026,9,22,tzinfo=timezone.utc), "sources":[{"name":"Source","url":"https://example.com/a","grade":"A"}]}
+        out = main.v1_editorialize(FakeAI(), c, "Verified evidence from an authoritative source.", [])
+        self.assertIsInstance(out, dict)
+
+    def test_v1_rank_request_is_capped_at_twenty_and_compact(self):
+        captured = {}
+        class FakeAI:
+            available=True; fatal=False; last_error=""
+            def json(self, task, system, user, schema, **kwargs):
+                captured["user"] = user; captured["kwargs"] = kwargs
+                rows = json.loads(user)
+                return {"rankings":[{"post_number":i+1,"score":100-i} for i in range(len(rows))]}
+        candidates=[]
+        for i, sec in enumerate(main.V1_SECTORS):
+            candidates.append({"sector":sec,"normalized_subject":f"S{i}","central_knowledge_unit":f"K{i}","central_claim":f"C{i}","grade":"A","highlights":["x"*500],"image":"https://example.com/i.jpg"})
+        rows = main.v1_rank(FakeAI(), candidates, set())
+        payload=json.loads(captured["user"])
+        self.assertEqual(20, len(payload))
+        self.assertLessEqual(captured["kwargs"]["max_tokens"], 900)
+        self.assertLessEqual(max(len(json.dumps(x)) for x in payload), 900)
+        self.assertEqual(20, len(rows))
+
+    def test_v1_no_image_uses_branded_card(self):
+        story=main.v1_normalize_story({"sector":"Sport Origin","headline":"A Proper Evergreen Sports Headline","body":"This is a verified evergreen body with enough words to exercise the generated branded card path when no remote image is available.","key_points":["One","Two","Three"],"why_it_matters":"Useful.","sources":[("Source","https://example.com")],"tags":["#Sports"],"image":None})
+        calls=[]
+        with patch.object(main,"tg_call",side_effect=lambda method,data=None,file_path="",file_field="photo":calls.append((method,data,file_path)) or {"ok":True,"result":{"message_id":124}}):
+            out=main.v1_publish_evergreen(story)
+        self.assertTrue(out["ok"])
+        self.assertEqual("sendPhoto",calls[0][0])
+        self.assertTrue(calls[0][2])
+        self.assertNotIn("sendMessage",[x[0] for x in calls])
+
+    def test_v1_visual_publisher_never_downgrades_to_plain_text(self):
+        story = main.v1_normalize_story({"sector":"Sport Discovery","headline":"A Proper Evergreen Sports Headline","body":"This is a verified evergreen body with enough words to demonstrate the visual publisher path safely.","key_points":["One","Two","Three"],"why_it_matters":"Useful.","sources":[("Source","https://example.com")],"tags":["#Sports"],"image":{"url":"https://example.com/photo.jpg"}})
+        calls=[]
+        with patch.object(main, "v4_send_rich", return_value={"ok":False,"description":"400 rich message rejected"}), patch.object(main, "tg_call", side_effect=lambda method,data=None,file_path="",file_field="photo": calls.append((method,data,file_path)) or {"ok":True,"result":{"message_id":123}}):
+            out=main.v1_publish_evergreen(story)
+        self.assertTrue(out["ok"])
+        self.assertEqual("sendPhoto", calls[0][0])
+        self.assertNotIn("sendMessage", [x[0] for x in calls])
+
     def test_null_image_cannot_crash_renderer_after_normalization(self):
         story = main.v1_normalize_story({
             "headline": "A Valid Evergreen Sports Story",
@@ -120,6 +177,29 @@ class TestV1Contracts(unittest.TestCase):
         self.assertNotIn("_V1_CURRENT_RX", names)
         self.assertIn("V1_CURRENT_RX", names)
 
+
+    def test_cerebras_token_quota_429_fails_fast(self):
+        calls = {"n": 0}
+        class Resp:
+            status = 429
+            data = {"error": {"type": "too_many_tokens_error", "code": "token_quota_exceeded", "message": "Tokens per minute limit exceeded"}}
+            text = '{"error":{"type":"too_many_tokens_error","code":"token_quota_exceeded","message":"Tokens per minute limit exceeded"}}'
+            error = "HTTP 429: token_quota_exceeded"
+            headers = {}
+            ok = False
+        client = main.AIClient.__new__(main.AIClient)
+        client.available=True; client.mode="json_schema"; client.model="gpt-oss-120b"; client.reasoning=False; client.fatal=False
+        client.last_error=""; client.last_status=0; client.last_request_id=""; client.last_ok=""; client.last_latency_ms=0
+        client.rate_limits={}; client._last_call=0.0; client._model_fallback_tried=True; client.failures=0
+        original_http=main.http
+        def fake_http(*args, **kwargs):
+            calls["n"] += 1
+            return Resp()
+        with patch.object(main, "http", side_effect=fake_http), patch.object(main, "sleep", lambda *_: None):
+            out=client.json("rank", "x", "y", main.V4_RANK_SCHEMA, max_tokens=600)
+        self.assertIsNone(out)
+        self.assertEqual(1,calls["n"])
+        self.assertIn("token_quota_exceeded",client.last_error)
 
     def test_cerebras_429_preserves_diagnostic(self):
         class Resp:
@@ -168,6 +248,12 @@ class TestV1Contracts(unittest.TestCase):
             events, notes = main.collect_events(main.AIClient.__new__(main.AIClient), __import__('datetime').date(2026,9,22), "next", allow_exa_fallback=False)
         self.assertEqual([], events)
         exa.assert_not_called()
+
+    def test_v1_run_is_wired_to_visual_publisher(self):
+        import inspect
+        src=inspect.getsource(main.v1_run_once)
+        self.assertIn("v1_publish_evergreen",src)
+        self.assertNotIn("v4_publish_evergreen(st)",src)
 
     def test_production_orchestrator_smoke_reaches_live_pair(self):
         fixed_now = main.BD_TZ.localize(__import__('datetime').datetime(2026,9,22,10,0)) if hasattr(main.BD_TZ, 'localize') else __import__('datetime').datetime(2026,9,22,10,0,tzinfo=main.BD_TZ)

@@ -48,7 +48,7 @@ except ImportError:  # pragma: no cover
     Image = ImageDraw = ImageFont = None
 
 APP_NAME = "The Sports Newsroom"
-APP_VERSION = "1.1.0"
+APP_VERSION = "1.2.0"
 
 # ===========================================================================
 # 1. CORE: config, clock, text helpers, safety filters
@@ -1077,6 +1077,19 @@ def extract_json(content: str) -> dict:
     return obj
 
 
+def json_safe(value: Any) -> Any:
+    """Convert internal Python values to JSON-safe values at API serialization boundaries."""
+    if isinstance(value, datetime):
+        return value.isoformat()
+    if isinstance(value, date):
+        return value.isoformat()
+    if isinstance(value, dict):
+        return {str(k): json_safe(v) for k, v in value.items()}
+    if isinstance(value, (list, tuple, set)):
+        return [json_safe(v) for v in value]
+    return value
+
+
 class AIClient:
     URL = "https://api.cerebras.ai/v1/chat/completions"
     MODELS_URL = "https://api.cerebras.ai/v1/models"
@@ -1236,6 +1249,8 @@ class AIClient:
             self._capture_headers(r)
             REPORT.ai_calls += 1
 
+            low = (r.text or "").lower()
+
             # Fatal authentication/permission errors should never be hidden by a fallback.
             if r.status in (401, 403):
                 self.fatal = True
@@ -1246,6 +1261,11 @@ class AIClient:
 
             if r.status == 429:
                 self.last_error = self._error_detail(r)
+                quota_exceeded = any(token in low for token in ("token_quota_exceeded", "too_many_tokens_error", "tokens per minute"))
+                if quota_exceeded:
+                    REPORT.errors.append(f"Cerebras token quota exhausted: {self.last_error}")
+                    logger.warning("Cerebras token quota exhausted; no blind retries: %s", self.last_error)
+                    return None
                 reset = 0.0
                 try:
                     reset = float(self.rate_limits.get("x-ratelimit-reset-tokens-minute", "0") or 0)
@@ -1271,7 +1291,6 @@ class AIClient:
                 REPORT.errors.append(f"Cerebras transient failure exhausted: {self.last_error}")
                 return None
 
-            low = (r.text or "").lower()
             if r.status == 404 or (r.status == 400 and "model" in low and "not" in low and "found" in low):
                 self.last_error = self._error_detail(r)
                 if self._switch_model():
@@ -5369,8 +5388,8 @@ V1_AGENT_MAX_CASES = _env_int("V1_AGENT_MAX_CASES", 2)
 V1_SEARCH_DELAY_SECONDS = _env_float("V1_SEARCH_DELAY_SECONDS", 0.12)
 V1_SEARCH_CONCURRENCY = max(1, min(8, _env_int("V1_SEARCH_CONCURRENCY", 4)))
 V1_CONTENTS_CHARS = _env_int("V1_CONTENTS_CHARS", 9000)
-V1_RANK_MAX_CANDIDATES = max(20, min(40, _env_int("V1_RANK_MAX_CANDIDATES", 40)))
-V1_RANK_MAX_TOKENS = max(900, min(2200, _env_int("V1_RANK_MAX_TOKENS", 1400)))
+V1_RANK_MAX_CANDIDATES = 20
+V1_RANK_MAX_TOKENS = max(512, min(900, _env_int("V1_RANK_MAX_TOKENS", 700)))
 V1_EXCLUDE_DOMAINS = [
     "facebook.com", "instagram.com", "tiktok.com", "x.com", "twitter.com", "youtube.com",
     "bet365.com", "oddschecker.com", "sportinglife.com/betting",
@@ -5634,20 +5653,18 @@ def v1_build_reservoir(raw: list[dict], coverage: dict, used_sectors: set[str]) 
 
 
 def v1_rank(ai: "AIClient", candidates: list[dict], used_sectors: set[str]) -> list[dict]:
-    """Rank a bounded, sector-balanced reservoir. Falls back deterministically if Cerebras is unavailable."""
+    """Rank exactly one best candidate per sector; keep the Cerebras request intentionally tiny."""
     if not candidates:
         return []
-
-    # Never send an unnecessarily large reservoir to the model. Keep the best two candidates
-    # per sector first, which preserves all-sector representation while capping the model input.
     by_sector: dict[str, list[dict]] = {}
     for c in candidates:
         by_sector.setdefault(text(c.get("sector")), []).append(c)
     pool: list[dict] = []
     for sec in V1_SECTORS:
         rows = sorted(by_sector.get(sec, []), key=v1_discovery_quality, reverse=True)
-        pool.extend(rows[:2])
-    if len(pool) < min(V1_RANK_MAX_CANDIDATES, len(candidates)):
+        if rows:
+            pool.append(rows[0])
+    if len(pool) < V1_RANK_MAX_CANDIDATES:
         existing = {id(x) for x in pool}
         for c in sorted(candidates, key=v1_discovery_quality, reverse=True):
             if id(c) in existing:
@@ -5657,57 +5674,51 @@ def v1_rank(ai: "AIClient", candidates: list[dict], used_sectors: set[str]) -> l
                 break
     pool = pool[:V1_RANK_MAX_CANDIDATES]
 
-    payload = []
-    for i, c in enumerate(pool, 1):
+    payload=[]
+    for i,c in enumerate(pool,1):
+        hs=[re.sub(r"\s+", " ", text(x))[:180] for x in (c.get("highlights") or []) if text(x)]
         payload.append({
             "candidate_number": i,
-            "sector": c.get("sector"),
-            "subject": c.get("normalized_subject"),
-            "knowledge_unit": c.get("central_knowledge_unit"),
-            "claim_or_excerpt": c.get("central_claim"),
-            "source": c.get("source"),
-            "source_grade": c.get("grade"),
-            "highlights": (c.get("highlights") or [])[:4],
+            "sector": text(c.get("sector")),
+            "subject": text(c.get("normalized_subject"))[:180],
+            "knowledge_unit": text(c.get("central_knowledge_unit"))[:180],
+            "claim": text(c.get("central_claim"))[:220],
+            "source_grade": text(c.get("grade")),
             "has_image": bool(c.get("image")),
-            "coverage_status": c.get("coverage_status", "new"),
+            "highlight": hs[0] if hs else "",
+            "coverage": text(c.get("coverage_status", "new")),
         })
 
-    def deterministic() -> list[dict]:
-        rows = [{"post_number": i + 1, "score": int(round(v1_discovery_quality(c) * 2)), "reason": "deterministic fallback", "_candidate_pool": pool}
-                for i, c in enumerate(pool)]
-        rows.sort(key=lambda x: (x["score"], -x["post_number"]), reverse=True)
+    def deterministic()->list[dict]:
+        rows=[{"post_number":i+1,"score":int(round(v1_discovery_quality(c)*2)),"reason":"deterministic fallback","_candidate_pool":pool} for i,c in enumerate(pool)]
+        rows.sort(key=lambda x:(x["score"],-x["post_number"]),reverse=True)
         return rows
 
     if not ai.available or ai.fatal:
         return deterministic()
-
-    system = _v1_prompt("cerebras_rank_v1.txt",
-        "You are the ranking desk for The Sports Newsroom V1. Rank evergreen Sports & Games candidates using only the supplied retrieval evidence. "
-        "Prioritize strong evergreen value, source quality, distinct knowledge, audience usefulness, visual potential and low repetition risk. "
-        f"Sectors already published today: {', '.join(sorted(used_sectors)) or 'none'}. Prefer unused sectors. "
-        "Return every candidate number exactly once in ranked order. Do not explain your reasoning.")
-    obj = ai.json("v1_rank_reservoir", system, json.dumps(payload, ensure_ascii=False), V1_RANK_SCHEMA,
-                  max_tokens=V1_RANK_MAX_TOKENS, temperature=0.0)
+    system=_v1_prompt("cerebras_rank_v1.txt",
+        "You are the ranking desk for The Sports Newsroom V1. Rank the 20-sector evergreen candidate set using only the supplied evidence. "
+        "Return every candidate number exactly once in ranked order with a 0-100 score. "
+        f"Sectors already published today: {', '.join(sorted(used_sectors)) or 'none'}. Prefer unused sectors. Do not write explanations.")
+    obj=ai.json("v1_rank_reservoir",system,json.dumps(payload,ensure_ascii=False,separators=(",",":")),V1_RANK_SCHEMA,max_tokens=V1_RANK_MAX_TOKENS,temperature=0.0)
     if not obj:
-        logger.warning("V1 Cerebras ranking unavailable; using deterministic ranking fallback: %s", ai.last_error)
+        logger.warning("V1 Cerebras ranking unavailable; using deterministic ranking fallback: %s",ai.last_error)
         return deterministic()
-    rows, seen = [], set()
+    rows=[]; seen=set()
     for r in obj.get("rankings") or []:
-        try:
-            n = int(r.get("post_number")); score = max(0, min(100, int(r.get("score"))))
-        except Exception:
-            continue
-        if 1 <= n <= len(pool) and n not in seen:
-            seen.add(n); rows.append({"post_number": n, "score": score, "reason": ""})
-    if len(rows) < max(10, int(len(pool) * 0.75)):
-        logger.warning("V1 Cerebras ranking returned incomplete ordering (%d/%d); using deterministic ranking", len(rows), len(pool))
+        try: n=int(r.get("post_number")); score=max(0,min(100,int(r.get("score"))))
+        except Exception: continue
+        if 1<=n<=len(pool) and n not in seen:
+            seen.add(n); rows.append({"post_number":n,"score":score,"reason":""})
+    if len(rows)<max(10,int(len(pool)*0.75)):
+        logger.warning("V1 Cerebras ranking returned incomplete ordering (%d/%d); using deterministic ranking",len(rows),len(pool))
         return deterministic()
-    # Complete any omitted candidates deterministically, then sort by model score.
-    for i in range(1, len(pool) + 1):
+    for i in range(1,len(pool)+1):
         if i not in seen:
-            rows.append({"post_number": i, "score": int(round(v1_discovery_quality(pool[i - 1]) * 2)), "reason": "completion fallback"})
-    rows.sort(key=lambda x: (x["score"], -x["post_number"]), reverse=True)
-    return [{**r, "_candidate_pool": pool} for r in rows]
+            rows.append({"post_number":i,"score":int(round(v1_discovery_quality(pool[i-1])*2)),"reason":"completion fallback"})
+    rows.sort(key=lambda x:(x["score"],-x["post_number"]),reverse=True)
+    return [{**r,"_candidate_pool":pool} for r in rows]
+
 
 def v1_contents_for_urls(urls: list[str], *, text_mode: bool = True) -> tuple[dict[str,dict], str]:
     """Batch Exa /contents. URLs are already-known Exa Search outputs."""
@@ -5977,7 +5988,7 @@ def v1_validate_editorial(candidate: dict, editorial: dict, image_candidates: li
     if not 3<=len(points)<=5: return False,"key_points_count",{}
     sources=candidate.get("sources")
     if not isinstance(sources,list) or not sources: return False,"no_verified_sources",{}
-    evidence_numbers=set(re.findall(r"\b\d{1,4}\b",json.dumps(candidate,ensure_ascii=False)+evidence_text_for_validation(candidate)))
+    evidence_numbers=set(re.findall(r"\b\d{1,4}\b",json.dumps(json_safe(candidate),ensure_ascii=False)+evidence_text_for_validation(candidate)))
     generated_numbers=set(re.findall(r"\b\d{1,4}\b",f"{headline} {body} {' '.join(points)}"))
     if not generated_numbers.issubset(evidence_numbers): return False,"unsupported_number",{}
     selected=None
@@ -5992,12 +6003,57 @@ def v1_validate_editorial(candidate: dict, editorial: dict, image_candidates: li
 def v1_editorialize(ai: "AIClient", candidate: dict, evidence: str, image_candidates: list[dict]) -> dict | None:
     if not ai.available or ai.fatal:
         return None
-    image_block = "\n".join(f"[{i}] {x.get('source_name','')} | {x.get('source_page_url','')} | {x.get('url','')}" for i, x in enumerate(image_candidates, 1)) or "none"
-    user = json.dumps({"research": candidate, "source_evidence": evidence, "image_candidates": image_block}, ensure_ascii=False)
-    system = _v1_prompt("cerebras_editorial_v1.txt",
-        "Transform one verified evergreen Sports & Games research item into a concise Telegram post. "
-        "Use only supplied evidence. Do not invent facts or image URLs. Return only JSON.")
-    return ai.json("v1_editorial_post", system, user, V4_EDITORIAL_SCHEMA, max_tokens=2600, temperature=0.35)
+    compact={
+        "sector":text(candidate.get("sector")),
+        "topic":text(candidate.get("topic") or candidate.get("normalized_subject")),
+        "normalized_subject":text(candidate.get("normalized_subject")),
+        "central_knowledge_unit":text(candidate.get("central_knowledge_unit")),
+        "central_claim":text(candidate.get("central_claim")),
+        "country":text(candidate.get("country")),
+        "region":text(candidate.get("region")),
+        "historical_date":text(candidate.get("historical_date")),
+        "historical_year":text(candidate.get("historical_year")),
+        "sources":[{"name":text(x.get("name")),"url":v1_network_url(text(x.get("url"))),"grade":text(x.get("grade"))} for x in (candidate.get("sources") or []) if isinstance(x,dict) and v1_network_url(text(x.get("url")))][:3],
+    }
+    imgs=[{"index":i,"source_name":text(x.get("source_name")),"source_page_url":text(x.get("source_page_url")),"url":text(x.get("url"))} for i,x in enumerate(image_candidates,1)]
+    user=json.dumps({"research":json_safe(compact),"source_evidence":text(evidence)[:5500],"image_candidates":imgs[:6]},ensure_ascii=False,separators=(",",":"))
+    system=_v1_prompt("cerebras_editorial_v1.txt",
+        "Transform one verified evergreen Sports & Games research item into a concise Telegram post. Use only supplied evidence. "
+        "Do not invent facts or image URLs. Prefer a supplied verified image when available. Return only JSON.")
+    return ai.json("v1_editorial_post",system,user,V4_EDITORIAL_SCHEMA,max_tokens=max(650,_env_int("V1_EDITORIAL_MAX_TOKENS",900)),temperature=0.25)
+
+
+def v1_publish_evergreen(story: dict) -> dict:
+    """Visual hard requirement: rich message first, photo+caption fallback, never plain text."""
+    story=v1_normalize_story(story)
+    rich=v4_evergreen_rich(story)
+    if story["image"].get("url"):
+        res=v4_send_rich(rich)
+        if res.get("ok") or res.get("uncertain"):
+            return res
+        logger.warning("V1 rich message rejected; preserving visual post with sendPhoto fallback: %s",redact(text(res.get("description"))))
+        photo_url=text(story["image"].get("url")); caption=fit_knowledge_html(story)
+        photo_res=tg_call("sendPhoto",{"chat_id":CHANNEL,"photo":photo_url,"caption":caption,"parse_mode":"HTML"})
+        if photo_res.get("ok"):
+            return photo_res
+        if not photo_res.get("uncertain") and any(x in _err(photo_res) for x in ("parse entities","entities")):
+            photo_res=tg_call("sendPhoto",{"chat_id":CHANNEL,"photo":photo_url,"caption":plain_text(caption)[:CAPTION_LIMIT]})
+            if photo_res.get("ok"):
+                return photo_res
+    card_path=make_card(story)
+    if not card_path:
+        return {"ok":False,"description":"V1 visual publication failed: no rich image and branded card generation failed"}
+    try:
+        caption=fit_knowledge_html(story)
+        photo_res=tg_call("sendPhoto",{"chat_id":CHANNEL,"caption":caption,"parse_mode":"HTML"},card_path)
+        if photo_res.get("ok"):
+            return photo_res
+        if not photo_res.get("uncertain") and any(x in _err(photo_res) for x in ("parse entities","entities")):
+            photo_res=tg_call("sendPhoto",{"chat_id":CHANNEL,"caption":plain_text(caption)[:CAPTION_LIMIT]},card_path)
+        return photo_res
+    finally:
+        try: os.remove(card_path)
+        except Exception: pass
 
 
 def v1_run_once() -> int:
@@ -6095,7 +6151,7 @@ def v1_run_once() -> int:
         # Defense-in-depth: image is optional and must be a dict even when the model returned null.
         story["image"]=story.get("image") if isinstance(story.get("image"),dict) else {}
         pubid=v4_publication_id(run_id,"evergreen",story.get("normalized_subject") or story.get("topic"))
-        res=v4_publish_with_idempotency(vs,pubid,lambda st=story:v4_publish_evergreen(st))
+        res=v4_publish_with_idempotency(vs,pubid,lambda st=story:v1_publish_evergreen(st))
         if not res.get("ok"):
             if res.get("uncertain"):
                 logger.error("V1 evergreen delivery uncertain for %s",story.get("headline")); break

@@ -688,7 +688,7 @@ This workflow requires an explicit V1 ZIP filename.
 Default:
 
 ```text
-TheSportsNewsroom-v1.1.0.zip
+TheSportsNewsroom-v1.2.0.zip
 ```
 
 It does **not** search for the first arbitrary `*.zip` in the repository.
@@ -852,3 +852,8 @@ python main.py --validate-config
 ```
 
 A real production provider run still requires the GitHub secrets. The test suite does not pretend that mocked HTTP calls are proof of live provider success.
+
+
+## V1.2.0 Production Hardening
+
+V1.2.0 adds the final production guards identified during real GitHub Actions runs. Cerebras ranking is capped to the intended 20-candidate set with a compact payload and a small completion budget. Token-quota 429 responses are surfaced without blind retry loops. Internal datetime/date values are converted to ISO-8601 strings at JSON API boundaries. The V1 Telegram publisher never falls back to a plain text post: it uses native Rich Messages when possible, then a photo + structured caption, and finally a generated 1200×675 branded card + structured caption. A successful V1 story therefore always retains a visual presentation.

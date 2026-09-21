@@ -14,7 +14,7 @@ on:
       zip_name:
         description: "Exact V1 ZIP filename in the repository root"
         required: true
-        default: "TheSportsNewsroom-v1.1.0.zip"
+        default: "TheSportsNewsroom-v1.2.0.zip"
         type: string
 
 permissions:
