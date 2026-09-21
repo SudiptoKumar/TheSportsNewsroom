@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-# The Sports Newsroom V1 - Search-first evergreen editorial + live sports newsroom for @TheSportsNewsroom.
+# The Sports Newsroom V1.3 - Quality-first evergreen editorial + live sports newsroom for @TheSportsNewsroom.
 #
 # Design (see README.md):
-#   V1: Exa Search discovers -> local coverage/dedupe -> Cerebras ranks -> Exa Contents verifies ->
-#   optional Exa Agent resolves hard cases -> Cerebras edits -> normalization/validation -> Telegram publishes.
+#   V1.3: persisted 10+10 sector plan -> Exa Search discovery -> deterministic quality/dedupe ->
+#   Exa Contents verification -> deep recovery only for weak sectors -> relevant image selection ->
+#   one optional Cerebras batch copy pass -> deterministic validation -> photo-first Telegram publication.
 #   Live sports remains a separate temporary pair with transactional rotation.
 #
 # Dependencies: requests, Pillow.  Exa, Cerebras and Telegram are called over plain REST.
@@ -48,7 +49,7 @@ except ImportError:  # pragma: no cover
     Image = ImageDraw = ImageFont = None
 
 APP_NAME = "The Sports Newsroom"
-APP_VERSION = "1.2.0"
+APP_VERSION = "1.3.0"
 
 # ===========================================================================
 # 1. CORE: config, clock, text helpers, safety filters
@@ -5380,16 +5381,19 @@ def v4_main(argv: list[str] | None=None) -> int:
 # ===========================================================================
 
 V1_STATE_KEY = "v1"
+V1_SCHEMA = 2
 V1_SECTORS = list(V4_SECTORS)
-V1_SEARCH_RESULTS_PER_SECTOR = _env_int("V1_SEARCH_RESULTS_PER_SECTOR", 6)
-V1_MAX_CANDIDATES_PER_SECTOR = _env_int("V1_MAX_CANDIDATES_PER_SECTOR", 3)
-V1_CONTENTS_URLS_PER_STORY = _env_int("V1_CONTENTS_URLS_PER_STORY", 3)
-V1_AGENT_MAX_CASES = _env_int("V1_AGENT_MAX_CASES", 2)
-V1_SEARCH_DELAY_SECONDS = _env_float("V1_SEARCH_DELAY_SECONDS", 0.12)
-V1_SEARCH_CONCURRENCY = max(1, min(8, _env_int("V1_SEARCH_CONCURRENCY", 4)))
+V1_POSTS_PER_RUN = 10
+V1_QUALITY_FLOOR = _env_int("V1_QUALITY_FLOOR", 78)
+V1_SEARCH_RESULTS_PER_SECTOR = _env_int("V1_SEARCH_RESULTS_PER_SECTOR", 8)
+V1_MAX_CANDIDATES_PER_SECTOR = _env_int("V1_MAX_CANDIDATES_PER_SECTOR", 4)
 V1_CONTENTS_CHARS = _env_int("V1_CONTENTS_CHARS", 9000)
-V1_RANK_MAX_CANDIDATES = 20
-V1_RANK_MAX_TOKENS = max(512, min(900, _env_int("V1_RANK_MAX_TOKENS", 700)))
+V1_SECONDARY_RESULTS = _env_int("V1_SECONDARY_RESULTS", 4)
+V1_IMAGE_SEARCH_RESULTS = _env_int("V1_IMAGE_SEARCH_RESULTS", 5)
+V1_SEARCH_DELAY_SECONDS = _env_float("V1_SEARCH_DELAY_SECONDS", 0.25)
+V1_POST_DELAY = _env_float("V1_POST_DELAY_SECONDS", POST_DELAY_SECONDS)
+V1_EDITORIAL_MAX_TOKENS = max(700, min(1800, _env_int("V1_EDITORIAL_MAX_TOKENS", 1200)))
+V1_CEREBRAS_BATCH_ENABLED = os.environ.get("V1_CEREBRAS_BATCH_ENABLED", "1").strip().lower() not in {"0", "false", "no"}
 V1_EXCLUDE_DOMAINS = [
     "facebook.com", "instagram.com", "tiktok.com", "x.com", "twitter.com", "youtube.com",
     "bet365.com", "oddschecker.com", "sportinglife.com/betting",
@@ -5402,82 +5406,119 @@ V1_CURRENT_RX = re.compile(
     r"tomorrow(?:'s)?\s+(?:match|game|fixture|fixtures?))\b", re.I,
 )
 V1_CURRENT_TITLE_RX = V1_CURRENT_RX
-
-V1_SECTOR_SEARCH = {
-    "Sport Discovery": "unusual lesser-known established sport history rules equipment and how it is played",
-    "Game Discovery": "unusual physical traditional regional board card dice or tabletop game history and rules",
-    "Interesting Sports Fact": "surprising but well-documented evergreen sports fact with clear historical or technical evidence",
-    "Interesting Game Fact": "surprising but well-documented evergreen game fact with historical rules or design evidence",
-    "Rule Check": "official or historical sports and games rule that is unusual, misunderstood, or changed over time",
-    "How to Play": "clear documented rules setup objective equipment scoring and basic play sequence for an unusual sport or game",
-    "Sport Origin": "documented origin and development of a sport, including predecessors, early evidence, spread, and modern form",
-    "Game Origin": "documented origin and development of a physical, traditional, board, card, dice, or tabletop game",
-    "On This Date": "a well-documented historical sports or games event associated with September {month} {day}; exact date evidence required",
-    "First / Last / Only": "precisely documented first, last, or only occurrence in sports or games with strong qualifying evidence",
-    "Records & Milestones": "verified historical sports or games record, streak, landmark, or institutional milestone",
-    "Forgotten Sport": "discontinued, extinct, nearly forgotten, geographically limited, or replaced sport with documented history",
-    "Forgotten Game": "discontinued, ancient, nearly forgotten, geographically limited, or replaced physical or tabletop game",
-    "Equipment / Measurement": "meaningful sports or game equipment, measurement, timing, dimensions, scoring, or engineering explanation",
-    "Why Does This Happen?": "one real why-question in sport or games explained by science, physics, biomechanics, mathematics, history, culture, or design",
-    "Then vs Now": "documented historical versus modern change in rules, equipment, venue, scoring, terminology, technology, or structure",
-    "New Sport Discovery": "new or emerging non-digital sport with established rules, documented development, and evidence strong enough for long-term knowledge",
-    "New Tabletop Game Discovery": "newer board, card, dice, tabletop, or physical game with documented rules and development, without promotional framing",
-    "Traditional / Regional Game": "traditional or regional physical game with documented cultural context, rules, equipment, and evidence",
-    "Sports & Games People": "historically important athlete, pioneer, inventor, designer, founder, organizer, rule-maker, historian, or contributor",
+V1_LISTICLE_RX = re.compile(r"\b(?:top\s+\d+|best\s+\d*|ranking(?:s)?|ranked|greatest|most\s+popular|things\s+you\s+didn'?t\s+know)\b", re.I)
+V1_WEAK_SOURCE_RX = re.compile(r"\b(?:quora|reddit|pinterest|facebook|instagram|tiktok)\b", re.I)
+V1_HARD_SECTORS = {
+    "Sport Origin", "Game Origin", "On This Date", "First / Last / Only", "Records & Milestones",
+    "Then vs Now", "Traditional / Regional Game", "Sports & Games People",
 }
 
-V1_HARD_SECTORS = {"Sport Origin", "Game Origin", "On This Date", "First / Last / Only", "Records & Milestones", "Then vs Now", "Traditional / Regional Game", "Sports & Games People"}
+V1_BATCH_EDITORIAL_SCHEMA = {
+    "type": "object",
+    "additionalProperties": False,
+    "properties": {
+        "posts": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": False,
+                "properties": {
+                    "post_number": {"type": "integer"},
+                    "headline": {"type": "string"},
+                    "summary": {"type": "string"},
+                    "key_points": {"type": "array", "items": {"type": "string"}},
+                    "image_index": {"type": "integer"},
+                },
+                "required": ["post_number", "headline", "summary", "key_points", "image_index"],
+            },
+        }
+    },
+    "required": ["posts"],
+}
+
+V1_SECTOR_SEARCH = {
+    "Sport Discovery": "lesser-known established sport with documented rules history equipment and how it is played",
+    "Game Discovery": "unusual physical, regional, board, card, dice or tabletop game with documented rules and history",
+    "Interesting Sports Fact": "one surprising evergreen sports fact with strong historical, technical or institutional evidence",
+    "Interesting Game Fact": "one surprising evergreen fact about a physical or tabletop game with documented evidence",
+    "Rule Check": "one official or historical sports/game rule that is unusual, misunderstood or materially important",
+    "How to Play": "one unusual sport or game with documented setup objective equipment scoring and basic play sequence",
+    "Sport Origin": "documented origin and development of a sport with precise evidence, predecessors and early history",
+    "Game Origin": "documented origin and development of a physical or tabletop game with precise historical evidence",
+    "On This Date": "historical sports or games event that happened on {month} {day}; exact date evidence is required",
+    "First / Last / Only": "precisely documented first, last or only occurrence in sports or games with qualification and strong evidence",
+    "Records & Milestones": "verified historical record, streak, landmark or institutional milestone with clear evidence",
+    "Forgotten Sport": "discontinued, extinct, displaced or little-known sport with documented history and rules",
+    "Forgotten Game": "discontinued, ancient, displaced or little-known physical/tabletop game with documented history",
+    "Equipment / Measurement": "one meaningful sports or game equipment, measurement, timing, dimensions or engineering explanation",
+    "Why Does This Happen?": "one real why-question in sport or games explained by science, physics, biomechanics, mathematics, history, culture or design",
+    "Then vs Now": "documented historical versus modern change in sport/game rules, equipment, venue, scoring or structure",
+    "New Sport Discovery": "new or emerging non-digital sport with established rules, documented development and non-promotional evidence",
+    "New Tabletop Game Discovery": "newer board, card, dice or tabletop game with documented rules and independent development evidence",
+    "Traditional / Regional Game": "traditional or regional physical game with documented cultural context, rules, equipment and evidence",
+    "Sports & Games People": "historically important athlete, pioneer, inventor, designer, founder, organizer or rule-maker with documented contribution",
+}
 
 
 def _v1_default_state() -> dict:
     return {
-        "schema": 1,
+        "schema": V1_SCHEMA,
         "created_at": utc_iso(now_bd()),
         "last_run_at": "",
         "daily": {},
         "runs": [],
-        "live": {
-            "schedule": {"message_id": None, "target_date": ""},
-            "results": {"message_id": None, "target_date": ""},
-        },
+        "live": {"schedule": {"message_id": None, "target_date": ""}, "results": {"message_id": None, "target_date": ""}},
         "publication": {},
     }
+
+
+def _v1_day_sector_plan(target: date) -> dict[str, list[str]]:
+    """Stable 10+10 split. The AM and PM sets are always disjoint for a calendar day."""
+    ranked = sorted(V1_SECTORS, key=lambda sec: hashlib.sha256(f"sports-newsroom:{target.isoformat()}:{sec}".encode()).hexdigest())
+    return {"AM": ranked[:V1_POSTS_PER_RUN], "PM": ranked[V1_POSTS_PER_RUN:V1_POSTS_PER_RUN * 2]}
 
 
 def v1_state(state: dict) -> dict:
     root = state.setdefault(V1_STATE_KEY, _v1_default_state())
     if not isinstance(root, dict):
-        root = _v1_default_state()
-        state[V1_STATE_KEY] = root
-    root.setdefault("schema", 1)
+        root = _v1_default_state(); state[V1_STATE_KEY] = root
+    root.setdefault("schema", V1_SCHEMA)
+    root["schema"] = max(int(root.get("schema") or 1), V1_SCHEMA)
     root.setdefault("created_at", utc_iso(now_bd()))
     root.setdefault("last_run_at", "")
     root.setdefault("daily", {})
     root.setdefault("runs", [])
     root.setdefault("publication", {})
     root.setdefault("live", _v1_default_state()["live"])
-    # One-time migration of the currently deployed V4 live pair/day memory.
+    today = now_bd().date().isoformat()
+    d = root["daily"].setdefault(today, {})
+    if not isinstance(d, dict):
+        d = {}; root["daily"][today] = d
+    d.setdefault("sector_plan", _v1_day_sector_plan(now_bd().date()))
+    d.setdefault("published_sectors", [])
+    d.setdefault("run_ids", [])
+    # One-time migration of the deployed V4 live pair/day memory.
     old = state.get("v4")
     if isinstance(old, dict):
         if not root["live"].get("schedule", {}).get("message_id") and isinstance(old.get("live"), dict):
             root["live"] = json.loads(json.dumps(old.get("live")))
-        today = now_bd().date().isoformat()
         if today not in root["daily"] and isinstance(old.get("daily", {}).get(today), dict):
             root["daily"][today] = json.loads(json.dumps(old["daily"][today]))
     return root
 
 
 def v1_sector_query(sector: str, target: date) -> str:
-    template = V1_SECTOR_SEARCH.get(sector, "evergreen sports and games knowledge")
-    return template.format(month=target.strftime("%B"), day=target.day)
+    return V1_SECTOR_SEARCH.get(sector, "evergreen sports and games knowledge").format(month=target.strftime("%B"), day=target.day)
 
 
 def _v1_search_system(sector: str, target: date, used_sectors: set[str]) -> str:
-    used = ", ".join(sorted(used_sectors)) or "none"
-    base = _v1_prompt("exa_sector_discovery_v1.txt", "Retrieve evergreen Sports & Games source pages; do not write an article.")
-    return (base + f"\n\nTARGET SECTOR: {sector}\nCALENDAR DATE: {target.isoformat()}\n"
-            + f"PREVIOUSLY USED SECTORS TODAY: {used}\n"
-            + "Return normal Exa Search results. Do not return a synthetic publication object.")
+    return (
+        "THE SPORTS NEWSROOM RESEARCH DESK. Retrieve sources, do not write an article. "
+        "Find one durable knowledge unit for the supplied sector. Prefer primary/authoritative sources. "
+        "Reject current sports news, listicles, promotional pages, betting, rumors and generic SEO pages. "
+        "The eventual post is a compact knowledge hub, not a narrative blog post. "
+        f"TARGET SECTOR: {sector}. DATE: {target.isoformat()}. ALREADY USED TODAY: {', '.join(sorted(used_sectors)) or 'none'}."
+    )
 
 
 def _v1_exa_error(r: Any) -> str:
@@ -5486,574 +5527,489 @@ def _v1_exa_error(r: Any) -> str:
 
 
 def _v1_exa_request(url: str, body: dict, *, timeout: int = 60, retries: int = 0) -> Any:
-    """V1 provider boundary. 400s are surfaced, not hidden behind payload guessing."""
     if not EXA_API_KEY:
         return None
-    return http(
-        "exa", "POST", url, json_body=body,
-        headers={"x-api-key": EXA_API_KEY, "Content-Type": "application/json"},
-        timeout=timeout, retries=retries, backoff=2.0,
-    )
+    return http("exa", "POST", url, json_body=body, headers={"x-api-key": EXA_API_KEY, "Content-Type": "application/json"}, timeout=timeout, retries=retries, backoff=2.0)
 
 
 def v1_exa_search_sector(sector: str, target: date, used_sectors: set[str], *, mode: str = "auto", num: int | None = None) -> list[dict]:
-    """Native Exa /search discovery. No outputSchema, no guessed payload variants."""
     if not EXA_API_KEY:
         return []
-    query = v1_sector_query(sector, target)
     body = {
-        "query": query,
-        "type": mode,
+        "query": v1_sector_query(sector, target),
         "numResults": max(1, min(100, int(num or V1_SEARCH_RESULTS_PER_SECTOR))),
         "moderation": True,
         "excludeDomains": V1_EXCLUDE_DOMAINS,
-        "contents": {"highlights": True},
+        "contents": {"highlights": True, "summary": True},
         "systemPrompt": _v1_search_system(sector, target, used_sectors),
     }
-    if mode != "deep":
-        body.pop("type") if mode == "auto" else None
-    r = _v1_exa_request("https://api.exa.ai/search", body, timeout=60, retries=1)
+    if mode not in ("auto", ""):
+        body["type"] = mode
+    if mode in {"deep", "deep-reasoning", "deep-lite"}:
+        body["additionalQueries"] = [
+            f"{sector} {target.strftime('%B')} {target.day} authoritative source",
+            f"{sector} history rules archive official reference",
+        ]
+    r = _v1_exa_request("https://api.exa.ai/search", body, timeout=120 if mode.startswith("deep") else 60, retries=1)
     if r is None or not getattr(r, "ok", False) or not isinstance(getattr(r, "data", None), dict):
-        tag = ""
-        if isinstance(getattr(r, "data", None), dict):
-            tag = text(r.data.get("tag"))
-        logger.warning("V1 Exa Search failed sector=%s status=%s tag=%s error=%s", sector, getattr(r, "status", 0), tag, redact(_v1_exa_error(r))[:180])
+        logger.warning("V1 Exa Search failed sector=%s mode=%s status=%s error=%s", sector, mode, getattr(r, "status", 0), redact(_v1_exa_error(r))[:180])
         return []
-    out = []
+    out=[]
     for item in r.data.get("results", []) or []:
         if not isinstance(item, dict):
             continue
-        url = text(item.get("url")); title = re.sub(r"\s+", " ", text(item.get("title"))).strip()
-        if not url or not title or not re.match(r"^https?://", url, re.I):
+        url=v1_network_url(text(item.get("url"))); title=re.sub(r"\s+", " ", text(item.get("title"))).strip()
+        if not url or not title: continue
+        hs=item.get("highlights") or []
+        if not isinstance(hs, list): hs=[text(hs)] if text(hs) else []
+        highlights=[re.sub(r"\s+", " ", text(h)).strip() for h in hs if text(h)]
+        excerpt=" ".join(highlights)[:4500] or re.sub(r"\s+", " ", text(item.get("text")))[:4500]
+        alltext=f"{title} {excerpt} {url}"
+        if exclusion_reason(alltext) or V1_CURRENT_RX.search(title) or V1_CURRENT_RX.search(excerpt) or V1_LISTICLE_RX.search(title):
             continue
-        hs = item.get("highlights") or []
-        if not isinstance(hs, list):
-            hs = [text(hs)] if text(hs) else []
-        highlights = [re.sub(r"\s+", " ", text(h)) for h in hs if text(h)]
-        excerpt = " ".join(highlights)[:3500] or re.sub(r"\s+", " ", text(item.get("text")))[:3500]
-        alltext = f"{title} {excerpt} {url}"
-        if exclusion_reason(alltext):
-            reject("v1_discovery_exclusion", f"{sector}: {title[:120]}")
-            continue
-        published = parse_dt(item.get("publishedDate") or item.get("published_date"))
-        recent = bool(published and published >= datetime.now(timezone.utc) - timedelta(days=45))
-        title_current = V1_CURRENT_TITLE_RX.search(title)
-        excerpt_current = V1_CURRENT_RX.search(excerpt)
-        if title_current or (recent and excerpt_current):
-            reject("v1_current_news", f"{sector}: {title[:120]}")
-            continue
-        image = text(item.get("image"))
-        published = parse_dt(item.get("publishedDate") or item.get("published_date"))
-        out.append({
-            "sector": sector,
-            "normalized_subject": title,
-            "central_knowledge_unit": title,
-            "central_claim": excerpt[:700] or title,
-            "research_focus": v1_sector_query(sector, target),
-            "topic": title,
-            "sport_or_game": "",
-            "source_url": url,
-            "source": source_label(url, text(item.get("author"))),
-            "grade": grade_of(url),
-            "highlights": highlights[:6],
-            "text": excerpt,
-            "image": image,
-            "published": published,
-            "exa_id": text(item.get("id")),
-            "favicon": text(item.get("favicon")),
-            "search_request_id": text(r.data.get("requestId")),
-        })
+        published=parse_dt(item.get("publishedDate") or item.get("published_date"))
+        row={
+            "sector":sector,
+            "normalized_subject":title,
+            "central_knowledge_unit":title,
+            "central_claim":(highlights[0] if highlights else excerpt[:900])[:900],
+            "research_focus":v1_sector_query(sector,target),
+            "topic":title,
+            "source_url":url,
+            "source":source_label(url, text(item.get("author"))),
+            "grade":grade_of(url),
+            "highlights":highlights[:8],
+            "summary":text(item.get("summary")),
+            "text":excerpt,
+            "image":text(item.get("image")),
+            "published":published,
+            "exa_id":text(item.get("id")),
+            "favicon":text(item.get("favicon")),
+            "search_request_id":text(r.data.get("requestId")),
+        }
+        out.append(row)
     return out
 
 
 def v1_discover_all_sectors(target: date, used_sectors: set[str], *, recovery_sectors: set[str] | None = None) -> list[dict]:
-    sectors = [s for s in V1_SECTORS if not recovery_sectors or s in recovery_sectors]
-    raw: list[dict] = []
-    # Deliberately sequential. Exa's documented default /search limit is 10 QPS; this avoids bursts and is
-    # easier to reason about in GitHub Actions. The contents phase is batched separately.
-    for sector in sectors:
-        mode = "deep" if sector in V1_HARD_SECTORS and recovery_sectors else "auto"
-        rows = v1_exa_search_sector(sector, target, used_sectors, mode=mode)
+    sectors=[s for s in V1_SECTORS if not recovery_sectors or s in recovery_sectors]
+    raw=[]
+    for sec in sectors:
+        rows=v1_exa_search_sector(sec,target,used_sectors,mode="auto")
         raw.extend(rows)
         sleep(V1_SEARCH_DELAY_SECONDS)
     return raw
 
 
 def v1_network_url(url: str) -> str:
-    """Return a valid absolute URL for provider requests while keeping canonicalization separate."""
     raw=text(url).strip()
-    if not raw:
-        return ""
-    if "://" not in raw:
-        raw="https://"+raw
+    if not raw: return ""
+    if "://" not in raw: raw="https://"+raw
     parts=urlsplit(raw)
-    if parts.scheme.lower() not in {"http","https"} or not parts.netloc:
-        return ""
+    if parts.scheme.lower() not in {"http","https"} or not parts.netloc: return ""
     query=[(k,v) for k,v in parse_qsl(parts.query,keep_blank_values=True) if k.lower() not in TRACKING_PARAMS]
-    path=re.sub(r"/+","/",parts.path or "/")
-    return parts._replace(scheme=parts.scheme.lower(),netloc=parts.netloc.lower(),path=path,query=urlencode(query)).geturl()
+    return parts._replace(scheme=parts.scheme.lower(), netloc=parts.netloc.lower(), path=re.sub(r"/+", "/", parts.path or "/"), query=urlencode(query)).geturl()
 
 
 def v1_candidate_key(row: dict) -> str:
-    return fingerprint(row.get("sector", ""), row.get("normalized_subject", ""), row.get("central_knowledge_unit", ""))
+    return fingerprint(row.get("sector",""), row.get("normalized_subject",""), row.get("central_knowledge_unit",""))
 
 
 def v1_discovery_quality(row: dict) -> float:
-    grade = {"A": 30, "B": 20, "C": 8}.get(text(row.get("grade")).upper(), 5)
-    h = min(20, len(row.get("highlights") or []) * 3)
-    image = 5 if text(row.get("image")) else 0
-    title = min(15, len(tokens(row.get("normalized_subject"))) * 2)
-    return float(grade + h + image + title)
+    grade={"A":40,"B":27,"C":6}.get(text(row.get("grade")).upper(),4)
+    evidence=min(24, len(text(row.get("summary"))) / 70 + len(row.get("highlights") or []) * 2.0)
+    specificity=min(16, len(tokens(row.get("central_claim"))) * 0.9)
+    image=6 if text(row.get("image")) else 0
+    penalty=18 if V1_LISTICLE_RX.search(text(row.get("normalized_subject"))) else 0
+    return max(0.0, grade + evidence + specificity + image - penalty)
+
+
+def _v1_source_domain_set(c: dict) -> set[str]:
+    urls=[text(c.get("source_url"))]
+    urls += [text(x.get("url")) for x in c.get("sources",[]) if isinstance(x,dict)]
+    return {domain_of(u) for u in urls if domain_of(u)}
 
 
 def v1_build_reservoir(raw: list[dict], coverage: dict, used_sectors: set[str]) -> tuple[list[dict], list[str]]:
-    accepted: list[dict] = []
-    reasons: list[str] = []
-    seen_urls: set[str] = set()
-    per_sector: Counter[str] = Counter()
-    seen_local: list[dict] = []
-    ordered = sorted(raw, key=lambda x: (v1_discovery_quality(x), text(x.get("grade"))), reverse=True)
-    for c in ordered:
-        url = canonical_url(text(c.get("source_url")))
-        if not url or url in seen_urls:
-            reasons.append("url_duplicate")
-            continue
-        status, row, score = v4_coverage_match(c, coverage)
-        if status == "duplicate":
-            reasons.append(f"coverage_duplicate:{c.get('sector')}:{c.get('normalized_subject')}")
-            continue
-        if status == "related":
-            # Do not call Cerebras for every fuzzy match. Only the strongest borderline matches are
-            # escalated later by the selector if needed.
-            c["coverage_status"] = "related"
-            c["coverage_score"] = round(score, 4)
-        sec = text(c.get("sector"))
-        if per_sector[sec] >= V1_MAX_CANDIDATES_PER_SECTOR:
-            continue
-        local_dup = False
-        for p in seen_local:
-            if p.get("sector") == sec and v4_topic_similarity(c, p) >= V4_SEMANTIC_DUP_THRESHOLD:
-                local_dup = True
-                break
-        if local_dup:
-            reasons.append(f"same_sector_duplicate:{sec}")
-            continue
-        c["candidate_id"] = v1_candidate_key(c)
-        network_url=v1_network_url(text(c.get("source_url")))
-        if not network_url:
-            reasons.append("invalid_source_url")
-            continue
-        c["source_urls"] = [network_url]
-        c["sources"] = [{"name": c.get("source"), "url": network_url, "type": "Exa Search result", "evidence_note": " ".join(c.get("highlights") or [])[:500]}]
-        c["research_images"] = ([{"url": text(c["image"]), "source_page_url": network_url, "source_name": c.get("source"), "source_type": "Exa Search result image"}] if text(c.get("image")) else [])
-        accepted.append(c)
-        seen_urls.add(url); seen_local.append(c); per_sector[sec] += 1
-    # We want all 20 sectors represented in the first reservoir. If a sector has no survivor, recovery will target it.
-    return accepted, reasons
+    accepted=[]; reasons=[]; seen_urls=set(); seen_units=[]; per_sector=Counter()
+    for c in sorted(raw,key=v1_discovery_quality,reverse=True):
+        sec=text(c.get("sector")); url=canonical_url(text(c.get("source_url")))
+        if not sec or sec not in V1_SECTORS or not url: reasons.append("invalid_candidate"); continue
+        if url in seen_urls: reasons.append("url_duplicate"); continue
+        status,_,score=v4_coverage_match(c,coverage)
+        if status=="duplicate": reasons.append("coverage_duplicate"); continue
+        if per_sector[sec]>=V1_MAX_CANDIDATES_PER_SECTOR: continue
+        # Cross-sector novelty is strict. We do not allow two daily slots to be different labels for one subject.
+        duplicate=False
+        for p in seen_units:
+            if normalize_text(c.get("central_knowledge_unit")) == normalize_text(p.get("central_knowledge_unit")) or v4_topic_similarity(c,p) >= V4_SEMANTIC_DUP_THRESHOLD:
+                duplicate=True; break
+        if duplicate: reasons.append(f"same_day_knowledge_duplicate:{sec}"); continue
+        c["coverage_status"]=status; c["coverage_score"]=round(score,4)
+        c["candidate_id"]=v1_candidate_key(c)
+        nu=v1_network_url(url)
+        c["sources"]= [{"name":c.get("source") or source_label(nu),"url":nu,"grade":c.get("grade"),"type":"Exa Search","evidence_note":" ".join(c.get("highlights") or [])[:700]}]
+        c["source_urls"]=[nu]
+        c["research_images"]=([{"url":text(c.get("image")),"source_page_url":nu,"source_name":c.get("source"),"source_type":"Exa Search image","title":c.get("normalized_subject")} ] if text(c.get("image")) else [])
+        accepted.append(c); seen_urls.add(url); seen_units.append(c); per_sector[sec]+=1
+    return accepted,reasons
 
 
-def v1_rank(ai: "AIClient", candidates: list[dict], used_sectors: set[str]) -> list[dict]:
-    """Rank exactly one best candidate per sector; keep the Cerebras request intentionally tiny."""
-    if not candidates:
-        return []
-    by_sector: dict[str, list[dict]] = {}
-    for c in candidates:
-        by_sector.setdefault(text(c.get("sector")), []).append(c)
-    pool: list[dict] = []
-    for sec in V1_SECTORS:
-        rows = sorted(by_sector.get(sec, []), key=v1_discovery_quality, reverse=True)
-        if rows:
-            pool.append(rows[0])
-    if len(pool) < V1_RANK_MAX_CANDIDATES:
-        existing = {id(x) for x in pool}
-        for c in sorted(candidates, key=v1_discovery_quality, reverse=True):
-            if id(c) in existing:
-                continue
-            pool.append(c); existing.add(id(c))
-            if len(pool) >= V1_RANK_MAX_CANDIDATES:
-                break
-    pool = pool[:V1_RANK_MAX_CANDIDATES]
-
-    payload=[]
-    for i,c in enumerate(pool,1):
-        hs=[re.sub(r"\s+", " ", text(x))[:180] for x in (c.get("highlights") or []) if text(x)]
-        payload.append({
-            "candidate_number": i,
-            "sector": text(c.get("sector")),
-            "subject": text(c.get("normalized_subject"))[:180],
-            "knowledge_unit": text(c.get("central_knowledge_unit"))[:180],
-            "claim": text(c.get("central_claim"))[:220],
-            "source_grade": text(c.get("grade")),
-            "has_image": bool(c.get("image")),
-            "highlight": hs[0] if hs else "",
-            "coverage": text(c.get("coverage_status", "new")),
-        })
-
-    def deterministic()->list[dict]:
-        rows=[{"post_number":i+1,"score":int(round(v1_discovery_quality(c)*2)),"reason":"deterministic fallback","_candidate_pool":pool} for i,c in enumerate(pool)]
-        rows.sort(key=lambda x:(x["score"],-x["post_number"]),reverse=True)
-        return rows
-
-    if not ai.available or ai.fatal:
-        return deterministic()
-    system=_v1_prompt("cerebras_rank_v1.txt",
-        "You are the ranking desk for The Sports Newsroom V1. Rank the 20-sector evergreen candidate set using only the supplied evidence. "
-        "Return every candidate number exactly once in ranked order with a 0-100 score. "
-        f"Sectors already published today: {', '.join(sorted(used_sectors)) or 'none'}. Prefer unused sectors. Do not write explanations.")
-    obj=ai.json("v1_rank_reservoir",system,json.dumps(payload,ensure_ascii=False,separators=(",",":")),V1_RANK_SCHEMA,max_tokens=V1_RANK_MAX_TOKENS,temperature=0.0)
-    if not obj:
-        logger.warning("V1 Cerebras ranking unavailable; using deterministic ranking fallback: %s",ai.last_error)
-        return deterministic()
-    rows=[]; seen=set()
-    for r in obj.get("rankings") or []:
-        try: n=int(r.get("post_number")); score=max(0,min(100,int(r.get("score"))))
-        except Exception: continue
-        if 1<=n<=len(pool) and n not in seen:
-            seen.add(n); rows.append({"post_number":n,"score":score,"reason":""})
-    if len(rows)<max(10,int(len(pool)*0.75)):
-        logger.warning("V1 Cerebras ranking returned incomplete ordering (%d/%d); using deterministic ranking",len(rows),len(pool))
-        return deterministic()
-    for i in range(1,len(pool)+1):
-        if i not in seen:
-            rows.append({"post_number":i,"score":int(round(v1_discovery_quality(pool[i-1])*2)),"reason":"completion fallback"})
-    rows.sort(key=lambda x:(x["score"],-x["post_number"]),reverse=True)
-    return [{**r,"_candidate_pool":pool} for r in rows]
+def v1_evidence_quality(candidate: dict, pages: dict[str,dict]) -> float:
+    urls=[canonical_url(text(s.get("url"))) for s in candidate.get("sources",[]) if isinstance(s,dict)]
+    found=[pages.get(u,{}) for u in urls if u in pages]
+    evidence=" ".join([text(p.get("summary")) for p in found] + [" ".join(p.get("highlights") or []) for p in found] + [text(p.get("text"))[:3500] for p in found])
+    score=0.0
+    grades={text(s.get("grade")).upper() for s in candidate.get("sources",[]) if isinstance(s,dict)}
+    if "A" in grades: score += 42
+    elif "B" in grades: score += 28
+    elif "C" in grades: score += 8
+    score += min(25, len(evidence)/90)
+    score += min(13, len(found)*6)
+    if len({domain_of(u) for u in urls if domain_of(u)}) >= 2: score += 12
+    if len(text(candidate.get("central_claim"))) >= 80: score += 8
+    return min(100.0,score)
 
 
 def v1_contents_for_urls(urls: list[str], *, text_mode: bool = True) -> tuple[dict[str,dict], str]:
-    """Batch Exa /contents. URLs are already-known Exa Search outputs."""
     normalized=[]; seen=set()
     for raw in urls:
-        nu=v1_network_url(raw)
-        cu=canonical_url(nu)
-        if nu and cu and cu not in seen:
-            seen.add(cu); normalized.append(nu)
+        nu=v1_network_url(raw); cu=canonical_url(nu)
+        if nu and cu and cu not in seen: seen.add(cu); normalized.append(nu)
     urls=normalized[:100]
-    if not urls: return {}, "no_urls"
-    body={"urls":urls,"highlights":True,"text":True,"maxAgeHours":720}
-    # No outputSchema, no legacy context, no livecrawl. Contents is a retrieval/extraction endpoint.
-    r=_v1_exa_request("https://api.exa.ai/contents",body,timeout=120,retries=1)
+    if not urls: return {},"no_urls"
+    body={"urls":urls,"highlights":True,"summary":True,"text":bool(text_mode),"maxAgeHours":720}
+    r=_v1_exa_request("https://api.exa.ai/contents",body,timeout=180,retries=1)
     if r is None or not getattr(r,"ok",False) or not isinstance(getattr(r,"data",None),dict):
-        logger.warning("V1 Exa Contents failed status=%s error=%s",getattr(r,"status",0),redact(_v1_exa_error(r))[:180])
         return {},_v1_exa_error(r) if r else "provider_unavailable"
     out={}
     for item in r.data.get("results",[]) or []:
         if not isinstance(item,dict): continue
-        result_url=canonical_url(text(item.get("url")))
-        result_id=canonical_url(text(item.get("id")))
-        key=result_url or result_id
+        ru=canonical_url(text(item.get("url"))); ri=canonical_url(text(item.get("id"))); key=ru or ri
         if not key: continue
         hs=item.get("highlights") or []
         if not isinstance(hs,list): hs=[text(hs)] if text(hs) else []
-        page={
-            "url":text(item.get("url")) or text(item.get("id")) or key,
-            "title":text(item.get("title")),
-            "author":text(item.get("author")),
-            "published":parse_dt(item.get("publishedDate") or item.get("published_date")),
-            "text":re.sub(r"\s+"," ",text(item.get("text")))[:V1_CONTENTS_CHARS],
-            "highlights":[re.sub(r"\s+"," ",text(x)) for x in hs if text(x)][:8],
-            "summary":text(item.get("summary")),
-        }
+        page={"url":text(item.get("url")) or text(item.get("id")) or key,"title":text(item.get("title")),"author":text(item.get("author")),
+              "published":parse_dt(item.get("publishedDate") or item.get("published_date")),"summary":text(item.get("summary")),
+              "text":re.sub(r"\s+"," ",text(item.get("text")))[:V1_CONTENTS_CHARS],"highlights":[re.sub(r"\s+"," ",text(x)) for x in hs if text(x)][:10],
+              "image":text(item.get("image"))}
         out[key]=page
-        # Exa may return a canonical document URL different from the requested ID/URL (for example an HTML/PDF redirect).
-        # Index both forms so the original Search source still resolves to the extracted page.
-        if result_id: out[result_id]=page
-        if result_url: out[result_url]=page
-    statuses={text(x.get("id")):text(x.get("status")) for x in (r.data.get("statuses") or []) if isinstance(x,dict)}
-    for k,v in statuses.items():
-        ck=canonical_url(k)
-        if ck and ck in out: out[ck]["status"]=v
+        if ru: out[ru]=page
+        if ri: out[ri]=page
     return out,"ok"
 
 
 def v1_evidence_query(candidate: dict) -> str:
-    sector=text(candidate.get("sector"))
-    focus=text(candidate.get("research_focus"))
-    claim=text(candidate.get("central_claim"))
-    return f"{sector}: verify {text(candidate.get('normalized_subject'))}. {focus}. Focus on evidence for the claim: {claim[:400]}"
-
-
-def v1_evidence_text(candidate: dict, pages: dict[str,dict]) -> str:
-    parts=[]
-    for src in candidate.get("sources",[]) if isinstance(candidate.get("sources"),list) else []:
-        u=canonical_url(text(src.get("url")))
-        page=pages.get(u,{})
-        if not page: continue
-        hs=page.get("highlights") or []
-        txt=" ".join(hs)[:3000] or text(page.get("text"))[:5000]
-        if txt:
-            parts.append(f"SOURCE: {text(page.get('title')) or src.get('name')}\nURL: {page.get('url') or u}\n{txt}")
-    return "\n\n".join(parts)[:14000]
-
-
-def v1_exa_search_query(query: str, target: date, used_sectors: set[str], *, mode: str = "auto", num: int = 4) -> list[dict]:
-    if not EXA_API_KEY or not text(query):
-        return []
-    body={
-        "query": text(query),
-        "numResults": max(1, min(100, int(num))),
-        "moderation": True,
-        "excludeDomains": V1_EXCLUDE_DOMAINS,
-        "contents": {"highlights": True},
-        "systemPrompt": _v1_search_system("Targeted verification", target, used_sectors),
-    }
-    if mode != "auto":
-        body["type"]=mode
-    r=_v1_exa_request("https://api.exa.ai/search",body,timeout=60,retries=1)
-    if r is None or not getattr(r,"ok",False) or not isinstance(getattr(r,"data",None),dict):
-        logger.warning("V1 targeted Exa Search failed status=%s error=%s",getattr(r,"status",0),redact(_v1_exa_error(r))[:180])
-        return []
-    out=[]
-    for item in r.data.get("results",[]) or []:
-        if not isinstance(item,dict): continue
-        url=text(item.get("url")); title=re.sub(r"\s+"," ",text(item.get("title"))).strip()
-        if not url or not title or not re.match(r"^https?://",url,re.I): continue
-        hs=item.get("highlights") or []
-        if not isinstance(hs,list): hs=[text(hs)] if text(hs) else []
-        highlights=[re.sub(r"\s+"," ",text(h)) for h in hs if text(h)]
-        excerpt=" ".join(highlights)[:3500] or re.sub(r"\s+"," ",text(item.get("text")))[:3500]
-        published = parse_dt(item.get("publishedDate") or item.get("published_date"))
-        recent = bool(published and published >= datetime.now(timezone.utc) - timedelta(days=45))
-        if exclusion_reason(f"{title} {excerpt} {url}") or V1_CURRENT_TITLE_RX.search(title) or (recent and V1_CURRENT_RX.search(excerpt)):
-            continue
-        out.append({"url":url,"title":title,"highlights":highlights[:6],"text":excerpt,"source":source_label(url,text(item.get("author"))),"grade":grade_of(url),"image":text(item.get("image")),"exa_id":text(item.get("id")),"published":published})
-    return out
+    return f"{candidate.get('sector')}: independently verify {candidate.get('normalized_subject')}. Focus on {candidate.get('central_claim')[:450]}"
 
 
 def v1_secondary_search(candidate: dict, target: date) -> list[dict]:
-    q=(v1_evidence_query(candidate)+" Prefer an independent authoritative source. Verify exact dates, names, records, rules, or historical qualifiers. Search for the specific subject, not the generic sport.")
-    rows=v1_exa_search_query(q,target,set(),mode="auto",num=5)
-    wanted=(tokens(candidate.get("normalized_subject")) | tokens(candidate.get("central_knowledge_unit")) | tokens(candidate.get("central_claim")))
-    kept=[]
-    for r in rows:
-        rt=tokens((r.get("title","")+" "+r.get("text","")+" "+r.get("url", "")))
-        if wanted and len(wanted & rt) < max(1,min(2,len(wanted))):
-            continue
-        r["secondary_search_reason"]=q[:700]
-        kept.append(r)
-    return kept
+    q=v1_evidence_query(candidate)
+    rows=v1_exa_search_query(q,target,set(),mode="auto",num=V1_SECONDARY_RESULTS)
+    wanted=canonical_url(text(candidate.get("source_url")))
+    return [r for r in rows if canonical_url(text(r.get("url"))) != wanted]
 
 
-def v1_hard_case_needed(candidate: dict, pages: dict[str,dict]) -> bool:
-    sector=text(candidate.get("sector"))
-    if sector in V1_HARD_SECTORS:
-        return True
-    evidence=v1_evidence_text(candidate,pages)
-    nums=re.findall(r"\b\d{3,4}\b",text(candidate.get("central_claim"))+" "+evidence)
-    return not evidence or len(nums)>=3
-
-
-def _v1_prompt(name: str, fallback: str = "") -> str:
-    path=V4_PROMPTS_DIR / name
-    if path.exists():
-        try:
-            return path.read_text(encoding="utf-8")
-        except Exception:
-            pass
-    return fallback
-
-
-def v1_agent_hard_case(candidate: dict, evidence: str) -> dict | None:
-    if not EXA_API_KEY:
-        return None
-    schema_path=V4_SCHEMAS_DIR / "exa_agent_hard_case_v1.json"
-    try:
-        schema=json.loads(schema_path.read_text(encoding="utf-8"))
-    except Exception:
-        return None
-    if not isinstance(schema,dict) or not isinstance(schema.get("properties"),dict) or len(schema.get("properties",{}))>10:
-        logger.error("V1 Agent schema invalid or exceeds provider property limit")
-        return None
-    system=_v1_prompt("exa_hard_case_agent_v1.txt",
-        "Resolve a difficult evergreen Sports & Games research claim. Prefer authoritative independent sources. "
-        "Qualify first/last/only/origin claims precisely. Do not use current news. Do not invent facts or URLs.")
-    q=(system+"\n\nCASE:\n"+json.dumps({"candidate":{k:candidate.get(k,"") for k in ("sector","normalized_subject","central_knowledge_unit","central_claim","research_focus")},"existing_evidence":evidence[:7000]},ensure_ascii=False))
-    body={"query":q,"effort":"auto","outputSchema":schema}
-    r=_v1_exa_request("https://api.exa.ai/agent/runs",body,timeout=90,retries=0)
-    if r is None or not getattr(r,"ok",False) or not isinstance(getattr(r,"data",None),dict):
-        logger.warning("V1 Exa Agent create failed status=%s error=%s",getattr(r,"status",0),redact(_v1_exa_error(r))[:180]); return None
-    run_id=text(r.data.get("id"))
-    if not run_id: return None
-    deadline=time.monotonic()+_env_int("V1_AGENT_TIMEOUT_SECONDS",120)
-    while time.monotonic()<deadline:
-        g=http("exa","GET",f"https://api.exa.ai/agent/runs/{quote(run_id)}",headers={"Authorization":f"Bearer {EXA_API_KEY}"},timeout=30,retries=0)
-        if g.ok and isinstance(g.data,dict):
-            status=text(g.data.get("status")).lower()
-            if status=="completed":
-                output=g.data.get("output") or {}
-                structured=output.get("structured") if isinstance(output,dict) else None
-                if isinstance(structured,dict):
-                    structured["grounding"]=output.get("grounding") if isinstance(output,dict) else []
-                    structured["run_id"]=run_id
-                    return structured
-                return None
-            if status in {"failed","cancelled"}:
-                logger.warning("V1 Exa Agent terminal status=%s run=%s",status,run_id); return None
-        sleep(4)
-    logger.warning("V1 Exa Agent timed out run=%s",run_id)
-    return None
-
-
-def v1_verify_selected(selected: list[dict], target: date) -> tuple[list[dict], str]:
-    urls=[]
-    for c in selected:
-        for src in c.get("sources",[]) if isinstance(c.get("sources"),list) else []:
-            u=text(src.get("url"))
-            if u: urls.append(u)
-    pages,status=v1_contents_for_urls(urls)
-    if status!="ok" and not pages:
-        return [],status
-    verified=[]; agent_cases=0
-    for c in selected:
-        urls=[text(s.get("url")) for s in c.get("sources",[]) if isinstance(s,dict) and text(s.get("url"))]
-        evidence=v1_evidence_text(c,pages)
-        available=[u for u in urls if canonical_url(u) in pages]
-        # Evidence quality gate: at least one successful known-source extraction with useful text.
-        if len(available)<1 or len(evidence.strip())<300:
-            extra=v1_secondary_search(c,target)
-            for row in extra:
-                u=v1_network_url(text(row.get("url")))
-                if not u or canonical_url(u) in {canonical_url(x) for x in urls}: continue
-                urls.append(u)
-                c.setdefault("sources",[]).append({"name":row.get("source"),"url":u,"type":"Exa secondary search","evidence_note":" ".join(row.get("highlights") or [])[:500]})
-                if text(row.get("image")):
-                    c.setdefault("research_images",[]).append({"url":text(row.get("image")),"source_page_url":u,"source_name":row.get("source"),"source_type":"Exa secondary search image"})
-                if len(urls)>=V1_CONTENTS_URLS_PER_STORY: break
-            extra_pages,_=v1_contents_for_urls(urls[:V1_CONTENTS_URLS_PER_STORY])
-            pages.update(extra_pages)
-            evidence=v1_evidence_text(c,pages)
-            available=[u for u in urls if canonical_url(u) in pages]
-        if len(available)<1 or len(evidence.strip())<300:
-            reject("v1_evidence_insufficient",text(c.get("normalized_subject"))); continue
-        if v1_hard_case_needed(c,pages) and agent_cases<V1_AGENT_MAX_CASES:
-            agent=v1_agent_hard_case(c,evidence)
-            if agent:
-                agent_cases += 1
-                verdict=text(agent.get("verdict")).lower()
-                if verdict in {"unsupported","false","reject","insufficient"}:
-                    reject("v1_agent_rejected",text(c.get("normalized_subject"))); continue
-                if text(agent.get("qualified_claim")):
-                    c["central_claim"]=text(agent.get("qualified_claim"))
-                c["agent_evidence"]=text(agent.get("evidence_summary"))
-                c["agent_sources"]= [text(x) for x in (agent.get("source_urls") or []) if text(x)][:6]
-                c["agent_conflicts"]= [text(x) for x in (agent.get("conflicts") or []) if text(x)][:6]
-                c["agent_grounding"]=agent.get("grounding") or []
-                if c["agent_evidence"]:
-                    evidence=(evidence+"\n\nAGENT VERIFICATION:\n"+c["agent_evidence"][:5000]).strip()
-                # Agent may identify better sources. Add them for deterministic content retrieval, but do not let Agent evidence bypass Contents.
-                for raw_u in c["agent_sources"]:
-                    u=v1_network_url(raw_u)
-                    if u and canonical_url(u) not in {canonical_url(x) for x in urls}:
-                        urls.append(u)
-                        c.setdefault("sources",[]).append({"name":source_label(u),"url":u,"type":"Exa Agent source","evidence_note":"Agent identified source; verify with Exa Contents."})
-                agent_pages,_=v1_contents_for_urls(urls[:V1_CONTENTS_URLS_PER_STORY])
-                pages.update(agent_pages)
-                evidence=v1_evidence_text(c,pages)
-                if c.get("agent_evidence"):
-                    evidence=(evidence+"\n\nAGENT VERIFICATION:\n"+c["agent_evidence"][:5000]).strip()
-        c["verified_pages"]={k:pages[k] for k in [canonical_url(x) for x in urls] if k in pages}
-        c["research_evidence"]=evidence[:14000]
-        c["research_images"]=[x for x in (c.get("research_images") or []) if isinstance(x,dict) and text(x.get("url"))]
-        verified.append(c)
-    if not verified:
-        return [],"no_verified_candidates"
-    return verified,"ok"
-
-
-def v1_normalize_story(story: dict) -> dict:
-    """Canonicalize all optional AI values before any Telegram renderer sees them."""
-    out=dict(story) if isinstance(story,dict) else {}
-    img=out.get("image")
-    out["image"]=dict(img) if isinstance(img,dict) else {}
-    out["sources"]=[x for x in (out.get("sources") or []) if isinstance(x,(list,tuple)) and len(x)>=2]
-    out["urls"]=[text(x[1]) for x in out["sources"] if len(x)>=2 and text(x[1])]
-    out["key_points"]=[text(x) for x in (out.get("key_points") or []) if text(x)]
-    out["tags"]=[text(x) for x in (out.get("tags") or []) if text(x)]
-    out["people"]=out.get("people") if isinstance(out.get("people"),list) else []
-    out["image_status"]=text(out.get("image_status")) or ("verified" if out["image"].get("url") else "unavailable")
+def v1_exa_search_query(query: str, target: date, used_sectors: set[str], *, mode: str = "auto", num: int = 4) -> list[dict]:
+    if not EXA_API_KEY or not text(query): return []
+    body={"query":text(query),"numResults":max(1,min(100,int(num))),"moderation":True,"excludeDomains":V1_EXCLUDE_DOMAINS,
+          "contents":{"highlights":True,"summary":True},"systemPrompt":_v1_search_system("Verification",target,used_sectors)}
+    if mode not in ("auto",""): body["type"]=mode
+    r=_v1_exa_request("https://api.exa.ai/search",body,timeout=120 if mode.startswith("deep") else 60,retries=1)
+    if r is None or not getattr(r,"ok",False) or not isinstance(getattr(r,"data",None),dict): return []
+    out=[]
+    for item in r.data.get("results",[]) or []:
+        if not isinstance(item,dict): continue
+        url=v1_network_url(text(item.get("url"))); title=re.sub(r"\s+"," ",text(item.get("title"))).strip()
+        if not url or not title: continue
+        hs=item.get("highlights") or []
+        if not isinstance(hs,list): hs=[text(hs)] if text(hs) else []
+        hi=[re.sub(r"\s+"," ",text(x)) for x in hs if text(x)]
+        ex=" ".join(hi)[:3500] or text(item.get("text"))[:3500]
+        if exclusion_reason(f"{title} {ex} {url}") or V1_CURRENT_RX.search(title) or V1_CURRENT_RX.search(ex) or V1_LISTICLE_RX.search(title): continue
+        out.append({"url":url,"title":title,"text":ex,"highlights":hi[:8],"summary":text(item.get("summary")),"source":source_label(url),"grade":grade_of(url),"image":text(item.get("image"))})
     return out
 
 
-def v1_validate_editorial(candidate: dict, editorial: dict, image_candidates: list[dict]) -> tuple[bool, str, dict]:
-    """V1 editorial gate: preserve evergreen rules without inheriting overly broad legacy current-news matching."""
-    if not isinstance(editorial,dict):
-        return False,"editorial_not_object",{}
-    headline=text(editorial.get("headline")); body=text(editorial.get("body"))
-    words=re.findall(r"\b\w+[’'\w-]*\b",headline)
-    body_words=re.findall(r"\b\w+[’'\w-]*\b",body)
-    if not 6<=len(words)<=14: return False,"headline_word_count",{}
-    if not 50<=len(body_words)<=120: return False,"body_word_count",{}
-    if V1_CURRENT_RX.search(f"{headline} {body}"): return False,"current_news_language",{}
-    points=[text(x) for x in (editorial.get("key_points") or []) if text(x)]
-    if not 3<=len(points)<=5: return False,"key_points_count",{}
-    sources=candidate.get("sources")
-    if not isinstance(sources,list) or not sources: return False,"no_verified_sources",{}
-    evidence_numbers=set(re.findall(r"\b\d{1,4}\b",json.dumps(json_safe(candidate),ensure_ascii=False)+evidence_text_for_validation(candidate)))
-    generated_numbers=set(re.findall(r"\b\d{1,4}\b",f"{headline} {body} {' '.join(points)}"))
-    if not generated_numbers.issubset(evidence_numbers): return False,"unsupported_number",{}
-    selected=None
+def v1_hard_case_needed(candidate: dict, pages: dict[str,dict]) -> bool:
+    return text(candidate.get("sector")) in V1_HARD_SECTORS or len(pages)<1 or v1_evidence_quality(candidate,pages)<70
+
+
+def v1_verify_selected(selected: list[dict], target: date) -> tuple[list[dict], str]:
+    """Verify candidate evidence in one Contents batch, then add an independent source where needed."""
+    if not selected: return [],"no_candidates"
+    urls=[]
+    for c in selected:
+        urls += [text(x.get("url")) for x in (c.get("sources") or []) if isinstance(x,dict)]
+    pages,status=v1_contents_for_urls(urls)
+    verified=[]
+    for c in selected:
+        sec=text(c.get("sector")); srcs=list(c.get("sources") or []); need_secondary=(sec in V1_HARD_SECTORS or text(c.get("grade")) != "A")
+        if need_secondary:
+            rows=v1_secondary_search(c,target)
+            if rows:
+                best=rows[0]
+                nu=v1_network_url(text(best.get("url")))
+                if nu and nu not in {canonical_url(text(s.get("url"))) for s in srcs if isinstance(s,dict)}:
+                    srcs.append({"name":best.get("source") or source_label(nu),"url":nu,"grade":best.get("grade") or grade_of(nu),"type":"Exa secondary verification","evidence_note":" ".join(best.get("highlights") or [])[:700]})
+                    if text(best.get("image")):
+                        c.setdefault("research_images",[]).append({"url":text(best.get("image")),"source_page_url":nu,"source_name":best.get("source") or source_label(nu),"source_type":"Exa verification image","title":best.get("title")})
+                    src_urls=[text(x.get("url")) for x in srcs[:3] if isinstance(x,dict)]
+                    extra_pages,_=v1_contents_for_urls(src_urls)
+                    pages.update(extra_pages)
+        c["sources"]=srcs[:3]; c["source_urls"]=[text(x.get("url")) for x in c["sources"] if isinstance(x,dict) and text(x.get("url"))]
+        evidence=[]
+        for src in c["sources"]:
+            u=canonical_url(text(src.get("url"))); p=pages.get(u)
+            if not p: continue
+            block=text(p.get("summary")) or " ".join(p.get("highlights") or []) or text(p.get("text"))
+            if block: evidence.append(f"SOURCE: {text(src.get('name'))}\nURL: {p.get('url') or u}\n{block[:4200]}")
+        c["research_evidence"]="\n\n".join(evidence)[:12000]
+        c["verified_pages"]={canonical_url(text(src.get("url"))):pages.get(canonical_url(text(src.get("url"))),{}) for src in c["sources"] if pages.get(canonical_url(text(src.get("url"))),{})}
+        q=v1_evidence_quality(c,pages)
+        c["quality_score"]=round(q,1)
+        distinct={domain_of(text(x.get("url"))) for x in c["sources"] if isinstance(x,dict) and domain_of(text(x.get("url")))}
+        hard_ok=sec not in V1_HARD_SECTORS or len(distinct)>=2
+        if len(c["research_evidence"])>=450 and q>=V1_QUALITY_FLOOR and hard_ok:
+            verified.append(c)
+    return verified,"ok" if verified else "no_quality_candidates"
+
+
+def v1_image_query(candidate: dict, target: date) -> list[dict]:
+    query=f'"{candidate.get("normalized_subject")}" photo image {candidate.get("sector")} sports game'
+    rows=v1_exa_search_query(query,target,set(),mode="auto",num=V1_IMAGE_SEARCH_RESULTS)
+    out=[]
+    for row in rows:
+        if text(row.get("image")):
+            out.append({"url":text(row.get("image")),"source_page_url":text(row.get("url")),"source_name":text(row.get("source")) or source_label(text(row.get("url"))),"source_type":"Exa targeted image search","title":text(row.get("title"))})
+    return out
+
+
+def v1_image_score(img: dict, candidate: dict) -> float:
+    u=text(img.get("url")); title=text(img.get("title")); subj=text(candidate.get("normalized_subject")); src=text(img.get("source_page_url"))
+    score=0.0
+    score += min(42.0, similarity(subj,title)*42.0)
+    score += 20 if domain_of(src) in _v1_source_domain_set(candidate) else 0
+    score += 14 if grade_of(src) == "A" else 8 if grade_of(src) == "B" else 0
+    low=u.lower()
+    if any(x in low for x in ("logo","favicon","icon","avatar","sprite","placeholder")): score -= 30
+    if low.endswith(".svg") or ".svg?" in low: score -= 25
+    return score
+
+
+def v1_prepare_images(candidate: dict, target: date) -> list[dict]:
+    imgs=[x for x in (candidate.get("research_images") or []) if isinstance(x,dict) and text(x.get("url"))]
+    if not imgs:
+        imgs=v1_image_query(candidate,target)
+    # If the first image looks weak, make one targeted search rather than settling for a generic photo.
+    good=[x for x in imgs if v4_validate_image_candidate(x,do_network=not (V1_DRY_RUN or DRY_RUN))]
+    good=sorted(good,key=lambda x:v1_image_score(x,candidate),reverse=True)
+    if not good or v1_image_score(good[0],candidate) < 45:
+        targeted=v1_image_query(candidate,target)
+        good += [x for x in targeted if v4_validate_image_candidate(x,do_network=not (V1_DRY_RUN or DRY_RUN))]
+        dedup={canonical_url(text(x.get("url"))):x for x in good if canonical_url(text(x.get("url")))}
+        good=sorted(dedup.values(),key=lambda x:v1_image_score(x,candidate),reverse=True)
+    return good[:6]
+
+
+def v1_normalize_story(story: dict) -> dict:
+    out=dict(story) if isinstance(story,dict) else {}
+    out["image"]=dict(out.get("image")) if isinstance(out.get("image"),dict) else {}
+    src=[]
+    for x in out.get("sources") or []:
+        if isinstance(x,(list,tuple)) and len(x)>=2:
+            src.append((text(x[0]) or source_label(text(x[1])),v1_network_url(text(x[1]))))
+        elif isinstance(x,dict) and text(x.get("url")):
+            src.append((text(x.get("name")) or source_label(text(x.get("url"))),v1_network_url(text(x.get("url")))))
+    out["sources"]=list(dict.fromkeys([x for x in src if x[1]]))[:3]
+    out["urls"]=[u for _,u in out["sources"]]
+    out["key_points"]= [text(x) for x in (out.get("key_points") or []) if text(x)][:3]
+    out["tags"]= [text(x) for x in (out.get("tags") or []) if text(x)][:5]
+    out["people"]=out.get("people") if isinstance(out.get("people"),list) else []
+    out["image_status"]=text(out.get("image_status")) or ("verified" if out["image"].get("url") else "generated")
+    out["body"]=re.sub(r"\s+"," ",text(out.get("body"))).strip()
+    return out
+
+
+def _v1_limit_words(value: str, max_words: int) -> str:
+    s=re.sub(r"\s+"," ",text(value)).strip()
+    words=s.split()
+    return " ".join(words[:max_words]).strip()
+
+
+def _v1_sentence_clamp(value: str, max_words: int=65) -> str:
+    s=re.sub(r"\s+"," ",text(value)).strip()
+    if not s: return ""
+    sent=split_sentences(s)
+    if sent:
+        out=[]
+        words=0
+        for part in sent:
+            n=len(part.split())
+            if words and words+n>max_words: break
+            out.append(part); words += n
+            if words >= min(40,max_words): break
+        s=" ".join(out) or s
+    return _v1_limit_words(s,max_words).strip()
+
+
+def _v1_prompt(filename: str, fallback: str = "") -> str:
+    path=Path("prompts") / filename
+    try:
+        base=path.read_text(encoding="utf-8").strip()
+    except Exception:
+        base=fallback
+    return base + ("\n\n" + fallback.strip() if fallback and fallback.strip() and fallback.strip() not in base else "")
+
+
+def _v1_fallback_editorial(candidate: dict, images: list[dict]) -> dict:
+    subject=text(candidate.get("normalized_subject")) or text(candidate.get("topic")) or "Sports & Games knowledge"
+    headline=_v1_limit_words(subject,14)
+    if len(re.findall(r"\b\w+[’'\w-]*\b",headline))<6:
+        headline=f"A Closer Look at {headline}"
+    evidence=text(candidate.get("research_evidence"))
+    source_bits=[text(candidate.get("central_claim"))] + [text(x) for x in (candidate.get("highlights") or []) if text(x)] + split_sentences(evidence)
+    source_bits=[re.sub(r"\s+"," ",x).strip() for x in source_bits if x]
+    combined=" ".join(dict.fromkeys(source_bits))
+    body=_v1_sentence_clamp(combined,60)
+    if len(re.findall(r"\b\w+[’'\w-]*\b",body))<32:
+        body=_v1_limit_words((body+" The source evidence provides the context needed to understand this subject as a compact piece of durable sports and games knowledge."),60)
+    points=[]
+    raw_points=list(candidate.get("highlights") or [])
+    for p in raw_points:
+        q=_v1_limit_words(p,14)
+        if q and q not in points: points.append(q)
+        if len(points)>=3: break
+    while len(points)<3:
+        q=_v1_limit_words(text(candidate.get("central_claim")),14)
+        if q and q not in points: points.append(q)
+        else: points.append("The evidence is preserved with its key qualification")
+    return {"headline":headline,"summary":body,"key_points":points[:3],"image_index":1 if images else 0}
+
+
+def v1_batch_editorialize(ai: "AIClient", candidates: list[dict], image_sets: list[list[dict]]) -> list[dict]:
+    """One optional Cerebras call for all ten posts. Any failure falls back per post."""
+    fallback=[_v1_fallback_editorial(c,imgs) for c,imgs in zip(candidates,image_sets)]
+    if not V1_CEREBRAS_BATCH_ENABLED or not ai.available or ai.fatal:
+        return fallback
+    payload=[]
+    for i,(c,imgs) in enumerate(zip(candidates,image_sets),1):
+        payload.append({
+            "post_number":i,
+            "sector":text(c.get("sector")),
+            "subject":text(c.get("normalized_subject"))[:220],
+            "claim":text(c.get("central_claim"))[:450],
+            "evidence":text(c.get("research_evidence"))[:2200],
+            "sources":[{"name":text(x.get("name")),"url":text(x.get("url")),"grade":text(x.get("grade"))} for x in (c.get("sources") or []) if isinstance(x,dict)][:2],
+            "images":[{"index":j,"title":text(x.get("title")),"source":text(x.get("source_name")),"url":text(x.get("url"))} for j,x in enumerate(imgs[:5],1)],
+        })
+    system=(_v1_prompt("cerebras_editorial_v1.txt", "You are a copy desk, not a research desk. "
+        "Rewrite ONLY from the supplied verified evidence. Produce compact knowledge-hub posts, never a vlog narrative. "
+        "Headline 6-14 words. Summary 32-60 words, factual and direct. Exactly 3 short key points. "
+        "Do not add facts, dates, numbers, places, names or URLs not present in evidence. "
+        "Choose image_index only from supplied images. Return only JSON."))
+    user=json.dumps({"posts":payload},ensure_ascii=False,separators=(",",":"))
+    obj=ai.json("v1_batch_editorial",system,user,V1_BATCH_EDITORIAL_SCHEMA,max_tokens=V1_EDITORIAL_MAX_TOKENS,temperature=0.15)
+    if not obj: return fallback
+    by_num={}
+    for row in obj.get("posts") or []:
+        if not isinstance(row,dict): continue
+        try: n=int(row.get("post_number"))
+        except Exception: continue
+        if 1<=n<=len(fallback): by_num[n]=row
+    out=[]
+    for i,fb in enumerate(fallback,1):
+        row=by_num.get(i)
+        if not row:
+            out.append(fb); continue
+        hp=text(row.get("headline")); sm=text(row.get("summary")); kp=[text(x) for x in row.get("key_points") or [] if text(x)]
+        try: idx=int(row.get("image_index"))
+        except Exception: idx=0
+        if not 6<=len(re.findall(r"\b\w+[’'\w-]*\b",hp))<=14 or not 32<=len(re.findall(r"\b\w+[’'\w-]*\b",sm))<=60 or len(kp)!=3:
+            out.append(fb); continue
+        # Numeric claim guard at batch level. AI may polish wording, but numbers must already exist in evidence.
+        evidence_numbers=set(re.findall(r"\b\d{1,4}\b",text(candidates[i-1].get("research_evidence")) + " " + text(candidates[i-1].get("central_claim")) + " " + text(candidates[i-1].get("normalized_subject")) + " " + text(candidates[i-1].get("historical_year"))))
+        generated_numbers=set(re.findall(r"\b\d{1,4}\b",hp+" "+sm+" "+" ".join(kp)))
+        if not generated_numbers.issubset(evidence_numbers):
+            out.append(fb); continue
+        if idx<0 or idx>len(image_sets[i-1]): idx=0
+        out.append({"headline":hp,"summary":sm,"key_points":kp,"image_index":idx})
+    return out
+
+
+def v1_validate_editorial(candidate: dict, editorial: dict, image_candidates: list[dict]) -> tuple[bool,str,dict]:
+    if not isinstance(editorial,dict): return False,"editorial_not_object",{}
+    headline=text(editorial.get("headline")); body=text(editorial.get("summary") or editorial.get("body")); points=[text(x) for x in (editorial.get("key_points") or []) if text(x)]
+    hw=len(re.findall(r"\b\w+[’'\w-]*\b",headline)); bw=len(re.findall(r"\b\w+[’'\w-]*\b",body))
+    if not 6<=hw<=14: return False,"headline_word_count",{}
+    if not 32<=bw<=60: return False,"hub_length",{}
+    if V1_CURRENT_RX.search(headline+" "+body): return False,"current_news_language",{}
+    if not len(points)==3 or any(len(re.findall(r"\b\w+[’'\w-]*\b",p))>14 for p in points): return False,"key_points_contract",{}
+    if not candidate.get("sources"): return False,"no_verified_sources",{}
+    nums=set(re.findall(r"\b\d{1,4}\b",text(candidate.get("research_evidence"))+" "+text(candidate.get("central_claim"))+" "+text(candidate.get("normalized_subject"))+" "+text(candidate.get("historical_year"))))
+    generated=set(re.findall(r"\b\d{1,4}\b",headline+" "+body+" "+" ".join(points)))
+    if not generated.issubset(nums): return False,"unsupported_number",{}
     try: idx=int(editorial.get("image_index",0))
     except Exception: idx=0
-    if idx>0:
-        if idx>len(image_candidates): return False,"image_index_invalid",{}
-        selected=image_candidates[idx-1]
+    selected=image_candidates[idx-1] if 1<=idx<=len(image_candidates) else None
     return True,"ok",{**candidate,"editorial":editorial,"selected_image":selected}
 
 
-def v1_editorialize(ai: "AIClient", candidate: dict, evidence: str, image_candidates: list[dict]) -> dict | None:
-    if not ai.available or ai.fatal:
-        return None
-    compact={
-        "sector":text(candidate.get("sector")),
-        "topic":text(candidate.get("topic") or candidate.get("normalized_subject")),
-        "normalized_subject":text(candidate.get("normalized_subject")),
-        "central_knowledge_unit":text(candidate.get("central_knowledge_unit")),
-        "central_claim":text(candidate.get("central_claim")),
-        "country":text(candidate.get("country")),
-        "region":text(candidate.get("region")),
-        "historical_date":text(candidate.get("historical_date")),
-        "historical_year":text(candidate.get("historical_year")),
-        "sources":[{"name":text(x.get("name")),"url":v1_network_url(text(x.get("url"))),"grade":text(x.get("grade"))} for x in (candidate.get("sources") or []) if isinstance(x,dict) and v1_network_url(text(x.get("url")))][:3],
-    }
-    imgs=[{"index":i,"source_name":text(x.get("source_name")),"source_page_url":text(x.get("source_page_url")),"url":text(x.get("url"))} for i,x in enumerate(image_candidates,1)]
-    user=json.dumps({"research":json_safe(compact),"source_evidence":text(evidence)[:5500],"image_candidates":imgs[:6]},ensure_ascii=False,separators=(",",":"))
-    system=_v1_prompt("cerebras_editorial_v1.txt",
-        "Transform one verified evergreen Sports & Games research item into a concise Telegram post. Use only supplied evidence. "
-        "Do not invent facts or image URLs. Prefer a supplied verified image when available. Return only JSON.")
-    return ai.json("v1_editorial_post",system,user,V4_EDITORIAL_SCHEMA,max_tokens=max(650,_env_int("V1_EDITORIAL_MAX_TOKENS",900)),temperature=0.25)
+def _v1_caption_html(story: dict) -> str:
+    story=v1_normalize_story(story)
+    sector=esc(text(story.get("sector")) or "SPORTS & GAMES")
+    head=esc(text(story.get("headline")))
+    body=esc(text(story.get("body")))
+    points=[esc(x) for x in story.get("key_points",[])][:3]
+    parts=[f"<b>{sector}</b>","",f"<b>{head}</b>","",body]
+    if points: parts += ["", "\n".join("• "+p for p in points)]
+    if story.get("sources"):
+        name,url=story["sources"][0]
+        parts += ["", "<b>Source</b>", f'<a href="{esc_attr(url)}">{esc(name or domain_of(url))}</a>']
+    if story.get("tags"):
+        parts += ["", " ".join(esc(t) for t in story["tags"])]
+    return tg_sanitize("\n".join(parts))[:CAPTION_LIMIT-10]
 
 
 def v1_publish_evergreen(story: dict) -> dict:
-    """Visual hard requirement: rich message first, photo+caption fallback, never plain text."""
+    """Photo-first publisher. Real relevant image when available, generated branded card otherwise. Never plain text."""
     story=v1_normalize_story(story)
-    rich=v4_evergreen_rich(story)
-    if story["image"].get("url"):
-        res=v4_send_rich(rich)
-        if res.get("ok") or res.get("uncertain"):
-            return res
-        logger.warning("V1 rich message rejected; preserving visual post with sendPhoto fallback: %s",redact(text(res.get("description"))))
-        photo_url=text(story["image"].get("url")); caption=fit_knowledge_html(story)
-        photo_res=tg_call("sendPhoto",{"chat_id":CHANNEL,"photo":photo_url,"caption":caption,"parse_mode":"HTML"})
-        if photo_res.get("ok"):
-            return photo_res
-        if not photo_res.get("uncertain") and any(x in _err(photo_res) for x in ("parse entities","entities")):
-            photo_res=tg_call("sendPhoto",{"chat_id":CHANNEL,"photo":photo_url,"caption":plain_text(caption)[:CAPTION_LIMIT]})
-            if photo_res.get("ok"):
-                return photo_res
-    card_path=make_card(story)
+    real=text(story.get("image",{}).get("url"))
+    caption=_v1_caption_html(story)
+    if real:
+        res=tg_call("sendPhoto",{"chat_id":CHANNEL,"photo":real,"caption":caption,"parse_mode":"HTML"})
+        if res.get("ok"): return res
+        if res.get("uncertain"): return res
+    card_path=make_card({**story,"label":story.get("sector") or "SPORTS & GAMES","format":"fact","date_anchor":story.get("historical_year") or story.get("region") or ""})
     if not card_path:
-        return {"ok":False,"description":"V1 visual publication failed: no rich image and branded card generation failed"}
+        return {"ok":False,"description":"No usable real image and generated card creation failed"}
     try:
-        caption=fit_knowledge_html(story)
-        photo_res=tg_call("sendPhoto",{"chat_id":CHANNEL,"caption":caption,"parse_mode":"HTML"},card_path)
-        if photo_res.get("ok"):
-            return photo_res
-        if not photo_res.get("uncertain") and any(x in _err(photo_res) for x in ("parse entities","entities")):
-            photo_res=tg_call("sendPhoto",{"chat_id":CHANNEL,"caption":plain_text(caption)[:CAPTION_LIMIT]},card_path)
-        return photo_res
+        res=tg_call("sendPhoto",{"chat_id":CHANNEL,"caption":caption,"parse_mode":"HTML"},card_path)
+        if res.get("ok") or res.get("uncertain"): return res
+        if not res.get("uncertain") and any(x in _err(res) for x in ("parse entities","entities")):
+            return tg_call("sendPhoto",{"chat_id":CHANNEL,"caption":plain_text(caption)[:CAPTION_LIMIT]},card_path)
+        return res
     finally:
         try: os.remove(card_path)
         except Exception: pass
+
+
+def v1_select_candidates_for_targets(reservoir: list[dict], targets: list[str]) -> list[dict]:
+    by={sec:[] for sec in targets}
+    for c in reservoir:
+        if text(c.get("sector")) in by: by[text(c.get("sector"))].append(c)
+    out=[]
+    for sec in targets:
+        rows=sorted(by.get(sec,[]),key=v1_discovery_quality,reverse=True)
+        if rows: out.append(rows[0])
+    return out
+
+
+def _v1_recovery_for_sector(sec: str, target: date, used: set[str], coverage: dict) -> list[dict]:
+    # Quality recovery: deep search only for a sector that failed the first research pass.
+    rows=v1_exa_search_sector(sec,target,used,mode="deep",num=V1_SEARCH_RESULTS_PER_SECTOR)
+    more,_=v1_build_reservoir(rows,coverage,used)
+    return more
 
 
 def v1_run_once() -> int:
@@ -6064,116 +6020,92 @@ def v1_run_once() -> int:
         state=load_state(); coverage=v4_load_coverage(state)
     except Exception as exc:
         logger.error("V1 state/coverage load failed: %s",redact(str(exc))); return 1
-    vs=v1_state(state)
-    now=now_bd(); run_slot="AM" if now.hour<14 else "PM"; run_id=f"{now.date().isoformat()}-{run_slot}"
-    daily=vs["daily"].setdefault(now.date().isoformat(),{"published_sectors":[],"run_ids":[]})
-    used_sectors=set(daily.get("published_sectors",[]))
+    vs=v1_state(state); now=now_bd(); run_slot="AM" if now.hour<14 else "PM"; run_id=f"{now.date().isoformat()}-{run_slot}"
+    daily=vs["daily"][now.date().isoformat()]; plan=daily["sector_plan"]
+    targets=list(plan[run_slot]); other=list(plan["PM" if run_slot=="AM" else "AM"])
+    if set(targets)&set(other) or len(targets)!=10 or len(set(targets))!=10 or set(targets+other)!=set(V1_SECTORS):
+        logger.error("V1 sector plan invalid for %s",now.date().isoformat()); return 1
     if run_id in daily.get("run_ids",[]):
         logger.info("V1 run %s already completed; nothing to do.",run_id); return 0
-    deadline=Deadline(_env_int("RUN_DEADLINE_SECONDS",1500))
-    ai=AIClient(state.get("ai"))
-    if not ai.available:
-        logger.error("CEREBRAS_API_KEY is required for V1 ranking/editorial generation"); return 1
-    # Research the complete 20-sector matrix on every run.
-    raw=v1_discover_all_sectors(now.date(),used_sectors)
-    reservoir,reasons=v1_build_reservoir(raw,coverage,used_sectors)
-    represented={text(x.get("sector")) for x in reservoir}
-    missing=set(V1_SECTORS)-represented
+    used=set(daily.get("published_sectors",[]))
+    if used & set(targets):
+        logger.info("V1 partial state detected; only unpublished target sectors will be researched")
+        targets=[s for s in targets if s not in used]
+    if len(targets)!=10:
+        logger.error("V1 target sectors are not exactly 10 fresh sectors: %s",targets); return 1
+    deadline=Deadline(_env_int("RUN_DEADLINE_SECONDS",2100))
+    ai=AIClient(state.get("ai")) if CEREBRAS_API_KEY else None
+    # 1) discover only today's ten assigned sectors, not the full 20. This is what makes the 10-post set provably non-overlapping.
+    raw=v1_discover_all_sectors(now.date(),used,recovery_sectors=set(targets))
+    reservoir,_=v1_build_reservoir(raw,coverage,used)
+    selected=v1_select_candidates_for_targets(reservoir,targets)
+    missing=[s for s in targets if s not in {text(x.get("sector")) for x in selected}]
     if missing:
-        logger.info("V1 recovery: %d sectors need targeted discovery",len(missing))
-        raw2=v1_discover_all_sectors(now.date(),used_sectors,recovery_sectors=missing)
-        r2,_=v1_build_reservoir(raw2,coverage,used_sectors)
-        reservoir.extend(r2); represented={text(x.get("sector")) for x in reservoir}; missing=set(V1_SECTORS)-represented
+        logger.info("V1 quality recovery: %d sectors need deep research",len(missing))
+        for sec in missing:
+            if deadline.expired(): return 1
+            more=_v1_recovery_for_sector(sec,now.date(),used,coverage); reservoir.extend(more); sleep(V1_SEARCH_DELAY_SECONDS)
+        # Re-run strict daily dedupe after recovery.
+        selected=v1_select_candidates_for_targets(reservoir,targets)
+        missing=[s for s in targets if s not in {text(x.get("sector")) for x in selected}]
     if missing:
-        logger.error("V1 discovery incomplete; missing sectors: %s",", ".join(sorted(missing))); return 1
-    ranked = v1_rank(ai, reservoir, used_sectors)
-    if not ranked:
-        logger.error("V1 Cerebras/deterministic ranking produced no candidates: %s", ai.last_error)
-        return 1
-    logger.info("V1 ranking complete: pool=%d model=%s status=%s",
-                len(ranked[0].get("_candidate_pool") or []), ai.model, ai.last_status)
-    # Preserve sector diversity. Prefer sectors not used earlier today; when that cannot fill 10,
-    # use the best still-novel candidates from already-used sectors rather than failing the whole run.
-    pool = ranked[0].get("_candidate_pool") if ranked and isinstance(ranked[0].get("_candidate_pool"), list) else reservoir
-    by_num={i+1:c for i,c in enumerate(pool)}
-    ordered=[by_num[r["post_number"]] for r in ranked if r["post_number"] in by_num]
-    selected=[]; selected_sectors=set()
-    for prefer_unused in (True, False):
-        for c in ordered:
-            sec=text(c.get("sector"))
-            if sec in selected_sectors:
-                continue
-            if prefer_unused and sec in used_sectors:
-                continue
-            if not prefer_unused and sec not in used_sectors:
-                continue
-            selected.append(c); selected_sectors.add(sec)
-            if len(selected)>=V4_PUBLISH_COUNT:
-                break
-        if len(selected)>=V4_PUBLISH_COUNT:
-            break
-    if len(selected)<V4_PUBLISH_COUNT:
-        logger.error("V1 selection yielded %d/%d candidates after sector fallback",len(selected),V4_PUBLISH_COUNT); return 1
-    if deadline.expired(): return 1
-    # Verify a larger target set than the final publication count so one weak source does not
-    # collapse the entire run. Up to 16 distinct-sector targets are verified in one Contents batch.
-    verification_targets = []
-    for c in ordered:
-        sec=text(c.get("sector"))
-        if sec not in {text(x.get("sector")) for x in verification_targets}:
-            verification_targets.append(c)
-        if len(verification_targets)>=min(16, len(ordered)):
-            break
-    verified,status=v1_verify_selected(verification_targets,now.date())
-    if status!="ok" and not verified:
-        logger.error("V1 verification failed: %s",status); return 1
-    posted=[]
-    selected_ids={id(x) for x in selected}
-    # Selected candidates are tried first. Verified reserve candidates can replace failed editorial
-    # candidates, but each sector can publish at most once in a run.
-    stream = selected + [c for c in verified if id(c) not in selected_ids]
-    posted_sectors=set()
-    for cand in stream:
-        if len(posted)>=V4_PUBLISH_COUNT or deadline.expired(): break
-        sec=text(cand.get("sector"))
-        if not sec or sec in posted_sectors: continue
-        evidence=text(cand.get("research_evidence"))
-        imgs=[x for x in (cand.get("research_images") or []) if isinstance(x,dict) and text(x.get("url"))]
-        imgs=[x for x in imgs if v4_validate_image_candidate(x,do_network=not (V1_DRY_RUN or DRY_RUN))]
-        editorial=v1_editorialize(ai,cand,evidence,imgs)
-        if not editorial:
-            logger.warning("V1 editorial generation failed for sector=%s subject=%s: %s",sec,text(cand.get("normalized_subject")),ai.last_error)
-            continue
-        ok,why,out=v1_validate_editorial(cand,editorial,imgs)
+        logger.error("V1 no candidate survived discovery for sectors: %s",", ".join(missing)); return 1
+    # 2) verify all ten in one Contents batch, with hard/weak-source secondary checks.
+    verified,status=v1_verify_selected(selected,now.date())
+    good_by={text(x.get("sector")):x for x in verified if text(x.get("sector")) in targets}
+    missing=[s for s in targets if s not in good_by]
+    if missing:
+        logger.info("V1 evidence recovery: %d sectors below quality floor",len(missing))
+        for sec in missing:
+            more=_v1_recovery_for_sector(sec,now.date(),used,coverage); reservoir.extend(more)
+        replacements=v1_select_candidates_for_targets(reservoir,[s for s in targets if s in missing])
+        if replacements:
+            reverified,_=v1_verify_selected(replacements,now.date())
+            for x in reverified: good_by[text(x.get("sector"))]=x
+    missing=[s for s in targets if s not in good_by]
+    if missing:
+        logger.error("V1 quality floor could not be met; refusing filler posts. missing=%s",", ".join(missing)); return 1
+    candidates=[good_by[s] for s in targets]
+    # 3) choose the most relevant real image per subject. Image failure never becomes a text-only post.
+    image_sets=[v1_prepare_images(c,now.date()) for c in candidates]
+    editorials=v1_batch_editorialize(ai,candidates,image_sets) if ai else [_v1_fallback_editorial(c,imgs) for c,imgs in zip(candidates,image_sets)]
+    # 4) Validate the entire 10-post set BEFORE publication. This makes the post set transactional and keeps sector coverage exact.
+    stories=[]
+    for c,e,imgs in zip(candidates,editorials,image_sets):
+        ok,why,out=v1_validate_editorial(c,e,imgs)
         if not ok:
-            reject("v1_editorial_invalid",why); continue
-        story=v1_normalize_story(v4_build_evergreen(cand,editorial,out.get("selected_image") if isinstance(out,dict) else None))
-        # Defense-in-depth: image is optional and must be a dict even when the model returned null.
-        story["image"]=story.get("image") if isinstance(story.get("image"),dict) else {}
+            logger.error("V1 pre-publication editorial gate failed sector=%s reason=%s",c.get("sector"),why); return 1
+        selected_img=out.get("selected_image")
+        tags=["#SportsGames", "#"+re.sub(r"[^A-Za-z0-9]","",text(c.get("sector")))[:28]]
+        story={"desk":"evergreen_v1","format":c.get("sector"),"sector":c.get("sector"),"topic":c.get("topic") or c.get("normalized_subject"),
+               "normalized_subject":c.get("normalized_subject"),"central_knowledge_unit":c.get("central_knowledge_unit"),"central_claim":c.get("central_claim"),
+               "headline":text(e.get("headline")),"body":text(e.get("summary") or e.get("body")),"key_points":[text(x) for x in e.get("key_points") or [] if text(x)],
+               "why_it_matters":"","tags":list(dict.fromkeys(tags)),"sources":[(text(s.get("name")) or source_label(text(s.get("url"))),text(s.get("url"))) for s in c.get("sources",[]) if isinstance(s,dict) and text(s.get("url"))][:2],
+               "urls":[text(s.get("url")) for s in c.get("sources",[]) if isinstance(s,dict) and text(s.get("url"))],"country":c.get("country",""),"region":c.get("region",""),
+               "people":c.get("people",[]),"historical_year":c.get("historical_year",""),"image":selected_img,"image_status":"verified" if selected_img else "generated","research":c}
+        stories.append(v1_normalize_story(story))
+    # 5) Publish exactly one story per target sector. No cross-sector substitution.
+    posted=[]; published_sectors=set()
+    for story in stories:
+        sec=text(story.get("sector"))
+        if sec in published_sectors: return 1
         pubid=v4_publication_id(run_id,"evergreen",story.get("normalized_subject") or story.get("topic"))
         res=v4_publish_with_idempotency(vs,pubid,lambda st=story:v1_publish_evergreen(st))
         if not res.get("ok"):
-            if res.get("uncertain"):
-                logger.error("V1 evergreen delivery uncertain for %s",story.get("headline")); break
-            continue
+            logger.error("V1 evergreen delivery failed for sector=%s: %s",sec,text(res.get("description"))); return 1
         mid=(res.get("result") or {}).get("message_id")
-        v4_record_coverage(coverage,story,run_id,mid); coverage["updated_at"]=utc_iso(now_bd())
-        used_sectors.add(sec); daily.setdefault("published_sectors",[]).append(sec); daily["published_sectors"]=list(dict.fromkeys(daily["published_sectors"]))
-        posted_sectors.add(sec); posted.append(story)
-        state.setdefault("posts",[]).append({
-            "desk":"evergreen_v1","format":story.get("sector"),"sector":story.get("sector"),"topic":story.get("topic"),
-            "normalized_subject":story.get("normalized_subject"),"central_knowledge_unit":story.get("central_knowledge_unit"),
-            "claim":story.get("central_claim"),"headline":story.get("headline"),"angle":story.get("angle"),
-            "urls":[canonical_url(u) for u in story.get("urls",[])],"message_id":mid,"posted_at":utc_iso(now_bd()),"run_id":run_id,
-            "image_status":story.get("image_status"),
-        })
+        v4_record_coverage(coverage,story,run_id,mid)
+        published_sectors.add(sec); posted.append(story)
+        daily["published_sectors"]=list(dict.fromkeys(daily.get("published_sectors",[])+[sec]))
+        state.setdefault("posts",[]).append({"desk":"evergreen_v1","format":sec,"sector":sec,"topic":story.get("topic"),"normalized_subject":story.get("normalized_subject"),
+          "central_knowledge_unit":story.get("central_knowledge_unit"),"claim":story.get("central_claim"),"headline":story.get("headline"),"angle":"knowledge_hub","urls":[canonical_url(u) for u in story.get("urls",[])],
+          "message_id":mid,"posted_at":utc_iso(now_bd()),"run_id":run_id,"image_status":story.get("image_status")})
         if not (V1_DRY_RUN or DRY_RUN): save_state(state); v4_save_coverage(coverage)
-        if len(posted)<V4_PUBLISH_COUNT: sleep(V4_POST_DELAY)
-    if len(posted)!=V4_PUBLISH_COUNT:
-        logger.error("V1 evergreen phase incomplete: %d/%d",len(posted),V4_PUBLISH_COUNT); return 1
-    # Live pair remains the same separate engine and is always published last.
-    try:
-        sched_meta,res_meta,next_events,past_events=v4_live_pair(state,now)
+        if len(posted)<V1_POSTS_PER_RUN: sleep(V1_POST_DELAY)
+    if len(posted)!=V1_POSTS_PER_RUN or set(published_sectors)!=set(targets):
+        logger.error("V1 evergreen transaction incomplete: %d/%d; sectors=%s",len(posted),V1_POSTS_PER_RUN,sorted(published_sectors)); return 1
+    # 6) Live pair remains separate and is always the final two messages.
+    try: sched_meta,res_meta,next_events,past_events=v4_live_pair(state,now)
     except Exception as exc:
         logger.error("V1 live pair generation failed: %s",redact(str(exc))); return 1
     old_sched=vs["live"]["schedule"].get("message_id"); old_res=vs["live"]["results"].get("message_id")
@@ -6187,16 +6119,18 @@ def v1_run_once() -> int:
     if not (V1_DRY_RUN or DRY_RUN):
         vs["live"]["schedule"]={"message_id":new_sched,"target_date":sched_meta["target_date"],"updated_at":utc_iso(now_bd()),"event_ids":[x.get("event_id") for x in next_events]}
         vs["live"]["results"]={"message_id":new_res,"target_date":res_meta["target_date"],"updated_at":utc_iso(now_bd()),"event_ids":[x.get("event_id") for x in past_events]}
-        state["ai"]=ai.export(); state["last_run_at"]=utc_iso(now_bd()); save_state(state)
+        state["ai"]=(ai.export() if ai else state.get("ai",{})); state["last_run_at"]=utc_iso(now_bd()); save_state(state)
         for mid in (old_sched,old_res):
             if mid and int(mid) not in {int(new_sched),int(new_res)}:
                 dr=v4_delete_message(mid)
                 if not dr.get("ok"): logger.warning("Could not delete old V1 live message %s: %s",mid,text(dr.get("description")))
     daily["run_ids"]=list(dict.fromkeys(daily.get("run_ids",[])+[run_id]))
-    vs["last_run_at"]=utc_iso(now_bd()); vs["runs"].append({"run_id":run_id,"at":utc_iso(now_bd()),"evergreen":len(posted),"live_schedule":new_sched,"live_results":new_res,"used_sectors":sorted(set(x.get("sector") for x in posted)),"exit":0})
-    state["ai"]=ai.export(); state["last_run_at"]=utc_iso(now_bd())
+    vs["last_run_at"]=utc_iso(now_bd()); vs["runs"].append({"run_id":run_id,"at":utc_iso(now_bd()),"evergreen":len(posted),"live_schedule":new_sched,"live_results":new_res,
+        "target_sectors":targets,"used_sectors":sorted(published_sectors),"quality_floor":V1_QUALITY_FLOOR,"ai_batch":bool(ai and V1_CEREBRAS_BATCH_ENABLED),"exit":0})
+    state["last_run_at"]=utc_iso(now_bd())
     if not (V1_DRY_RUN or DRY_RUN): save_state(state); v4_save_coverage(coverage)
-    logger.info("V1 RUN SUCCESS %s: %d evergreen + 2 live",run_id,len(posted)); return 0
+    logger.info("V1.3 RUN SUCCESS %s: 10 evergreen + 2 live | sectors=%s | quality-floor=%s",run_id,", ".join(targets),V1_QUALITY_FLOOR)
+    return 0
 
 
 def v1_cerebras_preflight() -> tuple[bool, str]:
@@ -6222,14 +6156,18 @@ def v1_validate_config(require_secrets: bool = True) -> int:
     if missing:
         print("CONFIG: FAIL (missing: "+", ".join(missing)+")"); return 1
     if require_secrets:
-        miss=[k for k,v in (("EXA_API_KEY",EXA_API_KEY),("CEREBRAS_API_KEY",CEREBRAS_API_KEY),("TELEGRAM_BOT_TOKEN",TELEGRAM_BOT_TOKEN)) if not v]
+        miss=[k for k,v in (("EXA_API_KEY",EXA_API_KEY),("TELEGRAM_BOT_TOKEN",TELEGRAM_BOT_TOKEN)) if not v]
         if miss:
             print("CONFIG: FAIL (missing secrets: "+", ".join(miss)+")"); return 1
-        ok, detail = v1_cerebras_preflight()
-        if not ok:
-            print("CONFIG: FAIL (Cerebras preflight: "+detail+")"); return 1
-        print("CONFIG: Cerebras preflight OK ("+detail+")")
-    print(f"CONFIG: OK (The Sports Newsroom V1, {len(V1_SECTORS)} sectors, native Exa Search/Contents/Agent architecture)"); return 0
+        if CEREBRAS_API_KEY:
+            ok, detail = v1_cerebras_preflight()
+            if not ok:
+                print("CONFIG: WARNING (Cerebras optional and unavailable: "+detail+")")
+            else:
+                print("CONFIG: Cerebras optional preflight OK ("+detail+")")
+        else:
+            print("CONFIG: Cerebras optional; deterministic editorial fallback enabled")
+    print(f"CONFIG: OK (The Sports Newsroom V1.3, {len(V1_SECTORS)} sectors, quality-hub architecture)"); return 0
 
 
 def v1_architecture_tests() -> int:
@@ -6252,7 +6190,7 @@ def v1_architecture_tests() -> int:
         globals()["_v1_exa_request"]=fake_req
         v1_exa_search_sector("Sport Discovery",date(2026,9,22),set(),num=6)
         payload=called[-1][1]
-        ck(payload["query"] and payload["contents"]=={"highlights":True},"search payload")
+        ck(payload["query"] and payload["contents"]=={"highlights":True,"summary":True},"search payload")
         ck("outputSchema" not in payload,"search has no outputSchema")
         ck(payload.get("moderation") is True,"search moderation")
         ck(payload["numResults"]==6,"search numResults")
