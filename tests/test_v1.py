@@ -1,3 +1,4 @@
+import ast
 import json
 import unittest
 from datetime import date
@@ -111,6 +112,14 @@ class TestV1Contracts(unittest.TestCase):
 
     def test_current_news_filter_rejects_obvious_live_copy(self):
         self.assertIsNotNone(main.V1_CURRENT_RX.search("today's upcoming match preview"))
+
+    def test_production_current_news_filter_uses_defined_symbol(self):
+        tree = ast.parse(Path(main.__file__).read_text(encoding="utf-8"))
+        fn = next(node for node in ast.walk(tree) if isinstance(node, ast.FunctionDef) and node.name == "v1_exa_search_sector")
+        names = {node.id for node in ast.walk(fn) if isinstance(node, ast.Name)}
+        self.assertNotIn("_V1_CURRENT_RX", names)
+        self.assertIn("V1_CURRENT_RX", names)
+
 
 
 if __name__ == "__main__":

@@ -48,7 +48,7 @@ except ImportError:  # pragma: no cover
     Image = ImageDraw = ImageFont = None
 
 APP_NAME = "The Sports Newsroom"
-APP_VERSION = "1.0.0"
+APP_VERSION = "1.0.1"
 
 # ===========================================================================
 # 1. CORE: config, clock, text helpers, safety filters
@@ -5393,7 +5393,7 @@ def v1_exa_search_sector(sector: str, target: date, used_sectors: set[str], *, m
         if exclusion_reason(alltext):
             reject("v1_discovery_exclusion", f"{sector}: {title[:120]}")
             continue
-        if _V1_CURRENT_RX.search(alltext):
+        if V1_CURRENT_RX.search(alltext):
             reject("v1_current_news", f"{sector}: {title[:120]}")
             continue
         image = text(item.get("image"))
