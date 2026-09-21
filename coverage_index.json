@@ -1,5 +1,81 @@
 {
+ "records": [
+  {
+   "central_claim": "The first Monday Night Football game is between the Cleveland Browns and the New York Jets.",
+   "central_knowledge_unit": "the first monday night football game is between the cleveland browns and the new york jets",
+   "content_id": "f9e5df6ac2935603",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "anniversary",
+   "fingerprints": [
+    "0c97eb1203824156",
+    "c1f5bcb01f97de96"
+   ],
+   "legacy": true,
+   "normalized_subject": "monday night football",
+   "people": [],
+   "published_at": "2026-09-21T12:02:04.989575+00:00",
+   "region": "",
+   "run_id": "legacy-v3",
+   "sector": "on_this_date",
+   "source_urls": [
+    "en.wikipedia.org/wiki/Monday_Night_Football"
+   ],
+   "sport_or_game": "Monday_Night_Football",
+   "telegram_message_id": 10
+  },
+  {
+   "central_claim": "Field sports in the United Kingdom are rooted in 19th‑century English countryside traditions, with participants often wearing British country clothing to imitate the landed gentry of that era.",
+   "central_knowledge_unit": "field sports in the united kingdom are rooted in 19th century english countryside traditions with participants often wearing british country clothing to imitate the landed gentry of that era",
+   "content_id": "057c3bcee1479a36",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "evolution",
+   "fingerprints": [
+    "3fc52d9b941d1015",
+    "3a0981fbfe05ce9f"
+   ],
+   "legacy": true,
+   "normalized_subject": "field sports",
+   "people": [],
+   "published_at": "2026-09-21T12:02:48.513071+00:00",
+   "region": "",
+   "run_id": "legacy-v3",
+   "sector": "history",
+   "source_urls": [
+    "en.wikipedia.org/wiki/Field_sports"
+   ],
+   "sport_or_game": "Field sports",
+   "telegram_message_id": 11
+  },
+  {
+   "central_claim": "Pierre de Coubertin was a central organizer of the 1894 Paris Congress that unanimously resolved to revive the Olympic Games, created the IOC, and proposed Athens for the 1896 Games; he is therefore well supported as a leading reviver and conventional founder of the modern Olympic movement, but not as its sole originator.",
+   "central_knowledge_unit": "pierre de coubertin visionary and founder of the modern olympics",
+   "content_id": "78acc086c4e61d4f",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "Historical pioneer and organizer",
+   "fingerprints": [
+    "78acc086c4e61d4f",
+    "f65fc86e2a98f15a"
+   ],
+   "normalized_subject": "pierre de coubertin visionary and founder of the modern olympics",
+   "people": [],
+   "published_at": "2026-09-21T23:06:51.450441+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "olympics.com/ioc/pierre-de-coubertin",
+    "olympics.com/ioc/paris-1894-olympic-congress",
+    "olympedia.org/athletes/920613",
+    "doi.org/10.1017/s1062798704000365",
+    "doi.org/10.2307/2650582"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 12
+  }
+ ],
  "schema": 1,
- "updated_at": "",
- "records": []
+ "updated_at": "2026-09-21T23:06:51.450608+00:00"
 }
