@@ -1,295 +1,130 @@
-# The Sports Newsroom
-# Single-file production build using the same core stack as the previous bot:
-# Exa + Cerebras + requests/feedparser/BeautifulSoup/trafilatura/Pillow + GitHub Actions.
+#!/usr/bin/env python3
+# The Sports Newsroom v3 - single-file newsroom engine for @TheSportsNewsroom.
 #
-# Design principle:
-#   discover -> verify -> understand -> dedupe by underlying claim/event -> editorially select -> publish
+# Design (see README.md):
+#   structured data first -> AI only writes -> code verifies -> every desk has a floor
+#   -> every failure is loud -> idempotent catch-up scheduler.
 #
-# The project deliberately excludes video games, esports, gaming hardware and gaming-industry news.
+# Dependencies: requests, Pillow.  Exa, Cerebras and Telegram are called over plain REST.
+# Content scope: real-world sports and physical/tabletop games only.
+# Sections: 1 core | 2 http | 3 state+scheduler | 4 telegram | 5 cards | 6 AI | 7 adapters
+#           8 guards | 9 desks | 10 runner | 11 diagnose | 12 self-test | 13 CLI
 
 from __future__ import annotations
 
 import argparse
-import html
 import hashlib
+import html
 import json
 import logging
+import math
 import os
+import random
 import re
 import sys
+import tempfile
+import textwrap
+import threading
 import time
-from collections import Counter, defaultdict, deque
-from dataclasses import dataclass
+import traceback
+import xml.etree.ElementTree as ET
+from collections import Counter
+from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta, timezone
 from difflib import SequenceMatcher
 from email.utils import parsedate_to_datetime
-from io import BytesIO
 from pathlib import Path
-from typing import Any, Iterable
-from urllib.parse import parse_qsl, quote, urlencode, urljoin, urlsplit
+from typing import Any, Callable, Iterable
+from urllib.parse import parse_qsl, quote, urlencode, urlsplit
 from zoneinfo import ZoneInfo
 
 try:
-    import feedparser
-except ImportError:
-    feedparser = None
-try:
     import requests
-    from requests.adapters import HTTPAdapter
-except ImportError:
+except ImportError:  # pragma: no cover
     requests = None
-    HTTPAdapter = None
 try:
-    import trafilatura
-except ImportError:
-    trafilatura = None
-try:
-    from bs4 import BeautifulSoup
-except ImportError:
-    BeautifulSoup = None
-try:
-    from PIL import Image, ImageDraw, ImageFont, ImageOps
-except ImportError:
-    Image = ImageDraw = ImageFont = ImageOps = None
-try:
-    from urllib3.util.retry import Retry
-except ImportError:
-    Retry = None
-try:
-    from exa_py import Exa
-except ImportError:
-    Exa = None
-try:
-    from cerebras.cloud.sdk import Cerebras
-except ImportError:
-    Cerebras = None
-
+    from PIL import Image, ImageDraw, ImageFont
+except ImportError:  # pragma: no cover
+    Image = ImageDraw = ImageFont = None
 
 APP_NAME = "The Sports Newsroom"
-APP_VERSION = "2.0.0-career-structure"
+APP_VERSION = "3.0.0"
+
+# ===========================================================================
+# 1. CORE: config, clock, text helpers, safety filters
+# ===========================================================================
+
+
+def _env_int(name: str, default: int) -> int:
+    try:
+        return int(os.environ.get(name, "").strip() or default)
+    except ValueError:
+        return default
+
+
+def _env_float(name: str, default: float) -> float:
+    try:
+        return float(os.environ.get(name, "").strip() or default)
+    except ValueError:
+        return default
+
+
 STATE_FILE = "news_state.json"
 POSTED_FILE = "posted_urls.txt"
-CHANNEL = os.environ.get("TELEGRAM_CHANNEL", "@TheSportsNewsroom").strip()
+CHANNEL = os.environ.get("TELEGRAM_CHANNEL", "@TheSportsNewsroom").strip() or "@TheSportsNewsroom"
 ADMIN_CHAT_ID = os.environ.get("TELEGRAM_ADMIN_CHAT_ID", "").strip()
-BD_TZ = ZoneInfo("Asia/Dhaka")
-CEREBRAS_MODEL = os.environ.get("CEREBRAS_MODEL", "gpt-oss-120b")
+EXA_API_KEY = os.environ.get("EXA_API_KEY", "").strip()
+CEREBRAS_API_KEY = os.environ.get("CEREBRAS_API_KEY", "").strip()
+CEREBRAS_MODEL = os.environ.get("CEREBRAS_MODEL", "").strip() or "gpt-oss-120b"
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
+CRICKETDATA_API_KEY = os.environ.get("CRICKETDATA_API_KEY", "").strip()
+TSDB_KEY = os.environ.get("THESPORTSDB_KEY", "").strip() or "3"
 
-EXA_API_KEY = os.environ.get("EXA_API_KEY", "")
-CEREBRAS_API_KEY = os.environ.get("CEREBRAS_API_KEY", "")
-TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+EVERGREEN_PER_DAY = _env_int("POSTS_EVERGREEN_PER_DAY", _env_int("MAX_DISCOVERY_POSTS_PER_DAY", 3))
+NEXT_UP_OFFSET_DAYS = _env_int("NEXT_UP_OFFSET_DAYS", 1)
+RUN_DEADLINE_SECONDS = _env_int("RUN_DEADLINE_SECONDS", 720)
+HTTP_TIMEOUT = _env_int("HTTP_TIMEOUT", 15)
+MAX_ATTEMPTS_PER_SLOT = _env_int("MAX_ATTEMPTS_PER_SLOT", 6)
+POST_DELAY_SECONDS = _env_float("POST_DELAY_SECONDS", 3.0)
+STATE_RETENTION_DAYS = _env_int("STATE_RETENTION_DAYS", 120)
+OPEN_DAY_IN_SPORTS = _env_int("DAY_IN_SPORTS_OPEN_HOUR", 7)
+OPEN_ON_THIS_DATE = _env_int("ON_THIS_DATE_OPEN_HOUR", 9)
+OPEN_NEXT_UP = _env_int("NEXT_UP_OPEN_HOUR", 19)
+EVERGREEN_OPEN_HOURS = [10, 15, 20]
 
-MAX_RICH_CHARACTERS = 32768
-MAX_DISCOVERY_POSTS_PER_DAY = int(os.environ.get("MAX_DISCOVERY_POSTS_PER_DAY", "5"))
-MAX_DISCOVERY_CANDIDATES = int(os.environ.get("MAX_DISCOVERY_CANDIDATES", "60"))
-MAX_HISTORY_CANDIDATES = int(os.environ.get("MAX_HISTORY_CANDIDATES", "30"))
-MAX_SPORT_EVENT_CANDIDATES = int(os.environ.get("MAX_SPORT_EVENT_CANDIDATES", "70"))
-POST_DELAY_SECONDS = float(os.environ.get("POST_DELAY_SECONDS", "3.0"))
-DISCOVERY_COOLDOWN_HOURS = float(os.environ.get("DISCOVERY_COOLDOWN_HOURS", "3.5"))
-STATE_RETENTION_DAYS = int(os.environ.get("STATE_RETENTION_DAYS", "120"))
-HTTP_TIMEOUT = int(os.environ.get("HTTP_TIMEOUT", "20"))
+DRY_RUN = False  # set by --dry-run: never talks to Telegram, never writes state
 
-logger = logging.getLogger("sports-games-hub")
-logging.basicConfig(
-    level=os.environ.get("LOG_LEVEL", "INFO").upper(),
-    format="%(asctime)s | %(levelname)s | %(message)s",
-)
+CAPTION_LIMIT = 1024
+MESSAGE_LIMIT = 4096
 
-TRACKING_PARAMS = {
-    "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content",
-    "gclid", "fbclid", "mc_cid", "mc_eid", "ref",
-}
+logger = logging.getLogger("sports-newsroom")
+logging.basicConfig(level=os.environ.get("LOG_LEVEL", "INFO").upper(), format="%(asctime)s | %(levelname)s | %(message)s")
 
-VIDEO_GAME_TERMS = {
-    "video game", "video games", "videogame", "gaming", "esports", "e-sports",
-    "playstation", "xbox", "nintendo switch", "steam", "epic games store",
-    "dlc", "patch notes", "game patch", "console", "ps5", "ps4", "xbox series",
-    "pc gaming", "mobile gaming", "game trailer", "game studio", "publisher", "gpu",
-}
-VIDEO_GAME_QUERY_TERMS = re.compile(
-    r"\b(playstation|xbox|steam|epic games|console|ps5|ps4|xbox series|dlc|patch notes|esports|e-sports|video game|videogame|pc gaming|mobile gaming)\b",
-    re.I,
-)
+try:
+    BD_TZ = ZoneInfo("Asia/Dhaka")
+except Exception:  # pragma: no cover - tzdata missing
+    BD_TZ = timezone(timedelta(hours=6), "Asia/Dhaka")
 
-SURPRISE_ANGLES = [
-    "why is it called",
-    "origin of",
-    "oldest known",
-    "first ever",
-    "only time ever",
-    "never been broken",
-    "invented by accident",
-    "originally called",
-    "originally meant",
-    "rule most people get wrong",
-    "official rule",
-    "house rule",
-    "myth about",
-    "banned in",
-    "strange rule",
-    "unusual tradition",
-    "forgotten history",
-    "why does it use",
-    "history of",
-    "where did it come from",
-    "what changed",
-    "then vs now",
-    "first to",
-    "only to",
-]
+MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August",
+          "September", "October", "November", "December"]
 
-CATEGORIES = [
-    "evergreen_fact",
-    "game_discovery",
-    "rule_check",
-    "how_to_play",
-    "game_history",
-    "on_this_date",
-    "century_ago",
-    "why_explained",
-    "first_last_only",
-    "then_vs_now",
-    "forgotten_game",
-    "forgotten_sport",
-    "sport_discovery",
-    "new_board_game",
-    "new_card_game",
-    "new_tabletop_game",
-    "new_sport",
-    "sports_daily_next",
-    "sports_daily_past",
-]
-
-ANGLES = [
-    "origin", "etymology", "rule", "myth", "number", "record", "accident", "banned",
-    "weird", "design", "symbol", "tradition", "equipment", "measurement", "terminology",
-    "scoring", "strategy", "geography", "culture", "evolution", "first", "last", "only",
-    "rare", "historical_connection", "new_mechanic", "rules_change", "discovery", "timeline",
-]
-
-TOP_LEVEL_SPORTS = [
-    "football", "cricket", "basketball", "tennis", "badminton", "table tennis", "volleyball",
-    "baseball", "rugby", "golf", "boxing", "mma", "formula 1", "athletics", "swimming",
-    "cycling", "gymnastics", "wrestling", "fencing", "archery", "shooting", "rowing",
-    "canoeing", "sailing", "surfing", "skateboarding", "sport climbing", "water polo",
-    "hockey", "field hockey", "ice hockey", "snooker", "billiards", "darts", "squash",
-    "bowling", "handball", "netball", "kabaddi", "kho kho", "sepak takraw", "sumo",
-    "judo", "karate", "taekwondo", "weightlifting", "triathlon", "modern pentathlon",
-    "equestrian", "curling", "biathlon", "bobsleigh", "luge", "skeleton",
-]
-
-GAME_CATEGORIES = {
-    "board": [
-        "chess", "go", "shogi", "backgammon", "monopoly", "catan", "carrom", "mahjong",
-        "scrabble", "risk", "ticket to ride", "snakes and ladders", "pachisi", "mancala",
-    ],
-    "card": [
-        "uno", "rummy", "hearts", "spades", "bridge", "cribbage", "exploding kittens",
-        "phase 10", "skip-bo", "traditional playing cards",
-    ],
-    "party": ["mafia", "werewolf", "codenames", "pictionary", "charades", "just one"],
-    "traditional": ["ludo", "pachisi", "carrom", "kabaddi", "kho kho", "sepak takraw", "mancala"],
-    "mind": ["chess", "go", "shogi", "xiangqi", "sudoku", "rubik's cube", "nonogram"],
-}
-
-OFFICIAL_DOMAINS = [
-    "fifa.com", "uefa.com", "icc-cricket.com", "worldathletics.org", "fide.com", "itftennis.com",
-    "worldbadminton.com", "badmintonworld.tv", "formula1.com", "fia.com", "world.rugby",
-    "olympics.com", "paralympic.org", "worldboxing.org", "ijf.org", "worldarchery.sport",
-    "worldrowing.com", "worldaquatics.com", "uci.org", "fiba.basketball",
-]
-
-SECONDARY_DOMAINS = [
-    "bbc.com", "espn.com", "skysports.com", "theguardian.com", "reuters.com", "apnews.com",
-    "nbcsports.com", "cbssports.com", "foxsports.com", "si.com",
-    "boardgamegeek.com", "dicebreaker.com", "tabletopgaming.co.uk",
-]
-
-REFERENCE_DOMAINS = [
-    "wikipedia.org", "britannica.com", "guinnessworldrecords.com", "atlasobscura.com",
-]
-
-LEAD_ONLY_DOMAINS = ["reddit.com", "quora.com"]
-
-RSS_FEEDS = [
-    {"name": "BBC Sport", "url": "https://feeds.bbci.co.uk/sport/rss.xml"},
-    {"name": "ESPN", "url": "https://www.espn.com/espn/rss/news"},
-    {"name": "Guardian Sport", "url": "https://www.theguardian.com/uk/sport/rss"},
-    {"name": "Sky Sports", "url": "https://www.skysports.com/rss/12040"},
-]
-
-HEADERS = {
-    "User-Agent": "TheSportsNewsroom/2.0 (+https://github.com/)",
-    "Accept-Language": "en-US,en;q=0.8",
-}
-
-if requests is not None:
-    session = requests.Session()
-    if Retry is not None and HTTPAdapter is not None:
-        retry = Retry(
-            total=3,
-            connect=3,
-            read=3,
-            status=3,
-            backoff_factor=0.5,
-            status_forcelist=(429, 500, 502, 503, 504),
-            allowed_methods=frozenset({"GET", "POST"}),
-        )
-        session.mount("https://", HTTPAdapter(max_retries=retry))
-        session.mount("http://", HTTPAdapter(max_retries=retry))
-else:
-    session = None
+_CLOCK: dict[str, Any] = {"now": None}
+_SLEEP: list[Callable[[float], None]] = [time.sleep]
 
 
-# ---------------------------------------------------------------------------
-# Helpers
-# ---------------------------------------------------------------------------
-
-def text(v: Any) -> str:
-    return "" if v is None else str(v).strip()
-
-
-def normalize_text(v: Any) -> str:
-    s = text(v).lower()
-    s = re.sub(r"[^a-z0-9\s]", " ", s)
-    return re.sub(r"\s+", " ", s).strip()
-
-
-def tokens(v: Any) -> set[str]:
-    stop = {
-        "the", "a", "an", "and", "or", "of", "to", "in", "on", "for", "from", "with", "by",
-        "at", "as", "is", "are", "was", "were", "be", "been", "this", "that", "it", "its",
-        "new", "game", "games", "sport", "sports", "news", "why", "how", "what", "did", "does",
-        "do", "has", "have", "had", "about", "after", "before", "into", "than", "over",
-    }
-    return {x for x in normalize_text(v).split() if len(x) >= 3 and x not in stop}
-
-
-def similarity(a: Any, b: Any) -> float:
-    aa, bb = normalize_text(a), normalize_text(b)
-    if not aa or not bb:
-        return 0.0
-    seq = SequenceMatcher(None, aa, bb).ratio()
-    ta, tb = tokens(aa), tokens(bb)
-    jac = len(ta & tb) / max(1, len(ta | tb))
-    return 0.55 * seq + 0.45 * jac
-
-
-def canonical_url(url: str) -> str:
-    raw = text(url)
-    if not raw:
-        return ""
-    parts = urlsplit(raw)
-    host = parts.netloc.lower().removeprefix("www.")
-    path = re.sub(r"/+", "/", parts.path or "/").rstrip("/") or "/"
-    query = [(k, v) for k, v in parse_qsl(parts.query, keep_blank_values=True) if k.lower() not in TRACKING_PARAMS]
-    return host + path + (("?" + urlencode(query)) if query else "")
+def sleep(seconds: float) -> None:
+    _SLEEP[0](max(0.0, seconds))
 
 
 def now_bd() -> datetime:
-    return datetime.now(BD_TZ)
+    return _CLOCK["now"] if _CLOCK["now"] is not None else datetime.now(BD_TZ)
 
 
-def iso(dt: datetime | None) -> str:
+def to_bd(dt: datetime) -> datetime:
+    return dt.astimezone(BD_TZ)
+
+
+def utc_iso(dt: datetime | None) -> str:
     return dt.astimezone(timezone.utc).isoformat() if dt else ""
 
 
@@ -297,7 +132,7 @@ def parse_dt(value: Any) -> datetime | None:
     if isinstance(value, datetime):
         dt = value
     else:
-        raw = text(value)
+        raw = str(value or "").strip()
         if not raw:
             return None
         try:
@@ -312,9 +147,64 @@ def parse_dt(value: Any) -> datetime | None:
     return dt
 
 
-def is_video_game_contaminated(value: str) -> bool:
-    s = text(value).lower()
-    return bool(VIDEO_GAME_QUERY_TERMS.search(s))
+def long_date(d: date) -> str:
+    return f"{d.day} {MONTHS[d.month - 1]} {d.year}"
+
+
+def dhaka_window(d: date) -> tuple[datetime, datetime]:
+    """[00:00, 24:00) of calendar day d in Dhaka, as UTC datetimes."""
+    start = datetime(d.year, d.month, d.day, tzinfo=BD_TZ)
+    end = start + timedelta(days=1)
+    return start.astimezone(timezone.utc), end.astimezone(timezone.utc)
+
+
+def text(v: Any) -> str:
+    return "" if v is None else str(v).strip()
+
+
+def normalize_text(v: Any) -> str:
+    s = text(v).lower()
+    s = re.sub(r"[^a-z0-9\s]", " ", s)
+    return re.sub(r"\s+", " ", s).strip()
+
+
+_STOP = {
+    "the", "a", "an", "and", "or", "of", "to", "in", "on", "for", "from", "with", "by", "at", "as", "is",
+    "are", "was", "were", "be", "been", "this", "that", "it", "its", "new", "game", "games", "sport",
+    "sports", "news", "why", "how", "what", "did", "does", "do", "has", "have", "had", "about", "after",
+    "before", "into", "than", "over",
+}
+
+
+def tokens(v: Any) -> set[str]:
+    return {x for x in normalize_text(v).split() if len(x) >= 3 and x not in _STOP}
+
+
+def similarity(a: Any, b: Any) -> float:
+    aa, bb = normalize_text(a), normalize_text(b)
+    if not aa or not bb:
+        return 0.0
+    seq = SequenceMatcher(None, aa, bb).ratio()
+    ta, tb = tokens(aa), tokens(bb)
+    jac = len(ta & tb) / max(1, len(ta | tb))
+    return 0.55 * seq + 0.45 * jac
+
+
+TRACKING_PARAMS = {"utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "fbclid",
+                   "mc_cid", "mc_eid", "ref", "ocid", "cmpid"}
+
+
+def canonical_url(url: str) -> str:
+    raw = text(url)
+    if not raw:
+        return ""
+    if "://" not in raw:
+        raw = "https://" + raw
+    parts = urlsplit(raw)
+    host = parts.netloc.lower().removeprefix("www.")
+    path = re.sub(r"/+", "/", parts.path or "/").rstrip("/") or "/"
+    query = [(k, v) for k, v in parse_qsl(parts.query, keep_blank_values=True) if k.lower() not in TRACKING_PARAMS]
+    return host + path + (("?" + urlencode(query)) if query else "")
 
 
 def domain_of(url: str) -> str:
@@ -324,102 +214,268 @@ def domain_of(url: str) -> str:
     return urlsplit(raw).netloc.removeprefix("www.").split(":")[0]
 
 
-def source_tier(url: str, source_name: str = "") -> int:
-    d = domain_of(url)
-    if any(d == x or d.endswith("." + x) for x in OFFICIAL_DOMAINS):
-        return 1
-    if any(d == x or d.endswith("." + x) for x in SECONDARY_DOMAINS):
-        return 2
-    if any(d == x or d.endswith("." + x) for x in REFERENCE_DOMAINS):
-        return 3
-    if any(d == x or d.endswith("." + x) for x in LEAD_ONLY_DOMAINS):
-        return 4
-    if source_name.lower() in {"wikipedia", "britannica", "guinness world records"}:
-        return 3
-    return 3
+def esc(s: Any) -> str:
+    return html.escape(text(s), quote=False)
 
 
-def source_label(url: str, fallback: str = "Source") -> str:
-    d = domain_of(url)
-    labels = {
-        "bbc.com": "BBC Sport",
-        "espn.com": "ESPN",
-        "skysports.com": "Sky Sports",
-        "theguardian.com": "The Guardian",
-        "olympics.com": "Olympics.com",
-        "reuters.com": "Reuters",
-        "apnews.com": "AP",
-        "fifa.com": "FIFA",
-        "uefa.com": "UEFA",
-        "icc-cricket.com": "ICC",
-        "worldathletics.org": "World Athletics",
-        "fide.com": "FIDE",
-        "itftennis.com": "ITF",
-        "formula1.com": "Formula 1",
-        "fia.com": "FIA",
-        "boardgamegeek.com": "BoardGameGeek",
-        "britannica.com": "Britannica",
-        "atlasobscura.com": "Atlas Obscura",
-        "guinnessworldrecords.com": "Guinness World Records",
-        "wikipedia.org": "Wikipedia",
-    }
-    return labels.get(d, fallback or d or "Source")
+def esc_attr(s: Any) -> str:
+    return html.escape(text(s), quote=True)
 
 
-def safe_json_loads(raw: str) -> Any:
-    s = text(raw)
-    if s.startswith("```"):
-        s = re.sub(r"^```(?:json)?\s*", "", s, flags=re.I)
-        s = re.sub(r"\s*```$", "", s)
-    return json.loads(s)
+def slugify(s: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", text(s).lower()).strip("-")
 
 
-def strip_tags(value: str) -> str:
-    if BeautifulSoup is None:
-        return re.sub(r"<[^>]+>", " ", text(value)).strip()
-    return BeautifulSoup(text(value), "html.parser").get_text(" ", strip=True)
-
-
-def sentence_count(value: str) -> int:
-    s = text(value)
-    if not s:
-        return 0
-    return len(re.findall(r"(?<=[.!?])\s+", s)) + (1 if s[-1:] in ".!?" else 0)
-
-
-def complete_sentence(value: str) -> bool:
-    s = text(value)
-    return bool(s and s[-1] in ".!?")
-
-
-def clamp(s: str, n: int) -> str:
-    s = text(s)
+def clamp_words(s: str, n: int) -> str:
+    """Trim to <= n characters at a word boundary. No ellipsis (validators reject it)."""
+    s = re.sub(r"\s+", " ", text(s))
     if len(s) <= n:
         return s
     cut = s[:n].rsplit(" ", 1)[0].rstrip(" ,;:-")
-    return cut + "…"
+    return cut or s[:n]
 
 
-# ---------------------------------------------------------------------------
-# State
-# ---------------------------------------------------------------------------
+_ABBREV = {"u.s.", "u.k.", "u.n.", "mr.", "mrs.", "ms.", "dr.", "st.", "vs.", "no.", "jr.", "sr.", "inc.", "ltd.", "co.",
+           "e.g.", "i.e.", "etc.", "approx.", "vol.", "fc.", "a.f.c.", "prof.", "gen.", "col.", "lt."}
+_SPLIT_RX = re.compile(r"(?<=[.!?])[\"'”’)]*\s+(?=[A-Z0-9\"'“‘(])")
+
+
+def split_sentences(s: str) -> list[str]:
+    s = re.sub(r"\s+", " ", text(s))
+    if not s:
+        return []
+    out, last = [], 0
+    for m in _SPLIT_RX.finditer(s):
+        before = s[last:m.start()].rsplit(" ", 1)[-1].lower().strip("\"'“‘(")
+        if before in _ABBREV or re.fullmatch(r"[a-z]\.", before) or re.fullmatch(r"(?:[a-z]\.){2,}", before):
+            continue  # abbreviation or initial, not a sentence end
+        out.append(s[last:m.start() + 1 if s[m.start():m.start() + 1] in ".!?" else m.start()].strip())
+        last = m.end()
+    out.append(s[last:].strip())
+    return [x for x in out if x]
+
+
+def redact(s: str) -> str:
+    out = str(s)
+    for secret in (TELEGRAM_BOT_TOKEN, EXA_API_KEY, CEREBRAS_API_KEY, CRICKETDATA_API_KEY):
+        if secret and len(secret) >= 6:
+            out = out.replace(secret, "***")
+    return re.sub(r"bot\d{5,}:[A-Za-z0-9_-]{20,}", "bot***", out)
+
+
+# --- content-scope filters (video games / esports / betting / rumours are out) -----------------
+
+_HARD_GAMING = re.compile(
+    r"\b(playstation|ps[45]|xbox|nintendo|esports?|e-sports|video ?games?|gaming|dlc|patch notes|twitch|"
+    r"fortnite|minecraft|roblox|valorant|dota ?2?|league of legends|counter-strike|call of duty|"
+    r"ea sports fc|madden nfl|nba 2k|steam deck|steam store|steam sale|on steam|epic games)\b", re.I)
+_SOFT_GAMING = re.compile(r"\b(consoles?|gpu|streamers?|game studio|battle pass|loot boxes?|playthrough|multiplayer online)\b", re.I)
+_BETTING = re.compile(
+    r"\b(betting|bookmakers?|sportsbook|parlay|tipsters?|betting odds|odds on|transfer rumou?rs?|"
+    r"linked with a move)\b", re.I)
+
+
+def exclusion_reason(value: str) -> str:
+    """'' if the text is in scope, else a short reason."""
+    s = text(value)
+    if _HARD_GAMING.search(s):
+        return "video-game/esports"
+    if _BETTING.search(s):
+        return "betting/rumour"
+    if len({x.lower() for x in _SOFT_GAMING.findall(s)}) >= 2:  # 2 DISTINCT soft terms; repeats of one word do not count
+        return "gaming-industry"
+    return ""
+
+
+def is_excluded(value: str) -> bool:
+    return bool(exclusion_reason(value))
+
+
+# ===========================================================================
+# 2. HTTP layer: never raises, records per-source health
+# ===========================================================================
+
+HEADERS = {"User-Agent": f"TheSportsNewsroom/{APP_VERSION} (https://t.me/TheSportsNewsroom; newsroom bot)",
+           "Accept-Language": "en-US,en;q=0.8"}
+
+HEALTH: dict[str, dict] = {}
+_HEALTH_LOCK = threading.Lock()
+_SESSION: list[Any] = [None]
+
+
+def session() -> Any:
+    if _SESSION[0] is None:
+        if requests is None:
+            raise RuntimeError("requests is not installed. Run: pip install -r requirements.txt")
+        _SESSION[0] = requests.Session()
+    return _SESSION[0]
+
+
+def health_record(source: str, ok: bool, err: str = "", ms: int = 0) -> None:
+    with _HEALTH_LOCK:
+        h = HEALTH.setdefault(source, {"ok": 0, "fail": 0, "last_error": "", "ms": 0})
+        h["ok" if ok else "fail"] += 1
+        h["ms"] += ms
+        if not ok:
+            h["last_error"] = redact(err)[:240]
+
+
+class Resp:
+    __slots__ = ("status", "data", "text", "error", "headers", "exc")
+
+    def __init__(self, status=0, data=None, text_="", error="", headers=None, exc=""):
+        self.status, self.data, self.text, self.error = status, data, text_, error
+        self.headers, self.exc = headers or {}, exc
+
+    @property
+    def ok(self) -> bool:
+        return 200 <= self.status < 300 and not self.error
+
+
+def http(source: str, method: str, url: str, *, params=None, json_body=None, data=None, files=None,
+         headers=None, timeout=None, retries=0, backoff=1.0, want_json=True) -> Resp:
+    hdrs = dict(HEADERS)
+    hdrs.update(headers or {})
+    last = Resp(0, error="no attempt")
+    for attempt in range(retries + 1):
+        t0 = time.monotonic()
+        try:
+            r = session().request(method, url, params=params, json=json_body, data=data, files=files,
+                                  headers=hdrs, timeout=timeout or HTTP_TIMEOUT)
+        except Exception as exc:  # network level
+            err = redact(f"{type(exc).__name__}: {exc}")
+            health_record(source, False, err, int((time.monotonic() - t0) * 1000))
+            last = Resp(0, error=err, exc=type(exc).__name__)
+            if attempt < retries:
+                sleep(backoff * (2 ** attempt))
+                continue
+            return last
+        ms = int((time.monotonic() - t0) * 1000)
+        status = int(getattr(r, "status_code", 0) or 0)
+        body = ""
+        try:
+            body = r.text or ""
+        except Exception:
+            body = ""
+        parsed = None
+        if want_json:
+            try:
+                parsed = r.json()
+            except Exception:
+                parsed = None
+        err = ""
+        if not 200 <= status < 300:
+            err = redact(f"HTTP {status}: {body[:200]}")
+        elif want_json and parsed is None:
+            err = "invalid JSON in response"
+        last = Resp(status, parsed, body, err, dict(getattr(r, "headers", {}) or {}))
+        if status in (429, 500, 502, 503, 504) and attempt < retries:
+            ra = 0.0
+            try:
+                ra = float(last.headers.get("Retry-After", 0) or 0)
+            except Exception:
+                ra = 0.0
+            sleep(min(30.0, ra or backoff * (2 ** attempt)))
+            continue
+        health_record(source, not err, err, ms)
+        return last
+    return last
+
+
+def pmap(fn: Callable[[Any], Any], items: Iterable[Any], workers: int = 8) -> list[Any]:
+    """Parallel map preserving order; exceptions become None."""
+    items = list(items)
+
+    def safe(x):
+        try:
+            return fn(x)
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("worker error: %s", redact(str(exc)))
+            return None
+
+    with ThreadPoolExecutor(max_workers=max(1, min(workers, len(items) or 1))) as ex:
+        return list(ex.map(safe, items))
+
+
+class Deadline:
+    def __init__(self, seconds: float):
+        self.end = time.monotonic() + seconds
+
+    def left(self) -> float:
+        return self.end - time.monotonic()
+
+    def expired(self) -> bool:
+        return self.left() <= 0
+
+
+RUN_LIMIT = Deadline(10 ** 6)
+
+
+class REPORT:
+    """Per-run report. Reset at the start of every run."""
+    desks: list[dict] = []
+    rejections: Counter = Counter()
+    ai_calls = 0
+    ai_tokens = 0
+    errors: list[str] = []
+    notes: list[str] = []
+
+    @classmethod
+    def reset(cls) -> None:
+        cls.desks, cls.rejections, cls.ai_calls, cls.ai_tokens = [], Counter(), 0, 0
+        cls.errors, cls.notes = [], []
+        HEALTH.clear()
+
+
+def reject(reason: str, detail: str = "") -> None:
+    REPORT.rejections[reason] += 1
+    logger.info("reject[%s] %s", reason, detail[:160])
+
+# ===========================================================================
+# 3. STATE, LEDGER, SCHEDULER
+# ===========================================================================
+
+STATE_SCHEMA = 3
 
 
 def default_state() -> dict:
     return {
-        "schema_version": 1,
-        "created_at": iso(now_bd()),
+        "schema_version": STATE_SCHEMA,
+        "created_at": utc_iso(now_bd()),
         "last_run_at": "",
-        "queue": {},
+        "ledger": {},
         "posts": [],
-        "claims": {},
-        "entities": {},
-        "historical_events": {},
-        "daily_flags": {},
-        "angle_history": [],
-        "category_history": [],
+        "topics": {"pool": {}, "last_refresh": "", "per_topic": {}},
+        "ai": {},
         "source_health": {},
+        "runs": [],
+        "alerts": {},
     }
+
+
+def migrate_state(state: dict) -> dict:
+    """Bring any older state file (v1/v2) up to v3 without losing the post archive."""
+    merged = default_state()
+    for key in ("created_at", "last_run_at"):
+        if state.get(key):
+            merged[key] = state[key]
+    for key in ("ledger", "topics", "ai", "source_health", "alerts"):
+        if isinstance(state.get(key), dict):
+            merged[key].update(state[key])
+    for key in ("posts", "runs"):
+        if isinstance(state.get(key), list):
+            merged[key] = state[key]
+    # v2 posts used published_at/subject/claim; keep them readable by v3 dedupe
+    for p in merged["posts"]:
+        p.setdefault("desk", "legacy")
+        p.setdefault("posted_at", p.get("published_at", ""))
+        p.setdefault("topic", p.get("game_or_sport", ""))
+        p.setdefault("urls", p.get("source_urls", []))
+    merged["schema_version"] = STATE_SCHEMA
+    merged["topics"].setdefault("pool", {})
+    merged["topics"].setdefault("per_topic", {})
+    merged["topics"].setdefault("last_refresh", "")
+    return merged
 
 
 def load_state() -> dict:
@@ -427,1450 +483,3428 @@ def load_state() -> dict:
     if not p.exists() or p.stat().st_size == 0:
         return default_state()
     try:
-        state = json.loads(p.read_text(encoding="utf-8"))
-        if not isinstance(state, dict):
-            raise ValueError("state is not an object")
-        merged = default_state()
-        merged.update(state)
-        return merged
+        raw = json.loads(p.read_text(encoding="utf-8"))
+        if not isinstance(raw, dict):
+            raise ValueError("state is not a JSON object")
     except Exception as exc:
-        raise RuntimeError(f"State load failed; refusing to start with a fresh state: {exc}") from exc
+        # Never post from a blank state: duplicates are worse than a stopped bot.
+        raise RuntimeError(f"State file unreadable; refusing to start with a blank state: {exc}") from exc
+    return migrate_state(raw)
 
 
 def save_state(state: dict) -> None:
+    if DRY_RUN:
+        return
     tmp = Path(STATE_FILE + ".tmp")
-    tmp.write_text(json.dumps(state, ensure_ascii=False, indent=2, sort_keys=True), encoding="utf-8")
+    tmp.write_text(json.dumps(state, ensure_ascii=False, indent=1, sort_keys=True), encoding="utf-8")
     tmp.replace(STATE_FILE)
 
 
-def load_published_urls() -> set[str]:
+def load_posted_urls() -> set[str]:
     p = Path(POSTED_FILE)
     if not p.exists():
         return set()
     return {x.strip() for x in p.read_text(encoding="utf-8").splitlines() if x.strip()}
 
 
-def append_published_url(url: str) -> None:
-    canonical = canonical_url(url)
-    if not canonical:
+def append_posted_urls(urls: Iterable[str]) -> None:
+    if DRY_RUN:
+        return
+    # Wikipedia pages are reference pages that many different posts legitimately cite; they are protected by
+    # claim/topic dedupe instead. posted_urls.txt tracks article URLs (news, tabletop outlets, etc.).
+    canon = [canonical_url(u) for u in urls if text(u) and "wikipedia.org" not in text(u)]
+    canon = [c for c in canon if c]
+    if not canon:
         return
     with Path(POSTED_FILE).open("a", encoding="utf-8") as f:
-        f.write(canonical + "\n")
+        f.write("\n".join(canon) + "\n")
 
 
 def prune_state(state: dict) -> None:
     cutoff = now_bd() - timedelta(days=STATE_RETENTION_DAYS)
-    # Queue is temporary; knowledge records are permanent.
-    for key, item in list(state.get("queue", {}).items()):
-        seen = parse_dt(item.get("first_seen_at")) or parse_dt(item.get("published_date"))
-        if seen and seen < cutoff:
-            state["queue"].pop(key, None)
     state["posts"] = state.get("posts", [])[-5000:]
-    state["angle_history"] = state.get("angle_history", [])[-1000:]
-    state["category_history"] = state.get("category_history", [])[-1000:]
-    for key, value in list(state.get("source_health", {}).items()):
-        last = parse_dt(value.get("updated_at")) if isinstance(value, dict) else None
-        if last and last < cutoff:
-            state["source_health"].pop(key, None)
+    state["runs"] = state.get("runs", [])[-30:]
+    for key, entry in list(state.get("ledger", {}).items()):
+        seen = parse_dt(entry.get("updated_at"))
+        if seen and seen < cutoff:
+            state["ledger"].pop(key, None)
+    for key, day in list(state.get("alerts", {}).items()):
+        d = parse_dt(str(day) + "T00:00:00+00:00")
+        if d and d < cutoff:
+            state["alerts"].pop(key, None)
+    # keep the posted-url file bounded
+    p = Path(POSTED_FILE)
+    if p.exists() and not DRY_RUN:
+        lines = [x for x in p.read_text(encoding="utf-8").splitlines() if x.strip()]
+        if len(lines) > 20000:
+            p.write_text("\n".join(lines[-10000:]) + "\n", encoding="utf-8")
 
 
-# ---------------------------------------------------------------------------
-# Clients
-# ---------------------------------------------------------------------------
+def ledger_get(state: dict, key: str) -> dict:
+    return state.setdefault("ledger", {}).get(key, {})
 
 
-def require_credentials() -> None:
-    missing = [name for name, value in [
-        ("EXA_API_KEY", EXA_API_KEY),
-        ("CEREBRAS_API_KEY", CEREBRAS_API_KEY),
-        ("TELEGRAM_BOT_TOKEN", TELEGRAM_BOT_TOKEN),
-    ] if not value]
-    if missing:
-        raise RuntimeError("Missing required environment variables: " + ", ".join(missing))
+def ledger_update(state: dict, key: str, **kw: Any) -> dict:
+    entry = state.setdefault("ledger", {}).setdefault(key, {"status": "new", "attempts": 0})
+    entry.update(kw)
+    entry["updated_at"] = utc_iso(now_bd())
+    return entry
 
 
-class Clients:
-    def __init__(self):
-        require_credentials()
-        if Exa is None or Cerebras is None:
-            raise RuntimeError("Required API SDKs are not installed. Run: pip install -r requirements.txt")
-        self.exa = Exa(api_key=EXA_API_KEY)
-        self.cerebras = Cerebras(api_key=CEREBRAS_API_KEY)
-
-    def ai(self, *, system: str, user: str, schema_name: str, schema: dict, max_tokens: int = 1800, temperature: float = 0.2) -> dict:
-        last_exc: Exception | None = None
-        for attempt in range(3):
-            try:
-                response = self.cerebras.chat.completions.create(
-                    model=CEREBRAS_MODEL,
-                    messages=[
-                        {"role": "system", "content": system},
-                        {"role": "user", "content": user},
-                    ],
-                    response_format={
-                        "type": "json_schema",
-                        "json_schema": {
-                            "name": schema_name,
-                            "strict": True,
-                            "schema": schema,
-                        },
-                    },
-                    reasoning_effort="low",
-                    temperature=temperature,
-                    max_completion_tokens=max_tokens,
-                )
-                content = response.choices[0].message.content
-                data = safe_json_loads(content)
-                if not isinstance(data, dict):
-                    raise ValueError("AI response is not an object")
-                return data
-            except Exception as exc:
-                last_exc = exc
-                logger.warning("Cerebras attempt %d failed: %s", attempt + 1, exc)
-                if attempt < 2:
-                    time.sleep(1.5 * (attempt + 1))
-        raise RuntimeError(f"Cerebras failed after 3 attempts: {last_exc}")
+# --- slots -------------------------------------------------------------------------------------
 
 
-# ---------------------------------------------------------------------------
-# Schemas
-# ---------------------------------------------------------------------------
+class Slot:
+    def __init__(self, name: str, desk: str, opens: int, deadline: int, offset_days: int = 0,
+                 index: int = 0, mandatory: bool = False):
+        self.name, self.desk, self.opens, self.deadline = name, desk, opens, deadline
+        self.offset_days, self.index, self.mandatory = offset_days, index, mandatory
 
-CANDIDATE_SCHEMA = {
-    "type": "object",
-    "properties": {
-        "items": {
-            "type": "array",
-            "maxItems": 20,
-            "items": {
-                "type": "object",
-                "properties": {
-                    "id": {"type": "integer", "minimum": 1},
-                    "kind": {"type": "string", "enum": ["fact", "game", "rule", "history", "sport_event", "new_game", "howto"]},
-                    "category": {"type": "string"},
-                    "angle": {"type": "string"},
-                    "game_or_sport": {"type": "string"},
-                    "subject": {"type": "string"},
-                    "claim_or_event": {"type": "string"},
-                    "source_urls": {"type": "array", "items": {"type": "string"}, "maxItems": 5},
-                    "why_interesting": {"type": "string"},
-                },
-                "required": ["id", "kind", "category", "angle", "game_or_sport", "subject", "claim_or_event", "source_urls", "why_interesting"],
-                "additionalProperties": False,
-            },
-        }
-    },
-    "required": ["items"],
-    "additionalProperties": False,
-}
+    def target(self, now: datetime) -> date:
+        return now.date() + timedelta(days=self.offset_days)
 
-VERIFY_SCHEMA = {
-    "type": "object",
-    "properties": {
-        "status": {"type": "string", "enum": ["verified", "disputed", "unverified", "reject"]},
-        "confidence": {"type": "integer", "minimum": 0, "maximum": 100},
-        "supported_claims": {"type": "array", "items": {"type": "string"}, "maxItems": 12},
-        "unsupported_claims": {"type": "array", "items": {"type": "string"}, "maxItems": 12},
-        "source_roles": {"type": "array", "items": {"type": "string"}, "maxItems": 8},
-        "reason": {"type": "string"},
-    },
-    "required": ["status", "confidence", "supported_claims", "unsupported_claims", "source_roles", "reason"],
-    "additionalProperties": False,
-}
+    def key(self, now: datetime) -> str:
+        if self.desk == "evergreen":
+            return f"evergreen:{now.date().isoformat()}:{self.index}"
+        return f"{self.name}:{self.target(now).isoformat()}"
 
-EDITORIAL_SCHEMA = {
-    "type": "object",
-    "properties": {
-        "selected_ids": {"type": "array", "items": {"type": "integer"}, "maxItems": 12},
-        "reason_by_id": {"type": "array", "items": {"type": "string"}, "maxItems": 20},
-    },
-    "required": ["selected_ids", "reason_by_id"],
-    "additionalProperties": False,
-}
+    def is_open(self, now: datetime) -> bool:
+        return now.hour >= self.opens
 
-POST_SCHEMA = {
-    "type": "object",
-    "properties": {
-        "format": {"type": "string", "enum": [
-            "fact", "game_discovery", "rule_check", "how_to_play", "history", "on_this_date",
-            "century_ago", "why", "first_last_only", "then_vs_now", "forgotten", "daily_next", "daily_past"
-        ]},
-        "headline": {"type": "string"},
-        "dek": {"type": "string"},
-        "body": {"type": "string"},
-        "why_interesting": {"type": "string"},
-        "key_points": {"type": "array", "items": {"type": "string"}, "maxItems": 5},
-        "date_anchor": {"type": "string"},
-        "sources": {"type": "array", "items": {"type": "string"}, "maxItems": 5},
-        "tags": {"type": "array", "items": {"type": "string"}, "maxItems": 6},
-    },
-    "required": ["format", "headline", "dek", "body", "why_interesting", "key_points", "date_anchor", "sources", "tags"],
-    "additionalProperties": False,
-}
+    def is_late(self, now: datetime) -> bool:
+        return now.hour >= self.deadline
 
 
-# ---------------------------------------------------------------------------
-# Discovery
-# ---------------------------------------------------------------------------
+def build_slots() -> list[Slot]:
+    slots = [
+        Slot("day_in_sports", "past", OPEN_DAY_IN_SPORTS, OPEN_DAY_IN_SPORTS + 7, -1, mandatory=True),
+        Slot("next_up", "next", OPEN_NEXT_UP, min(23, OPEN_NEXT_UP + 4), NEXT_UP_OFFSET_DAYS, mandatory=True),
+        Slot("on_this_date", "history", OPEN_ON_THIS_DATE, OPEN_ON_THIS_DATE + 7, 0),
+    ]
+    for i in range(1, EVERGREEN_PER_DAY + 1):
+        hour = EVERGREEN_OPEN_HOURS[i - 1] if i - 1 < len(EVERGREEN_OPEN_HOURS) else min(22, 20 + 2 * (i - len(EVERGREEN_OPEN_HOURS)))
+        slots.append(Slot(f"evergreen_{i}", "evergreen", hour, min(23, hour + 4), 0, index=i))
+    return slots
 
 
-def exa_search(client: Clients, query: str, *, start: datetime | None = None, end: datetime | None = None, domains: list[str] | None = None, num: int = 8, contents: bool = True) -> list[dict]:
-    kwargs: dict[str, Any] = {
-        "type": "auto",
-        "num_results": num,
-    }
-    if domains:
-        kwargs["include_domains"] = domains
-    if start:
-        kwargs["start_published_date"] = start.astimezone(timezone.utc).isoformat()
-    if end:
-        kwargs["end_published_date"] = end.astimezone(timezone.utc).isoformat()
-    if contents:
-        kwargs["contents"] = {"highlights": {"max_characters": 1200}}
-    try:
-        results = client.exa.search_and_contents(query, **kwargs)
-        out = []
-        for r in getattr(results, "results", []):
-            url = text(getattr(r, "url", ""))
-            title = text(getattr(r, "title", ""))
-            if not url or not title:
-                continue
-            published = parse_dt(getattr(r, "published_date", ""))
-            highlights = getattr(r, "highlights", None) or []
-            out.append({
-                "url": url,
-                "canonical": canonical_url(url),
-                "title": title,
-                "published_date": iso(published),
-                "source": source_label(url),
-                "excerpt": " ".join(text(x) for x in highlights)[:2500],
-                "discovery": "exa",
-            })
-        return out
-    except Exception as exc:
-        logger.warning("Exa search failed for %s: %s", query, exc)
-        return []
+def due_slots(state: dict, now: datetime) -> list[Slot]:
+    due = []
+    for slot in build_slots():
+        entry = ledger_get(state, slot.key(now))
+        if entry.get("status") in ("posted", "skipped", "uncertain"):
+            continue
+        if not slot.is_open(now):
+            continue
+        if entry.get("attempts", 0) >= MAX_ATTEMPTS_PER_SLOT:
+            continue
+        due.append(slot)
+    return due
 
 
-def rss_discovery() -> list[dict]:
-    found = []
-    if feedparser is None:
-        logger.warning("feedparser is not installed; RSS discovery skipped")
-        return []
-    for feed in RSS_FEEDS:
-        try:
-            parsed = feedparser.parse(feed["url"])
-            healthy = bool(parsed.entries)
-            for entry in parsed.entries[:25]:
-                url = text(entry.get("link"))
-                title = text(entry.get("title"))
-                if not url or not title:
-                    continue
-                dt = feed_entry_dt(entry)
-                found.append({
-                    "url": url,
-                    "canonical": canonical_url(url),
-                    "title": title,
-                    "published_date": iso(dt),
-                    "source": feed["name"],
-                    "excerpt": strip_tags(text(entry.get("summary")))[:1800],
-                    "discovery": "rss",
-                })
-            logger.info("RSS %s: %s", feed["name"], "ok" if healthy else "empty")
-        except Exception as exc:
-            logger.warning("RSS failed %s: %s", feed["name"], exc)
-    return found
-
-
-def feed_entry_dt(entry: Any) -> datetime | None:
-    raw = entry.get("published") or entry.get("updated") or ""
-    if raw:
-        try:
-            dt = parsedate_to_datetime(raw)
-            return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
-        except Exception:
-            pass
-    for key in ("published_parsed", "updated_parsed"):
-        val = entry.get(key)
-        if val:
-            try:
-                return datetime(*val[:6], tzinfo=timezone.utc)
-            except Exception:
-                pass
-    return None
-
-
-def date_window_for_next_day() -> tuple[datetime, datetime]:
-    target = now_bd().date() + timedelta(days=1)
-    start = datetime.combine(target, datetime.min.time(), tzinfo=BD_TZ)
-    end = start + timedelta(days=1) - timedelta(seconds=1)
-    return start, end
-
-
-def date_window_for_previous_day() -> tuple[datetime, datetime]:
-    target = now_bd().date() - timedelta(days=1)
-    start = datetime.combine(target, datetime.min.time(), tzinfo=BD_TZ)
-    end = start + timedelta(days=1) - timedelta(seconds=1)
-    return start, end
-
-
-def build_discovery_queries() -> list[tuple[str, str]]:
-    queries: list[tuple[str, str]] = []
-    for sport in TOP_LEVEL_SPORTS:
-        queries.append(("sports", f"interesting {sport} history rule record origin unusual fact"))
-    for category, games in GAME_CATEGORIES.items():
-        for game in games:
-            queries.append(("games", f"{game} rules origin history unusual fact official rule"))
-            if category in {"board", "card", "party"}:
-                queries.append(("new_games", f"new {category} game 2026 tabletop release announcement review"))
-    for angle in SURPRISE_ANGLES:
-        queries.append(("surprise", f"{angle} sport game physical board card traditional"))
-    return queries
-
-
-def search_daily_sports(client: Clients, which: str) -> list[dict]:
-    # Event date and source publication date are different concepts. A schedule
-    # for the target date may have been published days or weeks earlier, while
-    # a result recap for the previous date may be published the following day.
-    # Therefore daily searches use exact date language in the query but do not
-    # impose the event date as an Exa publication-date filter.
-    if which == "next":
-        target = now_bd().date() + timedelta(days=1)
-        label = target.strftime("%d %B %Y")
-        query_templates = [
-            f"sports matches fixtures {label} football cricket tennis badminton basketball formula 1",
-            f"sport events scheduled {label} tournaments finals races championships",
-            f"{label} cricket schedule fixtures matches",
-            f"{label} football fixtures matches schedule",
-            f"{label} tennis tournament schedule matches",
-            f"{label} badminton tournament matches schedule",
-            f"{label} basketball games schedule",
-            f"{label} motorsport race schedule formula 1",
-            f"{label} athletics swimming cycling sports events",
-            f"{label} volleyball rugby hockey kabaddi sports schedule",
-        ]
-    else:
-        target = now_bd().date() - timedelta(days=1)
-        label = target.strftime("%d %B %Y")
-        query_templates = [
-            f"sports results {label} football cricket tennis badminton basketball formula 1",
-            f"major sports results {label} championships finals records upsets",
-            f"{label} cricket results scorecards",
-            f"{label} football results fixtures completed",
-            f"{label} tennis results finals",
-            f"{label} badminton results finals",
-            f"{label} basketball results",
-            f"{label} motorsport results",
-            f"{label} athletics records results",
-            f"{label} volleyball rugby hockey kabaddi results",
-        ]
+def sla_breaches(state: dict, now: datetime) -> list[tuple[Slot, str]]:
+    """Mandatory slots that are past their deadline and not posted."""
     out = []
-    for q in query_templates:
-        out.extend(exa_search(client, q, num=8))
-    return normalize_candidates(out, current_only=False)
-
-
-def search_history(client: Clients, target: date) -> list[dict]:
-    label = target.strftime("%d %B")
-    years = [target.year - 25, target.year - 50, target.year - 75, target.year - 100, target.year - 125]
-    out = []
-    for year in years:
-        ydate = target.replace(year=year) if not (target.month == 2 and target.day == 29) else target.replace(year=year, day=28)
-        q = f"sports games history {ydate.strftime('%d %B %Y')} on this date record championship first last unusual"
-        out.extend(exa_search(client, q, start=datetime(year, target.month, 1, tzinfo=timezone.utc), end=datetime(year, target.month, 28 if target.month == 2 else 31, 23, 59, tzinfo=timezone.utc), num=8))
-    out.extend(exa_search(client, f"\"{label}\" sports history on this day Olympics games rules", num=10))
-    return normalize_candidates(out, current_only=False)
-
-
-def search_evergreen(client: Clients) -> list[dict]:
-    out = []
-    queries = build_discovery_queries()
-    # Rotate deterministically by calendar day so the same query set is not hammered every run.
-    day_index = now_bd().timetuple().tm_yday
-    stride = max(1, len(queries) // 24)
-    start_index = (day_index * stride) % max(1, len(queries))
-    selected = queries[start_index:start_index + 10]
-    if len(selected) < 10:
-        selected += queries[:10 - len(selected)]
-    for bucket, q in selected:
-        out.extend(exa_search(client, q, num=5))
-    return normalize_candidates(out, current_only=False)
-
-
-def normalize_candidates(items: Iterable[dict], current_only: bool = False) -> list[dict]:
-    now = now_bd()
-    result = []
-    seen = set()
-    for item in items:
-        url = text(item.get("url"))
-        title = text(item.get("title"))
-        if not url or not title:
+    for slot in build_slots():
+        if not slot.mandatory or not slot.is_late(now):
             continue
-        canon = canonical_url(url)
-        if not canon or canon in seen:
-            continue
-        # Hard exclusion at ingestion.
-        combined = f"{title} {item.get('excerpt', '')} {url}"
-        if is_video_game_contaminated(combined):
-            continue
-        dt = parse_dt(item.get("published_date"))
-        if current_only and dt and dt < now - timedelta(days=4):
-            continue
-        seen.add(canon)
-        result.append({
-            "url": url,
-            "canonical": canon,
-            "title": re.sub(r"\s+", " ", title).strip(),
-            "published_date": iso(dt),
-            "source": text(item.get("source")) or source_label(url),
-            "excerpt": re.sub(r"\s+", " ", text(item.get("excerpt"))).strip(),
-            "discovery": text(item.get("discovery")) or "exa",
-            "source_tier": source_tier(url, text(item.get("source"))),
-        })
-    return result
-
-
-# ---------------------------------------------------------------------------
-# Article extraction
-# ---------------------------------------------------------------------------
-
-
-def fetch_article(item: dict) -> dict:
-    url = item["url"]
-    if session is None:
-        return {"text": text(item.get("excerpt")), "image_url": "", "canonical": canonical_url(url)}
-    try:
-        r = session.get(url, timeout=HTTP_TIMEOUT, headers=HEADERS)
-        r.raise_for_status()
-        raw_html = r.text
-        text_content = trafilatura.extract(raw_html, include_comments=False, include_tables=True) or ""
-        soup = BeautifulSoup(raw_html, "html.parser")
-        image_url = ""
-        for selector in [
-            ("meta", {"property": "og:image"}),
-            ("meta", {"name": "twitter:image"}),
-        ]:
-            tag = soup.find(*selector)
-            if tag and tag.get("content"):
-                image_url = urljoin(url, tag["content"])
-                break
-        if not text_content:
-            text_content = strip_tags(raw_html)
-        return {
-            "text": text_content[:18000],
-            "image_url": image_url,
-            "canonical": canonical_url(r.url or url),
-        }
-    except Exception as exc:
-        logger.warning("Article extraction failed %s: %s", url, exc)
-        return {"text": text(item.get("excerpt")), "image_url": "", "canonical": canonical_url(url)}
-
-
-# ---------------------------------------------------------------------------
-# Candidate classification + verification
-# ---------------------------------------------------------------------------
-
-
-def classify_candidates(client: Clients, candidates: list[dict], *, mode: str) -> list[dict]:
-    if not candidates:
-        return []
-    blocks = []
-    for idx, c in enumerate(candidates[:50], start=1):
-        blocks.append(
-            f"ID: {idx}\nTITLE: {c['title']}\nSOURCE: {c['source']}\nURL: {c['url']}\nEXCERPT: {c['excerpt'][:1000]}"
-        )
-    system = f"""
-You are the discovery editor for a factual Sports & Games knowledge channel.
-Mode: {mode}.
-Exclude every form of video gaming and esports. A result about a physical tabletop/card/board game is allowed; a result about a video game is not.
-Classify candidates by what they can legitimately support. Do not invent claims. Prefer concrete subjects and named sources.
-For new-game discovery, treat publication/news about a physical board/card/party/tabletop game as eligible. For evergreen fact/history, identify the central factual claim that could remain useful for years.
-Return only the JSON schema.
-""".strip()
-    user = "\n\n".join(blocks)
-    data = client.ai(system=system, user=user, schema_name="sports_games_candidates_v1", schema=CANDIDATE_SCHEMA, max_tokens=2400)
-    by_id = {i + 1: c for i, c in enumerate(candidates[:50])}
-    out = []
-    for row in data.get("items", []):
-        c = by_id.get(int(row.get("id", 0)))
-        if not c:
-            continue
-        if is_video_game_contaminated(str(row)):
-            continue
-        merged = dict(c)
-        merged.update({k: row.get(k) for k in row if k != "id"})
-        merged["candidate_id"] = int(row["id"])
-        out.append(merged)
+        key = slot.key(now)
+        if ledger_get(state, key).get("status") != "posted":
+            out.append((slot, key))
     return out
 
 
-def verify_candidate(client: Clients, candidate: dict) -> dict:
-    # One source is not enough unless it is primary/official.
-    urls = list(dict.fromkeys(text(x) for x in candidate.get("source_urls", []) if text(x)))
-    needs_corroboration = not any(source_tier(u) == 1 for u in urls) or len({domain_of(u) for u in urls}) < 2
-    if needs_corroboration:
-        corroboration_query = f"{candidate.get('subject', '')} {candidate.get('claim_or_event', '')} official history rules facts".strip()
-        extra = exa_search(client, corroboration_query, num=6)
-        for item in extra:
-            u = text(item.get("url"))
-            if not u or domain_of(u) in {domain_of(x) for x in urls}:
+def recent_posts(state: dict, n: int = 20, desk: str | None = None) -> list[dict]:
+    rows = [p for p in state.get("posts", []) if desk is None or p.get("desk") == desk]
+    return rows[-n:]
+
+
+# ===========================================================================
+# 4. TELEGRAM: sanitiser, renderers, publisher (documented Bot API methods only)
+# ===========================================================================
+
+TG_ALLOWED = {"b", "i", "u", "s", "a", "code", "blockquote"}
+_TAG_RE = re.compile(r"<(/?)([a-zA-Z][a-zA-Z0-9-]*)((?:\s[^<>]*)?)/?>")
+
+FORMAT_LABELS = {
+    "fact": "DID YOU KNOW?", "game_discovery": "GAME DISCOVERY", "rule_check": "RULE CHECK",
+    "how_to_play": "HOW TO PLAY", "history": "GAME / SPORTS HISTORY", "on_this_date": "ON THIS DATE",
+    "century_ago": "100 YEARS AGO", "why": "WHY?", "first_last_only": "FIRST · LAST · ONLY",
+    "then_vs_now": "THEN → NOW", "forgotten": "FORGOTTEN", "new_game": "NEW ON THE TABLE",
+    "daily_next": "NEXT UP", "daily_past": "THE DAY IN SPORTS",
+}
+FORMAT_EMOJI = {
+    "fact": "💡", "game_discovery": "🎲", "rule_check": "📖", "how_to_play": "🧩", "history": "🏛",
+    "on_this_date": "📅", "century_ago": "🕰", "why": "❓", "first_last_only": "🥇", "then_vs_now": "🔁",
+    "forgotten": "🗝", "new_game": "🆕", "daily_next": "🗓", "daily_past": "📰",
+}
+FORMAT_TAG = {
+    "fact": "#SportsFacts", "game_discovery": "#GameDiscovery", "rule_check": "#RuleCheck",
+    "how_to_play": "#HowToPlay", "history": "#SportsHistory", "on_this_date": "#OnThisDate",
+    "century_ago": "#OnThisDate", "why": "#WhyItWorksThisWay", "first_last_only": "#FirstEver",
+    "then_vs_now": "#ThenVsNow", "forgotten": "#ForgottenGames", "new_game": "#NewGames",
+    "daily_next": "#NextUp", "daily_past": "#DayInSports",
+}
+
+
+def tg_sanitize(s: str) -> str:
+    """Reduce arbitrary text/HTML to Telegram-safe HTML: allowed tags only, balanced, escaped."""
+    s = re.sub(r"<br\s*/?>", "\n", str(s or ""), flags=re.I)
+    out: list[str] = []
+    stack: list[tuple[str, bool]] = []
+    pos = 0
+    for m in _TAG_RE.finditer(s):
+        out.append(html.escape(html.unescape(s[pos:m.start()]), quote=False))
+        pos = m.end()
+        closing, name, attrs = bool(m.group(1)), m.group(2).lower(), m.group(3) or ""
+        if name not in TG_ALLOWED:
+            continue
+        if not closing:
+            if name == "a":
+                hm = re.search(r'href\s*=\s*(?:"([^"]*)"|\'([^\']*)\')', attrs)
+                url = html.unescape((hm.group(1) or hm.group(2) or "") if hm else "").strip()
+                if not re.match(r"^(https?://|tg://)", url, re.I):
+                    stack.append((name, False))
+                    continue
+                out.append(f'<a href="{esc_attr(url)}">')
+            else:
+                out.append(f"<{name}>")
+            stack.append((name, True))
+        else:
+            idx = next((i for i in range(len(stack) - 1, -1, -1) if stack[i][0] == name), None)
+            if idx is None:
                 continue
-            if source_tier(u) == 4 or is_video_game_contaminated(f"{item.get('title', '')} {item.get('excerpt', '')}"):
+            while len(stack) > idx:
+                n, kept = stack.pop()
+                if kept:
+                    out.append(f"</{n}>")
+    out.append(html.escape(html.unescape(s[pos:]), quote=False))
+    while stack:
+        n, kept = stack.pop()
+        if kept:
+            out.append(f"</{n}>")
+    result = "".join(out)
+    while True:  # empty tags left after removals; repeat until stable (idempotent output)
+        cleaned = re.sub(r"<(b|i|u|s|code|blockquote)>\s*</\1>", "", result)
+        if cleaned == result:
+            return result
+        result = cleaned
+
+
+def vis_len(s: str) -> int:
+    """Visible length as Telegram counts it (UTF-16 code units, after entity parsing)."""
+    plain = html.unescape(re.sub(r"<[^>]+>", "", s))
+    return len(plain.encode("utf-16-le")) // 2
+
+
+def plain_text(s: str) -> str:
+    return html.unescape(re.sub(r"<[^>]+>", "", re.sub(r"<br\s*/?>", "\n", s)))
+
+
+def is_valid_tg_html(s: str) -> bool:
+    return tg_sanitize(s) == s
+
+
+def hashtag(s: str) -> str:
+    """CamelCase hashtag from the first words of s; skipped if it would be unwieldy."""
+    words = [w for w in re.findall(r"[A-Za-z0-9]+", text(s)) if w.lower() not in {"a", "an", "the", "of", "and", "in", "on", "to", "for", "new", "is"}]
+    for n in (3, 2, 1):
+        tag = "".join(w[:1].upper() + w[1:] for w in words[:n])
+        if 3 <= len(tag) <= 22:
+            return "#" + tag
+    return ""
+
+
+def source_links(sources: list, limit: int = 3) -> str:
+    links = []
+    seen = set()
+    for label, url in sources:
+        if not text(url) or url in seen:
+            continue
+        seen.add(url)
+        links.append(f'<a href="{esc_attr(url)}">{esc(label or domain_of(url))}</a>')
+        if len(links) >= limit:
+            break
+    return " · ".join(links)
+
+
+def knowledge_html(story: dict, level: int = 0) -> str:
+    fmt = story.get("format", "fact")
+    label = story.get("label") or FORMAT_LABELS.get(fmt, "SPORTS & GAMES")
+    head = f"{FORMAT_EMOJI.get(fmt, '🏅')} <b>{esc(label)}</b>"
+    if text(story.get("date_anchor")):
+        head += f" · {esc(story['date_anchor'])}"
+    body = text(story.get("body"))
+    why = text(story.get("why_interesting"))
+    points = [text(p) for p in story.get("key_points", []) if text(p)][:3]
+    if level >= 2:
+        points = []
+    if level >= 3 and why:
+        why = clamp_words(why, 140)
+    if level >= 4:
+        why = ""
+    if level >= 5:
+        body = " ".join(split_sentences(body)[:2])
+    if level >= 6:
+        body = clamp_words(body, 320)
+    if level >= 7:
+        body = clamp_words(body, 200)
+    parts = [head, "", f"<b>{esc(story.get('headline', ''))}</b>", "", esc(body)]
+    if why:
+        parts += ["", f"<i>Why it's interesting:</i> {esc(why)}"]
+    if points:
+        parts += [""] + ["• " + esc(p) for p in points]
+    src = source_links(story.get("sources", []))
+    if src:
+        parts += ["", "Source: " + src]
+    if level < 1:
+        tags = [t for t in story.get("tags", []) if t]
+        if tags:
+            parts += [" ".join(esc(t) for t in tags)]
+    return "\n".join(parts)
+
+
+def fit_knowledge_html(story: dict, limit: int = CAPTION_LIMIT - 20) -> str:
+    """Deterministic trimming ladder; least important parts are dropped first."""
+    rendered = ""
+    for level in range(0, 8):
+        rendered = tg_sanitize(knowledge_html(story, level))
+        if vis_len(rendered) <= limit:
+            return rendered
+    return rendered
+
+
+# --- publisher ---------------------------------------------------------------------------------
+
+
+def tg_call(method: str, data: dict | None = None, file_path: str = "", file_field: str = "photo") -> dict:
+    """Call a Bot API method. Returns the JSON payload; adds 'uncertain' when delivery is unknown."""
+    if DRY_RUN:
+        print(f"\n[DRY-RUN] {method} -> {CHANNEL}")
+        for k, v in (data or {}).items():
+            if k in ("caption", "text"):
+                print(f"--- {k} ({vis_len(str(v))} visible chars) ---\n{plain_text(str(v))}\n--- end ---")
+        if file_path:
+            print(f"[image card: {file_path}]")
+        return {"ok": True, "result": {"message_id": 0}, "dry_run": True}
+    if not TELEGRAM_BOT_TOKEN:
+        return {"ok": False, "description": "TELEGRAM_BOT_TOKEN missing"}
+    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/{method}"
+    last: dict = {"ok": False, "description": "no attempt"}
+    for attempt in range(3):
+        if file_path:
+            with open(file_path, "rb") as fh:
+                r = http("telegram", "POST", url, data=data or {}, files={file_field: fh}, timeout=60)
+        else:
+            r = http("telegram", "POST", url, data=data or {}, timeout=60)
+        payload = r.data if isinstance(r.data, dict) else None
+        if r.ok and payload and payload.get("ok"):
+            return payload
+        if r.status == 0:
+            if r.exc == "ConnectTimeout" and attempt < 2:
+                sleep(2 * (attempt + 1))
                 continue
-            urls.append(u)
-            if len(urls) >= 4:
+            return {"ok": False, "description": r.error, "uncertain": r.exc != "ConnectTimeout"}
+        last = payload or {"ok": False, "description": r.error}
+        if r.status == 429 and attempt < 2:
+            wait = 5
+            try:
+                wait = int((payload or {}).get("parameters", {}).get("retry_after", 5))
+            except Exception:
+                pass
+            if wait <= 60:
+                sleep(wait + 1)
+                continue
+        break
+    return last
+
+
+def _err(res: dict) -> str:
+    return text(res.get("description")).lower()
+
+
+def tg_send_text(html_text: str) -> dict:
+    base = {"chat_id": CHANNEL, "text": html_text, "parse_mode": "HTML"}
+    res = tg_call("sendMessage", {**base, "link_preview_options": json.dumps({"is_disabled": True})})
+    if not res.get("ok") and not res.get("uncertain"):
+        e = _err(res)
+        if "link_preview" in e:
+            res = tg_call("sendMessage", {**base, "disable_web_page_preview": "true"})
+        elif "parse entities" in e or "entities" in e:
+            logger.warning("Telegram rejected HTML; resending as plain text")
+            res = tg_call("sendMessage", {"chat_id": CHANNEL, "text": plain_text(html_text)[:MESSAGE_LIMIT],
+                                          "link_preview_options": json.dumps({"is_disabled": True})})
+    return res
+
+
+def tg_send_photo(card_path: str, caption_html: str) -> dict:
+    res = tg_call("sendPhoto", {"chat_id": CHANNEL, "caption": caption_html, "parse_mode": "HTML"}, card_path)
+    if not res.get("ok") and not res.get("uncertain"):
+        e = _err(res)
+        if "parse entities" in e or "entities" in e:
+            logger.warning("Telegram rejected caption HTML; resending as plain text")
+            res = tg_call("sendPhoto", {"chat_id": CHANNEL, "caption": plain_text(caption_html)[:CAPTION_LIMIT]}, card_path)
+        else:
+            logger.warning("sendPhoto failed (%s); falling back to a text post", res.get("description"))
+            res = tg_send_text(caption_html)
+    return res
+
+
+def publish_story(story: dict) -> dict:
+    render = story["render"]
+    if render["mode"] == "photo":
+        card = make_card(story)
+        try:
+            if card:
+                return tg_send_photo(card, render["html"])
+            return tg_send_text(render["html"])
+        finally:
+            if card and not DRY_RUN:
+                try:
+                    os.remove(card)
+                except OSError:
+                    pass
+    return tg_send_text(render["html"])
+
+
+def admin_alert(state: dict, key: str, message: str) -> None:
+    """Send one short DM to the admin, at most once per key per day."""
+    today = now_bd().date().isoformat()
+    alerts = state.setdefault("alerts", {})
+    if alerts.get(key) == today:
+        return
+    alerts[key] = today
+    if DRY_RUN or not ADMIN_CHAT_ID or not TELEGRAM_BOT_TOKEN:
+        logger.warning("ALERT (not sent): %s", message)
+        return
+    tg_call("sendMessage", {"chat_id": ADMIN_CHAT_ID, "text": f"⚠️ {APP_NAME}\n{message}"[:MESSAGE_LIMIT]})
+
+
+# ===========================================================================
+# 5. IMAGE CARDS (generated with Pillow; no downloaded photos)
+# ===========================================================================
+
+THEMES = {
+    "fact": ((20, 60, 120), (10, 25, 60)), "game_discovery": ((90, 40, 140), (35, 15, 70)),
+    "rule_check": ((140, 60, 20), (60, 25, 10)), "how_to_play": ((20, 110, 100), (8, 45, 45)),
+    "history": ((110, 80, 30), (45, 32, 12)), "on_this_date": ((30, 90, 60), (12, 40, 28)),
+    "century_ago": ((100, 70, 30), (40, 28, 10)), "why": ((30, 80, 140), (12, 30, 70)),
+    "first_last_only": ((150, 110, 20), (70, 50, 8)), "then_vs_now": ((60, 60, 130), (25, 25, 60)),
+    "forgotten": ((80, 60, 90), (32, 24, 40)), "new_game": ((150, 40, 80), (65, 15, 35)),
+    "daily_next": ((10, 100, 60), (5, 45, 28)), "daily_past": ((130, 30, 30), (55, 12, 12)),
+}
+_FONT_PATHS = [
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+    "/usr/share/fonts/truetype/liberation2/LiberationSans-Bold.ttf",
+    "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+    "/usr/share/fonts/dejavu/DejaVuSans-Bold.ttf",
+]
+_FONT_CACHE: dict[int, Any] = {}
+
+
+def card_font(size: int):
+    if size in _FONT_CACHE:
+        return _FONT_CACHE[size]
+    font = None
+    for p in _FONT_PATHS:
+        if Path(p).exists():
+            try:
+                font = ImageFont.truetype(p, size=size)
                 break
-        candidate["source_urls"] = urls[:5]
-
-    source_lines = []
-    for url in candidate.get("source_urls", [])[:5]:
-        source_lines.append(f"SOURCE URL: {url}")
-    source_lines.append(f"DISCOVERY TITLE: {candidate.get('title', '')}")
-    source_lines.append(f"DISCOVERY EXCERPT: {candidate.get('excerpt', '')}")
-    source_lines.append(f"CANDIDATE CLAIM/EVENT: {candidate.get('claim_or_event', '')}")
-    evidence = []
-    for url in candidate.get("source_urls", [])[:3]:
-        item = fetch_article({"url": url, "excerpt": ""})
-        if item["text"]:
-            evidence.append(f"URL: {url}\nTEXT:\n{item['text'][:9000]}")
-    if not evidence:
-        evidence.append("No source text could be extracted.")
-    system = """
-You are a strict fact verifier for a Sports & Games knowledge archive.
-Rules:
-1. A primary/official source can verify a claim on its own.
-2. Without a primary source, require two genuinely independent credible sources.
-3. Reddit, Quora, blogs and forums are lead-only. They cannot verify a claim by themselves.
-4. Every date, number, name, origin, rule, record and historical assertion must be supported by the supplied evidence.
-5. If the evidence conflicts, status must be disputed.
-6. If evidence is missing or too weak, status must be unverified.
-7. Never fill a missing detail from memory.
-Return only the JSON schema.
-""".strip()
-    user = "\n\n".join(source_lines + evidence)
-    return client.ai(system=system, user=user, schema_name="sports_games_verification_v1", schema=VERIFY_SCHEMA, max_tokens=1800)
+            except Exception:
+                font = None
+    if font is None:
+        try:
+            font = ImageFont.load_default(size=size)
+        except Exception:
+            font = ImageFont.load_default()
+    _FONT_CACHE[size] = font
+    return font
 
 
-def independent_source_count(candidate: dict) -> int:
-    urls = list(dict.fromkeys(text(x) for x in candidate.get("source_urls", []) if text(x)))
-    return len({domain_of(u) for u in urls})
+def _wrap(draw, s: str, font, max_w: int) -> list[str]:
+    lines, cur = [], ""
+    for word in s.split():
+        trial = (cur + " " + word).strip()
+        if draw.textlength(trial, font=font) <= max_w or not cur:
+            cur = trial
+        else:
+            lines.append(cur)
+            cur = word
+    if cur:
+        lines.append(cur)
+    return lines
 
 
-def verify_hard_gates(candidate: dict, verification: dict) -> tuple[bool, str]:
-    status = text(verification.get("status"))
-    if status not in {"verified", "disputed"}:
-        return False, "not_verified"
-    if status == "disputed" and candidate.get("kind") not in {"history", "fact", "rule"}:
-        return False, "disputed_current_item"
-    confidence = int(verification.get("confidence", 0) or 0)
-    sources = independent_source_count(candidate)
-    has_tier1 = any(source_tier(u) == 1 for u in candidate.get("source_urls", []))
-    if not has_tier1 and sources < 2:
-        return False, "insufficient_independent_sources"
-    if confidence < 75:
-        return False, "low_confidence"
-    if candidate.get("angle") in {"origin", "first", "last", "only", "record", "etymology"} and not candidate.get("source_urls"):
-        return False, "missing_sources"
-    return True, "ok"
+def make_card(story: dict) -> str:
+    """1200x675 card. Returns a file path, or '' if Pillow/fonts fail (caller falls back to text)."""
+    if Image is None:
+        return ""
+    try:
+        W, H = 1200, 675
+        fmt = story.get("format", "fact")
+        top, bot = THEMES.get(fmt, THEMES["fact"])
+        img = Image.new("RGB", (W, H), top)
+        draw = ImageDraw.Draw(img)
+        for y in range(H):
+            t = y / (H - 1)
+            draw.line([(0, y), (W, y)], fill=tuple(int(top[i] + (bot[i] - top[i]) * t) for i in range(3)))
+        # decoration: concentric rings (sport) or checker corner (game)
+        if fmt in ("game_discovery", "rule_check", "how_to_play", "forgotten", "new_game"):
+            for r in range(8):
+                for c in range(8):
+                    if (r + c) % 2 == 0:
+                        x0, y0 = W - 8 * 34 - 30 + c * 34, 30 + r * 34
+                        draw.rectangle([x0, y0, x0 + 33, y0 + 33], fill=tuple(min(255, v + 28) for v in top))
+        else:
+            for k, rad in enumerate((260, 200, 140, 80)):
+                cx, cy = W - 170, 170
+                draw.ellipse([cx - rad, cy - rad, cx + rad, cy + rad],
+                             outline=tuple(min(255, v + 30 + k * 6) for v in top), width=6)
+        label = text(story.get("label") or FORMAT_LABELS.get(fmt, "SPORTS & GAMES"))
+        f_label = card_font(30)
+        lw = int(draw.textlength(label, font=f_label))
+        draw.rounded_rectangle([60, 55, 60 + lw + 50, 115], radius=28, fill=(255, 255, 255))
+        draw.text((85, 62), label, font=f_label, fill=top)
+        headline = text(story.get("headline")) or "The Sports Newsroom"
+        for size in (68, 60, 52, 46, 40):
+            f_head = card_font(size)
+            lines = _wrap(draw, headline, f_head, W - 150)
+            if len(lines) <= 4 or size == 40:
+                break
+        y = 170
+        for line in lines[:5]:
+            draw.text((66, y + 3), line, font=f_head, fill=(0, 0, 0))
+            draw.text((64, y), line, font=f_head, fill=(255, 255, 255))
+            y += int(size * 1.22)
+        anchor = text(story.get("date_anchor"))
+        if anchor:
+            draw.text((64, H - 95), anchor, font=card_font(34), fill=(255, 255, 255))
+        handle = CHANNEL if CHANNEL.startswith("@") else "@TheSportsNewsroom"
+        f_handle = card_font(30)
+        draw.text((W - 60 - int(draw.textlength(handle, font=f_handle)), H - 90), handle, font=f_handle, fill=(255, 255, 255))
+        path = os.path.join(tempfile.gettempdir(), f"sn_card_{int(time.time() * 1000)}_{random.randint(0, 9999)}.jpg")
+        img.save(path, "JPEG", quality=88)
+        return path
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("Card generation failed (%s); posting text only", exc)
+        return ""
+
+# ===========================================================================
+# 6. AI CLIENT (Cerebras, plain REST). Never raises; returns None on failure.
+# ===========================================================================
+
+STR = {"type": "string"}
+INT = {"type": "integer"}
 
 
-# ---------------------------------------------------------------------------
-# Novelty / scoring / editorial selection
-# ---------------------------------------------------------------------------
+def ARR(item: dict) -> dict:
+    return {"type": "array", "items": item}
 
 
-def normalized_claim_key(subject: str, claim: str, angle: str) -> str:
-    return hashlib.sha256(f"{normalize_text(subject)}|{normalize_text(claim)}|{normalize_text(angle)}".encode()).hexdigest()[:24]
+def ENUM(*values: str) -> dict:
+    return {"type": "string", "enum": list(values)}
 
 
-def semantic_claim_duplicate(state: dict, candidate: dict) -> bool:
-    subject = text(candidate.get("subject")) or text(candidate.get("game_or_sport"))
-    claim = text(candidate.get("claim_or_event"))
-    angle = text(candidate.get("angle"))
-    if not subject or not claim:
-        return False
-    key = normalized_claim_key(subject, claim, angle)
-    if key in state.get("claims", {}):
-        return True
-    for old in state.get("claims", {}).values():
-        if normalize_text(old.get("subject")) == normalize_text(subject):
-            same_claim = similarity(old.get("claim"), claim) >= 0.78
-            same_angle = normalize_text(old.get("angle")) == normalize_text(angle)
-            if same_claim and (same_angle or similarity(old.get("claim"), claim) >= 0.90):
+def OBJ(**props: dict) -> dict:
+    """Strict-mode compatible object: all keys required, no extras, no numeric constraints."""
+    return {"type": "object", "properties": props, "required": list(props), "additionalProperties": False}
+
+
+INTRO_SCHEMA = OBJ(intro=STR)
+STORYLINE_SCHEMA = OBJ(storyline=STR)
+PICK_SCHEMA = OBJ(index=INT, reason=STR)
+FACTS_SCHEMA = OBJ(facts=ARR(OBJ(claim=STR, evidence_quote=STR, surprise=INT, certainty=ENUM("settled", "debated", "legend"))))
+POST_SCHEMA = OBJ(headline=STR, body=STR, why_interesting=STR, key_points=ARR(STR))
+EVENTS_SCHEMA = OBJ(events=ARR(OBJ(sport=STR, league=STR, name=STR, home=STR, away=STR, date=STR,
+                                   time_utc=STR, source_url=STR)))
+
+
+def schema_example(schema: dict) -> str:
+    def ex(s: dict):
+        t = s.get("type")
+        if t == "object":
+            return {k: ex(v) for k, v in s.get("properties", {}).items()}
+        if t == "array":
+            return [ex(s.get("items", {}))]
+        if "enum" in s:
+            return "|".join(s["enum"])
+        return 0 if t == "integer" else "<string>"
+    return json.dumps(ex(schema))
+
+
+def validate_schema(data: Any, schema: dict, path: str = "$") -> list[str]:
+    errs: list[str] = []
+    t = schema.get("type")
+    if t == "object":
+        if not isinstance(data, dict):
+            return [f"{path}: expected object"]
+        for k in schema.get("required", []):
+            if k not in data:
+                errs.append(f"{path}.{k}: missing")
+        for k, sub in schema.get("properties", {}).items():
+            if k in data:
+                errs += validate_schema(data[k], sub, f"{path}.{k}")
+    elif t == "array":
+        if not isinstance(data, list):
+            return [f"{path}: expected array"]
+        for i, item in enumerate(data):
+            errs += validate_schema(item, schema.get("items", {}), f"{path}[{i}]")
+    elif t == "string":
+        if not isinstance(data, str):
+            errs.append(f"{path}: expected string")
+        elif "enum" in schema and data not in schema["enum"]:
+            errs.append(f"{path}: must be one of {schema['enum']}")
+    elif t == "integer":
+        if isinstance(data, bool) or not isinstance(data, int):
+            errs.append(f"{path}: expected integer")
+    return errs
+
+
+def extract_json(content: str) -> dict:
+    s = text(content)
+    s = re.sub(r"^```(?:json)?\s*", "", s, flags=re.I)
+    s = re.sub(r"\s*```$", "", s)
+    try:
+        obj = json.loads(s)
+    except Exception:
+        a, b = s.find("{"), s.rfind("}")
+        if a < 0 or b <= a:
+            raise ValueError("no JSON object found")
+        obj = json.loads(s[a:b + 1])
+    if not isinstance(obj, dict):
+        raise ValueError("JSON is not an object")
+    return obj
+
+
+class AIClient:
+    URL = "https://api.cerebras.ai/v1/chat/completions"
+    MODELS_URL = "https://api.cerebras.ai/v1/models"
+    MODE_ORDER = ["json_schema", "json_object", "text"]
+    MODEL_PREFS = ["gpt-oss-120b", "qwen-3-235b-a22b-instruct-2507", "llama-3.3-70b", "llama3.1-8b"]
+    MIN_INTERVAL = 1.5
+
+    def __init__(self, saved: dict | None = None):
+        saved = saved or {}
+        self.available = bool(CEREBRAS_API_KEY)
+        self.mode = saved.get("mode") if saved.get("mode") in self.MODE_ORDER else "json_schema"
+        self.model = CEREBRAS_MODEL
+        self.reasoning = True
+        self.fatal = False
+        self.last_error = ""
+        self.last_ok = saved.get("last_ok", "")
+        self._last_call = 0.0
+        self._model_fallback_tried = False
+        self.failures = 0
+
+    def export(self) -> dict:
+        return {"mode": self.mode, "model": self.model, "last_ok": self.last_ok}
+
+    def _space(self) -> None:
+        wait = self.MIN_INTERVAL - (time.monotonic() - self._last_call)
+        if wait > 0:
+            sleep(wait)
+        self._last_call = time.monotonic()
+
+    def _payload(self, messages: list, schema: dict, task: str, max_tokens: int, temperature: float) -> dict:
+        payload: dict[str, Any] = {
+            "model": self.model, "messages": messages, "temperature": temperature,
+            "max_completion_tokens": max_tokens,
+        }
+        if self.reasoning and "gpt-oss" in self.model:
+            payload["reasoning_effort"] = "low"
+        if self.mode == "json_schema":
+            payload["response_format"] = {"type": "json_schema", "json_schema": {
+                "name": re.sub(r"[^A-Za-z0-9_-]", "_", task)[:60] or "output", "strict": True, "schema": schema}}
+        elif self.mode == "json_object":
+            payload["response_format"] = {"type": "json_object"}
+        return payload
+
+    def _switch_model(self) -> bool:
+        if self._model_fallback_tried:
+            return False
+        self._model_fallback_tried = True
+        r = http("cerebras", "GET", self.MODELS_URL, headers={"Authorization": f"Bearer {CEREBRAS_API_KEY}"})
+        ids = []
+        if r.ok and isinstance(r.data, dict):
+            ids = [text(m.get("id")) for m in r.data.get("data", []) if isinstance(m, dict)]
+        for pref in self.MODEL_PREFS:
+            if pref in ids and pref != self.model:
+                logger.warning("Model %s unavailable; switching to %s", self.model, pref)
+                self.model = pref
                 return True
-    for post in state.get("posts", [])[-1000:]:
-        if normalize_text(post.get("subject")) == normalize_text(subject) and similarity(post.get("claim"), claim) >= 0.82:
+        if ids and self.model not in ids:
+            logger.warning("Model %s unavailable; switching to %s", self.model, ids[0])
+            self.model = ids[0]
+            return True
+        return False
+
+    def json(self, *args: Any, **kwargs: Any) -> dict | None:
+        """Circuit breaker: after 3 consecutive API-level failures stop calling for the rest of the run."""
+        if not self.available or self.fatal:
+            return None
+        if self.failures >= 3:
+            self.last_error = self.last_error or "circuit open"
+            return None
+        out = self._json(*args, **kwargs)
+        self.failures = 0 if out is not None else self.failures + 1
+        if self.failures == 3:
+            logger.error("Cerebras failed 3 times in a row (%s); AI calls paused for this run", self.last_error)
+            REPORT.errors.append(f"AI circuit opened: {self.last_error}")
+        return out
+
+    def _json(self, task: str, system: str, user: str, schema: dict, *, max_tokens: int = 3000,
+              temperature: float = 0.2, extra_messages: list | None = None) -> dict | None:
+        hint = f"\nReturn ONLY one JSON object shaped like: {schema_example(schema)}"
+        messages = [{"role": "system", "content": f"TASK: {task}\n{system}{hint}"},
+                    {"role": "user", "content": user}] + list(extra_messages or [])
+        budget = max_tokens
+        repaired = False
+        for attempt in range(5):
+            self._space()
+            r = http("cerebras", "POST", self.URL, json_body=self._payload(messages, schema, task, budget, temperature),
+                     headers={"Authorization": f"Bearer {CEREBRAS_API_KEY}"}, timeout=90)
+            REPORT.ai_calls += 1
+            if r.status in (401, 403):
+                self.fatal, self.last_error = True, f"auth failed (HTTP {r.status})"
+                logger.error("Cerebras auth failed; AI disabled for this run")
+                return None
+            if r.status == 429:
+                try:
+                    ra = float(r.headers.get("Retry-After", 0) or 0)
+                except Exception:
+                    ra = 0.0
+                sleep(min(30.0, ra or 4.0 * (attempt + 1)))
+                continue
+            if r.status == 0 or r.status >= 500:
+                self.last_error = r.error
+                sleep(2.0 * (attempt + 1))
+                continue
+            low = (r.text or "").lower()
+            if r.status == 404 or (r.status == 400 and "model" in low and "not" in low and "found" in low):
+                if self._switch_model():
+                    continue
+                self.last_error = r.error
+                return None
+            if r.status == 400:
+                if "reasoning" in low and self.reasoning:
+                    self.reasoning = False
+                    continue
+                if self.mode != "text" and any(k in low for k in ("response_format", "json_schema", "schema", "strict", "structured")):
+                    self.mode = self.MODE_ORDER[self.MODE_ORDER.index(self.mode) + 1]
+                    logger.warning("Cerebras rejected structured output; switching to mode=%s", self.mode)
+                    continue
+                self.last_error = r.error
+                return None
+            if not r.ok or not isinstance(r.data, dict):
+                self.last_error = r.error or "bad response"
+                continue
+            try:
+                choice = r.data["choices"][0]
+                content = text((choice.get("message") or {}).get("content"))
+                finish = choice.get("finish_reason")
+                REPORT.ai_tokens += int((r.data.get("usage") or {}).get("total_tokens") or 0)
+            except Exception:
+                self.last_error = "unexpected response shape"
+                continue
+            if not content:
+                if finish == "length" and budget < 8000:
+                    budget = min(8000, budget * 2)
+                self.last_error = "empty content"
+                continue
+            try:
+                obj = extract_json(content)
+            except Exception as exc:
+                self.last_error = f"unparseable JSON: {exc}"
+                if finish == "length" and budget < 8000:
+                    budget = min(8000, budget * 2)
+                continue
+            errs = validate_schema(obj, schema)
+            if errs:
+                self.last_error = "; ".join(errs[:3])
+                if not repaired:
+                    repaired = True
+                    messages = messages + [{"role": "assistant", "content": content},
+                                           {"role": "user", "content": "That JSON was invalid: " + self.last_error +
+                                            ". Return the corrected JSON object only."}]
+                    continue
+                return None
+            self.last_ok = utc_iso(now_bd())
+            return obj
+        return None
+
+# ===========================================================================
+# 7. DATA ADAPTERS (tolerant readers; each returns [] / None on failure and records health)
+# ===========================================================================
+
+OFFICIAL_DOMAINS = [
+    "fifa.com", "uefa.com", "icc-cricket.com", "lords.org", "worldathletics.org", "fide.com", "itftennis.com",
+    "bwfbadminton.com", "worldbadminton.com", "formula1.com", "fia.com", "world.rugby", "olympics.com",
+    "paralympic.org", "worldboxing.org", "ijf.org", "worldarchery.sport", "worldrowing.com", "worldaquatics.com",
+    "uci.org", "fiba.basketball", "iihf.com", "theifab.com", "wtatennis.com", "atptour.com", "pgatour.com",
+    "worldgolf.com", "ittf.com", "worldtabletennis.com", "fivb.com", "ihf.info", "bcci.tv", "nba.com",
+]
+RULES_PUBLISHERS = [
+    "hasbro.com", "mattel.com", "catan.com", "usplayingcard.com", "bicyclecards.com", "pagat.com",
+    "usachess.org", "wikibooks.org", "gamesrules.com", "scrabble.com", "monopoly.com",
+]
+REFERENCE_DOMAINS = ["wikipedia.org", "britannica.com", "guinnessworldrecords.com", "atlasobscura.com"]
+SECONDARY_DOMAINS = [
+    "bbc.com", "bbc.co.uk", "espn.com", "espncricinfo.com", "skysports.com", "theguardian.com", "reuters.com",
+    "apnews.com", "nbcsports.com", "cbssports.com", "foxsports.com", "si.com", "cricbuzz.com",
+    "boardgamegeek.com", "dicebreaker.com", "tabletopgaming.co.uk", "ultraboardgames.com",
+]
+TABLETOP_DOMAINS = ["dicebreaker.com", "tabletopgaming.co.uk", "boardgamegeek.com", "ultraboardgames.com",
+                    "geekdad.com", "shutupandsitdown.com", "thegamer.com"]
+CRICKET_DOMAINS = ["espncricinfo.com", "cricbuzz.com", "icc-cricket.com"]
+
+SOURCE_LABELS = {
+    "bbc.com": "BBC Sport", "bbc.co.uk": "BBC Sport", "espn.com": "ESPN", "espncricinfo.com": "ESPNcricinfo",
+    "skysports.com": "Sky Sports", "theguardian.com": "The Guardian", "olympics.com": "Olympics.com",
+    "reuters.com": "Reuters", "apnews.com": "AP", "fifa.com": "FIFA", "uefa.com": "UEFA",
+    "icc-cricket.com": "ICC", "worldathletics.org": "World Athletics", "fide.com": "FIDE",
+    "itftennis.com": "ITF", "formula1.com": "Formula 1", "fia.com": "FIA", "boardgamegeek.com": "BoardGameGeek",
+    "britannica.com": "Britannica", "atlasobscura.com": "Atlas Obscura", "wikipedia.org": "Wikipedia",
+    "guinnessworldrecords.com": "Guinness World Records", "dicebreaker.com": "Dicebreaker",
+    "tabletopgaming.co.uk": "Tabletop Gaming", "cricbuzz.com": "Cricbuzz", "lords.org": "MCC / Lord's",
+    "theifab.com": "IFAB", "pagat.com": "Pagat", "thesportsdb.com": "TheSportsDB",
+}
+
+
+def _dom_match(d: str, group: list[str]) -> bool:
+    return any(d == x or d.endswith("." + x) for x in group)
+
+
+def grade_of(url: str) -> str:
+    """Evidence grade: A official/primary or rules publisher, B reference/major outlet, C everything else."""
+    d = domain_of(url)
+    if _dom_match(d, OFFICIAL_DOMAINS) or _dom_match(d, RULES_PUBLISHERS):
+        return "A"
+    if _dom_match(d, REFERENCE_DOMAINS) or _dom_match(d, SECONDARY_DOMAINS):
+        return "B"
+    return "C"
+
+
+def source_label(url: str, fallback: str = "") -> str:
+    d = domain_of(url)
+    for dom, label in SOURCE_LABELS.items():
+        if d == dom or d.endswith("." + dom):
+            return label
+    return fallback or d or "Source"
+
+
+# --- Exa ---------------------------------------------------------------------------------------
+
+_EXA_VARIANT = [0]  # 0: contents.text  1: top-level text  2: no contents
+_EXA_CACHE: dict[tuple, list[dict]] = {}
+
+
+def exa_search(query: str, *, domains: list[str] | None = None, start: datetime | None = None,
+               end: datetime | None = None, num: int = 8, text_chars: int = 3500) -> list[dict]:
+    if not EXA_API_KEY:
+        return []
+    ckey = (query, tuple(domains or ()), start.date().isoformat() if start else "", num)
+    if ckey in _EXA_CACHE:
+        return _EXA_CACHE[ckey]
+    body: dict[str, Any] = {"query": query, "type": "auto", "numResults": num}
+    if domains:
+        body["includeDomains"] = domains
+    if start:
+        body["startPublishedDate"] = start.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
+    if end:
+        body["endPublishedDate"] = end.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
+    results: list[dict] = []
+    for variant in range(_EXA_VARIANT[0], 3):
+        b = dict(body)
+        if variant == 0:
+            b["contents"] = {"text": {"maxCharacters": text_chars}}
+        elif variant == 1:
+            b["text"] = {"maxCharacters": text_chars}
+        r = http("exa", "POST", "https://api.exa.ai/search", json_body=b, headers={"x-api-key": EXA_API_KEY},
+                 timeout=30, retries=1)
+        if r.ok and isinstance(r.data, dict):
+            _EXA_VARIANT[0] = variant
+            for item in r.data.get("results", []) or []:
+                url, title = text(item.get("url")), text(item.get("title"))
+                if not url or not title:
+                    continue
+                body_text = text(item.get("text"))
+                if not body_text:
+                    hl = item.get("highlights") or []
+                    body_text = " ".join(text(x) for x in hl) if isinstance(hl, list) else text(hl)
+                if is_excluded(f"{title} {body_text[:1500]} {url}"):
+                    reject("exa_out_of_scope", title)
+                    continue
+                results.append({
+                    "url": url, "canonical": canonical_url(url), "title": re.sub(r"\s+", " ", title),
+                    "published": parse_dt(item.get("publishedDate") or item.get("published_date")),
+                    "text": re.sub(r"[ \t]+", " ", body_text)[:text_chars], "source": source_label(url),
+                    "grade": grade_of(url),
+                })
+            break
+        if r.status == 400 and variant < 2:
+            logger.warning("Exa rejected request variant %d (%s); trying next", variant, r.error[:120])
+            continue
+        break
+    _EXA_CACHE[ckey] = results
+    return results
+
+
+# --- Wikipedia ---------------------------------------------------------------------------------
+
+WIKI_API = "https://en.wikipedia.org/w/api.php"
+_DATE_LINK = re.compile(r"^(\d{1,4}( BC)?|(" + "|".join(MONTHS) + r") \d{1,2}|\d{1,2} (" + "|".join(MONTHS) + r"))$")
+
+
+def wiki_get(params: dict) -> dict | None:
+    p = {"format": "json", "formatversion": "2"}
+    p.update(params)
+    r = http("wikipedia", "GET", WIKI_API, params=p, retries=2, timeout=20)
+    if r.ok and isinstance(r.data, dict) and "error" not in r.data:
+        return r.data
+    return None
+
+
+def wiki_url(title: str) -> str:
+    return "https://en.wikipedia.org/wiki/" + quote(title.replace(" ", "_"), safe="_(),'")
+
+
+def wiki_page(title: str, max_chars: int = 14000) -> dict | None:
+    d = wiki_get({"action": "query", "prop": "extracts|categories|info", "explaintext": 1,
+                  "exsectionformat": "plain", "redirects": 1, "titles": title, "cllimit": "max", "inprop": "url"})
+    try:
+        page = d["query"]["pages"][0]  # type: ignore[index]
+    except Exception:
+        return None
+    if page.get("missing") or not text(page.get("extract")):
+        return None
+    cats = [text(c.get("title")) for c in page.get("categories", []) or []]
+    return {"title": text(page.get("title")) or title, "text": text(page["extract"])[:max_chars],
+            "categories": cats, "url": text(page.get("fullurl")) or wiki_url(title)}
+
+
+def wiki_page_problem(page: dict) -> str:
+    """Reason a Wikipedia page must not be used, or ''."""
+    cats = " | ".join(page.get("categories", [])).lower()
+    if "disambiguation" in cats or re.search(r"\bmay refer to\b", page["text"][:400]):
+        return "disambiguation"
+    if re.search(r"video game|esports|computer game|mobile game|online game", cats):
+        return "video-game category"
+    if len(page["text"]) < 900:
+        return "too short"
+    why = exclusion_reason(page["text"][:3000])
+    if why:
+        return why
+    return ""
+
+
+def wiki_summary(title: str) -> dict | None:
+    r = http("wikipedia", "GET", "https://en.wikipedia.org/api/rest_v1/page/summary/" + quote(title.replace(" ", "_"), safe=""),
+             retries=1, timeout=15)
+    if r.ok and isinstance(r.data, dict) and text(r.data.get("extract")):
+        url = ""
+        try:
+            url = r.data["content_urls"]["desktop"]["page"]
+        except Exception:
+            url = wiki_url(text(r.data.get("title")) or title)
+        return {"title": text(r.data.get("title")) or title, "extract": text(r.data["extract"]),
+                "description": text(r.data.get("description")), "url": url}
+    page = wiki_page(title, 3000)
+    if page:
+        return {"title": page["title"], "extract": page["text"][:1500], "description": "", "url": page["url"]}
+    return None
+
+
+def wiki_category_members(category: str, limit: int = 200) -> list[str]:
+    d = wiki_get({"action": "query", "list": "categorymembers", "cmtitle": "Category:" + category,
+                  "cmlimit": limit, "cmnamespace": 0, "cmtype": "page"})
+    try:
+        return [text(x["title"]) for x in d["query"]["categorymembers"]]  # type: ignore[index]
+    except Exception:
+        return []
+
+
+def wiki_wikitext(page: str) -> str:
+    d = wiki_get({"action": "parse", "page": page, "prop": "wikitext", "redirects": 1})
+    try:
+        wt = d["parse"]["wikitext"]  # type: ignore[index]
+        return wt if isinstance(wt, str) else text(wt.get("*"))
+    except Exception:
+        return ""
+
+
+def wikitext_to_plain(s: str) -> str:
+    s = re.sub(r"<!--.*?-->", "", s, flags=re.S)
+    s = re.sub(r"<ref[^>/]*/>", "", s)
+    s = re.sub(r"<ref[^>]*>.*?</ref>", "", s, flags=re.S)
+    for _ in range(6):
+        s2 = re.sub(r"\{\{[^{}]*\}\}", "", s)
+        if s2 == s:
+            break
+        s = s2
+    s = re.sub(r"\[\[(?:File|Image|Category):[^\]]*\]\]", "", s, flags=re.I)
+    s = re.sub(r"\[\[[^\]|]+\|([^\]]+)\]\]", r"\1", s)
+    s = re.sub(r"\[\[([^\]]+)\]\]", r"\1", s)
+    s = re.sub(r"\[https?://[^\s\]]+\s+([^\]]+)\]", r"\1", s)
+    s = re.sub(r"\[https?://[^\s\]]+\]", "", s)
+    s = re.sub(r"'{2,}", "", s)
+    s = re.sub(r"<[^>]+>", "", s)
+    return re.sub(r"\s+", " ", html.unescape(s)).strip(" *:;-–—")
+
+
+def first_link_title(wikitext_line: str) -> str:
+    for m in re.finditer(r"\[\[([^\]|#]+)(?:\|[^\]]*)?\]\]", wikitext_line):
+        t = m.group(1).strip()
+        if t.lower().startswith(("file:", "image:", "category:")) or _DATE_LINK.match(t):
+            continue
+        return t
+    return ""
+
+
+def first_external_url(wikitext_line: str) -> str:
+    m = re.search(r"https?://[^\s\]|}<]+", wikitext_line)
+    return m.group(0) if m else ""
+
+
+def onthisday_events(d: date) -> list[dict]:
+    mm, dd = f"{d.month:02d}", f"{d.day:02d}"
+    for url in (f"https://en.wikipedia.org/api/rest_v1/feed/onthisday/events/{mm}/{dd}",
+                f"https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/events/{mm}/{dd}"):
+        r = http("wikipedia_otd", "GET", url, retries=1, timeout=20)
+        if r.ok and isinstance(r.data, dict) and r.data.get("events"):
+            out = []
+            for ev in r.data["events"]:
+                pages = ev.get("pages") or []
+                p0 = pages[0] if pages else {}
+                try:
+                    purl = p0["content_urls"]["desktop"]["page"]
+                except Exception:
+                    purl = wiki_url(text(p0.get("title"))) if p0.get("title") else ""
+                if not text(ev.get("text")) or not isinstance(ev.get("year"), int):
+                    continue
+                out.append({"text": text(ev["text"]), "year": ev["year"], "title": text(p0.get("title")),
+                            "url": purl, "desc": text(p0.get("description")), "extract": text(p0.get("extract")),
+                            "src": "onthisday"})
+            if out:
+                return out
+    # fallback: parse the "September 21" day page (Events section)
+    wt = wiki_wikitext(f"{MONTHS[d.month - 1]} {d.day}")
+    out = []
+    in_events = False
+    for line in wt.splitlines():
+        if re.match(r"^==\s*Events\s*==", line):
+            in_events = True
+            continue
+        if in_events and re.match(r"^==[^=]", line):
+            break
+        if not in_events or not line.lstrip().startswith("*"):
+            continue
+        ym = re.search(r"\[\[(\d{3,4})\]\]", line[:40]) or re.match(r"^\*+\s*(\d{3,4})\b", line)
+        if not ym:
+            continue
+        after = re.split(r"\s[–—-]\s", line, maxsplit=1)
+        body = after[1] if len(after) > 1 else line
+        out.append({"text": wikitext_to_plain(body), "year": int(ym.group(1)), "title": first_link_title(body),
+                    "url": "", "desc": "", "extract": "", "src": "daypage"})
+    return out
+
+
+def _date_prefix_rx(d: date) -> re.Pattern:
+    mon = MONTHS[d.month - 1]
+    return re.compile(rf"^(?:{mon}\s+{d.day}\b|{d.day}\s+{mon}\b)", re.I)
+
+
+def year_in_sports_lines(year: int, d: date) -> list[dict]:
+    wt = wiki_wikitext(f"{year} in sports")
+    if not wt:
+        return []
+    rx = _date_prefix_rx(d)
+    out = []
+    for line in wt.splitlines():
+        if not line.lstrip().startswith("*"):
+            continue
+        plain = wikitext_to_plain(line)
+        if not rx.match(plain[:30]):
+            continue
+        body = re.sub(rx, "", plain).strip(" -–—:,")
+        if len(body) < 25:
+            continue
+        out.append({"text": body, "year": year, "title": first_link_title(re.split(r"\]\]\s*[–—-]", line, 1)[-1]),
+                    "url": first_external_url(line), "desc": "", "extract": "", "src": "yearpage"})
+    return out
+
+
+def current_events_sports(d: date) -> list[dict]:
+    wt = wiki_wikitext(f"Portal:Current events/{d.year} {MONTHS[d.month - 1]} {d.day}")
+    if not wt:
+        return []
+    lines = wt.splitlines()
+    start = None
+    for i, line in enumerate(lines):
+        bare = re.sub(r"[;='\[\]*:]", "", line).strip().lower()
+        if bare == "sports" or (bare.startswith("sports") and len(bare) < 24 and not line.lstrip().startswith("*")):
+            start = i + 1
+            break
+    if start is None:
+        return []
+    out = []
+    for line in lines[start:]:
+        if not line.strip():
+            continue
+        if line.lstrip().startswith("*"):
+            plain = wikitext_to_plain(line)
+            if len(plain) >= 25:
+                out.append({"text": plain, "url": first_external_url(line), "title": first_link_title(line)})
+        elif re.match(r"^\s*(;|'''|==)", line):
+            break
+    return out
+
+
+# --- RSS (standard library parser) -------------------------------------------------------------
+
+RSS_FEEDS = [
+    {"name": "BBC Sport", "url": "https://feeds.bbci.co.uk/sport/rss.xml"},
+    {"name": "ESPN", "url": "https://www.espn.com/espn/rss/news"},
+    {"name": "The Guardian", "url": "https://www.theguardian.com/uk/sport/rss"},
+    {"name": "Sky Sports", "url": "https://www.skysports.com/rss/12040"},
+]
+
+
+def _local(tag: str) -> str:
+    return tag.rsplit("}", 1)[-1]
+
+
+def parse_feed(xml_text: str) -> list[dict]:
+    if not xml_text or len(xml_text) > 3_000_000:
+        return []
+    try:
+        root = ET.fromstring(xml_text.encode("utf-8") if isinstance(xml_text, str) else xml_text)
+    except Exception:
+        return []
+    items = []
+    for node in root.iter():
+        if _local(node.tag) not in ("item", "entry"):
+            continue
+        row = {"title": "", "url": "", "summary": "", "published": None}
+        for ch in node:
+            n = _local(ch.tag)
+            if n == "title":
+                row["title"] = text("".join(ch.itertext()))
+            elif n == "link":
+                row["url"] = text(ch.get("href")) or text(ch.text) or row["url"]
+            elif n in ("description", "summary", "content") and not row["summary"]:
+                row["summary"] = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", "".join(ch.itertext())))).strip()
+            elif n in ("pubDate", "published", "updated", "date") and not row["published"]:
+                row["published"] = parse_dt(text(ch.text))
+        if row["title"] and row["url"]:
+            items.append(row)
+    return items
+
+
+def fetch_feeds() -> list[dict]:
+    def one(feed):
+        r = http(f"rss:{feed['name']}", "GET", feed["url"], want_json=False, retries=1, timeout=15)
+        if not r.ok:
+            return []
+        rows = parse_feed(r.text)
+        for row in rows:
+            row["source"] = feed["name"]
+        return rows
+    out = []
+    for rows in pmap(one, RSS_FEEDS, workers=4):
+        out.extend(rows or [])
+    return [x for x in out if not is_excluded(f"{x['title']} {x['summary'][:400]}")]
+
+# --- sports events: ESPN, TheSportsDB, cricket chain -------------------------------------------
+
+ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports"
+TIER_W = {"S": 1.0, "A": 0.7, "B": 0.4, "C": 0.2}
+
+# (path, sport, league name, tier, style)   style: team | tournament | mma
+LEAGUES = [
+    ("soccer/fifa.world", "Football", "FIFA World Cup", "S", "team"),
+    ("soccer/fifa.wwc", "Football", "Women's World Cup", "S", "team"),
+    ("soccer/uefa.euro", "Football", "UEFA Euro", "S", "team"),
+    ("soccer/conmebol.america", "Football", "Copa América", "S", "team"),
+    ("soccer/uefa.champions", "Football", "UEFA Champions League", "S", "team"),
+    ("soccer/uefa.europa", "Football", "UEFA Europa League", "A", "team"),
+    ("soccer/uefa.europa.conf", "Football", "UEFA Conference League", "B", "team"),
+    ("soccer/uefa.nations", "Football", "UEFA Nations League", "A", "team"),
+    ("soccer/fifa.cwc", "Football", "FIFA Club World Cup", "A", "team"),
+    ("soccer/fifa.worldq.afc", "Football", "World Cup Qualifiers (AFC)", "A", "team"),
+    ("soccer/fifa.worldq.uefa", "Football", "World Cup Qualifiers (UEFA)", "A", "team"),
+    ("soccer/fifa.worldq.conmebol", "Football", "World Cup Qualifiers (CONMEBOL)", "A", "team"),
+    ("soccer/fifa.worldq.caf", "Football", "World Cup Qualifiers (CAF)", "A", "team"),
+    ("soccer/fifa.worldq.concacaf", "Football", "World Cup Qualifiers (CONCACAF)", "B", "team"),
+    ("soccer/fifa.friendly", "Football", "International Friendly", "B", "team"),
+    ("soccer/caf.nations", "Football", "Africa Cup of Nations", "A", "team"),
+    ("soccer/afc.champions", "Football", "AFC Champions League", "A", "team"),
+    ("soccer/conmebol.libertadores", "Football", "Copa Libertadores", "A", "team"),
+    ("soccer/conmebol.sudamericana", "Football", "Copa Sudamericana", "B", "team"),
+    ("soccer/concacaf.champions", "Football", "CONCACAF Champions Cup", "B", "team"),
+    ("soccer/eng.1", "Football", "Premier League", "A", "team"),
+    ("soccer/esp.1", "Football", "La Liga", "A", "team"),
+    ("soccer/ger.1", "Football", "Bundesliga", "A", "team"),
+    ("soccer/ita.1", "Football", "Serie A", "A", "team"),
+    ("soccer/fra.1", "Football", "Ligue 1", "B", "team"),
+    ("soccer/eng.fa", "Football", "FA Cup", "A", "team"),
+    ("soccer/eng.league_cup", "Football", "EFL Cup", "B", "team"),
+    ("soccer/esp.copa_del_rey", "Football", "Copa del Rey", "B", "team"),
+    ("soccer/usa.1", "Football", "MLS", "B", "team"),
+    ("soccer/por.1", "Football", "Primeira Liga", "B", "team"),
+    ("soccer/ned.1", "Football", "Eredivisie", "B", "team"),
+    ("soccer/sau.1", "Football", "Saudi Pro League", "B", "team"),
+    ("soccer/bra.1", "Football", "Brasileirão", "B", "team"),
+    ("soccer/arg.1", "Football", "Argentine Primera", "B", "team"),
+    ("soccer/eng.2", "Football", "EFL Championship", "C", "team"),
+    ("basketball/nba", "Basketball", "NBA", "A", "team"),
+    ("basketball/wnba", "Basketball", "WNBA", "B", "team"),
+    ("basketball/mens-college-basketball", "Basketball", "NCAA Men's Basketball", "C", "team"),
+    ("football/nfl", "American football", "NFL", "A", "team"),
+    ("football/college-football", "American football", "NCAA Football", "B", "team"),
+    ("baseball/mlb", "Baseball", "MLB", "B", "team"),
+    ("hockey/nhl", "Ice hockey", "NHL", "B", "team"),
+    ("tennis/atp", "Tennis", "ATP Tour", "A", "tournament"),
+    ("tennis/wta", "Tennis", "WTA Tour", "A", "tournament"),
+    ("golf/pga", "Golf", "PGA Tour", "B", "tournament"),
+    ("golf/lpga", "Golf", "LPGA Tour", "C", "tournament"),
+    ("golf/eur", "Golf", "DP World Tour", "B", "tournament"),
+    ("racing/f1", "Motorsport", "Formula 1", "A", "tournament"),
+    ("racing/irl", "Motorsport", "IndyCar", "C", "tournament"),
+    ("racing/nascar-premier", "Motorsport", "NASCAR Cup", "C", "tournament"),
+    ("mma/ufc", "MMA", "UFC", "B", "mma"),
+]
+LEAGUE_BY_PATH = {x[0]: x for x in LEAGUES}
+
+SPORT_EMOJI = {"Football": "⚽", "Cricket": "🏏", "Basketball": "🏀", "Tennis": "🎾", "Golf": "⛳",
+               "Motorsport": "🏎", "MMA": "🥊", "Baseball": "⚾", "Ice hockey": "🏒", "American football": "🏈",
+               "Rugby": "🏉", "Volleyball": "🏐", "Combat sports": "🥊", "Handball": "🤾", "Badminton": "🏸"}
+
+FAME = {
+    "Football": ["real madrid", "barcelona", "manchester city", "manchester united", "liverpool", "arsenal", "chelsea",
+                 "tottenham", "paris saint-germain", "psg", "bayern", "dortmund", "juventus", "inter milan",
+                 "internazionale", "ac milan", "napoli", "atlético madrid", "atletico madrid", "argentina", "brazil",
+                 "france", "england", "germany", "spain", "portugal", "netherlands", "italy", "bangladesh",
+                 "india", "inter miami", "al nassr", "al hilal"],
+    "Cricket": ["india", "pakistan", "australia", "england", "south africa", "new zealand", "bangladesh",
+                "sri lanka", "west indies", "afghanistan"],
+    "Basketball": ["lakers", "warriors", "celtics", "knicks", "bulls", "heat", "bucks", "nuggets", "thunder", "spurs"],
+    "American football": ["chiefs", "cowboys", "patriots", "49ers", "eagles", "packers", "bills", "ravens"],
+    "Baseball": ["yankees", "dodgers", "red sox", "cubs", "mets", "braves"],
+    "Ice hockey": ["maple leafs", "canadiens", "rangers", "bruins", "oilers", "penguins"],
+    "Tennis": ["djokovic", "alcaraz", "sinner", "nadal", "federer", "swiatek", "sabalenka", "gauff", "medvedev", "zverev",
+               "wimbledon", "roland garros", "us open", "australian open", "atp finals", "davis cup"],
+    "Golf": ["scheffler", "mcilroy", "woods", "rahm", "koepka", "ryder cup", "masters", "the open", "pga championship",
+             "u.s. open", "tour championship"],
+    "Motorsport": ["verstappen", "hamilton", "leclerc", "norris", "piastri", "grand prix", "indianapolis 500", "daytona 500"],
+    "MMA": ["ufc 3", "ufc 4", "mcgregor", "jones", "makhachev", "pereira", "title"],
+}
+LOCAL_TEAMS = ["bangladesh"]
+SOUTH_ASIA = ["india", "pakistan", "sri lanka", "nepal", "afghanistan", "bhutan", "maldives"]
+_TIER_HINTS = [
+    (re.compile(r"world cup|olympic|grand slam|wimbledon|roland garros|us open|australian open|champions league|"
+                r"euro 20|copa am[eé]rica|asia cup|t20 world|ryder cup|super bowl|nba finals|world series|masters", re.I), "S"),
+    (re.compile(r"premier league|la liga|bundesliga|serie a|europa league|ipl|test series|world championship|nations league|"
+                r"stanley cup|champions trophy|bpl|bangladesh premier|fa cup|libertadores|qualif", re.I), "A"),
+]
+_STAGE_RX = [
+    (re.compile(r"semi[- ]?final", re.I), 20), (re.compile(r"quarter[- ]?final", re.I), 12),
+    (re.compile(r"\bfinals?\b", re.I), 30),
+    (re.compile(r"play[- ]?offs?|knockout|round of \d+|elimination|decider|derby|clásico|clasico|championship game", re.I), 10),
+]
+
+
+def tier_hint(name: str, default: str) -> str:
+    for rx, tier in _TIER_HINTS:
+        if rx.search(name):
+            return tier if TIER_W[tier] > TIER_W[default] else default
+    return default
+
+
+def make_event(**kw: Any) -> dict:
+    ev = {"id": "", "sport": "", "league": "", "tier": "C", "style": "team", "name": "", "home": "", "away": "",
+          "home_score": "", "away_score": "", "winner": "", "start": None, "end": None, "state": "scheduled",
+          "detail": "", "venue": "", "stage": "", "source": "", "url": "", "time_known": True}
+    ev.update(kw)
+    return ev
+
+
+def _espn_state(status: dict) -> str:
+    t = (status or {}).get("type") or {}
+    name = text(t.get("name")).upper()
+    if any(k in name for k in ("CANCEL", "POSTPONE", "ABANDON", "SUSPEND", "FORFEIT")):
+        return "cancelled"
+    st = text(t.get("state")).lower()
+    if st == "post" or t.get("completed") is True:
+        return "final"
+    if st == "in":
+        return "live"
+    return "scheduled"
+
+
+def parse_espn(data: dict, league: tuple) -> list[dict]:
+    path, sport, lname, tier, style = league
+    out = []
+    for ev in (data or {}).get("events", []) or []:
+        try:
+            start = parse_dt(ev.get("date"))
+            if not start:
+                continue
+            comps = ev.get("competitions") or [{}]
+            comp = comps[0] if comps else {}
+            state = _espn_state(ev.get("status") or comp.get("status") or {})
+            detail = text(((ev.get("status") or {}).get("type") or {}).get("shortDetail"))
+            notes = " ".join(text(n.get("headline")) for n in (comp.get("notes") or []) if isinstance(n, dict))
+            venue = text((comp.get("venue") or {}).get("fullName"))
+            base = dict(id=f"espn:{path}:{text(ev.get('id'))}", sport=sport, league=lname, tier=tier, style=style,
+                        start=start, state=state, venue=venue, source="ESPN",
+                        stage=notes, url=next((text(l.get("href")) for l in ev.get("links", []) or [] if l.get("href")), ""))
+            end = parse_dt(ev.get("endDate"))
+            if style == "team":
+                cs = comp.get("competitors") or []
+                home = next((c for c in cs if c.get("homeAway") == "home"), cs[0] if cs else {})
+                away = next((c for c in cs if c is not home and c.get("homeAway") == "away"), cs[1] if len(cs) > 1 else {})
+
+                def nm(c):
+                    t = c.get("team") or {}
+                    return text(t.get("displayName") or t.get("shortDisplayName") or (c.get("athlete") or {}).get("displayName"))
+                h, a = nm(home), nm(away)
+                if not h or not a:
+                    continue
+                winner = h if home.get("winner") else a if away.get("winner") else ""
+                out.append(make_event(**base, name=f"{h} vs {a}", home=h, away=a, home_score=text(home.get("score")),
+                                      away_score=text(away.get("score")), winner=winner, detail=detail))
+            else:
+                winner = ""
+                for c in comp.get("competitors", []) or []:
+                    if c.get("winner"):
+                        winner = text((c.get("athlete") or {}).get("displayName") or (c.get("team") or {}).get("displayName"))
+                        break
+                out.append(make_event(**base, name=text(ev.get("name") or ev.get("shortName")), end=end,
+                                      winner=winner, detail=detail))
+        except Exception as exc:  # noqa: BLE001 - one odd event must not break a league
+            logger.debug("espn parse skipped an event: %s", exc)
+    return out
+
+
+def espn_fetch(league: tuple, ymd: str) -> list[dict] | None:
+    r = http("espn", "GET", f"{ESPN_BASE}/{league[0]}/scoreboard", params={"dates": ymd}, retries=1, timeout=12)
+    if not r.ok or not isinstance(r.data, dict):
+        return None
+    return parse_espn(r.data, league)
+
+
+def espn_events(target: date) -> tuple[list[dict], dict]:
+    """Events overlapping the Dhaka day of `target`. Returns (events, per-league status)."""
+    ymds = [(target + timedelta(days=k)).strftime("%Y%m%d") for k in (-1, 0, 1)]
+    jobs = [(lg, y) for lg in LEAGUES for y in ymds]
+    results = pmap(lambda j: espn_fetch(*j), jobs, workers=10)
+    status: dict[str, str] = {}
+    seen, out = set(), []
+    for (lg, _), res in zip(jobs, results):
+        if res is None:
+            status.setdefault(lg[0], "fail")
+            continue
+        status[lg[0]] = "ok"
+        for ev in res:
+            if ev["id"] not in seen:
+                seen.add(ev["id"])
+                out.append(ev)
+    return in_window(out, target), status
+
+
+def in_window(events: list[dict], target: date) -> list[dict]:
+    ws, we = dhaka_window(target)
+    keep = []
+    for ev in events:
+        s, e = ev["start"], ev.get("end")
+        if ev["style"] == "team":
+            ok = ws <= s < we
+        else:  # tournaments span days
+            ok = ws <= s < we or (e is not None and s < ws and e >= ws)
+        if ok:
+            ev = dict(ev)
+            ev["continues"] = ev["style"] != "team" and s < ws
+            keep.append(ev)
+    return keep
+
+
+# --- TheSportsDB (fallback) ---
+
+TSDB_SPORTS = {"Soccer": "Football", "Basketball": "Basketball", "Cricket": "Cricket", "Rugby": "Rugby",
+               "Motorsport": "Motorsport", "Tennis": "Tennis", "Fighting": "Combat sports", "Ice Hockey": "Ice hockey",
+               "American Football": "American football", "Baseball": "Baseball", "Volleyball": "Volleyball",
+               "Handball": "Handball", "Golf": "Golf"}
+
+
+def _tsdb_state(row: dict, start: datetime) -> str:
+    s = text(row.get("strStatus")).lower()
+    if any(k in s for k in ("postpon", "cancel", "abandon")):
+        return "cancelled"
+    if s in ("match finished", "ft", "aet", "pen", "finished", "after extra time", "after penalties", "aot", "final"):
+        return "final"
+    if text(row.get("intHomeScore")) != "" and start < now_bd().astimezone(timezone.utc) - timedelta(hours=3):
+        return "final"
+    return "scheduled"
+
+
+def tsdb_fetch(d: date) -> list[dict]:
+    def one(sport_key):
+        r = http("thesportsdb", "GET", f"https://www.thesportsdb.com/api/v1/json/{TSDB_KEY}/eventsday.php",
+                 params={"d": d.isoformat(), "s": sport_key}, retries=1, timeout=12)
+        if not r.ok or not isinstance(r.data, dict):
+            return []
+        rows = []
+        for row in r.data.get("events") or []:
+            ts = text(row.get("strTimestamp")) or f"{text(row.get('dateEvent'))}T{text(row.get('strTime')) or '12:00:00'}"
+            start = parse_dt(ts)
+            if not start:
+                continue
+            h, a = text(row.get("strHomeTeam")), text(row.get("strAwayTeam"))
+            name = f"{h} vs {a}" if h and a else text(row.get("strEvent"))
+            if not name:
+                continue
+            lname = text(row.get("strLeague"))
+            sport = TSDB_SPORTS.get(sport_key, sport_key)
+            rows.append(make_event(id=f"tsdb:{text(row.get('idEvent'))}", sport=sport, league=lname,
+                                   tier=tier_hint(f"{lname} {name}", "C"), style="team", name=name, home=h, away=a,
+                                   home_score=text(row.get("intHomeScore")), away_score=text(row.get("intAwayScore")),
+                                   start=start, state=_tsdb_state(row, start), venue=text(row.get("strVenue")),
+                                   source="TheSportsDB", time_known=bool(text(row.get("strTime")) or text(row.get("strTimestamp")))))
+        return rows
+    out = []
+    for rows in pmap(one, list(TSDB_SPORTS), workers=4):
+        out.extend(rows or [])
+    return out
+
+
+def tsdb_events(target: date) -> list[dict]:
+    seen, out = set(), []
+    for k in (-1, 0):
+        for ev in tsdb_fetch(target + timedelta(days=k)):
+            if ev["id"] not in seen and not is_excluded(f"{ev['name']} {ev['league']}"):
+                seen.add(ev["id"])
+                out.append(ev)
+    return in_window(out, target)
+
+
+# --- cricket chain ---
+
+def cricketdata_events(target: date) -> list[dict]:
+    if not CRICKETDATA_API_KEY:
+        return []
+    out, seen = [], set()
+    for ep in ("currentMatches", "matches"):
+        r = http("cricketdata", "GET", f"https://api.cricapi.com/v1/{ep}", params={"apikey": CRICKETDATA_API_KEY, "offset": 0},
+                 retries=1, timeout=15)
+        if not r.ok or not isinstance(r.data, dict):
+            continue
+        for m in r.data.get("data") or []:
+            if not isinstance(m, dict) or text(m.get("id")) in seen:
+                continue
+            seen.add(text(m.get("id")))
+            start = parse_dt(m.get("dateTimeGMT") or m.get("date"))
+            teams = [text(t) for t in (m.get("teams") or []) if text(t)]
+            if not start or len(teams) < 2:
+                continue
+            state = "final" if m.get("matchEnded") else "live" if m.get("matchStarted") else "scheduled"
+            name = f"{teams[0]} vs {teams[1]}"
+            mt = text(m.get("matchType")).upper()
+            out.append(make_event(id=f"cricapi:{text(m.get('id'))}", sport="Cricket",
+                                  league=text(m.get("name")).split(",")[-1].strip() or mt or "Cricket",
+                                  tier=tier_hint(text(m.get("name")), "B"), name=name, home=teams[0], away=teams[1],
+                                  start=start, state=state, venue=text(m.get("venue")), detail=text(m.get("status")),
+                                  source="CricketData.org", stage=mt))
+    return in_window(out, target)
+
+
+def date_in_text(body: str, d: date) -> bool:
+    mon_full, mon3 = MONTHS[d.month - 1], MONTHS[d.month - 1][:3]
+    day = d.day
+    pats = [rf"\b{day}(?:st|nd|rd|th)?\s+(?:{mon_full}|{mon3})\b", rf"\b(?:{mon_full}|{mon3})\.?\s+{day}(?:st|nd|rd|th)?\b",
+            re.escape(d.isoformat()), rf"\b{day:02d}/{d.month:02d}/{d.year}\b"]
+    return any(re.search(p, body, re.I) for p in pats)
+
+
+def exa_event_fallback(ai: "AIClient", target: date, kind: str, sport_hint: str, domains: list[str] | None = None) -> list[dict]:
+    """Last resort: search + AI extraction, with the event date verified in the source text by code."""
+    if not EXA_API_KEY or not ai.available or ai.fatal:
+        return []
+    label = long_date(target)
+    q = f"{sport_hint} {'fixtures schedule' if kind == 'next' else 'results scorecard'} {label}"
+    docs = exa_search(q, domains=domains, num=6, text_chars=3000)
+    if not docs:
+        return []
+    blocks = [f"[{i}] URL: {d['url']}\nTITLE: {d['title']}\nTEXT: {d['text'][:1800]}" for i, d in enumerate(docs, 1)]
+    system = (f"Extract real sporting events for the exact date {target.isoformat()} from the documents. "
+              "Only events whose date is explicitly stated in the document. Never invent teams, times or venues; "
+              "use an empty string when unknown. time_utc is HH:MM in UTC or ''. Exclude video games/esports.")
+    data = ai.json("extract_events", system, "\n\n".join(blocks), EVENTS_SCHEMA, max_tokens=3500)
+    out = []
+    for e in (data or {}).get("events", []):
+        if text(e.get("date")) != target.isoformat():
+            reject("fallback_wrong_date", text(e.get("name")))
+            continue
+        doc = next((d for d in docs if canonical_url(d["url"]) == canonical_url(text(e.get("source_url")))), None)
+        if not doc or not date_in_text(doc["title"] + " " + doc["text"], target):
+            reject("fallback_date_not_in_source", text(e.get("name")))
+            continue
+        name = text(e.get("name")) or (f"{text(e.get('home'))} vs {text(e.get('away'))}" if e.get("home") and e.get("away") else "")
+        if not name or is_excluded(name):
+            continue
+        tm = re.match(r"^(\d{1,2}):(\d{2})$", text(e.get("time_utc")))
+        if tm:
+            start = datetime(target.year, target.month, target.day, int(tm.group(1)) % 24, int(tm.group(2)), tzinfo=timezone.utc)
+            known = True
+        else:
+            start = datetime(target.year, target.month, target.day, 12, 0, tzinfo=BD_TZ).astimezone(timezone.utc)
+            known = False
+        sport = text(e.get("sport")) or sport_hint.split()[0].title()
+        out.append(make_event(id=f"exa:{canonical_url(doc['url'])}:{slugify(name)}", sport=sport, league=text(e.get("league")),
+                              tier=tier_hint(f"{text(e.get('league'))} {name}", "C"), name=name, home=text(e.get("home")),
+                              away=text(e.get("away")), start=start, state="scheduled" if kind == "next" else "final",
+                              source=doc["source"], url=doc["url"], time_known=known))
+    return in_window(out, target)
+
+
+# --- scoring and selection ---
+
+def score_event(ev: dict) -> float:
+    names = f"{ev['name']} {ev['league']} {ev.get('stage', '')} {ev.get('detail', '')}".lower()
+    tier = tier_hint(f"{ev['league']} {ev['name']}", ev["tier"])
+    score = TIER_W[tier] * 100.0
+    score += max([b for rx, b in _STAGE_RX if rx.search(names)] or [0])
+    fame = FAME.get(ev["sport"], [])
+    fame_hits = sum(1 for f in fame if f in names)
+    score += min(25.0, 12.0 * fame_hits)
+    if any(t in names for t in LOCAL_TEAMS):
+        score += 20
+    if ev["sport"] == "Cricket" and any(t in names for t in SOUTH_ASIA):
+        score += 8
+    if ev["sport"] in ("Cricket", "Badminton", "Kabaddi"):
+        score += 5
+    return score
+
+
+def select_events(events: list[dict], max_highlights: int = 12, max_index: int = 10, per_sport: int = 3,
+                  min_highlight: float = 35.0) -> tuple[list[dict], list[dict]]:
+    ranked = sorted(({**e, "score": score_event(e)} for e in events), key=lambda e: (-e["score"], e["start"]))
+    highlights, counts = [], Counter()
+    best_per_sport: dict[str, dict] = {}
+    for e in ranked:
+        if e["score"] >= min_highlight and e["sport"] not in best_per_sport:
+            best_per_sport[e["sport"]] = e
+    for e in sorted(best_per_sport.values(), key=lambda e: -e["score"])[:6]:
+        highlights.append(e)
+        counts[e["sport"]] += 1
+    for e in ranked:
+        if len(highlights) >= max_highlights:
+            break
+        if e in highlights or e["score"] < min_highlight or counts[e["sport"]] >= per_sport:
+            continue
+        highlights.append(e)
+        counts[e["sport"]] += 1
+    index, icount = [], Counter()
+    for e in ranked:
+        if len(index) >= max_index:
+            break
+        if e in highlights or icount[e["sport"]] >= 6:
+            continue
+        index.append(e)
+        icount[e["sport"]] += 1
+    return highlights, index
+
+# ===========================================================================
+# 8. GUARDS + COMPOSE (quote-then-write; hard guards reject, soft issues are fixed in code)
+# ===========================================================================
+
+SUPERLATIVES = ["first", "only", "never", "oldest", "largest", "longest", "fastest", "record", "invented", "banned",
+                "last", "biggest", "greatest", "earliest", "youngest"]
+DISPOSABLE = re.compile(r"\b(tomorrow|yesterday|today|tonight|latest|just now|this week|this weekend)\b", re.I)
+_NUM_RX = re.compile(r"(?<![\w.])(\d{1,3}(?:,\d{3})+|\d+)(?:\.(\d+))?(%?)")
+_SCORE_RX = re.compile(r"(?<![\d.])(\d{1,3})\s*[-–]\s*(\d{1,3})(?![\d.])")
+_COMMON_CAPS = {
+    "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday", "january", "february", "march",
+    "april", "may", "june", "july", "august", "september", "october", "november", "december", "the", "this",
+    "that", "these", "those", "its", "his", "her", "their", "our", "and", "but", "while", "when", "where", "which",
+    "who", "what", "why", "how", "although", "however", "because", "since", "after", "before", "during", "many",
+    "some", "most", "each", "both", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+    "today", "yes", "not", "also", "often", "still", "even", "only", "first", "later", "earlier", "modern",
+}
+
+
+def _num_tokens(s: str, risky_only: bool) -> set[str]:
+    out = set()
+    for m in _NUM_RX.finditer(s):
+        whole, frac, pct = m.group(1).replace(",", ""), m.group(2), m.group(3)
+        tok = whole + ("." + frac if frac else "")
+        if not risky_only or int(whole) >= 100 or frac or pct:
+            out.add(tok)
+    return out
+
+
+def _score_tokens(s: str) -> set[str]:
+    return {f"{a}-{b}" for a, b in _SCORE_RX.findall(s)}
+
+
+def story_text(story: dict) -> str:
+    return " ".join([text(story.get("headline")), text(story.get("body")), text(story.get("why_interesting")),
+                     " ".join(text(x) for x in story.get("key_points", []))])
+
+
+def unknown_entities(body: str, evidence: str, allow: set[str]) -> list[str]:
+    ev_words = set(normalize_text(evidence).split()) | {normalize_text(a) for a in allow}
+    ev_prefix = {w[:5] for w in ev_words if len(w) >= 5}
+    unknown = []
+    for sent in split_sentences(body):
+        words = re.findall(r"[A-Za-z][A-Za-z'’\-]*", sent)
+        for i, w in enumerate(words):
+            if i == 0 or not w[0].isupper() or w.lower() in _COMMON_CAPS:
+                continue
+            for piece in normalize_text(w).split():
+                if len(piece) < 3 or piece in ev_words or (len(piece) >= 5 and piece[:5] in ev_prefix):
+                    continue
+                unknown.append(w)
+                break
+    return unknown
+
+
+def copies_source(post_text: str, evidence: str, n: int = 14) -> bool:
+    """True if the post repeats n or more consecutive words of the evidence (should be paraphrased)."""
+    pw, ew = normalize_text(post_text).split(), normalize_text(evidence)
+    return len(pw) >= n and any(" ".join(pw[i:i + n]) in ew for i in range(len(pw) - n + 1))
+
+
+def guard_violations(story: dict, evidence: str, anchors: Iterable[str] = (), allow_words: Iterable[str] = (),
+                     daily: bool = False, paraphrase: bool = False) -> list[str]:
+    """Hard guards. Returns human-readable violations (empty list = pass)."""
+    v: list[str] = []
+    full = story_text(story)
+    why = exclusion_reason(full)
+    if why:
+        v.append(f"out of scope ({why})")
+    if not text(story.get("headline")) or not text(story.get("body")):
+        v.append("headline and body are required")
+    ev_nums = _num_tokens(evidence, False) | {str(a) for a in anchors}
+    bad_nums = sorted(n for n in _num_tokens(full, True) if n not in ev_nums)
+    if bad_nums:
+        v.append("numbers not found in the evidence: " + ", ".join(bad_nums[:5]))
+    ev_norm = evidence.replace("–", "-")
+    bad_scores = sorted(s for s in _score_tokens(full) if s not in _score_tokens(ev_norm) and s not in {f"{a}" for a in anchors})
+    if bad_scores:
+        v.append("scores not found in the evidence: " + ", ".join(bad_scores[:3]))
+    low_full, low_ev = full.lower(), evidence.lower()
+    bad_sup = [w for w in SUPERLATIVES if re.search(rf"\b{w}\b", low_full) and not re.search(rf"\b{w}", low_ev)]
+    if bad_sup:
+        v.append("claims wording not supported by the evidence: " + ", ".join(bad_sup))
+    prose = " ".join([text(story.get("body")), text(story.get("why_interesting")),
+                      " ".join(text(x) for x in story.get("key_points", []))])
+    unk = unknown_entities(prose, evidence, {text(a) for a in allow_words})
+    if len(unk) >= 2:
+        v.append("names not found in the evidence: " + ", ".join(dict.fromkeys(unk[:5])))
+    if daily and DISPOSABLE.search(full):
+        v.append("uses time-relative words (use the exact date)")
+    if paraphrase and copies_source(text(story.get("body")) + " " + text(story.get("why_interesting")), evidence):
+        v.append("copies 14+ consecutive words from the evidence; paraphrase in your own words")
+    return v
+
+
+def soft_fix(story: dict, max_sentences: int = 4, max_body: int = 520) -> dict:
+    """Fix formatting problems in code instead of rejecting good content."""
+    s = dict(story)
+
+    def clean(x: Any) -> str:
+        x = text(x).replace("…", "").replace("...", "")
+        return re.sub(r"\s+", " ", x).strip()
+
+    s["headline"] = clamp_words(clean(s.get("headline")).rstrip(".:"), 90)
+    body_sents = split_sentences(clean(s.get("body")))[:max_sentences]
+    body = " ".join(body_sents)
+    if len(body) > max_body:
+        keep = []
+        for sent in body_sents:
+            if len(" ".join(keep + [sent])) > max_body and keep:
+                break
+            keep.append(sent)
+        body = " ".join(keep)
+    if body and body[-1] not in ".!?":
+        body += "."
+    s["body"] = body
+    why = " ".join(split_sentences(clean(s.get("why_interesting")))[:1])
+    if why and why[-1] not in ".!?":
+        why += "."
+    s["why_interesting"] = clamp_words(why, 220) if len(why) > 220 else why
+    if s["why_interesting"] and s["why_interesting"][-1] not in ".!?":
+        s["why_interesting"] += "."
+    s["key_points"] = [clamp_words(clean(p), 90) for p in (s.get("key_points") or []) if clean(p)][:3]
+    return s
+
+
+def quote_in_text(quote: str, source: str) -> bool:
+    q, t = normalize_text(quote), normalize_text(source)
+    if len(q) < 25:
+        return False
+    if q in t:
+        return True
+    words = q.split()
+    if len(words) < 6:
+        return False
+    sh = {" ".join(words[i:i + 4]) for i in range(len(words) - 3)}
+    return sum(1 for x in sh if x in t) / len(sh) >= 0.85
+
+
+def best_paragraph(source: str, quote: str) -> str:
+    qt = tokens(quote)
+    paras = [p.strip() for p in re.split(r"\n+", source) if len(p.strip()) > 40]
+    if not paras:
+        return quote
+    return max(paras, key=lambda p: len(tokens(p) & qt))[:1800]
+
+
+FORMAT_HINTS = {
+    "fact": "one surprising, concrete fact",
+    "game_discovery": "what the game/sport is and what makes it distinctive or lesser-known",
+    "rule_check": "one real rule, ideally commonly misunderstood; distinguish official rules from house rules if the text does",
+    "how_to_play": "the objective and the basic structure of play, in simple steps",
+    "history": "a specific historical development (origin, change, milestone)",
+    "why": "the reason something is the way it is (a rule, measurement, tradition, name)",
+    "first_last_only": "a first, last or only-time event that the text states explicitly",
+    "then_vs_now": "how the game/sport/equipment/rule differed in the past vs now",
+    "forgotten": "a forgotten or nearly vanished game/sport and what made it distinctive",
+    "new_game": "a newly announced or released physical tabletop game",
+}
+
+
+def extract_facts(ai: "AIClient", *, topic: str, fmt: str, angle: str, article: str) -> list[dict]:
+    system = ("You are a fact scout for a factual Sports & Games channel (real sports and physical/tabletop games only). "
+              f"Find up to 3 candidate facts about the TOPIC that suit: {FORMAT_HINTS.get(fmt, 'a fact')}. Preferred angle: {angle}. "
+              "Each fact MUST be backed by evidence_quote: an exact verbatim copy (20-300 characters) from the ARTICLE. "
+              "Do not use outside knowledge. surprise: 1 (dull) to 5 (remarkable). certainty: 'settled' if the article states it "
+              "plainly, 'debated' if it reports competing accounts, 'legend' if it is a traditional story. Skip video games.")
+    data = ai.json("extract_facts", system, f"TOPIC: {topic}\nARTICLE:\n{article[:12000]}", FACTS_SCHEMA, max_tokens=2500)
+    valid = []
+    for f in (data or {}).get("facts", []):
+        q = text(f.get("evidence_quote"))
+        if not quote_in_text(q, article):
+            reject("quote_not_in_source", q[:80])
+            continue
+        if is_excluded(q + " " + text(f.get("claim"))):
+            reject("out_of_scope", q[:80])
+            continue
+        valid.append(f)
+    return sorted(valid, key=lambda f: -int(f.get("surprise") or 0))
+
+
+def headline_taken(state: dict | None, headline: str) -> bool:
+    if not state:
+        return False
+    h = normalize_text(headline)
+    for p in state.get("posts", [])[-600:]:
+        if p.get("desk") in ("next", "past"):
+            continue
+        ph = normalize_text(p.get("headline", ""))
+        if ph and (ph == h or similarity(ph, h) >= 0.92):
             return True
     return False
 
 
-def diversity_penalty(state: dict, category: str, angle: str, subject: str) -> int:
-    penalty = 0
-    recent_categories = [x.get("category") for x in state.get("category_history", [])[-6:]]
-    recent_angles = [x.get("angle") for x in state.get("angle_history", [])[-8:]]
-    if recent_categories and recent_categories[-1] == category:
-        penalty += 5
-    if recent_angles[-1:] == [angle]:
-        penalty += 4
-    if recent_angles.count(angle) >= 3:
-        penalty += 7
-    subject_recent = [x.get("subject") for x in state.get("posts", [])[-20:]]
-    if subject and subject in subject_recent:
-        penalty += 6
-    return penalty
-
-
-def game_month_cap_hit(state: dict, game_or_sport: str) -> bool:
-    key = normalize_text(game_or_sport)
-    if not key:
-        return False
-    cutoff = now_bd() - timedelta(days=30)
-    count = 0
-    for post in state.get("posts", []):
-        dt = parse_dt(post.get("published_at"))
-        if dt and dt >= cutoff and normalize_text(post.get("game_or_sport")) == key:
-            count += 1
-    return count >= 4
-
-
-def candidate_score(candidate: dict, verification: dict, state: dict) -> tuple[int, dict]:
-    surprise = min(5, 2 + int(bool(candidate.get("why_interesting"))))
-    novelty = 5 if not semantic_claim_duplicate(state, candidate) else 0
-    evergreen = 5 if candidate.get("kind") in {"fact", "game", "rule", "history", "howto", "new_game"} else 3
-    verification_score = 5 if verification.get("status") == "verified" and int(verification.get("confidence", 0)) >= 90 else 4
-    simplicity = 5 if len(text(candidate.get("claim_or_event"))) <= 180 else 4
-    curiosity = 4 if candidate.get("angle") in {"origin", "why", "weird", "myth", "only", "first", "rare", "record"} else 3
-    score = surprise + novelty + evergreen + verification_score + simplicity + curiosity
-    score -= diversity_penalty(state, text(candidate.get("category")), text(candidate.get("angle")), text(candidate.get("subject")))
-    if game_month_cap_hit(state, text(candidate.get("game_or_sport"))):
-        score -= 7
-    return score, {
-        "surprise": surprise,
-        "novelty": novelty,
-        "evergreen": evergreen,
-        "verification": verification_score,
-        "simplicity": simplicity,
-        "curiosity": curiosity,
-        "penalty": diversity_penalty(state, text(candidate.get("category")), text(candidate.get("angle")), text(candidate.get("subject"))),
-    }
-
-
-def editorial_select(client: Clients, candidates: list[dict], state: dict, max_items: int = 6) -> list[dict]:
-    if not candidates:
-        return []
-    prepared = []
-    for c in candidates:
-        if semantic_claim_duplicate(state, c):
-            continue
-        score, breakdown = candidate_score(c, c.get("verification", {}), state)
-        if score < 15:
-            continue
-        prepared.append({**c, "editor_score": score, "score_breakdown": breakdown})
-    prepared.sort(key=lambda x: (x.get("editor_score", 0), x.get("verification", {}).get("confidence", 0)), reverse=True)
-    shortlist = prepared[:20]
-    if not shortlist:
-        return []
-    blocks = []
-    for i, c in enumerate(shortlist, 1):
-        blocks.append(
-            f"ID: {i}\nCATEGORY: {c.get('category')}\nANGLE: {c.get('angle')}\nSUBJECT: {c.get('subject')}\nCLAIM/EVENT: {c.get('claim_or_event')}\nWHY: {c.get('why_interesting')}\nSCORE: {c.get('editor_score')}\nVERIFICATION: {c.get('verification', {}).get('confidence')}"
-        )
-    system = """
-You are the final editorial selector for a sports and physical-games channel.
-Select only candidates that are interesting, factually verified and worth sharing.
-Prefer diversity across sports/games, categories and angles. Do not select multiple items that are effectively the same fact.
-Never select anything that mentions or concerns video games or esports.
-Do not optimize for maximum quantity. Quality is the gate.
-Return only JSON.
-""".strip()
-    try:
-        data = client.ai(system=system, user="\n\n".join(blocks), schema_name="sports_games_editorial_v1", schema=EDITORIAL_SCHEMA, max_tokens=1600)
-        selected_ids = [int(x) for x in data.get("selected_ids", [])]
-    except Exception as exc:
-        logger.warning("Editorial AI unavailable, using deterministic selection: %s", exc)
-        selected_ids = list(range(1, min(max_items, len(shortlist)) + 1))
-    selected = []
-    used_cat, used_angle, used_subject = set(), set(), set()
-    for sid in selected_ids:
-        if len(selected) >= max_items:
+def compose_post(ai: "AIClient", *, desk: str, fmt: str, topic: str, angle: str, claim: str, evidence: str,
+                 sources: list, certainty: str = "settled", anchors: Iterable[str] = (), date_anchor: str = "",
+                 label: str = "", extra: str = "", allow_words: Iterable[str] = (), daily: bool = False,
+                 state: dict | None = None) -> dict | None:
+    anchors = list(anchors)
+    allow = set(allow_words) | set(re.findall(r"[A-Za-z][A-Za-z'’\-]+", topic)) | {"Wikipedia"}
+    system = (
+        "You are the senior editor of a factual Sports & Games Telegram channel (real sports and physical/tabletop games). "
+        f"Write ONE post in the format: {FORMAT_LABELS.get(fmt, fmt)}.\n"
+        "Rules:\n- Use ONLY facts stated in EVIDENCE. Never add names, dates or numbers from memory.\n"
+        "- Original wording; do not copy sentences.\n"
+        "- headline: max 80 characters, accurate, not clickbait.\n"
+        "- body: 2-4 complete sentences, max 480 characters in total.\n"
+        "- why_interesting: exactly one sentence. key_points: 0 to 3 short items.\n"
+        "- Do not use the words first, only, never, oldest, largest, longest, fastest, record, invented, banned or last "
+        "unless the EVIDENCE itself says so.\n"
+        f"- Certainty of the claim: {certainty}. If it is not 'settled', word it as traditionally said / debated / legend.\n"
+        "- No time-relative words (today, yesterday, latest). No emojis, hashtags or ellipses. "
+        f"{extra}")
+    facts = f"Fixed facts you may use: {', '.join(anchors)}\n" if anchors else ""
+    user = f"TOPIC: {topic}\nANGLE: {angle}\nCLAIM TO EXPLAIN: {claim}\n{facts}EVIDENCE:\n{evidence[:9000]}"
+    data = ai.json("write_post", system, user, POST_SCHEMA, max_tokens=2500, temperature=0.3)
+    story = None
+    for attempt in range(2):
+        if not data:
+            reject("ai_no_output", topic)
+            return None
+        story = soft_fix({"headline": data["headline"], "body": data["body"], "why_interesting": data["why_interesting"],
+                          "key_points": data["key_points"]})
+        viol = guard_violations(story, evidence, anchors, allow, daily=daily, paraphrase=True)
+        if not viol:
             break
-        if not 1 <= sid <= len(shortlist):
+        if attempt == 1:
+            hard = [x for x in viol if not x.startswith("copies")]
+            if not hard:  # only wording similarity left after one rewrite request: accept (attributed, facts verified)
+                REPORT.notes.append(f"kept close wording for '{topic}'")
+                break
+            reject("guard_failed_after_repair", "; ".join(hard)[:160])
+            return None
+        data = ai.json("write_post", system, user, POST_SCHEMA, max_tokens=2500, temperature=0.2,
+                       extra_messages=[{"role": "assistant", "content": json.dumps(data)},
+                                       {"role": "user", "content": "Your post broke these rules: " + "; ".join(viol) +
+                                        ". Rewrite it fixing only those problems. Use only the EVIDENCE."}])
+    assert story is not None
+    if headline_taken(state, story["headline"]):
+        reject("duplicate_headline", story["headline"])
+        return None
+    tags = [t for t in (hashtag(topic), FORMAT_TAG.get(fmt, "")) if t]
+    out = {**story, "desk": desk, "format": fmt, "label": label or FORMAT_LABELS.get(fmt, ""), "topic": topic,
+           "angle": angle, "claim": claim, "certainty": certainty, "date_anchor": date_anchor,
+           "sources": [(l, u) for l, u in sources if u], "tags": tags}
+    out["render"] = {"mode": "photo", "html": fit_knowledge_html(out)}
+    if not is_valid_tg_html(out["render"]["html"]):
+        reject("invalid_html", topic)
+        return None
+    return out
+
+# ===========================================================================
+# 9. DESKS. Each returns (story | None, reason). Publishing/ledger is done by the runner.
+# ===========================================================================
+
+SOURCE_HOME = {"ESPN": "https://www.espn.com/", "TheSportsDB": "https://www.thesportsdb.com/",
+               "CricketData.org": "https://cricketdata.org/", "Wikipedia": "https://en.wikipedia.org/wiki/Portal:Current_events"}
+
+
+def fingerprint(*parts: str) -> str:
+    return hashlib.sha1("|".join(normalize_text(p) for p in parts).encode()).hexdigest()[:16]
+
+
+def is_duplicate_claim(state: dict, claim: str, topic: str = "", threshold: float = 0.78) -> bool:
+    for p in state.get("posts", [])[-1500:]:
+        if p.get("desk") in ("next", "past"):
             continue
-        c = shortlist[sid - 1]
-        cat, angle, subject = text(c.get("category")), text(c.get("angle")), normalize_text(c.get("subject"))
-        if cat in used_cat and angle in used_angle:
-            continue
-        if subject in used_subject:
-            continue
-        if game_month_cap_hit(state, text(c.get("game_or_sport"))):
-            continue
-        used_cat.add(cat)
-        used_angle.add(angle)
-        used_subject.add(subject)
-        selected.append(c)
-    return selected
-
-
-# ---------------------------------------------------------------------------
-# Post generation / grounding
-# ---------------------------------------------------------------------------
-
-
-def post_format_for(candidate: dict) -> str:
-    kind = text(candidate.get("kind"))
-    cat = text(candidate.get("category"))
-    mapping = {
-        "game_discovery": "game_discovery",
-        "new_game": "game_discovery",
-        "rule_check": "rule_check",
-        "how_to_play": "how_to_play",
-        "on_this_date": "on_this_date",
-        "history": "history",
-        "century_ago": "century_ago",
-        "why_explained": "why",
-        "first_last_only": "first_last_only",
-        "then_vs_now": "then_vs_now",
-        "forgotten_game": "forgotten",
-        "forgotten_sport": "forgotten",
-        "sport_discovery": "game_discovery",
-        "sports_daily_next": "daily_next",
-        "sports_daily_past": "daily_past",
-    }
-    if cat in mapping:
-        return mapping[cat]
-    return "fact" if kind == "fact" else "history" if kind == "history" else "fact"
-
-
-def generate_post(client: Clients, candidate: dict) -> dict | None:
-    article = fetch_article(candidate)
-    source_text = article["text"]
-    if not source_text:
-        return None
-    fmt = post_format_for(candidate)
-    system = f"""
-You are the senior editor for a factual Sports & Games Telegram channel.
-Create one durable post in the format: {fmt}.
-The channel covers real-world sports and physical games only. Never write about video games, esports, consoles, Steam, DLC, patches or gaming hardware.
-Use only facts supported by the provided evidence. Do not add details from memory. Preserve exact dates/numbers/names only when supported.
-The post should remain understandable years later. Avoid disposable wording such as latest, today, yesterday, tomorrow, tonight, just now unless it is part of a dated historical phrase. Prefer exact dates.
-Curiosity is allowed; clickbait is not. The question/headline should be accurate and not exaggerate.
-Rewrite everything in original wording. No copied sentences.
-For disputed historical claims, clearly label the uncertainty instead of presenting one version as settled.
-Return only JSON.
-""".strip()
-    user = f"""
-CANDIDATE CATEGORY: {candidate.get('category')}
-ANGLE: {candidate.get('angle')}
-GAME/SPORT: {candidate.get('game_or_sport')}
-SUBJECT: {candidate.get('subject')}
-CLAIM/EVENT: {candidate.get('claim_or_event')}
-WHY INTERESTING: {candidate.get('why_interesting')}
-SOURCE URLS:
-{chr(10).join(candidate.get('source_urls', [])[:5])}
-
-SOURCE TEXT:
-{source_text[:15000]}
-""".strip()
-    try:
-        data = client.ai(system=system, user=user, schema_name="sports_games_post_v1", schema=POST_SCHEMA, max_tokens=2200)
-    except Exception as exc:
-        logger.warning("Post generation failed: %s", exc)
-        return None
-    story = dict(data)
-    story["candidate"] = candidate
-    story["source_text"] = source_text
-    story["image_url"] = article.get("image_url", "")
-    story["game_or_sport"] = candidate.get("game_or_sport", "")
-    story["subject"] = candidate.get("subject", "")
-    story["claim"] = candidate.get("claim_or_event", "")
-    story["category"] = candidate.get("category", "")
-    story["angle"] = candidate.get("angle", "")
-    story["published_at"] = iso(now_bd())
-    if not validate_story(story):
-        return None
-    if is_video_game_contaminated(" ".join([story.get("headline", ""), story.get("dek", ""), story.get("body", ""), story.get("why_interesting", "")])):
-        logger.warning("Generated post contaminated by gaming terms: %s", story.get("headline"))
-        return None
-    return story
-
-
-def validate_story(story: dict) -> bool:
-    if not text(story.get("headline")) or not text(story.get("dek")) or not text(story.get("body")):
-        return False
-    if not (complete_sentence(story["dek"]) and complete_sentence(story["body"]) and complete_sentence(story["why_interesting"])):
-        return False
-    if sentence_count(story["body"]) > 6:
-        return False
-    if len(story.get("key_points", [])) > 5:
-        return False
-    if any("..." in text(x) or "…" in text(x) for x in [story.get("headline"), story.get("dek"), story.get("body"), story.get("why_interesting")]):
-        return False
-    full = " ".join([text(story.get("headline")), text(story.get("dek")), text(story.get("body")), text(story.get("why_interesting")), " ".join(text(x) for x in story.get("key_points", []))]).lower()
-    daily = text(story.get("format")) in {"daily_next", "daily_past", "sports_daily_next", "sports_daily_past"}
-    if daily:
-        anchor = text(story.get("date_anchor"))
-        if not anchor or not any(ch.isdigit() for ch in anchor):
-            return False
-        if re.search(r"\b(tomorrow|yesterday|today|tonight|latest|just now)\b", full):
-            return False
-    return True
-
-
-def grounded_output(story: dict, candidate: dict) -> bool:
-    source = text(story.get("source_text"))
-    fields = " ".join([
-        text(story.get("headline")), text(story.get("dek")), text(story.get("body")),
-        text(story.get("why_interesting")), " ".join(text(x) for x in story.get("key_points", [])),
-    ])
-    # Deterministic numeric/date grounding. Names and qualitative claims are reviewed by the verification gate.
-    # For dated archive posts, the exact editorial date anchor is itself a trusted
-    # input, so its year may appear in the copy even when a source excerpt does not
-    # repeat the year verbatim. Other unsupported numeric claims still fail closed.
-    allowed_anchor_numbers = {
-        n.replace(",", "").replace(".", "")
-        for n in re.findall(r"\b(?:\d{1,4}(?:[.,]\d{1,3})?|\d{4})\b", text(story.get("date_anchor")))
-    }
-    source_numbers = set(re.sub(r"[^0-9]", " ", source).split())
-    numbers = re.findall(r"\b(?:\d{1,4}(?:[.,]\d{1,3})?|\d{4})\b", fields)
-    for n in numbers:
-        normalized = n.replace(",", "").replace(".", "")
-        if len(normalized) >= 3 and normalized not in source_numbers and normalized not in allowed_anchor_numbers:
-            return False
-    return True
-
-
-# ---------------------------------------------------------------------------
-# Daily sports planner
-# ---------------------------------------------------------------------------
-
-DAILY_SCHEMA = {
-    "type": "object",
-    "properties": {
-        "events": {
-            "type": "array",
-            "maxItems": 45,
-            "items": {
-                "type": "object",
-                "properties": {
-                    "sport": {"type": "string"},
-                    "event": {"type": "string"},
-                    "date": {"type": "string"},
-                    "time_utc": {"type": "string"},
-                    "competition": {"type": "string"},
-                    "stage": {"type": "string"},
-                    "location": {"type": "string"},
-                    "importance": {"type": "integer", "minimum": 0, "maximum": 100},
-                    "reason": {"type": "string"},
-                    "source_urls": {"type": "array", "items": {"type": "string"}, "maxItems": 4},
-                },
-                "required": ["sport", "event", "date", "time_utc", "competition", "stage", "location", "importance", "reason", "source_urls"],
-                "additionalProperties": False,
-            },
-        }
-    },
-    "required": ["events"],
-    "additionalProperties": False,
-}
-
-
-def build_daily_candidate(client: Clients, candidates: list[dict], mode: str, target: date) -> dict | None:
-    if not candidates:
-        return None
-    grouped = candidates[:MAX_SPORT_EVENT_CANDIDATES]
-    blocks = []
-    for i, c in enumerate(grouped, 1):
-        blocks.append(f"ID: {i}\nTITLE: {c['title']}\nSOURCE: {c['source']}\nURL: {c['url']}\nEXCERPT: {c['excerpt'][:900]}")
-    system = f"""
-You are a sports desk editor building a dated reference post for {mode}.
-TARGET DATE: {target.isoformat()}
-Extract notable real-world sporting events only. Exclude video games and esports.
-For NEXT, only include events actually scheduled for the target date. For PAST, only include events/results that actually belong to the target date.
-Never invent a fixture, score, venue, competition stage or time. If a field is unknown, use an empty string rather than guess.
-The output is a reference index, not a news article.
-""".strip()
-    user = "\n\n".join(blocks)
-    try:
-        data = client.ai(system=system, user=user, schema_name="sports_daily_events_v1", schema=DAILY_SCHEMA, max_tokens=3000)
-    except Exception as exc:
-        logger.warning("Daily event extraction failed: %s", exc)
-        return None
-    events = data.get("events", [])
-    if not events:
-        return None
-    cleaned = []
-    for event in events:
-        if text(event.get("date")) != target.isoformat():
-            continue
-        urls = [u for u in event.get("source_urls", []) if text(u) and source_tier(u) <= 3 and not is_video_game_contaminated(u)]
-        if not urls:
-            continue
-        cleaned.append({**event, "source_urls": urls[:4]})
-    if not cleaned:
-        return None
-    return {"mode": mode, "events": cleaned, "source_candidates": grouped, "target_date": target.isoformat()}
-
-
-def generate_daily_post(client: Clients, plan: dict, date_anchor: date) -> dict | None:
-    mode = plan["mode"]
-    events = plan["events"]
-    system = f"""
-You are the lead editor for a permanent sports calendar archive.
-Write the {mode} post for the exact date {date_anchor.strftime('%d %B %Y')}.
-This must remain understandable years later.
-Do not say tomorrow, yesterday, today, tonight, latest or just now. Use the exact date.
-Do not invent details. Use only supplied event records and source links.
-Organize by sport. Feature the most consequential events first, then provide a compact event index.
-For PAST, emphasize what happened and major results. For NEXT, emphasize what is scheduled and why it is worth following.
-Keep the main post compact enough for Telegram.
-""".strip()
-    user = json.dumps({"mode": mode, "date": date_anchor.isoformat(), "events": events}, ensure_ascii=False)
-    data = client.ai(system=system, user=user, schema_name="sports_games_post_v1", schema=POST_SCHEMA, max_tokens=2600)
-    story = dict(data)
-    story.update({
-        "game_or_sport": "Sports",
-        "subject": date_anchor.isoformat(),
-        "claim": f"Sports events for {date_anchor.isoformat()}",
-        "category": "sports_daily_next" if mode == "NEXT" else "sports_daily_past",
-        "angle": "calendar",
-        "date_anchor": date_anchor.isoformat(),
-        "published_at": iso(now_bd()),
-        "source_text": " ".join(e.get("reason", "") for e in events),
-        "source_urls": list(dict.fromkeys(u for e in events for u in e.get("source_urls", [])))[:5],
-        "tags": ["#Sports", "#SportsCalendar"],
-        "why_interesting": "A dated reference to notable sporting events.",
-        "key_points": [
-            f"{e.get('sport')}: {e.get('event')}" for e in events[:5] if text(e.get("sport")) and text(e.get("event"))
-        ],
-        "image_url": "",
-    })
-    if not all(text(e.get("date")) == date_anchor.isoformat() and e.get("source_urls") for e in events):
-        return None
-    if not validate_story(story):
-        return None
-    return story
-
-
-# ---------------------------------------------------------------------------
-# Telegram rendering
-# ---------------------------------------------------------------------------
-
-
-def bold_terms_html(value: str, terms: list[str]) -> str:
-    result = html.escape(text(value), quote=False)
-    replacements: list[tuple[str, str]] = []
-    for term in sorted({text(t) for t in terms if text(t)}, key=len, reverse=True):
-        marker = f"\uE000{len(replacements)}\uE001"
-        pattern = re.compile(re.escape(html.escape(term, quote=False)), re.I)
-        result, n = pattern.subn(marker, result, count=1)
-        if n:
-            replacements.append((marker, term))
-    for marker, original in replacements:
-        result = result.replace(marker, "<b>" + html.escape(original, quote=False) + "</b>")
-    return result
-
-
-def story_terms(story: dict) -> list[str]:
-    terms = [
-        text(story.get("game_or_sport")), text(story.get("subject")),
-        text(story.get("date_anchor")),
-    ]
-    for point in story.get("key_points", [])[:4]:
-        words = re.findall(r"\b[A-Z][A-Za-z0-9'’-]{2,}\b", text(point))
-        terms.extend(words[:4])
-    return [x for x in terms if x]
-
-
-def dynamic_rich_html(story: dict, source_urls: list[str] | None = None) -> str:
-    fmt = text(story.get("format")) or "fact"
-    labels = {
-        "fact": "DID YOU KNOW?",
-        "game_discovery": "GAME DISCOVERY",
-        "rule_check": "RULE CHECK",
-        "how_to_play": "HOW TO PLAY",
-        "history": "GAME / SPORTS HISTORY",
-        "on_this_date": "ON THIS DATE",
-        "century_ago": "100 YEARS AGO",
-        "why": "WHY?",
-        "first_last_only": "FIRST · LAST · ONLY",
-        "then_vs_now": "THEN → NOW",
-        "forgotten": "FORGOTTEN",
-        "daily_next": "NEXT UP",
-        "daily_past": "THE DAY IN SPORTS",
-    }
-    label = labels.get(fmt, "SPORTS & GAMES")
-    terms = story_terms(story)
-    parts = [
-        '<img src="tg://photo?id=sportsphoto">',
-        "<h2>" + html.escape(label) + "</h2>",
-        "<h1>" + html.escape(text(story.get("headline"))) + "</h1>",
-        "<p>" + bold_terms_html(text(story.get("dek")), terms) + "</p>",
-    ]
-    if text(story.get("date_anchor")):
-        parts.append("<aside>" + html.escape(text(story["date_anchor"])) + "</aside>")
-    for section_title, content in [
-        ("WHAT HAPPENED", story.get("body")),
-        ("WHY IT'S INTERESTING", story.get("why_interesting")),
-    ]:
-        if text(content):
-            parts.append("<h2>" + html.escape(section_title) + "</h2>")
-            parts.append("<p>" + bold_terms_html(text(content), terms) + "</p>")
-    points = [text(x) for x in story.get("key_points", []) if text(x)]
-    if points:
-        parts.append("<h2>KEY POINTS</h2>")
-        parts.append("<p>" + "<br>".join("• " + bold_terms_html(p, terms) for p in points) + "</p>")
-    urls = source_urls if source_urls is not None else story.get("sources", []) or story.get("source_urls", [])
-    urls = list(dict.fromkeys(u for u in urls if text(u)))[:4]
-    if urls:
-        src_lines = []
-        for u in urls:
-            label2 = source_label(u)
-            src_lines.append(f'<a href="{html.escape(u, quote=True)}">{html.escape(label2)}</a>')
-        parts.append("<footer><b>Sources:</b> " + " · ".join(src_lines) + "</footer>")
-    tags = " ".join(text(t) for t in story.get("tags", []) if text(t))
-    if tags:
-        parts.append("<p>" + html.escape(tags) + "</p>")
-    return "\n".join(parts)
-
-
-def rich_visible_length(value: str) -> int:
-    stripped = re.sub(r"<[^>]+>", "", value)
-    return len(html.unescape(stripped))
-
-
-def fit_rich_html(story: dict) -> str:
-    variants = [
-        (5, 520, 5),
-        (4, 420, 4),
-        (3, 340, 3),
-    ]
-    copy = dict(story)
-    for body_sentences, body_len, points_n in variants:
-        copy["body"] = clamp(story.get("body", ""), body_len)
-        copy["why_interesting"] = clamp(story.get("why_interesting", ""), 360 if body_sentences >= 4 else 280)
-        copy["key_points"] = list(story.get("key_points", []))[:points_n]
-        rendered = dynamic_rich_html(copy)
-        if rich_visible_length(rendered) <= MAX_RICH_CHARACTERS:
-            return rendered
-    return dynamic_rich_html(copy)
-
-
-# ---------------------------------------------------------------------------
-# Images
-# ---------------------------------------------------------------------------
-
-
-def find_font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
-    paths = [
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
-        "/usr/share/fonts/truetype/liberation2/LiberationSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/liberation2/LiberationSans-Regular.ttf",
-    ]
-    for path in paths:
-        if Path(path).exists():
-            try:
-                return ImageFont.truetype(path, size=size)
-            except Exception:
-                pass
-    return ImageFont.load_default()
-
-
-def download_image(url: str) -> Image.Image | None:
-    if not url:
-        return None
-    try:
-        r = session.get(url, timeout=15, headers=HEADERS)
-        r.raise_for_status()
-        img = Image.open(BytesIO(r.content)).convert("RGB")
-        return img
-    except Exception:
-        return None
-
-
-def create_visual(story: dict, index: int = 0) -> str:
-    if Image is None:
-        raise RuntimeError("Pillow is required for image generation. Run: pip install -r requirements.txt")
-    W, H = 1200, 675
-    source_img = download_image(text(story.get("image_url")))
-    if source_img:
-        bg = ImageOps.fit(source_img, (W, H), method=Image.Resampling.LANCZOS, centering=(0.5, 0.5))
-        overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-        draw = ImageDraw.Draw(overlay)
-        draw.rectangle((0, 0, W, H), fill=(0, 0, 0, 95))
-        draw.rounded_rectangle((45, 45, 430, 105), radius=20, fill=(255, 255, 255, 225))
-        draw.text((70, 62), text(story.get("format", "SPORTS & GAMES")).upper().replace("_", " "), font=find_font(27, True), fill=(20, 20, 20))
-        draw.rounded_rectangle((45, H - 105, W - 45, H - 45), radius=22, fill=(0, 0, 0, 185))
-        draw.text((75, H - 90), clamp(text(story.get("headline")), 52), font=find_font(35, True), fill=(255, 255, 255))
-        bg = Image.alpha_composite(bg.convert("RGBA"), overlay).convert("RGB")
-    else:
-        bg = Image.new("RGB", (W, H), (245, 245, 245))
-        draw = ImageDraw.Draw(bg)
-        category = text(story.get("format", "SPORTS & GAMES")).upper().replace("_", " ")
-        draw.text((65, 65), category, font=find_font(36, True), fill=(25, 25, 25))
-        draw.text((65, 145), clamp(text(story.get("headline")), 54), font=find_font(52, True), fill=(0, 0, 0))
-        date_anchor = text(story.get("date_anchor"))
-        if date_anchor:
-            draw.text((65, 545), date_anchor, font=find_font(30, False), fill=(60, 60, 60))
-        draw.text((W - 280, H - 70), CHANNEL, font=find_font(28, True), fill=(40, 40, 40))
-    path = f"/tmp/sports_games_{int(time.time() * 1000)}_{index}.jpg"
-    bg.save(path, "JPEG", quality=90, optimize=True)
-    return path
-
-
-# ---------------------------------------------------------------------------
-# Telegram
-# ---------------------------------------------------------------------------
-
-
-def telegram_call(method: str, data: dict | None = None, files: dict | None = None) -> dict:
-    if not TELEGRAM_BOT_TOKEN:
-        return {"ok": False, "description": "TELEGRAM_BOT_TOKEN missing"}
-    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/{method}"
-    last = {"ok": False, "description": "Unknown error"}
-    for attempt in range(1, 6):
-        try:
-            response = session.post(url, data=data or {}, files=files, timeout=90)
-            result = response.json()
-            if result.get("ok"):
-                return result
-            last = result
-            if response.status_code == 429:
-                retry_after = int(result.get("parameters", {}).get("retry_after", 5))
-                time.sleep(max(1, retry_after))
-                continue
-            if response.status_code >= 500:
-                time.sleep(2 * attempt)
-                continue
-            break
-        except Exception as exc:
-            last = {"ok": False, "description": str(exc)}
-            time.sleep(2 * attempt)
-    return last
-
-
-def send_rich_photo(image_path: str, rich_html: str) -> dict:
-    rich_message = {
-        "html": rich_html,
-        "media": [
-            {
-                "id": "sportsphoto",
-                "media": {"type": "photo", "media": "attach://photo"},
-            }
-        ],
-        "skip_entity_detection": False,
-    }
-    with open(image_path, "rb") as photo:
-        return telegram_call(
-            "sendRichMessage",
-            data={
-                "chat_id": CHANNEL,
-                "rich_message": json.dumps(rich_message, ensure_ascii=False),
-            },
-            files={"photo": photo},
-        )
-
-
-def send_bot_api_fallback(image_path: str, rich_html: str) -> dict:
-    text_caption = re.sub(r"<br\s*/?>", "\n", rich_html, flags=re.I)
-    text_caption = re.sub(r"</(?:p|h1|h2|footer|aside)>", "\n", text_caption, flags=re.I)
-    text_caption = re.sub(r"<[^>]+>", "", text_caption)
-    text_caption = html.unescape(text_caption)
-    text_caption = re.sub(r"\n{3,}", "\n\n", text_caption).strip()
-    if len(text_caption) > 900:
-        text_caption = text_caption[:890].rsplit(" ", 1)[0] + "..."
-    with open(image_path, "rb") as photo:
-        return telegram_call("sendPhoto", data={"chat_id": CHANNEL, "caption": text_caption}, files={"photo": photo})
-
-
-# ---------------------------------------------------------------------------
-# Persistence of knowledge records
-# ---------------------------------------------------------------------------
-
-
-def record_post(state: dict, story: dict, message_id: Any = None) -> None:
-    candidate = story.get("candidate", {})
-    claim_key = normalized_claim_key(text(story.get("subject")), text(story.get("claim")), text(story.get("angle")))
-    state.setdefault("claims", {})[claim_key] = {
-        "subject": text(story.get("subject")),
-        "claim": text(story.get("claim")),
-        "angle": text(story.get("angle")),
-        "category": text(story.get("category")),
-        "published_at": iso(now_bd()),
-    }
-    entity_key = normalize_text(story.get("game_or_sport"))
-    if entity_key:
-        entity = state.setdefault("entities", {}).setdefault(entity_key, {
-            "name": text(story.get("game_or_sport")), "post_count": 0, "categories": {}, "angles": {}
-        })
-        entity["post_count"] += 1
-        entity["categories"][text(story.get("category"))] = entity["categories"].get(text(story.get("category")), 0) + 1
-        entity["angles"][text(story.get("angle"))] = entity["angles"].get(text(story.get("angle")), 0) + 1
-    state.setdefault("posts", []).append({
-        "published_at": iso(now_bd()),
-        "message_id": message_id,
-        "format": text(story.get("format")),
-        "category": text(story.get("category")),
-        "angle": text(story.get("angle")),
-        "game_or_sport": text(story.get("game_or_sport")),
-        "subject": text(story.get("subject")),
-        "claim": text(story.get("claim")),
-        "headline": text(story.get("headline")),
-        "date_anchor": text(story.get("date_anchor")),
-        "source_urls": list(story.get("sources", []) or story.get("source_urls", []))[:5],
-        "canonical_url": canonical_url(candidate.get("url", "")) if candidate else "",
-    })
-    state.setdefault("angle_history", []).append({"angle": text(story.get("angle")), "at": iso(now_bd())})
-    state.setdefault("category_history", []).append({"category": text(story.get("category")), "at": iso(now_bd())})
-
-
-def daily_flag_key(kind: str, target: date) -> str:
-    return f"{kind}:{target.isoformat()}"
-
-
-def already_done_today(state: dict, kind: str, target: date) -> bool:
-    return bool(state.get("daily_flags", {}).get(daily_flag_key(kind, target)))
-
-
-def mark_daily_done(state: dict, kind: str, target: date) -> None:
-    state.setdefault("daily_flags", {})[daily_flag_key(kind, target)] = iso(now_bd())
-
-
-def discovery_count_today(state: dict) -> int:
-    today = now_bd().date().isoformat()
-    return sum(1 for p in state.get("posts", []) if text(p.get("published_at")).startswith(today) and p.get("category") not in {"sports_daily_next", "sports_daily_past"})
-
-
-def last_discovery_at(state: dict) -> datetime | None:
-    rows = [parse_dt(p.get("published_at")) for p in state.get("posts", []) if p.get("category") not in {"sports_daily_next", "sports_daily_past"}]
-    rows = [x for x in rows if x]
-    return max(rows) if rows else None
-
-
-# ---------------------------------------------------------------------------
-# End-to-end modes
-# ---------------------------------------------------------------------------
-
-
-def process_daily_sports(client: Clients, state: dict, kind: str, target: date) -> dict | None:
-    if already_done_today(state, kind, target):
-        return None
-    mode = "NEXT" if kind == "next" else "PAST"
-    raw = search_daily_sports(client, "next" if kind == "next" else "past")
-    if not raw:
-        logger.warning("No daily sports candidates for %s %s", mode, target)
-        return None
-    plan = build_daily_candidate(client, raw, mode, target)
-    if not plan:
-        return None
-    story = generate_daily_post(client, plan, target)
-    if not story:
-        return None
-    story["format"] = "daily_next" if kind == "next" else "daily_past"
-    return story
-
-
-def process_evergreen(client: Clients, state: dict) -> list[dict]:
-    if discovery_count_today(state) >= MAX_DISCOVERY_POSTS_PER_DAY:
-        return []
-    last = last_discovery_at(state)
-    if last and (now_bd() - last).total_seconds() < DISCOVERY_COOLDOWN_HOURS * 3600:
-        return []
-    raw = search_evergreen(client)
-    if not raw:
-        return []
-    raw = raw[:MAX_DISCOVERY_CANDIDATES]
-    classified = classify_candidates(client, raw, mode="evergreen discovery")
-    verified = []
-    for c in classified:
-        if is_video_game_contaminated(" ".join([text(c.get("game_or_sport")), text(c.get("subject")), text(c.get("claim_or_event"))])):
-            continue
-        if semantic_claim_duplicate(state, c):
-            continue
-        verification = verify_candidate(client, c)
-        ok, reason = verify_hard_gates(c, verification)
-        c["verification"] = verification
-        if not ok:
-            logger.info("Reject candidate %s: %s", c.get("subject"), reason)
-            continue
-        verified.append(c)
-    selected = editorial_select(client, verified, state, max_items=min(2, MAX_DISCOVERY_POSTS_PER_DAY - discovery_count_today(state)))
-    stories = []
-    for candidate in selected:
-        story = generate_post(client, candidate)
-        if not story:
-            continue
-        if not grounded_output(story, candidate):
-            logger.info("Reject generated story for grounding: %s", story.get("headline"))
-            continue
-        stories.append(story)
-    return stories
-
-
-def publish_story(state: dict, story: dict, index: int) -> bool:
-    rich_html = fit_rich_html(story)
-    if rich_visible_length(rich_html) > MAX_RICH_CHARACTERS:
-        logger.error("Post too long: %s", story.get("headline"))
-        return False
-    image_path = create_visual(story, index)
-    result = send_rich_photo(image_path, rich_html)
-    if not result.get("ok"):
-        logger.warning("Rich Message failed, using Bot API fallback: %s", result.get("description"))
-        result = send_bot_api_fallback(image_path, rich_html)
-    if result.get("ok"):
-        msg = result.get("result", {})
-        message_id = msg.get("message_id") if isinstance(msg, dict) else None
-        candidate = story.get("candidate", {})
-        if candidate.get("url"):
-            append_published_url(candidate["url"])
-        record_post(state, story, message_id)
-        return True
-    logger.error("Telegram publish failed: %s", result.get("description"))
+        if similarity(claim, p.get("claim", "")) >= threshold or similarity(claim, p.get("headline", "")) >= threshold + 0.07:
+            return True
+        if topic and p.get("topic") and normalize_text(topic) == normalize_text(p["topic"]) and \
+                similarity(claim, p.get("claim", "")) >= 0.6:
+            return True
     return False
 
 
-def run_once() -> None:
-    require_credentials()
-    state = load_state()
-    prune_state(state)
-    state["last_run_at"] = iso(now_bd())
-    client = Clients()
-    logger.info("%s v%s | channel=%s", APP_NAME, APP_VERSION, CHANNEL)
-    logger.info("Local time: %s", now_bd().isoformat())
+# --- collection ---
 
-    stories: list[dict] = []
+def merge_events(primary: list[dict], extra: list[dict]) -> list[dict]:
+    out = list(primary)
+    for e in extra:
+        dup = any(p["sport"] == e["sport"] and abs((p["start"] - e["start"]).total_seconds()) < 4 * 3600
+                  and similarity(p["name"], e["name"]) >= 0.6 for p in out)
+        if not dup:
+            out.append(e)
+    return out
 
-    # Two permanent daily anchors.
-    current = now_bd()
-    # NEXT UP is allowed once any time after 06:00 local.
-    if current.hour >= 6:
-        next_target = current.date() + timedelta(days=1)
-        story = process_daily_sports(client, state, "next", next_target)
+
+def filter_state(events: list[dict], kind: str, target: date) -> list[dict]:
+    ws, we = dhaka_window(target)
+    out = []
+    for e in events:
+        if is_excluded(f"{e['name']} {e['league']}"):
+            reject("event_out_of_scope", e["name"])
+            continue
+        if kind == "next":
+            if e["state"] != "scheduled":
+                continue
+            if e.get("continues") and tier_hint(f"{e['league']} {e['name']}", e["tier"]) not in ("S", "A"):
+                continue
+        else:
+            if e["state"] != "final":
+                continue
+            if e["style"] != "team":
+                ref = e.get("end") or e["start"]
+                if not (ws <= ref < we):
+                    continue
+        out.append(e)
+    return out
+
+
+def collect_events(ai: "AIClient", target: date, kind: str) -> tuple[list[dict], list[str]]:
+    notes = []
+    events, status = espn_events(target)
+    ok = sum(1 for v in status.values() if v == "ok")
+    notes.append(f"espn: {ok}/{len(LEAGUES)} leagues reachable, {len(events)} events in window")
+    cricket = cricketdata_events(target) if CRICKETDATA_API_KEY else []
+    have_cricket = any(e["sport"] == "Cricket" for e in events + cricket)
+    if not have_cricket and EXA_API_KEY and ai.available:
+        cricket += exa_event_fallback(ai, target, kind, "cricket", CRICKET_DOMAINS)
+    events = merge_events(events, cricket)
+    if len(filter_state(events, kind, target)) < 6:
+        extra = tsdb_events(target)
+        notes.append(f"thesportsdb: +{len(extra)} candidate events")
+        events = merge_events(events, extra)
+    if len(filter_state(events, kind, target)) < 3 and EXA_API_KEY and ai.available:
+        extra = exa_event_fallback(ai, target, kind, "football basketball tennis sports")
+        notes.append(f"exa fallback: +{len(extra)} events")
+        events = merge_events(events, extra)
+    events = filter_state(events, kind, target)
+    REPORT.notes.extend(notes)
+    return events, notes
+
+
+# --- rendering ---
+
+def stage_label(ev: dict) -> str:
+    names = f"{ev['name']} {ev['league']} {ev.get('stage', '')}"
+    if re.search(r"semi[- ]?final", names, re.I):
+        return "Semi-final"
+    if re.search(r"quarter[- ]?final", names, re.I):
+        return "Quarter-final"
+    if re.search(r"\bfinal\b", names, re.I):
+        return "Final"
+    if re.search(r"play[- ]?offs?", names, re.I):
+        return "Playoff"
+    return ""
+
+
+def event_line(ev: dict, kind: str) -> str:
+    stage = stage_label(ev)
+    tail = f" · {esc(ev['league'])}" + (f" — {esc(stage)}" if stage else "")
+    if kind == "next":
+        if ev["style"] == "tournament":
+            return f"• <b>{esc(ev['name'])}</b>{tail} ({'continues' if ev.get('continues') else 'starts'})"
+        t = to_bd(ev["start"]).strftime("%H:%M") if ev.get("time_known", True) else ""
+        return f"• {t + ' — ' if t else ''}<b>{esc(ev['name'])}</b>{tail}"
+    if ev["style"] == "team" and ev.get("home") and ev.get("away"):
+        hs, as_ = text(ev.get("home_score")), text(ev.get("away_score"))
+        extra = f" ({esc(ev['detail'])})" if re.search(r"pen|aet|ot|extra", text(ev.get("detail")), re.I) else ""
+        if hs != "" and as_ != "":
+            return f"• {esc(ev['home'])} <b>{esc(hs)}–{esc(as_)}</b> {esc(ev['away'])}{extra}{tail}"
+        return f"• {esc(ev['name'])}{tail} (final)"
+    if ev.get("winner"):
+        return f"• <b>{esc(ev['name'])}</b>{tail} — winner: {esc(ev['winner'])}"
+    return f"• <b>{esc(ev['name'])}</b>{tail} — concluded"
+
+
+def _sport_sections(events: list[dict], kind: str) -> list[str]:
+    by_sport: dict[str, list[dict]] = {}
+    for e in events:
+        by_sport.setdefault(e["sport"], []).append(e)
+    order = sorted(by_sport, key=lambda s: -max(e.get("score", 0) for e in by_sport[s]))
+    parts = []
+    for sport in order:
+        rows = sorted(by_sport[sport], key=lambda e: e["start"])
+        parts += ["", f"<b>{SPORT_EMOJI.get(sport, '🏅')} {esc(sport)}</b>"] + [event_line(e, kind) for e in rows]
+    return parts
+
+
+def render_digest(kind: str, target: date, highlights: list[dict], index: list[dict], intro: str,
+                  extras: dict, sources: list, with_extras: bool = True) -> str:
+    fmt = "daily_next" if kind == "next" else "daily_past"
+    parts = [f"{FORMAT_EMOJI[fmt]} <b>{FORMAT_LABELS[fmt]} · {esc(long_date(target).upper())}</b>"]
+    if intro:
+        parts += ["", f"<i>{esc(intro)}</i>"]
+    parts += _sport_sections(highlights, kind)
+    if with_extras and extras.get("storyline"):
+        parts += ["", "<b>📝 Storyline</b>", esc(extras["storyline"])]
+    recs = [r for r in extras.get("records", []) if not extras.get("storyline") or similarity(r["text"], extras["storyline"]) < 0.5]
+    if with_extras and recs:
+        parts += ["", "<b>📌 Records & milestones</b>"]
+        for r in recs[:3]:
+            link = f' (<a href="{esc_attr(r["url"])}">{esc(r["src"])}</a>)' if r.get("url") else f" ({esc(r['src'])})"
+            parts.append("• " + esc(clamp_words(r["text"], 190)) + link)
+    if index:
+        parts += ["", "<b>Also on</b>" if kind == "next" else "<b>Also finished</b>"]
+        for e in sorted(index, key=lambda e: e["start"]):
+            line = event_line(e, kind)
+            parts.append(line.replace("• ", f"• {SPORT_EMOJI.get(e['sport'], '🏅')} ", 1))
+    parts.append("")
+    if kind == "next":
+        parts.append("<i>Times in GMT+6 (Bangladesh).</i>")
+    src = source_links(sources, limit=4)
+    if src:
+        parts.append("Sources: " + src)
+    parts.append(FORMAT_TAG[fmt] + " #Sports")
+    return "\n".join(parts)
+
+
+def build_digest_html(kind, target, highlights, index, intro, extras, sources, limit=MESSAGE_LIMIT - 80) -> str:
+    hi = sorted(highlights, key=lambda e: -e.get("score", 0))
+    n_hi, n_idx, with_extras = len(hi), len(index), True
+    html_out = ""
+    for _ in range(80):
+        html_out = tg_sanitize(render_digest(kind, target, hi[:n_hi], index[:n_idx], intro, extras, sources, with_extras))
+        if vis_len(html_out) <= limit:
+            return html_out
+        if with_extras and (extras.get("storyline") or extras.get("records")):
+            with_extras = False
+        elif n_idx > 0:
+            n_idx = max(0, n_idx - 3)
+        elif n_hi > 3:
+            n_hi -= 1
+        else:
+            break
+    return html_out
+
+
+# --- intro + storylines ---
+
+def deterministic_intro(kind: str, highlights: list[dict], total: int) -> str:
+    sports = len({e["sport"] for e in highlights}) or 1
+    leagues = list(dict.fromkeys(e["league"] for e in sorted(highlights, key=lambda e: -e.get("score", 0)) if e["league"]))[:2]
+    lead = f", led by {' and '.join(leagues)}" if leagues else ""
+    if kind == "next":
+        return f"{total} notable events across {sports} sport{'s' if sports != 1 else ''}{lead}."
+    return f"Final results from {total} notable events across {sports} sport{'s' if sports != 1 else ''}{lead}."
+
+
+def ai_intro(ai: "AIClient", kind: str, highlights: list[dict], total: int, fallback: str) -> str:
+    if not ai.available or ai.fatal or not highlights:
+        return fallback
+    lines = "\n".join(f"- {e['name']} ({e['league']}; {e['sport']})" for e in highlights[:10])
+    system = ("Write ONE or TWO sentences (max 200 characters) introducing a daily sports digest. Mention only names that appear "
+              "in EVENTS. No time-relative words, no emojis, no hashtags, no numbers other than the counts given.")
+    data = ai.json("digest_intro", system, f"KIND: {'upcoming schedule' if kind == 'next' else 'results'}\n"
+                   f"EVENT COUNT: {total}\nEVENTS:\n{lines}", INTRO_SCHEMA, max_tokens=1200)
+    intro = soft_fix({"headline": "x", "body": text((data or {}).get("intro")), "why_interesting": "", "key_points": []})["body"]
+    if not intro or len(intro) > 240:
+        return fallback
+    viol = guard_violations({"headline": "x", "body": intro, "why_interesting": "", "key_points": []}, lines,
+                            anchors=[str(total), str(len({e['sport'] for e in highlights}))], daily=True)
+    return fallback if viol else intro
+
+
+_NOTABLE = re.compile(r"\b(record|milestone|historic|first[- ]ever|first time|clinch\w*|upset|unbeaten|hat-trick|"
+                      r"champion\w*|title|wins?|won|beat|defeat\w*)\b", re.I)
+
+
+def records_and_storylines(ai: "AIClient", target: date, events: list[dict]) -> dict:
+    lines: list[dict] = []
+    for l in current_events_sports(target)[:8]:
+        if not is_excluded(l["text"]):
+            lines.append({"text": l["text"], "url": l["url"], "src": "Wikipedia"})
+    ws, we = dhaka_window(target)
+    for it in fetch_feeds():
+        pub = it.get("published")
+        if pub and ws <= pub < we + timedelta(hours=8) and _NOTABLE.search(it["title"] + " " + it["summary"][:200]):
+            lines.append({"text": clamp_words(f"{it['title']}. {it['summary']}", 260), "url": it["url"], "src": it["source"]})
+    uniq: list[dict] = []
+    for l in lines:
+        if not any(similarity(l["text"], u["text"]) > 0.6 for u in uniq):
+            uniq.append(l)
+    uniq = uniq[:8]
+    if not uniq:
+        return {}
+    result: dict[str, Any] = {"records": uniq[:3]}
+    if ai.available and not ai.fatal:
+        block = "\n".join(f"[{i}] {l['text']}" for i, l in enumerate(uniq, 1))
+        system = ("Write 2-3 sentences (max 380 characters) summarising the most notable sporting storylines from LINES. "
+                  "Use only names, numbers and facts in LINES. No emojis, no hashtags, no time-relative words.")
+        data = ai.json("digest_storyline", system, "LINES:\n" + block, STORYLINE_SCHEMA, max_tokens=1500)
+        s = soft_fix({"headline": "x", "body": text((data or {}).get("storyline")), "why_interesting": "", "key_points": []}, 3, 400)["body"]
+        evidence = block + "\n" + "\n".join(e["name"] for e in events[:40])
+        if s and not guard_violations({"headline": "x", "body": s, "why_interesting": "", "key_points": []}, evidence, daily=True):
+            result["storyline"] = s
+    return result
+
+
+def desk_digest(state: dict, ai: "AIClient", now: datetime, slot: Slot) -> tuple[dict | None, str]:
+    kind = "next" if slot.desk == "next" else "past"
+    target = slot.target(now)
+    events, notes = collect_events(ai, target, kind)
+    if not events:
+        return None, f"no {'scheduled' if kind == 'next' else 'finished'} events found for {target.isoformat()} ({'; '.join(notes)})"
+    highlights, index = select_events(events)
+    if not highlights:  # quiet day: still publish the best few
+        highlights, index = index[:5], index[5:]
+    extras = records_and_storylines(ai, target, events) if kind == "past" else {}
+    total = len(highlights) + len(index)
+    intro = ai_intro(ai, kind, highlights, total, deterministic_intro(kind, highlights, total))
+    names = list(dict.fromkeys(e["source"] for e in highlights + index if e.get("source")))
+    sources = [(n, SOURCE_HOME.get(n, "")) for n in names if SOURCE_HOME.get(n)]
+    for e in highlights + index:
+        if e.get("source") not in SOURCE_HOME and e.get("url"):
+            sources.append((e["source"], e["url"]))
+    if extras.get("records") or extras.get("storyline"):
+        for r in extras.get("records", []):
+            if r.get("url"):
+                sources.append((r["src"], r["url"]))
+    fmt = "daily_next" if kind == "next" else "daily_past"
+    body = build_digest_html(kind, target, highlights, index, intro, extras, sources)
+    story = {"desk": slot.desk, "format": fmt, "label": FORMAT_LABELS[fmt], "headline": f"{FORMAT_LABELS[fmt]} · {long_date(target).upper()}",
+             "body": intro, "why_interesting": "", "key_points": [], "tags": [], "date_anchor": long_date(target).upper(),
+             "sources": sources, "topic": "digest", "angle": kind, "claim": f"{kind}:{target.isoformat()}",
+             "render": {"mode": "text", "html": body}, "urls": [], "target": target.isoformat(), "event_count": total}
+    return story, "ok"
+
+# --- ON THIS DATE ---
+
+_SPORTS_RX = re.compile(
+    r"\b(football|soccer|cricket\w*|tennis|golf\w*|boxing|boxer|olympic\w*|marathon|baseball|basketball|rugby|hockey|"
+    r"chess|world cup|grand prix|formula (?:one|1)|athlet\w*|swim\w*|cycl\w*|tour de france|wimbledon|championship\w*|"
+    r"tournament|stadium|fifa|uefa|icc|ioc|league|cup final|board game|card game|backgammon|monopoly|scrabble|checkers|"
+    r"draughts|contract bridge|poker|dominoes|badminton|kabaddi|wrestl\w*|sumo|judo|karate|fencing|archery|rowing|"
+    r"sailing|polo|squash|table tennis|volleyball|handball|netball|lacrosse|skating|skiing|snooker|billiards|darts|"
+    r"bowling|footballer|goalkeeper|striker|batsman|bowler|rubik|sudoku|crossword|mahjong|ludo|carrom)\b", re.I)
+_GLOOM = re.compile(r"\b(killed|died|dies|death|massacre|assassinat\w*|murder\w*|crash\w*|disaster|riots?|shooting|bomb\w*|"
+                    r"war|terror\w*|suicide|stampede|tragedy|collapse[sd]?)\b", re.I)
+_FIRSTS = re.compile(r"\b(first|inaugural|record|founded|banned|invented|oldest|only|introduced|debut|established|"
+                     r"unveiled|patented)\b", re.I)
+ROUND_YEARS = (25, 50, 75, 100, 125)
+
+
+def otd_relevant(c: dict) -> bool:
+    blob = f"{c['text']} {c.get('desc', '')}"
+    if c.get("src") != "yearpage" and not _SPORTS_RX.search(blob):
+        return False
+    if _GLOOM.search(c["text"]) or is_excluded(blob):
+        return False
+    return len(c["text"]) >= 30 and 1500 <= c["year"] < now_bd().year
+
+
+def otd_score(c: dict, d: date) -> float:
+    age = d.year - c["year"]
+    s = 0.0
+    if age in ROUND_YEARS:
+        s += 3
+    elif age % 25 == 0:
+        s += 2
+    if _FIRSTS.search(c["text"]):
+        s += 2
+    if c.get("title"):
+        s += 1
+    if c.get("src") == "onthisday":
+        s += 0.5
+    if re.search(r"cricket|football|badminton|kabaddi|tennis|chess|hockey|olympic", c["text"], re.I):
+        s += 1
+    return s
+
+
+def desk_on_this_date(state: dict, ai: "AIClient", now: datetime, slot: Slot) -> tuple[dict | None, str]:
+    if not ai.available or ai.fatal:
+        return None, "AI unavailable"
+    d = slot.target(now)
+    posted = load_posted_urls()
+    cands = onthisday_events(d)
+    for lines in pmap(lambda y: year_in_sports_lines(y, d), [d.year - n for n in ROUND_YEARS], workers=5):
+        cands += lines or []
+    cands = [c for c in cands if otd_relevant(c)]
+    rng = random.Random(f"otd:{d.isoformat()}")
+    fresh = [c for c in cands if not is_duplicate_claim(state, c["text"]) and canonical_url(c.get("url", "")) not in posted]
+    if not fresh:
+        return None, f"no usable history candidates for {d.month}/{d.day} ({len(cands)} raw)"
+    ranked = sorted(fresh, key=lambda c: (-otd_score(c, d), rng.random()))[:12]
+    order = list(range(len(ranked)))
+    block = "\n".join(f"{i + 1}. ({c['year']}) {c['text'][:220]}" for i, c in enumerate(ranked))
+    pick = ai.json("otd_pick", "Pick the single most interesting, well-defined sports or games history item for a general "
+                   "audience. Prefer concrete firsts, rule changes and famous matches. Return its 1-based index.",
+                   block, PICK_SCHEMA, max_tokens=800)
+    idx = int((pick or {}).get("index") or 0) - 1
+    if 0 <= idx < len(ranked):
+        order = [idx] + [i for i in order if i != idx]
+    attempt = max(1, int(ledger_get(state, slot.key(now)).get("attempts", 1)))
+    if attempt > 1:  # retries move down the ranking instead of re-checking the same three candidates
+        shift = ((attempt - 1) * 3) % len(order)
+        order = order[shift:] + order[:shift]
+    for i in order[:3]:
+        c = ranked[i]
+        age = d.year - c["year"]
+        summary = wiki_summary(c["title"]) if c.get("title") else None
+        background = (summary or {}).get("extract") or c.get("extract") or ""
+        evidence = f"EVENT ({c['year']}): {c['text']}\nBACKGROUND: {background}".strip()
+        if len(evidence) < 100:
+            reject("otd_thin_evidence", c["text"][:60])
+            continue
+        hist = date(c["year"], d.month, d.day)
+        fmt = "century_ago" if age in ROUND_YEARS else "on_this_date"
+        label = f"{age} YEARS AGO" if fmt == "century_ago" else "ON THIS DATE"
+        url = (summary or {}).get("url") or c.get("url") or ""
+        srcs = [("Wikipedia", url)] if "wikipedia.org" in url else [("Wikipedia", wiki_url(c["title"]))] if c.get("title") else \
+            [("Wikipedia", "https://en.wikipedia.org/wiki/" + MONTHS[d.month - 1] + "_" + str(d.day))]
+        story = compose_post(ai, desk="history", fmt=fmt, topic=c.get("title") or c["text"][:50], angle="anniversary",
+                             claim=c["text"], evidence=evidence, sources=srcs, label=label,
+                             date_anchor=long_date(hist).upper(),
+                             anchors=[str(c["year"]), str(age), str(d.year), str(d.day)],
+                             extra=f"Write it as an anniversary post: it happened on {long_date(hist)}, {age} years ago.", state=state)
         if story:
-            stories.append(story)
-    # DAY IN SPORTS is generated after the sports day is mature; after 19:00 local.
-    if current.hour >= 19:
-        past_target = current.date() - timedelta(days=1)
-        story = process_daily_sports(client, state, "past", past_target)
-        if story:
-            stories.append(story)
+            story["urls"] = [u for _, u in srcs]
+            return story, "ok"
+    return None, "candidates failed verification"
 
-    # Evergreen stream. It is quality-gated, capped and cooled down, never forced.
-    stories.extend(process_evergreen(client, state))
 
-    published = 0
-    for index, story in enumerate(stories, start=1):
-        if publish_story(state, story, index):
-            published += 1
-            if story.get("format") == "daily_next":
-                mark_daily_done(state, "next", current.date() + timedelta(days=1))
-            elif story.get("format") == "daily_past":
-                mark_daily_done(state, "past", current.date() - timedelta(days=1))
-            save_state(state)
-            time.sleep(POST_DELAY_SECONDS)
+# --- EVERGREEN topic engine ---
+
+SPORT_TITLES = [
+    "Cricket", "Association football", "Basketball", "Tennis", "Badminton", "Table tennis", "Kabaddi", "Kho kho",
+    "Volleyball", "Field hockey", "Ice hockey", "Rugby union", "Rugby league", "Baseball", "Golf", "Formula One",
+    "Athletics (sport)", "Marathon", "Swimming (sport)", "Cycling", "Boxing", "Wrestling", "Judo", "Karate",
+    "Taekwondo", "Archery", "Fencing", "Rowing (sport)", "Sailing", "Polo", "Squash (sport)", "Handball", "Netball",
+    "Lacrosse", "Sumo", "Sepak takraw", "Hurling", "Gaelic football", "Australian rules football", "American football",
+    "Snooker", "Darts", "Bowling", "Curling", "Biathlon", "Pentathlon", "Decathlon", "Weightlifting", "Gymnastics",
+    "Water polo", "Skateboarding", "Surfing", "Mixed martial arts", "Tug of war", "Pickleball", "Ultimate (sport)",
+    "Olympic Games", "FIFA World Cup", "Cricket World Cup", "Tour de France", "Wimbledon Championships",
+]
+GAME_TITLES = [
+    "Chess", "Ludo", "Carrom", "Snakes and ladders", "Monopoly (game)", "Scrabble", "Backgammon", "Draughts", "Go (game)",
+    "Shogi", "Xiangqi", "Mahjong", "Dominoes", "Playing card", "Contract bridge", "Poker", "Rummy", "Uno (card game)",
+    "Cribbage", "Spades (card game)", "Hearts (card game)", "Mancala", "Pachisi", "Nine men's morris", "Senet",
+    "Royal Game of Ur", "Catan", "Ticket to Ride (board game)", "Carcassonne (board game)", "Pandemic (board game)",
+    "Risk (game)", "Cluedo", "Battleship (game)", "Jenga", "Rubik's Cube", "Sudoku", "Crossword", "Pictionary",
+    "Charades", "Mafia (party game)", "Tic-tac-toe", "Connect Four", "Reversi", "Stratego", "Marbles", "Hopscotch",
+    "Pick-up sticks", "Tangram", "Bingo", "Yahtzee", "Trivial Pursuit", "Codenames (board game)", "Solitaire",
+    "Dobble", "Patolli", "Hnefatafl",
+]
+AUDIENCE_BOOST = {"cricket", "association football", "badminton", "kabaddi", "carrom", "chess", "ludo", "kho kho",
+                  "table tennis", "field hockey", "tennis", "basketball", "volleyball", "pachisi", "snakes and ladders"}
+CATEGORY_SEEDS = {"game": ["Traditional_games", "Board_games", "Card_games", "Dice_games", "Tile-based_games",
+                           "Children's_games", "Abstract_strategy_games"],
+                  "sport": ["Traditional_sports", "Ball_games", "Racket_sports", "Target_sports", "Team_sports"]}
+FORMAT_WEIGHTS = {
+    "game": {"game_discovery": 3, "how_to_play": 2, "rule_check": 2, "history": 2, "fact": 2, "why": 1,
+             "first_last_only": 1, "forgotten": 2},
+    "sport": {"fact": 3, "history": 2, "rule_check": 2, "why": 2, "first_last_only": 2, "then_vs_now": 1, "how_to_play": 1},
+}
+FORMAT_ANGLES = {
+    "rule_check": ["rule", "scoring", "equipment"], "how_to_play": ["rule", "scoring", "equipment"],
+    "history": ["origin", "evolution", "tradition"], "why": ["etymology", "measurement", "tradition", "rule"],
+    "then_vs_now": ["evolution", "equipment", "rule"], "forgotten": ["origin", "culture", "tradition"],
+    "game_discovery": ["origin", "culture", "equipment", "rule"],
+}
+ANGLES_DEFAULT = ["origin", "etymology", "rule", "scoring", "equipment", "tradition", "evolution", "culture", "measurement", "myth"]
+RULE_FORMATS = {"rule_check", "how_to_play"}
+
+
+def ensure_pool(state: dict) -> dict:
+    pool = state["topics"].setdefault("pool", {})
+    for kind, titles in (("sport", SPORT_TITLES), ("game", GAME_TITLES)):
+        for t in titles:
+            slug = slugify(t)
+            if slug not in pool:
+                pool[slug] = {"title": t, "kind": kind, "pop": 1.6 if t.lower() in AUDIENCE_BOOST else 1.0, "seed": True}
+    return pool
+
+
+def refresh_topic_pool(state: dict, rng: random.Random) -> int:
+    """Grow the pool from Wikipedia categories (monthly). Returns number of topics added."""
+    last = parse_dt(state["topics"].get("last_refresh"))
+    if last and now_bd() - last < timedelta(days=30):
+        return 0
+    pool = ensure_pool(state)
+    if len(pool) >= 1500:
+        return 0
+    jobs = [(kind, cat) for kind, cats in CATEGORY_SEEDS.items() for cat in cats]
+    results = pmap(lambda j: wiki_category_members(j[1], 150), jobs, workers=6)
+    added = 0
+    for (kind, _), members in zip(jobs, results):
+        members = [m for m in (members or []) if not m.startswith(("List of", "Outline of", "Category:"))]
+        rng.shuffle(members)
+        for title in members[:35]:
+            slug = slugify(title)
+            if slug and slug not in pool and not is_excluded(title):
+                pool[slug] = {"title": title, "kind": kind, "pop": 0.8, "seed": False}
+                added += 1
+    if added or any(results):
+        state["topics"]["last_refresh"] = utc_iso(now_bd())
+    return added
+
+
+def pick_format(state: dict, topic: dict, rng: random.Random) -> tuple[str, str]:
+    weights = dict(FORMAT_WEIGHTS[topic["kind"]])
+    if topic.get("seed"):
+        weights.pop("forgotten", None)
+    recent = recent_posts(state, 8, None)
+    recent_fmts = [p.get("format") for p in recent[-3:]]
+    recent_angles = [p.get("angle") for p in recent]
+    for f in list(weights):
+        weights[f] = weights[f] * (0.35 ** recent_fmts.count(f))
+    fmt = rng.choices(list(weights), weights=list(weights.values()))[0]
+    angles = FORMAT_ANGLES.get(fmt, ANGLES_DEFAULT)
+    aw = [0.5 ** recent_angles.count(a) for a in angles]
+    return fmt, rng.choices(angles, weights=aw)[0]
+
+
+def pick_topics(state: dict, rng: random.Random, k: int = 4) -> list[tuple[str, dict]]:
+    pool = ensure_pool(state)
+    per = state["topics"].setdefault("per_topic", {})
+    now = now_bd()
+    weighted: list[tuple[str, dict, float]] = []
+    for slug, t in pool.items():
+        st = per.get(slug, {})
+        if st.get("bad"):
+            continue
+        last = parse_dt(st.get("last_at"))
+        days = (now - last).total_seconds() / 86400 if last else None
+        if days is not None and st.get("count", 0) >= 2 and days < 30:
+            continue
+        novelty = 1.0 if days is None else 1 - math.exp(-days / 14)
+        w = t.get("pop", 1.0) * max(0.02, novelty)
+        weighted.append((slug, t, w))
+    chosen: list[tuple[str, dict]] = []
+    while weighted and len(chosen) < k:
+        pick = rng.choices(weighted, weights=[w for _, _, w in weighted])[0]
+        chosen.append((pick[0], pick[1]))
+        weighted = [x for x in weighted if x[0] != pick[0]]
+    return chosen
+
+
+def rules_evidence(title: str) -> list[dict]:
+    domains = OFFICIAL_DOMAINS + RULES_PUBLISHERS + ["britannica.com"]
+    return exa_search(f"{title} official rules how it is played", domains=domains, num=4, text_chars=3500)
+
+
+def desk_evergreen(state: dict, ai: "AIClient", now: datetime, slot: Slot) -> tuple[dict | None, str]:
+    if not ai.available or ai.fatal:
+        return None, "AI unavailable"
+    rng = random.Random(f"evergreen:{now.date().isoformat()}:{slot.index}:{ledger_get(state, slot.key(now)).get('attempts', 0)}")
+    # a fresh-news slot: new tabletop games, at most every 3 days, in the middle slot
+    if slot.index == 2 and EXA_API_KEY:
+        last = recent_posts(state, 1, "newgames")
+        last_dt = parse_dt(last[0].get("posted_at")) if last else None
+        if not last_dt or now - last_dt >= timedelta(days=3):
+            story, why = desk_new_games(state, ai, now)
+            if story:
+                return story, "ok"
+            REPORT.notes.append(f"new_games skipped: {why}")
+    try:
+        added = refresh_topic_pool(state, rng)
+        if added:
+            logger.info("Topic pool grew by %d topics", added)
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("topic refresh failed: %s", exc)
+    per = state["topics"].setdefault("per_topic", {})
+    last_reason = "no topic produced a verified post"
+    for slug, topic in pick_topics(state, rng, 4):
+        if RUN_LIMIT.expired():
+            return None, "run deadline reached"
+        st = per.setdefault(slug, {"count": 0, "last_at": "", "angles": {}, "formats": {}, "fails": 0})
+        page = wiki_page(topic["title"])
+        if not page:
+            st["fails"] = st.get("fails", 0) + 1
+            if st["fails"] >= 3:
+                st["bad"] = True
+            last_reason = f"wikipedia page unavailable: {topic['title']}"
+            continue
+        problem = wiki_page_problem(page)
+        if problem:
+            st["bad"] = True
+            reject("topic_unusable", f"{topic['title']}: {problem}")
+            last_reason = f"{topic['title']}: {problem}"
+            continue
+        fmt, angle = pick_format(state, topic, rng)
+        docs = [{"label": "Wikipedia", "url": page["url"], "text": page["text"], "grade": "B"}]
+        if fmt in RULE_FORMATS:
+            for d in rules_evidence(page["title"]):
+                docs.append({"label": d["source"], "url": d["url"], "text": d["text"], "grade": d["grade"]})
+            has_a = any(d["grade"] == "A" for d in docs)
+            b_domains = {domain_of(d["url"]) for d in docs if d["grade"] in ("A", "B")}
+            if not (has_a or len(b_domains) >= 2):
+                reject("rule_evidence_too_weak", page["title"])
+                fmt, angle = ("history", "origin") if topic["kind"] == "game" else ("fact", "origin")
+                docs = docs[:1]
+        article = "\n\n".join(f"[SOURCE: {d['label']}]\n{d['text']}" for d in docs)[:16000]
+        facts = extract_facts(ai, topic=page["title"], fmt=fmt, angle=angle, article=article)
+        for fact in facts[:2]:
+            claim, quote = text(fact["claim"]), text(fact["evidence_quote"])
+            if is_duplicate_claim(state, claim, page["title"]):
+                reject("duplicate_claim", claim[:80])
+                continue
+            src_doc = next((d for d in docs[1:] if quote_in_text(quote, d["text"])), None)
+            evidence = f"{page['text'][:1200]}\n\n{best_paragraph(article, quote)}\n\nKEY QUOTE: {quote}"
+            sources = [("Wikipedia", page["url"])] + ([(src_doc["label"], src_doc["url"])] if src_doc else [])
+            story = compose_post(ai, desk="evergreen", fmt=fmt, topic=page["title"], angle=angle, claim=claim,
+                                 evidence=evidence, sources=sources, certainty=text(fact.get("certainty")) or "settled", state=state)
+            if story:
+                story["urls"] = [u for _, u in sources]
+                story["topic_slug"] = slug
+                return story, "ok"
+        last_reason = f"{page['title']}: no fact passed verification"
+    return None, last_reason
+
+
+def desk_new_games(state: dict, ai: "AIClient", now: datetime) -> tuple[dict | None, str]:
+    if not EXA_API_KEY:
+        return None, "Exa key missing"
+    docs = exa_search("new board game announced released tabletop card game", domains=TABLETOP_DOMAINS,
+                      start=now - timedelta(days=14), num=10, text_chars=4000)
+    posted = load_posted_urls()
+    docs = [d for d in docs if d["canonical"] not in posted and len(d["text"]) >= 400]
+    docs = [d for d in docs if not is_duplicate_claim(state, d["title"], d["title"], 0.85)]
+    if not docs:
+        return None, "no fresh tabletop articles"
+    shift = (int(ledger_get(state, f"evergreen:{now.date().isoformat()}:2").get("attempts", 1)) - 1) * 3 % len(docs)
+    docs = docs[shift:] + docs[:shift]
+    for d in docs[:3]:
+        facts = extract_facts(ai, topic=d["title"], fmt="new_game", angle="announcement", article=d["text"])
+        for fact in facts[:1]:
+            quote = text(fact["evidence_quote"])
+            if is_duplicate_claim(state, text(fact["claim"]), d["title"]):
+                reject("duplicate_claim", text(fact["claim"])[:80])  # same game already covered (maybe via another outlet)
+                continue
+            evidence = f"{d['title']}\n{best_paragraph(d['text'], quote)}\n\nKEY QUOTE: {quote}"
+            story = compose_post(ai, desk="newgames", fmt="new_game", topic=clamp_words(d["title"], 80), angle="announcement",
+                                 claim=text(fact["claim"]), evidence=evidence, sources=[(d["source"], d["url"])],
+                                 extra="Only physical tabletop, board or card games. Attribute the news to the outlet by name.", state=state)
+            if story:
+                story["urls"] = [d["url"]]
+                return story, "ok"
+    return None, "no article produced a verified post"
+
+
+DESKS: dict[str, Callable] = {
+    "past": desk_digest, "next": desk_digest, "history": desk_on_this_date, "evergreen": desk_evergreen,
+}
+
+# ===========================================================================
+# 10. RUNNER: executes due slots, records results, writes the run report
+# ===========================================================================
+
+
+def record_post(state: dict, story: dict, message_id: Any) -> None:
+    urls = [canonical_url(u) for u in story.get("urls", []) if u]
+    state.setdefault("posts", []).append({
+        "desk": story["desk"], "format": story.get("format", ""), "topic": story.get("topic", ""),
+        "angle": story.get("angle", ""), "claim": story.get("claim", ""), "headline": story.get("headline", ""),
+        "fp": fingerprint(story.get("claim", ""), story.get("topic", "")), "urls": urls, "message_id": message_id,
+        "posted_at": utc_iso(now_bd()), "day": now_bd().date().isoformat(),
+    })
+    slug = story.get("topic_slug")
+    if slug:
+        st = state["topics"].setdefault("per_topic", {}).setdefault(slug, {"count": 0, "angles": {}, "formats": {}})
+        st["count"] = st.get("count", 0) + 1
+        st["last_at"] = utc_iso(now_bd())
+        st.setdefault("angles", {})[story.get("angle", "")] = st.get("angles", {}).get(story.get("angle", ""), 0) + 1
+
+
+def execute_slot(state: dict, ai: "AIClient", slot: Slot, now: datetime) -> str:
+    key = slot.key(now)
+    prev = ledger_get(state, key)
+    attempts = prev.get("attempts", 0) + 1
+    ledger_update(state, key, attempts=attempts, desk=slot.name, target=slot.target(now).isoformat(), status="running")
+    t0 = time.monotonic()
+    story: dict | None = None
+    try:
+        story, reason = DESKS[slot.desk](state, ai, now, slot)
+    except Exception as exc:  # noqa: BLE001 - a desk must never take the run down
+        reason = f"exception: {type(exc).__name__}: {redact(str(exc))[:200]}"
+        REPORT.errors.append(f"{slot.name}: {reason}")
+        logger.error("Desk %s crashed:\n%s", slot.name, redact(traceback.format_exc()))
+    row = {"slot": slot.name, "key": key, "attempt": attempts, "seconds": round(time.monotonic() - t0, 1)}
+    if story is None:
+        ledger_update(state, key, status="failed", error=reason[:300])
+        row.update(status="failed", detail=reason[:200])
+        REPORT.desks.append(row)
+        logger.warning("Slot %s: no post (%s)", key, reason)
+        return "failed"
+    res = publish_story(story)
+    if res.get("ok"):
+        mid = (res.get("result") or {}).get("message_id")
+        record_post(state, story, mid)
+        ledger_update(state, key, status="posted", message_id=mid, posted_at=utc_iso(now_bd()), error="")
+        append_posted_urls(story.get("urls", []))
+        save_state(state)
+        row.update(status="posted", detail=story.get("headline", "")[:100])
+        REPORT.desks.append(row)
+        logger.info("Slot %s: posted (%s)", key, story.get("headline", "")[:80])
+        return "posted"
+    if res.get("uncertain"):
+        ledger_update(state, key, status="uncertain", error=text(res.get("description"))[:300])
+        admin_alert(state, f"uncertain:{key}", f"Delivery of {key} is UNCERTAIN (network error after sending). "
+                    "Check the channel; the bot will not retry this slot to avoid a duplicate.")
+        row.update(status="uncertain", detail=text(res.get("description"))[:200])
+    else:
+        ledger_update(state, key, status="failed", error=text(res.get("description"))[:300])
+        row.update(status="failed", detail="telegram: " + text(res.get("description"))[:200])
+    REPORT.desks.append(row)
     save_state(state)
-    logger.info("Completed The Sports Newsroom run. Published=%d", published)
+    return row["status"]
 
 
-# ---------------------------------------------------------------------------
-# Self-test
-# ---------------------------------------------------------------------------
+def write_summary(state: dict, code: int, now: datetime) -> None:
+    lines = [f"## {APP_NAME} v{APP_VERSION} run · {now.strftime('%Y-%m-%d %H:%M')} (Dhaka) · exit {code}", ""]
+    if REPORT.desks:
+        lines += ["| Slot | Attempt | Result | Detail |", "|---|---|---|---|"]
+        for r in REPORT.desks:
+            lines.append(f"| {r['slot']} | {r['attempt']} | {r['status']} | {text(r.get('detail')).replace('|', '/')[:110]} |")
+    else:
+        lines.append("Nothing was due in this run.")
+    lines += ["", "**Sources**", "", "| Source | ok | fail | last error |", "|---|---|---|---|"]
+    for name, h in sorted(HEALTH.items()):
+        lines.append(f"| {name} | {h['ok']} | {h['fail']} | {text(h['last_error']).replace('|', '/')[:90]} |")
+    if REPORT.rejections:
+        lines += ["", "**Guard rejections:** " + ", ".join(f"{k}×{v}" for k, v in REPORT.rejections.most_common(8))]
+    lines += ["", f"AI calls: {REPORT.ai_calls} · tokens: {REPORT.ai_tokens}"]
+    if REPORT.notes:
+        lines += ["", "**Notes:** " + " | ".join(REPORT.notes[:6])]
+    if REPORT.errors:
+        lines += ["", "**Errors:**"] + [f"- {e}" for e in REPORT.errors]
+    out = "\n".join(lines)
+    print("\n" + out)
+    path = os.environ.get("GITHUB_STEP_SUMMARY")
+    if path:
+        try:
+            with open(path, "a", encoding="utf-8") as fh:
+                fh.write(out + "\n")
+        except OSError:
+            pass
 
 
-def self_test() -> None:
-    assert canonical_url("https://www.example.com/story/?utm_source=x&ref=y") == "example.com/story"
-    assert is_video_game_contaminated("PlayStation patch notes")
-    assert not is_video_game_contaminated("Ludo rule explanation")
-    assert similarity("Why is tennis called tennis?", "Origin of the word tennis") > 0.35
-
-    state = default_state()
-    candidate = {
-        "kind": "fact",
-        "category": "evergreen_fact",
-        "angle": "origin",
-        "game_or_sport": "Tennis",
-        "subject": "tennis terminology",
-        "claim_or_event": "The term has a documented historical origin.",
-        "why_interesting": "The familiar word has an unexpected history.",
-        "source_urls": ["https://www.britannica.com/sports/tennis"],
-    }
-    assert not semantic_claim_duplicate(state, candidate)
-    state["claims"][normalized_claim_key(candidate["subject"], candidate["claim_or_event"], candidate["angle"])] = {
-        "subject": candidate["subject"], "claim": candidate["claim_or_event"], "angle": candidate["angle"]
-    }
-    assert semantic_claim_duplicate(state, candidate)
-
-    fake_verify = {"status": "verified", "confidence": 95}
-    ok, reason = verify_hard_gates({**candidate, "source_urls": ["https://www.britannica.com/sports/tennis", "https://www.fide.com/faq"]}, fake_verify)
-    assert ok, reason
-
-    story = {
-        "format": "fact",
-        "headline": "Why This Sports Word Has a Surprising Origin",
-        "dek": "A familiar sports term has a history that is easy to overlook.",
-        "body": "Historical sources trace the term through earlier forms before it reached the modern usage described here.",
-        "why_interesting": "The word looks ordinary today, but its history connects the modern game with earlier traditions.",
-        "key_points": ["Historical origin", "Modern usage"],
-        "date_anchor": "",
-        "sources": ["https://www.britannica.com/sports/tennis"],
-        "tags": ["#Sports", "#History"],
-        "game_or_sport": "Tennis",
-        "subject": "tennis terminology",
-        "claim": candidate["claim_or_event"],
-        "category": "evergreen_fact",
-        "angle": "origin",
-    }
-    assert validate_story(story)
-    assert not is_video_game_contaminated(" ".join([story["headline"], story["body"]]))
-    rendered = dynamic_rich_html(story)
-    assert "DID YOU KNOW?" in rendered
-    assert "<h1>" in rendered
-    assert "tg://photo?id=sportsphoto" in rendered
-    assert rich_visible_length(rendered) < MAX_RICH_CHARACTERS
-
-    # Current daily posts must use exact date anchors and reject disposable day words.
-    daily = dict(story)
-    daily["why_interesting"] = "The dated index remains useful as a reference for the events listed."
-    daily.update({"format": "daily_next", "date_anchor": "22 September 2026", "headline": "Scheduled Sports Events for 22 September 2026"})
-    rendered_daily = dynamic_rich_html(daily)
-    assert "22 September 2026" in rendered_daily
-    assert validate_story(daily)
-    disposable = dict(daily); disposable["dek"] = "Tomorrow has several scheduled events."
-    assert not validate_story(disposable)
-
-    # Daily exact-year grounding must remain valid when the source summary does not
-    # repeat the year because the year is an explicit editorial date anchor.
-    grounded_daily = dict(daily)
-    grounded_daily["source_text"] = "The schedule lists events for the stated target date."
-    assert grounded_output(grounded_daily, {})
-
-    # State pruning must remove old queue items while retaining knowledge records.
-    old = iso(now_bd() - timedelta(days=400))
-    state = default_state()
-    state["queue"]["x"] = {"first_seen_at": old}
-    state["posts"].append({"published_at": old, "subject": "Old fact", "claim": "Keep knowledge archive"})
+def run_once(only: str | None = None) -> int:
+    """One scheduler tick. Exit codes: 0 fine, 1 crash/config, 2 a mandatory post is newly overdue."""
+    global RUN_LIMIT
+    REPORT.reset()
+    _EXA_CACHE.clear()
+    if not DRY_RUN and not TELEGRAM_BOT_TOKEN:
+        logger.error("TELEGRAM_BOT_TOKEN is missing")
+        return 1
+    try:
+        state = load_state()
+    except RuntimeError as exc:
+        logger.error("%s", exc)
+        return 1
     prune_state(state)
-    assert "x" not in state["queue"]
-    assert state["posts"], "Knowledge posts must remain in the archive"
+    ai = AIClient(state.get("ai"))
+    if not ai.available:
+        logger.warning("CEREBRAS_API_KEY missing: digests will post in floor mode; knowledge desks are skipped")
+    RUN_LIMIT = Deadline(RUN_DEADLINE_SECONDS)
+    now = now_bd()
+    if only:
+        due = [s for s in build_slots() if s.name == only]
+    elif DRY_RUN:
+        due = build_slots()  # preview mode: show what every slot would post; nothing is persisted
+    else:
+        due = due_slots(state, now)
+    logger.info("Tick %s Dhaka | due: %s", now.strftime("%Y-%m-%d %H:%M"), [s.name for s in due] or "none")
+    posted, evergreen_done = 0, False
+    for slot in due:
+        if RUN_LIMIT.expired():
+            logger.warning("Run deadline reached; remaining slots wait for the next tick")
+            break
+        if slot.desk == "evergreen" and evergreen_done and not DRY_RUN:
+            continue
+        if posted:
+            sleep(POST_DELAY_SECONDS)
+        outcome = execute_slot(state, ai, slot, now)
+        if slot.desk == "evergreen":
+            evergreen_done = True
+        posted += outcome == "posted"
+    code = 0
+    for slot, key in ([] if (DRY_RUN or only) else sla_breaches(state, now)):  # previews/forced runs never raise SLA alarms
+        if state.get("alerts", {}).get(f"sla:{key}"):
+            continue
+        entry = ledger_get(state, key)
+        admin_alert(state, f"sla:{key}", f"{slot.name} for {slot.target(now).isoformat()} is overdue "
+                    f"(status: {entry.get('status', 'never attempted')}; last error: {text(entry.get('error'))[:160]}).")
+        code = 2
+    state["ai"] = ai.export()
+    state["last_run_at"] = utc_iso(now)
+    for name, h in HEALTH.items():
+        agg = state["source_health"].setdefault(name, {"ok": 0, "fail": 0, "last_ok_at": "", "last_error": ""})
+        agg["ok"] += h["ok"]
+        agg["fail"] += h["fail"]
+        if h["ok"]:
+            agg["last_ok_at"] = utc_iso(now)
+        if h["last_error"]:
+            agg["last_error"] = h["last_error"]
+    state["runs"].append({"at": utc_iso(now), "due": [s.name for s in due], "posted": posted,
+                          "errors": REPORT.errors[:3], "ai_calls": REPORT.ai_calls, "exit": code})
+    save_state(state)
+    write_summary(state, code, now)
+    return code
 
-    logger.info("Self-test passed for %s v%s", APP_NAME, APP_VERSION)
+
+# ===========================================================================
+# 11. DIAGNOSE and TEST-POST (live checks from the GitHub runner)
+# ===========================================================================
 
 
-# ---------------------------------------------------------------------------
-# CLI
-# ---------------------------------------------------------------------------
+def run_diagnose() -> int:
+    rows: list[tuple[str, str, str, bool]] = []
+
+    def add(name: str, ok: bool, detail: str, required: bool = False) -> None:
+        rows.append((name, "OK" if ok else ("FAIL" if required else "WARN"), detail, required))
+
+    REPORT.reset()
+    _EXA_CACHE.clear()
+    # Telegram
+    if not TELEGRAM_BOT_TOKEN:
+        add("telegram token", False, "TELEGRAM_BOT_TOKEN is empty", True)
+    else:
+        me = tg_call("getMe")
+        add("telegram getMe", bool(me.get("ok")), text((me.get("result") or {}).get("username")) or text(me.get("description")), True)
+        bot_id = (me.get("result") or {}).get("id")
+        chat = tg_call("getChat", {"chat_id": CHANNEL})
+        add(f"telegram channel {CHANNEL}", bool(chat.get("ok")),
+            text((chat.get("result") or {}).get("title")) or text(chat.get("description")), True)
+        if bot_id and chat.get("ok"):
+            mem = tg_call("getChatMember", {"chat_id": CHANNEL, "user_id": bot_id})
+            r = mem.get("result") or {}
+            can = r.get("can_post_messages", r.get("status") == "creator")
+            add("telegram bot is admin with post rights", bool(mem.get("ok")) and r.get("status") in ("administrator", "creator") and bool(can),
+                f"status={r.get('status')} can_post_messages={r.get('can_post_messages')}", True)
+    # AI
+    ai = AIClient()
+    if not ai.available:
+        add("cerebras key", False, "CEREBRAS_API_KEY is empty (knowledge desks disabled)", True)
+    else:
+        m = http("cerebras", "GET", AIClient.MODELS_URL, headers={"Authorization": f"Bearer {CEREBRAS_API_KEY}"})
+        ids = [text(x.get("id")) for x in (m.data or {}).get("data", [])] if m.ok and isinstance(m.data, dict) else []
+        add("cerebras models", m.ok, f"{len(ids)} models; configured '{CEREBRAS_MODEL}' {'present' if CEREBRAS_MODEL in ids else 'NOT in list (will auto-switch)'}", True)
+        out = ai.json("diagnose", "Reply with the JSON only.", 'Return {"ok": "yes"}.', OBJ(ok=STR), max_tokens=600)
+        add("cerebras completion", out is not None, f"mode={ai.mode} model={ai.model}" + ("" if out else f" error={ai.last_error}"), True)
+    # Exa
+    if not EXA_API_KEY:
+        add("exa", False, "EXA_API_KEY is empty (new-games, corroboration and cricket fallback disabled)")
+    else:
+        res = exa_search("history of chess", num=3, text_chars=500)
+        add("exa search", bool(res), f"{len(res)} results, request variant {_EXA_VARIANT[0]}" if res else text(HEALTH.get("exa", {}).get("last_error")) or "no results")
+    # Wikipedia
+    pg = wiki_page("Chess")
+    add("wikipedia article text", bool(pg), f"{len(pg['text'])} chars" if pg else "failed", True)
+    sm = wiki_summary("Chess")
+    add("wikipedia summary", bool(sm), "ok" if sm else "failed")
+    today = now_bd().date()
+    otd = onthisday_events(today)
+    add("wikipedia on-this-day", bool(otd), f"{len(otd)} events ({otd[0]['src']})" if otd else "failed")
+    ywt = wiki_wikitext(f"{today.year - 100} in sports")
+    yl = year_in_sports_lines(today.year - 100, today) if ywt else []
+    add("wikipedia 'YYYY in sports'", bool(ywt), (f"page fetched; {len(yl)} lines match today's date (0 is normal on some dates)" if ywt else "page could not be fetched"))
+    cwt = wiki_wikitext(f"Portal:Current events/{(today - timedelta(days=1)).year} {MONTHS[(today - timedelta(days=1)).month - 1]} {(today - timedelta(days=1)).day}")
+    ce = current_events_sports(today - timedelta(days=1)) if cwt else []
+    add("wikipedia current events (sports)", bool(cwt), (f"page fetched; sports section parsed into {len(ce)} lines" + ("" if ce else " (parser found none: storylines fall back to RSS)")) if cwt else "page could not be fetched")
+    cm = wiki_category_members("Traditional_games", 20)
+    add("wikipedia category members", bool(cm), f"{len(cm)} pages")
+    # sports data
+    ev, status = espn_events(today)
+    okc = sum(1 for v in status.values() if v == "ok")
+    add("espn scoreboards", okc > 0, f"{okc}/{len(LEAGUES)} leagues reachable, {len(ev)} events in today's window")
+    failed = [k for k, v in status.items() if v != "ok"]
+    if failed:
+        rows.append(("espn unreachable leagues", "INFO", ", ".join(x.split("/")[-1] for x in failed)[:300], False))
+    ts = tsdb_events(today)
+    add("thesportsdb", bool(ts), f"{len(ts)} events (fallback source)")
+    if CRICKETDATA_API_KEY:
+        cd = cricketdata_events(today)
+        add("cricketdata.org", True, f"{len(cd)} events today")
+    else:
+        rows.append(("cricketdata.org", "INFO", "no key set; cricket uses Exa fallback", False))
+    feeds = fetch_feeds()
+    add("rss feeds", bool(feeds), f"{len(feeds)} items from {len({f['source'] for f in feeds})}/{len(RSS_FEEDS)} feeds")
+    # report
+    print("\n=== DIAGNOSE ===")
+    md = ["## Diagnose", "", "| Check | Result | Detail |", "|---|---|---|"]
+    for name, res, detail, _ in rows:
+        print(f"[{res:4}] {name}: {detail}")
+        md.append(f"| {name} | {res} | {detail.replace('|', '/')} |")
+    path = os.environ.get("GITHUB_STEP_SUMMARY")
+    if path:
+        try:
+            with open(path, "a", encoding="utf-8") as fh:
+                fh.write("\n".join(md) + "\n")
+        except OSError:
+            pass
+    return 1 if any(r[1] == "FAIL" for r in rows) else 0
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description=APP_NAME)
-    parser.add_argument("--self-test", action="store_true", help="Run offline regression tests")
-    parser.add_argument("--version", action="store_true", help="Print version")
-    args = parser.parse_args()
+def run_test_post() -> int:
+    if not TELEGRAM_BOT_TOKEN and not DRY_RUN:
+        logger.error("TELEGRAM_BOT_TOKEN missing")
+        return 1
+    story = {"desk": "test", "format": "fact", "label": "TEST POST", "headline": "Test post from The Sports Newsroom v3",
+             "body": "This is a test of the publishing pipeline. If you can read this with an image card above, photo posts work.",
+             "why_interesting": "It confirms that formatting, links and the image card all arrive correctly.",
+             "key_points": ["Bold and italic text", "A clickable source link"], "tags": ["#Test"],
+             "date_anchor": long_date(now_bd().date()).upper(), "sources": [("Wikipedia", "https://en.wikipedia.org/wiki/Chess")]}
+    story["render"] = {"mode": "photo", "html": fit_knowledge_html(story)}
+    r1 = publish_story(story)
+    digest = {"render": {"mode": "text", "html": tg_sanitize(f"🗓 <b>TEST DIGEST · {esc(long_date(now_bd().date()).upper())}</b>\n\n"
+                                                              "<b>⚽ Football</b>\n• 18:30 — <b>Team A vs Team B</b> · Test League\n\n<i>Times in GMT+6 (Bangladesh).</i>")}}
+    r2 = publish_story(digest)
+    logger.info("test-post results: photo=%s text=%s", r1.get("ok"), r2.get("ok"))
+    if not r1.get("ok"):
+        logger.error("photo post failed: %s", r1.get("description"))
+    if not r2.get("ok"):
+        logger.error("text post failed: %s", r2.get("description"))
+    return 0 if r1.get("ok") and r2.get("ok") else 1
+
+# ===========================================================================
+# 12. SELF-TEST: offline fake network + unit, contract, end-to-end, fault and soak tests
+# ===========================================================================
+
+import contextlib  # noqa: E402
+import io  # noqa: E402
+
+
+class FakeResponse:
+    def __init__(self, status: int = 200, payload: Any = None, text_: str | None = None, headers: dict | None = None):
+        self.status_code = status
+        self._payload = payload
+        self.text = text_ if text_ is not None else (json.dumps(payload) if payload is not None else "")
+        self.headers = headers or {}
+
+    def json(self):
+        if self._payload is None:
+            raise ValueError("no JSON")
+        return self._payload
+
+
+_TEAMS = ["Arsenal", "Chelsea", "Liverpool", "Real Madrid", "Barcelona", "Sevilla", "Bayern Munich", "Dortmund",
+          "Juventus", "Napoli", "Lyon", "Ajax", "Benfica", "Boca Juniors", "Flamengo", "Celtic", "Porto", "Roma",
+          "Lakers", "Celtics", "Warriors", "Bulls", "Yankees", "Dodgers", "Bruins", "Rangers"]
+_WORDS = ["harbor", "lantern", "meadow", "falcon", "granite", "willow", "copper", "ember", "orchard", "summit", "thistle",
+          "marble", "cobalt", "saffron", "juniper", "tundra", "velvet", "quarry", "beacon", "cinder", "lagoon", "prairie",
+          "sparrow", "timber", "harvest", "glacier", "anchor", "bramble", "canyon", "dune"]
+
+
+def fake_article(title: str) -> str:
+    """Deterministic but varied article per title (real articles differ; identical fakes would trip the duplicate guard)."""
+    t = re.sub(r"\s*\(.*?\)", "", title)
+    h = int(hashlib.md5(t.encode()).hexdigest()[:8], 16)
+    w = lambda k: _WORDS[(h >> k) % len(_WORDS)]
+    facts = [
+        f"The earliest written rules of {t} date from {1700 + h % 250}, when a committee of {5 + h % 40} members in the town of {w(1).title()} recorded them.",
+        f"Players of {t} traditionally use a {w(2)} {w(3)} made of {w(4)} wood, and a complete set costs about {20 + h % 80} coins.",
+        f"A famous {w(5)} tournament of {t} in {1800 + h % 200} attracted {300 + h % 700} competitors from {3 + h % 9} provinces.",
+        f"The {w(6)} variant of {t} limits each turn to {2 + h % 5} minutes and awards {10 + h % 40} points for a clean finish.",
+        f"According to tradition, {t} began in a {w(7)} market near a {w(8)} river, although historians disagree about the exact place.",
+        f"Governing councils in {w(9).title()} and {w(10).title()} standardised the {w(11)} scoring system of {t} in {1900 + h % 100}.",
+    ]
+    rot = h % len(facts)
+    facts = facts[rot:] + facts[:rot]
+    return (f"{t} is a traditional game and sport played in many countries around the world.\n"
+            + "\n".join(facts[:4]) + "\n"
+            f"Clubs in Bangladesh, India and Pakistan organise regular tournaments, and schools teach the basic skills to children.\n"
+            f"Modern governing bodies publish yearly rule updates, and referees must complete a training course before officiating.\n"
+            f"Spectators often gather in large numbers for finals, and local newspapers publish detailed reports of each season.")
+
+
+class FakeNet:
+    """Stands in for requests.Session. Routes by URL, validates what the bot sends, supports fault injection."""
+
+    def __init__(self):
+        self.tg: list[dict] = []
+        self.violations: list[str] = []
+        self.fail: set[str] = set()
+        self.tg_script: dict[str, list] = {}
+        self.espn_dead: set[str] = set()
+        self.exa_reject_contents = False
+        self.ai_reject_schema = False
+        self.inject_bad_number = False
+        self.ai_calls: list[str] = []
+        self.schema_payloads: list[dict] = []
+        self.msg_id = 100
+        self.tg_read_timeout = False
+
+    # -- helpers
+    def now_utc(self) -> datetime:
+        return now_bd().astimezone(timezone.utc)
+
+    def request(self, method, url, params=None, json=None, data=None, files=None, headers=None, timeout=None):
+        params = params or {}
+        if "api.telegram.org" in url:
+            return self._telegram(url, data or {}, files)
+        if "api.cerebras.ai" in url:
+            if "cerebras" in self.fail:
+                return FakeResponse(500, {"error": "down"})
+            if url.endswith("/models"):
+                return FakeResponse(200, {"data": [{"id": "gpt-oss-120b"}, {"id": "llama3.1-8b"}]})
+            return self._cerebras(json or {})
+        if "api.exa.ai" in url:
+            if "exa" in self.fail:
+                return FakeResponse(500, {"error": "down"})
+            return self._exa(json or {})
+        if "site.api.espn.com" in url:
+            if "espn" in self.fail:
+                return FakeResponse(503, text_="unavailable")
+            return self._espn(url, params)
+        if "thesportsdb.com" in url:
+            if "tsdb" in self.fail:
+                return FakeResponse(500, text_="err")
+            return self._tsdb(params)
+        if "wikipedia.org" in url or "wikimedia.org" in url:
+            if "wikipedia" in self.fail:
+                return FakeResponse(503, text_="unavailable")
+            return self._wiki(url, params)
+        if any(h in url for h in ("bbci.co.uk", "espn.com/espn/rss", "theguardian.com", "skysports.com")):
+            if "rss" in self.fail:
+                return FakeResponse(503, text_="unavailable")
+            return self._rss(url)
+        return FakeResponse(404, text_="unknown host in fake net: " + url)
+
+    # -- telegram
+    def _telegram(self, url, data, files):
+        method = url.rsplit("/", 1)[-1]
+        if "telegram" in self.fail:
+            raise requests.exceptions.ConnectTimeout("fake connect timeout")
+        script = self.tg_script.get(method)
+        if script:
+            step = script.pop(0)
+            if step == "read_timeout":
+                raise requests.exceptions.ReadTimeout("fake read timeout")
+            status, desc = step
+            payload = {"ok": False, "error_code": status, "description": desc}
+            if status == 429:
+                payload["parameters"] = {"retry_after": 1}
+            return FakeResponse(status, payload)
+        if method == "getMe":
+            return FakeResponse(200, {"ok": True, "result": {"id": 42, "username": "TestBot"}})
+        if method == "getChat":
+            return FakeResponse(200, {"ok": True, "result": {"id": -100, "title": "Test Channel"}})
+        if method == "getChatMember":
+            return FakeResponse(200, {"ok": True, "result": {"status": "administrator", "can_post_messages": True}})
+        if method in ("sendMessage", "sendPhoto"):
+            body = data.get("text") if method == "sendMessage" else data.get("caption")
+            body = body or ""
+            limit = MESSAGE_LIMIT if method == "sendMessage" else CAPTION_LIMIT
+            parse = data.get("parse_mode")
+            if method == "sendPhoto":
+                blob = files["photo"].read(4) if files and "photo" in files else b""
+                if blob[:2] != b"\xff\xd8":
+                    self.violations.append("sendPhoto without a JPEG file")
+            if parse == "HTML" and not is_valid_tg_html(body):
+                self.violations.append(f"{method}: invalid HTML sent to Telegram: {body[:80]!r}")
+                return FakeResponse(400, {"ok": False, "error_code": 400, "description": "Bad Request: can't parse entities"})
+            if vis_len(body) > limit:
+                self.violations.append(f"{method}: {vis_len(body)} chars exceeds {limit}")
+                return FakeResponse(400, {"ok": False, "error_code": 400, "description": "message is too long"})
+            self.msg_id += 1
+            self.tg.append({"method": method, "text": body, "chat": data.get("chat_id"), "parse": parse})
+            return FakeResponse(200, {"ok": True, "result": {"message_id": self.msg_id}})
+        return FakeResponse(404, {"ok": False, "description": "unknown method"})
+
+    # -- cerebras
+    def _cerebras(self, payload):
+        rf = payload.get("response_format") or {}
+        if rf.get("type") == "json_schema":
+            self.schema_payloads.append(rf)
+            if self.ai_reject_schema:
+                return FakeResponse(400, {"message": "response_format json_schema strict is not supported for this model"})
+        msgs = payload.get("messages", [])
+        system, user = msgs[0]["content"], msgs[1]["content"]
+        task = re.match(r"TASK: (\w+)", system).group(1)
+        self.ai_calls.append(task)
+        repair = any("broke these rules" in m.get("content", "") for m in msgs[2:])
+        obj = self._ai_answer(task, system, user, repair)
+        return FakeResponse(200, {"choices": [{"message": {"content": json.dumps(obj)}, "finish_reason": "stop"}],
+                                  "usage": {"total_tokens": 120}})
+
+    def _ai_answer(self, task, system, user, repair):
+        if task == "digest_intro":
+            league = re.search(r"\(([^;]+);", user)
+            return {"intro": f"A busy slate led by the {league.group(1) if league else 'top leagues'}."}
+        if task == "digest_storyline":
+            first = re.search(r"\[1\] (.+)", user)
+            return {"storyline": (first.group(1) if first else "")[:200]}
+        if task == "otd_pick":
+            return {"index": 1, "reason": "concrete"}
+        if task == "extract_events":
+            d = re.search(r"exact date (\d{4}-\d{2}-\d{2})", system).group(1)
+            url = re.search(r"URL: (\S+)", user)
+            if "Bangladesh" in user and url:
+                return {"events": [{"sport": "Cricket", "league": "Test Series", "name": "Bangladesh vs Sri Lanka",
+                                    "home": "Bangladesh", "away": "Sri Lanka", "date": d, "time_utc": "04:00", "source_url": url.group(1)}]}
+            return {"events": []}
+        if task == "extract_facts":
+            art = user.split("ARTICLE:\n", 1)[1]
+            sents = [s.strip() for s in re.split(r"(?<=[.!?])\s+", art) if len(s.strip()) > 60 and re.search(r"\d", s) and "[SOURCE" not in s]
+            if not sents:
+                return {"facts": []}
+            q = sents[0][:250]
+            return {"facts": [{"claim": q, "evidence_quote": q, "surprise": 4, "certainty": "settled"}]}
+        if task == "write_post":
+            topic = re.search(r"TOPIC: (.+)", user).group(1)
+            ev = user.split("EVIDENCE:\n", 1)[1]
+            if self.inject_bad_number and not repair:
+                return {"headline": f"{topic}: a bad number"[:80], "body": "The rules were fixed in 1,600 by a committee. It spread widely.",
+                        "why_interesting": "It changed how people play.", "key_points": []}
+            quote = re.search(r"KEY QUOTE: (.+)", ev)
+            if quote:
+                rest = [s for s in split_sentences(ev.split("KEY QUOTE:")[0]) if s not in quote.group(1) and len(s) > 30]
+                body = quote.group(1) + " " + (rest[0] if rest else "")
+            else:
+                m = re.match(r"EVENT \(\d+\): (.+?)\nBACKGROUND: (.*)", ev, re.S)
+                body = (m.group(1) + " " + (split_sentences(m.group(2)) or [""])[0]) if m else ev[:300]
+            body = " ".join(w + (" notably" if (i + 1) % 7 == 0 else "") for i, w in enumerate(body.split()))
+            gist = " ".join((quote.group(1) if quote else re.sub(r"^EVENT \(\d+\): ", "", ev)).split()[3:11])
+            return {"headline": f"{topic}: {gist}"[:80], "body": body.strip(),
+                    "why_interesting": "It shows how the game developed over time.", "key_points": []}
+        if task == "diagnose":
+            return {"ok": "yes"}
+        return {}
+
+    # -- exa
+    def _exa(self, body):
+        if self.exa_reject_contents and "contents" in body:
+            return FakeResponse(400, {"error": "unknown field contents"})
+        q = body.get("query", "").lower()
+        day = self.now_utc().date().isoformat()
+        if "official rules" in q:
+            return FakeResponse(200, {"results": [
+                {"url": "https://www.britannica.com/topic/game", "title": "Game rules | Britannica", "text": fake_article("Game"), "publishedDate": None},
+                {"url": "https://www.fide.com/laws", "title": "Laws of Chess", "text": fake_article("Chess laws"), "publishedDate": None}]})
+        if "board game" in q:
+            res = []
+            for i in range(3):
+                w = _WORDS[(hash_int(day) + i * 7) % len(_WORDS)]
+                k = hash_int(day + str(i))
+                mech = _WORDS[(k >> 3) % len(_WORDS)], _WORDS[(k >> 5) % len(_WORDS)], _TEAMS[k % len(_TEAMS)]
+                res.append({"url": f"https://www.dicebreaker.com/games/{w}-{day}-{i}", "title": f"{w.title()} Lights: a new board game announced",
+                            "publishedDate": (self.now_utc() - timedelta(days=2)).isoformat(),
+                            "text": (f"{mech[2]} Games has announced {w.title()} Lights, a board game for {2 + k % 3} to {4 + k % 3} players that takes about {30 + k % 60} minutes to play. "
+                                     f"The game is set to be released in {MONTHS[k % 12]} 2026. Players place {mech[0]} tiles to build a {mech[1]} town and score points for each connected lantern. "
+                                     f"The publisher says the box contains {80 + k % 90} tiles and a rulebook of {8 + k % 20} pages. Early reviewers praised the quick setup and the simple turn structure. "
+                                     f"Backers of the earlier campaign in {_WORDS[(k >> 7) % len(_WORDS)].title()} will receive a bonus expansion. ")})
+            return FakeResponse(200, {"results": res})
+        if "cricket" in q:
+            m = re.search(r"(\d{1,2} [A-Z][a-z]+ \d{4})", body.get("query", ""))
+            return FakeResponse(200, {"results": [{"url": "https://www.espncricinfo.com/series/test-1", "title": f"Bangladesh vs Sri Lanka, {m.group(1) if m else ''}",
+                                                   "text": f"Bangladesh vs Sri Lanka, first Test, {m.group(1) if m else ''}. Match starts at 04:00 GMT at Dhaka."}]})
+        if "history of chess" in q:
+            return FakeResponse(200, {"results": [{"url": "https://www.britannica.com/topic/chess", "title": "Chess", "text": "Chess history " * 40}]})
+        return FakeResponse(200, {"results": []})
+
+    # -- espn
+    def _espn(self, url, params):
+        path = re.search(r"/sports/(.+?)/scoreboard", url).group(1)
+        lg = LEAGUE_BY_PATH.get(path)
+        if not lg or path in self.espn_dead:
+            return FakeResponse(404, text_="not found")
+        ymd = params["dates"]
+        d = date(int(ymd[:4]), int(ymd[4:6]), int(ymd[6:]))
+        now = self.now_utc()
+        events = []
+        if lg[4] == "team":
+            for i, (hh, mm) in enumerate([(12, 30), (17, 0), (23, 0)]):
+                start = datetime(d.year, d.month, d.day, hh, mm, tzinfo=timezone.utc)
+                seed = hash_int(f"{path}{ymd}{i}")
+                h, a = _TEAMS[seed % len(_TEAMS)], _TEAMS[(seed // 7 + 5) % len(_TEAMS)]
+                if h == a:
+                    a = _TEAMS[(seed + 1) % len(_TEAMS)]
+                post = start + timedelta(hours=2) < now
+                hs, as_ = seed % 4, (seed // 3) % 4
+                events.append({
+                    "id": f"{ymd}-{i}", "date": start.strftime("%Y-%m-%dT%H:%MZ"), "name": f"{a} at {h}",
+                    "status": {"type": {"state": "post" if post else "pre", "completed": post,
+                                        "name": "STATUS_FINAL" if post else "STATUS_SCHEDULED", "shortDetail": "FT" if post else "scheduled"}},
+                    "competitions": [{"venue": {"fullName": "Test Stadium"},
+                                      "notes": [{"headline": "Semifinal"}] if (i == 0 and path.endswith("champions")) else [],
+                                      "competitors": [{"homeAway": "home", "team": {"displayName": h}, "score": str(hs), "winner": hs > as_},
+                                                      {"homeAway": "away", "team": {"displayName": a}, "score": str(as_), "winner": as_ > hs}]}],
+                    "links": [{"href": "https://espn.example/e"}]})
+        else:
+            monday = d - timedelta(days=d.weekday())
+            start = datetime(monday.year, monday.month, monday.day, 9, 0, tzinfo=timezone.utc)
+            end = start + timedelta(days=6, hours=11)
+            state = "post" if end < now else "in" if start < now else "pre"
+            events.append({"id": f"{path}-{monday.isoformat()}", "date": start.strftime("%Y-%m-%dT%H:%MZ"),
+                           "endDate": end.strftime("%Y-%m-%dT%H:%MZ"), "name": f"{lg[2]} Open",
+                           "status": {"type": {"state": state, "completed": state == "post", "name": "STATUS_X"}},
+                           "competitions": [{"competitors": [{"winner": True, "athlete": {"displayName": "Test Player"}}]}]})
+        return FakeResponse(200, {"events": events})
+
+    def _tsdb(self, params):
+        if "espn" in self.fail and params.get("s") == "Soccer":
+            d = params["d"]
+            return FakeResponse(200, {"events": [{"idEvent": f"{d}-{i}", "strEvent": f"Club {i} vs Town {i}", "strSport": "Soccer",
+                                                  "strLeague": "Premier League", "dateEvent": d, "strTime": f"{10 + i * 4:02d}:00:00",
+                                                  "strHomeTeam": f"Club {i}", "strAwayTeam": f"Town {i}", "strStatus": "Not Started"} for i in range(4)]})
+        return FakeResponse(200, {"events": None})
+
+    # -- wikipedia
+    def _wiki(self, url, p):
+        now = now_bd()
+        if "/page/summary/" in url:
+            title = url.rsplit("/", 1)[-1].replace("_", " ")
+            from urllib.parse import unquote
+            title = unquote(title)
+            return FakeResponse(200, {"title": title, "extract": fake_article(title)[:420], "description": "sport",
+                                      "content_urls": {"desktop": {"page": wiki_url(title)}}})
+        if "/feed/onthisday/" in url:
+            mm, dd = re.search(r"/events/(\d\d)/(\d\d)", url).groups()
+            day = int(dd)
+            evs = []
+            tmpl = [
+                "The {a} {b} club wins the inaugural cricket championship final before a crowd at {c} after {d} overs.",
+                "A football match between {A} and {B} ends in a famous draw watched by thousands at the {c} ground.",
+                "The world chess title match between {A} and {B} begins in {c} after months of negotiation over the {d} rules.",
+                "The {a} Cup tennis final is decided in five sets on a rain-delayed afternoon in {c}, won by {A}.",
+                "Organisers introduce a new badminton scoring rule at the {a} {b} Open held in {c} with {d} entrants.",
+                "A record marathon field of {A} and {B} runners sets off from {c} on a {d} morning.",
+            ]
+            for j, age in enumerate((100, 37, 50, 75, 25, 62)):
+                k = day * 6 + j + 1
+                words = {x: _WORDS[(k * (3 + i) + i * 5 + k // 4) % len(_WORDS)] for i, x in enumerate("abcd")}
+                words.update(A=_TEAMS[(k * 7 + k // 3) % len(_TEAMS)], B=_TEAMS[(k * 11 + 3 + k // 5) % len(_TEAMS)], c=words["c"].title())
+                extra = f" It drew {1000 + (k * 37) % 9000} spectators and lasted {2 + k % 6} days."
+                evs.append({"text": tmpl[(k * 5) % len(tmpl)].format(**words) + (extra if k % 2 else ""),
+                            "year": now.year - age, "pages": [{"title": "Test cricket", "extract": fake_article("Test cricket")[:400], "description": "sport",
+                                                               "content_urls": {"desktop": {"page": "https://en.wikipedia.org/wiki/Test_cricket"}}}]})
+            evs.append({"text": "A devastating earthquake kills thousands in the city.", "year": now.year - 60, "pages": []})
+            evs.append({"text": "The city council approves a new tram line.", "year": now.year - 30, "pages": []})
+            return FakeResponse(200, {"events": evs})
+        action = p.get("action")
+        if action == "parse":
+            page = p.get("page", "")
+            if page.startswith("Portal:Current events"):
+                wt = ("==Sep==\n;Armed conflicts\n* Something else entirely about politics in a region.\n;Sports\n"
+                      "* [[Cricket]]: [[Bangladesh]] beat [[Sri Lanka]] by five wickets in the first Test at [[Dhaka]].<ref>{{cite web|url=https://www.espncricinfo.com/x|title=t}}</ref>\n"
+                      "* [[Association football]]: [[Arsenal]] win the derby 2-1 in front of a record crowd.\n;Science\n* Unrelated science item goes here for testing.\n")
+                return FakeResponse(200, {"parse": {"title": page, "wikitext": wt}})
+            ym = re.match(r"(\d{4}) in sports", page)
+            if ym:
+                mon = MONTHS[now.month - 1]
+                a, b, c = (_WORDS[(now.day * k) % len(_WORDS)] for k in (3, 5, 7))
+                wt = (f"==Events==\n* [[{mon} {now.day}]] – [[Boxing]]: The {a} {b} title fight ends in a controversial draw before a crowd of 20,000 in {c.title()}.\n"
+                      f"* [[{mon} 1]] – [[Golf]]: Something on another day entirely.\n")
+                return FakeResponse(200, {"parse": {"title": page, "wikitext": wt}})
+            return FakeResponse(200, {"error": {"code": "missingtitle"}})
+        if action == "query" and p.get("list") == "categorymembers":
+            cat = p.get("cmtitle", "")
+            return FakeResponse(200, {"query": {"categorymembers": [{"title": f"Fake {cat[9:14]} game {i}"} for i in range(40)]}})
+        if action == "query" and "extracts" in p.get("prop", ""):
+            title = p.get("titles", "")
+            if title.startswith("Missing"):
+                return FakeResponse(200, {"query": {"pages": [{"title": title, "missing": True}]}})
+            cats = [{"title": "Category:Video games"}] if "Video" in title else [{"title": "Category:Sports"}]
+            return FakeResponse(200, {"query": {"pages": [{"pageid": 1, "title": title, "extract": fake_article(title),
+                                                           "categories": cats, "fullurl": wiki_url(title)}]}})
+        return FakeResponse(200, {"error": {"code": "badrequest"}})
+
+    def _rss(self, url):
+        pub = (self.now_utc() - timedelta(hours=6)).strftime("%a, %d %b %Y %H:%M:%S +0000")
+        items = "".join(f"<item><title>Star wins record title number {i}</title><link>https://feeds.example/{i}-{abs(hash(url)) % 999}</link>"
+                        f"<description>&lt;p&gt;The champion sets a record after a dramatic final round.&lt;/p&gt;</description><pubDate>{pub}</pubDate></item>"
+                        for i in range(3))
+        return FakeResponse(200, text_=f'<?xml version="1.0"?><rss version="2.0"><channel><title>t</title>{items}</channel></rss>')
+
+
+def hash_int(s: str) -> int:
+    return int(hashlib.md5(str(s).encode()).hexdigest()[:8], 16)
+
+
+class T:
+    n = 0
+    failed: list[str] = []
+
+
+def check(cond: Any, label: str) -> None:
+    T.n += 1
+    if not cond:
+        T.failed.append(label)
+        print("  FAIL:", label)
+
+
+@contextlib.contextmanager
+def quiet():
+    lvl = logger.level
+    logger.setLevel(logging.CRITICAL)
+    buf = io.StringIO()
+    try:
+        with contextlib.redirect_stdout(buf):
+            yield buf
+    finally:
+        logger.setLevel(lvl)
+
+
+@contextlib.contextmanager
+def sandbox(net: FakeNet, workdir: str, **over: Any):
+    g = globals()
+    keys = ["STATE_FILE", "POSTED_FILE", "TELEGRAM_BOT_TOKEN", "EXA_API_KEY", "CEREBRAS_API_KEY", "CHANNEL", "ADMIN_CHAT_ID",
+            "CRICKETDATA_API_KEY", "DRY_RUN", "POST_DELAY_SECONDS", "CEREBRAS_MODEL"]
+    saved = {k: g[k] for k in keys}
+    saved_env = (_SESSION[0], _SLEEP[0], _CLOCK["now"], _EXA_VARIANT[0])
+    g.update({"STATE_FILE": os.path.join(workdir, "state.json"), "POSTED_FILE": os.path.join(workdir, "posted.txt"),
+              "TELEGRAM_BOT_TOKEN": "123456:TESTTOKENTESTTOKENTESTTOKEN12345", "EXA_API_KEY": "exa_test_key_123",
+              "CEREBRAS_API_KEY": "cb_test_key_123", "CHANNEL": "@TestChannel", "ADMIN_CHAT_ID": "999", "CRICKETDATA_API_KEY": "",
+              "DRY_RUN": False, "POST_DELAY_SECONDS": 0.0, "CEREBRAS_MODEL": "gpt-oss-120b"})
+    g.update(over)
+    _SESSION[0], _SLEEP[0], _EXA_VARIANT[0] = net, (lambda s: None), 0
+    try:
+        yield
+    finally:
+        g.update(saved)
+        _SESSION[0], _SLEEP[0], _CLOCK["now"], _EXA_VARIANT[0] = saved_env
+
+
+def set_clock(d: date, hour: int, minute: int = 17) -> None:
+    _CLOCK["now"] = datetime(d.year, d.month, d.day, hour, minute, tzinfo=BD_TZ)
+
+
+def read_state() -> dict:
+    return json.loads(Path(STATE_FILE).read_text(encoding="utf-8"))
+
+
+def run_day(day: date, hours: Iterable[int] = range(24), skip: float = 0.0, rng: random.Random | None = None) -> list[int]:
+    codes = []
+    for h in hours:
+        if rng and rng.random() < skip:
+            continue
+        set_clock(day, h)
+        with quiet():
+            codes.append(run_once())
+    return codes
+
+
+def plain_posts(net: FakeNet) -> list[str]:
+    return [plain_text(m["text"]) for m in net.tg]
+
+
+# --- unit tests ----------------------------------------------------------------------------------
+
+_RSS_SAMPLE = ('<?xml version="1.0"?><rss version="2.0" xmlns:dc="x"><channel><item><title>A &amp; B win</title><link>https://x.test/1</link>'
+               '<description>&lt;b&gt;Hello&lt;/b&gt; world</description><pubDate>Mon, 21 Sep 2026 10:00:00 GMT</pubDate></item></channel></rss>')
+_ATOM_SAMPLE = ('<feed xmlns="http://www.w3.org/2005/Atom"><entry><title>Atom story</title><link href="https://x.test/a"/>'
+                '<summary>Sum</summary><updated>2026-09-21T10:00:00Z</updated></entry></feed>')
+
+
+def test_units() -> None:
+    print("units...")
+    # scope filter
+    check(is_excluded("PlayStation patch notes") and is_excluded("Fortnite esports final") and is_excluded("betting odds on Saturday"), "scope: bad texts excluded")
+    check(not is_excluded("Ludo rules; a steam locomotive; against the odds they won the cricket final"), "scope: no false positives")
+    check(is_excluded("The console streamer did a playthrough") and not is_excluded("The publisher released the rulebook; the publisher says the trailer for the campaign is live"), "scope: soft terms need 2 distinct hits; tabletop words like publisher are fine")
+    check(canonical_url("https://www.Example.com/a/?utm_source=x&ref=y&id=3") == "example.com/a?id=3", "canonical_url strips tracking")
+    # windows
+    d = date(2026, 9, 22)
+    ws, we = dhaka_window(d)
+    check(ws == datetime(2026, 9, 21, 18, tzinfo=timezone.utc) and we - ws == timedelta(days=1), "dhaka window = 18:00Z..18:00Z")
+    mk = lambda hh, dd: make_event(id=f"x{hh}{dd}", sport="Football", league="L", start=datetime(2026, 9, dd, hh, tzinfo=timezone.utc), name="A vs B")
+    kept = in_window([mk(17, 21), mk(18, 21), mk(17, 22), mk(18, 22)], d)
+    check(sorted((e["start"].day, e["start"].hour) for e in kept) == [(21, 18), (22, 17)], "window edges respect Dhaka midnight")
+    # sanitiser fuzz
+    rnd = random.Random(3)
+    alpha = list("<>/&\"'abiuscode ahref=") + ["<b>", "</b>", '<a href="https://x.y">', "</a>", "<i>", "&amp;", "&lt;", "<br>", "<u>", "</u>", "😀"]
+    ok = True
+    for _ in range(1000):
+        s = "".join(rnd.choice(alpha) for _ in range(rnd.randint(0, 40)))
+        o = tg_sanitize(s)
+        st_: list[str] = []
+        for t in re.finditer(r"<(/?)(\w+)[^>]*>", o):
+            if not t.group(1):
+                st_.append(t.group(2))
+            elif not st_ or st_.pop() != t.group(2):
+                ok = False
+        ok = ok and not st_ and tg_sanitize(o) == o
+    check(ok, "html fuzz: 1000 inputs -> balanced, idempotent, allowed tags only")
+    check("javascript" not in tg_sanitize('<a href="javascript:alert(1)">x</a>'), "sanitiser drops javascript: links")
+    # guards
+    ev = "The race is 1,500 metres long. It was first held in 1896 at Athens, and Ludo descends from Pachisi."
+    base = {"headline": "The 1,500 metres", "body": "The race covers 1,500 metres. It was first held in 1896.", "why_interesting": "It dates back to Athens.", "key_points": []}
+    check(guard_violations(base, ev) == [], "guard: comma numbers match evidence (v2 bug fixed)")
+    check(any("1600" in v for v in guard_violations(dict(base, body="It covers 1,600 metres."), ev)), "guard: wrong number caught")
+    check(any("oldest" in v for v in guard_violations(dict(base, body="It was the oldest race in 1896."), ev)), "guard: unsupported superlative caught")
+    check(any("names" in v for v in guard_violations(dict(base, body="It was won by Zorblax Quimby and Harold Vanterpool."), ev)), "guard: invented names caught")
+    check(any("scope" in v for v in guard_violations(dict(base, body="Big on Xbox esports."), ev)), "guard: out-of-scope caught")
+    check(any("time-relative" in v for v in guard_violations(dict(base, body="Played tomorrow in 1896."), ev, daily=True)), "guard: disposable words in daily posts")
+    check(any("scores" in v for v in guard_violations(dict(base, body="They won 3-1 in 1896."), ev)), "guard: unsupported scores caught")
+    check(guard_violations({"headline": "The match", "body": "They won 3–1.", "why_interesting": "", "key_points": []}, "Final score 3-1 in the match.") == [], "guard: dash variants of scores match")
+    # soft fix
+    sf = soft_fix({"headline": "Long headline… goes on", "body": " ".join(f"Sentence number {i} is here." for i in range(9)).rstrip("."),
+                   "why_interesting": "Two. Sentences", "key_points": ["a" * 200, "b", "c", "d"]})
+    check(len(split_sentences(sf["body"])) <= 4 and sf["body"][-1] in ".!?" and "…" not in sf["headline"] and len(sf["key_points"]) == 3 and sf["why_interesting"].endswith("."), "soft_fix repairs formatting in code")
+    # quotes
+    art = "Ludo is a strategy board game for two to four players, in which the players race their four tokens from start to finish."
+    check(quote_in_text("Ludo is a strategy board game for two to four players, in which the players race", art), "quote: exact")
+    check(quote_in_text("Ludo is a strategy board game for two to four players in which the players race their four tokens", art), "quote: punctuation-tolerant")
+    check(not quote_in_text("Ludo was invented by aliens in the year 3000 for space kings", art), "quote: fabricated rejected")
+    check(split_sentences("He won the U.S. Open in 1999. Dr. Smith agreed. J. Smith won too! Then it ended.") ==
+          ["He won the U.S. Open in 1999.", "Dr. Smith agreed.", "J. Smith won too!", "Then it ended."], "sentence splitter keeps abbreviations intact")
+    src = "The earliest written rules of the game date from 1850, when a committee of twelve members in England recorded the first standard rules for everyone."
+    check(copies_source(src, src) and not copies_source("A committee of twelve men wrote the first rules in 1850 in England.", src), "paraphrase guard: verbatim copying detected, paraphrase allowed")
+    check(hashtag("Falcon Lights: a new board game announced") == "#FalconLightsBoard" and hashtag("x" * 40) == "", "hashtags are tidy or skipped")
+    # schema helpers
+    check(extract_json('```json\n{"a": 1}\n```') == {"a": 1} and extract_json('noise {"a": 2} tail') == {"a": 2}, "extract_json handles fences and noise")
+    check(validate_schema({"facts": [{"claim": "x", "evidence_quote": "y", "surprise": 3, "certainty": "maybe"}]}, FACTS_SCHEMA) != [], "validate_schema: enum enforced")
+    bad_kw = json.dumps([INTRO_SCHEMA, STORYLINE_SCHEMA, PICK_SCHEMA, FACTS_SCHEMA, POST_SCHEMA, EVENTS_SCHEMA])
+    check(not any(k in bad_kw for k in ('"minimum"', '"maximum"', '"minItems"', '"maxItems"', '"pattern"', '"format"')), "schemas: no constraint keywords that strict mode may reject")
+    # parsers
+    f1, f2 = parse_feed(_RSS_SAMPLE), parse_feed(_ATOM_SAMPLE)
+    check(f1 and f1[0]["title"] == "A & B win" and f1[0]["summary"] == "Hello world" and f1[0]["published"], "rss parser")
+    check(f2 and f2[0]["url"] == "https://x.test/a" and f2[0]["published"], "atom parser")
+    check(parse_feed("<not xml") == [] and parse_feed("") == [], "feed parser survives garbage")
+    wl = "* [[Cricket]]: [[Bangladesh]] beat [[Sri Lanka|Lions]] by five wickets.<ref>{{cite web|url=https://e.test/x}}</ref> '''bold'''"
+    check(wikitext_to_plain(wl) == "Cricket: Bangladesh beat Lions by five wickets. bold", "wikitext_to_plain")
+    check(first_link_title("[[September 21]] – [[Boxing]]: fight") == "Boxing" and first_external_url(wl) == "https://e.test/x", "wikitext links")
+    check(date_in_text("Match on 22nd September 2026 at Dhaka", date(2026, 9, 22)) and not date_in_text("Match on 23 September", date(2026, 9, 22)), "date_in_text")
+    # espn parsing + scoring
+    payload = {"events": [{"id": "1", "date": "2026-09-22T12:30Z", "name": "X at Y", "status": {"type": {"state": "pre", "name": "STATUS_SCHEDULED"}},
+                           "competitions": [{"notes": [{"headline": "Final"}], "competitors": [
+                               {"homeAway": "home", "team": {"displayName": "Bangladesh"}, "score": "0"},
+                               {"homeAway": "away", "team": {"displayName": "India"}, "score": "0"}]}]},
+                          {"id": "2", "date": "bad"}, {"id": "3"}]}
+    evs = parse_espn(payload, LEAGUE_BY_PATH["soccer/fifa.friendly"])
+    check(len(evs) == 1 and evs[0]["name"] == "Bangladesh vs India" and evs[0]["state"] == "scheduled", "parse_espn tolerant of bad events")
+    low = make_event(id="l", sport="Football", league="Small League", tier="C", name="Foo vs Bar", start=datetime(2026, 9, 22, 10, tzinfo=timezone.utc))
+    check(score_event(evs[0]) > score_event(low) + 40, "score: Bangladesh final outranks obscure match")
+    many = [make_event(id=f"e{i}", sport="Football", league="Premier League", tier="A", name=f"Arsenal vs T{i}", start=datetime(2026, 9, 22, 10 + i % 5, tzinfo=timezone.utc)) for i in range(20)]
+    many += [make_event(id="c1", sport="Cricket", league="Asia Cup", tier="A", name="India vs Bangladesh", start=datetime(2026, 9, 22, 4, tzinfo=timezone.utc))]
+    hi, idx = select_events(many)
+    check(sum(1 for e in hi if e["sport"] == "Football") <= 3 and any(e["sport"] == "Cricket" for e in hi), "select: per-sport cap and diversity")
+    # rendering limits
+    huge = {"format": "fact", "headline": "H" * 300, "body": "Sentence one is long enough here. " * 60, "why_interesting": "Because. " * 100,
+            "key_points": ["k" * 300] * 5, "sources": [("A", "https://a.test/?x=1&y=2")] * 6, "tags": ["#T"] * 8}
+    check(vis_len(fit_knowledge_html(huge)) <= CAPTION_LIMIT and is_valid_tg_html(fit_knowledge_html(huge)), "caption always fits 1024")
+    many2 = [make_event(id=f"m{i}", sport=["Football", "Cricket", "Tennis"][i % 3], league="A very long league name for testing purposes",
+                        tier="A", name=f"Team Number {i} vs Rival Number {i}", start=datetime(2026, 9, 22, 6 + i % 12, tzinfo=timezone.utc)) for i in range(200)]
+    hi2, idx2 = select_events(many2, 12, 15)
+    dh = build_digest_html("next", date(2026, 9, 22), hi2, idx2, "Intro.", {}, [("ESPN", "https://www.espn.com/")])
+    check(vis_len(dh) <= MESSAGE_LIMIT and is_valid_tg_html(dh), "digest always fits 4096")
+    check("GMT+6" in dh, "digest states its timezone")
+    check(redact("x bot123456:TESTTOKENTESTTOKENTESTTOKEN12345 y").count("***") == 1, "redact hides bot tokens")
+    # scheduler
+    st = default_state()
+    at = lambda h: datetime(2026, 9, 21, h, 17, tzinfo=BD_TZ)
+    check([s.name for s in due_slots(st, at(6))] == [], "scheduler: nothing due at 06:17")
+    check([s.name for s in due_slots(st, at(8))] == ["day_in_sports"], "scheduler: DAY IN SPORTS opens 07:00")
+    check("next_up" not in [s.name for s in due_slots(st, at(18))] and "next_up" in [s.name for s in due_slots(st, at(19))], "scheduler: NEXT UP opens 19:00")
+    ledger_update(st, "day_in_sports:2026-09-20", status="posted")
+    check("day_in_sports" not in [s.name for s in due_slots(st, at(9))], "scheduler: posted slot is not due again")
+    ledger_update(st, "next_up:2026-09-22", status="failed", attempts=MAX_ATTEMPTS_PER_SLOT)
+    check("next_up" not in [s.name for s in due_slots(st, at(20))], "scheduler: attempts are capped")
+    check([s.name for s, _ in sla_breaches(default_state(), at(23))] == ["day_in_sports", "next_up"], "sla: overdue mandatory slots detected")
+    # migration
+    v2 = {"schema_version": 2, "posts": [{"published_at": "2026-09-01T00:00:00+00:00", "game_or_sport": "Chess", "claim": "c"}], "queue": [1]}
+    m = migrate_state(v2)
+    check(m["schema_version"] == 3 and m["posts"][0]["topic"] == "Chess" and "ledger" in m and "queue" not in m, "state migration v2 -> v3")
+
+
+# --- contract + end-to-end + faults ----------------------------------------------------------------
+
+def fresh() -> tuple[FakeNet, str]:
+    return FakeNet(), tempfile.mkdtemp(prefix="sn_test_")
+
+
+def test_contracts() -> None:
+    print("contracts...")
+    net, tmp = fresh()
+    with sandbox(net, tmp):
+        set_clock(date(2026, 9, 21), 10)
+        ai = AIClient()
+        out = ai.json("diagnose", "x", "y", OBJ(ok=STR))
+        check(out == {"ok": "yes"} and ai.mode == "json_schema", "ai: strict json_schema mode works")
+        payload_kw = json.dumps(net.schema_payloads[-1])
+        check('"strict": true' in payload_kw and "additionalProperties" in payload_kw, "ai: request carries strict schema")
+        net2, tmp2 = fresh()
+        net2.ai_reject_schema = True
+        _SESSION[0] = net2
+        ai2 = AIClient()
+        out2 = ai2.json("diagnose", "x", "y", OBJ(ok=STR))
+        check(out2 == {"ok": "yes"} and ai2.mode == "json_object", "ai: downgrades to json_object when schema is rejected")
+        net3, _ = fresh()
+        net3.exa_reject_contents = True
+        _SESSION[0] = net3
+        _EXA_VARIANT[0] = 0
+        _EXA_CACHE.clear()
+        res = exa_search("history of chess", num=2)
+        check(len(res) == 1 and _EXA_VARIANT[0] == 1, "exa: falls back to alternate request shape on HTTP 400")
+        net4, _ = fresh()
+        net4.fail = {"cerebras"}
+        _SESSION[0] = net4
+        ai4 = AIClient()
+        check(ai4.json("diagnose", "x", "y", OBJ(ok=STR)) is None and ai4.last_error, "ai: outage returns None and records why (never raises)")
+        # secrets never leak into logged errors
+        net5, _ = fresh()
+        net5.fail = {"telegram"}
+        _SESSION[0] = net5
+        r = tg_call("sendMessage", {"chat_id": "@x", "text": "hi"})
+        check(not r.get("ok") and TELEGRAM_BOT_TOKEN not in json.dumps(r) and not r.get("uncertain"), "telegram: connect failure is a clean failure, token not leaked")
+
+
+def test_e2e(show: bool = False) -> FakeNet:
+    print("end-to-end day..." if not show else "")
+    net, tmp = fresh()
+    with sandbox(net, tmp):
+        day = date(2026, 9, 21)
+        codes = run_day(day)
+        st = read_state()
+        posts = [p for p in st["posts"] if p["day"] == day.isoformat()]
+        c = Counter(p["desk"] for p in posts)
+        if show:
+            return net
+        check(all(x == 0 for x in codes), f"e2e: every tick exits 0 (got {sorted(set(codes))})")
+        check(c["past"] == 1 and c["next"] == 1 and c["history"] == 1, f"e2e: both digests + history posted once ({dict(c)})")
+        check(c["evergreen"] + c["newgames"] == 3, f"e2e: three evergreen-type posts ({dict(c)})")
+        check(len(net.tg) == 6 and not net.violations, f"e2e: 6 telegram messages, all valid ({len(net.tg)}; {net.violations[:2]})")
+        txt = plain_posts(net)
+        check(any("THE DAY IN SPORTS · 20 SEPTEMBER 2026" in t for t in txt), "e2e: DAY IN SPORTS carries the exact previous date")
+        nxt = next((t for t in txt if t.startswith("🗓")), "")
+        check("NEXT UP · 22 SEPTEMBER 2026" in nxt and "Times in GMT+6" in nxt, "e2e: NEXT UP carries the exact next date + timezone note")
+        check("Bangladesh vs Sri Lanka" in nxt and "10:00" in nxt, "e2e: cricket fallback verified by date and shown in GMT+6")
+        check("18:30" in nxt or "23:00" in nxt or "22:30" in nxt, "e2e: ESPN UTC times converted to GMT+6")
+        check(not any(re.search(r"\b(tomorrow|yesterday|tonight)\b", t, re.I) for t in [nxt] + [t for t in txt if t.startswith("📰")]), "e2e: no relative-date words in daily posts")
+        check(net.tg[0]["method"] == "sendMessage" and any(m["method"] == "sendPhoto" for m in net.tg), "e2e: digests are text, knowledge posts are photo+caption")
+        check(all(l["status"] == "posted" for k, l in st["ledger"].items() if k.split(":")[0] in ("day_in_sports", "next_up", "on_this_date")), "e2e: ledger marks slots posted")
+        n_before = len(net.tg)
+        run_day(day)
+        check(len(net.tg) == n_before, "e2e: re-running the same day posts nothing (idempotent)")
+        urls = [u for u in Path(POSTED_FILE).read_text().splitlines() if u]
+        check(len(urls) >= 1 and len(urls) == len(set(urls)) and not any("wikipedia" in u for u in urls), "e2e: posted_urls.txt holds article URLs only, duplicate-free")
+        heads = [p["headline"] for p in posts]
+        check(len(heads) == len(set(heads)), "e2e: no duplicate headlines")
+        # the cutoffs: nothing early
+        ticks_first = st["runs"][0]
+        check(st["runs"][7]["posted"] == 1 and st["runs"][7]["due"] == ["day_in_sports"], "e2e: 07:17 tick posts DAY IN SPORTS only")
+    return net
+
+
+def test_faults() -> None:
+    print("fault injection...")
+    day = date(2026, 9, 21)
+    expect = {"exa": 6, "rss": 6, "tsdb": 6, "espn": 6, "cerebras": 2, "wikipedia": 2}
+    for dep, want in expect.items():
+        net, tmp = fresh()
+        net.fail = {dep}
+        with sandbox(net, tmp):
+            codes = run_day(day)
+            st = read_state()
+            check(1 not in codes, f"fault[{dep}]: run never crashes")
+            n = len(net.tg)
+            check(n >= want or (dep in ("espn",) and n >= 4), f"fault[{dep}]: other desks still post (got {n}, want >= {want})")
+            check(not net.violations, f"fault[{dep}]: nothing invalid was sent")
+            check(any(p["desk"] in ("past", "next") for p in st["posts"]), f"fault[{dep}]: digests survive")
+    # telegram-level faults
+    cases = {
+        "html rejected -> plain text": {"sendMessage": [(400, "Bad Request: can't parse entities: bad")]},
+        "429 then ok": {"sendMessage": [(429, "Too Many Requests: retry after 1")]},
+        "photo fails -> text fallback": {"sendPhoto": [(400, "Bad Request: wrong file identifier")]},
+    }
+    for label, script in cases.items():
+        net, tmp = fresh()
+        net.tg_script = script
+        with sandbox(net, tmp):
+            run_day(day, hours=range(7, 12))
+            st = read_state()
+            check(any(p["desk"] == "past" for p in st["posts"]) and len(net.tg) >= 2, f"telegram[{label}]: post still lands")
+    net, tmp = fresh()
+    net.tg_script = {"sendMessage": ["read_timeout"]}
+    with sandbox(net, tmp):
+        run_day(day, hours=range(7, 9))
+        st = read_state()
+        led = st["ledger"]["day_in_sports:2026-09-20"]
+        check(led["status"] == "uncertain" and not any(p["desk"] == "past" for p in st["posts"]), "telegram[read timeout]: marked uncertain, not re-sent (no duplicate)")
+    # AI repair path
+    net, tmp = fresh()
+    net.inject_bad_number = True
+    with sandbox(net, tmp):
+        run_day(day, hours=range(9, 12))
+        st = read_state()
+        hist = [p for p in st["posts"] if p["desk"] == "history"]
+        check(hist and net.ai_calls.count("write_post") >= 2 and not any("1,600" in m["text"] for m in net.tg), "ai: invented number rejected, repair call fixes it")
+    # SLA path: everything that feeds digests is down
+    net, tmp = fresh()
+    net.fail = {"espn", "tsdb", "exa", "cerebras", "wikipedia", "rss"}
+    with sandbox(net, tmp):
+        codes = run_day(day, hours=range(7, 24))
+        alerts = [m for m in net.tg if m["chat"] == "999"]
+        check(2 in codes and codes.count(2) <= 2, f"sla: overdue mandatory post exits 2 once per breach (codes: {codes.count(2)})")
+        check(len(alerts) >= 1 and len(alerts) <= 3, f"sla: admin alerted, deduplicated ({len(alerts)})")
+        check(read_state()["ledger"]["day_in_sports:2026-09-20"]["status"] == "failed", "sla: failure recorded with reason")
+    # corrupt state -> refuse to post
+    net, tmp = fresh()
+    with sandbox(net, tmp):
+        Path(STATE_FILE).write_text("{not json", encoding="utf-8")
+        set_clock(day, 8)
+        with quiet():
+            code = run_once()
+        check(code == 1 and not net.tg, "state: corrupt file stops the bot instead of posting blindly")
+    # dry run posts nothing and writes nothing
+    net, tmp = fresh()
+    with sandbox(net, tmp, DRY_RUN=True):
+        set_clock(day, 8)
+        with quiet():
+            run_once()
+        check(not net.tg and not Path(STATE_FILE).exists(), "dry-run: no telegram traffic, no state written")
+
+
+def test_soak(days: int = 30) -> None:
+    print(f"soak: {days} days, hourly cron, 20% of runs skipped, rotating outages...")
+    net, tmp = fresh()
+    rng = random.Random(11)
+    outages = {4: "espn", 8: "wikipedia", 12: "cerebras", 17: "exa", 21: "rss", 25: "tsdb"}
+    start = date(2026, 9, 1)
+    t0 = time.monotonic()
+    with sandbox(net, tmp):
+        all_codes: list[int] = []
+        for i in range(days):
+            net.fail = {outages[i]} if i in outages else set()
+            all_codes += run_day(start + timedelta(days=i), skip=0.2, rng=rng)
+        st = read_state()
+        posts = st["posts"]
+        by = Counter(p["desk"] for p in posts)
+        elapsed = time.monotonic() - t0
+        check(1 not in all_codes, "soak: no crash in any run")
+        check(by["past"] == days and by["next"] == days, f"soak: exactly one DAY IN SPORTS and one NEXT UP per day ({dict(by)})")
+        keys = [k for k, v in st["ledger"].items() if v["status"] == "posted"]
+        check(len(net.tg) == len(posts) == len(keys) + 0 or len(net.tg) - len([m for m in net.tg if m["chat"] == "999"]) == len(posts), "soak: telegram messages == recorded posts (no double posts)")
+        heads = [p["headline"] for p in posts]
+        check(len(heads) == len(set(heads)), "soak: no duplicate headlines in 30 days")
+        claims = [p["claim"] for p in posts if p["desk"] in ("history", "evergreen", "newgames")]
+        check(len(claims) == len(set(claims)), "soak: no duplicate claims")
+        hurt = sum(1 for i, dep in outages.items() if i < days and dep in ("wikipedia", "cerebras"))  # only these stop knowledge desks
+        healthy = days - hurt
+        check(by["history"] >= healthy - 3 and by["history"] <= days, f"soak: history posts on healthy days ({by['history']} >= {healthy - 3})")
+        check(by["evergreen"] + by["newgames"] >= 3 * healthy - 8, f"soak: evergreen volume ({by['evergreen'] + by['newgames']} >= {3 * healthy - 8})")
+        check(by["newgames"] >= max(1, days // 6), f"soak: new-games desk contributes ({by['newgames']} >= {max(1, days // 6)})")
+        topics = Counter(p["topic"] for p in posts if p["desk"] == "evergreen")
+        check(topics and max(topics.values()) <= 4, f"soak: topics rotate, max repeats {max(topics.values()) if topics else 0}")
+        check(not net.violations, f"soak: every message valid ({net.violations[:2]})")
+        check(elapsed < 240, f"soak: finished in {elapsed:.0f}s")
+        print(f"   soak posts: {dict(by)}, telegram messages: {len(net.tg)}, exit codes: {dict(Counter(all_codes))}, {elapsed:.0f}s")
+
+
+def self_test(fast: bool = False) -> int:
+    T.n, T.failed = 0, []
+    t0 = time.monotonic()
+    test_units()
+    test_contracts()
+    test_e2e()
+    test_faults()
+    test_soak(8 if fast else 30)
+    dt = time.monotonic() - t0
+    if T.failed:
+        print(f"\nSELF-TEST FAILED: {len(T.failed)} of {T.n} checks failed:")
+        for f in T.failed:
+            print("  -", f)
+        return 1
+    print(f"\nSelf-test passed for {APP_NAME} v{APP_VERSION}: {T.n} checks in {dt:.0f}s")
+    return 0
+
+
+def demo() -> int:
+    """Run one simulated day on the fake network and print every Telegram message."""
+    net = test_e2e(show=True)
+    for i, m in enumerate(net.tg, 1):
+        print(f"\n{'=' * 70}\nMESSAGE {i}  [{m['method']}]  {vis_len(m['text'])} visible chars\n{'=' * 70}\n{plain_text(m['text'])}")
+    return 0
+
+
+# ===========================================================================
+# 13. CLI
+# ===========================================================================
+
+
+def main(argv: list[str] | None = None) -> int:
+    global CHANNEL, DRY_RUN
+    ap = argparse.ArgumentParser(description=f"{APP_NAME} v{APP_VERSION}")
+    ap.add_argument("--self-test", action="store_true", help="offline test suite (no network needed)")
+    ap.add_argument("--fast", action="store_true", help="shorter soak in --self-test")
+    ap.add_argument("--demo", action="store_true", help="simulate one day on a fake network and print every post")
+    ap.add_argument("--diagnose", action="store_true", help="check every live dependency")
+    ap.add_argument("--dry-run", action="store_true", help="preview all slots; never posts, never writes state")
+    ap.add_argument("--test-post", action="store_true", help="send one sample photo post and one sample digest")
+    ap.add_argument("--only", default="", help="force one slot (day_in_sports, next_up, on_this_date, evergreen_1..)")
+    ap.add_argument("--channel", default=os.environ.get("CHANNEL_OVERRIDE", ""), help="override the target channel")
+    ap.add_argument("--version", action="store_true")
+    args = ap.parse_args(argv)
     if args.version:
-        print(f"{APP_NAME} {APP_VERSION}")
-        return
+        print(f"{APP_NAME} v{APP_VERSION}")
+        return 0
     if args.self_test:
-        self_test()
-        return
-    run_once()
+        return self_test(args.fast)
+    if args.demo:
+        return demo()
+    if args.channel.strip():
+        CHANNEL = args.channel.strip()
+    DRY_RUN = bool(args.dry_run)
+    if args.diagnose:
+        return run_diagnose()
+    if args.test_post:
+        return run_test_post()
+    return run_once(only=args.only or None)
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

@@ -1,106 +1,16 @@
 {
-  "angle_history": [
-    {
-      "angle": "official rulebook",
-      "at": "2026-09-20T21:55:44.700314+00:00"
-    },
-    {
-      "angle": "official rulebook",
-      "at": "2026-09-21T04:00:12.529819+00:00"
-    }
-  ],
-  "category_history": [
-    {
-      "at": "2026-09-20T21:55:44.700319+00:00",
-      "category": "board game"
-    },
-    {
-      "at": "2026-09-21T04:00:12.529822+00:00",
-      "category": "tabletop sport"
-    }
-  ],
-  "claims": {
-    "961065a338981da0ec286a1d": {
-      "angle": "official rulebook",
-      "category": "tabletop sport",
-      "claim": "Defines the standardized rules for competitive Carrom play worldwide, covering setup, scoring, fouls, and equipment",
-      "published_at": "2026-09-21T04:00:12.529793+00:00",
-      "subject": "International Carrom Federation official rules"
-    },
-    "c59c827d24f61c3ccc9a376b": {
-      "angle": "official rulebook",
-      "category": "board game",
-      "claim": "Provides the complete official rules for The Settlers of Catan as published by Catan GmbH in 2020",
-      "published_at": "2026-09-20T21:55:44.700263+00:00",
-      "subject": "Catan base game rules"
-    }
-  },
-  "created_at": "",
-  "daily_flags": {},
-  "entities": {
-    "carrom": {
-      "angles": {
-        "official rulebook": 1
-      },
-      "categories": {
-        "tabletop sport": 1
-      },
-      "name": "Carrom",
-      "post_count": 1
-    },
-    "catan": {
-      "angles": {
-        "official rulebook": 1
-      },
-      "categories": {
-        "board game": 1
-      },
-      "name": "Catan",
-      "post_count": 1
-    }
-  },
-  "historical_events": {},
-  "last_run_at": "2026-09-21T03:58:32.319891+00:00",
-  "posts": [
-    {
-      "angle": "official rulebook",
-      "canonical_url": "catan.com/sites/default/files/2021-06/catan_base_rules_2020_200707.pdf",
-      "category": "board game",
-      "claim": "Provides the complete official rules for The Settlers of Catan as published by Catan GmbH in 2020",
-      "date_anchor": "7 July 2020",
-      "format": "fact",
-      "game_or_sport": "Catan",
-      "headline": "The Settlers of Catan – Official Base‑Game Rules (2020)",
-      "message_id": 7,
-      "published_at": "2026-09-20T21:55:44.700295+00:00",
-      "source_urls": [
-        "https://www.catan.com/sites/default/files/2021-06/catan_base_rules_2020_200707.pdf",
-        "https://aadl.org/files/catalog_guides/catan_base_rules_2020_200707.pdf",
-        "https://games-for-you.oozmi-cdn.com/products/f3b4bbea-0533-4844-bcd6-c2518aeaeac9/pdfs/pravila-igre-na-engleskom-jeziku-pdf"
-      ],
-      "subject": "Catan base game rules"
-    },
-    {
-      "angle": "official rulebook",
-      "canonical_url": "iakc.org/wp-content/uploads/2020/02/Carrom-Official-Rules.pdf",
-      "category": "tabletop sport",
-      "claim": "Defines the standardized rules for competitive Carrom play worldwide, covering setup, scoring, fouls, and equipment",
-      "date_anchor": "2020-02-01",
-      "format": "fact",
-      "game_or_sport": "Carrom",
-      "headline": "International Carrom Federation’s Official Rulebook Sets Global Standards",
-      "message_id": 8,
-      "published_at": "2026-09-21T04:00:12.529810+00:00",
-      "source_urls": [
-        "https://www.iakc.org/wp-content/uploads/2020/02/Carrom-Official-Rules.pdf",
-        "https://icf-media.beepworld.de/laws-of-carrom.htm",
-        "https://internationalcarrom.com/who-we-are/",
-        "https://www.indiancarrom.co.in/laws-of-carrom/"
-      ],
-      "subject": "International Carrom Federation official rules"
-    }
-  ],
-  "queue": {},
-  "schema_version": 2,
-  "source_health": {}
+ "ai": {},
+ "alerts": {},
+ "created_at": "2026-09-21T06:43:50.838439+00:00",
+ "last_run_at": "",
+ "ledger": {},
+ "posts": [],
+ "runs": [],
+ "schema_version": 3,
+ "source_health": {},
+ "topics": {
+  "last_refresh": "",
+  "per_topic": {},
+  "pool": {}
+ }
 }

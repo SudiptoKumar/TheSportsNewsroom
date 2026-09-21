@@ -1,8 +1,2 @@
-exa-py
-cerebras_cloud_sdk
-requests
-urllib3
-beautifulsoup4
-Pillow
-feedparser
-trafilatura
+requests>=2.31
+Pillow>=10.1
