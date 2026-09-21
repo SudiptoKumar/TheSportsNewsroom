@@ -121,6 +121,94 @@ class TestV1Contracts(unittest.TestCase):
         self.assertIn("V1_CURRENT_RX", names)
 
 
+    def test_cerebras_429_preserves_diagnostic(self):
+        class Resp:
+            status = 429
+            data = {"error": {"type": "rate_limit", "message": "token limit reached"}}
+            text = '{"error":{"type":"rate_limit","message":"token limit reached"}}'
+            error = "HTTP 429: token limit reached"
+            headers = {"x-ratelimit-reset-tokens-minute": "2"}
+            ok = False
+        client = main.AIClient.__new__(main.AIClient)
+        client.available = True; client.mode = "json_schema"; client.model = "gpt-oss-120b"
+        client.reasoning = False; client.fatal = False; client.last_error = ""; client.last_status = 0
+        client.last_request_id = ""; client.last_ok = ""; client.last_latency_ms = 0
+        client.rate_limits = {}; client._last_call = 0.0; client._model_fallback_tried = True; client.failures = 0
+        client.json = main.AIClient.json.__get__(client, main.AIClient)
+        client._last_call = 0.0
+        with patch.object(main, "http", return_value=Resp()), patch.object(main, "sleep", lambda *_: None):
+            out = client.json("rank", "x", "y", main.V4_RANK_SCHEMA, max_tokens=300)
+        self.assertIsNone(out)
+        self.assertEqual(429, client.last_status)
+        self.assertIn("rate_limit", client.last_error)
+        self.assertIn("token limit reached", client.last_error)
+
+
+    def test_v1_rank_deterministic_fallback_preserves_candidate_pool(self):
+        candidates = []
+        for i, sec in enumerate(main.V1_SECTORS):
+            candidates.append({
+                "sector": sec, "normalized_subject": f"Subject {i}",
+                "central_knowledge_unit": f"Knowledge {i}", "central_claim": f"Claim {i}",
+                "source": "Example", "grade": "A", "highlights": ["Evergreen evidence"],
+                "image": "https://example.com/image.jpg", "coverage_status": "new",
+            })
+        ai = main.AIClient.__new__(main.AIClient)
+        ai.available = False; ai.fatal = False; ai.last_error = "offline"
+        rows = main.v1_rank(ai, candidates, set())
+        self.assertTrue(rows)
+        self.assertIs(rows[0]["_candidate_pool"], rows[0]["_candidate_pool"])
+        self.assertEqual(20, len(rows[0]["_candidate_pool"]))
+
+    def test_live_pair_disables_exa_fallback(self):
+        with patch.object(main, "espn_events", return_value=([], {k: "fail" for k in main.LEAGUES})), \
+             patch.object(main, "cricketdata_events", return_value=[]), \
+             patch.object(main, "tsdb_events", return_value=[]), \
+             patch.object(main, "exa_event_fallback", side_effect=AssertionError("Exa must not be used by the V1 live pair")) as exa:
+            events, notes = main.collect_events(main.AIClient.__new__(main.AIClient), __import__('datetime').date(2026,9,22), "next", allow_exa_fallback=False)
+        self.assertEqual([], events)
+        exa.assert_not_called()
+
+    def test_production_orchestrator_smoke_reaches_live_pair(self):
+        fixed_now = main.BD_TZ.localize(__import__('datetime').datetime(2026,9,22,10,0)) if hasattr(main.BD_TZ, 'localize') else __import__('datetime').datetime(2026,9,22,10,0,tzinfo=main.BD_TZ)
+        state = {"posts": []}
+        sectors = list(main.V1_SECTORS)
+        candidates = []
+        for i, sec in enumerate(sectors):
+            candidates.append({
+                "sector": sec, "normalized_subject": f"Subject {i}", "central_knowledge_unit": f"Knowledge {i}",
+                "central_claim": f"Claim {i}", "topic": f"Subject {i}", "research_evidence": "Verified evidence " * 40,
+                "source_url": f"https://example.com/{i}",
+                "sources": [{"name":"Source","url":f"https://example.com/{i}"}], "research_images": [],
+            })
+        ranked = [{"post_number": i+1, "score": 100-i, "reason": ""} for i in range(20)]
+        ranked[0]["_candidate_pool"] = candidates
+        editorial = {"headline":"A Valid Evergreen Sports Story", "deck":"", "hook":"",
+                     "body":"This is a verified evergreen body with enough words to satisfy the production validator and demonstrate the publisher path without depending on a provider.",
+                     "key_points":["One","Two","Three"], "why_it_matters":"Useful", "caption":"", "hashtags":["#Sports"], "angle":"knowledge", "image_index":0, "image_reason":""}
+        def fake_publish(vstate, pubid, publisher):
+            return {"ok": True, "result":{"message_id": 100 + len(vstate.get('publication', {}))}, "description":"ok"}
+        live_events = [{"event_id":"e1","sport":"Football","name":"A vs B","league":"Test","start":fixed_now}]
+        with patch.object(main, "CEREBRAS_API_KEY", "test"), patch.object(main, "TELEGRAM_BOT_TOKEN", "test"), \
+             patch.object(main, "now_bd", return_value=fixed_now), patch.object(main, "load_state", return_value=state), \
+             patch.object(main, "v4_load_coverage", return_value={"records":[]}), patch.object(main, "v1_discover_all_sectors", return_value=candidates), \
+             patch.object(main, "v1_rank", return_value=ranked), patch.object(main, "v1_verify_selected", side_effect=lambda selected, target:(selected, "ok")), \
+             patch.object(main, "v1_editorialize", return_value=editorial), patch.object(main, "v1_validate_editorial", return_value=(True,"ok",{})), \
+             patch.object(main, "v4_build_evergreen", side_effect=lambda c,e,i:{"sector":c["sector"],"topic":c["topic"],"normalized_subject":c["normalized_subject"],"central_knowledge_unit":c["central_knowledge_unit"],"central_claim":c["central_claim"],"headline":e["headline"],"deck":"","hook":"","body":e["body"],"key_points":e["key_points"],"why_it_matters":e["why_it_matters"],"caption":"","tags":["#Sports"],"sources":[("Source",c["sources"][0]["url"])],"urls":[c["sources"][0]["url"]],"image":None,"image_status":"unavailable","research":c}), \
+             patch.object(main, "v4_publish_with_idempotency", side_effect=fake_publish), patch.object(main, "v4_record_coverage", return_value=None), \
+             patch.object(main, "save_state", return_value=None), patch.object(main, "v4_save_coverage", return_value=None), \
+             patch.object(main, "v4_live_pair", return_value=({"target_date":"2026-09-23"},{"target_date":"2026-09-21"},live_events,live_events)), \
+             patch.object(main, "v4_publish_evergreen", return_value={"ok":True}), patch.object(main, "v4_publish_live", return_value={"ok":True}), \
+             patch.object(main, "v4_publication_id", side_effect=lambda *a: ":".join(str(x) for x in a)), \
+             patch.object(main, "sleep", return_value=None):
+            main.V1_DRY_RUN = True
+            try:
+                rc = main.v1_run_once()
+            finally:
+                main.V1_DRY_RUN = False
+        self.assertEqual(0, rc)
+
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -1,8 +1,8 @@
-# The Sports Newsroom V1
+# The Sports Newsroom V1.1
 
 Automated Telegram newsroom for evergreen Sports & Games knowledge, with a separate live schedule/results pair.
 
-The V1 research engine is deliberately **Search-first**:
+The V1.1 research engine is deliberately **Search-first** and is aligned with the current Exa Search / Contents / Agent API model and Cerebras API Version 2 behavior:
 
 ```text
 Exa Search
@@ -132,7 +132,7 @@ A positive `maxAgeHours` value is used so Exa can use recent cached extraction w
 
 ### Exa Agent
 
-Agent is an escalation tool, not the default research endpoint.
+Agent is an escalation tool, not the default research endpoint. It is used only for hard historical claims, conflicts, and multi-hop verification. Agent runs are created asynchronously and polled to a terminal state.
 
 V1 uses Agent only for difficult cases such as:
 
@@ -146,6 +146,8 @@ V1 uses Agent only for difficult cases such as:
 Agent research is asynchronous. V1 creates a run, stores the run ID, polls until a terminal state, and uses the structured result plus terminal grounding.
 
 ### Cerebras
+
+Cerebras is treated as a Cerebras API Version 2 structured-output service. The default model is `gpt-oss-120b`, which currently supports structured outputs and reasoning. Strict JSON Schema is the primary output mode; JSON mode is retained only as a controlled compatibility fallback. Cerebras HTTP errors are classified and logged with safe request/rate-limit diagnostics, without exposing API keys.
 
 Cerebras has two editorial jobs:
 
@@ -686,7 +688,7 @@ This workflow requires an explicit V1 ZIP filename.
 Default:
 
 ```text
-TheSportsNewsroom-v1.0.0.zip
+TheSportsNewsroom-v1.1.0.zip
 ```
 
 It does **not** search for the first arbitrary `*.zip` in the repository.
@@ -807,3 +809,46 @@ Telegram → publish
 
 The purpose of this separation is reliability. A provider can return an incomplete, nullable, redirected, or otherwise unexpected field without being allowed to crash the Telegram renderer or silently bypass coverage rules.
 
+
+
+## 11. Production safety invariants
+
+V1.1 treats every AI response as untrusted input. Before Telegram rendering, all optional values are normalized: `null` images become `{}`, missing lists become `[]`, and malformed optional fields are discarded safely.
+
+The production orchestrator is tested separately from unit functions. The offline suite includes a mocked run through `v1_run_once()` so a production-only symbol/reference or control-flow error is caught before import.
+
+Cerebras diagnostics preserve the actual HTTP status and safe provider message. In particular, HTTP 429 rate-limit failures are no longer reduced to a generic `ranking failed` message.
+
+The live schedule/results pair does not use Exa fallback in V1.1. Live events come from the sports-data adapters; Exa is reserved for evergreen research.
+
+## 12. Provider contracts
+
+### Exa
+
+- Search: `POST https://api.exa.ai/search`
+- Contents: `POST https://api.exa.ai/contents`
+- Agent: `POST https://api.exa.ai/agent/runs`, then `GET /agent/runs/{id}`
+- Search discovery omits `outputSchema` and uses native result fields plus highlights.
+- Contents batches up to 100 known URLs and uses a supported `maxAgeHours` policy.
+- Agent output is small and structured; complex claims can return nullable fields, so the local parser normalizes them.
+
+### Cerebras
+
+- Chat endpoint: `POST https://api.cerebras.ai/v1/chat/completions`
+- API Version 2 is explicitly requested via `X-Cerebras-Version-Patch: 2`.
+- Default model: `gpt-oss-120b`.
+- Primary response mode: strict `json_schema`.
+- Ranking uses a bounded reservoir and a small response budget.
+- Retryable provider classes: connection errors, 408/429/5xx.
+- Authentication, permission, invalid-request, and unsupported-model errors are surfaced instead of being retried blindly.
+
+## 13. Final test commands
+
+```bash
+python -m py_compile main.py
+python main.py --self-test --fast
+python -m unittest discover -s tests -v
+python main.py --validate-config
+```
+
+A real production provider run still requires the GitHub secrets. The test suite does not pretend that mocked HTTP calls are proof of live provider success.

@@ -48,7 +48,7 @@ except ImportError:  # pragma: no cover
     Image = ImageDraw = ImageFont = None
 
 APP_NAME = "The Sports Newsroom"
-APP_VERSION = "1.0.1"
+APP_VERSION = "1.1.0"
 
 # ===========================================================================
 # 1. CORE: config, clock, text helpers, safety filters
@@ -84,6 +84,7 @@ EVERGREEN_PER_DAY = _env_int("POSTS_EVERGREEN_PER_DAY", _env_int("MAX_DISCOVERY_
 NEXT_UP_OFFSET_DAYS = _env_int("NEXT_UP_OFFSET_DAYS", 1)
 RUN_DEADLINE_SECONDS = _env_int("RUN_DEADLINE_SECONDS", 720)
 HTTP_TIMEOUT = _env_int("HTTP_TIMEOUT", 15)
+CEREBRAS_API_VERSION = "2"
 MAX_ATTEMPTS_PER_SLOT = _env_int("MAX_ATTEMPTS_PER_SLOT", 6)
 POST_DELAY_SECONDS = _env_float("POST_DELAY_SECONDS", 3.0)
 STATE_RETENTION_DAYS = _env_int("STATE_RETENTION_DAYS", 120)
@@ -1080,7 +1081,9 @@ class AIClient:
     URL = "https://api.cerebras.ai/v1/chat/completions"
     MODELS_URL = "https://api.cerebras.ai/v1/models"
     MODE_ORDER = ["json_schema", "json_object", "text"]
-    MODEL_PREFS = ["gpt-oss-120b", "qwen-3-235b-a22b-instruct-2507", "llama-3.3-70b", "llama3.1-8b"]
+    # Keep the production fallback list deliberately small. gpt-oss-120b is the current
+    # primary production model and supports reasoning + structured outputs.
+    MODEL_PREFS = ["gpt-oss-120b", "llama-3.3-70b", "qwen-3-235b-a22b-instruct-2507"]
     MIN_INTERVAL = 1.5
 
     def __init__(self, saved: dict | None = None):
@@ -1091,13 +1094,24 @@ class AIClient:
         self.reasoning = True
         self.fatal = False
         self.last_error = ""
+        self.last_status = 0
+        self.last_request_id = ""
         self.last_ok = saved.get("last_ok", "")
+        self.last_latency_ms = 0
+        self.rate_limits: dict[str, str] = {}
         self._last_call = 0.0
         self._model_fallback_tried = False
         self.failures = 0
 
     def export(self) -> dict:
-        return {"mode": self.mode, "model": self.model, "last_ok": self.last_ok}
+        return {
+            "mode": self.mode,
+            "model": self.model,
+            "last_ok": self.last_ok,
+            "last_status": self.last_status,
+            "last_request_id": self.last_request_id,
+            "last_error": self.last_error[:240],
+        }
 
     def _space(self) -> None:
         wait = self.MIN_INTERVAL - (time.monotonic() - self._last_call)
@@ -1107,40 +1121,82 @@ class AIClient:
 
     def _payload(self, messages: list, schema: dict, task: str, max_tokens: int, temperature: float) -> dict:
         payload: dict[str, Any] = {
-            "model": self.model, "messages": messages, "temperature": temperature,
-            "max_completion_tokens": max_tokens,
+            "model": self.model,
+            "messages": messages,
+            "temperature": temperature,
+            "max_completion_tokens": max(128, int(max_tokens)),
         }
         if self.reasoning and "gpt-oss" in self.model:
             payload["reasoning_effort"] = "low"
         if self.mode == "json_schema":
-            payload["response_format"] = {"type": "json_schema", "json_schema": {
-                "name": re.sub(r"[^A-Za-z0-9_-]", "_", task)[:60] or "output", "strict": True, "schema": schema}}
+            payload["response_format"] = {
+                "type": "json_schema",
+                "json_schema": {
+                    "name": re.sub(r"[^A-Za-z0-9_-]", "_", task)[:60] or "output",
+                    "strict": True,
+                    "schema": schema,
+                },
+            }
         elif self.mode == "json_object":
             payload["response_format"] = {"type": "json_object"}
         return payload
+
+    @staticmethod
+    def _error_detail(r: Any) -> str:
+        data = r.data if isinstance(getattr(r, "data", None), dict) else {}
+        err = data.get("error")
+        if isinstance(err, dict):
+            bits = [text(err.get(k)) for k in ("type", "code", "message") if text(err.get(k))]
+            detail = " | ".join(dict.fromkeys(bits))
+        else:
+            detail = text(err)
+        if not detail:
+            detail = text(getattr(r, "error", ""))
+        req = text(getattr(r, "headers", {}).get("x-request-id") or getattr(r, "headers", {}).get("request-id"))
+        if not req and isinstance(data, dict):
+            req = text(data.get("requestId"))
+        if req:
+            detail = f"{detail or 'provider error'} | request_id={req}"
+        return redact(detail or f"HTTP {getattr(r, 'status', 0)}")[:700]
+
+    def _capture_headers(self, r: Any) -> None:
+        hdrs = getattr(r, "headers", {}) or {}
+        self.rate_limits = {
+            k: text(v) for k, v in hdrs.items()
+            if str(k).lower().startswith("x-ratelimit-")
+        }
+        self.last_request_id = text(
+            hdrs.get("x-request-id") or hdrs.get("request-id") or ""
+        ) or self.last_request_id
 
     def _switch_model(self) -> bool:
         if self._model_fallback_tried:
             return False
         self._model_fallback_tried = True
-        r = http("cerebras", "GET", self.MODELS_URL, headers={"Authorization": f"Bearer {CEREBRAS_API_KEY}"})
-        ids = []
+        r = http("cerebras", "GET", self.MODELS_URL, headers={"Authorization": f"Bearer {CEREBRAS_API_KEY}"}, timeout=20, retries=1)
+        self._capture_headers(r)
+        models = []
         if r.ok and isinstance(r.data, dict):
-            ids = [text(m.get("id")) for m in r.data.get("data", []) if isinstance(m, dict)]
+            models = [m for m in (r.data.get("data", []) or []) if isinstance(m, dict) and text(m.get("id"))]
+        ids = [text(m.get("id")) for m in models]
+        active_ids = [text(m.get("id")) for m in models if not bool(m.get("deprecated"))]
+        capability_ids = [text(m.get("id")) for m in models if not bool(m.get("deprecated")) and (m.get("capabilities") is None or bool((m.get("capabilities") or {}).get("structured_outputs", True)))]
+        preferred_ids = capability_ids or active_ids or ids
         for pref in self.MODEL_PREFS:
             if pref in ids and pref != self.model:
-                logger.warning("Model %s unavailable; switching to %s", self.model, pref)
+                logger.warning("Cerebras model %s unavailable; switching to %s", self.model, pref)
                 self.model = pref
                 return True
-        if ids and self.model not in ids:
-            logger.warning("Model %s unavailable; switching to %s", self.model, ids[0])
-            self.model = ids[0]
+        if preferred_ids and self.model not in preferred_ids:
+            logger.warning("Cerebras model %s unavailable; switching to %s", self.model, preferred_ids[0])
+            self.model = preferred_ids[0]
             return True
         return False
 
     def json(self, *args: Any, **kwargs: Any) -> dict | None:
-        """Circuit breaker: after 3 consecutive API-level failures stop calling for the rest of the run."""
+        """Return validated JSON or None. Never lets provider failures escape the bot process."""
         if not self.available or self.fatal:
+            self.last_error = self.last_error or "Cerebras unavailable"
             return None
         if self.failures >= 3:
             self.last_error = self.last_error or "circuit open"
@@ -1148,87 +1204,148 @@ class AIClient:
         out = self._json(*args, **kwargs)
         self.failures = 0 if out is not None else self.failures + 1
         if self.failures == 3:
-            logger.error("Cerebras failed 3 times in a row (%s); AI calls paused for this run", self.last_error)
+            logger.error("Cerebras failed 3 times in a row: %s", self.last_error)
             REPORT.errors.append(f"AI circuit opened: {self.last_error}")
         return out
 
     def _json(self, task: str, system: str, user: str, schema: dict, *, max_tokens: int = 3000,
               temperature: float = 0.2, extra_messages: list | None = None) -> dict | None:
         hint = f"\nReturn ONLY one JSON object shaped like: {schema_example(schema)}"
-        messages = [{"role": "system", "content": f"TASK: {task}\n{system}{hint}"},
-                    {"role": "user", "content": user}] + list(extra_messages or [])
-        budget = max_tokens
+        messages = [
+            {"role": "system", "content": f"TASK: {task}\n{system}{hint}"},
+            {"role": "user", "content": user},
+        ] + list(extra_messages or [])
+        budget = max(256, int(max_tokens))
         repaired = False
+        payload_headers = {
+            "Authorization": f"Bearer {CEREBRAS_API_KEY}",
+            "Content-Type": "application/json",
+            "X-Cerebras-Version-Patch": CEREBRAS_API_VERSION,
+        }
         for attempt in range(5):
             self._space()
-            r = http("cerebras", "POST", self.URL, json_body=self._payload(messages, schema, task, budget, temperature),
-                     headers={"Authorization": f"Bearer {CEREBRAS_API_KEY}"}, timeout=90)
+            t0 = time.monotonic()
+            r = http(
+                "cerebras", "POST", self.URL,
+                json_body=self._payload(messages, schema, task, budget, temperature),
+                headers=payload_headers,
+                timeout=90,
+            )
+            self.last_latency_ms = int((time.monotonic() - t0) * 1000)
+            self.last_status = int(getattr(r, "status", 0) or 0)
+            self._capture_headers(r)
             REPORT.ai_calls += 1
+
+            # Fatal authentication/permission errors should never be hidden by a fallback.
             if r.status in (401, 403):
-                self.fatal, self.last_error = True, f"auth failed (HTTP {r.status})"
-                logger.error("Cerebras auth failed; AI disabled for this run")
+                self.fatal = True
+                self.last_error = self._error_detail(r)
+                logger.error("Cerebras authentication/permission failure: %s", self.last_error)
+                REPORT.errors.append(self.last_error)
                 return None
+
             if r.status == 429:
+                self.last_error = self._error_detail(r)
+                reset = 0.0
+                try:
+                    reset = float(self.rate_limits.get("x-ratelimit-reset-tokens-minute", "0") or 0)
+                except Exception:
+                    reset = 0.0
                 try:
                     ra = float(r.headers.get("Retry-After", 0) or 0)
                 except Exception:
                     ra = 0.0
-                sleep(min(30.0, ra or 4.0 * (attempt + 1)))
-                continue
+                wait = min(30.0, max(2.0, ra or reset or (2.0 ** attempt)))
+                logger.warning("Cerebras rate limited (attempt %d/5): %s; retrying in %.1fs", attempt + 1, self.last_error, wait)
+                if attempt < 4:
+                    sleep(wait)
+                    continue
+                REPORT.errors.append(f"Cerebras rate limit exhausted: {self.last_error}")
+                return None
+
             if r.status == 0 or r.status >= 500:
-                self.last_error = r.error
-                sleep(2.0 * (attempt + 1))
-                continue
+                self.last_error = self._error_detail(r)
+                if attempt < 4:
+                    sleep(min(20.0, 2.0 * (attempt + 1)))
+                    continue
+                REPORT.errors.append(f"Cerebras transient failure exhausted: {self.last_error}")
+                return None
+
             low = (r.text or "").lower()
             if r.status == 404 or (r.status == 400 and "model" in low and "not" in low and "found" in low):
+                self.last_error = self._error_detail(r)
                 if self._switch_model():
                     continue
-                self.last_error = r.error
+                REPORT.errors.append(f"Cerebras model failure: {self.last_error}")
                 return None
+
             if r.status == 400:
+                detail = self._error_detail(r)
+                # Compatibility escape hatch: remove reasoning first, then downgrade structured mode.
                 if "reasoning" in low and self.reasoning:
                     self.reasoning = False
+                    self.last_error = detail
+                    logger.warning("Cerebras rejected reasoning on %s; retrying without reasoning: %s", self.model, detail)
                     continue
                 if self.mode != "text" and any(k in low for k in ("response_format", "json_schema", "schema", "strict", "structured")):
-                    self.mode = self.MODE_ORDER[self.MODE_ORDER.index(self.mode) + 1]
-                    logger.warning("Cerebras rejected structured output; switching to mode=%s", self.mode)
+                    self.last_error = detail
+                    idx = self.MODE_ORDER.index(self.mode)
+                    self.mode = self.MODE_ORDER[idx + 1]
+                    logger.warning("Cerebras rejected structured output; switching to mode=%s: %s", self.mode, detail)
                     continue
-                self.last_error = r.error
+                self.last_error = detail
+                REPORT.errors.append(f"Cerebras bad request for {task}: {detail}")
                 return None
+
             if not r.ok or not isinstance(r.data, dict):
-                self.last_error = r.error or "bad response"
-                continue
+                self.last_error = self._error_detail(r)
+                if attempt < 4:
+                    continue
+                return None
+
             try:
                 choice = r.data["choices"][0]
-                content = text((choice.get("message") or {}).get("content"))
+                message = choice.get("message") or {}
+                content = text(message.get("content"))
                 finish = choice.get("finish_reason")
-                REPORT.ai_tokens += int((r.data.get("usage") or {}).get("total_tokens") or 0)
-            except Exception:
-                self.last_error = "unexpected response shape"
-                continue
+                usage = r.data.get("usage") or {}
+                REPORT.ai_tokens += int(usage.get("total_tokens") or 0)
+            except Exception as exc:
+                self.last_error = f"response shape error: {type(exc).__name__}"
+                if attempt < 4:
+                    continue
+                return None
+
             if not content:
+                self.last_error = f"empty content (finish_reason={finish or 'unknown'})"
                 if finish == "length" and budget < 8000:
                     budget = min(8000, budget * 2)
-                self.last_error = "empty content"
-                continue
+                    continue
+                return None
+
             try:
                 obj = extract_json(content)
             except Exception as exc:
                 self.last_error = f"unparseable JSON: {exc}"
                 if finish == "length" and budget < 8000:
                     budget = min(8000, budget * 2)
-                continue
+                    continue
+                return None
+
             errs = validate_schema(obj, schema)
             if errs:
                 self.last_error = "; ".join(errs[:3])
-                if not repaired:
+                if not repaired and self.mode != "json_schema":
                     repaired = True
-                    messages = messages + [{"role": "assistant", "content": content},
-                                           {"role": "user", "content": "That JSON was invalid: " + self.last_error +
-                                            ". Return the corrected JSON object only."}]
+                    messages = messages + [
+                        {"role": "assistant", "content": content},
+                        {"role": "user", "content": "That JSON was invalid: " + self.last_error + ". Return the corrected JSON object only."},
+                    ]
                     continue
                 return None
+
             self.last_ok = utc_iso(now_bd())
+            self.last_error = ""
             return obj
         return None
 
@@ -2323,21 +2440,21 @@ def filter_state(events: list[dict], kind: str, target: date) -> list[dict]:
     return out
 
 
-def collect_events(ai: "AIClient", target: date, kind: str) -> tuple[list[dict], list[str]]:
+def collect_events(ai: "AIClient", target: date, kind: str, *, allow_exa_fallback: bool = True) -> tuple[list[dict], list[str]]:
     notes = []
     events, status = espn_events(target)
     ok = sum(1 for v in status.values() if v == "ok")
     notes.append(f"espn: {ok}/{len(LEAGUES)} leagues reachable, {len(events)} events in window")
     cricket = cricketdata_events(target) if CRICKETDATA_API_KEY else []
     have_cricket = any(e["sport"] == "Cricket" for e in events + cricket)
-    if not have_cricket and EXA_API_KEY and ai.available:
+    if not have_cricket and allow_exa_fallback and EXA_API_KEY and ai.available:
         cricket += exa_event_fallback(ai, target, kind, "cricket", CRICKET_DOMAINS)
     events = merge_events(events, cricket)
     if len(filter_state(events, kind, target)) < 6:
         extra = tsdb_events(target)
         notes.append(f"thesportsdb: +{len(extra)} candidate events")
         events = merge_events(events, extra)
-    if len(filter_state(events, kind, target)) < 3 and EXA_API_KEY and ai.available:
+    if len(filter_state(events, kind, target)) < 3 and allow_exa_fallback and EXA_API_KEY and ai.available:
         extra = exa_event_fallback(ai, target, kind, "football basketball tennis sports")
         notes.append(f"exa fallback: +{len(extra)} events")
         events = merge_events(events, extra)
@@ -4511,6 +4628,7 @@ def v4_filter_candidates(candidates: list[dict], coverage: dict, used_sectors: s
 
 
 V4_RANK_SCHEMA = OBJ(rankings=ARR(OBJ(post_number=INT, score=INT, reason=STR)))
+V1_RANK_SCHEMA = OBJ(rankings=ARR(OBJ(post_number=INT, score=INT)))
 V4_EDITORIAL_SCHEMA = OBJ(
     headline=STR, deck=STR, hook=STR, body=STR, key_points=ARR(STR), why_it_matters=STR,
     caption=STR, hashtags=ARR(STR), angle=STR, image_index=INT, image_reason=STR,
@@ -4858,8 +4976,8 @@ def v4_live_pair(state: dict, now: datetime) -> tuple[dict, dict, list[dict], li
     tomorrow=now.date()+timedelta(days=1); yesterday=now.date()-timedelta(days=1)
     ai=AIClient(state.get("ai"))
     # Reuse the proven V3 structured sports adapters. They are deterministic and source-aware.
-    next_events,_=collect_events(ai, tomorrow, "next")
-    past_events,_=collect_events(ai, yesterday, "past")
+    next_events,_=collect_events(ai, tomorrow, "next", allow_exa_fallback=False)
+    past_events,_=collect_events(ai, yesterday, "past", allow_exa_fallback=False)
     next_major=v4_major_live_events(filter_state(next_events,"next",tomorrow),"next",tomorrow)
     past_major=v4_major_live_events(filter_state(past_events,"past",yesterday),"past",yesterday)
     if not next_major:
@@ -5251,15 +5369,20 @@ V1_AGENT_MAX_CASES = _env_int("V1_AGENT_MAX_CASES", 2)
 V1_SEARCH_DELAY_SECONDS = _env_float("V1_SEARCH_DELAY_SECONDS", 0.12)
 V1_SEARCH_CONCURRENCY = max(1, min(8, _env_int("V1_SEARCH_CONCURRENCY", 4)))
 V1_CONTENTS_CHARS = _env_int("V1_CONTENTS_CHARS", 9000)
+V1_RANK_MAX_CANDIDATES = max(20, min(40, _env_int("V1_RANK_MAX_CANDIDATES", 40)))
+V1_RANK_MAX_TOKENS = max(900, min(2200, _env_int("V1_RANK_MAX_TOKENS", 1400)))
 V1_EXCLUDE_DOMAINS = [
     "facebook.com", "instagram.com", "tiktok.com", "x.com", "twitter.com", "youtube.com",
     "bet365.com", "oddschecker.com", "sportinglife.com/betting",
 ]
 V1_CURRENT_RX = re.compile(
-    r"\b(?:live\s+score|live\s+scores|match\s+report|game\s+report|fixture|fixtures|standings?|table\s+position|"
-    r"transfer(?:s)?|injur(?:y|ies)|squad\s+update|contract\s+extension|signing|loan\s+move|betting|odds|"
-    r"upcoming\s+match|next\s+match|current\s+season|current\s+form|breaking)\b", re.I,
+    r"\b(?:live\s+score(?:s)?|match\s+report|game\s+report|fixtures?|standings?|table\s+position|"
+    r"transfers?|transfer\s+window|injur(?:y|ies)|squad\s+update|contract\s+extension|signing|loan\s+move|"
+    r"betting|odds|upcoming\s+(?:match|game|fixture)|next\s+(?:match|game)|breaking|latest\s+(?:news|results)|"
+    r"today(?:'s)?\s+(?:match|game|result|fixtures?)|yesterday(?:'s)?\s+(?:match|game|result|results)|"
+    r"tomorrow(?:'s)?\s+(?:match|game|fixture|fixtures?))\b", re.I,
 )
+V1_CURRENT_TITLE_RX = V1_CURRENT_RX
 
 V1_SECTOR_SEARCH = {
     "Sport Discovery": "unusual lesser-known established sport history rules equipment and how it is played",
@@ -5393,7 +5516,11 @@ def v1_exa_search_sector(sector: str, target: date, used_sectors: set[str], *, m
         if exclusion_reason(alltext):
             reject("v1_discovery_exclusion", f"{sector}: {title[:120]}")
             continue
-        if V1_CURRENT_RX.search(alltext):
+        published = parse_dt(item.get("publishedDate") or item.get("published_date"))
+        recent = bool(published and published >= datetime.now(timezone.utc) - timedelta(days=45))
+        title_current = V1_CURRENT_TITLE_RX.search(title)
+        excerpt_current = V1_CURRENT_RX.search(excerpt)
+        if title_current or (recent and excerpt_current):
             reject("v1_current_news", f"{sector}: {title[:120]}")
             continue
         image = text(item.get("image"))
@@ -5507,10 +5634,31 @@ def v1_build_reservoir(raw: list[dict], coverage: dict, used_sectors: set[str]) 
 
 
 def v1_rank(ai: "AIClient", candidates: list[dict], used_sectors: set[str]) -> list[dict]:
-    if not candidates or not ai.available or ai.fatal:
+    """Rank a bounded, sector-balanced reservoir. Falls back deterministically if Cerebras is unavailable."""
+    if not candidates:
         return []
-    payload=[]
-    for i,c in enumerate(candidates,1):
+
+    # Never send an unnecessarily large reservoir to the model. Keep the best two candidates
+    # per sector first, which preserves all-sector representation while capping the model input.
+    by_sector: dict[str, list[dict]] = {}
+    for c in candidates:
+        by_sector.setdefault(text(c.get("sector")), []).append(c)
+    pool: list[dict] = []
+    for sec in V1_SECTORS:
+        rows = sorted(by_sector.get(sec, []), key=v1_discovery_quality, reverse=True)
+        pool.extend(rows[:2])
+    if len(pool) < min(V1_RANK_MAX_CANDIDATES, len(candidates)):
+        existing = {id(x) for x in pool}
+        for c in sorted(candidates, key=v1_discovery_quality, reverse=True):
+            if id(c) in existing:
+                continue
+            pool.append(c); existing.add(id(c))
+            if len(pool) >= V1_RANK_MAX_CANDIDATES:
+                break
+    pool = pool[:V1_RANK_MAX_CANDIDATES]
+
+    payload = []
+    for i, c in enumerate(pool, 1):
         payload.append({
             "candidate_number": i,
             "sector": c.get("sector"),
@@ -5523,24 +5671,43 @@ def v1_rank(ai: "AIClient", candidates: list[dict], used_sectors: set[str]) -> l
             "has_image": bool(c.get("image")),
             "coverage_status": c.get("coverage_status", "new"),
         })
-    system=_v1_prompt("cerebras_rank_v1.txt",
-        "You are the ranking desk for The Sports Newsroom V1. Rank a reservoir of evergreen Sports & Games research candidates. "
-        "Use only the supplied retrieval evidence. Do not invent facts. Prioritize surprising usefulness, source quality, "
-        "evergreen durability, distinct knowledge, global variety, visual potential, and low repetition risk. "
-        f"Sectors already published today: {', '.join(sorted(used_sectors)) or 'none'}. Prefer candidates from unused sectors. "
-        "Return every candidate number once, sorted by preference."
-    )
-    obj=ai.json("v1_rank_reservoir",system,json.dumps(payload,ensure_ascii=False),V4_RANK_SCHEMA,max_tokens=4200,temperature=0.12)
-    if not obj: return []
-    rows=[]; seen=set()
-    for r in obj.get("rankings") or []:
-        try: n=int(r.get("post_number")); score=max(0,min(100,int(r.get("score"))))
-        except Exception: continue
-        if 1<=n<=len(candidates) and n not in seen:
-            seen.add(n); rows.append({"post_number":n,"score":score,"reason":text(r.get("reason"))})
-    rows.sort(key=lambda x:(x["score"],-x["post_number"]),reverse=True)
-    return rows
 
+    def deterministic() -> list[dict]:
+        rows = [{"post_number": i + 1, "score": int(round(v1_discovery_quality(c) * 2)), "reason": "deterministic fallback", "_candidate_pool": pool}
+                for i, c in enumerate(pool)]
+        rows.sort(key=lambda x: (x["score"], -x["post_number"]), reverse=True)
+        return rows
+
+    if not ai.available or ai.fatal:
+        return deterministic()
+
+    system = _v1_prompt("cerebras_rank_v1.txt",
+        "You are the ranking desk for The Sports Newsroom V1. Rank evergreen Sports & Games candidates using only the supplied retrieval evidence. "
+        "Prioritize strong evergreen value, source quality, distinct knowledge, audience usefulness, visual potential and low repetition risk. "
+        f"Sectors already published today: {', '.join(sorted(used_sectors)) or 'none'}. Prefer unused sectors. "
+        "Return every candidate number exactly once in ranked order. Do not explain your reasoning.")
+    obj = ai.json("v1_rank_reservoir", system, json.dumps(payload, ensure_ascii=False), V1_RANK_SCHEMA,
+                  max_tokens=V1_RANK_MAX_TOKENS, temperature=0.0)
+    if not obj:
+        logger.warning("V1 Cerebras ranking unavailable; using deterministic ranking fallback: %s", ai.last_error)
+        return deterministic()
+    rows, seen = [], set()
+    for r in obj.get("rankings") or []:
+        try:
+            n = int(r.get("post_number")); score = max(0, min(100, int(r.get("score"))))
+        except Exception:
+            continue
+        if 1 <= n <= len(pool) and n not in seen:
+            seen.add(n); rows.append({"post_number": n, "score": score, "reason": ""})
+    if len(rows) < max(10, int(len(pool) * 0.75)):
+        logger.warning("V1 Cerebras ranking returned incomplete ordering (%d/%d); using deterministic ranking", len(rows), len(pool))
+        return deterministic()
+    # Complete any omitted candidates deterministically, then sort by model score.
+    for i in range(1, len(pool) + 1):
+        if i not in seen:
+            rows.append({"post_number": i, "score": int(round(v1_discovery_quality(pool[i - 1]) * 2)), "reason": "completion fallback"})
+    rows.sort(key=lambda x: (x["score"], -x["post_number"]), reverse=True)
+    return [{**r, "_candidate_pool": pool} for r in rows]
 
 def v1_contents_for_urls(urls: list[str], *, text_mode: bool = True) -> tuple[dict[str,dict], str]:
     """Batch Exa /contents. URLs are already-known Exa Search outputs."""
@@ -5634,9 +5801,11 @@ def v1_exa_search_query(query: str, target: date, used_sectors: set[str], *, mod
         if not isinstance(hs,list): hs=[text(hs)] if text(hs) else []
         highlights=[re.sub(r"\s+"," ",text(h)) for h in hs if text(h)]
         excerpt=" ".join(highlights)[:3500] or re.sub(r"\s+"," ",text(item.get("text")))[:3500]
-        if exclusion_reason(f"{title} {excerpt} {url}") or _V1_CURRENT_RX.search(f"{title} {excerpt}"):
+        published = parse_dt(item.get("publishedDate") or item.get("published_date"))
+        recent = bool(published and published >= datetime.now(timezone.utc) - timedelta(days=45))
+        if exclusion_reason(f"{title} {excerpt} {url}") or V1_CURRENT_TITLE_RX.search(title) or (recent and V1_CURRENT_RX.search(excerpt)):
             continue
-        out.append({"url":url,"title":title,"highlights":highlights[:6],"text":excerpt,"source":source_label(url,text(item.get("author"))),"grade":grade_of(url),"image":text(item.get("image")),"exa_id":text(item.get("id")),"published":parse_dt(item.get("publishedDate") or item.get("published_date"))})
+        out.append({"url":url,"title":title,"highlights":highlights[:6],"text":excerpt,"source":source_label(url,text(item.get("author"))),"grade":grade_of(url),"image":text(item.get("image")),"exa_id":text(item.get("id")),"published":published})
     return out
 
 
@@ -5861,36 +6030,64 @@ def v1_run_once() -> int:
         reservoir.extend(r2); represented={text(x.get("sector")) for x in reservoir}; missing=set(V1_SECTORS)-represented
     if missing:
         logger.error("V1 discovery incomplete; missing sectors: %s",", ".join(sorted(missing))); return 1
-    # Preserve max 3 per sector and let Cerebras rank the reservoir.
-    ranked=v1_rank(ai,reservoir,used_sectors)
+    ranked = v1_rank(ai, reservoir, used_sectors)
     if not ranked:
-        logger.error("V1 Cerebras ranking failed"); return 1
-    by_num={i+1:c for i,c in enumerate(reservoir)}
+        logger.error("V1 Cerebras/deterministic ranking produced no candidates: %s", ai.last_error)
+        return 1
+    logger.info("V1 ranking complete: pool=%d model=%s status=%s",
+                len(ranked[0].get("_candidate_pool") or []), ai.model, ai.last_status)
+    # Preserve sector diversity. Prefer sectors not used earlier today; when that cannot fill 10,
+    # use the best still-novel candidates from already-used sectors rather than failing the whole run.
+    pool = ranked[0].get("_candidate_pool") if ranked and isinstance(ranked[0].get("_candidate_pool"), list) else reservoir
+    by_num={i+1:c for i,c in enumerate(pool)}
     ordered=[by_num[r["post_number"]] for r in ranked if r["post_number"] in by_num]
     selected=[]; selected_sectors=set()
+    for prefer_unused in (True, False):
+        for c in ordered:
+            sec=text(c.get("sector"))
+            if sec in selected_sectors:
+                continue
+            if prefer_unused and sec in used_sectors:
+                continue
+            if not prefer_unused and sec not in used_sectors:
+                continue
+            selected.append(c); selected_sectors.add(sec)
+            if len(selected)>=V4_PUBLISH_COUNT:
+                break
+        if len(selected)>=V4_PUBLISH_COUNT:
+            break
+    if len(selected)<V4_PUBLISH_COUNT:
+        logger.error("V1 selection yielded %d/%d candidates after sector fallback",len(selected),V4_PUBLISH_COUNT); return 1
+    if deadline.expired(): return 1
+    # Verify a larger target set than the final publication count so one weak source does not
+    # collapse the entire run. Up to 16 distinct-sector targets are verified in one Contents batch.
+    verification_targets = []
     for c in ordered:
         sec=text(c.get("sector"))
-        if sec in used_sectors or sec in selected_sectors: continue
-        selected.append(c); selected_sectors.add(sec)
-        if len(selected)>=V4_PUBLISH_COUNT: break
-    if len(selected)<V4_PUBLISH_COUNT:
-        logger.error("V1 selection yielded %d/%d unused sectors",len(selected),V4_PUBLISH_COUNT); return 1
-    if deadline.expired(): return 1
-    verified,status=v1_verify_selected(selected,now.date())
+        if sec not in {text(x.get("sector")) for x in verification_targets}:
+            verification_targets.append(c)
+        if len(verification_targets)>=min(16, len(ordered)):
+            break
+    verified,status=v1_verify_selected(verification_targets,now.date())
     if status!="ok" and not verified:
         logger.error("V1 verification failed: %s",status); return 1
     posted=[]
-    reserve=[c for c in ordered if c not in selected]
-    stream=verified+reserve
+    selected_ids={id(x) for x in selected}
+    # Selected candidates are tried first. Verified reserve candidates can replace failed editorial
+    # candidates, but each sector can publish at most once in a run.
+    stream = selected + [c for c in verified if id(c) not in selected_ids]
+    posted_sectors=set()
     for cand in stream:
         if len(posted)>=V4_PUBLISH_COUNT or deadline.expired(): break
         sec=text(cand.get("sector"))
-        if sec in {text(x.get("sector")) for x in posted} or sec in used_sectors: continue
+        if not sec or sec in posted_sectors: continue
         evidence=text(cand.get("research_evidence"))
         imgs=[x for x in (cand.get("research_images") or []) if isinstance(x,dict) and text(x.get("url"))]
         imgs=[x for x in imgs if v4_validate_image_candidate(x,do_network=not (V1_DRY_RUN or DRY_RUN))]
         editorial=v1_editorialize(ai,cand,evidence,imgs)
-        if not editorial: continue
+        if not editorial:
+            logger.warning("V1 editorial generation failed for sector=%s subject=%s: %s",sec,text(cand.get("normalized_subject")),ai.last_error)
+            continue
         ok,why,out=v1_validate_editorial(cand,editorial,imgs)
         if not ok:
             reject("v1_editorial_invalid",why); continue
@@ -5906,7 +6103,7 @@ def v1_run_once() -> int:
         mid=(res.get("result") or {}).get("message_id")
         v4_record_coverage(coverage,story,run_id,mid); coverage["updated_at"]=utc_iso(now_bd())
         used_sectors.add(sec); daily.setdefault("published_sectors",[]).append(sec); daily["published_sectors"]=list(dict.fromkeys(daily["published_sectors"]))
-        posted.append(story)
+        posted_sectors.add(sec); posted.append(story)
         state.setdefault("posts",[]).append({
             "desk":"evergreen_v1","format":story.get("sector"),"sector":story.get("sector"),"topic":story.get("topic"),
             "normalized_subject":story.get("normalized_subject"),"central_knowledge_unit":story.get("central_knowledge_unit"),
@@ -5946,6 +6143,23 @@ def v1_run_once() -> int:
     logger.info("V1 RUN SUCCESS %s: %d evergreen + 2 live",run_id,len(posted)); return 0
 
 
+def v1_cerebras_preflight() -> tuple[bool, str]:
+    """Check authentication/model availability without consuming a chat-completion request."""
+    if not CEREBRAS_API_KEY:
+        return False, "CEREBRAS_API_KEY is empty"
+    r = http(
+        "cerebras", "GET", AIClient.MODELS_URL,
+        headers={"Authorization": f"Bearer {CEREBRAS_API_KEY}", "X-Cerebras-Version-Patch": CEREBRAS_API_VERSION},
+        timeout=20, retries=1,
+    )
+    if not r.ok or not isinstance(r.data, dict):
+        return False, AIClient._error_detail(r)
+    ids = [text(x.get("id")) for x in (r.data.get("data") or []) if isinstance(x, dict)]
+    if CEREBRAS_MODEL not in ids:
+        return False, f"configured model '{CEREBRAS_MODEL}' is not available"
+    return True, f"model={CEREBRAS_MODEL}, api_version={CEREBRAS_API_VERSION}"
+
+
 def v1_validate_config(require_secrets: bool = True) -> int:
     required=["main.py","news_state.json","posted_urls.txt","coverage_index.json","requirements.txt","README.md","prompts/exa_sector_discovery_v1.txt","prompts/exa_hard_case_agent_v1.txt","prompts/exa_contents_verification_v1.txt","prompts/cerebras_rank_v1.txt","prompts/cerebras_editorial_v1.txt","tests/test_v1.py","schemas/exa_agent_hard_case_v1.json",".github/workflows/newbot.yml",".github/workflows/import-zip.yml"]
     missing=[x for x in required if not Path(x).exists()]
@@ -5955,6 +6169,10 @@ def v1_validate_config(require_secrets: bool = True) -> int:
         miss=[k for k,v in (("EXA_API_KEY",EXA_API_KEY),("CEREBRAS_API_KEY",CEREBRAS_API_KEY),("TELEGRAM_BOT_TOKEN",TELEGRAM_BOT_TOKEN)) if not v]
         if miss:
             print("CONFIG: FAIL (missing secrets: "+", ".join(miss)+")"); return 1
+        ok, detail = v1_cerebras_preflight()
+        if not ok:
+            print("CONFIG: FAIL (Cerebras preflight: "+detail+")"); return 1
+        print("CONFIG: Cerebras preflight OK ("+detail+")")
     print(f"CONFIG: OK (The Sports Newsroom V1, {len(V1_SECTORS)} sectors, native Exa Search/Contents/Agent architecture)"); return 0
 
 
