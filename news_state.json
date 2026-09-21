@@ -1,12 +1,15 @@
 {
  "ai": {
-  "last_ok": "2026-09-21T12:02:46.858226+00:00",
+  "last_error": "",
+  "last_ok": "2026-09-21T23:25:14.501127+00:00",
+  "last_request_id": "a3ecd3f3790ed250-ORD",
+  "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-21T06:43:50.838439+00:00",
- "last_run_at": "2026-09-21T12:00:22.256659+00:00",
+ "last_run_at": "2026-09-21T23:27:23.012108+00:00",
  "ledger": {
   "day_in_sports:2026-09-20": {
    "attempts": 1,
@@ -81,6 +84,196 @@
    "topic": "Field sports",
    "urls": [
     "en.wikipedia.org/wiki/Field_sports"
+   ]
+  },
+  {
+   "angle": "Historical profile emphasizing collaborative foundations of the Olympic revival",
+   "central_knowledge_unit": "Pierre de Coubertin: Visionary and Founder of the Modern Olympics",
+   "claim": "Pierre de Coubertin was a principal organizer of the 1894 Paris Congress that adopted the revival of the Olympic Games, established the International Olympic Committee, and set Athens as the site of the first IOC-era modern Olympic Games in 1896. He is therefore accurately described as a central founder of the IOC-era modern Olympic movement, but not as the sole originator of every modern Olympic revival idea or event.",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Pierre de Coubertin: Architect of the Modern Olympic Movement",
+   "image_status": "verified",
+   "message_id": 13,
+   "normalized_subject": "Pierre de Coubertin: Visionary and Founder of the Modern Olympics",
+   "posted_at": "2026-09-21T23:23:40.904837+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Sports & Games People",
+   "topic": "Pierre de Coubertin: Visionary and Founder of the Modern Olympics",
+   "urls": [
+    "olympics.com/ioc/pierre-de-coubertin",
+    "olympics.com/ioc/paris-1894-olympic-congress",
+    "britannica.com/biography/Pierre-baron-de-Coubertin",
+    "doi.org/10.2307/2650582",
+    "cambridge.org/core/journals/european-review/article/abs/predecessors-of-the-olympic-movement-and-pierre-de-coubertin/04DE7FA59B47F756E4C95CEA509311CF",
+    "zappeion.gr/en/evangelis-zappas-and-the-modern-olympics.html"
+   ]
+  },
+  {
+   "angle": "Cultural continuity and accurate historical framing of a surviving indigenous sport",
+   "central_knowledge_unit": "Ulama, a 3,400-year-old ballgame that survived in Mexico | AP News",
+   "claim": "Ulama is a living traditional game in Sinaloa that Mexico’s cultural-heritage inventory identifies as a continuity of the pre-Hispanic Mesoamerican ballgame. In the hip (cadera) form, teams use a heavy natural-rubber ball and play it with the hip; the broader Mesoamerican ballgame tradition has archaeological and scholarly evidence reaching roughly 3,500 years into the past. It is therefore supportable to describe ulama as a modern continuation of an ancient Mesoamerican ballgame, but not to state as an established fact that the identical modern sport itself is exactly 3,400 years old or that it is definitively one of the oldest team sports.",
+   "desk": "evergreen_v1",
+   "format": "Sport Discovery",
+   "headline": "Ulama: Ancient Mesoamerican Ballgame Lives On in Modern Mexico",
+   "image_status": "unavailable",
+   "message_id": 14,
+   "normalized_subject": "Ulama, a 3,400-year-old ballgame that survived in Mexico | AP News",
+   "posted_at": "2026-09-21T23:23:45.760582+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Sport Discovery",
+   "topic": "Ulama, a 3,400-year-old ballgame that survived in Mexico | AP News",
+   "urls": [
+    "apnews.com/article/mexico-ulama-prehispanic-ballgame-fifa-cup-3819e65e272d0360979a8cd2dd78b999",
+    "sic.gob.mx/ficha.php?disciplina=&table=frpintangible&table_id=424",
+    "revistas.unam.mx/index.php/antropologia/article/view/45569",
+    "science.org/doi/10.1126/sciadv.aay6964",
+    "metmuseum.org/toah/hd/mball/hd/_mball.htm",
+    "smithsonianmag.com/history/students-of-the-game-114354912"
+   ]
+  },
+  {
+   "angle": "Historical analysis of chess’s disputed roots",
+   "central_knowledge_unit": "Chess - History | Britannica",
+   "claim": "The origin of chess remains a matter of controversy. There is no credible evidence that chess existed in a form approaching the modern game before the 6th century ce. Game pieces found in Russia, China, India, Central Asia, Pakistan, and elsewhere that have been determined to be older than that are now regarded as coming from earlier distantly related board games, often involving dice and sometimes using playing boards of 100 or more squares. ... One of those earlier games was a war game called chaturanga, a Sanskrit name for a battle formation mentioned in the Indian epic Mahabharata. Chaturanga was flourishing in northwestern India by the 7th century and is regarded as the earliest precurs",
+   "desk": "evergreen_v1",
+   "format": "Game Origin",
+   "headline": "Tracing Chess Origins: From Chaturanga to Modern Play",
+   "image_status": "verified",
+   "message_id": 15,
+   "normalized_subject": "Chess - History | Britannica",
+   "posted_at": "2026-09-21T23:23:49.708253+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Game Origin",
+   "topic": "Chess - History | Britannica",
+   "urls": [
+    "britannica.com/topic/chess/History"
+   ]
+  },
+  {
+   "angle": "Explaining why the 1997 free kick remains a scientific outlier in football history",
+   "central_knowledge_unit": "Roberto Carlos' Brazil free kick in 1997: The physics behind 'impossible' strike - ESPN",
+   "claim": "On June 3, 1997, Roberto Carlos stunned the world with one of the most spectacular free kicks in football history. The left-back scored the most famous goal of his career: an outrageous long-range free kick for Brazil in a 1-1 draw against France in the opening game of the 1997 Tournoi de France, a warm-up tournament ahead of the following year's World Cup. ... The strike left goalkeeper Fabien Barthez perplexed, as the ball apparently was heading well wide of the target and into the crowd. However, it swerved back, glanced the inside edge of the post, and stopped only when it hit the net. Two decades later, Roberto Carlos says he is still impressed when he sees footage of his kick. ... Robe",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "Roberto Carlos' 1997 Free Kick Still Baffles Physics",
+   "image_status": "verified",
+   "message_id": 16,
+   "normalized_subject": "Roberto Carlos' Brazil free kick in 1997: The physics behind 'impossible' strike - ESPN",
+   "posted_at": "2026-09-21T23:23:56.658727+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Why Does This Happen?",
+   "topic": "Roberto Carlos' Brazil free kick in 1997: The physics behind 'impossible' strike - ESPN",
+   "urls": [
+    "espn.com/soccer/story/_/id/37475858/physics-impossible-strike"
+   ]
+  },
+  {
+   "angle": "Cultural heritage and grassroots sport history",
+   "central_knowledge_unit": "Rediscovering Knurr and Spell - Yorkshire's lost miners' game",
+   "claim": "Once a popular pastime across Yorkshire, the miners' game Knurr and Spell has all but disappeared from public knowledge. ... The game, also known as Nipsy, Piggy and Northern Spell, was predominantly played in mining communities in the 18th, 19th and early 20th centuries. ... There are many variations of the game, with different types of equipment used in localised versions across Yorkshire, Lancashire and the wider North of England. ... The game often took place on moorland but could be played in any area of green space. ... It is not certain when Knurr and Spell first started, and it is even less clear when the last competitive game was held - although the BBC did feature the world champio",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Sport",
+   "headline": "Knurr and Spell: Yorkshire’s Forgotten Miners’ Game Revived",
+   "image_status": "verified",
+   "message_id": 17,
+   "normalized_subject": "Rediscovering Knurr and Spell - Yorkshire's lost miners' game",
+   "posted_at": "2026-09-21T23:24:10.762995+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Forgotten Sport",
+   "topic": "Rediscovering Knurr and Spell - Yorkshire's lost miners' game",
+   "urls": [
+    "bbc.com/news/articles/cvgmvkygkz5o"
+   ]
+  },
+  {
+   "angle": "Highlighting senet’s extraordinary durability and its dual role as entertainment and spiritual conduit across Egyptian history.",
+   "central_knowledge_unit": "The History of Senet: 3,000 Years, Not One Rule | PlayNook",
+   "claim": "Senet is the oldest board game we have physical evidence for — though that claim has three different answers depending on what you mean by oldest. Boards turn up in Egyptian graves from around 3100 BC, and people were still playing it when the Romans arrived — a run of roughly three thousand years, longer than the gap between the last Egyptian player and today. ... more of this game than of almost any other object of daily ... A queen at the ... in her own ... . Four separate sets buried ... The earliest candidates are also the shakiest. Grids of thirty squares turn up in First Dynasty burials around 3100 BC, and a funerary slab from the same period appears to show two people at a board. Whe",
+   "desk": "evergreen_v1",
+   "format": "Interesting Game Fact",
+   "headline": "Senet: 3,000‑Year Egyptian Board Game Spanning Dynasties",
+   "image_status": "verified",
+   "message_id": 18,
+   "normalized_subject": "The History of Senet: 3,000 Years, Not One Rule | PlayNook",
+   "posted_at": "2026-09-21T23:24:24.558348+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Interesting Game Fact",
+   "topic": "The History of Senet: 3,000 Years, Not One Rule | PlayNook",
+   "urls": [
+    "playnook.io/blog/history-of-senet"
+   ]
+  },
+  {
+   "angle": "Sport innovation and rapid mainstream adoption",
+   "central_knowledge_unit": "Balletic hits and bicycle kicks: Teqball comes of age at the Asian Games | Sport | The Guardian",
+   "claim": "Invented a little over a decade ago in Hungary, teqball is a combination of football and ping pong ... Teqball was invented a little over a decade ago in Hungary, when two friends started playing football on a ping pong table, before going on to create the signature curved table the game is played on. ... The new sport is quickly entering the mainstream. This weekend it will debut at the Asian Games in Japan, after its historic inclusion at the European and African games, with ambitions to be an Olympic sport by 2032. ... Teams from 16 nations will be competing at the competition, which will also debut padel and virtual taekwondo, a non-contact sport using virtual reality headsets. ... Teqba",
+   "desk": "evergreen_v1",
+   "format": "New Sport Discovery",
+   "headline": "Teqball debuts at Asian Games, eyeing Olympic future",
+   "image_status": "verified",
+   "message_id": 19,
+   "normalized_subject": "Balletic hits and bicycle kicks: Teqball comes of age at the Asian Games | Sport | The Guardian",
+   "posted_at": "2026-09-21T23:24:36.746186+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "New Sport Discovery",
+   "topic": "Balletic hits and bicycle kicks: Teqball comes of age at the Asian Games | Sport | The Guardian",
+   "urls": [
+    "theguardian.com/sport/2026/sep/18/balletic-hits-and-bicycle-kicks-teqball-comes-of-age-at-the-asian-games"
+   ]
+  },
+  {
+   "angle": "Cultural heritage and game evolution",
+   "central_knowledge_unit": "Rediscover the Ancient Game of Chaupar: A Timeless Journey of Strategy and Culture - historified",
+   "claim": "I think everyone would agree that Ludo was the game that Indians played the most during the COVID lockdown. Remember, Ludo King. While not much is known about the game’s past, we have all played and continue to love it. Allow me to take you on Ludo’s or Chauapr’s journey. ... Chaupar, chopad, or chaupad, is an indigenous game of Uttarakhand. The cross & circle board game is quite similar to pachisi, one of India’s oldest games. The board is made of wool or fabric, with wooden pawns and seven cowry shells used to determine each player’s move; however, some distinguish Chaupar from pachisi by using three four-sided long dice. Variations are played across India. It shares similarities with Pach",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "Rediscovering Chaupar: Uttarakhand’s Ancient Cross‑and‑Circle Strategy Game",
+   "image_status": "verified",
+   "message_id": 20,
+   "normalized_subject": "Rediscover the Ancient Game of Chaupar: A Timeless Journey of Strategy and Culture - historified",
+   "posted_at": "2026-09-21T23:24:49.803914+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Game Discovery",
+   "topic": "Rediscover the Ancient Game of Chaupar: A Timeless Journey of Strategy and Culture - historified",
+   "urls": [
+    "historified.in/2024/05/25/rediscover-the-ancient-game-of-chaupar-a-timeless-journey-of-strategy-and-culture"
+   ]
+  },
+  {
+   "angle": "Introducing a growing pastime that unites two distinct sports into a single, strategic game.",
+   "central_knowledge_unit": "Dart Football: The Definitive Guide to the Hybrid Sport of Darting and Football Skills – Adam-king.co.uk",
+   "claim": "Dart Football is a hybrid sport that marries the accuracy and mental discipline of darts with football-style footwork, ball-handling, and tactical positioning. Teams or individuals compete on setups that incorporate standard dart boards or football-themed targets alongside space for light football skills during breaks in play. The primary objective remains straightforward—to accrue points or achieve goals by hitting designated targets with darts while maintaining or transferring ball control through a series of football-based challenges. The gameplay emphasizes rhythm, precision, strategy, and the ability to switch between fine motor control (hand-eye coordination for darts) and gross motor ",
+   "desk": "evergreen_v1",
+   "format": "How to Play",
+   "headline": "Dart Football Merges Precision Throwing with Football Skill",
+   "image_status": "unavailable",
+   "message_id": 21,
+   "normalized_subject": "Dart Football: The Definitive Guide to the Hybrid Sport of Darting and Football Skills – Adam-king.co.uk",
+   "posted_at": "2026-09-21T23:25:02.865650+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "How to Play",
+   "topic": "Dart Football: The Definitive Guide to the Hybrid Sport of Darting and Football Skills – Adam-king.co.uk",
+   "urls": [
+    "adam-king.co.uk/dart-football"
+   ]
+  },
+  {
+   "angle": "Technology and design innovations shaping the future of football equipment",
+   "central_knowledge_unit": "Meet new FIFA World Cup ball: AI-sensor for better decisions, improved design for fewer surprises | Explained News - The Indian Express",
+   "claim": "Every four years when the FIFA World Cup comes around, official sponsor Adidas creates a new iteration of the ball that will be used. This time, as the world further integrates artificial intelligence (AI) models into everyday use-case scenarios, the humble football now finds itself an AI-enabled entity, loaded with a sensor specifically built to track its movements. ... But the Trionda, this edition’s ball, is notable for more than its modern sensor. It has the lowest number of panels ever used to make a football. And, unlike the mercurial Jabulani ball used during the 2010 World Cup, it promises far fewer surprises than what many players had to contend with in South Africa. ... The Telstar",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "AI‑Enabled Trionda Ball Promises Faster VAR Decisions and Fewer Surprises",
+   "image_status": "unavailable",
+   "message_id": 22,
+   "normalized_subject": "Meet new FIFA World Cup ball: AI-sensor for better decisions, improved design for fewer surprises | Explained News - The Indian Express",
+   "posted_at": "2026-09-21T23:25:16.268403+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Equipment / Measurement",
+   "topic": "Meet new FIFA World Cup ball: AI-sensor for better decisions, improved design for fewer surprises | Explained News - The Indian Express",
+   "urls": [
+    "indianexpress.com/article/explained/explained-sports/fifa-world-cup-2026-why-the-new-ai-enabled-ball-promises-better-decisions-fewer-surprises-10726300"
    ]
   }
  ],
@@ -2631,5 +2824,153 @@
     "title": "Yahtzee"
    }
   }
+ },
+ "v1": {
+  "created_at": "2026-09-21T23:19:57.088894+00:00",
+  "daily": {
+   "2026-09-22": {
+    "published_sectors": [
+     "Sports & Games People",
+     "Sport Discovery",
+     "Game Origin",
+     "Why Does This Happen?",
+     "Forgotten Sport",
+     "Interesting Game Fact",
+     "New Sport Discovery",
+     "Game Discovery",
+     "How to Play",
+     "Equipment / Measurement"
+    ],
+    "run_ids": [
+     "2026-09-22-AM"
+    ]
+   }
+  },
+  "last_run_at": "2026-09-21T23:27:23.012081+00:00",
+  "live": {
+   "results": {
+    "event_ids": [
+     "b5ac03fb080bd242",
+     "ceb3ba3d25679023",
+     "449b6a95b0894848",
+     "c601953eb296fecd",
+     "30c02fff4ef4efef",
+     "aec4eb63d82679ad",
+     "f4ee291187127f70",
+     "6399c91d95f2fbb8"
+    ],
+    "message_id": 24,
+    "target_date": "2026-09-21",
+    "updated_at": "2026-09-21T23:27:23.008899+00:00"
+   },
+   "schedule": {
+    "event_ids": [
+     "0265549b10bfcc9f",
+     "49abbcf729f1d849",
+     "eda34602639c4a68",
+     "370e236011995137",
+     "47db7c9fdb97ba2b",
+     "1cbb682a68feb7cf",
+     "8c42e9388fc34acd",
+     "4a463bc7b7b646b1",
+     "9cfbedcb38bd5f2c",
+     "4dfdcd0c378fdb62",
+     "485b082e116fc4a6",
+     "92b7e6cfb084b7a8",
+     "49066cd1400adfa4",
+     "7a8979b4d0c1615a",
+     "2b58e06701ab8a80",
+     "c4a2a1f9a23efcdf"
+    ],
+    "message_id": 23,
+    "target_date": "2026-09-23",
+    "updated_at": "2026-09-21T23:27:23.008886+00:00"
+   }
+  },
+  "publication": {
+   "2026-09-22-AM:evergreen:1b9876df5dee9671": {
+    "message_id": 16,
+    "posted_at": "2026-09-21T23:23:56.658354+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:5551d1540dd7e905": {
+    "message_id": 13,
+    "posted_at": "2026-09-21T23:23:40.904497+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:61556d3b9328f246": {
+    "message_id": 21,
+    "posted_at": "2026-09-21T23:25:02.865281+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:7976cfa3b17284ea": {
+    "message_id": 19,
+    "posted_at": "2026-09-21T23:24:36.745902+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:bd5470bda3abc92a": {
+    "message_id": 18,
+    "posted_at": "2026-09-21T23:24:24.558057+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:cbd91c894aaa8ed5": {
+    "message_id": 22,
+    "posted_at": "2026-09-21T23:25:16.268049+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:cedc0467ccb337af": {
+    "message_id": 17,
+    "posted_at": "2026-09-21T23:24:10.762655+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:cfe0ef36d0434ef0": {
+    "message_id": 14,
+    "posted_at": "2026-09-21T23:23:45.760167+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:d8e7b205a744c1c8": {
+    "message_id": 20,
+    "posted_at": "2026-09-21T23:24:49.803622+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:fefb27f50f3cd6c2": {
+    "message_id": 15,
+    "posted_at": "2026-09-21T23:23:49.707964+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:live_results:95c5fd8d85302478": {
+    "message_id": 24,
+    "posted_at": "2026-09-21T23:27:23.008862+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:live_schedule:fe12adf42b253cb0": {
+    "message_id": 23,
+    "posted_at": "2026-09-21T23:27:22.688445+00:00",
+    "status": "posted"
+   }
+  },
+  "runs": [
+   {
+    "at": "2026-09-21T23:27:23.012090+00:00",
+    "evergreen": 10,
+    "exit": 0,
+    "live_results": 24,
+    "live_schedule": 23,
+    "run_id": "2026-09-22-AM",
+    "used_sectors": [
+     "Equipment / Measurement",
+     "Forgotten Sport",
+     "Game Discovery",
+     "Game Origin",
+     "How to Play",
+     "Interesting Game Fact",
+     "New Sport Discovery",
+     "Sport Discovery",
+     "Sports & Games People",
+     "Why Does This Happen?"
+    ]
+   }
+  ],
+  "schema": 1
  }
 }

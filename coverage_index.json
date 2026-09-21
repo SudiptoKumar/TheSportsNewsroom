@@ -1,5 +1,294 @@
 {
+ "records": [
+  {
+   "central_claim": "The first Monday Night Football game is between the Cleveland Browns and the New York Jets.",
+   "central_knowledge_unit": "the first monday night football game is between the cleveland browns and the new york jets",
+   "content_id": "f9e5df6ac2935603",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "anniversary",
+   "fingerprints": [
+    "0c97eb1203824156",
+    "c1f5bcb01f97de96"
+   ],
+   "legacy": true,
+   "normalized_subject": "monday night football",
+   "people": [],
+   "published_at": "2026-09-21T12:02:04.989575+00:00",
+   "region": "",
+   "run_id": "legacy-v3",
+   "sector": "on_this_date",
+   "source_urls": [
+    "en.wikipedia.org/wiki/Monday_Night_Football"
+   ],
+   "sport_or_game": "Monday_Night_Football",
+   "telegram_message_id": 10
+  },
+  {
+   "central_claim": "Field sports in the United Kingdom are rooted in 19th‑century English countryside traditions, with participants often wearing British country clothing to imitate the landed gentry of that era.",
+   "central_knowledge_unit": "field sports in the united kingdom are rooted in 19th century english countryside traditions with participants often wearing british country clothing to imitate the landed gentry of that era",
+   "content_id": "057c3bcee1479a36",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "evolution",
+   "fingerprints": [
+    "3fc52d9b941d1015",
+    "3a0981fbfe05ce9f"
+   ],
+   "legacy": true,
+   "normalized_subject": "field sports",
+   "people": [],
+   "published_at": "2026-09-21T12:02:48.513071+00:00",
+   "region": "",
+   "run_id": "legacy-v3",
+   "sector": "history",
+   "source_urls": [
+    "en.wikipedia.org/wiki/Field_sports"
+   ],
+   "sport_or_game": "Field sports",
+   "telegram_message_id": 11
+  },
+  {
+   "central_claim": "Pierre de Coubertin was a principal organizer of the 1894 Paris Congress that adopted the revival of the Olympic Games, established the International Olympic Committee, and set Athens as the site of the first IOC-era modern Olympic Games in 1896. He is therefore accurately described as a central founder of the IOC-era modern Olympic movement, but not as the sole originator of every modern Olympic revival idea or event.",
+   "central_knowledge_unit": "pierre de coubertin visionary and founder of the modern olympics",
+   "content_id": "4a2aa974ca201a92",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "Historical profile emphasizing collaborative foundations of the Olympic revival",
+   "fingerprints": [
+    "4a2aa974ca201a92",
+    "52527518d9caef8e"
+   ],
+   "normalized_subject": "pierre de coubertin visionary and founder of the modern olympics",
+   "people": [],
+   "published_at": "2026-09-21T23:23:40.904666+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "olympics.com/ioc/pierre-de-coubertin",
+    "olympics.com/ioc/paris-1894-olympic-congress",
+    "britannica.com/biography/Pierre-baron-de-Coubertin",
+    "doi.org/10.2307/2650582",
+    "cambridge.org/core/journals/european-review/article/abs/predecessors-of-the-olympic-movement-and-pierre-de-coubertin/04DE7FA59B47F756E4C95CEA509311CF",
+    "zappeion.gr/en/evangelis-zappas-and-the-modern-olympics.html"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 13
+  },
+  {
+   "central_claim": "Ulama is a living traditional game in Sinaloa that Mexico’s cultural-heritage inventory identifies as a continuity of the pre-Hispanic Mesoamerican ballgame. In the hip (cadera) form, teams use a heavy natural-rubber ball and play it with the hip; the broader Mesoamerican ballgame tradition has archaeological and scholarly evidence reaching roughly 3,500 years into the past. It is therefore supportable to describe ulama as a modern continuation of an ancient Mesoamerican ballgame, but not to state as an established fact that the identical modern sport itself is exactly 3,400 years old or that it is definitively one of the oldest team sports.",
+   "central_knowledge_unit": "ulama a 3 400 year old ballgame that survived in mexico ap news",
+   "content_id": "8ac3de6f34ce7d19",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "Cultural continuity and accurate historical framing of a surviving indigenous sport",
+   "fingerprints": [
+    "8ac3de6f34ce7d19",
+    "25dfc3dd43c343bf"
+   ],
+   "normalized_subject": "ulama a 3 400 year old ballgame that survived in mexico ap news",
+   "people": [],
+   "published_at": "2026-09-21T23:23:45.760323+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    "apnews.com/article/mexico-ulama-prehispanic-ballgame-fifa-cup-3819e65e272d0360979a8cd2dd78b999",
+    "sic.gob.mx/ficha.php?disciplina=&table=frpintangible&table_id=424",
+    "revistas.unam.mx/index.php/antropologia/article/view/45569",
+    "science.org/doi/10.1126/sciadv.aay6964",
+    "metmuseum.org/toah/hd/mball/hd/_mball.htm",
+    "smithsonianmag.com/history/students-of-the-game-114354912"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 14
+  },
+  {
+   "central_claim": "The origin of chess remains a matter of controversy. There is no credible evidence that chess existed in a form approaching the modern game before the 6th century ce. Game pieces found in Russia, China, India, Central Asia, Pakistan, and elsewhere that have been determined to be older than that are now regarded as coming from earlier distantly related board games, often involving dice and sometimes using playing boards of 100 or more squares. ... One of those earlier games was a war game called chaturanga, a Sanskrit name for a battle formation mentioned in the Indian epic Mahabharata. Chaturanga was flourishing in northwestern India by the 7th century and is regarded as the earliest precurs",
+   "central_knowledge_unit": "chess history britannica",
+   "content_id": "77a710fb568c07e6",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "Historical analysis of chess’s disputed roots",
+   "fingerprints": [
+    "77a710fb568c07e6",
+    "27c2c470c17e93f9"
+   ],
+   "normalized_subject": "chess history britannica",
+   "people": [],
+   "published_at": "2026-09-21T23:23:49.708104+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "Game Origin",
+   "source_urls": [
+    "britannica.com/topic/chess/History"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 15
+  },
+  {
+   "central_claim": "On June 3, 1997, Roberto Carlos stunned the world with one of the most spectacular free kicks in football history. The left-back scored the most famous goal of his career: an outrageous long-range free kick for Brazil in a 1-1 draw against France in the opening game of the 1997 Tournoi de France, a warm-up tournament ahead of the following year's World Cup. ... The strike left goalkeeper Fabien Barthez perplexed, as the ball apparently was heading well wide of the target and into the crowd. However, it swerved back, glanced the inside edge of the post, and stopped only when it hit the net. Two decades later, Roberto Carlos says he is still impressed when he sees footage of his kick. ... Robe",
+   "central_knowledge_unit": "roberto carlos brazil free kick in 1997 the physics behind impossible strike espn",
+   "content_id": "18e6e110f732d6e5",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "Explaining why the 1997 free kick remains a scientific outlier in football history",
+   "fingerprints": [
+    "18e6e110f732d6e5",
+    "dfc58c8e54b956ca"
+   ],
+   "normalized_subject": "roberto carlos brazil free kick in 1997 the physics behind impossible strike espn",
+   "people": [],
+   "published_at": "2026-09-21T23:23:56.658516+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "espn.com/soccer/story/_/id/37475858/physics-impossible-strike"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 16
+  },
+  {
+   "central_claim": "Once a popular pastime across Yorkshire, the miners' game Knurr and Spell has all but disappeared from public knowledge. ... The game, also known as Nipsy, Piggy and Northern Spell, was predominantly played in mining communities in the 18th, 19th and early 20th centuries. ... There are many variations of the game, with different types of equipment used in localised versions across Yorkshire, Lancashire and the wider North of England. ... The game often took place on moorland but could be played in any area of green space. ... It is not certain when Knurr and Spell first started, and it is even less clear when the last competitive game was held - although the BBC did feature the world champio",
+   "central_knowledge_unit": "rediscovering knurr and spell yorkshire s lost miners game",
+   "content_id": "772b7a409b81b775",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "Cultural heritage and grassroots sport history",
+   "fingerprints": [
+    "772b7a409b81b775",
+    "a49eea8315901b61"
+   ],
+   "normalized_subject": "rediscovering knurr and spell yorkshire s lost miners game",
+   "people": [],
+   "published_at": "2026-09-21T23:24:10.762812+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    "bbc.com/news/articles/cvgmvkygkz5o"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 17
+  },
+  {
+   "central_claim": "Senet is the oldest board game we have physical evidence for — though that claim has three different answers depending on what you mean by oldest. Boards turn up in Egyptian graves from around 3100 BC, and people were still playing it when the Romans arrived — a run of roughly three thousand years, longer than the gap between the last Egyptian player and today. ... more of this game than of almost any other object of daily ... A queen at the ... in her own ... . Four separate sets buried ... The earliest candidates are also the shakiest. Grids of thirty squares turn up in First Dynasty burials around 3100 BC, and a funerary slab from the same period appears to show two people at a board. Whe",
+   "central_knowledge_unit": "the history of senet 3 000 years not one rule playnook",
+   "content_id": "4a52c76598a9680b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "Highlighting senet’s extraordinary durability and its dual role as entertainment and spiritual conduit across Egyptian history.",
+   "fingerprints": [
+    "4a52c76598a9680b",
+    "7114998ded6bd80a"
+   ],
+   "normalized_subject": "the history of senet 3 000 years not one rule playnook",
+   "people": [],
+   "published_at": "2026-09-21T23:24:24.558197+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    "playnook.io/blog/history-of-senet"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 18
+  },
+  {
+   "central_claim": "Invented a little over a decade ago in Hungary, teqball is a combination of football and ping pong ... Teqball was invented a little over a decade ago in Hungary, when two friends started playing football on a ping pong table, before going on to create the signature curved table the game is played on. ... The new sport is quickly entering the mainstream. This weekend it will debut at the Asian Games in Japan, after its historic inclusion at the European and African games, with ambitions to be an Olympic sport by 2032. ... Teams from 16 nations will be competing at the competition, which will also debut padel and virtual taekwondo, a non-contact sport using virtual reality headsets. ... Teqba",
+   "central_knowledge_unit": "balletic hits and bicycle kicks teqball comes of age at the asian games sport the guardian",
+   "content_id": "ebfbdb039e223bbc",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "Sport innovation and rapid mainstream adoption",
+   "fingerprints": [
+    "ebfbdb039e223bbc",
+    "4dbb2cd0987d70d5"
+   ],
+   "normalized_subject": "balletic hits and bicycle kicks teqball comes of age at the asian games sport the guardian",
+   "people": [],
+   "published_at": "2026-09-21T23:24:36.746042+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "theguardian.com/sport/2026/sep/18/balletic-hits-and-bicycle-kicks-teqball-comes-of-age-at-the-asian-games"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 19
+  },
+  {
+   "central_claim": "I think everyone would agree that Ludo was the game that Indians played the most during the COVID lockdown. Remember, Ludo King. While not much is known about the game’s past, we have all played and continue to love it. Allow me to take you on Ludo’s or Chauapr’s journey. ... Chaupar, chopad, or chaupad, is an indigenous game of Uttarakhand. The cross & circle board game is quite similar to pachisi, one of India’s oldest games. The board is made of wool or fabric, with wooden pawns and seven cowry shells used to determine each player’s move; however, some distinguish Chaupar from pachisi by using three four-sided long dice. Variations are played across India. It shares similarities with Pach",
+   "central_knowledge_unit": "rediscover the ancient game of chaupar a timeless journey of strategy and culture historified",
+   "content_id": "d76385fe5c763e4c",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "Cultural heritage and game evolution",
+   "fingerprints": [
+    "d76385fe5c763e4c",
+    "77593116b445db9e"
+   ],
+   "normalized_subject": "rediscover the ancient game of chaupar a timeless journey of strategy and culture historified",
+   "people": [],
+   "published_at": "2026-09-21T23:24:49.803763+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "historified.in/2024/05/25/rediscover-the-ancient-game-of-chaupar-a-timeless-journey-of-strategy-and-culture"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 20
+  },
+  {
+   "central_claim": "Dart Football is a hybrid sport that marries the accuracy and mental discipline of darts with football-style footwork, ball-handling, and tactical positioning. Teams or individuals compete on setups that incorporate standard dart boards or football-themed targets alongside space for light football skills during breaks in play. The primary objective remains straightforward—to accrue points or achieve goals by hitting designated targets with darts while maintaining or transferring ball control through a series of football-based challenges. The gameplay emphasizes rhythm, precision, strategy, and the ability to switch between fine motor control (hand-eye coordination for darts) and gross motor",
+   "central_knowledge_unit": "dart football the definitive guide to the hybrid sport of darting and football skills adam king co uk",
+   "content_id": "4efc3b5b882c30b3",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "Introducing a growing pastime that unites two distinct sports into a single, strategic game.",
+   "fingerprints": [
+    "4efc3b5b882c30b3",
+    "205fc534e3f32c0d"
+   ],
+   "normalized_subject": "dart football the definitive guide to the hybrid sport of darting and football skills adam king co uk",
+   "people": [],
+   "published_at": "2026-09-21T23:25:02.865446+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "How to Play",
+   "source_urls": [
+    "adam-king.co.uk/dart-football"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 21
+  },
+  {
+   "central_claim": "Every four years when the FIFA World Cup comes around, official sponsor Adidas creates a new iteration of the ball that will be used. This time, as the world further integrates artificial intelligence (AI) models into everyday use-case scenarios, the humble football now finds itself an AI-enabled entity, loaded with a sensor specifically built to track its movements. ... But the Trionda, this edition’s ball, is notable for more than its modern sensor. It has the lowest number of panels ever used to make a football. And, unlike the mercurial Jabulani ball used during the 2010 World Cup, it promises far fewer surprises than what many players had to contend with in South Africa. ... The Telstar",
+   "central_knowledge_unit": "meet new fifa world cup ball ai sensor for better decisions improved design for fewer surprises explained news the indian express",
+   "content_id": "e6dca97ba1c63254",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "Technology and design innovations shaping the future of football equipment",
+   "fingerprints": [
+    "e6dca97ba1c63254",
+    "f88f0c421588143f"
+   ],
+   "normalized_subject": "meet new fifa world cup ball ai sensor for better decisions improved design for fewer surprises explained news the indian express",
+   "people": [],
+   "published_at": "2026-09-21T23:25:16.268231+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "indianexpress.com/article/explained/explained-sports/fifa-world-cup-2026-why-the-new-ai-enabled-ball-promises-better-decisions-fewer-surprises-10726300"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 22
+  }
+ ],
  "schema": 1,
- "updated_at": "",
- "records": []
+ "updated_at": "2026-09-21T23:25:16.268387+00:00"
 }
