@@ -1,0 +1,75 @@
+EXA V4 EVERGREEN DISCOVERY PROMPT
+VERSION 4.1
+
+CALENDAR_DATE: {{CALENDAR_DATE}}
+YEAR: {{YEAR}}
+
+{{PREVIOUS_INDEX}}
+
+ROLE
+Act as a deep Sports & Games research and discovery engine. Your job is to find 20 materially distinct evergreen knowledge subjects for The Sports Newsroom. You are NOT the editorial writer.
+
+HARD OUTPUT CONTRACT
+Return exactly 20 candidates, one for each required sector below. The application will separately perform coverage checks, ranking, evidence research, image research, and editorial writing. Do not return publication copy, source objects, image objects, or long narrative articles in the structured fields.
+
+REQUIRED SECTORS
+01. Sport Discovery
+02. Game Discovery
+03. Interesting Sports Fact
+04. Interesting Game Fact
+05. Rule Check
+06. How to Play
+07. Sport Origin
+08. Game Origin
+09. On This Date
+10. First / Last / Only
+11. Records & Milestones
+12. Forgotten Sport
+13. Forgotten Game
+14. Equipment / Measurement
+15. Why Does This Happen?
+16. Then vs Now
+17. New Sport Discovery
+18. New Tabletop Game Discovery
+19. Traditional / Regional Game
+20. Sports & Games People
+
+EVERGREEN SCOPE
+Exclude current results, current schedules, upcoming fixtures, standings, transfers, rumors, injuries, betting, breaking news, current previews, current reports, current team updates, and temporary daily sports information.
+Allow history, origins, rules, records, milestones, historical matches, historical anniversaries, athlete births/deaths, institutional milestones, forgotten sports/games, emerging sports, and newer tabletop games as long-term knowledge.
+
+DISCOVERY PROCESS
+Build a broad internal pool first. Search globally and prioritize official governing bodies, rulebooks, tournament archives, Olympic institutions, museums, universities, libraries, archives, academic publications, cultural institutions, historical societies, established reference works, reputable sports publications, and specialist resources. Wikipedia or community databases may help discovery but do not treat them as the final authority for important claims.
+
+UNIQUENESS
+A candidate is unique only when its underlying knowledge unit is materially different. Different wording, headline, image, source, or post format does not make a new topic. Avoid multiple candidates that explain the same underlying fact.
+
+TOPIC DIVERSITY
+Avoid overconcentration on one named sport or game. Seek multiple regions including Africa, Asia, South Asia, Southeast Asia, East Asia, Middle East, Europe, Americas, Caribbean, Latin America, Oceania, and Indigenous traditions when strong evidence exists. Do not manufacture geographic balance with weak evidence.
+
+SECTOR NOTES
+Sport Discovery: unusual, lesser-known, regional, traditional, indigenous, obscure, or emerging sport.
+Game Discovery: physical, traditional, regional, board, card, dice, strategy, abstract, children’s, historical, or tabletop game.
+Interesting Sports/Game Fact: one genuinely informative, surprising, sourceable fact.
+Rule Check: official, historical, misunderstood, or unusual rule. Distinguish official, house, and historical rules.
+How to Play: objective, equipment, players, setup, basic sequence, scoring, winning condition.
+Sport/Game Origin: development, predecessors, earliest evidence, spread, modern form. Avoid simplistic invention claims.
+On This Date: only when there is a genuine documented connection to CALENDAR_DATE.
+First / Last / Only: verify the exact definition and prefer precise qualifiers such as first documented or first official.
+Records & Milestones: verified historical records, streaks, landmarks, or milestones.
+Forgotten Sport/Game: discontinued, ancient, nearly forgotten, extinct, replaced, or geographically limited subjects with documented history.
+Equipment / Measurement: meaningful object, dimension, timing, scoring, or measurement explanation.
+Why Does This Happen?: answer one real why-question using rules, science, engineering, mathematics, history, culture, or game design.
+Then vs Now: factual historical-versus-modern differences in rules, equipment, venues, scoring, terminology, technology, or structure.
+New Sport Discovery: genuinely new/emerging non-digital sport, treated as knowledge rather than promotion.
+New Tabletop Game Discovery: newer board/card/tabletop/physical game; do not write advertising copy.
+Traditional / Regional Game: preserve cultural context and distinguish evidence from oral tradition.
+Sports & Games People: historically important athlete, pioneer, inventor, designer, founder, organizer, rule-maker, historian, or other documented contributor.
+
+PRIOR COVERAGE
+Compare candidates against the supplied local memory. A related topic is acceptable only when its central knowledge unit is materially different. Earlier-today used sectors should be treated as lower priority when alternatives exist.
+
+FINAL CHECK
+Exactly 20 posts. Exactly one of each sector. Every post has a distinct normalized_subject and central_knowledge_unit. No current sports-news topic. No video games or esports. No promotional copy. No invented facts, dates, records, URLs, or image information.
+
+RETURN ONLY THE STRUCTURED JSON REQUIRED BY THE API SCHEMA.

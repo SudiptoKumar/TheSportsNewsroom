@@ -1,244 +1,133 @@
-name: Import Project ZIP
+name: Import ZIP into Repository
 
 on:
   workflow_dispatch:
     inputs:
-      operation:
-        description: "Choose an operation"
+      mode:
+        description: "Import or clean a ZIP placed in the repository root"
         required: true
         default: "import"
         type: choice
         options:
-          - clean
           - import
+          - clean
+      zip_name:
+        description: "Exact ZIP filename in the repository root"
+        required: true
+        default: "TheSportsNewsroom-v4.1.1.zip"
+        type: string
 
 permissions:
   contents: write
 
-jobs:
-  project-manager:
-    runs-on: ubuntu-latest
+concurrency:
+  group: import-thesportsnewsroom
+  cancel-in-progress: false
 
+jobs:
+  import:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
     steps:
-      # ==================================================
-      # CHECKOUT
-      # ==================================================
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
-          token: ${{ secrets.GH_PAT }}
 
-      # ==================================================
-      # CLEAN
-      #
-      # Deletes everything except:
-      #   1. .github/workflows/
-      #   2. ZIP files in repository root
-      #
-      # ZIP files are NOT extracted or deleted.
-      # ==================================================
-      - name: Clean repository
-        if: ${{ inputs.operation == 'clean' }}
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: "pip"
+          cache-dependency-path: requirements.txt
+
+      - name: Import selected ZIP
+        if: ${{ inputs.mode == 'import' }}
         shell: bash
+        env:
+          ZIP_NAME: ${{ inputs.zip_name }}
         run: |
           set -euo pipefail
-
-          echo "Cleaning repository..."
-
-          # Delete everything at repository root except .git, .github and ZIP files.
-          find . -mindepth 1 -maxdepth 1 \
-            ! -name ".git" \
-            ! -name ".github" \
-            ! -iname "*.zip" \
-            -exec rm -rf {} +
-
-          # Keep only .github/workflows inside .github.
-          if [ -d ".github" ]; then
-            find .github -mindepth 1 -maxdepth 1 \
-              ! -name "workflows" \
-              -exec rm -rf {} +
+          if [[ ! "$ZIP_NAME" =~ ^[A-Za-z0-9._-]+\.zip$ ]]; then
+            echo "Invalid ZIP filename: $ZIP_NAME"
+            exit 1
           fi
-
-          echo ""
-          echo "Cleanup complete."
-          echo "Preserved:"
-          echo "  .github/workflows/"
-          echo "  ZIP files in repository root"
-
-          echo ""
-          echo "Remaining files:"
-          find . -maxdepth 3 -type f \
-            ! -path "./.git/*" \
-            | sort
-
-      # ==================================================
-      # FIND ZIP
-      # ==================================================
-      - name: Find ZIP
-        if: ${{ inputs.operation == 'import' }}
-        id: find_zip
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          mapfile -t ZIPS < <(
-            find . -maxdepth 1 \
-              -type f \
-              -iname "*.zip" \
-              -print
-          )
-
-          if [ "${#ZIPS[@]}" -eq 0 ]; then
-            echo "::error::No ZIP file found in repository root."
+          if [[ ! -f "$ZIP_NAME" ]]; then
+            echo "ZIP not found: $ZIP_NAME"
+            echo "ZIP files currently in repository root:"
+            find . -maxdepth 1 -type f -name '*.zip' -printf '  %f\n' | sort || true
             exit 1
           fi
 
-          if [ "${#ZIPS[@]}" -gt 1 ]; then
-            echo "::error::More than one ZIP file found."
-            echo "Please keep only one ZIP before running Import."
-            printf '%s\n' "${ZIPS[@]}"
-            exit 1
+          tmpdir="$(mktemp -d)"
+          trap 'rm -rf "$tmpdir"' EXIT
+          unzip -q "$ZIP_NAME" -d "$tmpdir"
+
+          root="$tmpdir"
+          mapfile -t dirs < <(find "$tmpdir" -mindepth 1 -maxdepth 1 -type d -print)
+          mapfile -t files < <(find "$tmpdir" -mindepth 1 -maxdepth 1 -type f -print)
+          if [[ "${#dirs[@]}" -eq 1 && "${#files[@]}" -eq 0 ]]; then
+            root="${dirs[0]}"
           fi
 
-          ZIP="${ZIPS[0]}"
+          for required in \
+            main.py requirements.txt README.md \
+            prompts/exa_daily_evergreen_v4.txt \
+            prompts/exa_selected_evidence_v4.txt \
+            prompts/cerebras_rank_v4.txt \
+            prompts/cerebras_editorial_v4.txt \
+            prompts/cerebras_duplicate_review_v4.txt \
+            schemas/exa_daily_sports_games_output_schema_v1.json \
+            schemas/exa_selected_evidence_v4.json \
+            tests/test_v4.py \
+            .github/workflows/newbot.yml \
+            .github/workflows/import-zip.yml; do
+            [[ -f "$root/$required" ]] || { echo "ZIP is missing required file: $required"; exit 1; }
+          done
 
-          echo "Found: $ZIP"
-          echo "ZIP=$ZIP" >> "$GITHUB_OUTPUT"
+          version="$(python - <<PY
+          import re
+          from pathlib import Path
+          text = Path("$root/main.py").read_text(encoding="utf-8")
+          m = re.search(r'^APP_VERSION\s*=\s*[\"\\\']([^\"\\\']+)[\"\\\']', text, re.M)
+          print(m.group(1) if m else "")
+          PY
+          )"
+          [[ -n "$version" ]] || { echo "Could not read APP_VERSION from imported main.py"; exit 1; }
+          echo "Importing The Sports Newsroom v$version from $ZIP_NAME"
 
-      # ==================================================
-      # EXTRACT ZIP
-      # ==================================================
-      - name: Extract ZIP
-        if: ${{ inputs.operation == 'import' }}
+          rsync -a --delete --exclude='.git/' --exclude='*.zip' "$root"/ ./
+          rm -f -- *.zip
+
+      - name: Clean ZIP files
+        if: ${{ inputs.mode == 'clean' }}
+        shell: bash
+        run: rm -f -- *.zip
+
+      - name: Verify imported V4 project
+        if: ${{ inputs.mode == 'import' }}
         shell: bash
         run: |
           set -euo pipefail
+          python -m py_compile main.py
+          python -m json.tool schemas/exa_daily_sports_games_output_schema_v1.json >/dev/null
+          python -m json.tool schemas/exa_selected_evidence_v4.json >/dev/null
+          python main.py --version
+          python main.py --self-test --fast
+          python -m unittest discover -s tests -v
 
-          rm -rf /tmp/project
-          mkdir -p /tmp/project
-
-          unzip -q -o \
-            "${{ steps.find_zip.outputs.ZIP }}" \
-            -d /tmp/project
-
-          echo "ZIP extracted successfully."
-
-      # ==================================================
-      # DETECT PROJECT ROOT
-      # ==================================================
-      - name: Detect project root
-        if: ${{ inputs.operation == 'import' }}
-        id: project_root
+      - name: Commit imported project
+        if: ${{ inputs.mode == 'import' }}
         shell: bash
         run: |
           set -euo pipefail
-
-          ROOT="/tmp/project"
-
-          # ZIP contains project files directly.
-          if [ -f "$ROOT/main.py" ] || \
-             [ -f "$ROOT/package.json" ] || \
-             [ -f "$ROOT/requirements.txt" ] || \
-             [ -d "$ROOT/app" ] || \
-             [ -d "$ROOT/src" ] || \
-             [ -d "$ROOT/tests" ] || \
-             [ -d "$ROOT/.github" ]; then
-
-            echo "ROOT=$ROOT" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          # ZIP contains one top-level project folder.
-          mapfile -t DIRS < <(
-            find "$ROOT" \
-              -mindepth 1 \
-              -maxdepth 1 \
-              -type d
-          )
-
-          mapfile -t FILES < <(
-            find "$ROOT" \
-              -mindepth 1 \
-              -maxdepth 1 \
-              -type f
-          )
-
-          if [ "${#DIRS[@]}" -eq 1 ] && \
-             [ "${#FILES[@]}" -eq 0 ]; then
-
-            echo "ROOT=${DIRS[0]}" >> "$GITHUB_OUTPUT"
-          else
-            echo "ROOT=$ROOT" >> "$GITHUB_OUTPUT"
-          fi
-
-      # ==================================================
-      # IMPORT EVERYTHING
-      #
-      # .github is NOT excluded.
-      # Existing files with the same path are replaced.
-      # New files are added.
-      # ==================================================
-      - name: Import project
-        if: ${{ inputs.operation == 'import' }}
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          ROOT="${{ steps.project_root.outputs.ROOT }}"
-
-          rsync -a \
-            --exclude=".git/" \
-            "$ROOT/" ./
-
-          echo "Project imported successfully."
-
-      # ==================================================
-      # DELETE ZIP FILES
-      # ==================================================
-      - name: Delete ZIP files
-        if: ${{ inputs.operation == 'import' }}
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          find . -maxdepth 1 \
-            -type f \
-            -iname "*.zip" \
-            -delete
-
-          echo "All ZIP files deleted."
-
-      # ==================================================
-      # COMMIT AND PUSH
-      # ==================================================
-      - name: Commit and push
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          git config user.name "github-actions[bot]"
-          git config user.email \
-            "41898282+github-actions[bot]@users.noreply.github.com"
-
+          git config user.name "Sports News Bot"
+          git config user.email "actions@github.com"
           git add -A
-
           if git diff --cached --quiet; then
-            echo "No changes to commit."
+            echo "No changes."
             exit 0
           fi
-
-          if [ "${{ inputs.operation }}" = "clean" ]; then
-            MESSAGE="Clean repository"
-          else
-            MESSAGE="Import project from ZIP"
-          fi
-
-          git commit -m "$MESSAGE"
+          git diff --cached --stat
+          git commit -m "Import TheSportsNewsroom V4 project"
           git push
-
-          echo ""
-          echo "========================================"
-          echo "SUCCESS"
-          echo "Operation: ${{ inputs.operation }}"
-          echo "========================================"

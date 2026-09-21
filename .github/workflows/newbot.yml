@@ -80,17 +80,26 @@ jobs:
           test -f requirements.txt
           test -f README.md
           test -f prompts/exa_daily_evergreen_v4.txt
+          test -f prompts/exa_selected_evidence_v4.txt
           test -f prompts/cerebras_rank_v4.txt
           test -f prompts/cerebras_editorial_v4.txt
           test -f prompts/cerebras_duplicate_review_v4.txt
           test -f schemas/exa_daily_sports_games_output_schema_v1.json
+          test -f schemas/exa_selected_evidence_v4.json
           test -f tests/test_v4.py
           test -f .github/workflows/newbot.yml
 
-      - name: Compile check
+      - name: Compile and schema check
         run: |
           python -m py_compile main.py
           python -m py_compile tests/test_v4.py
+          python -m json.tool schemas/exa_daily_sports_games_output_schema_v1.json >/dev/null
+          python -m json.tool schemas/exa_selected_evidence_v4.json >/dev/null
+          python main.py --version
+
+      - name: Validate production configuration
+        if: ${{ env.BOT_MODE == 'run' || env.BOT_MODE == 'dry-run' }}
+        run: python main.py --validate-config
 
       - name: Offline regression and V4 architecture tests
         run: |
@@ -107,7 +116,8 @@ jobs:
           case "$BOT_MODE" in
             diagnose) python main.py --diagnose ;;
             dry-run)  python main.py --dry-run ;;
-            *)        python main.py ;;
+            run)      python main.py ;;
+            *)        echo "Unknown BOT_MODE: $BOT_MODE"; exit 2 ;;
           esac
 
       - name: Save newsroom state

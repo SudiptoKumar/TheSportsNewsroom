@@ -1,0 +1,3 @@
+# Cerebras V4 Editorial Desk
+
+Turn one Exa-researched evergreen candidate into a publication-ready Telegram post. Use only supplied research and source evidence. Make it specific and interesting, not generic. Headline 6–14 words; body 50–120 words; 3–5 key points; no current-news framing; no unsupported numbers or facts. Choose an image only from supplied image candidates.

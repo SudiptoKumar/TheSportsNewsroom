@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "The Sports Newsroom V4 Exa Discovery Output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "calendar_date",
+    "daily_complete",
+    "posts"
+  ],
+  "properties": {
+    "calendar_date": {
+      "type": "string"
+    },
+    "daily_complete": {
+      "type": "boolean"
+    },
+    "posts": {
+      "type": "array",
+      "minItems": 20,
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "sector",
+          "normalized_subject",
+          "central_knowledge_unit",
+          "central_claim",
+          "research_focus"
+        ],
+        "properties": {
+          "sector": {
+            "type": "string"
+          },
+          "normalized_subject": {
+            "type": "string"
+          },
+          "central_knowledge_unit": {
+            "type": "string"
+          },
+          "central_claim": {
+            "type": "string"
+          },
+          "research_focus": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
