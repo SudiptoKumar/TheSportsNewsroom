@@ -1,4 +1,4 @@
-name: Import ZIP into Repository
+name: Import TheSportsNewsroom V1 ZIP
 
 on:
   workflow_dispatch:
@@ -12,16 +12,16 @@ on:
           - import
           - clean
       zip_name:
-        description: "Exact ZIP filename in the repository root"
+        description: "Exact V1 ZIP filename in the repository root"
         required: true
-        default: "TheSportsNewsroom-v4.1.1.zip"
+        default: "TheSportsNewsroom-v1.0.0.zip"
         type: string
 
 permissions:
   contents: write
 
 concurrency:
-  group: import-thesportsnewsroom
+  group: import-thesportsnewsroom-v1
   cancel-in-progress: false
 
 jobs:
@@ -41,15 +41,15 @@ jobs:
           cache: "pip"
           cache-dependency-path: requirements.txt
 
-      - name: Import selected ZIP
+      - name: Import selected V1 ZIP
         if: ${{ inputs.mode == 'import' }}
         shell: bash
         env:
           ZIP_NAME: ${{ inputs.zip_name }}
         run: |
           set -euo pipefail
-          if [[ ! "$ZIP_NAME" =~ ^[A-Za-z0-9._-]+\.zip$ ]]; then
-            echo "Invalid ZIP filename: $ZIP_NAME"
+          if [[ ! "$ZIP_NAME" =~ ^TheSportsNewsroom-v1\.[0-9]+\.[0-9]+\.zip$ ]]; then
+            echo "Invalid V1 ZIP filename: $ZIP_NAME"
             exit 1
           fi
           if [[ ! -f "$ZIP_NAME" ]]; then
@@ -71,31 +71,31 @@ jobs:
           fi
 
           for required in \
-            main.py requirements.txt README.md \
-            prompts/exa_daily_evergreen_v4.txt \
-            prompts/exa_selected_evidence_v4.txt \
-            prompts/cerebras_rank_v4.txt \
-            prompts/cerebras_editorial_v4.txt \
-            prompts/cerebras_duplicate_review_v4.txt \
-            schemas/exa_daily_sports_games_output_schema_v1.json \
-            schemas/exa_selected_evidence_v4.json \
-            tests/test_v4.py \
+            main.py news_state.json coverage_index.json posted_urls.txt requirements.txt README.md \
+            prompts/exa_sector_discovery_v1.txt \
+            prompts/exa_contents_verification_v1.txt \
+            prompts/exa_hard_case_agent_v1.txt \
+            prompts/cerebras_rank_v1.txt \
+            prompts/cerebras_editorial_v1.txt \
+            schemas/exa_agent_hard_case_v1.json \
+            tests/test_v1.py \
             .github/workflows/newbot.yml \
             .github/workflows/import-zip.yml; do
-            [[ -f "$root/$required" ]] || { echo "ZIP is missing required file: $required"; exit 1; }
+            [[ -f "$root/$required" ]] || { echo "ZIP is missing required V1 file: $required"; exit 1; }
           done
 
           version="$(python - <<PY
           import re
           from pathlib import Path
           text = Path("$root/main.py").read_text(encoding="utf-8")
-          m = re.search(r'^APP_VERSION\s*=\s*[\"\\\']([^\"\\\']+)[\"\\\']', text, re.M)
+          m = re.search(r'^APP_VERSION\s*=\s*["\\\']([^"\\\']+)["\\\']', text, re.M)
           print(m.group(1) if m else "")
           PY
           )"
-          [[ -n "$version" ]] || { echo "Could not read APP_VERSION from imported main.py"; exit 1; }
+          [[ "$version" =~ ^1\. ]] || { echo "Imported package is not V1: $version"; exit 1; }
           echo "Importing The Sports Newsroom v$version from $ZIP_NAME"
 
+          # Import only after the archive has passed structure/version validation.
           rsync -a --delete --exclude='.git/' --exclude='*.zip' "$root"/ ./
           rm -f -- *.zip
 
@@ -104,19 +104,18 @@ jobs:
         shell: bash
         run: rm -f -- *.zip
 
-      - name: Verify imported V4 project
+      - name: Verify imported V1 project
         if: ${{ inputs.mode == 'import' }}
         shell: bash
         run: |
           set -euo pipefail
-          python -m py_compile main.py
-          python -m json.tool schemas/exa_daily_sports_games_output_schema_v1.json >/dev/null
-          python -m json.tool schemas/exa_selected_evidence_v4.json >/dev/null
+          python -m py_compile main.py tests/test_v1.py
+          python -m json.tool schemas/exa_agent_hard_case_v1.json >/dev/null
           python main.py --version
           python main.py --self-test --fast
           python -m unittest discover -s tests -v
 
-      - name: Commit imported project
+      - name: Commit imported V1 project
         if: ${{ inputs.mode == 'import' }}
         shell: bash
         run: |
@@ -129,5 +128,5 @@ jobs:
             exit 0
           fi
           git diff --cached --stat
-          git commit -m "Import TheSportsNewsroom V4 project"
+          git commit -m "Import TheSportsNewsroom V1 project"
           git push

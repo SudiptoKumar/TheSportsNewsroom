@@ -1,8 +1,8 @@
-name: TheSportsNewsroom V4
+name: TheSportsNewsroom V1
 
 on:
   schedule:
-    # Two production runs per day. GitHub Actions cron is UTC:
+    # Two production runs per day. GitHub Actions cron is UTC.
     # 02:15 UTC = 08:15 Asia/Dhaka, 14:15 UTC = 20:15 Asia/Dhaka.
     - cron: "15 2,14 * * *"
   workflow_dispatch:
@@ -27,13 +27,13 @@ permissions:
   contents: write
 
 concurrency:
-  group: the-sports-newsroom-v4
+  group: the-sports-newsroom-v1
   cancel-in-progress: false
 
 jobs:
   run-sports-bot:
     runs-on: ubuntu-24.04
-    timeout-minutes: 35
+    timeout-minutes: 40
 
     env:
       EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
@@ -46,11 +46,17 @@ jobs:
       BOT_MODE: ${{ inputs.mode || 'run' }}
       CHANNEL_OVERRIDE: ${{ inputs.channel_override }}
       PYTHONUNBUFFERED: "1"
-      RUN_DEADLINE_SECONDS: "1800"
+      RUN_DEADLINE_SECONDS: "2100"
       HTTP_TIMEOUT: "15"
       STATE_RETENTION_DAYS: "120"
       POST_DELAY_SECONDS: "3"
-      V4_POST_DELAY_SECONDS: "3"
+      V1_SEARCH_RESULTS_PER_SECTOR: "6"
+      V1_MAX_CANDIDATES_PER_SECTOR: "3"
+      V1_CONTENTS_URLS_PER_STORY: "3"
+      V1_AGENT_MAX_CASES: "2"
+      V1_AGENT_TIMEOUT_SECONDS: "120"
+      V1_SEARCH_DELAY_SECONDS: "0.15"
+      V1_CONTENTS_CHARS: "9000"
       V4_COVERAGE_RECENT_DAYS: "60"
 
     steps:
@@ -71,48 +77,44 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Verify V4 repository structure
+      - name: Verify V1 repository structure
         run: |
-          test -f main.py
-          test -f news_state.json
-          test -f posted_urls.txt
-          test -f coverage_index.json
-          test -f requirements.txt
-          test -f README.md
-          test -f prompts/exa_daily_evergreen_v4.txt
-          test -f prompts/exa_selected_evidence_v4.txt
-          test -f prompts/cerebras_rank_v4.txt
-          test -f prompts/cerebras_editorial_v4.txt
-          test -f prompts/cerebras_duplicate_review_v4.txt
-          test -f schemas/exa_daily_sports_games_output_schema_v1.json
-          test -f schemas/exa_selected_evidence_v4.json
-          test -f tests/test_v4.py
-          test -f .github/workflows/newbot.yml
+          set -euo pipefail
+          for f in \
+            main.py news_state.json posted_urls.txt coverage_index.json requirements.txt README.md \
+            prompts/exa_sector_discovery_v1.txt \
+            prompts/exa_contents_verification_v1.txt \
+            prompts/exa_hard_case_agent_v1.txt \
+            prompts/cerebras_rank_v1.txt \
+            prompts/cerebras_editorial_v1.txt \
+            schemas/exa_agent_hard_case_v1.json \
+            tests/test_v1.py \
+            .github/workflows/newbot.yml \
+            .github/workflows/import-zip.yml; do
+            test -f "$f"
+          done
 
-      - name: Compile and schema check
+      - name: Compile, schema and version check
         run: |
-          python -m py_compile main.py
-          python -m py_compile tests/test_v4.py
-          python -m json.tool schemas/exa_daily_sports_games_output_schema_v1.json >/dev/null
-          python -m json.tool schemas/exa_selected_evidence_v4.json >/dev/null
+          set -euo pipefail
+          python -m py_compile main.py tests/test_v1.py
+          python -m json.tool schemas/exa_agent_hard_case_v1.json >/dev/null
           python main.py --version
 
-      - name: Validate production configuration
+      - name: Validate V1 production configuration
         if: ${{ env.BOT_MODE == 'run' || env.BOT_MODE == 'dry-run' }}
         run: python main.py --validate-config
 
-      - name: Offline regression and V4 architecture tests
+      - name: V1 offline contract and regression tests
         run: |
-          if [ "$BOT_MODE" = "self-test" ]; then
-            python main.py --self-test
-          else
-            python main.py --self-test --fast
-            python -m unittest discover -v
-          fi
+          set -euo pipefail
+          python main.py --self-test --fast
+          python -m unittest discover -s tests -v
 
-      - name: Run TheSportsNewsroom V4
+      - name: Run TheSportsNewsroom V1
         if: ${{ env.BOT_MODE != 'self-test' }}
         run: |
+          set -euo pipefail
           case "$BOT_MODE" in
             diagnose) python main.py --diagnose ;;
             dry-run)  python main.py --dry-run ;;
@@ -121,8 +123,9 @@ jobs:
           esac
 
       - name: Save newsroom state
-        if: always()
+        if: always() && (env.BOT_MODE == 'run' || env.BOT_MODE == 'dry-run')
         run: |
+          set -euo pipefail
           git config user.name "Sports News Bot"
           git config user.email "actions@github.com"
           git add news_state.json posted_urls.txt coverage_index.json
@@ -132,7 +135,8 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update TheSportsNewsroom V4 state"
+          git diff --cached --stat
+          git commit -m "Update TheSportsNewsroom V1 state"
           for attempt in 1 2 3 4; do
             if git push; then
               exit 0
