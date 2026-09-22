@@ -1,5 +1,248 @@
 {
+ "records": [
+  {
+   "central_claim": "The first Monday Night Football game is between the Cleveland Browns and the New York Jets.",
+   "central_knowledge_unit": "the first monday night football game is between the cleveland browns and the new york jets",
+   "content_id": "f9e5df6ac2935603",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "anniversary",
+   "fingerprints": [
+    "0c97eb1203824156",
+    "c1f5bcb01f97de96"
+   ],
+   "legacy": true,
+   "normalized_subject": "monday night football",
+   "people": [],
+   "published_at": "2026-09-21T12:02:04.989575+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "on_this_date",
+   "source_urls": [
+    "en.wikipedia.org/wiki/Monday_Night_Football"
+   ],
+   "sport_or_game": "Monday_Night_Football",
+   "telegram_message_id": 10
+  },
+  {
+   "central_claim": "Field sports in the United Kingdom are rooted in 19th‑century English countryside traditions, with participants often wearing British country clothing to imitate the landed gentry of that era.",
+   "central_knowledge_unit": "field sports in the united kingdom are rooted in 19th century english countryside traditions with participants often wearing british country clothing to imitate the landed gentry of that era",
+   "content_id": "057c3bcee1479a36",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "evolution",
+   "fingerprints": [
+    "3fc52d9b941d1015",
+    "3a0981fbfe05ce9f"
+   ],
+   "legacy": true,
+   "normalized_subject": "field sports",
+   "people": [],
+   "published_at": "2026-09-21T12:02:48.513071+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "history",
+   "source_urls": [
+    "en.wikipedia.org/wiki/Field_sports"
+   ],
+   "sport_or_game": "Field sports",
+   "telegram_message_id": 11
+  },
+  {
+   "central_claim": "Pierre de Coubertin was the central organizer of the 1894 Paris Congress whose adopted revival resolution established the IOC and set Athens 1896 as the first modern Olympic Games; he is therefore widely and reasonably described as a founder or principal reviver of the modern Olympic movement, but not as its sole precursor or originator.",
+   "central_knowledge_unit": "pierre de coubertin visionary and founder of the modern olympics",
+   "content_id": "e3035ebed9f0ec14",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e3035ebed9f0ec14",
+    "ec17e3811bb04e83"
+   ],
+   "normalized_subject": "pierre de coubertin visionary and founder of the modern olympics",
+   "people": [],
+   "published_at": "2026-09-22T03:02:17.732753+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "olympics.com/ioc/pierre-de-coubertin",
+    "olympics.com/ioc/paris-1894-olympic-congress",
+    "britannica.com/biography/Pierre-baron-de-Coubertin",
+    "cambridge.org/core/journals/european-review/article/abs/predecessors-of-the-olympic-movement-and-pierre-de-coubertin/04DE7FA59B47F756E4C95CEA509311CF",
+    "britannica.com/biography/William-Penny-Brookes",
+    "olympedia.org/athletes/920613"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 46
+  },
+  {
+   "central_claim": "Ulama is a living Sinaloan form of the wider Mesoamerican rubber-ballgame tradition. The modern hip variant (ulama de cadera) is played with a roughly 3.5–4 kg ball struck with the hip or upper thigh; however, ulama also has forearm and stick variants. The approximately 3,400-year figure is defensible for archaeological ballcourt design/the broader tradition, not as proof that the present-day game has been played unchanged or continuously for exactly 3,400 years.",
+   "central_knowledge_unit": "ulama a 3 400 year old ballgame that survived in mexico ap news",
+   "content_id": "3b9c6d7ca6c30708",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "3b9c6d7ca6c30708",
+    "2a9a15d07b262453"
+   ],
+   "normalized_subject": "ulama a 3 400 year old ballgame that survived in mexico ap news",
+   "people": [],
+   "published_at": "2026-09-22T03:02:22.638902+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    "apnews.com/article/mexico-ulama-prehispanic-ballgame-fifa-cup-3819e65e272d0360979a8cd2dd78b999",
+    "nature.com/articles/31837",
+    "doi.org/10.1073/pnas.1203483109",
+    "doi.org/10.1016/s0185-1225(15)71645-0",
+    "elsevier.es/es-revista-anales-antropologia-95-pdf-download-S0185122515716450",
+    "investigacion.inah.gob.mx/node/15579"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 47
+  },
+  {
+   "central_claim": ", like the ... of Ur, senet, w ... The Royal Game of Ur is the oldest playable boardgame in the world, originating around 4,600 years ago in ancient Mesopotamia. ... The game's rules were written on a cuneiform tablet by a Babylonian astronomer in 177 BC. From this, curator Irving Finkel was able to decipher the rules – two players compete to race their pieces from one end of the board to the other. The central squares were also used for fortune telling. ... Wari is a game of calculation and strategy played widely within West Africa and also popular elsewhere in the world – you might know it as mancala. ... Beloved by Tutankhamun and Queen Nefertari alike, senet is one of the earliest known",
+   "central_knowledge_unit": "top 10 historical board games british museum",
+   "content_id": "2b8d1d11f3caaecc",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "2b8d1d11f3caaecc",
+    "97d838fc7be1bb75"
+   ],
+   "normalized_subject": "top 10 historical board games british museum",
+   "people": [],
+   "published_at": "2026-09-22T03:02:28.808053+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "Game Origin",
+   "source_urls": [
+    "britishmuseum.org/blog/top-10-historical-board-games"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 48
+  },
+  {
+   "central_claim": "The Evergreen Game is a famous chess game won by Adolf Anderssen against Jean Dufresne in 1852. ... This was probably an informal game. At the time, there was no formal title of \"World Champion\", but the German mathematics professor Anderssen was widely considered the best player in the world after winning the first major international chess tournament in London in 1851. Though not in the same class as Anderssen, Dufresne, a popular author of chess books, was also a strong player. It is usually assumed that the game was played in Berlin, where Dufresne lived and Anderssen often visited, but no details of the game's circumstances were given in the original publication in the September and Oct",
+   "central_knowledge_unit": "evergreen game wikipedia",
+   "content_id": "199714e75ca07fa9",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "199714e75ca07fa9",
+    "d40c83f407b62ae7"
+   ],
+   "normalized_subject": "evergreen game wikipedia",
+   "people": [],
+   "published_at": "2026-09-22T03:02:33.502610+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    "en.wikipedia.org/wiki/Evergreen_Game"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 49
+  },
+  {
+   "central_claim": "On June 3, 1997, Roberto Carlos stunned the world with one of the most spectacular free kicks in football history. The left-back scored the most famous goal of his career: an outrageous long-range free kick for Brazil in a 1-1 draw against France in the opening game of the 1997 Tournoi de France, a warm-up tournament ahead of the following year's World Cup. ... The strike left goalkeeper Fabien Barthez perplexed, as the ball apparently was heading well wide of the target and into the crowd. However, it swerved back, glanced the inside edge of the post, and stopped only when it hit the net. Two decades later, Roberto Carlos says he is still impressed when he sees footage of his kick. ... Robe",
+   "central_knowledge_unit": "roberto carlos brazil free kick in 1997 the physics behind impossible strike espn",
+   "content_id": "18e6e110f732d6e5",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "18e6e110f732d6e5",
+    "dfc58c8e54b956ca"
+   ],
+   "normalized_subject": "roberto carlos brazil free kick in 1997 the physics behind impossible strike espn",
+   "people": [],
+   "published_at": "2026-09-22T03:02:38.064443+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "espn.com/soccer/story/_/id/37475858/physics-impossible-strike"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 50
+  },
+  {
+   "central_claim": "Once a popular pastime across Yorkshire, the miners' game Knurr and Spell has all but disappeared from public knowledge. ... The game, also known as Nipsy, Piggy and Northern Spell, was predominantly played in mining communities in the 18th, 19th and early 20th centuries. ... There are many variations of the game, with different types of equipment used in localised versions across Yorkshire, Lancashire and the wider North of England. ... The game often took place on moorland but could be played in any area of green space. ... It is not certain when Knurr and Spell first started, and it is even less clear when the last competitive game was held - although the BBC did feature the world champio",
+   "central_knowledge_unit": "rediscovering knurr and spell yorkshire s lost miners game",
+   "content_id": "772b7a409b81b775",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "772b7a409b81b775",
+    "a49eea8315901b61"
+   ],
+   "normalized_subject": "rediscovering knurr and spell yorkshire s lost miners game",
+   "people": [],
+   "published_at": "2026-09-22T03:02:42.467093+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    "bbc.com/news/articles/cvgmvkygkz5o"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 51
+  },
+  {
+   "central_claim": "Invented a little over a decade ago in Hungary, teqball is a combination of football and ping pong ... Teqball was invented a little over a decade ago in Hungary, when two friends started playing football on a ping pong table, before going on to create the signature curved table the game is played on. ... The new sport is quickly entering the mainstream. This weekend it will debut at the Asian Games in Japan, after its historic inclusion at the European and African games, with ambitions to be an Olympic sport by 2032. ... Teams from 16 nations will be competing at the competition, which will also debut padel and virtual taekwondo, a non-contact sport using virtual reality headsets. ... Teqba",
+   "central_knowledge_unit": "balletic hits and bicycle kicks teqball comes of age at the asian games sport the guardian",
+   "content_id": "ebfbdb039e223bbc",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "ebfbdb039e223bbc",
+    "4dbb2cd0987d70d5"
+   ],
+   "normalized_subject": "balletic hits and bicycle kicks teqball comes of age at the asian games sport the guardian",
+   "people": [],
+   "published_at": "2026-09-22T03:03:02.181727+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "theguardian.com/sport/2026/sep/18/balletic-hits-and-bicycle-kicks-teqball-comes-of-age-at-the-asian-games"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 52
+  },
+  {
+   "central_claim": "Home advantage is quantitatively defined and calculated for each season since the start of the main professional sports in North America and England. Over 400,000 games are analysed. The leagues represented are the National League (1876 – 2002) and American League (1901 – 2002) for baseball, the National Hockey League (1917 – 2003) for ice hockey, the National Football League (1933 – 2002) for American football, the National Basketball Association (1946 – 2003) for basketball, and the four levels of professional football, formerly called the Football League, in England (1888 – 2003). Problems caused by unbalanced playing schedules are considered. The results are presented graphically to show",
+   "central_knowledge_unit": "long term trends in home advantage in professional team sports in north america and england 1876 2003 journal of sports sciences vol 23 no 4",
+   "content_id": "82bd7ac6823b1f34",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "82bd7ac6823b1f34",
+    "55b2167426a26a5a"
+   ],
+   "normalized_subject": "long term trends in home advantage in professional team sports in north america and england 1876 2003 journal of sports sciences vol 23 no 4",
+   "people": [],
+   "published_at": "2026-09-22T03:03:21.829879+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "Interesting Sports Fact",
+   "source_urls": [
+    "tandfonline.com/doi/abs/10.1080/02640410400021559"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 53
+  }
+ ],
  "schema": 1,
- "updated_at": "",
- "records": []
+ "updated_at": "2026-09-22T03:03:21.830071+00:00"
 }

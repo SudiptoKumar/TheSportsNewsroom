@@ -1,12 +1,15 @@
 {
  "ai": {
-  "last_ok": "2026-09-21T12:02:46.858226+00:00",
+  "last_error": "Cerebras per-run call cap reached (16)",
+  "last_ok": "2026-09-22T03:03:20.701681+00:00",
+  "last_request_id": "a3ee13705aab2fe8-CMH",
+  "last_status": 429,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-21T06:43:50.838439+00:00",
- "last_run_at": "2026-09-21T12:00:22.256659+00:00",
+ "last_run_at": "2026-09-22T03:05:46.174006+00:00",
  "ledger": {
   "day_in_sports:2026-09-20": {
    "attempts": 1,
@@ -81,6 +84,160 @@
    "topic": "Field sports",
    "urls": [
     "en.wikipedia.org/wiki/Field_sports"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Pierre de Coubertin: Visionary and Founder of the Modern Olympics",
+   "claim": "Pierre de Coubertin was the central organizer of the 1894 Paris Congress whose adopted revival resolution established the IOC and set Athens 1896 as the first modern Olympic Games; he is therefore widely and reasonably described as a founder or principal reviver of the modern Olympic movement, but not as its sole precursor or originator.",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Pierre de Coubertin: Architect of the Modern Olympic Revival",
+   "image_status": "card_only",
+   "message_id": 46,
+   "normalized_subject": "Pierre de Coubertin: Visionary and Founder of the Modern Olympics",
+   "posted_at": "2026-09-22T03:02:17.732885+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Sports & Games People",
+   "topic": "Pierre de Coubertin: Visionary and Founder of the Modern Olympics",
+   "urls": [
+    "olympics.com/ioc/pierre-de-coubertin",
+    "olympics.com/ioc/paris-1894-olympic-congress",
+    "britannica.com/biography/Pierre-baron-de-Coubertin",
+    "cambridge.org/core/journals/european-review/article/abs/predecessors-of-the-olympic-movement-and-pierre-de-coubertin/04DE7FA59B47F756E4C95CEA509311CF",
+    "britannica.com/biography/William-Penny-Brookes",
+    "olympedia.org/athletes/920613"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Ulama, a 3,400-year-old ballgame that survived in Mexico | AP News",
+   "claim": "Ulama is a living Sinaloan form of the wider Mesoamerican rubber-ballgame tradition. The modern hip variant (ulama de cadera) is played with a roughly 3.5–4 kg ball struck with the hip or upper thigh; however, ulama also has forearm and stick variants. The approximately 3,400-year figure is defensible for archaeological ballcourt design/the broader tradition, not as proof that the present-day game has been played unchanged or continuously for exactly 3,400 years.",
+   "desk": "evergreen_v1",
+   "format": "Sport Discovery",
+   "headline": "Ancient Mesoamerican Ballgame Lives On in Modern Ulama",
+   "image_status": "card_only",
+   "message_id": 47,
+   "normalized_subject": "Ulama, a 3,400-year-old ballgame that survived in Mexico | AP News",
+   "posted_at": "2026-09-22T03:02:22.639121+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Sport Discovery",
+   "topic": "Ulama, a 3,400-year-old ballgame that survived in Mexico | AP News",
+   "urls": [
+    "apnews.com/article/mexico-ulama-prehispanic-ballgame-fifa-cup-3819e65e272d0360979a8cd2dd78b999",
+    "nature.com/articles/31837",
+    "doi.org/10.1073/pnas.1203483109",
+    "doi.org/10.1016/s0185-1225(15)71645-0",
+    "elsevier.es/es-revista-anales-antropologia-95-pdf-download-S0185122515716450",
+    "investigacion.inah.gob.mx/node/15579"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Top 10 historical board games | British Museum",
+   "claim": ", like the ... of Ur, senet, w ... The Royal Game of Ur is the oldest playable boardgame in the world, originating around 4,600 years ago in ancient Mesopotamia. ... The game's rules were written on a cuneiform tablet by a Babylonian astronomer in 177 BC. From this, curator Irving Finkel was able to decipher the rules – two players compete to race their pieces from one end of the board to the other. The central squares were also used for fortune telling. ... Wari is a game of calculation and strategy played widely within West Africa and also popular elsewhere in the world – you might know it as mancala. ... Beloved by Tutankhamun and Queen Nefertari alike, senet is one of the earliest known ",
+   "desk": "evergreen_v1",
+   "format": "Game Origin",
+   "headline": "The Royal Game of Ur: Humanity’s Oldest Playable Board Game",
+   "image_status": "card_only",
+   "message_id": 48,
+   "normalized_subject": "Top 10 historical board games | British Museum",
+   "posted_at": "2026-09-22T03:02:28.808195+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Game Origin",
+   "topic": "Top 10 historical board games | British Museum",
+   "urls": [
+    "britishmuseum.org/blog/top-10-historical-board-games"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Evergreen Game - Wikipedia",
+   "claim": "The Evergreen Game is a famous chess game won by Adolf Anderssen against Jean Dufresne in 1852. ... This was probably an informal game. At the time, there was no formal title of \"World Champion\", but the German mathematics professor Anderssen was widely considered the best player in the world after winning the first major international chess tournament in London in 1851. Though not in the same class as Anderssen, Dufresne, a popular author of chess books, was also a strong player. It is usually assumed that the game was played in Berlin, where Dufresne lived and Anderssen often visited, but no details of the game's circumstances were given in the original publication in the September and Oct",
+   "desk": "evergreen_v1",
+   "format": "Interesting Game Fact",
+   "headline": "Anderssen’s 1852 Evergreen Game Showcases Timeless Chess Brilliance",
+   "image_status": "card_only",
+   "message_id": 49,
+   "normalized_subject": "Evergreen Game - Wikipedia",
+   "posted_at": "2026-09-22T03:02:33.502722+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Interesting Game Fact",
+   "topic": "Evergreen Game - Wikipedia",
+   "urls": [
+    "en.wikipedia.org/wiki/Evergreen_Game"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Roberto Carlos' Brazil free kick in 1997: The physics behind 'impossible' strike - ESPN",
+   "claim": "On June 3, 1997, Roberto Carlos stunned the world with one of the most spectacular free kicks in football history. The left-back scored the most famous goal of his career: an outrageous long-range free kick for Brazil in a 1-1 draw against France in the opening game of the 1997 Tournoi de France, a warm-up tournament ahead of the following year's World Cup. ... The strike left goalkeeper Fabien Barthez perplexed, as the ball apparently was heading well wide of the target and into the crowd. However, it swerved back, glanced the inside edge of the post, and stopped only when it hit the net. Two decades later, Roberto Carlos says he is still impressed when he sees footage of his kick. ... Robe",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "Roberto Carlos' 1997 Free Kick Defied Physics and Perplexed Barthez",
+   "image_status": "card_only",
+   "message_id": 50,
+   "normalized_subject": "Roberto Carlos' Brazil free kick in 1997: The physics behind 'impossible' strike - ESPN",
+   "posted_at": "2026-09-22T03:02:38.064581+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Why Does This Happen?",
+   "topic": "Roberto Carlos' Brazil free kick in 1997: The physics behind 'impossible' strike - ESPN",
+   "urls": [
+    "espn.com/soccer/story/_/id/37475858/physics-impossible-strike"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Rediscovering Knurr and Spell - Yorkshire's lost miners' game",
+   "claim": "Once a popular pastime across Yorkshire, the miners' game Knurr and Spell has all but disappeared from public knowledge. ... The game, also known as Nipsy, Piggy and Northern Spell, was predominantly played in mining communities in the 18th, 19th and early 20th centuries. ... There are many variations of the game, with different types of equipment used in localised versions across Yorkshire, Lancashire and the wider North of England. ... The game often took place on moorland but could be played in any area of green space. ... It is not certain when Knurr and Spell first started, and it is even less clear when the last competitive game was held - although the BBC did feature the world champio",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Sport",
+   "headline": "Yorkshire's Forgotten Miners' Game Knurr and Spell Resurfaces",
+   "image_status": "card_only",
+   "message_id": 51,
+   "normalized_subject": "Rediscovering Knurr and Spell - Yorkshire's lost miners' game",
+   "posted_at": "2026-09-22T03:02:42.467218+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Forgotten Sport",
+   "topic": "Rediscovering Knurr and Spell - Yorkshire's lost miners' game",
+   "urls": [
+    "bbc.com/news/articles/cvgmvkygkz5o"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Balletic hits and bicycle kicks: Teqball comes of age at the Asian Games | Sport | The Guardian",
+   "claim": "Invented a little over a decade ago in Hungary, teqball is a combination of football and ping pong ... Teqball was invented a little over a decade ago in Hungary, when two friends started playing football on a ping pong table, before going on to create the signature curved table the game is played on. ... The new sport is quickly entering the mainstream. This weekend it will debut at the Asian Games in Japan, after its historic inclusion at the European and African games, with ambitions to be an Olympic sport by 2032. ... Teams from 16 nations will be competing at the competition, which will also debut padel and virtual taekwondo, a non-contact sport using virtual reality headsets. ... Teqba",
+   "desk": "evergreen_v1",
+   "format": "New Sport Discovery",
+   "headline": "Teqball Makes Its Asian Games Debut After Rapid Global Rise",
+   "image_status": "card_only",
+   "message_id": 52,
+   "normalized_subject": "Balletic hits and bicycle kicks: Teqball comes of age at the Asian Games | Sport | The Guardian",
+   "posted_at": "2026-09-22T03:03:02.181858+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "New Sport Discovery",
+   "topic": "Balletic hits and bicycle kicks: Teqball comes of age at the Asian Games | Sport | The Guardian",
+   "urls": [
+    "theguardian.com/sport/2026/sep/18/balletic-hits-and-bicycle-kicks-teqball-comes-of-age-at-the-asian-games"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Long-term trends in home advantage in professional team sports in North America and England (1876 – 2003): Journal of Sports Sciences: Vol 23, No 4",
+   "claim": "Home advantage is quantitatively defined and calculated for each season since the start of the main professional sports in North America and England. Over 400,000 games are analysed. The leagues represented are the National League (1876 – 2002) and American League (1901 – 2002) for baseball, the National Hockey League (1917 – 2003) for ice hockey, the National Football League (1933 – 2002) for American football, the National Basketball Association (1946 – 2003) for basketball, and the four levels of professional football, formerly called the Football League, in England (1888 – 2003). Problems caused by unbalanced playing schedules are considered. The results are presented graphically to show",
+   "desk": "evergreen_v1",
+   "format": "Interesting Sports Fact",
+   "headline": "Home Advantage Declines Across Major Sports Over a Century",
+   "image_status": "card_only",
+   "message_id": 53,
+   "normalized_subject": "Long-term trends in home advantage in professional team sports in North America and England (1876 – 2003): Journal of Sports Sciences: Vol 23, No 4",
+   "posted_at": "2026-09-22T03:03:21.830087+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Interesting Sports Fact",
+   "topic": "Long-term trends in home advantage in professional team sports in North America and England (1876 – 2003): Journal of Sports Sciences: Vol 23, No 4",
+   "urls": [
+    "tandfonline.com/doi/abs/10.1080/02640410400021559"
    ]
   }
  ],
@@ -2631,5 +2788,141 @@
     "title": "Yahtzee"
    }
   }
+ },
+ "v1": {
+  "created_at": "2026-09-22T02:58:49.401580+00:00",
+  "daily": {
+   "2026-09-22": {
+    "published_sectors": [
+     "Sports & Games People",
+     "Sport Discovery",
+     "Game Origin",
+     "Interesting Game Fact",
+     "Why Does This Happen?",
+     "Forgotten Sport",
+     "New Sport Discovery",
+     "Interesting Sports Fact"
+    ],
+    "run_ids": [
+     "2026-09-22-AM"
+    ]
+   }
+  },
+  "last_run_at": "2026-09-22T03:05:46.173978+00:00",
+  "live": {
+   "results": {
+    "event_ids": [
+     "b5ac03fb080bd242",
+     "ceb3ba3d25679023",
+     "449b6a95b0894848",
+     "1e5f2201f5351a98",
+     "c601953eb296fecd",
+     "30c02fff4ef4efef",
+     "aec4eb63d82679ad",
+     "f4ee291187127f70",
+     "6399c91d95f2fbb8",
+     "e5cc7452c2aa162c"
+    ],
+    "message_id": 55,
+    "target_date": "2026-09-21",
+    "updated_at": "2026-09-22T03:05:46.170879+00:00"
+   },
+   "schedule": {
+    "event_ids": [
+     "0265549b10bfcc9f",
+     "49abbcf729f1d849",
+     "eda34602639c4a68",
+     "370e236011995137",
+     "47db7c9fdb97ba2b",
+     "1cbb682a68feb7cf",
+     "8c42e9388fc34acd",
+     "4a463bc7b7b646b1",
+     "9cfbedcb38bd5f2c",
+     "4dfdcd0c378fdb62",
+     "485b082e116fc4a6",
+     "92b7e6cfb084b7a8",
+     "49066cd1400adfa4",
+     "7a8979b4d0c1615a",
+     "2b58e06701ab8a80",
+     "c4a2a1f9a23efcdf"
+    ],
+    "message_id": 54,
+    "target_date": "2026-09-23",
+    "updated_at": "2026-09-22T03:05:46.170866+00:00"
+   }
+  },
+  "publication": {
+   "2026-09-22-AM:evergreen:1b9876df5dee9671": {
+    "message_id": 50,
+    "posted_at": "2026-09-22T03:02:38.064310+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:3081b446505f7fa3": {
+    "message_id": 48,
+    "posted_at": "2026-09-22T03:02:28.807857+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:4cd45c48728ef44b": {
+    "message_id": 53,
+    "posted_at": "2026-09-22T03:03:21.829723+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:5551d1540dd7e905": {
+    "message_id": 46,
+    "posted_at": "2026-09-22T03:02:17.732649+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:7976cfa3b17284ea": {
+    "message_id": 52,
+    "posted_at": "2026-09-22T03:03:02.181597+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:b8da8bdf36a36e18": {
+    "message_id": 49,
+    "posted_at": "2026-09-22T03:02:33.502494+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:cedc0467ccb337af": {
+    "message_id": 51,
+    "posted_at": "2026-09-22T03:02:42.466897+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:cfe0ef36d0434ef0": {
+    "message_id": 47,
+    "posted_at": "2026-09-22T03:02:22.638757+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:live_results:95c5fd8d85302478": {
+    "message_id": 55,
+    "posted_at": "2026-09-22T03:05:46.170838+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:live_schedule:fe12adf42b253cb0": {
+    "message_id": 54,
+    "posted_at": "2026-09-22T03:05:45.783329+00:00",
+    "status": "posted"
+   }
+  },
+  "runs": [
+   {
+    "at": "2026-09-22T03:05:46.173990+00:00",
+    "evergreen": 8,
+    "exit": 0,
+    "live_results": 55,
+    "live_schedule": 54,
+    "run_id": "2026-09-22-AM",
+    "used_sectors": [
+     "Forgotten Sport",
+     "Game Origin",
+     "Interesting Game Fact",
+     "Interesting Sports Fact",
+     "New Sport Discovery",
+     "Sport Discovery",
+     "Sports & Games People",
+     "Why Does This Happen?"
+    ]
+   }
+  ],
+  "schema": 1
  }
 }
