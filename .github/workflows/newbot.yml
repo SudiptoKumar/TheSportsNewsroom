@@ -85,7 +85,6 @@ jobs:
           for f in \
             main.py news_state.json posted_urls.txt coverage_index.json requirements.txt README.md \
             prompts/exa_sector_discovery_v1.txt \
-            prompts/exa_contents_verification_v1.txt \
             prompts/exa_hard_case_agent_v1.txt \
             prompts/cerebras_rank_v1.txt \
             prompts/cerebras_editorial_v1.txt \
