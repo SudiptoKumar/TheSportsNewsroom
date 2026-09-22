@@ -44,7 +44,7 @@ except ImportError:  # pragma: no cover
     Image = ImageDraw = ImageFont = None
 
 APP_NAME = "The Sports Newsroom"
-APP_VERSION = "1.4.0"
+APP_VERSION = "1.5.0"
 
 # ===========================================================================
 # 1. CORE: config, clock, text helpers, safety filters
@@ -611,38 +611,30 @@ def source_links(sources: list, limit: int = 3) -> str:
 
 
 def knowledge_html(story: dict, level: int = 0) -> str:
+    """Build the same compact evergreen shape for photo/card caption fallbacks."""
     fmt = story.get("format", "fact")
     label = story.get("label") or FORMAT_LABELS.get(fmt, "SPORTS & GAMES")
     head = f"{FORMAT_EMOJI.get(fmt, '🏅')} <b>{esc(label)}</b>"
     if text(story.get("date_anchor")):
         head += f" · {esc(story['date_anchor'])}"
     body = text(story.get("body"))
-    why = text(story.get("why_interesting"))
-    points = [text(p) for p in story.get("key_points", []) if text(p)][:3]
+    if level >= 1:
+        body = " ".join(split_sentences(body)[:3])
     if level >= 2:
-        points = []
-    if level >= 3 and why:
-        why = clamp_words(why, 140)
+        body = clamp_words(body, 120)
+    if level >= 3:
+        body = clamp_words(body, 90)
     if level >= 4:
-        why = ""
+        body = clamp_words(body, 70)
     if level >= 5:
-        body = " ".join(split_sentences(body)[:2])
-    if level >= 6:
-        body = clamp_words(body, 320)
-    if level >= 7:
-        body = clamp_words(body, 200)
+        body = clamp_words(body, 55)
     parts = [head, "", f"<b>{esc(story.get('headline', ''))}</b>", "", esc(body)]
-    if why:
-        parts += ["", f"<i>Why it's interesting:</i> {esc(why)}"]
-    if points:
-        parts += [""] + ["• " + esc(p) for p in points]
     src = source_links(story.get("sources", []))
     if src:
         parts += ["", "Source: " + src]
-    if level < 1:
-        tags = [t for t in story.get("tags", []) if t]
-        if tags:
-            parts += [" ".join(esc(t) for t in tags)]
+    tags = [t for t in story.get("tags", []) if t][:3]
+    if tags and level < 4:
+        parts += [" ".join(esc(t) for t in tags)]
     return "\n".join(parts)
 
 
@@ -2067,8 +2059,8 @@ def build_evergreen(candidate: dict, editorial: dict, selected_image: dict | Non
     sector_tag = "#" + re.sub(r"[^A-Za-z0-9]", "", candidate.get("sector", "SportsGames"))[:28]
     if sector_tag != "#":
         tags.append(sector_tag)
-    # Deduplicate while preserving order.
-    seen=set(); tags=[t for t in tags if t and not (t in seen or seen.add(t))][:5]
+    # Deduplicate while preserving order. Keep the final published tag set compact.
+    seen=set(); tags=[t for t in tags if t and not (t in seen or seen.add(t))][:3]
     sources = [(s.get("name") or source_label(s.get("url","")), s.get("url","")) for s in candidate.get("sources", [])]
     return {
         "desk": "evergreen_v1",
@@ -2080,12 +2072,7 @@ def build_evergreen(candidate: dict, editorial: dict, selected_image: dict | Non
         "central_claim": candidate.get("central_claim", ""),
         "angle": editorial.get("angle") or candidate.get("editorial_angle", ""),
         "headline": text(editorial.get("headline")),
-        "deck": text(editorial.get("deck")),
-        "hook": text(editorial.get("hook")),
         "body": text(editorial.get("body")),
-        "key_points": [text(x) for x in editorial.get("key_points", []) if text(x)],
-        "why_it_matters": text(editorial.get("why_it_matters")),
-        "caption": text(editorial.get("caption")),
         "tags": tags,
         "sources": [(a,b) for a,b in sources if b],
         "urls": [b for a,b in sources if b],
@@ -2100,22 +2087,18 @@ def build_evergreen(candidate: dict, editorial: dict, selected_image: dict | Non
     }
 
 def evergreen_rich(story: dict) -> dict:
+    """Render the compact V1 evergreen contract: headline, one body paragraph, source links, hashtags."""
     blocks = []
     if story.get("image", {}).get("url"):
         blocks.append({"type": "photo", "photo": {"type": "photo", "media": story["image"]["url"]}})
     blocks.append({"type": "heading", "size": 2, "text": story["headline"]})
-    if story.get("deck"):
-        blocks.append({"type": "paragraph", "text": story["deck"]})
-    blocks.append({"type": "paragraph", "text": story["body"]})
-    if story.get("key_points"):
-        blocks.append({"type": "list", "items": [{"blocks": [{"type": "paragraph", "text": p}]} for p in story["key_points"]]})
-    if story.get("why_it_matters"):
-        blocks.append({"type": "paragraph", "text": f"Why it is interesting: {story['why_it_matters']}"})
+    if story.get("body"):
+        blocks.append({"type": "paragraph", "text": story["body"]})
     if story.get("sources"):
-        src = "Sources: " + " · ".join(f"{a} ({b})" for a,b in story["sources"][:3])
+        src = "Source: " + source_links(story["sources"], limit=3)
         blocks.append({"type": "footer", "text": src})
     if story.get("tags"):
-        blocks.append({"type": "footer", "text": " ".join(story["tags"])})
+        blocks.append({"type": "footer", "text": " ".join(story["tags"][:3])})
     return {"blocks": blocks}
 
 def table_cell(value: str, header: bool = False, align: str = "left") -> dict:
@@ -2269,8 +2252,7 @@ def publish_with_idempotency(vstate: dict, publication_id: str, publisher: Calla
 V1_RANK_SCHEMA = OBJ(rankings=ARR(OBJ(post_number=INT, score=INT)))
 
 EDITORIAL_SCHEMA = OBJ(
-    headline=STR, deck=STR, hook=STR, body=STR, key_points=ARR(STR), why_it_matters=STR,
-    caption=STR, hashtags=ARR(STR), angle=STR, image_index=INT, image_reason=STR,
+    headline=STR, body=STR, hashtags=ARR(STR), angle=STR, image_index=INT, image_reason=STR,
 )
 
 AGENT_HARD_CASE_SCHEMA = {
@@ -2302,9 +2284,10 @@ PROMPT_FALLBACKS = {
     ),
     "cerebras_editorial_v1.txt": (
         "THE SPORTS NEWSROOM V1: CEREBRAS EDITORIAL DESK\n\n"
-        "Transform one verified evergreen Sports & Games research item into a publication-ready Telegram post. "
-        "Use only supplied evidence. Never invent facts, dates, numbers, people, locations, rules, origins or URLs. "
-        "Headline: 6-14 words. Body: 50-120 words. Key points: 3-5. Do not use current-news framing. "
+        "Transform one verified evergreen Sports & Games research item into a concise publication-ready Telegram post. "
+        "Use ONLY the supplied verified research and evidence. Never invent facts, dates, records, people, locations, rules, origins, numbers or URLs. "
+        "Write ONE short paragraph, 40-60 words, in an editorial/storyteller voice. No lists. Do not restate the same point twice. "
+        "Headline: 6-14 words, specific and non-clickbait. Return at most 3 relevant hashtags. Do not use current-news framing. "
         "Use only supplied image candidates and return only JSON."
     ),
     "exa_hard_case_agent_v1.txt": (
@@ -2919,7 +2902,7 @@ def v1_normalize_story(story: dict) -> dict:
     out["image"]=dict(img) if isinstance(img,dict) else {}
     out["sources"]=[x for x in (out.get("sources") or []) if isinstance(x,(list,tuple)) and len(x)>=2]
     out["urls"]=[text(x[1]) for x in out["sources"] if len(x)>=2 and text(x[1])]
-    out["key_points"]=[text(x) for x in (out.get("key_points") or []) if text(x)]
+    # Legacy point lists are intentionally ignored. V1 editorial output is one paragraph.
     out["tags"]=[text(x) for x in (out.get("tags") or []) if text(x)]
     out["people"]=out.get("people") if isinstance(out.get("people"),list) else []
     out["image_status"]=text(out.get("image_status")) or ("verified" if out["image"].get("url") else "unavailable")
@@ -2934,14 +2917,14 @@ def v1_validate_editorial(candidate: dict, editorial: dict, image_candidates: li
     words=re.findall(r"\b\w+[’'\w-]*\b",headline)
     body_words=re.findall(r"\b\w+[’'\w-]*\b",body)
     if not 6<=len(words)<=14: return False,"headline_word_count",{}
-    if not 50<=len(body_words)<=120: return False,"body_word_count",{}
+    if not 40<=len(body_words)<=60: return False,"body_word_count",{}
     if V1_CURRENT_RX.search(f"{headline} {body}"): return False,"current_news_language",{}
-    points=[text(x) for x in (editorial.get("key_points") or []) if text(x)]
-    if not 3<=len(points)<=5: return False,"key_points_count",{}
+    hashtags = [text(x) for x in (editorial.get("hashtags") or []) if text(x)]
+    if len(hashtags) > 3: return False,"hashtag_count",{}
     sources=candidate.get("sources")
     if not isinstance(sources,list) or not sources: return False,"no_verified_sources",{}
     evidence_numbers=set(re.findall(r"\b\d{1,4}\b",json.dumps(json_safe(candidate),ensure_ascii=False)+evidence_text_for_validation(candidate)))
-    generated_numbers=set(re.findall(r"\b\d{1,4}\b",f"{headline} {body} {' '.join(points)}"))
+    generated_numbers=set(re.findall(r"\b\d{1,4}\b",f"{headline} {body}"))
     if not generated_numbers.issubset(evidence_numbers): return False,"unsupported_number",{}
     selected=None
     try: idx=int(editorial.get("image_index",0))
@@ -3187,12 +3170,18 @@ def v1_architecture_tests() -> int:
     ck(len(AGENT_HARD_CASE_SCHEMA.get("properties",{})) == 5, "embedded agent schema")
     candidate={"sector":"Sport Origin","normalized_subject":"Football origins","central_knowledge_unit":"codified association football origins","central_claim":"Football laws were codified in 1863","sources":[{"name":"Source","url":"https://example.com"}]}
     ck(coverage_match(candidate,{"records":[]})[0] == "new", "new coverage candidate")
-    story=v1_normalize_story({"image":None,"sources":None,"key_points":None,"tags":None,"people":None})
-    ck(story["image"] == {} and story["sources"] == [] and story["key_points"] == [] and story["tags"] == [] and story["people"] == [], "null normalization")
-    ed={"headline":"How Football Laws Became Written Rules","body":"Football's laws became more standardized after clubs agreed on a written code. The milestone helped distinguish association football from other football traditions and gave the sport a common framework. That shared framework could travel between clubs and countries over time, making the game easier to recognize across different communities. It also created a reference point for later rule development and made it easier for clubs to compare their practices.","key_points":["Written rules created common expectations","The code shaped later development","The change made comparison easier"],"image_index":0,"hashtags":["#Football"],"angle":"history"}
-    ok,why,_=v1_validate_editorial({"sector":"Sport Origin","sources":[{"name":"Source","url":"https://example.com","evidence_note":"laws were codified in 1863"}],"central_claim":"Football laws were codified in 1863","research_evidence":"laws were codified in 1863"},ed,[])
+    story=v1_normalize_story({"image":None,"sources":None,"tags":None,"people":None})
+    ck(story["image"] == {} and story["sources"] == [] and story["tags"] == [] and story["people"] == [] and "key_points" not in story, "null normalization")
+    ck(set(EDITORIAL_SCHEMA["properties"]) == {"headline","body","hashtags","angle","image_index","image_reason"}, "compact editorial schema")
+    ck(not (set(EDITORIAL_SCHEMA["properties"]) & {"deck","hook","key_points","why_it_matters","caption"}), "legacy editorial fields removed")
+    ed={"headline":"How Football Laws Became Written Rules","body":"Football's laws became more standardized after clubs agreed on a written code. The change gave the sport a shared framework and helped distinguish association football from other traditions. That framework could travel between clubs and countries, creating a common reference for later rule development and making established practices easier to compare across communities.","image_index":0,"hashtags":["#Football","#History"],"angle":"history","image_reason":""}
+    ok,why,_=v1_validate_editorial({"sector":"Sport Origin","sources":[{"name":"Source","url":"https://example.com","evidence_note":"laws were codified"}],"central_claim":"Football laws were codified","research_evidence":"laws were codified"},ed,[])
     ck(ok, "valid editorial accepted: "+why)
-    ed_bad=dict(ed); ed_bad["body"]="This is the latest football story and it covers an upcoming match report and a current development. The update concerns the current season and a breaking change that belongs in a live news desk rather than evergreen research. It should fail the evergreen language gate even when the sentence remains readable, concise, and useful for readers of a temporary sports update."
+    rich=evergreen_rich({"headline":ed["headline"],"body":ed["body"],"sources":[("Source","https://example.com")],"tags":["#Football","#History","#Games","#Extra"],"image":{"url":"https://example.com/image.jpg"},"key_points":["legacy"],"why_it_matters":"legacy"})
+    ck([b["type"] for b in rich["blocks"]] == ["photo","heading","paragraph","footer","footer"], "compact rich message")
+    ck('<a href="https://example.com">Source</a>' in rich["blocks"][3]["text"] and "https://example.com)" not in rich["blocks"][3]["text"], "clickable source name")
+    ck("legacy" not in json.dumps(rich).lower(), "legacy editorial blocks absent")
+    ed_bad=dict(ed); ed_bad["body"]="This latest football story covers an upcoming match report and a current development. The update concerns the current season and a breaking change, so it belongs in a live news desk rather than evergreen research. The wording is intentionally current even though the underlying subject is a sport with longstanding historical context."
     ok,why,_=v1_validate_editorial({"sources":[{"name":"Source","url":"https://example.com"}]},ed_bad,[])
     ck((not ok) and why == "current_news_language", "current-news language blocked")
     a=make_event(sport="Football",league="UEFA Champions League",home="A",away="B",name="A vs B",start=datetime(2026,9,23,12,tzinfo=timezone.utc))

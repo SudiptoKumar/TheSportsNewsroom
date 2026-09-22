@@ -8,6 +8,21 @@ from unittest.mock import patch
 
 import main
 
+EDITORIAL_BODY = (
+    "Football's laws became more standardized after clubs agreed on a written code. "
+    "The change gave the sport a shared framework and helped distinguish association football from other traditions. "
+    "That framework could travel between clubs and countries, creating a common reference for later rule development "
+    "and making established practices easier to compare across communities."
+)
+EDITORIAL_SAMPLE = {
+    "headline": "How Football Laws Became Written Rules",
+    "body": EDITORIAL_BODY,
+    "hashtags": ["#Sports", "#History"],
+    "angle": "history",
+    "image_index": 0,
+    "image_reason": "",
+}
+
 
 class TestV1Contracts(unittest.TestCase):
     def test_exact_twenty_sectors(self):
@@ -99,18 +114,31 @@ class TestV1Contracts(unittest.TestCase):
         self.assertTrue(prompt)
 
     def test_null_story_values_are_normalized(self):
-        story = main.v1_normalize_story({"image": None, "sources": None, "key_points": None, "tags": None, "people": None})
+        story = main.v1_normalize_story({"image": None, "sources": None, "tags": None, "people": None})
         self.assertEqual({}, story["image"])
         self.assertEqual([], story["sources"])
-        self.assertEqual([], story["key_points"])
         self.assertEqual([], story["tags"])
         self.assertEqual([], story["people"])
+        self.assertNotIn("key_points", story)
 
     def test_json_safe_serializes_datetime_for_ai_payloads(self):
         value = {"published": datetime(2026, 9, 22, 12, 30, tzinfo=timezone.utc), "nested": [datetime(2026, 9, 23, tzinfo=timezone.utc)]}
         out = main.json_safe(value)
         self.assertEqual("2026-09-22T12:30:00+00:00", out["published"])
         self.assertEqual("2026-09-23T00:00:00+00:00", out["nested"][0])
+
+    def test_editorial_schema_is_compact_and_has_no_legacy_fields(self):
+        self.assertEqual(
+            {"headline", "body", "hashtags", "angle", "image_index", "image_reason"},
+            set(main.EDITORIAL_SCHEMA["properties"]),
+        )
+        self.assertFalse(set(main.EDITORIAL_SCHEMA["properties"]) & {"deck", "hook", "key_points", "why_it_matters", "caption"})
+
+    def test_editorial_prompt_requests_one_40_to_60_word_paragraph(self):
+        prompt = main.PROMPT_FALLBACKS["cerebras_editorial_v1.txt"]
+        self.assertIn("ONE short paragraph, 40-60 words", prompt)
+        self.assertIn("No lists", prompt)
+        self.assertIn("at most 3 relevant hashtags", prompt)
 
     def test_v1_editorialize_payload_is_json_serializable_with_datetime_candidate(self):
         class FakeAI:
@@ -119,7 +147,7 @@ class TestV1Contracts(unittest.TestCase):
             last_error = ""
             def json(self, task, system, user, schema, **kwargs):
                 json.loads(user)
-                return {"headline": "A Proper Evergreen Sports Headline", "deck": "", "hook": "", "body": "This is a sufficiently long evergreen body that explains the verified sports knowledge without using current news language or unsupported claims in the generated publication.", "key_points": ["One", "Two", "Three"], "why_it_matters": "Useful context.", "caption": "", "hashtags": ["#Sports"], "angle": "knowledge", "image_index": 0, "image_reason": ""}
+                return dict(EDITORIAL_SAMPLE)
         c = {"sector": "Sport Origin", "normalized_subject": "Example", "central_knowledge_unit": "Example origin", "central_claim": "Founded in 1901", "published": datetime(2026, 9, 22, tzinfo=timezone.utc), "sources": [{"name": "Source", "url": "https://example.com/a", "grade": "A"}]}
         out = main.v1_editorialize(FakeAI(), c, "Verified evidence from an authoritative source.", [])
         self.assertIsInstance(out, dict)
@@ -187,16 +215,62 @@ class TestV1Contracts(unittest.TestCase):
         self.assertTrue(table["is_bordered"] and table["is_striped"] and table["is_compact"])
         self.assertEqual(2, len(table["cells"]))
 
-    def test_evergreen_rich_message_uses_real_photo_block(self):
-        story = {"sector": "Interesting Sports Fact", "headline": "Why This Sports Measurement Still Matters", "deck": "A concise explanation.", "body": "This is a verified evergreen story with enough detail to satisfy the editorial body length requirements in a real post.", "key_points": ["Point one", "Point two", "Point three"], "why_it_matters": "It explains a useful piece of sports knowledge.", "sources": [("Source", "https://example.com")], "tags": ["#SportsFacts"], "image": {"url": "https://example.com/image.jpg"}}
+    def test_evergreen_rich_message_is_compact_and_uses_clickable_source_names(self):
+        story = {
+            "sector": "Interesting Sports Fact",
+            "headline": "Why This Sports Measurement Still Matters",
+            "body": EDITORIAL_BODY,
+            "key_points": ["Legacy point should never render"],
+            "why_it_matters": "Legacy explanation should never render",
+            "sources": [("Source", "https://example.com")],
+            "tags": ["#SportsFacts", "#History", "#Games", "#Extra"],
+            "image": {"url": "https://example.com/image.jpg"},
+        }
         rich = main.evergreen_rich(story)
-        self.assertEqual("photo", rich["blocks"][0]["type"])
+        self.assertEqual(["photo", "heading", "paragraph", "footer", "footer"], [b["type"] for b in rich["blocks"]])
+        self.assertIn('<a href="https://example.com">Source</a>', rich["blocks"][3]["text"])
+        self.assertNotIn("https://example.com)", rich["blocks"][3]["text"])
+        self.assertNotIn("Why it is interesting", json.dumps(rich))
+        self.assertNotIn("Legacy point", json.dumps(rich))
+        self.assertEqual("#SportsFacts #History #Games", rich["blocks"][4]["text"])
+
+    def test_build_evergreen_strips_legacy_editorial_fields_and_caps_tags(self):
+        candidate = {"sector": "Sport Discovery", "sources": [{"name": "Source", "url": "https://example.com"}]}
+        editorial = {**EDITORIAL_SAMPLE, "deck": "legacy", "hook": "legacy", "key_points": ["legacy"], "why_it_matters": "legacy", "caption": "legacy", "hashtags": ["#One", "#Two", "#Three", "#Four"]}
+        story = main.build_evergreen(candidate, editorial, None)
+        self.assertNotIn("deck", story)
+        self.assertNotIn("hook", story)
+        self.assertNotIn("key_points", story)
+        self.assertNotIn("why_it_matters", story)
+        self.assertNotIn("caption", story)
+        self.assertEqual(["#One", "#Two", "#Three"], story["tags"])
 
     def test_current_news_filter_rejects_obvious_live_copy(self):
         self.assertIsNotNone(main.V1_CURRENT_RX.search("today's upcoming match preview"))
 
+    def test_editorial_validator_accepts_40_to_60_word_body_without_lists(self):
+        candidate = {"sources": [{"name": "Source", "url": "https://example.com", "evidence_note": "laws were standardized"}], "central_claim": "Football laws were standardized", "research_evidence": "laws were standardized"}
+        ok, why, _ = main.v1_validate_editorial(candidate, dict(EDITORIAL_SAMPLE), [])
+        self.assertTrue(ok, why)
+
+    def test_editorial_validator_rejects_body_over_60_words(self):
+        candidate = {"sources": [{"name": "Source", "url": "https://example.com"}], "central_claim": "Football laws were standardized", "research_evidence": "laws were standardized"}
+        too_long = dict(EDITORIAL_SAMPLE)
+        too_long["body"] = " ".join(["Verified"] * 61)
+        ok, why, _ = main.v1_validate_editorial(candidate, too_long, [])
+        self.assertFalse(ok)
+        self.assertEqual("body_word_count", why)
+
+    def test_editorial_validator_rejects_more_than_three_hashtags(self):
+        candidate = {"sources": [{"name": "Source", "url": "https://example.com"}], "central_claim": "Football laws were standardized", "research_evidence": "laws were standardized"}
+        too_many = dict(EDITORIAL_SAMPLE)
+        too_many["hashtags"] = ["#One", "#Two", "#Three", "#Four"]
+        ok, why, _ = main.v1_validate_editorial(candidate, too_many, [])
+        self.assertFalse(ok)
+        self.assertEqual("hashtag_count", why)
+
     def test_visual_publisher_never_downgrades_to_plain_text(self):
-        story = main.v1_normalize_story({"sector": "Sport Discovery", "headline": "A Proper Evergreen Sports Headline", "body": "This is a verified evergreen body with enough words to demonstrate the visual publisher path safely.", "key_points": ["One", "Two", "Three"], "why_it_matters": "Useful.", "sources": [("Source", "https://example.com")], "tags": ["#Sports"], "image": {"url": "https://example.com/photo.jpg"}})
+        story = main.v1_normalize_story({"sector": "Sport Discovery", "headline": "A Proper Evergreen Sports Headline", "body": EDITORIAL_BODY, "sources": [("Source", "https://example.com")], "tags": ["#Sports"], "image": {"url": "https://example.com/photo.jpg"}})
         calls = []
         with patch.object(main, "send_rich", return_value={"ok": False, "description": "400 rich message rejected"}), patch.object(main, "tg_call", side_effect=lambda method, data=None, file_path="", file_field="photo": calls.append((method, data, file_path)) or {"ok": True, "result": {"message_id": 123}}):
             out = main.v1_publish_evergreen(story)
@@ -218,7 +292,7 @@ class TestV1Contracts(unittest.TestCase):
                 "research_images": [],
             })
         ranked = [{"post_number": i + 1, "score": 100 - i, "reason": "", "_candidate_pool": candidates} for i in range(20)]
-        editorial = {"headline": "How Football Laws Became Written Rules", "deck": "", "hook": "", "body": "Football's laws became more standardized after clubs agreed on a written code. The milestone helped distinguish association football from other football traditions and gave the sport a common framework. That shared framework could travel between clubs and countries over time, making the game easier to recognize across different communities. It also created a reference point for later rule development and made it easier for clubs to compare their practices.", "key_points": ["Written rules created common expectations", "The code shaped later development", "The change made comparison easier"], "why_it_matters": "It explains a useful piece of sports history.", "caption": "", "hashtags": ["#Sports"], "angle": "history", "image_index": 0, "image_reason": ""}
+        editorial = dict(EDITORIAL_SAMPLE)
         with patch.object(main, "CEREBRAS_API_KEY", "test"), patch.object(main, "TELEGRAM_BOT_TOKEN", "test"), \
              patch.object(main, "now_bd", return_value=fixed_now), patch.object(main, "load_state", return_value=state), \
              patch.object(main, "load_coverage", return_value={"records": []}), patch.object(main, "v1_discover_all_sectors", return_value=candidates), \
@@ -269,7 +343,7 @@ class TestV1Contracts(unittest.TestCase):
                 "research_images": [], "research_evidence": "Verified evidence about this subject.",
             })
         ranked = [{"post_number": i + 1, "score": 100 - i, "reason": "", "_candidate_pool": candidates} for i in range(5)]
-        editorial = {"headline": "How Football Laws Became Written Rules", "deck": "", "hook": "", "body": "Football's laws became more standardized after clubs agreed on a written code. The milestone helped distinguish association football from other football traditions and gave the sport a common framework. That shared framework could travel between clubs and countries over time, making the game easier to recognize across different communities. It also created a reference point for later rule development and made it easier for clubs to compare their practices.", "key_points": ["Written rules created common expectations", "The code shaped later development", "The change made comparison easier"], "why_it_matters": "It explains a useful piece of sports history.", "caption": "", "hashtags": ["#Sports"], "angle": "history", "image_index": 0, "image_reason": ""}
+        editorial = dict(EDITORIAL_SAMPLE)
         with patch.object(main, "CEREBRAS_API_KEY", "test"), patch.object(main, "TELEGRAM_BOT_TOKEN", "test"), \
              patch.object(main, "now_bd", return_value=fixed_now), patch.object(main, "load_state", return_value=state), \
              patch.object(main, "load_coverage", return_value={"records": []}), patch.object(main, "v1_discover_all_sectors", return_value=candidates), \
@@ -295,7 +369,7 @@ class TestV1Contracts(unittest.TestCase):
                 "research_images": [], "research_evidence": "Verified evidence about this subject.",
             })
         ranked = [{"post_number": i + 1, "score": 100 - i, "reason": "", "_candidate_pool": candidates} for i in range(len(candidates))]
-        editorial = {"headline": "How Football Laws Became Written Rules", "deck": "", "hook": "", "body": "Football's laws became more standardized after clubs agreed on a written code. The milestone helped distinguish association football from other football traditions and gave the sport a common framework. That shared framework could travel between clubs and countries over time, making the game easier to recognize across different communities. It also created a reference point for later rule development and made it easier for clubs to compare their practices.", "key_points": ["Written rules created common expectations", "The code shaped later development", "The change made comparison easier"], "why_it_matters": "It explains a useful piece of sports history.", "caption": "", "hashtags": ["#Sports"], "angle": "history", "image_index": 0, "image_reason": ""}
+        editorial = dict(EDITORIAL_SAMPLE)
         with patch.object(main, "CEREBRAS_API_KEY", "test"), patch.object(main, "TELEGRAM_BOT_TOKEN", "test"), \
              patch.object(main, "now_bd", return_value=fixed_now), patch.object(main, "load_state", return_value=state), \
              patch.object(main, "load_coverage", return_value={"records": []}), patch.object(main, "v1_discover_all_sectors", return_value=candidates), \

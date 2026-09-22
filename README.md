@@ -1,4 +1,4 @@
-# The Sports Newsroom V1.4.0
+# The Sports Newsroom V1.5.0
 
 Automated Telegram newsroom for evergreen Sports & Games knowledge, plus a temporary live schedule/results pair.
 
@@ -126,13 +126,27 @@ Used for two structured-output jobs:
 
 The client enforces a per-run provider-attempt budget and adaptive cross-call throttling. Repeated 429 responses increase the pause before the next attempt; once the run budget is exhausted, further AI work is skipped so the run can still publish any candidates that already have enough evidence and continue to the live pair.
 
-The editorial layer is instructed to use only supplied evidence and not invent claims, dates, numbers, people, locations, rules or URLs.
+The editorial layer is instructed to use only supplied evidence and not invent claims, dates, numbers, people, locations, rules or URLs. Each evergreen publication uses one 40-60 word paragraph, a 6-14 word headline, and at most 3 hashtags. Lists and duplicate explanatory blocks are intentionally excluded.
 
 ### Local Python
 
 The application is authoritative for URL normalization, sector coverage, semantic dedupe, evergreen safety filters, validation, image validation, publication IDs, Telegram idempotency, live-pair rotation and state persistence.
 
-## 6. Reliability and fallback design
+## 6. Evergreen publication shape
+
+Every evergreen Telegram post follows one compact editorial contract:
+
+```text
+[verified image, when available]
+Headline
+One 40-60 word paragraph
+Source: clickable source names
+Up to 3 hashtags
+```
+
+Source names are rendered as clickable HTML links. Raw URLs are never shown in the publication. The photo/card fallback uses the same compact content shape.
+
+## 7. Reliability and fallback design
 
 Prompt files are external override files, but the four production prompts also have embedded fallbacks in `main.py`. Missing or renamed prompt files therefore do not stop the engine from running.
 
@@ -152,7 +166,7 @@ There is no plain-text fallback for an evergreen publication.
 
 State writes are skipped in `--dry-run` mode. Telegram publishing is skipped in `--dry-run` mode.
 
-## 7. Single operational entrypoint
+## 8. Single operational entrypoint
 
 `run_once()` is the canonical operational entrypoint.
 
@@ -183,7 +197,7 @@ python main.py
 
 `--self-test` checks the V1 architecture and provider contracts offline.
 
-## 8. Configuration
+## 9. Configuration
 
 Required secrets:
 
@@ -225,7 +239,7 @@ Global runtime controls include `RUN_DEADLINE_SECONDS` (default 1500 seconds), `
 
 A rate-limit storm is treated differently from token-quota exhaustion: the provider's `Retry-After` / reset hints are respected, then the client adds its own escalating cross-call pause. The cap counts actual Cerebras provider attempts, including retries.
 
-## 9. Local setup
+## 10. Local setup
 
 Requirements:
 
@@ -260,7 +274,7 @@ Run production:
 python main.py
 ```
 
-## 10. GitHub Actions
+## 11. GitHub Actions
 
 Production workflow: `.github/workflows/newbot.yml`
 
@@ -282,7 +296,7 @@ self-test
 
 The workflow verifies the repository structure, compiles the Python files, validates the JSON schema, prints the version, runs the V1 architecture tests and the full unit-test suite, then runs the selected mode.
 
-## 11. Repository structure
+## 12. Repository structure
 
 ```text
 .
@@ -310,7 +324,7 @@ The workflow verifies the repository structure, compiles the Python files, valid
 
 There are no legacy V3/V4 production pipelines, V4 prompt packs or V4 schemas in the repository.
 
-## 12. State and compatibility
+## 13. State and compatibility
 
 The active state namespace is `v1`.
 
@@ -324,7 +338,7 @@ coverage_index.json  semantic/editorial coverage memory
 posted_urls.txt      URL-level publication memory
 ```
 
-## 13. Testing
+## 14. Testing
 
 Current verification:
 
@@ -335,18 +349,18 @@ Python unittest suite: 24/24 passed
 
 The tests explicitly guard against the original failure mode by checking that the canonical run entrypoints resolve to the same V1 implementation and that legacy V3/V4 orchestration symbols are absent.
 
-## 14. Versioning
+## 15. Versioning
 
 The application version has one source of truth:
 
 ```python
-APP_VERSION = "1.3.0"
+APP_VERSION = "1.5.0"
 ```
 
 The CLI reports:
 
 ```text
-The Sports Newsroom V1 1.3.0
+The Sports Newsroom V1 1.5.0
 ```
 
 Update `APP_VERSION` in `main.py` for future releases and keep repository documentation aligned with that value.
