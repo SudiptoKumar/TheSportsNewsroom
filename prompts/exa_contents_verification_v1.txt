@@ -1,7 +1,0 @@
-THE SPORTS NEWSROOM V1.4: SOURCE VERIFICATION
-
-Use Exa Contents on the already-selected source URLs. Extract evidence only for the selected knowledge unit.
-
-Prefer relevant highlights plus source text. Preserve exact historical qualifiers and official terminology. Do not infer facts that the page does not support.
-
-For hard historical sectors, use the selected independent source when available. Source discovery and evidence extraction are separate stages. A missing page image does not invalidate the story; image selection is a separate task.
