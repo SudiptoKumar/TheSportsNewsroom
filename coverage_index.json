@@ -241,8 +241,360 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 53
+  },
+  {
+   "central_claim": "Pierre de Coubertin was the central organizer of the 1894 Paris Congress whose adopted revival resolution established the IOC and set Athens 1896 as the first modern Olympic Games; he is therefore widely and reasonably described as a founder or principal reviver of the modern Olympic movement, but not as its sole precursor or originator.",
+   "central_knowledge_unit": "pierre de coubertin was the central organizer of the 1894 paris congress whose adopted revival resolution established the ioc and set athens 1896 as the first modern olympic games he is therefore widely and reasonably de",
+   "content_id": "2e92eb6aa20c6962",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "ec17e3811bb04e83",
+    "1d0f6ef78cdb4e14"
+   ],
+   "legacy": true,
+   "normalized_subject": "pierre de coubertin visionary and founder of the modern olympics",
+   "people": [],
+   "published_at": "2026-09-22T03:02:17.732885+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "olympics.com/ioc/pierre-de-coubertin",
+    "olympics.com/ioc/paris-1894-olympic-congress",
+    "britannica.com/biography/Pierre-baron-de-Coubertin",
+    "cambridge.org/core/journals/european-review/article/abs/predecessors-of-the-olympic-movement-and-pierre-de-coubertin/04DE7FA59B47F756E4C95CEA509311CF",
+    "britannica.com/biography/William-Penny-Brookes",
+    "olympedia.org/athletes/920613"
+   ],
+   "sport_or_game": "Pierre de Coubertin: Visionary and Founder of the Modern Olympics",
+   "telegram_message_id": 46
+  },
+  {
+   "central_claim": "Ulama is a living Sinaloan form of the wider Mesoamerican rubber-ballgame tradition. The modern hip variant (ulama de cadera) is played with a roughly 3.5–4 kg ball struck with the hip or upper thigh; however, ulama also has forearm and stick variants. The approximately 3,400-year figure is defensible for archaeological ballcourt design/the broader tradition, not as proof that the present-day game has been played unchanged or continuously for exactly 3,400 years.",
+   "central_knowledge_unit": "ulama is a living sinaloan form of the wider mesoamerican rubber ballgame tradition the modern hip variant ulama de cadera is played with a roughly 3 5 4 kg ball struck with the hip or upper thigh however ulama also has ",
+   "content_id": "87898aa9d5bcb526",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "2a9a15d07b262453",
+    "a7c22e5caa8991d3"
+   ],
+   "legacy": true,
+   "normalized_subject": "ulama a 3 400 year old ballgame that survived in mexico ap news",
+   "people": [],
+   "published_at": "2026-09-22T03:02:22.639121+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    "apnews.com/article/mexico-ulama-prehispanic-ballgame-fifa-cup-3819e65e272d0360979a8cd2dd78b999",
+    "nature.com/articles/31837",
+    "doi.org/10.1073/pnas.1203483109",
+    "doi.org/10.1016/s0185-1225(15)71645-0",
+    "elsevier.es/es-revista-anales-antropologia-95-pdf-download-S0185122515716450",
+    "investigacion.inah.gob.mx/node/15579"
+   ],
+   "sport_or_game": "Ulama, a 3,400-year-old ballgame that survived in Mexico | AP News",
+   "telegram_message_id": 47
+  },
+  {
+   "central_claim": ", like the ... of Ur, senet, w ... The Royal Game of Ur is the oldest playable boardgame in the world, originating around 4,600 years ago in ancient Mesopotamia. ... The game's rules were written on a cuneiform tablet by a Babylonian astronomer in 177 BC. From this, curator Irving Finkel was able to decipher the rules – two players compete to race their pieces from one end of the board to the other. The central squares were also used for fortune telling. ... Wari is a game of calculation and str",
+   "central_knowledge_unit": "like the of ur senet w the royal game of ur is the oldest playable boardgame in the world originating around 4 600 years ago in ancient mesopotamia the game s rules were written on a cuneiform tablet by a babylonian astr",
+   "content_id": "c90e710dd268d804",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "97d838fc7be1bb75",
+    "5bda56cc1c68a3b6"
+   ],
+   "legacy": true,
+   "normalized_subject": "top 10 historical board games british museum",
+   "people": [],
+   "published_at": "2026-09-22T03:02:28.808195+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Origin",
+   "source_urls": [
+    "britishmuseum.org/blog/top-10-historical-board-games"
+   ],
+   "sport_or_game": "Top 10 historical board games | British Museum",
+   "telegram_message_id": 48
+  },
+  {
+   "central_claim": "The Evergreen Game is a famous chess game won by Adolf Anderssen against Jean Dufresne in 1852. ... This was probably an informal game. At the time, there was no formal title of \"World Champion\", but the German mathematics professor Anderssen was widely considered the best player in the world after winning the first major international chess tournament in London in 1851. Though not in the same class as Anderssen, Dufresne, a popular author of chess books, was also a strong player. It is usually ",
+   "central_knowledge_unit": "the evergreen game is a famous chess game won by adolf anderssen against jean dufresne in 1852 this was probably an informal game at the time there was no formal title of world champion but the german mathematics profess",
+   "content_id": "0b97184b859a638a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "d40c83f407b62ae7",
+    "2a756b00ec46aafc"
+   ],
+   "legacy": true,
+   "normalized_subject": "evergreen game wikipedia",
+   "people": [],
+   "published_at": "2026-09-22T03:02:33.502722+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    "en.wikipedia.org/wiki/Evergreen_Game"
+   ],
+   "sport_or_game": "Evergreen Game - Wikipedia",
+   "telegram_message_id": 49
+  },
+  {
+   "central_claim": "On June 3, 1997, Roberto Carlos stunned the world with one of the most spectacular free kicks in football history. The left-back scored the most famous goal of his career: an outrageous long-range free kick for Brazil in a 1-1 draw against France in the opening game of the 1997 Tournoi de France, a warm-up tournament ahead of the following year's World Cup. ... The strike left goalkeeper Fabien Barthez perplexed, as the ball apparently was heading well wide of the target and into the crowd. Howe",
+   "central_knowledge_unit": "on june 3 1997 roberto carlos stunned the world with one of the most spectacular free kicks in football history the left back scored the most famous goal of his career an outrageous long range free kick for brazil in a 1",
+   "content_id": "275d8bdc5793c208",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "dfc58c8e54b956ca",
+    "b988360ec0179009"
+   ],
+   "legacy": true,
+   "normalized_subject": "roberto carlos brazil free kick in 1997 the physics behind impossible strike espn",
+   "people": [],
+   "published_at": "2026-09-22T03:02:38.064581+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "espn.com/soccer/story/_/id/37475858/physics-impossible-strike"
+   ],
+   "sport_or_game": "Roberto Carlos' Brazil free kick in 1997: The physics behind 'impossible' strike - ESPN",
+   "telegram_message_id": 50
+  },
+  {
+   "central_claim": "Once a popular pastime across Yorkshire, the miners' game Knurr and Spell has all but disappeared from public knowledge. ... The game, also known as Nipsy, Piggy and Northern Spell, was predominantly played in mining communities in the 18th, 19th and early 20th centuries. ... There are many variations of the game, with different types of equipment used in localised versions across Yorkshire, Lancashire and the wider North of England. ... The game often took place on moorland but could be played ",
+   "central_knowledge_unit": "once a popular pastime across yorkshire the miners game knurr and spell has all but disappeared from public knowledge the game also known as nipsy piggy and northern spell was predominantly played in mining communities i",
+   "content_id": "d91f3e89558fe123",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a49eea8315901b61",
+    "64d6b526c59fad29"
+   ],
+   "legacy": true,
+   "normalized_subject": "rediscovering knurr and spell yorkshire s lost miners game",
+   "people": [],
+   "published_at": "2026-09-22T03:02:42.467218+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    "bbc.com/news/articles/cvgmvkygkz5o"
+   ],
+   "sport_or_game": "Rediscovering Knurr and Spell - Yorkshire's lost miners' game",
+   "telegram_message_id": 51
+  },
+  {
+   "central_claim": "Invented a little over a decade ago in Hungary, teqball is a combination of football and ping pong ... Teqball was invented a little over a decade ago in Hungary, when two friends started playing football on a ping pong table, before going on to create the signature curved table the game is played on. ... The new sport is quickly entering the mainstream. This weekend it will debut at the Asian Games in Japan, after its historic inclusion at the European and African games, with ambitions to be an",
+   "central_knowledge_unit": "invented a little over a decade ago in hungary teqball is a combination of football and ping pong teqball was invented a little over a decade ago in hungary when two friends started playing football on a ping pong table ",
+   "content_id": "b107b0dfe6f8fdcf",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4dbb2cd0987d70d5",
+    "7db5c62d460352a9"
+   ],
+   "legacy": true,
+   "normalized_subject": "balletic hits and bicycle kicks teqball comes of age at the asian games sport the guardian",
+   "people": [],
+   "published_at": "2026-09-22T03:03:02.181858+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "theguardian.com/sport/2026/sep/18/balletic-hits-and-bicycle-kicks-teqball-comes-of-age-at-the-asian-games"
+   ],
+   "sport_or_game": "Balletic hits and bicycle kicks: Teqball comes of age at the Asian Games | Sport | The Guardian",
+   "telegram_message_id": 52
+  },
+  {
+   "central_claim": "Home advantage is quantitatively defined and calculated for each season since the start of the main professional sports in North America and England. Over 400,000 games are analysed. The leagues represented are the National League (1876 – 2002) and American League (1901 – 2002) for baseball, the National Hockey League (1917 – 2003) for ice hockey, the National Football League (1933 – 2002) for American football, the National Basketball Association (1946 – 2003) for basketball, and the four level",
+   "central_knowledge_unit": "home advantage is quantitatively defined and calculated for each season since the start of the main professional sports in north america and england over 400 000 games are analysed the leagues represented are the nationa",
+   "content_id": "580fb28fbb123050",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "55b2167426a26a5a",
+    "eaa0836141d7e576"
+   ],
+   "legacy": true,
+   "normalized_subject": "long term trends in home advantage in professional team sports in north america and england 1876 2003 journal of sports sciences vol 23 no 4",
+   "people": [],
+   "published_at": "2026-09-22T03:03:21.830087+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Sports Fact",
+   "source_urls": [
+    "tandfonline.com/doi/abs/10.1080/02640410400021559"
+   ],
+   "sport_or_game": "Long-term trends in home advantage in professional team sports in North America and England (1876 – 2003): Journal of Sports Sciences: Vol 23, No 4",
+   "telegram_message_id": 53
+  },
+  {
+   "central_claim": "Irish road bowling is an established individual road sport, usually played by throwing a standard 28 oz iron bowl along a country-road course in the fewest throws. Ballincurrig’s King and Queen of the Roads began with a King of the Road contest in 1985 and its 2025 meeting was its 40th hosting, with competitors from Ireland and continental Europe. The event should not be described as taking place each October: the 2025 edition ran 19–21 September and the listed 2026 dates are 18–20 September. Its claimed status as the world’s biggest road-bowling tournament is not independently established by the evidence reviewed.",
+   "central_knowledge_unit": "inside ireland s most unusual ball sport",
+   "content_id": "6be254632de450c8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "6be254632de450c8",
+    "7c2fda01102206a2"
+   ],
+   "normalized_subject": "inside ireland s most unusual ball sport",
+   "people": [],
+   "published_at": "2026-09-22T07:44:12.228862+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    "bbc.com/travel/article/20250923-inside-irelands-most-unusual-ball-sport",
+    "irishroadbowling.ie/king-queen-2025",
+    "irishroadbowling.ie/fixtures",
+    "rte.ie/archives/2020/1029/1174647-king-of-the-road",
+    "historyireland.com/the-origins-of-irish-road-bowling",
+    "fintanlane.com/wp-content/uploads/2015/04/Long_Bullets.pdf",
+    "irishexaminer.com/sport/othersport/arid-41708102.html"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 56
+  },
+  {
+   "central_claim": "Andrew “Rube” Foster (September 17, 1879–December 9, 1930) was a prominent Black baseball pitcher, manager, owner, and organizer who convened and led the February 13–14, 1920 Kansas City meeting at which eight Black clubs formed the Negro National League; the owners appointed him its president. The NNL is credibly described as the first successful or sustained professional league for African American players—not the first attempted Black professional league—and Foster is widely called the “father of Black baseball.”",
+   "central_knowledge_unit": "rube foster biography baseball facts britannica",
+   "content_id": "a5c43ec46d996ef8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a5c43ec46d996ef8",
+    "989b2f65d0244a6c"
+   ],
+   "normalized_subject": "rube foster biography baseball facts britannica",
+   "people": [],
+   "published_at": "2026-09-22T07:44:16.776534+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "britannica.com/biography/Rube-Foster",
+    "baseballhall.org/discover/rube-fosters-writing-predicted-future-of-black-baseball",
+    "baseballhall.org/index%2ephp/hall-of-famers/foster-rube",
+    "sabr.org/research/article/we-are-the-ship-all-else-the-sea-the-founding-of-the-negro-national-league",
+    "sabr.org/bioproj/person/andrew-rube-foster",
+    "nps.gov/articles/000/places-of-black-baseball.htm",
+    "sabr.org/journal/article/the-pittsburgh-keystones-and-the-1887-colored-league"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 57
+  },
+  {
+   "central_claim": "Senet is the oldest board game we have physical evidence for — though that claim has three different answers depending on what you mean by oldest. Boards turn up in Egyptian graves from around 3100 BC, and people were still playing it when the Romans arrived — a run of roughly three thousand years, longer than the gap between the last Egyptian player and today. ... more of this game than of almost any other object of daily ... A queen at the ... in her own ... . Four separate sets buried ... The earliest candidates are also the shakiest. Grids of thirty squares turn up in First Dynasty burials around 3100 BC, and a funerary slab from the same period appears to show two people at a board. Whe",
+   "central_knowledge_unit": "the history of senet 3 000 years not one rule playnook",
+   "content_id": "4a52c76598a9680b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4a52c76598a9680b",
+    "7114998ded6bd80a"
+   ],
+   "normalized_subject": "the history of senet 3 000 years not one rule playnook",
+   "people": [],
+   "published_at": "2026-09-22T07:44:24.710689+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    "playnook.io/blog/history-of-senet"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 58
+  },
+  {
+   "central_claim": "Quoiting thrived for many years with clubs all across Scotland. But by the 2000s, only 5 clubs remained. So what is the history of this lost Scottish sport? ... It appears to have reached a peak either side of the First World War. By the 1930s interest was already on the wane and after the Second World War many clubs had closed. At the time of writing this, Dunnottar Club in Stonehaven is the last remaining club in Scotland. ... My research suggested that the game ... popular in industrial and farming communities, so looking at industrial towns for quoiting grounds was key: particularly mining towns and villages, where ... encouraged and thrived. However, despite my thorough search of the OS",
+   "central_knowledge_unit": "quoiting the history of a lost scottish sport historic environment scotland blog",
+   "content_id": "a140c950c38088a9",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a140c950c38088a9",
+    "36cf056ebfc3bb36"
+   ],
+   "normalized_subject": "quoiting the history of a lost scottish sport historic environment scotland blog",
+   "people": [],
+   "published_at": "2026-09-22T07:44:44.537384+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    "blog.historicenvironment.scot/2025/08/quoiting-the-history-of-a-lost-scottish-sport"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 59
+  },
+  {
+   "central_claim": "Imagine a game so addictive that it caused bar fights between emperors, drove peasants to gamble away their livelihoods, and was buried alongside the elite so they wouldn't get bored in the afterlife. It wasn't chess. It wasn't Go. It was Liubo, an ancient board game often called the long-lost cousin of chess. ... For centuries, this game dominated Chinese culture before vanishing into thin air during the Tang dynasty. For over a thousand years, nobody even knew how the board looked, let alone how to play it. ... The Shaanxi Provincial Institute of Archaeology broke the internet in historical circles by announcing a massive find from their 2023 excavations. They dug up pristine, 2,000-year-o",
+   "central_knowledge_unit": "why a 2000 year old cousin of chess completely disappeared f mdi",
+   "content_id": "9c38c8a451694fc6",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9c38c8a451694fc6",
+    "05cba23d301e289d"
+   ],
+   "normalized_subject": "why a 2000 year old cousin of chess completely disappeared f mdi",
+   "people": [],
+   "published_at": "2026-09-22T07:45:03.885354+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "Forgotten Game",
+   "source_urls": [
+    "mdi.us.com/2000-year-old-cousin-chess-completely-disappeared-world"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 60
+  },
+  {
+   "central_claim": "Gasing is a traditional game played by the Malay people of Riau, crafted from wood shaped like an inflated fruit, with a rope made from bark. This game is played by the Malay community in Riau to spend time with friends and to celebrate special occasions in the province. The research explored the methods of making and playing gasing by the Malay people of Riau and analyzed the physics concepts involved in the game. This qualitative study employed a literature review, observation, and interviews. The literature review examines Malay culture and gasing games. Observations were conducted in Siak Regency to directly observe the gasing games, including the tools and materials used, the game rules",
+   "central_knowledge_unit": "exploration the ethnoscience of gasing game from malay riau culture and its potential for physics learning",
+   "content_id": "ef7becfc65feec4e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "ef7becfc65feec4e",
+    "bcd882e819bb4425"
+   ],
+   "normalized_subject": "exploration the ethnoscience of gasing game from malay riau culture and its potential for physics learning",
+   "people": [],
+   "published_at": "2026-09-22T07:45:23.752395+00:00",
+   "region": "",
+   "run_id": "2026-09-22-AM",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    "doi.org/10.21831/jser.v8i2.75081"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 61
   }
  ],
  "schema": 1,
- "updated_at": "2026-09-22T03:03:21.830071+00:00"
+ "updated_at": "2026-09-22T07:45:23.752567+00:00"
 }

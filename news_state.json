@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "Cerebras per-run call cap reached (16)",
-  "last_ok": "2026-09-22T03:03:20.701681+00:00",
-  "last_request_id": "a3ee13705aab2fe8-CMH",
-  "last_status": 429,
+  "last_ok": "2026-09-22T07:45:22.320673+00:00",
+  "last_request_id": "a3efb0906a09d630-IAD",
+  "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-21T06:43:50.838439+00:00",
- "last_run_at": "2026-09-22T03:05:46.174006+00:00",
+ "last_run_at": "2026-09-22T07:47:31.912300+00:00",
  "ledger": {
   "day_in_sports:2026-09-20": {
    "attempts": 1,
@@ -238,6 +238,126 @@
    "topic": "Long-term trends in home advantage in professional team sports in North America and England (1876 – 2003): Journal of Sports Sciences: Vol 23, No 4",
    "urls": [
     "tandfonline.com/doi/abs/10.1080/02640410400021559"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Inside Ireland's most unusual ball sport",
+   "claim": "Irish road bowling is an established individual road sport, usually played by throwing a standard 28 oz iron bowl along a country-road course in the fewest throws. Ballincurrig’s King and Queen of the Roads began with a King of the Road contest in 1985 and its 2025 meeting was its 40th hosting, with competitors from Ireland and continental Europe. The event should not be described as taking place each October: the 2025 edition ran 19–21 September and the listed 2026 dates are 18–20 September. Its claimed status as the world’s biggest road-bowling tournament is not independently established by the evidence reviewed.",
+   "desk": "evergreen_v1",
+   "format": "Sport Discovery",
+   "headline": "40 Years of Road Bowling at Ballincurrig’s King and Queen Tournament",
+   "image_status": "card_only",
+   "message_id": 56,
+   "normalized_subject": "Inside Ireland's most unusual ball sport",
+   "posted_at": "2026-09-22T07:44:12.229102+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Sport Discovery",
+   "topic": "Inside Ireland's most unusual ball sport",
+   "urls": [
+    "bbc.com/travel/article/20250923-inside-irelands-most-unusual-ball-sport",
+    "irishroadbowling.ie/king-queen-2025",
+    "irishroadbowling.ie/fixtures",
+    "rte.ie/archives/2020/1029/1174647-king-of-the-road",
+    "historyireland.com/the-origins-of-irish-road-bowling",
+    "fintanlane.com/wp-content/uploads/2015/04/Long_Bullets.pdf",
+    "irishexaminer.com/sport/othersport/arid-41708102.html"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Rube Foster | Biography, Baseball, & Facts | Britannica",
+   "claim": "Andrew “Rube” Foster (September 17, 1879–December 9, 1930) was a prominent Black baseball pitcher, manager, owner, and organizer who convened and led the February 13–14, 1920 Kansas City meeting at which eight Black clubs formed the Negro National League; the owners appointed him its president. The NNL is credibly described as the first successful or sustained professional league for African American players—not the first attempted Black professional league—and Foster is widely called the “father of Black baseball.”",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Rube Foster Founded the First Sustainable Negro National League in 1920",
+   "image_status": "card_only",
+   "message_id": 57,
+   "normalized_subject": "Rube Foster | Biography, Baseball, & Facts | Britannica",
+   "posted_at": "2026-09-22T07:44:16.776745+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Sports & Games People",
+   "topic": "Rube Foster | Biography, Baseball, & Facts | Britannica",
+   "urls": [
+    "britannica.com/biography/Rube-Foster",
+    "baseballhall.org/discover/rube-fosters-writing-predicted-future-of-black-baseball",
+    "baseballhall.org/index%2ephp/hall-of-famers/foster-rube",
+    "sabr.org/research/article/we-are-the-ship-all-else-the-sea-the-founding-of-the-negro-national-league",
+    "sabr.org/bioproj/person/andrew-rube-foster",
+    "nps.gov/articles/000/places-of-black-baseball.htm",
+    "sabr.org/journal/article/the-pittsburgh-keystones-and-the-1887-colored-league"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The History of Senet: 3,000 Years, Not One Rule | PlayNook",
+   "claim": "Senet is the oldest board game we have physical evidence for — though that claim has three different answers depending on what you mean by oldest. Boards turn up in Egyptian graves from around 3100 BC, and people were still playing it when the Romans arrived — a run of roughly three thousand years, longer than the gap between the last Egyptian player and today. ... more of this game than of almost any other object of daily ... A queen at the ... in her own ... . Four separate sets buried ... The earliest candidates are also the shakiest. Grids of thirty squares turn up in First Dynasty burials around 3100 BC, and a funerary slab from the same period appears to show two people at a board. Whe",
+   "desk": "evergreen_v1",
+   "format": "Interesting Game Fact",
+   "headline": "Senet: Egypt’s Three‑Thousand‑Year Board Game Legacy",
+   "image_status": "card_only",
+   "message_id": 58,
+   "normalized_subject": "The History of Senet: 3,000 Years, Not One Rule | PlayNook",
+   "posted_at": "2026-09-22T07:44:24.710909+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Interesting Game Fact",
+   "topic": "The History of Senet: 3,000 Years, Not One Rule | PlayNook",
+   "urls": [
+    "playnook.io/blog/history-of-senet"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Quoiting: The History of a Lost Scottish Sport - Historic Environment Scotland Blog",
+   "claim": "Quoiting thrived for many years with clubs all across Scotland. But by the 2000s, only 5 clubs remained. So what is the history of this lost Scottish sport? ... It appears to have reached a peak either side of the First World War. By the 1930s interest was already on the wane and after the Second World War many clubs had closed. At the time of writing this, Dunnottar Club in Stonehaven is the last remaining club in Scotland. ... My research suggested that the game ... popular in industrial and farming communities, so looking at industrial towns for quoiting grounds was key: particularly mining towns and villages, where ... encouraged and thrived. However, despite my thorough search of the OS",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Sport",
+   "headline": "Quoiting: Scotland’s Forgotten Working‑Man’s Sport Once Thrived Nationwide",
+   "image_status": "card_only",
+   "message_id": 59,
+   "normalized_subject": "Quoiting: The History of a Lost Scottish Sport - Historic Environment Scotland Blog",
+   "posted_at": "2026-09-22T07:44:44.537552+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Forgotten Sport",
+   "topic": "Quoiting: The History of a Lost Scottish Sport - Historic Environment Scotland Blog",
+   "urls": [
+    "blog.historicenvironment.scot/2025/08/quoiting-the-history-of-a-lost-scottish-sport"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Why A 2000 Year Old Cousin Of Chess Completely Disappeared F — Mdi",
+   "claim": "Imagine a game so addictive that it caused bar fights between emperors, drove peasants to gamble away their livelihoods, and was buried alongside the elite so they wouldn't get bored in the afterlife. It wasn't chess. It wasn't Go. It was Liubo, an ancient board game often called the long-lost cousin of chess. ... For centuries, this game dominated Chinese culture before vanishing into thin air during the Tang dynasty. For over a thousand years, nobody even knew how the board looked, let alone how to play it. ... The Shaanxi Provincial Institute of Archaeology broke the internet in historical circles by announcing a massive find from their 2023 excavations. They dug up pristine, 2,000-year-o",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Game",
+   "headline": "Ancient Liubo Boards Unearthed Reveal Lost Chinese Game",
+   "image_status": "card_only",
+   "message_id": 60,
+   "normalized_subject": "Why A 2000 Year Old Cousin Of Chess Completely Disappeared F — Mdi",
+   "posted_at": "2026-09-22T07:45:03.885534+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Forgotten Game",
+   "topic": "Why A 2000 Year Old Cousin Of Chess Completely Disappeared F — Mdi",
+   "urls": [
+    "mdi.us.com/2000-year-old-cousin-chess-completely-disappeared-world"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Exploration the Ethnoscience of Gasing Game from Malay Riau Culture and its Potential for Physics Learning",
+   "claim": "Gasing is a traditional game played by the Malay people of Riau, crafted from wood shaped like an inflated fruit, with a rope made from bark. This game is played by the Malay community in Riau to spend time with friends and to celebrate special occasions in the province. The research explored the methods of making and playing gasing by the Malay people of Riau and analyzed the physics concepts involved in the game. This qualitative study employed a literature review, observation, and interviews. The literature review examines Malay culture and gasing games. Observations were conducted in Siak Regency to directly observe the gasing games, including the tools and materials used, the game rules",
+   "desk": "evergreen_v1",
+   "format": "Traditional / Regional Game",
+   "headline": "Spinning Heritage: Gasing Game Bridges Malay Culture and Physics",
+   "image_status": "card_only",
+   "message_id": 61,
+   "normalized_subject": "Exploration the Ethnoscience of Gasing Game from Malay Riau Culture and its Potential for Physics Learning",
+   "posted_at": "2026-09-22T07:45:23.752580+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Traditional / Regional Game",
+   "topic": "Exploration the Ethnoscience of Gasing Game from Malay Riau Culture and its Potential for Physics Learning",
+   "urls": [
+    "doi.org/10.21831/jser.v8i2.75081"
    ]
   }
  ],
@@ -2790,42 +2910,38 @@
   }
  },
  "v1": {
-  "created_at": "2026-09-22T02:58:49.401580+00:00",
+  "created_at": "2026-09-22T07:40:15.017842+00:00",
   "daily": {
    "2026-09-22": {
     "published_sectors": [
-     "Sports & Games People",
      "Sport Discovery",
-     "Game Origin",
+     "Sports & Games People",
      "Interesting Game Fact",
-     "Why Does This Happen?",
      "Forgotten Sport",
-     "New Sport Discovery",
-     "Interesting Sports Fact"
+     "Forgotten Game",
+     "Traditional / Regional Game"
     ],
     "run_ids": [
      "2026-09-22-AM"
     ]
    }
   },
-  "last_run_at": "2026-09-22T03:05:46.173978+00:00",
+  "last_run_at": "2026-09-22T07:47:31.912274+00:00",
   "live": {
    "results": {
     "event_ids": [
      "b5ac03fb080bd242",
      "ceb3ba3d25679023",
      "449b6a95b0894848",
-     "1e5f2201f5351a98",
      "c601953eb296fecd",
      "30c02fff4ef4efef",
      "aec4eb63d82679ad",
      "f4ee291187127f70",
-     "6399c91d95f2fbb8",
-     "e5cc7452c2aa162c"
+     "6399c91d95f2fbb8"
     ],
-    "message_id": 55,
+    "message_id": 63,
     "target_date": "2026-09-21",
-    "updated_at": "2026-09-22T03:05:46.170879+00:00"
+    "updated_at": "2026-09-22T07:47:31.908990+00:00"
    },
    "schedule": {
     "event_ids": [
@@ -2846,80 +2962,68 @@
      "2b58e06701ab8a80",
      "c4a2a1f9a23efcdf"
     ],
-    "message_id": 54,
+    "message_id": 62,
     "target_date": "2026-09-23",
-    "updated_at": "2026-09-22T03:05:46.170866+00:00"
+    "updated_at": "2026-09-22T07:47:31.908976+00:00"
    }
   },
   "publication": {
-   "2026-09-22-AM:evergreen:1b9876df5dee9671": {
-    "message_id": 50,
-    "posted_at": "2026-09-22T03:02:38.064310+00:00",
+   "2026-09-22-AM:evergreen:221d5a1ea6fc1762": {
+    "message_id": 59,
+    "posted_at": "2026-09-22T07:44:44.537233+00:00",
     "status": "posted"
    },
-   "2026-09-22-AM:evergreen:3081b446505f7fa3": {
-    "message_id": 48,
-    "posted_at": "2026-09-22T03:02:28.807857+00:00",
+   "2026-09-22-AM:evergreen:29cad2b5b479cac6": {
+    "message_id": 61,
+    "posted_at": "2026-09-22T07:45:23.752223+00:00",
     "status": "posted"
    },
-   "2026-09-22-AM:evergreen:4cd45c48728ef44b": {
-    "message_id": 53,
-    "posted_at": "2026-09-22T03:03:21.829723+00:00",
+   "2026-09-22-AM:evergreen:506e767f99ce7978": {
+    "message_id": 57,
+    "posted_at": "2026-09-22T07:44:16.776381+00:00",
     "status": "posted"
    },
-   "2026-09-22-AM:evergreen:5551d1540dd7e905": {
-    "message_id": 46,
-    "posted_at": "2026-09-22T03:02:17.732649+00:00",
+   "2026-09-22-AM:evergreen:bd5470bda3abc92a": {
+    "message_id": 58,
+    "posted_at": "2026-09-22T07:44:24.710534+00:00",
     "status": "posted"
    },
-   "2026-09-22-AM:evergreen:7976cfa3b17284ea": {
-    "message_id": 52,
-    "posted_at": "2026-09-22T03:03:02.181597+00:00",
+   "2026-09-22-AM:evergreen:ec70e8a886fe3ad7": {
+    "message_id": 60,
+    "posted_at": "2026-09-22T07:45:03.885179+00:00",
     "status": "posted"
    },
-   "2026-09-22-AM:evergreen:b8da8bdf36a36e18": {
-    "message_id": 49,
-    "posted_at": "2026-09-22T03:02:33.502494+00:00",
-    "status": "posted"
-   },
-   "2026-09-22-AM:evergreen:cedc0467ccb337af": {
-    "message_id": 51,
-    "posted_at": "2026-09-22T03:02:42.466897+00:00",
-    "status": "posted"
-   },
-   "2026-09-22-AM:evergreen:cfe0ef36d0434ef0": {
-    "message_id": 47,
-    "posted_at": "2026-09-22T03:02:22.638757+00:00",
+   "2026-09-22-AM:evergreen:f96639d28a881a45": {
+    "message_id": 56,
+    "posted_at": "2026-09-22T07:44:12.228650+00:00",
     "status": "posted"
    },
    "2026-09-22-AM:live_results:95c5fd8d85302478": {
-    "message_id": 55,
-    "posted_at": "2026-09-22T03:05:46.170838+00:00",
+    "message_id": 63,
+    "posted_at": "2026-09-22T07:47:31.908951+00:00",
     "status": "posted"
    },
    "2026-09-22-AM:live_schedule:fe12adf42b253cb0": {
-    "message_id": 54,
-    "posted_at": "2026-09-22T03:05:45.783329+00:00",
+    "message_id": 62,
+    "posted_at": "2026-09-22T07:47:31.590899+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-09-22T03:05:46.173990+00:00",
-    "evergreen": 8,
+    "at": "2026-09-22T07:47:31.912284+00:00",
+    "evergreen": 6,
     "exit": 0,
-    "live_results": 55,
-    "live_schedule": 54,
+    "live_results": 63,
+    "live_schedule": 62,
     "run_id": "2026-09-22-AM",
     "used_sectors": [
+     "Forgotten Game",
      "Forgotten Sport",
-     "Game Origin",
      "Interesting Game Fact",
-     "Interesting Sports Fact",
-     "New Sport Discovery",
      "Sport Discovery",
      "Sports & Games People",
-     "Why Does This Happen?"
+     "Traditional / Regional Game"
     ]
    }
   ],
