@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "Cerebras per-run call cap reached (16)",
-  "last_ok": "2026-09-22T07:45:22.320673+00:00",
-  "last_request_id": "a3efb0906a09d630-IAD",
-  "last_status": 200,
+  "last_ok": "2026-09-22T18:08:17.599317+00:00",
+  "last_request_id": "a3f3410c190f398e-LAX",
+  "last_status": 429,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-21T06:43:50.838439+00:00",
- "last_run_at": "2026-09-22T07:47:31.912300+00:00",
+ "last_run_at": "2026-09-22T18:10:31.996940+00:00",
  "ledger": {
   "day_in_sports:2026-09-20": {
    "attempts": 1,
@@ -358,6 +358,141 @@
    "topic": "Exploration the Ethnoscience of Gasing Game from Malay Riau Culture and its Potential for Physics Learning",
    "urls": [
     "doi.org/10.21831/jser.v8i2.75081"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Strange but true: some of the wackiest sports from around the ...",
+   "claim": "How much do you really love cheese? Enough to throw yourself down a near-vertical hill in pursuit of a rolling wheel of it? Welcome to the annual cheese rolling festival in Gloucestershire, England, where participants chase a 9-pound Double Gloucester cheese down Cooper's Hill, tumbling, flipping, and often crash-landing in the process. The first to cross the finish line wins the cheese and possibly a few bruises. ... If hurtling downhill at breakneck speed isn’t your thing, perhaps you'd prefer a sport that requires staying put, theoretically. Toe wrestling, another uniquely British pastime, is exactly what it sounds like. Competitors lock toes and attempt to pin their opponent’s foot to th",
+   "desk": "evergreen_v1",
+   "format": "Sport Discovery",
+   "headline": "Cheese Rolling and Toe Wrestling: Britain’s Wildest Sports",
+   "image_status": "card_only",
+   "message_id": 64,
+   "normalized_subject": "Strange but true: some of the wackiest sports from around the ...",
+   "posted_at": "2026-09-22T18:07:10.557261+00:00",
+   "run_id": "2026-09-23-AM",
+   "sector": "Sport Discovery",
+   "topic": "Strange but true: some of the wackiest sports from around the ...",
+   "urls": [
+    "olympics.com/en/news/strange-but-true-wackiest-sports-around-the-world"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Origins of the Mesoamerican ballgame: Earliest ballcourt from the highlands found at Etlatongo, Oaxaca, Mexico | Science Advances",
+   "claim": "Etlatongo in Oaxaca has the earliest known formal ballcourt in the Mesoamerican highlands reported in the cited research. Its first court is radiocarbon-dated to 1443–1305 BCE (1374 BCE is the study’s midpoint), and associated ballplayer figurines support Early Formative highland participation in the developing formal ballgame. This revises a model centered chiefly on lowland evidence, but does not establish Etlatongo—or any one region—as the single origin of the game.",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "Etlatongo Reveals Earliest Highland Mesoamerican Ballcourt Dating to 1374 BCE",
+   "image_status": "card_only",
+   "message_id": 65,
+   "normalized_subject": "Origins of the Mesoamerican ballgame: Earliest ballcourt from the highlands found at Etlatongo, Oaxaca, Mexico | Science Advances",
+   "posted_at": "2026-09-22T18:07:15.839356+00:00",
+   "run_id": "2026-09-23-AM",
+   "sector": "Sport Origin",
+   "topic": "Origins of the Mesoamerican ballgame: Earliest ballcourt from the highlands found at Etlatongo, Oaxaca, Mexico | Science Advances",
+   "urls": [
+    "science.org/doi/10.1126/sciadv.aay6964",
+    "pmc.ncbi.nlm.nih.gov/articles/PMC7069692",
+    "doi.org/10.1073/pnas.1203483109",
+    "link.springer.com/article/10.1007/s12520-023-01930-1",
+    "doi.org/10.1038/31837"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Capturing Cambridge: The History of Fen Skating – The Museum of Cambridge",
+   "claim": "Fen skating is a historically documented, geographically distinctive form of natural-ice skating in the English Fens. Championship racing is contingent on sufficiently hard freezes: the Museum of Cambridge and a January 2026 regional report state that the last championships were held in 2010. It should not be described as extinct or as having failed to return to Cambridgeshire, however: public fen skating was reported in Cambridgeshire in January 2025 and January 2026. FitzStephen provides early evidence of bone-skate ice sliding in London, not evidence that fen skating itself began there.",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Sport",
+   "headline": "Fen Skating: Historic Ice Sport Revives in Cambridgeshire",
+   "image_status": "card_only",
+   "message_id": 66,
+   "normalized_subject": "Capturing Cambridge: The History of Fen Skating – The Museum of Cambridge",
+   "posted_at": "2026-09-22T18:07:22.177146+00:00",
+   "run_id": "2026-09-23-AM",
+   "sector": "Forgotten Sport",
+   "topic": "Capturing Cambridge: The History of Fen Skating – The Museum of Cambridge",
+   "urls": [
+    "museumofcambridge.org.uk/2021/09/the-history-of-fen-skating",
+    "edp24.co.uk/news/25742399.enough-ice-skating-fens",
+    "bbc.co.uk/news/articles/c78wdv73dggo",
+    "bbc.co.uk/news/articles/c0jv1ewlzj9o",
+    "londonmuseum.org.uk/collections/v/object-32899/skate",
+    "en.wikisource.org/wiki/Diary_of_Samuel_Pepys/1662/December"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The golden ratio in baseball: the influence of historical eras on winning percentages in major league baseball",
+   "claim": "The golden section or golden ratio (61.8% or 0.618) is a mathematical phenomenon that appears in art, literature, music and nature with such ubiquity that it is thought to be a fundamental principle of aesthetic organisation. The golden ratio also manifests in sport, particularly as the proportion of wins to losses required to win a Major League Baseball championship. This study extends early work on the golden ratio in baseball by incorporating more than three decades of additional data. ... This study involved a historically contextualized examination of how winning percentages have changed across the seven historical eras of modern baseball, including analyses of the relative contribution",
+   "desk": "evergreen_v1",
+   "format": "Interesting Sports Fact",
+   "headline": "Golden Ratio Peaks in Baseball’s Balanced Eras, Study Finds",
+   "image_status": "card_only",
+   "message_id": 67,
+   "normalized_subject": "The golden ratio in baseball: the influence of historical eras on winning percentages in major league baseball",
+   "posted_at": "2026-09-22T18:07:28.117698+00:00",
+   "run_id": "2026-09-23-AM",
+   "sector": "Interesting Sports Fact",
+   "topic": "The golden ratio in baseball: the influence of historical eras on winning percentages in major league baseball",
+   "urls": [
+    "pmc.ncbi.nlm.nih.gov/articles/PMC10682355"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Today's Tidbit... When Passing Into The End Zone Became Legal",
+   "claim": "We take for granted back-shoulder passes into the front corner and fade routes in the back corner of the end zone, yet both exist today due to a long line of changes to football's rules, strategies, and techniques. Neither was legal in football's early passing days, so let's look at why that was so and the changes that gave us such exciting plays. ... When football adopted the forward pass in 1906, most did not expect the play to have much impact. Little did they know how innovative coaches and players would make that view seem quaint, but many of the passing game’s advances came only after football eased its many restrictions on tossing the pea. We discussed other restrictions on the forwar",
+   "desk": "evergreen_v1",
+   "format": "Rule Check",
+   "headline": "How Early Rules Shaped Modern End‑Zone Passing",
+   "image_status": "card_only",
+   "message_id": 68,
+   "normalized_subject": "Today's Tidbit... When Passing Into The End Zone Became Legal",
+   "posted_at": "2026-09-22T18:07:38.445624+00:00",
+   "run_id": "2026-09-23-AM",
+   "sector": "Rule Check",
+   "topic": "Today's Tidbit... When Passing Into The End Zone Became Legal",
+   "urls": [
+    "footballarchaeology.com/p/todays-tidbit-when-passing-into-the"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Rediscover the Ancient Game of Chaupar: A Timeless Journey of Strategy and Culture - historified",
+   "claim": "I think everyone would agree that Ludo was the game that Indians played the most during the COVID lockdown. Remember, Ludo King. While not much is known about the game’s past, we have all played and continue to love it. Allow me to take you on Ludo’s or Chauapr’s journey. ... Chaupar, chopad, or chaupad, is an indigenous game of Uttarakhand. The cross & circle board game is quite similar to pachisi, one of India’s oldest games. The board is made of wool or fabric, with wooden pawns and seven cowry shells used to determine each player’s move; however, some distinguish Chaupar from pachisi by using three four-sided long dice. Variations are played across India. It shares similarities with Pach",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "Chaupar: Uttarakhand’s Ancient Cross‑Circle Game Linking Past to Ludo",
+   "image_status": "card_only",
+   "message_id": 69,
+   "normalized_subject": "Rediscover the Ancient Game of Chaupar: A Timeless Journey of Strategy and Culture - historified",
+   "posted_at": "2026-09-22T18:07:59.073924+00:00",
+   "run_id": "2026-09-23-AM",
+   "sector": "Game Discovery",
+   "topic": "Rediscover the Ancient Game of Chaupar: A Timeless Journey of Strategy and Culture - historified",
+   "urls": [
+    "historified.in/2024/05/25/rediscover-the-ancient-game-of-chaupar-a-timeless-journey-of-strategy-and-culture"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Official Rules of Ultimate",
+   "claim": "Ultimate is a sport that inspires players and fans alike because of its ability to develop and showcase the athleticism, skill, teamwork, and character of its participants. The arc of the disc in flight, the opportunity for each individual to contribute equally to their team’s success, and the trust given to each player to know and uphold the rules make ultimate a sport that is embraced for its fun and excitement on the field and for the community beyond it. As a low-cost sport requiring minimal equipment, offering single- and mixed-gender play, and providing a format that builds communication and conflict resolution skills, ultimate provides a welcoming, high value experience for players an",
+   "desk": "evergreen_v1",
+   "format": "How to Play",
+   "headline": "Ultimate’s Rules Foster Athleticism, Teamwork, and Community Spirit",
+   "image_status": "card_only",
+   "message_id": 70,
+   "normalized_subject": "Official Rules of Ultimate",
+   "posted_at": "2026-09-22T18:08:19.171677+00:00",
+   "run_id": "2026-09-23-AM",
+   "sector": "How to Play",
+   "topic": "Official Rules of Ultimate",
+   "urls": [
+    "usaultimate.org/rules"
    ]
   }
  ],
@@ -2910,120 +3045,127 @@
   }
  },
  "v1": {
-  "created_at": "2026-09-22T07:40:15.017842+00:00",
+  "created_at": "2026-09-22T18:03:34.911976+00:00",
   "daily": {
-   "2026-09-22": {
+   "2026-09-23": {
     "published_sectors": [
      "Sport Discovery",
-     "Sports & Games People",
-     "Interesting Game Fact",
+     "Sport Origin",
      "Forgotten Sport",
-     "Forgotten Game",
-     "Traditional / Regional Game"
+     "Interesting Sports Fact",
+     "Rule Check",
+     "Game Discovery",
+     "How to Play"
     ],
     "run_ids": [
-     "2026-09-22-AM"
+     "2026-09-23-AM"
     ]
    }
   },
-  "last_run_at": "2026-09-22T07:47:31.912274+00:00",
+  "last_run_at": "2026-09-22T18:10:31.996923+00:00",
   "live": {
    "results": {
     "event_ids": [
-     "b5ac03fb080bd242",
-     "ceb3ba3d25679023",
-     "449b6a95b0894848",
-     "c601953eb296fecd",
-     "30c02fff4ef4efef",
-     "aec4eb63d82679ad",
-     "f4ee291187127f70",
-     "6399c91d95f2fbb8"
+     "92d92f37439fd84d",
+     "1529d09f52bcce29",
+     "4d1d407725b0eb14",
+     "27e821c145335832"
     ],
-    "message_id": 63,
-    "target_date": "2026-09-21",
-    "updated_at": "2026-09-22T07:47:31.908990+00:00"
+    "message_id": 72,
+    "target_date": "2026-09-22",
+    "updated_at": "2026-09-22T18:10:31.995055+00:00"
    },
    "schedule": {
     "event_ids": [
-     "0265549b10bfcc9f",
-     "49abbcf729f1d849",
-     "eda34602639c4a68",
-     "370e236011995137",
-     "47db7c9fdb97ba2b",
-     "1cbb682a68feb7cf",
-     "8c42e9388fc34acd",
-     "4a463bc7b7b646b1",
-     "9cfbedcb38bd5f2c",
-     "4dfdcd0c378fdb62",
-     "485b082e116fc4a6",
-     "92b7e6cfb084b7a8",
-     "49066cd1400adfa4",
-     "7a8979b4d0c1615a",
-     "2b58e06701ab8a80",
-     "c4a2a1f9a23efcdf"
+     "61fcbd5c4c2d407e",
+     "abfcbb29fe0e2dc0",
+     "3e34396e7976123f",
+     "00be1c9e39927880",
+     "2d5ac563bf28c306",
+     "5e9a7c8c6a020fac",
+     "dbc75659506ddc7f",
+     "61364c2741116d1c",
+     "6a6c4c1e7f2a82b2",
+     "3fa3cd69dda4f6d8",
+     "3ef10047300b3c39",
+     "f60af1ae84d78c7d",
+     "c85d49a917522bfc",
+     "4bdf9665c7788bf0",
+     "e36d6cb9aa5fecfe",
+     "934e786aed8d73f6",
+     "4c3c5144a11c1f78",
+     "f00eb62ccca9b395",
+     "d47b628201f2153f",
+     "430bf8ca067f7f27"
     ],
-    "message_id": 62,
-    "target_date": "2026-09-23",
-    "updated_at": "2026-09-22T07:47:31.908976+00:00"
+    "message_id": 71,
+    "target_date": "2026-09-24",
+    "updated_at": "2026-09-22T18:10:31.995051+00:00"
    }
   },
   "publication": {
-   "2026-09-22-AM:evergreen:221d5a1ea6fc1762": {
-    "message_id": 59,
-    "posted_at": "2026-09-22T07:44:44.537233+00:00",
+   "2026-09-23-AM:evergreen:360bfe749489e1c3": {
+    "message_id": 66,
+    "posted_at": "2026-09-22T18:07:22.176986+00:00",
     "status": "posted"
    },
-   "2026-09-22-AM:evergreen:29cad2b5b479cac6": {
-    "message_id": 61,
-    "posted_at": "2026-09-22T07:45:23.752223+00:00",
+   "2026-09-23-AM:evergreen:6e6757db943cfcd5": {
+    "message_id": 70,
+    "posted_at": "2026-09-22T18:08:19.171556+00:00",
     "status": "posted"
    },
-   "2026-09-22-AM:evergreen:506e767f99ce7978": {
-    "message_id": 57,
-    "posted_at": "2026-09-22T07:44:16.776381+00:00",
+   "2026-09-23-AM:evergreen:890ed5368e1661a8": {
+    "message_id": 65,
+    "posted_at": "2026-09-22T18:07:15.839222+00:00",
     "status": "posted"
    },
-   "2026-09-22-AM:evergreen:bd5470bda3abc92a": {
-    "message_id": 58,
-    "posted_at": "2026-09-22T07:44:24.710534+00:00",
+   "2026-09-23-AM:evergreen:a5943a773c3460ad": {
+    "message_id": 67,
+    "posted_at": "2026-09-22T18:07:28.117570+00:00",
     "status": "posted"
    },
-   "2026-09-22-AM:evergreen:ec70e8a886fe3ad7": {
-    "message_id": 60,
-    "posted_at": "2026-09-22T07:45:03.885179+00:00",
+   "2026-09-23-AM:evergreen:b10560d4d26b021d": {
+    "message_id": 68,
+    "posted_at": "2026-09-22T18:07:38.445489+00:00",
     "status": "posted"
    },
-   "2026-09-22-AM:evergreen:f96639d28a881a45": {
-    "message_id": 56,
-    "posted_at": "2026-09-22T07:44:12.228650+00:00",
+   "2026-09-23-AM:evergreen:d8e7b205a744c1c8": {
+    "message_id": 69,
+    "posted_at": "2026-09-22T18:07:59.073786+00:00",
     "status": "posted"
    },
-   "2026-09-22-AM:live_results:95c5fd8d85302478": {
-    "message_id": 63,
-    "posted_at": "2026-09-22T07:47:31.908951+00:00",
+   "2026-09-23-AM:evergreen:e2d13e9656c42c06": {
+    "message_id": 64,
+    "posted_at": "2026-09-22T18:07:10.557086+00:00",
     "status": "posted"
    },
-   "2026-09-22-AM:live_schedule:fe12adf42b253cb0": {
-    "message_id": 62,
-    "posted_at": "2026-09-22T07:47:31.590899+00:00",
+   "2026-09-23-AM:live_results:09ebecb868c2029b": {
+    "message_id": 72,
+    "posted_at": "2026-09-22T18:10:31.995042+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-AM:live_schedule:0aedf287404bf642": {
+    "message_id": 71,
+    "posted_at": "2026-09-22T18:10:31.644291+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-09-22T07:47:31.912284+00:00",
-    "evergreen": 6,
+    "at": "2026-09-22T18:10:31.996929+00:00",
+    "evergreen": 7,
     "exit": 0,
-    "live_results": 63,
-    "live_schedule": 62,
-    "run_id": "2026-09-22-AM",
+    "live_results": 72,
+    "live_schedule": 71,
+    "run_id": "2026-09-23-AM",
     "used_sectors": [
-     "Forgotten Game",
      "Forgotten Sport",
-     "Interesting Game Fact",
+     "Game Discovery",
+     "How to Play",
+     "Interesting Sports Fact",
+     "Rule Check",
      "Sport Discovery",
-     "Sports & Games People",
-     "Traditional / Regional Game"
+     "Sport Origin"
     ]
    }
   ],

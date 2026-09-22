@@ -593,8 +593,334 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 61
+  },
+  {
+   "central_claim": "Irish road bowling is an established individual road sport, usually played by throwing a standard 28 oz iron bowl along a country-road course in the fewest throws. Ballincurrig’s King and Queen of the Roads began with a King of the Road contest in 1985 and its 2025 meeting was its 40th hosting, with competitors from Ireland and continental Europe. The event should not be described as taking place each October: the 2025 edition ran 19–21 September and the listed 2026 dates are 18–20 September. It",
+   "central_knowledge_unit": "irish road bowling is an established individual road sport usually played by throwing a standard 28 oz iron bowl along a country road course in the fewest throws ballincurrig s king and queen of the roads began with a ki",
+   "content_id": "40af37d18b02dade",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7c2fda01102206a2",
+    "ae87a313fdbb22dc"
+   ],
+   "legacy": true,
+   "normalized_subject": "inside ireland s most unusual ball sport",
+   "people": [],
+   "published_at": "2026-09-22T07:44:12.229102+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    "bbc.com/travel/article/20250923-inside-irelands-most-unusual-ball-sport",
+    "irishroadbowling.ie/king-queen-2025",
+    "irishroadbowling.ie/fixtures",
+    "rte.ie/archives/2020/1029/1174647-king-of-the-road",
+    "historyireland.com/the-origins-of-irish-road-bowling",
+    "fintanlane.com/wp-content/uploads/2015/04/Long_Bullets.pdf",
+    "irishexaminer.com/sport/othersport/arid-41708102.html"
+   ],
+   "sport_or_game": "Inside Ireland's most unusual ball sport",
+   "telegram_message_id": 56
+  },
+  {
+   "central_claim": "Andrew “Rube” Foster (September 17, 1879–December 9, 1930) was a prominent Black baseball pitcher, manager, owner, and organizer who convened and led the February 13–14, 1920 Kansas City meeting at which eight Black clubs formed the Negro National League; the owners appointed him its president. The NNL is credibly described as the first successful or sustained professional league for African American players—not the first attempted Black professional league—and Foster is widely called the “fathe",
+   "central_knowledge_unit": "andrew rube foster september 17 1879 december 9 1930 was a prominent black baseball pitcher manager owner and organizer who convened and led the february 13 14 1920 kansas city meeting at which eight black clubs formed t",
+   "content_id": "6dcb16574b91dde9",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "989b2f65d0244a6c",
+    "7ff9cddecdf0be5c"
+   ],
+   "legacy": true,
+   "normalized_subject": "rube foster biography baseball facts britannica",
+   "people": [],
+   "published_at": "2026-09-22T07:44:16.776745+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "britannica.com/biography/Rube-Foster",
+    "baseballhall.org/discover/rube-fosters-writing-predicted-future-of-black-baseball",
+    "baseballhall.org/index%2ephp/hall-of-famers/foster-rube",
+    "sabr.org/research/article/we-are-the-ship-all-else-the-sea-the-founding-of-the-negro-national-league",
+    "sabr.org/bioproj/person/andrew-rube-foster",
+    "nps.gov/articles/000/places-of-black-baseball.htm",
+    "sabr.org/journal/article/the-pittsburgh-keystones-and-the-1887-colored-league"
+   ],
+   "sport_or_game": "Rube Foster | Biography, Baseball, & Facts | Britannica",
+   "telegram_message_id": 57
+  },
+  {
+   "central_claim": "Senet is the oldest board game we have physical evidence for — though that claim has three different answers depending on what you mean by oldest. Boards turn up in Egyptian graves from around 3100 BC, and people were still playing it when the Romans arrived — a run of roughly three thousand years, longer than the gap between the last Egyptian player and today. ... more of this game than of almost any other object of daily ... A queen at the ... in her own ... . Four separate sets buried ... The",
+   "central_knowledge_unit": "senet is the oldest board game we have physical evidence for though that claim has three different answers depending on what you mean by oldest boards turn up in egyptian graves from around 3100 bc and people were still ",
+   "content_id": "0c4a235af574d70f",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7114998ded6bd80a",
+    "70a11af6a6303076"
+   ],
+   "legacy": true,
+   "normalized_subject": "the history of senet 3 000 years not one rule playnook",
+   "people": [],
+   "published_at": "2026-09-22T07:44:24.710909+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    "playnook.io/blog/history-of-senet"
+   ],
+   "sport_or_game": "The History of Senet: 3,000 Years, Not One Rule | PlayNook",
+   "telegram_message_id": 58
+  },
+  {
+   "central_claim": "Quoiting thrived for many years with clubs all across Scotland. But by the 2000s, only 5 clubs remained. So what is the history of this lost Scottish sport? ... It appears to have reached a peak either side of the First World War. By the 1930s interest was already on the wane and after the Second World War many clubs had closed. At the time of writing this, Dunnottar Club in Stonehaven is the last remaining club in Scotland. ... My research suggested that the game ... popular in industrial and f",
+   "central_knowledge_unit": "quoiting thrived for many years with clubs all across scotland but by the 2000s only 5 clubs remained so what is the history of this lost scottish sport it appears to have reached a peak either side of the first world wa",
+   "content_id": "98e5335b7951609f",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "36cf056ebfc3bb36",
+    "58087d8c3a4cf25d"
+   ],
+   "legacy": true,
+   "normalized_subject": "quoiting the history of a lost scottish sport historic environment scotland blog",
+   "people": [],
+   "published_at": "2026-09-22T07:44:44.537552+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    "blog.historicenvironment.scot/2025/08/quoiting-the-history-of-a-lost-scottish-sport"
+   ],
+   "sport_or_game": "Quoiting: The History of a Lost Scottish Sport - Historic Environment Scotland Blog",
+   "telegram_message_id": 59
+  },
+  {
+   "central_claim": "Imagine a game so addictive that it caused bar fights between emperors, drove peasants to gamble away their livelihoods, and was buried alongside the elite so they wouldn't get bored in the afterlife. It wasn't chess. It wasn't Go. It was Liubo, an ancient board game often called the long-lost cousin of chess. ... For centuries, this game dominated Chinese culture before vanishing into thin air during the Tang dynasty. For over a thousand years, nobody even knew how the board looked, let alone h",
+   "central_knowledge_unit": "imagine a game so addictive that it caused bar fights between emperors drove peasants to gamble away their livelihoods and was buried alongside the elite so they wouldn t get bored in the afterlife it wasn t chess it was",
+   "content_id": "d73636efcd4d387c",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "05cba23d301e289d",
+    "6b5aa1302ea14360"
+   ],
+   "legacy": true,
+   "normalized_subject": "why a 2000 year old cousin of chess completely disappeared f mdi",
+   "people": [],
+   "published_at": "2026-09-22T07:45:03.885534+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Game",
+   "source_urls": [
+    "mdi.us.com/2000-year-old-cousin-chess-completely-disappeared-world"
+   ],
+   "sport_or_game": "Why A 2000 Year Old Cousin Of Chess Completely Disappeared F — Mdi",
+   "telegram_message_id": 60
+  },
+  {
+   "central_claim": "Gasing is a traditional game played by the Malay people of Riau, crafted from wood shaped like an inflated fruit, with a rope made from bark. This game is played by the Malay community in Riau to spend time with friends and to celebrate special occasions in the province. The research explored the methods of making and playing gasing by the Malay people of Riau and analyzed the physics concepts involved in the game. This qualitative study employed a literature review, observation, and interviews.",
+   "central_knowledge_unit": "gasing is a traditional game played by the malay people of riau crafted from wood shaped like an inflated fruit with a rope made from bark this game is played by the malay community in riau to spend time with friends and",
+   "content_id": "d22622dec324531b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "bcd882e819bb4425",
+    "a54c1487b691eea0"
+   ],
+   "legacy": true,
+   "normalized_subject": "exploration the ethnoscience of gasing game from malay riau culture and its potential for physics learning",
+   "people": [],
+   "published_at": "2026-09-22T07:45:23.752580+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    "doi.org/10.21831/jser.v8i2.75081"
+   ],
+   "sport_or_game": "Exploration the Ethnoscience of Gasing Game from Malay Riau Culture and its Potential for Physics Learning",
+   "telegram_message_id": 61
+  },
+  {
+   "central_claim": "How much do you really love cheese? Enough to throw yourself down a near-vertical hill in pursuit of a rolling wheel of it? Welcome to the annual cheese rolling festival in Gloucestershire, England, where participants chase a 9-pound Double Gloucester cheese down Cooper's Hill, tumbling, flipping, and often crash-landing in the process. The first to cross the finish line wins the cheese and possibly a few bruises. ... If hurtling downhill at breakneck speed isn’t your thing, perhaps you'd prefer a sport that requires staying put, theoretically. Toe wrestling, another uniquely British pastime, is exactly what it sounds like. Competitors lock toes and attempt to pin their opponent’s foot to th",
+   "central_knowledge_unit": "strange but true some of the wackiest sports from around the",
+   "content_id": "68a8d469e3fcfd42",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "68a8d469e3fcfd42",
+    "7c8933da7239a045"
+   ],
+   "normalized_subject": "strange but true some of the wackiest sports from around the",
+   "people": [],
+   "published_at": "2026-09-22T18:07:10.557183+00:00",
+   "region": "",
+   "run_id": "2026-09-23-AM",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    "olympics.com/en/news/strange-but-true-wackiest-sports-around-the-world"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 64
+  },
+  {
+   "central_claim": "Etlatongo in Oaxaca has the earliest known formal ballcourt in the Mesoamerican highlands reported in the cited research. Its first court is radiocarbon-dated to 1443–1305 BCE (1374 BCE is the study’s midpoint), and associated ballplayer figurines support Early Formative highland participation in the developing formal ballgame. This revises a model centered chiefly on lowland evidence, but does not establish Etlatongo—or any one region—as the single origin of the game.",
+   "central_knowledge_unit": "origins of the mesoamerican ballgame earliest ballcourt from the highlands found at etlatongo oaxaca mexico science advances",
+   "content_id": "0ceca4f20419e4ac",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "0ceca4f20419e4ac",
+    "9d520d937b9ac746"
+   ],
+   "normalized_subject": "origins of the mesoamerican ballgame earliest ballcourt from the highlands found at etlatongo oaxaca mexico science advances",
+   "people": [],
+   "published_at": "2026-09-22T18:07:15.839281+00:00",
+   "region": "",
+   "run_id": "2026-09-23-AM",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "science.org/doi/10.1126/sciadv.aay6964",
+    "pmc.ncbi.nlm.nih.gov/articles/PMC7069692",
+    "doi.org/10.1073/pnas.1203483109",
+    "link.springer.com/article/10.1007/s12520-023-01930-1",
+    "doi.org/10.1038/31837"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 65
+  },
+  {
+   "central_claim": "Fen skating is a historically documented, geographically distinctive form of natural-ice skating in the English Fens. Championship racing is contingent on sufficiently hard freezes: the Museum of Cambridge and a January 2026 regional report state that the last championships were held in 2010. It should not be described as extinct or as having failed to return to Cambridgeshire, however: public fen skating was reported in Cambridgeshire in January 2025 and January 2026. FitzStephen provides early evidence of bone-skate ice sliding in London, not evidence that fen skating itself began there.",
+   "central_knowledge_unit": "capturing cambridge the history of fen skating the museum of cambridge",
+   "content_id": "053f61bfdc9f800d",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "053f61bfdc9f800d",
+    "f396ecb4f0ff0259"
+   ],
+   "normalized_subject": "capturing cambridge the history of fen skating the museum of cambridge",
+   "people": [],
+   "published_at": "2026-09-22T18:07:22.177042+00:00",
+   "region": "",
+   "run_id": "2026-09-23-AM",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    "museumofcambridge.org.uk/2021/09/the-history-of-fen-skating",
+    "edp24.co.uk/news/25742399.enough-ice-skating-fens",
+    "bbc.co.uk/news/articles/c78wdv73dggo",
+    "bbc.co.uk/news/articles/c0jv1ewlzj9o",
+    "londonmuseum.org.uk/collections/v/object-32899/skate",
+    "en.wikisource.org/wiki/Diary_of_Samuel_Pepys/1662/December"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 66
+  },
+  {
+   "central_claim": "The golden section or golden ratio (61.8% or 0.618) is a mathematical phenomenon that appears in art, literature, music and nature with such ubiquity that it is thought to be a fundamental principle of aesthetic organisation. The golden ratio also manifests in sport, particularly as the proportion of wins to losses required to win a Major League Baseball championship. This study extends early work on the golden ratio in baseball by incorporating more than three decades of additional data. ... This study involved a historically contextualized examination of how winning percentages have changed across the seven historical eras of modern baseball, including analyses of the relative contribution",
+   "central_knowledge_unit": "the golden ratio in baseball the influence of historical eras on winning percentages in major league baseball",
+   "content_id": "dbe66d8ece1ae73e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "dbe66d8ece1ae73e",
+    "5fe6f28a9a87a23a"
+   ],
+   "normalized_subject": "the golden ratio in baseball the influence of historical eras on winning percentages in major league baseball",
+   "people": [],
+   "published_at": "2026-09-22T18:07:28.117630+00:00",
+   "region": "",
+   "run_id": "2026-09-23-AM",
+   "sector": "Interesting Sports Fact",
+   "source_urls": [
+    "pmc.ncbi.nlm.nih.gov/articles/PMC10682355"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 67
+  },
+  {
+   "central_claim": "We take for granted back-shoulder passes into the front corner and fade routes in the back corner of the end zone, yet both exist today due to a long line of changes to football's rules, strategies, and techniques. Neither was legal in football's early passing days, so let's look at why that was so and the changes that gave us such exciting plays. ... When football adopted the forward pass in 1906, most did not expect the play to have much impact. Little did they know how innovative coaches and players would make that view seem quaint, but many of the passing game’s advances came only after football eased its many restrictions on tossing the pea. We discussed other restrictions on the forwar",
+   "central_knowledge_unit": "today s tidbit when passing into the end zone became legal",
+   "content_id": "4b8c7329ed14f6e7",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4b8c7329ed14f6e7",
+    "2c3e40ba30e9991b"
+   ],
+   "normalized_subject": "today s tidbit when passing into the end zone became legal",
+   "people": [],
+   "published_at": "2026-09-22T18:07:38.445552+00:00",
+   "region": "",
+   "run_id": "2026-09-23-AM",
+   "sector": "Rule Check",
+   "source_urls": [
+    "footballarchaeology.com/p/todays-tidbit-when-passing-into-the"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 68
+  },
+  {
+   "central_claim": "I think everyone would agree that Ludo was the game that Indians played the most during the COVID lockdown. Remember, Ludo King. While not much is known about the game’s past, we have all played and continue to love it. Allow me to take you on Ludo’s or Chauapr’s journey. ... Chaupar, chopad, or chaupad, is an indigenous game of Uttarakhand. The cross & circle board game is quite similar to pachisi, one of India’s oldest games. The board is made of wool or fabric, with wooden pawns and seven cowry shells used to determine each player’s move; however, some distinguish Chaupar from pachisi by using three four-sided long dice. Variations are played across India. It shares similarities with Pach",
+   "central_knowledge_unit": "rediscover the ancient game of chaupar a timeless journey of strategy and culture historified",
+   "content_id": "d76385fe5c763e4c",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "d76385fe5c763e4c",
+    "77593116b445db9e"
+   ],
+   "normalized_subject": "rediscover the ancient game of chaupar a timeless journey of strategy and culture historified",
+   "people": [],
+   "published_at": "2026-09-22T18:07:59.073849+00:00",
+   "region": "",
+   "run_id": "2026-09-23-AM",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "historified.in/2024/05/25/rediscover-the-ancient-game-of-chaupar-a-timeless-journey-of-strategy-and-culture"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 69
+  },
+  {
+   "central_claim": "Ultimate is a sport that inspires players and fans alike because of its ability to develop and showcase the athleticism, skill, teamwork, and character of its participants. The arc of the disc in flight, the opportunity for each individual to contribute equally to their team’s success, and the trust given to each player to know and uphold the rules make ultimate a sport that is embraced for its fun and excitement on the field and for the community beyond it. As a low-cost sport requiring minimal equipment, offering single- and mixed-gender play, and providing a format that builds communication and conflict resolution skills, ultimate provides a welcoming, high value experience for players an",
+   "central_knowledge_unit": "official rules of ultimate",
+   "content_id": "12a167fc4201265c",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "12a167fc4201265c",
+    "4e1ff62abead8b8f"
+   ],
+   "normalized_subject": "official rules of ultimate",
+   "people": [],
+   "published_at": "2026-09-22T18:08:19.171612+00:00",
+   "region": "",
+   "run_id": "2026-09-23-AM",
+   "sector": "How to Play",
+   "source_urls": [
+    "usaultimate.org/rules"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 70
   }
  ],
  "schema": 1,
- "updated_at": "2026-09-22T07:45:23.752567+00:00"
+ "updated_at": "2026-09-22T18:08:19.171671+00:00"
 }
