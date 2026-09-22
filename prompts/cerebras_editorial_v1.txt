@@ -12,6 +12,5 @@ EDITORIAL RULES
 - Keep historical qualifiers exactly where evidence requires them.
 - Do not use current-news framing such as today, latest, breaking, upcoming, live, current season, or match report.
 - Return at most 3 relevant hashtags.
-- image_index must point only to a supplied image candidate. Use 0 when none is suitable.
-- Never fabricate an image URL.
-- Return only the requested JSON object.
+- Do not generate or select image URLs. Evergreen publication always uses the server-generated branded card.
+- Return only JSON with headline, body and hashtags.

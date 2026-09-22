@@ -1,4 +1,4 @@
-# The Sports Newsroom V1.5.0
+# The Sports Newsroom V1.6.0
 
 Automated Telegram newsroom for evergreen Sports & Games knowledge, plus a temporary live schedule/results pair.
 
@@ -126,25 +126,26 @@ Used for two structured-output jobs:
 
 The client enforces a per-run provider-attempt budget and adaptive cross-call throttling. Repeated 429 responses increase the pause before the next attempt; once the run budget is exhausted, further AI work is skipped so the run can still publish any candidates that already have enough evidence and continue to the live pair.
 
-The editorial layer is instructed to use only supplied evidence and not invent claims, dates, numbers, people, locations, rules or URLs. Each evergreen publication uses one 40-60 word paragraph, a 6-14 word headline, and at most 3 hashtags. Lists and duplicate explanatory blocks are intentionally excluded.
+The editorial layer is instructed to use only supplied evidence and not invent claims, dates, numbers, people, locations, rules or URLs. Each evergreen publication uses one 40-60 word paragraph, a 6-14 word headline, and at most 3 hashtags. Lists, duplicate explanatory blocks and external image selection are intentionally excluded.
 
 ### Local Python
 
-The application is authoritative for URL normalization, sector coverage, semantic dedupe, evergreen safety filters, validation, image validation, publication IDs, Telegram idempotency, live-pair rotation and state persistence.
+The application is authoritative for URL normalization, sector coverage, semantic dedupe, evergreen safety filters, validation, publication IDs, Telegram idempotency, live-pair rotation and state persistence.
 
 ## 6. Evergreen publication shape
 
 Every evergreen Telegram post follows one compact editorial contract:
 
 ```text
-[verified image, when available]
-Headline
+<b>Headline</b>
+
 One 40-60 word paragraph
+
 Source: clickable source names
-Up to 3 hashtags
+#Tag #Tag #Tag
 ```
 
-Source names are rendered as clickable HTML links. Raw URLs are never shown in the publication. The photo/card fallback uses the same compact content shape.
+The final message is assembled by exactly one function: `render_evergreen_post(story)`. Source names are rendered as clickable HTML links. Raw URLs are never shown as visible text. Hashtags are always on the final line and are capped at 3.
 
 ## 7. Reliability and fallback design
 
@@ -152,17 +153,17 @@ Prompt files are external override files, but the four production prompts also h
 
 The hard-case Agent schema is also embedded in `main.py` and is checked against the repository schema by the test suite.
 
-The evergreen publisher is visual-only:
+The evergreen publisher is card-only:
 
 ```text
-Rich Message
-   ↓ if rejected
-Photo + structured caption
-   ↓ if no usable source image
-Generated branded card + structured caption
+render_evergreen_post()
+        ↓
+1200x675 generated branded card
+        +
+HTML caption (parse_mode=HTML)
 ```
 
-There is no plain-text fallback for an evergreen publication.
+Externally collected image URLs are never sent to Telegram. This removes remote-image failures and keeps every post at the same 16:9 visual width. There is no plain-text or scraped-photo fallback for evergreen publications.
 
 State writes are skipped in `--dry-run` mode. Telegram publishing is skipped in `--dry-run` mode.
 
@@ -343,8 +344,8 @@ posted_urls.txt      URL-level publication memory
 Current verification:
 
 ```text
-V1 architecture tests: 22/22 passed
-Python unittest suite: 24/24 passed
+V1 architecture tests: 30/30 passed
+Python unittest suite: 36/36 passed
 ```
 
 The tests explicitly guard against the original failure mode by checking that the canonical run entrypoints resolve to the same V1 implementation and that legacy V3/V4 orchestration symbols are absent.
@@ -354,13 +355,13 @@ The tests explicitly guard against the original failure mode by checking that th
 The application version has one source of truth:
 
 ```python
-APP_VERSION = "1.5.0"
+APP_VERSION = "1.6.0"
 ```
 
 The CLI reports:
 
 ```text
-The Sports Newsroom V1 1.5.0
+The Sports Newsroom V1 1.6.0
 ```
 
 Update `APP_VERSION` in `main.py` for future releases and keep repository documentation aligned with that value.

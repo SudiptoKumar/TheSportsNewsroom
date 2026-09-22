@@ -1,6 +1,7 @@
 import ast
 import inspect
 import json
+import re
 import unittest
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -19,8 +20,6 @@ EDITORIAL_SAMPLE = {
     "body": EDITORIAL_BODY,
     "hashtags": ["#Sports", "#History"],
     "angle": "history",
-    "image_index": 0,
-    "image_reason": "",
 }
 
 
@@ -45,6 +44,13 @@ class TestV1Contracts(unittest.TestCase):
         source = Path(main.__file__).read_text(encoding="utf-8")
         for symbol in ("v3_run_once", "v3_self_test", "v4_run_once", "v4_diagnose", "v4_self_test", "V4_SECTORS"):
             self.assertNotIn(symbol, source)
+
+    def test_single_evergreen_renderer_is_the_only_text_renderer(self):
+        source = Path(main.__file__).read_text(encoding="utf-8")
+        self.assertEqual(1, source.count("def render_evergreen_post("))
+        for symbol in ("def evergreen_rich(", "def knowledge_html(", "def fit_knowledge_html(", "def source_links("):
+            self.assertNotIn(symbol, source)
+        self.assertEqual(1, source.count("render_evergreen_post(story)"))
 
     def test_discovery_search_has_no_output_schema(self):
         calls = []
@@ -128,17 +134,17 @@ class TestV1Contracts(unittest.TestCase):
         self.assertEqual("2026-09-23T00:00:00+00:00", out["nested"][0])
 
     def test_editorial_schema_is_compact_and_has_no_legacy_fields(self):
-        self.assertEqual(
-            {"headline", "body", "hashtags", "angle", "image_index", "image_reason"},
-            set(main.EDITORIAL_SCHEMA["properties"]),
-        )
-        self.assertFalse(set(main.EDITORIAL_SCHEMA["properties"]) & {"deck", "hook", "key_points", "why_it_matters", "caption"})
+        self.assertEqual({"headline", "body", "hashtags"}, set(main.EDITORIAL_SCHEMA["properties"]))
+        self.assertFalse(set(main.EDITORIAL_SCHEMA["properties"]) & {"deck", "hook", "key_points", "why_it_matters", "caption", "angle", "image_index", "image_reason"})
 
     def test_editorial_prompt_requests_one_40_to_60_word_paragraph(self):
         prompt = main.PROMPT_FALLBACKS["cerebras_editorial_v1.txt"]
-        self.assertIn("ONE short paragraph, 40-60 words", prompt)
-        self.assertIn("No lists", prompt)
-        self.assertIn("at most 3 relevant hashtags", prompt)
+        file_prompt = Path("prompts/cerebras_editorial_v1.txt").read_text(encoding="utf-8")
+        for current in (prompt, file_prompt):
+            self.assertIn("ONE short paragraph, 40-60 words", current)
+            self.assertIn("No lists", current)
+            self.assertIn("at most 3 relevant hashtags", current)
+            self.assertIn("Do not generate or select image URLs", current)
 
     def test_v1_editorialize_payload_is_json_serializable_with_datetime_candidate(self):
         class FakeAI:
@@ -147,9 +153,9 @@ class TestV1Contracts(unittest.TestCase):
             last_error = ""
             def json(self, task, system, user, schema, **kwargs):
                 json.loads(user)
-                return dict(EDITORIAL_SAMPLE)
+                return {"headline": EDITORIAL_SAMPLE["headline"], "body": EDITORIAL_SAMPLE["body"], "hashtags": EDITORIAL_SAMPLE["hashtags"]}
         c = {"sector": "Sport Origin", "normalized_subject": "Example", "central_knowledge_unit": "Example origin", "central_claim": "Founded in 1901", "published": datetime(2026, 9, 22, tzinfo=timezone.utc), "sources": [{"name": "Source", "url": "https://example.com/a", "grade": "A"}]}
-        out = main.v1_editorialize(FakeAI(), c, "Verified evidence from an authoritative source.", [])
+        out = main.v1_editorialize(FakeAI(), c, "Verified evidence from an authoritative source.")
         self.assertIsInstance(out, dict)
 
     def test_v1_rank_request_is_capped_at_twenty_and_compact(self):
@@ -199,9 +205,6 @@ class TestV1Contracts(unittest.TestCase):
         self.assertTrue(first["ok"])
         self.assertTrue(second.get("idempotent"))
 
-    def test_image_validator_accepts_https_in_offline_mode(self):
-        self.assertTrue(main.validate_image_candidate({"url": "https://example.com/image.jpg"}, do_network=False))
-
     def test_live_event_identity_collapses_source_time_drift(self):
         a = main.make_event(sport="Football", league="UEFA Champions League", home="A", away="B", name="A vs B", start=datetime(2026, 9, 23, 12, tzinfo=timezone.utc))
         b = main.make_event(sport="Football", league="UEFA Champions League", home="A", away="B", name="A-B", start=datetime(2026, 9, 23, 12, 15, tzinfo=timezone.utc))
@@ -215,29 +218,67 @@ class TestV1Contracts(unittest.TestCase):
         self.assertTrue(table["is_bordered"] and table["is_striped"] and table["is_compact"])
         self.assertEqual(2, len(table["cells"]))
 
-    def test_evergreen_rich_message_is_compact_and_uses_clickable_source_names(self):
-        story = {
-            "sector": "Interesting Sports Fact",
-            "headline": "Why This Sports Measurement Still Matters",
-            "body": EDITORIAL_BODY,
-            "key_points": ["Legacy point should never render"],
-            "why_it_matters": "Legacy explanation should never render",
-            "sources": [("Source", "https://example.com")],
-            "tags": ["#SportsFacts", "#History", "#Games", "#Extra"],
-            "image": {"url": "https://example.com/image.jpg"},
+    def test_render_evergreen_post_exact_html_contract(self):
+        story={
+            "headline":"How Football Laws Became Written Rules",
+            "body":EDITORIAL_BODY,
+            "sources":[("Example Source","https://example.com/story"),("Second Source","https://example.org/item")],
+            "tags":["#Football","#History","#Games","#Extra"],
         }
-        rich = main.evergreen_rich(story)
-        self.assertEqual(["photo", "heading", "paragraph", "footer", "footer"], [b["type"] for b in rich["blocks"]])
-        self.assertIn('<a href="https://example.com">Source</a>', rich["blocks"][3]["text"])
-        self.assertNotIn("https://example.com)", rich["blocks"][3]["text"])
-        self.assertNotIn("Why it is interesting", json.dumps(rich))
-        self.assertNotIn("Legacy point", json.dumps(rich))
-        self.assertEqual("#SportsFacts #History #Games", rich["blocks"][4]["text"])
+        rendered=main.render_evergreen_post(story)
+        html=rendered["html"]
+        self.assertEqual("HTML", rendered["parse_mode"])
+        self.assertEqual(html, main.tg_sanitize(html))
+        plain=main.plain_text(html)
+        self.assertNotIn("<", plain)
+        self.assertNotIn("&lt;", plain)
+        lines=html.splitlines()
+        self.assertEqual("<b>How Football Laws Became Written Rules</b>", lines[0])
+        self.assertEqual(main.esc(EDITORIAL_BODY), lines[2])
+        self.assertTrue(lines[4].startswith("Source: "))
+        self.assertTrue(lines[-1].startswith("#"))
+        self.assertEqual(["#Football", "#History", "#Games"], lines[-1].split())
+        self.assertLessEqual(len(lines[-1].split()),3)
+        self.assertIn('<a href="https://example.com/story">Example Source</a>', html)
+        visible_part=re.sub(r'href="[^"]+"', '', html)
+        self.assertNotIn("https://example.com/story", visible_part)
+        self.assertNotIn("https://example.org/item", visible_part)
+
+    def test_tg_call_rejects_anchor_without_html_parse_mode(self):
+        with self.assertRaises(AssertionError):
+            main.tg_call("sendMessage", {"chat_id":"@test","text":'<b>Headline</b>\nSource: <a href="https://example.com">Example</a>'})
+
+    def test_evergreen_has_no_external_photo_send_path(self):
+        source = Path(main.__file__).read_text(encoding="utf-8")
+        publish = inspect.getsource(main.v1_publish_evergreen)
+        self.assertNotIn("story[\"image\"][\"url\"]", publish)
+        self.assertNotIn("photo_url", publish)
+        self.assertNotIn("send_rich", publish)
+        self.assertIn("make_card(story)", publish)
+        self.assertNotIn('http("image"', publish)
+        self.assertIn('out["image"]={}', inspect.getsource(main.v1_normalize_story))
+        self.assertIn('out["image_status"]="card_only"', inspect.getsource(main.v1_normalize_story))
+
+    def test_v1_publish_evergreen_uses_card_only_and_html(self):
+        story={"headline":"How Football Laws Became Written Rules","body":EDITORIAL_BODY,"sources":[("Example Source","https://example.com/story")],"tags":["#Football"],"image":{"url":"https://external.example/photo.jpg"}}
+        calls=[]
+        with patch.object(main, "make_card", return_value="/tmp/fake-card.png"), patch.object(main, "tg_call", side_effect=lambda method, data=None, file_path="", file_field="photo": calls.append((method, data or {}, file_path)) or {"ok":True,"result":{"message_id":123}}), patch.object(main.os, "remove", return_value=None):
+            out=main.v1_publish_evergreen(story)
+        self.assertTrue(out["ok"])
+        self.assertEqual(1,len(calls))
+        method,data,file_path=calls[0]
+        self.assertEqual("sendPhoto",method)
+        self.assertEqual("HTML",data.get("parse_mode"))
+        self.assertIn("caption",data)
+        self.assertEqual("/tmp/fake-card.png",file_path)
+        self.assertNotIn("photo",data)
+        self.assertNotIn("https://external.example/photo.jpg", json.dumps(data))
+
 
     def test_build_evergreen_strips_legacy_editorial_fields_and_caps_tags(self):
         candidate = {"sector": "Sport Discovery", "sources": [{"name": "Source", "url": "https://example.com"}]}
         editorial = {**EDITORIAL_SAMPLE, "deck": "legacy", "hook": "legacy", "key_points": ["legacy"], "why_it_matters": "legacy", "caption": "legacy", "hashtags": ["#One", "#Two", "#Three", "#Four"]}
-        story = main.build_evergreen(candidate, editorial, None)
+        story = main.build_evergreen(candidate, editorial)
         self.assertNotIn("deck", story)
         self.assertNotIn("hook", story)
         self.assertNotIn("key_points", story)
@@ -250,14 +291,14 @@ class TestV1Contracts(unittest.TestCase):
 
     def test_editorial_validator_accepts_40_to_60_word_body_without_lists(self):
         candidate = {"sources": [{"name": "Source", "url": "https://example.com", "evidence_note": "laws were standardized"}], "central_claim": "Football laws were standardized", "research_evidence": "laws were standardized"}
-        ok, why, _ = main.v1_validate_editorial(candidate, dict(EDITORIAL_SAMPLE), [])
+        ok, why, _ = main.v1_validate_editorial(candidate, dict(EDITORIAL_SAMPLE))
         self.assertTrue(ok, why)
 
     def test_editorial_validator_rejects_body_over_60_words(self):
         candidate = {"sources": [{"name": "Source", "url": "https://example.com"}], "central_claim": "Football laws were standardized", "research_evidence": "laws were standardized"}
         too_long = dict(EDITORIAL_SAMPLE)
         too_long["body"] = " ".join(["Verified"] * 61)
-        ok, why, _ = main.v1_validate_editorial(candidate, too_long, [])
+        ok, why, _ = main.v1_validate_editorial(candidate, too_long)
         self.assertFalse(ok)
         self.assertEqual("body_word_count", why)
 
@@ -265,18 +306,9 @@ class TestV1Contracts(unittest.TestCase):
         candidate = {"sources": [{"name": "Source", "url": "https://example.com"}], "central_claim": "Football laws were standardized", "research_evidence": "laws were standardized"}
         too_many = dict(EDITORIAL_SAMPLE)
         too_many["hashtags"] = ["#One", "#Two", "#Three", "#Four"]
-        ok, why, _ = main.v1_validate_editorial(candidate, too_many, [])
+        ok, why, _ = main.v1_validate_editorial(candidate, too_many)
         self.assertFalse(ok)
         self.assertEqual("hashtag_count", why)
-
-    def test_visual_publisher_never_downgrades_to_plain_text(self):
-        story = main.v1_normalize_story({"sector": "Sport Discovery", "headline": "A Proper Evergreen Sports Headline", "body": EDITORIAL_BODY, "sources": [("Source", "https://example.com")], "tags": ["#Sports"], "image": {"url": "https://example.com/photo.jpg"}})
-        calls = []
-        with patch.object(main, "send_rich", return_value={"ok": False, "description": "400 rich message rejected"}), patch.object(main, "tg_call", side_effect=lambda method, data=None, file_path="", file_field="photo": calls.append((method, data, file_path)) or {"ok": True, "result": {"message_id": 123}}):
-            out = main.v1_publish_evergreen(story)
-        self.assertTrue(out["ok"])
-        self.assertEqual("sendPhoto", calls[0][0])
-        self.assertNotIn("sendMessage", [x[0] for x in calls])
 
     def test_production_orchestrator_dry_run_reaches_live_pair(self):
         fixed_now = datetime(2026, 9, 22, 10, 0, tzinfo=main.BD_TZ)
@@ -297,7 +329,7 @@ class TestV1Contracts(unittest.TestCase):
              patch.object(main, "now_bd", return_value=fixed_now), patch.object(main, "load_state", return_value=state), \
              patch.object(main, "load_coverage", return_value={"records": []}), patch.object(main, "v1_discover_all_sectors", return_value=candidates), \
              patch.object(main, "v1_rank", return_value=ranked), patch.object(main, "v1_verify_selected", side_effect=lambda selected, target: (selected, "ok")), \
-             patch.object(main, "v1_editorialize", return_value=editorial), patch.object(main, "validate_image_candidate", return_value=False), \
+             patch.object(main, "v1_editorialize", return_value=editorial), \
              patch.object(main, "V1_POST_DELAY_SECONDS", 0), \
              patch.object(main, "live_pair", return_value=({"target_date": "2026-09-23"}, {"target_date": "2026-09-21"}, [{"event_id": "e1"}], [{"event_id": "e2"}])):
             rc = main.run_once(mode="dry-run")
@@ -348,7 +380,7 @@ class TestV1Contracts(unittest.TestCase):
              patch.object(main, "now_bd", return_value=fixed_now), patch.object(main, "load_state", return_value=state), \
              patch.object(main, "load_coverage", return_value={"records": []}), patch.object(main, "v1_discover_all_sectors", return_value=candidates), \
              patch.object(main, "v1_rank", return_value=ranked), patch.object(main, "v1_verify_selected", side_effect=lambda selected, target: (selected, "ok")), \
-             patch.object(main, "v1_editorialize", return_value=editorial), patch.object(main, "validate_image_candidate", return_value=False), \
+             patch.object(main, "v1_editorialize", return_value=editorial), \
              patch.object(main, "V1_POST_DELAY_SECONDS", 0), \
              patch.object(main, "live_pair", return_value=({"target_date": "2026-09-23"}, {"target_date": "2026-09-21"}, [{"event_id": "e1"}], [{"event_id": "e2"}])):
             rc = main.run_once(mode="dry-run")
@@ -374,7 +406,7 @@ class TestV1Contracts(unittest.TestCase):
              patch.object(main, "now_bd", return_value=fixed_now), patch.object(main, "load_state", return_value=state), \
              patch.object(main, "load_coverage", return_value={"records": []}), patch.object(main, "v1_discover_all_sectors", return_value=candidates), \
              patch.object(main, "v1_rank", return_value=ranked), patch.object(main, "v1_verify_selected", side_effect=lambda selected, target: (selected, "ok")), \
-             patch.object(main, "v1_editorialize", return_value=editorial), patch.object(main, "validate_image_candidate", return_value=False), \
+             patch.object(main, "v1_editorialize", return_value=editorial), \
              patch.object(main, "V1_POST_DELAY_SECONDS", 0), \
              patch.object(main, "live_pair", return_value=({"target_date": "2026-09-23"}, {"target_date": "2026-09-21"}, [{"event_id": "e1"}], [{"event_id": "e2"}])):
             rc = main.run_once(mode="dry-run")

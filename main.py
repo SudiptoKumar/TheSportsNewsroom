@@ -44,7 +44,7 @@ except ImportError:  # pragma: no cover
     Image = ImageDraw = ImageFont = None
 
 APP_NAME = "The Sports Newsroom"
-APP_VERSION = "1.5.0"
+APP_VERSION = "1.6.0"
 
 # ===========================================================================
 # 1. CORE: config, clock, text helpers, safety filters
@@ -597,62 +597,73 @@ def plain_text(s: str) -> str:
 
 
 
-def source_links(sources: list, limit: int = 3) -> str:
-    links = []
-    seen = set()
-    for label, url in sources:
-        if not text(url) or url in seen:
+def render_evergreen_post(story: dict) -> dict:
+    """Build the only evergreen Telegram HTML payload. Order is fixed and intentionally minimal."""
+    story=v1_normalize_story(story)
+    headline=text(story.get("headline")).strip()
+    body=text(story.get("body")).strip()
+    if not headline or not body:
+        raise ValueError("evergreen renderer requires headline and body")
+
+    source_parts=[]
+    seen_urls=set()
+    for item in story.get("sources", []):
+        if not isinstance(item,(list,tuple)) or len(item)<2:
             continue
-        seen.add(url)
-        links.append(f'<a href="{esc_attr(url)}">{esc(label or domain_of(url))}</a>')
-        if len(links) >= limit:
+        label=text(item[0]).strip()
+        url=text(item[1]).strip()
+        if not url or url in seen_urls or not re.match(r"^https?://",url,re.I):
+            continue
+        seen_urls.add(url)
+        if not label or re.match(r"^https?://",label,re.I):
+            label=domain_of(url)
+        source_parts.append(f'<a href="{esc_attr(url)}">{esc(label)}</a>')
+        if len(source_parts)>=3:
             break
-    return " · ".join(links)
+    if not source_parts:
+        raise ValueError("evergreen renderer requires at least one source")
 
+    tags=[]
+    seen_tags=set()
+    for raw in story.get("tags", []):
+        tag=text(raw).strip()
+        if not tag:
+            continue
+        if not tag.startswith("#"):
+            tag="#"+re.sub(r"[^A-Za-z0-9]", "", tag)
+        if tag == "#" or tag in seen_tags:
+            continue
+        seen_tags.add(tag)
+        tags.append(tag)
+        if len(tags)>=3:
+            break
+    if not tags:
+        tags=["#SportsGames"]
 
-def knowledge_html(story: dict, level: int = 0) -> str:
-    """Build the same compact evergreen shape for photo/card caption fallbacks."""
-    fmt = story.get("format", "fact")
-    label = story.get("label") or FORMAT_LABELS.get(fmt, "SPORTS & GAMES")
-    head = f"{FORMAT_EMOJI.get(fmt, '🏅')} <b>{esc(label)}</b>"
-    if text(story.get("date_anchor")):
-        head += f" · {esc(story['date_anchor'])}"
-    body = text(story.get("body"))
-    if level >= 1:
-        body = " ".join(split_sentences(body)[:3])
-    if level >= 2:
-        body = clamp_words(body, 120)
-    if level >= 3:
-        body = clamp_words(body, 90)
-    if level >= 4:
-        body = clamp_words(body, 70)
-    if level >= 5:
-        body = clamp_words(body, 55)
-    parts = [head, "", f"<b>{esc(story.get('headline', ''))}</b>", "", esc(body)]
-    src = source_links(story.get("sources", []))
-    if src:
-        parts += ["", "Source: " + src]
-    tags = [t for t in story.get("tags", []) if t][:3]
-    if tags and level < 4:
-        parts += [" ".join(esc(t) for t in tags)]
-    return "\n".join(parts)
+    html_text="\n\n".join([
+        f"<b>{esc(headline)}</b>",
+        esc(body),
+        "Source: " + " · ".join(source_parts),
+        " ".join(esc(tag) for tag in tags),
+    ])
+    if vis_len(html_text)>CAPTION_LIMIT:
+        raise ValueError("evergreen Telegram HTML exceeds caption limit")
 
-
-def fit_knowledge_html(story: dict, limit: int = CAPTION_LIMIT - 20) -> str:
-    """Deterministic trimming ladder; least important parts are dropped first."""
-    rendered = ""
-    for level in range(0, 8):
-        rendered = tg_sanitize(knowledge_html(story, level))
-        if vis_len(rendered) <= limit:
-            return rendered
-    return rendered
+    # The rendered value is intentionally shared as the sendPhoto caption. Keeping parse_mode here
+    # makes the publication contract explicit; tg_call enforces it again at the transport boundary.
+    return {"html":html_text,"parse_mode":"HTML"}
 
 
 # --- publisher ---------------------------------------------------------------------------------
 
 
 def tg_call(method: str, data: dict | None = None, file_path: str = "", file_field: str = "photo") -> dict:
-    """Call a Bot API method. Returns the JSON payload; adds 'uncertain' when delivery is unknown."""
+    """Call a Bot API method and enforce HTML parse mode for any anchor-bearing payload."""
+    data=data or {}
+    for field in ("text", "caption"):
+        value=text(data.get(field))
+        if re.search(r"<a\s+href\s*=", value, re.I) and text(data.get("parse_mode")).upper() != "HTML":
+            raise AssertionError(f"{method}.{field} contains <a href but parse_mode is not HTML")
     if DRY_RUN:
         print(f"\n[DRY-RUN] {method} -> {CHANNEL}")
         for k, v in (data or {}).items():
@@ -2026,25 +2037,6 @@ def coverage_match(candidate: dict, coverage: dict) -> tuple[str, dict | None, f
             best = ("related", row, sim)
     return best
 
-def validate_image_candidate(c: dict, *, do_network: bool = True) -> bool:
-    u = text(c.get("url"))
-    if not re.match(r"^https?://", u, re.I):
-        return False
-    if not do_network or DRY_RUN or DRY_RUN:
-        return True
-    r = http("image", "HEAD", u, timeout=IMAGE_TIMEOUT, retries=1, want_json=False)
-    if not r.ok:
-        return False
-    ct = text((r.headers or {}).get("Content-Type")).lower()
-    if ct and not ct.startswith("image/"):
-        return False
-    try:
-        length = int((r.headers or {}).get("Content-Length") or 0)
-        if length and length > MAX_IMAGE_BYTES:
-            return False
-    except Exception:
-        pass
-    return True
 
 def evidence_text_for_validation(candidate: dict) -> str:
     # The research package's source notes and main story form the deterministic local evidence envelope.
@@ -2053,7 +2045,7 @@ def evidence_text_for_validation(candidate: dict) -> str:
         bits.append(s.get("evidence_note", ""))
     return " ".join(text(x) for x in bits)
 
-def build_evergreen(candidate: dict, editorial: dict, selected_image: dict | None) -> dict:
+def build_evergreen(candidate: dict, editorial: dict) -> dict:
     tags = [text(x) for x in editorial.get("hashtags", []) if text(x)]
     tags = [t if t.startswith("#") else "#" + re.sub(r"[^A-Za-z0-9]", "", t) for t in tags]
     sector_tag = "#" + re.sub(r"[^A-Za-z0-9]", "", candidate.get("sector", "SportsGames"))[:28]
@@ -2081,25 +2073,10 @@ def build_evergreen(candidate: dict, editorial: dict, selected_image: dict | Non
         "people": candidate.get("people_involved", []),
         "historical_date": candidate.get("historical_date", ""),
         "historical_year": candidate.get("historical_year", ""),
-        "image": selected_image,
-        "image_status": "verified" if selected_image else "unavailable",
+        "image": {},
+        "image_status": "card_only",
         "research": candidate,
     }
-
-def evergreen_rich(story: dict) -> dict:
-    """Render the compact V1 evergreen contract: headline, one body paragraph, source links, hashtags."""
-    blocks = []
-    if story.get("image", {}).get("url"):
-        blocks.append({"type": "photo", "photo": {"type": "photo", "media": story["image"]["url"]}})
-    blocks.append({"type": "heading", "size": 2, "text": story["headline"]})
-    if story.get("body"):
-        blocks.append({"type": "paragraph", "text": story["body"]})
-    if story.get("sources"):
-        src = "Source: " + source_links(story["sources"], limit=3)
-        blocks.append({"type": "footer", "text": src})
-    if story.get("tags"):
-        blocks.append({"type": "footer", "text": " ".join(story["tags"][:3])})
-    return {"blocks": blocks}
 
 def table_cell(value: str, header: bool = False, align: str = "left") -> dict:
     cell = {"text": text(value), "align": align, "valign": "middle"}
@@ -2252,7 +2229,7 @@ def publish_with_idempotency(vstate: dict, publication_id: str, publisher: Calla
 V1_RANK_SCHEMA = OBJ(rankings=ARR(OBJ(post_number=INT, score=INT)))
 
 EDITORIAL_SCHEMA = OBJ(
-    headline=STR, body=STR, hashtags=ARR(STR), angle=STR, image_index=INT, image_reason=STR,
+    headline=STR, body=STR, hashtags=ARR(STR),
 )
 
 AGENT_HARD_CASE_SCHEMA = {
@@ -2288,7 +2265,7 @@ PROMPT_FALLBACKS = {
         "Use ONLY the supplied verified research and evidence. Never invent facts, dates, records, people, locations, rules, origins, numbers or URLs. "
         "Write ONE short paragraph, 40-60 words, in an editorial/storyteller voice. No lists. Do not restate the same point twice. "
         "Headline: 6-14 words, specific and non-clickbait. Return at most 3 relevant hashtags. Do not use current-news framing. "
-        "Use only supplied image candidates and return only JSON."
+        "Do not generate or select image URLs. Return only JSON with headline, body and hashtags."
     ),
     "exa_hard_case_agent_v1.txt": (
         "THE SPORTS NEWSROOM V1: EXA AGENT HARD-CASE VERIFICATION\n\n"
@@ -2896,20 +2873,21 @@ def v1_verify_selected(selected: list[dict], target: date) -> tuple[list[dict], 
 
 
 def v1_normalize_story(story: dict) -> dict:
-    """Canonicalize all optional AI values before any Telegram renderer sees them."""
+    """Canonicalize evergreen publication data before the single renderer sees it."""
     out=dict(story) if isinstance(story,dict) else {}
-    img=out.get("image")
-    out["image"]=dict(img) if isinstance(img,dict) else {}
+    # Evergreen publications are card-only. Research image URLs are retained upstream for evidence
+    # provenance, but are never sent to Telegram. This removes remote-image failures entirely.
+    out["image"]={}
     out["sources"]=[x for x in (out.get("sources") or []) if isinstance(x,(list,tuple)) and len(x)>=2]
     out["urls"]=[text(x[1]) for x in out["sources"] if len(x)>=2 and text(x[1])]
     # Legacy point lists are intentionally ignored. V1 editorial output is one paragraph.
     out["tags"]=[text(x) for x in (out.get("tags") or []) if text(x)]
     out["people"]=out.get("people") if isinstance(out.get("people"),list) else []
-    out["image_status"]=text(out.get("image_status")) or ("verified" if out["image"].get("url") else "unavailable")
+    out["image_status"]="card_only"
     return out
 
 
-def v1_validate_editorial(candidate: dict, editorial: dict, image_candidates: list[dict]) -> tuple[bool, str, dict]:
+def v1_validate_editorial(candidate: dict, editorial: dict) -> tuple[bool, str, dict]:
     """V1 editorial gate: preserve evergreen rules without inheriting overly broad legacy current-news matching."""
     if not isinstance(editorial,dict):
         return False,"editorial_not_object",{}
@@ -2926,16 +2904,10 @@ def v1_validate_editorial(candidate: dict, editorial: dict, image_candidates: li
     evidence_numbers=set(re.findall(r"\b\d{1,4}\b",json.dumps(json_safe(candidate),ensure_ascii=False)+evidence_text_for_validation(candidate)))
     generated_numbers=set(re.findall(r"\b\d{1,4}\b",f"{headline} {body}"))
     if not generated_numbers.issubset(evidence_numbers): return False,"unsupported_number",{}
-    selected=None
-    try: idx=int(editorial.get("image_index",0))
-    except Exception: idx=0
-    if idx>0:
-        if idx>len(image_candidates): return False,"image_index_invalid",{}
-        selected=image_candidates[idx-1]
-    return True,"ok",{**candidate,"editorial":editorial,"selected_image":selected}
+    return True,"ok",{**candidate,"editorial":editorial}
 
 
-def v1_editorialize(ai: "AIClient", candidate: dict, evidence: str, image_candidates: list[dict]) -> dict | None:
+def v1_editorialize(ai: "AIClient", candidate: dict, evidence: str) -> dict | None:
     if not ai.available or ai.fatal:
         return None
     compact={
@@ -2950,45 +2922,32 @@ def v1_editorialize(ai: "AIClient", candidate: dict, evidence: str, image_candid
         "historical_year":text(candidate.get("historical_year")),
         "sources":[{"name":text(x.get("name")),"url":v1_network_url(text(x.get("url"))),"grade":text(x.get("grade"))} for x in (candidate.get("sources") or []) if isinstance(x,dict) and v1_network_url(text(x.get("url")))][:3],
     }
-    imgs=[{"index":i,"source_name":text(x.get("source_name")),"source_page_url":text(x.get("source_page_url")),"url":text(x.get("url"))} for i,x in enumerate(image_candidates,1)]
-    user=json.dumps({"research":json_safe(compact),"source_evidence":text(evidence)[:5500],"image_candidates":imgs[:6]},ensure_ascii=False,separators=(",",":"))
+    user=json.dumps({"research":json_safe(compact),"source_evidence":text(evidence)[:5500]},ensure_ascii=False,separators=(",",":"))
     system=_v1_prompt("cerebras_editorial_v1.txt",
         "Transform one verified evergreen Sports & Games research item into a concise Telegram post. Use only supplied evidence. "
-        "Do not invent facts or image URLs. Prefer a supplied verified image when available. Return only JSON.")
+        "Do not invent facts or URLs. Return only JSON with headline, body and hashtags.")
     return ai.json("v1_editorial_post",system,user,EDITORIAL_SCHEMA,max_tokens=max(650,_env_int("V1_EDITORIAL_MAX_TOKENS",900)),temperature=0.25)
 
 
 def v1_publish_evergreen(story: dict) -> dict:
-    """Visual hard requirement: rich message first, photo+caption fallback, never plain text."""
+    """Publish evergreen posts as one fixed 1200x675 branded card with HTML caption."""
     story=v1_normalize_story(story)
-    rich=evergreen_rich(story)
-    if story["image"].get("url"):
-        res=send_rich(rich)
-        if res.get("ok") or res.get("uncertain"):
-            return res
-        logger.warning("V1 rich message rejected; preserving visual post with sendPhoto fallback: %s",redact(text(res.get("description"))))
-        photo_url=text(story["image"].get("url")); caption=fit_knowledge_html(story)
-        photo_res=tg_call("sendPhoto",{"chat_id":CHANNEL,"photo":photo_url,"caption":caption,"parse_mode":"HTML"})
-        if photo_res.get("ok"):
-            return photo_res
-        if not photo_res.get("uncertain") and any(x in _err(photo_res) for x in ("parse entities","entities")):
-            photo_res=tg_call("sendPhoto",{"chat_id":CHANNEL,"photo":photo_url,"caption":plain_text(caption)[:CAPTION_LIMIT]})
-            if photo_res.get("ok"):
-                return photo_res
+    rendered=render_evergreen_post(story)
     card_path=make_card(story)
     if not card_path:
-        return {"ok":False,"description":"V1 visual publication failed: no rich image and branded card generation failed"}
+        return {"ok":False,"description":"V1 evergreen publication failed: branded card generation failed"}
     try:
-        caption=fit_knowledge_html(story)
-        photo_res=tg_call("sendPhoto",{"chat_id":CHANNEL,"caption":caption,"parse_mode":"HTML"},card_path)
-        if photo_res.get("ok"):
-            return photo_res
-        if not photo_res.get("uncertain") and any(x in _err(photo_res) for x in ("parse entities","entities")):
-            photo_res=tg_call("sendPhoto",{"chat_id":CHANNEL,"caption":plain_text(caption)[:CAPTION_LIMIT]},card_path)
-        return photo_res
+        payload={
+            "chat_id":CHANNEL,
+            "caption":rendered["html"],
+            "parse_mode":rendered["parse_mode"],
+        }
+        return tg_call("sendPhoto",payload,card_path)
     finally:
-        try: os.remove(card_path)
-        except Exception: pass
+        try:
+            os.remove(card_path)
+        except Exception:
+            pass
 
 
 def v1_run_once(mode: str = "live") -> int:
@@ -3061,15 +3020,13 @@ def v1_run_once(mode: str = "live") -> int:
         sec=text(cand.get("sector"))
         if not sec or sec in posted_sectors: continue
         evidence=text(cand.get("research_evidence"))
-        imgs=[x for x in (cand.get("research_images") or []) if isinstance(x,dict) and text(x.get("url"))]
-        imgs=[x for x in imgs if validate_image_candidate(x,do_network=not dry)]
-        editorial=v1_editorialize(ai,cand,evidence,imgs)
+        editorial=v1_editorialize(ai,cand,evidence)
         if not editorial:
             logger.warning("V1 editorial generation failed for sector=%s subject=%s: %s",sec,text(cand.get("normalized_subject")),ai.last_error); continue
-        ok,why,out=v1_validate_editorial(cand,editorial,imgs)
+        ok,why,out=v1_validate_editorial(cand,editorial)
         if not ok:
             reject("v1_editorial_invalid",why); continue
-        story=v1_normalize_story(build_evergreen(cand,editorial,out.get("selected_image") if isinstance(out,dict) else None))
+        story=v1_normalize_story(build_evergreen(cand,editorial))
         story["image"]=story.get("image") if isinstance(story.get("image"),dict) else {}
         pubid=publication_id(run_id,"evergreen",story.get("normalized_subject") or story.get("topic"))
         res=publish_with_idempotency(vs,pubid,lambda st=story,do=dry: v1_publish_evergreen(st) if not do else {"ok":True,"dry_run":True,"result":{"message_id":None}})
@@ -3172,23 +3129,26 @@ def v1_architecture_tests() -> int:
     ck(coverage_match(candidate,{"records":[]})[0] == "new", "new coverage candidate")
     story=v1_normalize_story({"image":None,"sources":None,"tags":None,"people":None})
     ck(story["image"] == {} and story["sources"] == [] and story["tags"] == [] and story["people"] == [] and "key_points" not in story, "null normalization")
-    ck(set(EDITORIAL_SCHEMA["properties"]) == {"headline","body","hashtags","angle","image_index","image_reason"}, "compact editorial schema")
-    ck(not (set(EDITORIAL_SCHEMA["properties"]) & {"deck","hook","key_points","why_it_matters","caption"}), "legacy editorial fields removed")
-    ed={"headline":"How Football Laws Became Written Rules","body":"Football's laws became more standardized after clubs agreed on a written code. The change gave the sport a shared framework and helped distinguish association football from other traditions. That framework could travel between clubs and countries, creating a common reference for later rule development and making established practices easier to compare across communities.","image_index":0,"hashtags":["#Football","#History"],"angle":"history","image_reason":""}
-    ok,why,_=v1_validate_editorial({"sector":"Sport Origin","sources":[{"name":"Source","url":"https://example.com","evidence_note":"laws were codified"}],"central_claim":"Football laws were codified","research_evidence":"laws were codified"},ed,[])
+    ck(set(EDITORIAL_SCHEMA["properties"]) == {"headline","body","hashtags"}, "compact editorial schema")
+    ck(not (set(EDITORIAL_SCHEMA["properties"]) & {"deck","hook","key_points","why_it_matters","caption","angle","image_index","image_reason"}), "legacy editorial fields removed")
+    ed={"headline":"How Football Laws Became Written Rules","body":"Football's laws became more standardized after clubs agreed on a written code. The change gave the sport a shared framework and helped distinguish association football from other traditions. That framework could travel between clubs and countries, creating a common reference for later rule development and making established practices easier to compare across communities.","hashtags":["#Football","#History"]}
+    ok,why,_=v1_validate_editorial({"sector":"Sport Origin","sources":[{"name":"Source","url":"https://example.com","evidence_note":"laws were codified"}],"central_claim":"Football laws were codified","research_evidence":"laws were codified"},ed)
     ck(ok, "valid editorial accepted: "+why)
-    rich=evergreen_rich({"headline":ed["headline"],"body":ed["body"],"sources":[("Source","https://example.com")],"tags":["#Football","#History","#Games","#Extra"],"image":{"url":"https://example.com/image.jpg"},"key_points":["legacy"],"why_it_matters":"legacy"})
-    ck([b["type"] for b in rich["blocks"]] == ["photo","heading","paragraph","footer","footer"], "compact rich message")
-    ck('<a href="https://example.com">Source</a>' in rich["blocks"][3]["text"] and "https://example.com)" not in rich["blocks"][3]["text"], "clickable source name")
-    ck("legacy" not in json.dumps(rich).lower(), "legacy editorial blocks absent")
+    rendered=render_evergreen_post({"headline":ed["headline"],"body":ed["body"],"sources":[("Source","https://example.com")],"tags":["#Football","#History","#Games","#Extra"],"image":{"url":"https://example.com/image.jpg"}})
+    rendered_html=rendered["html"]
+    ck(rendered["parse_mode"] == "HTML", "evergreen renderer declares HTML parse mode")
+    ck(tg_sanitize(rendered_html) == rendered_html, "evergreen HTML is Telegram-safe")
+    ck(rendered_html.splitlines()[-1] == "#Football #History #Games", "hashtags are final line and capped")
+    ck("<a href=\"https://example.com\">Source</a>" in rendered_html and "https://example.com" not in re.sub(r'href=\"[^\"]+\"', '', rendered_html), "clickable source name without visible URL")
+    ck("key_points" not in rendered_html and "why_it_matters" not in rendered_html, "legacy editorial blocks absent")
     ed_bad=dict(ed); ed_bad["body"]="This latest football story covers an upcoming match report and a current development. The update concerns the current season and a breaking change, so it belongs in a live news desk rather than evergreen research. The wording is intentionally current even though the underlying subject is a sport with longstanding historical context."
-    ok,why,_=v1_validate_editorial({"sources":[{"name":"Source","url":"https://example.com"}]},ed_bad,[])
+    ok,why,_=v1_validate_editorial({"sources":[{"name":"Source","url":"https://example.com"}]},ed_bad)
     ck((not ok) and why == "current_news_language", "current-news language blocked")
     a=make_event(sport="Football",league="UEFA Champions League",home="A",away="B",name="A vs B",start=datetime(2026,9,23,12,tzinfo=timezone.utc))
     b=make_event(sport="Football",league="UEFA Champions League",home="A",away="B",name="A-B",start=datetime(2026,9,23,12,15,tzinfo=timezone.utc))
     ck(live_event_identity(a) == live_event_identity(b), "live event identity collapse")
-    rich=evergreen_rich({"sector":"Interesting Sports Fact","headline":"Why This Sports Measurement Still Matters","body":"This is a verified evergreen story with enough detail to satisfy the editorial body length requirements in a real post.","key_points":["Point one","Point two","Point three"],"why_it_matters":"It explains a useful piece of sports knowledge.","sources":[("Source","https://example.com")],"tags":["#SportsFacts"],"image":{"url":"https://example.com/image.jpg"}})
-    ck(rich["blocks"][0]["type"] == "photo", "rich image block")
+    normalized=v1_normalize_story({"headline":"Why This Sports Measurement Still Matters","body":"This is a verified evergreen story with enough detail to satisfy the editorial body length requirements in a real post.","sources":[("Source","https://example.com")],"tags":["#SportsFacts"],"image":{"url":"https://example.com/image.jpg"}})
+    ck(normalized["image"] == {} and normalized["image_status"] == "card_only", "external images disabled for evergreen publishing")
     print(f"V1 architecture tests: {checks-len(failures)}/{checks} passed")
     for f in failures: print("  -",f)
     return 1 if failures else 0
