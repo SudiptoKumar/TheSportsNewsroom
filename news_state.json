@@ -1,12 +1,15 @@
 {
  "ai": {
-  "last_ok": "2026-09-21T12:02:46.858226+00:00",
+  "last_error": "Cerebras per-run call cap reached (16)",
+  "last_ok": "2026-09-22T02:33:02.894929+00:00",
+  "last_request_id": "a3ede70e788f3b75-CMH",
+  "last_status": 429,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-21T06:43:50.838439+00:00",
- "last_run_at": "2026-09-21T12:00:22.256659+00:00",
+ "last_run_at": "2026-09-22T02:35:35.352646+00:00",
  "ledger": {
   "day_in_sports:2026-09-20": {
    "attempts": 1,
@@ -81,6 +84,162 @@
    "topic": "Field sports",
    "urls": [
     "en.wikipedia.org/wiki/Field_sports"
+   ]
+  },
+  {
+   "angle": "Celebrating the pivotal role of Coubertin in establishing the modern Olympic movement",
+   "central_knowledge_unit": "Pierre de Coubertin: Visionary and Founder of the Modern Olympics",
+   "claim": "Pierre de Coubertin was the central organizer of the 1894 international congress that approved the revival of the Olympic Games, helped establish the IOC, and was chiefly responsible for launching the modern international Olympic Games in Athens in 1896; he is therefore commonly and defensibly described as a founder or reviver of the modern Olympic movement, but not as its sole originator.",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Pierre de Coubertin: Architect of the Modern Olympic Revival",
+   "image_status": "verified",
+   "message_id": 36,
+   "normalized_subject": "Pierre de Coubertin: Visionary and Founder of the Modern Olympics",
+   "posted_at": "2026-09-22T02:32:00.038845+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Sports & Games People",
+   "topic": "Pierre de Coubertin: Visionary and Founder of the Modern Olympics",
+   "urls": [
+    "olympics.com/ioc/pierre-de-coubertin",
+    "olympics.com/ioc/paris-1894-olympic-congress",
+    "olympedia.org/athletes/920613",
+    "britannica.com/biography/Pierre-baron-de-Coubertin",
+    "cambridge.org/core/journals/european-review/article/abs/predecessors-of-the-olympic-movement-and-pierre-de-coubertin/04DE7FA59B47F756E4C95CEA509311CF",
+    "reference-global.com/download/article/10.1515/pcssr-2017-0008.pdf"
+   ]
+  },
+  {
+   "angle": "Cultural heritage continuity",
+   "central_knowledge_unit": "Ulama, a 3,400-year-old ballgame that survived in Mexico | AP News",
+   "claim": "Ulama de cadera is a living Sinaloan form of the Mesoamerican rubber-ball tradition. It is played with a heavy solid rubber ball struck with the hip (sources also describe the upper thigh) and protective gear; Mexican and scholarly sources characterize it as a survival of, or closely related to, the pre-Hispanic ballgame. Archaeology supports a Mesoamerican ballgame by about 1650 BCE, but does not establish that modern ulama’s rules have remained unchanged or continuously documented for 3,400 years, nor that it is definitively the world’s oldest team sport.",
+   "desk": "evergreen_v1",
+   "format": "Sport Discovery",
+   "headline": "Ulama: Ancient Mexican Hip‑Ball Game Endures After Millennia",
+   "image_status": "unavailable",
+   "message_id": 37,
+   "normalized_subject": "Ulama, a 3,400-year-old ballgame that survived in Mexico | AP News",
+   "posted_at": "2026-09-22T02:32:05.104644+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Sport Discovery",
+   "topic": "Ulama, a 3,400-year-old ballgame that survived in Mexico | AP News",
+   "urls": [
+    "apnews.com/article/mexico-ulama-prehispanic-ballgame-fifa-cup-3819e65e272d0360979a8cd2dd78b999",
+    "science.org/doi/10.1126/sciadv.aay6964",
+    "revistas.unam.mx/index.php/antropologia/article/view/45569",
+    "inah.gob.mx/foto-del-dia/ullamaliztli-una-historia-de-ida-y-vuelta",
+    "arqueologiamexicana.mx/mexico-antiguo/ulama-el-juego-de-pelota-prehispanico-que-sobrevivio-hasta-nuestros-dias",
+    "metmuseum.org/toah/hd/mball/hd/_mball.htm"
+   ]
+  },
+  {
+   "angle": "Historical clarification of the inaugural league goal",
+   "central_knowledge_unit": "Solving the mystery of the first goal in league football - BBC Sport",
+   "claim": "It was the advert that appeared to prove who scored the first goal in league football, anywhere in the world. ... There has always been debate as to who scored first when the Football League started with five fixtures on 8 September, 1888. ... Some claim the honour belongs to Preston striker Fred Dewhurst, who struck after three minutes of his team's match against Burnley at Deepdale. ... Preston, known as the Invincibles, external after going through the season undefeated, won that game 5-2 but it had not started until 3.50pm. ... An article in the Cricket and Football Field newspaper reported that Bolton's game against Derby County had been delayed by 15 minutes and started at 3.45pm after",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "Bolton’s Kenny Davenport Confirmed First League Goal of 1888",
+   "image_status": "verified",
+   "message_id": 38,
+   "normalized_subject": "Solving the mystery of the first goal in league football - BBC Sport",
+   "posted_at": "2026-09-22T02:32:09.729771+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "First / Last / Only",
+   "topic": "Solving the mystery of the first goal in league football - BBC Sport",
+   "urls": [
+    "bbc.com/sport/football/23397062"
+   ]
+  },
+  {
+   "angle": "Scientific explanation of the strike’s trajectory",
+   "central_knowledge_unit": "Roberto Carlos' Brazil free kick in 1997: The physics behind 'impossible' strike - ESPN",
+   "claim": "On June 3, 1997, Roberto Carlos stunned the world with one of the most spectacular free kicks in football history. The left-back scored the most famous goal of his career: an outrageous long-range free kick for Brazil in a 1-1 draw against France in the opening game of the 1997 Tournoi de France, a warm-up tournament ahead of the following year's World Cup. ... The strike left goalkeeper Fabien Barthez perplexed, as the ball apparently was heading well wide of the target and into the crowd. However, it swerved back, glanced the inside edge of the post, and stopped only when it hit the net. Two decades later, Roberto Carlos says he is still impressed when he sees footage of his kick. ... Robe",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "Physics Reveals Roberto Carlos' 1997 Free‑Kick Was No Fluke",
+   "image_status": "verified",
+   "message_id": 39,
+   "normalized_subject": "Roberto Carlos' Brazil free kick in 1997: The physics behind 'impossible' strike - ESPN",
+   "posted_at": "2026-09-22T02:32:14.386192+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Why Does This Happen?",
+   "topic": "Roberto Carlos' Brazil free kick in 1997: The physics behind 'impossible' strike - ESPN",
+   "urls": [
+    "espn.com/soccer/story/_/id/37475858/physics-impossible-strike",
+    "bbc.com/news/science-environment-11153466",
+    "phys.org/news/2010-09-carlos-free-fluke-french-physicists.html"
+   ]
+  },
+  {
+   "angle": "Emerging sport spotlight",
+   "central_knowledge_unit": "Balletic hits and bicycle kicks: Teqball comes of age at the Asian Games | Sport | The Guardian",
+   "claim": "Invented a little over a decade ago in Hungary, teqball is a combination of football and ping pong ... Teqball was invented a little over a decade ago in Hungary, when two friends started playing football on a ping pong table, before going on to create the signature curved table the game is played on. ... The new sport is quickly entering the mainstream. This weekend it will debut at the Asian Games in Japan, after its historic inclusion at the European and African games, with ambitions to be an Olympic sport by 2032. ... Teams from 16 nations will be competing at the competition, which will also debut padel and virtual taekwondo, a non-contact sport using virtual reality headsets. ... Teqba",
+   "desk": "evergreen_v1",
+   "format": "New Sport Discovery",
+   "headline": "Teqball makes debut at Asian Games, eyeing Olympic future",
+   "image_status": "verified",
+   "message_id": 40,
+   "normalized_subject": "Balletic hits and bicycle kicks: Teqball comes of age at the Asian Games | Sport | The Guardian",
+   "posted_at": "2026-09-22T02:32:18.379362+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "New Sport Discovery",
+   "topic": "Balletic hits and bicycle kicks: Teqball comes of age at the Asian Games | Sport | The Guardian",
+   "urls": [
+    "theguardian.com/sport/2026/sep/18/balletic-hits-and-bicycle-kicks-teqball-comes-of-age-at-the-asian-games"
+   ]
+  },
+  {
+   "angle": "Rediscovery of a vanished working‑class sport",
+   "central_knowledge_unit": "Rediscovering Knurr and Spell - Yorkshire's lost miners' game",
+   "claim": "Once a popular pastime across Yorkshire, the miners' game Knurr and Spell has all but disappeared from public knowledge. ... The game, also known as Nipsy, Piggy and Northern Spell, was predominantly played in mining communities in the 18th, 19th and early 20th centuries. ... There are many variations of the game, with different types of equipment used in localised versions across Yorkshire, Lancashire and the wider North of England. ... The game often took place on moorland but could be played in any area of green space. ... It is not certain when Knurr and Spell first started, and it is even less clear when the last competitive game was held - although the BBC did feature the world champio",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Sport",
+   "headline": "Yorkshire’s Forgotten Miners’ Game Knurr and Spell Resurfaces",
+   "image_status": "verified",
+   "message_id": 41,
+   "normalized_subject": "Rediscovering Knurr and Spell - Yorkshire's lost miners' game",
+   "posted_at": "2026-09-22T02:32:22.288714+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Forgotten Sport",
+   "topic": "Rediscovering Knurr and Spell - Yorkshire's lost miners' game",
+   "urls": [
+    "bbc.com/news/articles/cvgmvkygkz5o"
+   ]
+  },
+  {
+   "angle": "Challenging the lowland‑only origin paradigm by highlighting early highland involvement",
+   "central_knowledge_unit": "Origins of the Mesoamerican ballgame: Earliest ballcourt from the highlands found at Etlatongo, Oaxaca, Mexico | Science Advances",
+   "claim": "The ballgame represents one of the most enduring and iconic features of ancient Mesoamerican civilization, yet its origins and evolution remain poorly understood, primarily associated with the Gulf Coast and southern Pacific coastal lowlands. While one early ballcourt dates to 1650 BCE from the Chiapas lowlands, ballcourts have remained undocumented in the Mesoamerican highlands until a millennium later, suggesting less involvement by highland civilizations in the ballgame’s evolution. We provide new data from the southern highlands of Mexico, from the Early Formative period (1500–1000 BCE), that necessitate revising previous paradigms. Along with ballplayer imagery, we recently excavated th",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "Earliest Highland Mesoamerican Ballcourt Dated to 1374 BCE at Etlatongo",
+   "image_status": "unavailable",
+   "message_id": 42,
+   "normalized_subject": "Origins of the Mesoamerican ballgame: Earliest ballcourt from the highlands found at Etlatongo, Oaxaca, Mexico | Science Advances",
+   "posted_at": "2026-09-22T02:32:27.305652+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Sport Origin",
+   "topic": "Origins of the Mesoamerican ballgame: Earliest ballcourt from the highlands found at Etlatongo, Oaxaca, Mexico | Science Advances",
+   "urls": [
+    "science.org/doi/10.1126/sciadv.aay6964"
+   ]
+  },
+  {
+   "angle": "Historical origins and evolution of Euchre",
+   "central_knowledge_unit": "Euchre: historic card game described by David Parlett",
+   "claim": "the \"history\" of a game we can mean either (1) its origins and evolution, that is, everything that led up to its first appearance under its usual name, and (2) its practice and progress thereafter. This article is mainly about the origins and evolution of Euchre. For the rules of play, ... Five-trick games go back to the earliest period of European card games. The most prominent is Karnöffel [9], recorded as played in various German states and cities as early as 1426. Although no longer played in its original form or under its original name, studies of its surviving descendants (Kaiserspiel, etc) show that it was a four-player partnership game in which the aim was to win at least three of th",
+   "desk": "evergreen_v1",
+   "format": "Game Origin",
+   "headline": "Tracing Euchre’s Roots From 15th‑Century German Card Games",
+   "image_status": "verified",
+   "message_id": 43,
+   "normalized_subject": "Euchre: historic card game described by David Parlett",
+   "posted_at": "2026-09-22T02:33:03.901299+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Game Origin",
+   "topic": "Euchre: historic card game described by David Parlett",
+   "urls": [
+    "davidparlett.co.uk/histocs/euchre.html"
    ]
   }
  ],
@@ -2631,5 +2790,139 @@
     "title": "Yahtzee"
    }
   }
+ },
+ "v1": {
+  "created_at": "2026-09-22T02:28:26.596343+00:00",
+  "daily": {
+   "2026-09-22": {
+    "published_sectors": [
+     "Sports & Games People",
+     "Sport Discovery",
+     "First / Last / Only",
+     "Why Does This Happen?",
+     "New Sport Discovery",
+     "Forgotten Sport",
+     "Sport Origin",
+     "Game Origin"
+    ],
+    "run_ids": [
+     "2026-09-22-AM"
+    ]
+   }
+  },
+  "last_run_at": "2026-09-22T02:35:35.352612+00:00",
+  "live": {
+   "results": {
+    "event_ids": [
+     "b5ac03fb080bd242",
+     "ceb3ba3d25679023",
+     "449b6a95b0894848",
+     "c601953eb296fecd",
+     "30c02fff4ef4efef",
+     "aec4eb63d82679ad",
+     "f4ee291187127f70",
+     "6399c91d95f2fbb8"
+    ],
+    "message_id": 45,
+    "target_date": "2026-09-21",
+    "updated_at": "2026-09-22T02:35:35.349910+00:00"
+   },
+   "schedule": {
+    "event_ids": [
+     "0265549b10bfcc9f",
+     "49abbcf729f1d849",
+     "eda34602639c4a68",
+     "370e236011995137",
+     "47db7c9fdb97ba2b",
+     "1cbb682a68feb7cf",
+     "8c42e9388fc34acd",
+     "4a463bc7b7b646b1",
+     "9cfbedcb38bd5f2c",
+     "4dfdcd0c378fdb62",
+     "485b082e116fc4a6",
+     "92b7e6cfb084b7a8",
+     "49066cd1400adfa4",
+     "7a8979b4d0c1615a",
+     "2b58e06701ab8a80",
+     "c4a2a1f9a23efcdf"
+    ],
+    "message_id": 44,
+    "target_date": "2026-09-23",
+    "updated_at": "2026-09-22T02:35:35.349896+00:00"
+   }
+  },
+  "publication": {
+   "2026-09-22-AM:evergreen:1b9876df5dee9671": {
+    "message_id": 39,
+    "posted_at": "2026-09-22T02:32:14.385920+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:4d521630241d3770": {
+    "message_id": 43,
+    "posted_at": "2026-09-22T02:33:03.901034+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:5551d1540dd7e905": {
+    "message_id": 36,
+    "posted_at": "2026-09-22T02:32:00.038618+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:7976cfa3b17284ea": {
+    "message_id": 40,
+    "posted_at": "2026-09-22T02:32:18.379105+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:890ed5368e1661a8": {
+    "message_id": 42,
+    "posted_at": "2026-09-22T02:32:27.305319+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:afd2bdf4e6178946": {
+    "message_id": 38,
+    "posted_at": "2026-09-22T02:32:09.729523+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:cedc0467ccb337af": {
+    "message_id": 41,
+    "posted_at": "2026-09-22T02:32:22.288386+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:cfe0ef36d0434ef0": {
+    "message_id": 37,
+    "posted_at": "2026-09-22T02:32:05.104306+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:live_results:95c5fd8d85302478": {
+    "message_id": 45,
+    "posted_at": "2026-09-22T02:35:35.349869+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:live_schedule:fe12adf42b253cb0": {
+    "message_id": 44,
+    "posted_at": "2026-09-22T02:35:34.985240+00:00",
+    "status": "posted"
+   }
+  },
+  "runs": [
+   {
+    "at": "2026-09-22T02:35:35.352625+00:00",
+    "evergreen": 8,
+    "exit": 0,
+    "live_results": 45,
+    "live_schedule": 44,
+    "run_id": "2026-09-22-AM",
+    "used_sectors": [
+     "First / Last / Only",
+     "Forgotten Sport",
+     "Game Origin",
+     "New Sport Discovery",
+     "Sport Discovery",
+     "Sport Origin",
+     "Sports & Games People",
+     "Why Does This Happen?"
+    ]
+   }
+  ],
+  "schema": 1
  }
 }
