@@ -1,12 +1,15 @@
 {
  "ai": {
-  "last_ok": "2026-09-21T12:02:46.858226+00:00",
+  "last_error": "Cerebras per-run call cap reached (16)",
+  "last_ok": "2026-09-22T02:05:09.547787+00:00",
+  "last_request_id": "a3edbe33dd431d4c-IAD",
+  "last_status": 429,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-21T06:43:50.838439+00:00",
- "last_run_at": "2026-09-21T12:00:22.256659+00:00",
+ "last_run_at": "2026-09-22T02:07:36.375612+00:00",
  "ledger": {
   "day_in_sports:2026-09-20": {
    "attempts": 1,
@@ -81,6 +84,172 @@
    "topic": "Field sports",
    "urls": [
     "en.wikipedia.org/wiki/Field_sports"
+   ]
+  },
+  {
+   "angle": "Historical continuity of indigenous sport",
+   "central_knowledge_unit": "Ulama, a 3,400-year-old ballgame that survived in Mexico | AP News",
+   "claim": "Ulama de cadera is a living Sinaloan hip-ball variant that scholarship and Mexico’s cultural-heritage inventory characterize as a continuation of the Mesoamerican ballgame tradition. Its players use the hip/upper leg and a heavy natural-rubber ball. The approximately 3,400-year date is securely supported for an early formal Mesoamerican ballcourt at Paso de la Amada, not for a demonstrated 3,400-year unchanged history of the present-day Sinaloan game.",
+   "desk": "evergreen_v1",
+   "format": "Sport Discovery",
+   "headline": "Ulama: Ancient Hip‑Ball Game Endures in Sinaloa",
+   "image_status": "unavailable",
+   "message_id": 25,
+   "normalized_subject": "Ulama, a 3,400-year-old ballgame that survived in Mexico | AP News",
+   "posted_at": "2026-09-22T02:04:06.207254+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Sport Discovery",
+   "topic": "Ulama, a 3,400-year-old ballgame that survived in Mexico | AP News",
+   "urls": [
+    "apnews.com/article/mexico-ulama-prehispanic-ballgame-fifa-cup-3819e65e272d0360979a8cd2dd78b999",
+    "nature.com/articles/31837",
+    "elsevier.es/es-revista-anales-antropologia-95-pdf-download-S0185122515716450",
+    "sic.gob.mx/ficha.php?disciplina=&table=frpintangible&table_id=424",
+    "investigacion.inah.gob.mx/node/15074"
+   ]
+  },
+  {
+   "angle": "Revising the geographic narrative of the ballgame’s birth",
+   "central_knowledge_unit": "Origins of the Mesoamerican ballgame: Earliest ballcourt from the highlands found at Etlatongo, Oaxaca, Mexico | Science Advances",
+   "claim": "The ballgame represents one of the most enduring and iconic features of ancient Mesoamerican civilization, yet its origins and evolution remain poorly understood, primarily associated with the Gulf Coast and southern Pacific coastal lowlands. While one early ballcourt dates to 1650 BCE from the Chiapas lowlands, ballcourts have remained undocumented in the Mesoamerican highlands until a millennium later, suggesting less involvement by highland civilizations in the ballgame’s evolution. We provide new data from the southern highlands of Mexico, from the Early Formative period (1500–1000 BCE), that necessitate revising previous paradigms. Along with ballplayer imagery, we recently excavated th",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "Earliest Highland Mesoamerican Ballcourt Discovered at Etlatongo, Oaxaca",
+   "image_status": "unavailable",
+   "message_id": 26,
+   "normalized_subject": "Origins of the Mesoamerican ballgame: Earliest ballcourt from the highlands found at Etlatongo, Oaxaca, Mexico | Science Advances",
+   "posted_at": "2026-09-22T02:04:11.389725+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Sport Origin",
+   "topic": "Origins of the Mesoamerican ballgame: Earliest ballcourt from the highlands found at Etlatongo, Oaxaca, Mexico | Science Advances",
+   "urls": [
+    "science.org/doi/10.1126/sciadv.aay6964"
+   ]
+  },
+  {
+   "angle": "Historical continuity of gameplay and belief",
+   "central_knowledge_unit": "The History of Senet: 3,000 Years, Not One Rule | PlayNook",
+   "claim": "Senet is the oldest board game we have physical evidence for — though that claim has three different answers depending on what you mean by oldest. Boards turn up in Egyptian graves from around 3100 BC, and people were still playing it when the Romans arrived — a run of roughly three thousand years, longer than the gap between the last Egyptian player and today. ... more of this game than of almost any other object of daily ... A queen at the ... in her own ... . Four separate sets buried ... The earliest candidates are also the shakiest. Grids of thirty squares turn up in First Dynasty burials around 3100 BC, and a funerary slab from the same period appears to show two people at a board. Whe",
+   "desk": "evergreen_v1",
+   "format": "Interesting Game Fact",
+   "headline": "Senet: Egypt’s 3,000‑Year Board Game Legacy",
+   "image_status": "verified",
+   "message_id": 27,
+   "normalized_subject": "The History of Senet: 3,000 Years, Not One Rule | PlayNook",
+   "posted_at": "2026-09-22T02:04:15.309417+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Interesting Game Fact",
+   "topic": "The History of Senet: 3,000 Years, Not One Rule | PlayNook",
+   "urls": [
+    "playnook.io/blog/history-of-senet"
+   ]
+  },
+  {
+   "angle": "Historical significance and enduring appeal of the oldest known playable board game.",
+   "central_knowledge_unit": "Top 10 historical board games | British Museum",
+   "claim": ", like the ... of Ur, senet, w ... The Royal Game of Ur is the oldest playable boardgame in the world, originating around 4,600 years ago in ancient Mesopotamia. ... The game's rules were written on a cuneiform tablet by a Babylonian astronomer in 177 BC. From this, curator Irving Finkel was able to decipher the rules – two players compete to race their pieces from one end of the board to the other. The central squares were also used for fortune telling. ... Wari is a game of calculation and strategy played widely within West Africa and also popular elsewhere in the world – you might know it as mancala. ... Beloved by Tutankhamun and Queen Nefertari alike, senet is one of the earliest known ",
+   "desk": "evergreen_v1",
+   "format": "Game Origin",
+   "headline": "The Royal Game of Ur: World’s Oldest Playable Board Game",
+   "image_status": "unavailable",
+   "message_id": 28,
+   "normalized_subject": "Top 10 historical board games | British Museum",
+   "posted_at": "2026-09-22T02:04:20.010163+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Game Origin",
+   "topic": "Top 10 historical board games | British Museum",
+   "urls": [
+    "britishmuseum.org/blog/top-10-historical-board-games"
+   ]
+  },
+  {
+   "angle": "Historical legacy of the Olympic founder",
+   "central_knowledge_unit": "Pierre de Coubertin: Visionary and Founder of the Modern Olympics",
+   "claim": "Pierre de Coubertin: Visionary and Founder of the Modern Olympics ... ## Baron Pierre de Coubertin was only 1.62 metres tall, but by many measures, he was a giant of the 20th century. Born into the French aristocracy on 1 January 1863, he became a champion of the common man, embracing the values of France’s Third Republic liberty, equality, fraternity as a young adult. ... bertin set out ... to give French children what British students already had: sport in education. By the age of 25, he ... become a leader of French ... ##### At the 1889 Paris Universal Exposition, he organised the world’s first Congress on Physical Education and began to build the international network of educators, poli",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Pierre de Coubertin: The Aristocrat Who Revived the Olympic Games",
+   "image_status": "verified",
+   "message_id": 29,
+   "normalized_subject": "Pierre de Coubertin: Visionary and Founder of the Modern Olympics",
+   "posted_at": "2026-09-22T02:04:23.838841+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Sports & Games People",
+   "topic": "Pierre de Coubertin: Visionary and Founder of the Modern Olympics",
+   "urls": [
+    "olympics.com/ioc/pierre-de-coubertin"
+   ]
+  },
+  {
+   "angle": "Cultural heritage and the ingenuity of working‑class recreation",
+   "central_knowledge_unit": "Rediscovering Knurr and Spell - Yorkshire's lost miners' game",
+   "claim": "Once a popular pastime across Yorkshire, the miners' game Knurr and Spell has all but disappeared from public knowledge. ... The game, also known as Nipsy, Piggy and Northern Spell, was predominantly played in mining communities in the 18th, 19th and early 20th centuries. ... There are many variations of the game, with different types of equipment used in localised versions across Yorkshire, Lancashire and the wider North of England. ... The game often took place on moorland but could be played in any area of green space. ... It is not certain when Knurr and Spell first started, and it is even less clear when the last competitive game was held - although the BBC did feature the world champio",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Sport",
+   "headline": "Knurr and Spell: Yorkshire’s Forgotten Miners’ Game Revived",
+   "image_status": "verified",
+   "message_id": 30,
+   "normalized_subject": "Rediscovering Knurr and Spell - Yorkshire's lost miners' game",
+   "posted_at": "2026-09-22T02:04:27.905584+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Forgotten Sport",
+   "topic": "Rediscovering Knurr and Spell - Yorkshire's lost miners' game",
+   "urls": [
+    "bbc.com/news/articles/cvgmvkygkz5o"
+   ]
+  },
+  {
+   "angle": "Historical analysis of home‑field effects across multiple professional leagues",
+   "central_knowledge_unit": "Long-term trends in home advantage in professional team sports in North America and England (1876 – 2003): Journal of Sports Sciences: Vol 23, No 4",
+   "claim": "Home advantage is quantitatively defined and calculated for each season since the start of the main professional sports in North America and England. Over 400,000 games are analysed. The leagues represented are the National League (1876 – 2002) and American League (1901 – 2002) for baseball, the National Hockey League (1917 – 2003) for ice hockey, the National Football League (1933 – 2002) for American football, the National Basketball Association (1946 – 2003) for basketball, and the four levels of professional football, formerly called the Football League, in England (1888 – 2003). Problems caused by unbalanced playing schedules are considered. The results are presented graphically to show",
+   "desk": "evergreen_v1",
+   "format": "Interesting Sports Fact",
+   "headline": "Home Advantage Trends Across 400,000 North American and English Games",
+   "image_status": "verified",
+   "message_id": 31,
+   "normalized_subject": "Long-term trends in home advantage in professional team sports in North America and England (1876 – 2003): Journal of Sports Sciences: Vol 23, No 4",
+   "posted_at": "2026-09-22T02:04:31.919173+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Interesting Sports Fact",
+   "topic": "Long-term trends in home advantage in professional team sports in North America and England (1876 – 2003): Journal of Sports Sciences: Vol 23, No 4",
+   "urls": [
+    "tandfonline.com/doi/abs/10.1080/02640410400021559"
+   ]
+  },
+  {
+   "angle": "Scientific analysis of a historic football moment",
+   "central_knowledge_unit": "Roberto Carlos' Brazil free kick in 1997: The physics behind 'impossible' strike - ESPN",
+   "claim": "On June 3, 1997, Roberto Carlos stunned the world with one of the most spectacular free kicks in football history. The left-back scored the most famous goal of his career: an outrageous long-range free kick for Brazil in a 1-1 draw against France in the opening game of the 1997 Tournoi de France, a warm-up tournament ahead of the following year's World Cup. ... The strike left goalkeeper Fabien Barthez perplexed, as the ball apparently was heading well wide of the target and into the crowd. However, it swerved back, glanced the inside edge of the post, and stopped only when it hit the net. Two decades later, Roberto Carlos says he is still impressed when he sees footage of his kick. ... Robe",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "Roberto Carlos' 1997 Free‑Kick Still Baffles Physics Experts",
+   "image_status": "verified",
+   "message_id": 32,
+   "normalized_subject": "Roberto Carlos' Brazil free kick in 1997: The physics behind 'impossible' strike - ESPN",
+   "posted_at": "2026-09-22T02:04:50.925025+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "Why Does This Happen?",
+   "topic": "Roberto Carlos' Brazil free kick in 1997: The physics behind 'impossible' strike - ESPN",
+   "urls": [
+    "espn.com/soccer/story/_/id/37475858/physics-impossible-strike"
+   ]
+  },
+  {
+   "angle": "Sport innovation and rapid mainstream adoption",
+   "central_knowledge_unit": "Balletic hits and bicycle kicks: Teqball comes of age at the Asian Games | Sport | The Guardian",
+   "claim": "Invented a little over a decade ago in Hungary, teqball is a combination of football and ping pong ... Teqball was invented a little over a decade ago in Hungary, when two friends started playing football on a ping pong table, before going on to create the signature curved table the game is played on. ... The new sport is quickly entering the mainstream. This weekend it will debut at the Asian Games in Japan, after its historic inclusion at the European and African games, with ambitions to be an Olympic sport by 2032. ... Teams from 16 nations will be competing at the competition, which will also debut padel and virtual taekwondo, a non-contact sport using virtual reality headsets. ... Teqba",
+   "desk": "evergreen_v1",
+   "format": "New Sport Discovery",
+   "headline": "Teqball debuts at Asian Games, eyeing Olympic spot by 2032",
+   "image_status": "verified",
+   "message_id": 33,
+   "normalized_subject": "Balletic hits and bicycle kicks: Teqball comes of age at the Asian Games | Sport | The Guardian",
+   "posted_at": "2026-09-22T02:05:09.874791+00:00",
+   "run_id": "2026-09-22-AM",
+   "sector": "New Sport Discovery",
+   "topic": "Balletic hits and bicycle kicks: Teqball comes of age at the Asian Games | Sport | The Guardian",
+   "urls": [
+    "theguardian.com/sport/2026/sep/18/balletic-hits-and-bicycle-kicks-teqball-comes-of-age-at-the-asian-games"
    ]
   }
  ],
@@ -2631,5 +2800,146 @@
     "title": "Yahtzee"
    }
   }
+ },
+ "v1": {
+  "created_at": "2026-09-22T02:01:18.540829+00:00",
+  "daily": {
+   "2026-09-22": {
+    "published_sectors": [
+     "Sport Discovery",
+     "Sport Origin",
+     "Interesting Game Fact",
+     "Game Origin",
+     "Sports & Games People",
+     "Forgotten Sport",
+     "Interesting Sports Fact",
+     "Why Does This Happen?",
+     "New Sport Discovery"
+    ],
+    "run_ids": [
+     "2026-09-22-AM"
+    ]
+   }
+  },
+  "last_run_at": "2026-09-22T02:07:36.375587+00:00",
+  "live": {
+   "results": {
+    "event_ids": [
+     "b5ac03fb080bd242",
+     "ceb3ba3d25679023",
+     "449b6a95b0894848",
+     "c601953eb296fecd",
+     "30c02fff4ef4efef",
+     "aec4eb63d82679ad",
+     "f4ee291187127f70",
+     "6399c91d95f2fbb8"
+    ],
+    "message_id": 35,
+    "target_date": "2026-09-21",
+    "updated_at": "2026-09-22T02:07:36.372305+00:00"
+   },
+   "schedule": {
+    "event_ids": [
+     "0265549b10bfcc9f",
+     "49abbcf729f1d849",
+     "eda34602639c4a68",
+     "370e236011995137",
+     "47db7c9fdb97ba2b",
+     "1cbb682a68feb7cf",
+     "8c42e9388fc34acd",
+     "4a463bc7b7b646b1",
+     "9cfbedcb38bd5f2c",
+     "4dfdcd0c378fdb62",
+     "485b082e116fc4a6",
+     "92b7e6cfb084b7a8",
+     "49066cd1400adfa4",
+     "7a8979b4d0c1615a",
+     "2b58e06701ab8a80",
+     "c4a2a1f9a23efcdf"
+    ],
+    "message_id": 34,
+    "target_date": "2026-09-23",
+    "updated_at": "2026-09-22T02:07:36.372292+00:00"
+   }
+  },
+  "publication": {
+   "2026-09-22-AM:evergreen:1b9876df5dee9671": {
+    "message_id": 32,
+    "posted_at": "2026-09-22T02:04:50.924638+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:3081b446505f7fa3": {
+    "message_id": 28,
+    "posted_at": "2026-09-22T02:04:20.009829+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:4cd45c48728ef44b": {
+    "message_id": 31,
+    "posted_at": "2026-09-22T02:04:31.918739+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:5551d1540dd7e905": {
+    "message_id": 29,
+    "posted_at": "2026-09-22T02:04:23.838505+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:7976cfa3b17284ea": {
+    "message_id": 33,
+    "posted_at": "2026-09-22T02:05:09.874470+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:890ed5368e1661a8": {
+    "message_id": 26,
+    "posted_at": "2026-09-22T02:04:11.389422+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:bd5470bda3abc92a": {
+    "message_id": 27,
+    "posted_at": "2026-09-22T02:04:15.309146+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:cedc0467ccb337af": {
+    "message_id": 30,
+    "posted_at": "2026-09-22T02:04:27.905272+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:evergreen:cfe0ef36d0434ef0": {
+    "message_id": 25,
+    "posted_at": "2026-09-22T02:04:06.206937+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:live_results:95c5fd8d85302478": {
+    "message_id": 35,
+    "posted_at": "2026-09-22T02:07:36.372270+00:00",
+    "status": "posted"
+   },
+   "2026-09-22-AM:live_schedule:fe12adf42b253cb0": {
+    "message_id": 34,
+    "posted_at": "2026-09-22T02:07:36.063413+00:00",
+    "status": "posted"
+   }
+  },
+  "runs": [
+   {
+    "at": "2026-09-22T02:07:36.375596+00:00",
+    "evergreen": 9,
+    "exit": 0,
+    "live_results": 35,
+    "live_schedule": 34,
+    "run_id": "2026-09-22-AM",
+    "used_sectors": [
+     "Forgotten Sport",
+     "Game Origin",
+     "Interesting Game Fact",
+     "Interesting Sports Fact",
+     "New Sport Discovery",
+     "Sport Discovery",
+     "Sport Origin",
+     "Sports & Games People",
+     "Why Does This Happen?"
+    ]
+   }
+  ],
+  "schema": 1
  }
 }
