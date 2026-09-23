@@ -1,12 +1,15 @@
 {
  "ai": {
-  "last_ok": "2026-09-21T12:02:46.858226+00:00",
+  "last_error": "Cerebras per-run call cap reached (16)",
+  "last_ok": "2026-09-23T12:03:12.217565+00:00",
+  "last_request_id": "a3f9677e7ef9acd5-CMH",
+  "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-21T06:43:50.838439+00:00",
- "last_run_at": "2026-09-21T12:00:22.256659+00:00",
+ "last_run_at": "2026-09-23T12:05:25.561135+00:00",
  "ledger": {
   "day_in_sports:2026-09-20": {
    "attempts": 1,
@@ -81,6 +84,126 @@
    "topic": "Field sports",
    "urls": [
     "en.wikipedia.org/wiki/Field_sports"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "sports-king.com https://www.sports-king.com › complete-history-of-nfl-rule...",
+   "claim": "It was engineered, decade by decade, through deliberate rule changes designed to make the game safer, fairer and - above all - …",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "Decades of Rule Changes Shaped a Safer, Fairer NFL",
+   "image_status": "verified_external",
+   "message_id": 82,
+   "normalized_subject": "sports-king.com https://www.sports-king.com › complete-history-of-nfl-rule...",
+   "posted_at": "2026-09-23T12:01:50.988071+00:00",
+   "run_id": "2026-09-23-PM",
+   "sector": "Then vs Now",
+   "topic": "sports-king.com https://www.sports-king.com › complete-history-of-nfl-rule...",
+   "urls": [
+    "a1ahr0chm6ly93d3cuc3bvcnrzlwtpbmcuy29tl2nvbxbszxrllwhpc3rvcnktb2ytbmzslxj1bguty2hhbmdlcy5waha/",
+    "a1ahr0chm6ly93d3cubwvycmlhbs13zwjzdgvylmnvbs9kawn0aw9uyxj5l3rozw4/",
+    "a1ahr0chm6ly93d3cubwvycmlhbs13zwjzdgvylmnvbs9ncmftbwfyl3dozw4tdg8tdxnllxrozw4tyw5klxroyw4/"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "merriam-webster.com https:// www.merriam-webster.com › dictionary › unusual",
+   "claim": "3 days ago · The meaning of UNUSUAL is not usual: as. How to use unusual in a sentence.",
+   "desk": "evergreen_v1",
+   "format": "Sport Discovery",
+   "headline": "Understanding the True Meaning of “Unusual”",
+   "image_status": "verified_external",
+   "message_id": 83,
+   "normalized_subject": "merriam-webster.com https:// www.merriam-webster.com › dictionary › unusual",
+   "posted_at": "2026-09-23T12:01:56.636037+00:00",
+   "run_id": "2026-09-23-PM",
+   "sector": "Sport Discovery",
+   "topic": "merriam-webster.com https:// www.merriam-webster.com › dictionary › unusual",
+   "urls": [
+    "a1ahr0chm6ly93d3cubwvycmlhbs13zwjzdgvylmnvbs9kawn0aw9uyxj5l3vudxn1yww/",
+    "a1ahr0chm6ly9zcg9ydhmuewfob28uy29tlw/",
+    "a1ahr0chm6ly93d3cuzxnwbi5jb20v/"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "vocabulary.com https://www.vocabulary.com › dictionary › unusual",
+   "claim": "Something unusual is uncommon. It's odd, weird, or out of the ordinary in some way.",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "Understanding the Meaning of “Unusual” in Everyday Language",
+   "image_status": "verified_external",
+   "message_id": 84,
+   "normalized_subject": "vocabulary.com https://www.vocabulary.com › dictionary › unusual",
+   "posted_at": "2026-09-23T12:02:03.675126+00:00",
+   "run_id": "2026-09-23-PM",
+   "sector": "Game Discovery",
+   "topic": "vocabulary.com https://www.vocabulary.com › dictionary › unusual",
+   "urls": [
+    "a1ahr0chm6ly93d3cudm9jywj1bgfyes5jb20vzgljdglvbmfyes91bnvzdwfs/",
+    "a1ahr0chm6ly9wb2tplmnvbs8_bxnvy2tpzd0wytdhyjkxzmq3mtc2ogm0mzbkzgflyzjknjrhnjk2zq/",
+    "a1ahr0chm6ly93d3cuy3jhenlnyw1lcy5jb20v/"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "merriam-webster.com https:// www.merriam-webster.com › dictionary › official",
+   "claim": "6 days ago · The meaning of OFFICIAL is one who holds or is invested with an office : officer. How to use official in a sentence.",
+   "desk": "evergreen_v1",
+   "format": "Rule Check",
+   "headline": "Understanding the Meaning of “Official” in Everyday Language",
+   "image_status": "verified_external",
+   "message_id": 85,
+   "normalized_subject": "merriam-webster.com https:// www.merriam-webster.com › dictionary › official",
+   "posted_at": "2026-09-23T12:02:10.485990+00:00",
+   "run_id": "2026-09-23-PM",
+   "sector": "Rule Check",
+   "topic": "merriam-webster.com https:// www.merriam-webster.com › dictionary › official",
+   "urls": [
+    "a1ahr0chm6ly93d3cubwvycmlhbs13zwjzdgvylmnvbs9kawn0aw9uyxj5l29mzmljawfs/",
+    "a1ahr0chm6ly93d3cubwvycmlhbs13zwjzdgvylmnvbs9kawn0aw9uyxj5l3j1bgu/",
+    "a1ahr0chm6ly93d3cubwvycmlhbs13zwjzdgvylmnvbs90agvzyxvydxmvcnvszq/"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "merriam-webster.com https:// www.merriam-webster.com › dictionary › traditional",
+   "claim": "The meaning of TRADITIONAL is of or relating to tradition : consisting of or derived from tradition. How to use traditional in a sentence.",
+   "desk": "evergreen_v1",
+   "format": "Traditional / Regional Game",
+   "headline": "Understanding the Meaning of “Traditional” in Language",
+   "image_status": "verified_external",
+   "message_id": 86,
+   "normalized_subject": "merriam-webster.com https:// www.merriam-webster.com › dictionary › traditional",
+   "posted_at": "2026-09-23T12:02:31.832028+00:00",
+   "run_id": "2026-09-23-PM",
+   "sector": "Traditional / Regional Game",
+   "topic": "merriam-webster.com https:// www.merriam-webster.com › dictionary › traditional",
+   "urls": [
+    "a1ahr0chm6ly93d3cubwvycmlhbs13zwjzdgvylmnvbs9kawn0aw9uyxj5l3ryywrpdglvbmfs/",
+    "a1ahr0chm6ly9kawn0aw9uyxj5lmnhbwjyawrnzs5vcmcvzgljdglvbmfyes9lbmdsaxnol3ryywrpdglvbmfs/",
+    "a1ahr0chm6ly9lbi5tlndpa2lwzwrpys5vcmcvd2lras9ucmfkaxrpb24/"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "awardwallet.com https://awardwallet.com › travel › clear -plus-membership",
+   "claim": "Aug 27, 2026 · CLEAR+ offers expedited security through biometric verification. Here's how it works and if it's worth signing up for a …",
+   "desk": "evergreen_v1",
+   "format": "How to Play",
+   "headline": "CLEAR+ Uses Biometric Verification for Faster Airport Security",
+   "image_status": "verified_external",
+   "message_id": 87,
+   "normalized_subject": "awardwallet.com https://awardwallet.com › travel › clear -plus-membership",
+   "posted_at": "2026-09-23T12:03:13.809603+00:00",
+   "run_id": "2026-09-23-PM",
+   "sector": "How to Play",
+   "topic": "awardwallet.com https://awardwallet.com › travel › clear -plus-membership",
+   "urls": [
+    "a1ahr0chm6ly9hd2fyzhdhbgxldc5jb20vdhjhdmvsl2nszwfylxbsdxmtbwvtymvyc2hpcc8/",
+    "a1ahr0chm6ly9wbgf5lmdvb2dszs5jb20v/",
+    "a1ahr0chm6ly9wb2tplmnvbs8_bxnvy2tpzd0wytdhyjkxzmq3mtc2ogm0mzbkzgflyzjknjrhnjk2zq/"
    ]
   }
  ],
@@ -2631,5 +2754,129 @@
     "title": "Yahtzee"
    }
   }
+ },
+ "v1": {
+  "created_at": "2026-09-23T12:01:34.279190+00:00",
+  "daily": {
+   "2026-09-23": {
+    "published_sectors": [
+     "Then vs Now",
+     "Sport Discovery",
+     "Game Discovery",
+     "Rule Check",
+     "Traditional / Regional Game",
+     "How to Play"
+    ],
+    "run_ids": [
+     "2026-09-23-PM"
+    ]
+   }
+  },
+  "last_run_at": "2026-09-23T12:05:25.561107+00:00",
+  "live": {
+   "results": {
+    "event_ids": [
+     "92d92f37439fd84d",
+     "1529d09f52bcce29",
+     "4d1d407725b0eb14",
+     "27e821c145335832",
+     "bfbaf8a65335a4ab",
+     "237a80be35eb4a59",
+     "ab0a348b94329459"
+    ],
+    "message_id": 89,
+    "target_date": "2026-09-22",
+    "updated_at": "2026-09-23T12:05:25.556498+00:00"
+   },
+   "retiring_message_ids": [],
+   "schedule": {
+    "event_ids": [
+     "61fcbd5c4c2d407e",
+     "964aeae5815f2b78",
+     "abfcbb29fe0e2dc0",
+     "3e34396e7976123f",
+     "00be1c9e39927880",
+     "2d5ac563bf28c306",
+     "5e9a7c8c6a020fac",
+     "dbc75659506ddc7f",
+     "61364c2741116d1c",
+     "6a6c4c1e7f2a82b2",
+     "3fa3cd69dda4f6d8",
+     "3ef10047300b3c39",
+     "f60af1ae84d78c7d",
+     "c85d49a917522bfc",
+     "4bdf9665c7788bf0",
+     "e36d6cb9aa5fecfe",
+     "934e786aed8d73f6",
+     "4c3c5144a11c1f78",
+     "f00eb62ccca9b395",
+     "d47b628201f2153f"
+    ],
+    "message_id": 88,
+    "target_date": "2026-09-24",
+    "updated_at": "2026-09-23T12:05:25.556484+00:00"
+   }
+  },
+  "publication": {
+   "2026-09-23-PM:evergreen:04864ee9722d4078": {
+    "message_id": 84,
+    "posted_at": "2026-09-23T12:02:03.674933+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:172e138951add9c9": {
+    "message_id": 87,
+    "posted_at": "2026-09-23T12:03:13.809414+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:73b2193b2ad53c50": {
+    "message_id": 86,
+    "posted_at": "2026-09-23T12:02:31.831808+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:760be4dd96fc9d57": {
+    "message_id": 82,
+    "posted_at": "2026-09-23T12:01:50.987816+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:e3c104922857d2c8": {
+    "message_id": 85,
+    "posted_at": "2026-09-23T12:02:10.485758+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:eab58619f86a8cae": {
+    "message_id": 83,
+    "posted_at": "2026-09-23T12:01:56.635857+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:live_results:09ebecb868c2029b": {
+    "message_id": 89,
+    "posted_at": "2026-09-23T12:05:25.556457+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:live_schedule:0aedf287404bf642": {
+    "message_id": 88,
+    "posted_at": "2026-09-23T12:05:25.208324+00:00",
+    "status": "posted"
+   }
+  },
+  "runs": [
+   {
+    "at": "2026-09-23T12:05:25.561115+00:00",
+    "evergreen": 6,
+    "exit": 0,
+    "live_results": 89,
+    "live_schedule": 88,
+    "run_id": "2026-09-23-PM",
+    "used_sectors": [
+     "Game Discovery",
+     "How to Play",
+     "Rule Check",
+     "Sport Discovery",
+     "Then vs Now",
+     "Traditional / Regional Game"
+    ]
+   }
+  ],
+  "schema": 1
  }
 }
