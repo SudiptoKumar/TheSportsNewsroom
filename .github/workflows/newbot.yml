@@ -1,4 +1,4 @@
-name: TheSportsNewsroom V1
+name: TheSportsNewsroom V2.2
 
 on:
   schedule:
@@ -27,7 +27,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: the-sports-newsroom-v1
+  group: the-sports-newsroom-v2-2
   cancel-in-progress: false
 
 jobs:
@@ -56,6 +56,14 @@ jobs:
       V1_AGENT_MAX_CASES: "2"
       V1_AGENT_TIMEOUT_SECONDS: "120"
       V1_SEARCH_DELAY_SECONDS: "0.15"
+      NORMAL_SEARCH_RESULTS: "6"
+      NORMAL_SEARCH_FALLBACK_MIN: "3"
+      NORMAL_SEARCH_TIMEOUT: "15"
+      IMAGE_SEARCH_RESULTS: "6"
+      IMAGE_SEARCH_TIMEOUT: "12"
+      IMAGE_PAGE_MAX_BYTES: "512000"
+      IMAGE_MIN_RELEVANCE: "0.10"
+      MAX_IMAGE_BYTES: "10000000"
       V1_CONTENTS_CHARS: "9000"
       V1_RANK_MAX_CANDIDATES: "20"
       V1_RANK_MAX_TOKENS: "700"
@@ -79,7 +87,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Verify V1 repository structure
+      - name: Verify V2.2 repository structure
         run: |
           set -euo pipefail
           for f in \
@@ -102,17 +110,17 @@ jobs:
           python -m json.tool schemas/exa_agent_hard_case_v1.json >/dev/null
           python main.py --version
 
-      - name: Validate V1 production configuration
+      - name: Validate V2.2 production configuration
         if: ${{ env.BOT_MODE == 'run' || env.BOT_MODE == 'dry-run' }}
         run: python main.py --validate-config
 
-      - name: V1 offline contract and regression tests
+      - name: V2.2 offline contract and regression tests
         run: |
           set -euo pipefail
           python main.py --self-test --fast
           python -m unittest discover -s tests -v
 
-      - name: Run TheSportsNewsroom V1
+      - name: Run TheSportsNewsroom V2.2
         if: ${{ env.BOT_MODE != 'self-test' }}
         run: |
           set -euo pipefail
@@ -137,7 +145,7 @@ jobs:
           fi
 
           git diff --cached --stat
-          git commit -m "Update TheSportsNewsroom V1 state"
+          git commit -m "Update TheSportsNewsroom V2.2 state"
           for attempt in 1 2 3 4; do
             if git push; then
               exit 0

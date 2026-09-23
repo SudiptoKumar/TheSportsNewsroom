@@ -1,0 +1,2635 @@
+{
+ "ai": {
+  "last_ok": "2026-09-21T12:02:46.858226+00:00",
+  "mode": "json_schema",
+  "model": "gpt-oss-120b"
+ },
+ "alerts": {},
+ "created_at": "2026-09-21T06:43:50.838439+00:00",
+ "last_run_at": "2026-09-21T12:00:22.256659+00:00",
+ "ledger": {
+  "day_in_sports:2026-09-20": {
+   "attempts": 1,
+   "desk": "day_in_sports",
+   "error": "",
+   "message_id": 9,
+   "posted_at": "2026-09-21T12:01:19.413940+00:00",
+   "status": "posted",
+   "target": "2026-09-20",
+   "updated_at": "2026-09-21T12:01:19.413947+00:00"
+  },
+  "evergreen:2026-09-21:1": {
+   "attempts": 1,
+   "desk": "evergreen_1",
+   "error": "",
+   "message_id": 11,
+   "posted_at": "2026-09-21T12:02:48.513106+00:00",
+   "status": "posted",
+   "target": "2026-09-21",
+   "updated_at": "2026-09-21T12:02:48.513113+00:00"
+  },
+  "on_this_date:2026-09-21": {
+   "attempts": 1,
+   "desk": "on_this_date",
+   "error": "",
+   "message_id": 10,
+   "posted_at": "2026-09-21T12:02:04.989601+00:00",
+   "status": "posted",
+   "target": "2026-09-21",
+   "updated_at": "2026-09-21T12:02:04.989610+00:00"
+  }
+ },
+ "posts": [
+  {
+   "angle": "past",
+   "claim": "past:2026-09-20",
+   "day": "2026-09-21",
+   "desk": "past",
+   "format": "daily_past",
+   "fp": "8af9684126e221ec",
+   "headline": "THE DAY IN SPORTS · 20 SEPTEMBER 2026",
+   "message_id": 9,
+   "posted_at": "2026-09-21T12:01:19.413917+00:00",
+   "topic": "digest",
+   "urls": []
+  },
+  {
+   "angle": "anniversary",
+   "claim": "The first Monday Night Football game is between the Cleveland Browns and the New York Jets.",
+   "day": "2026-09-21",
+   "desk": "history",
+   "format": "on_this_date",
+   "fp": "b1eb597207f87cc5",
+   "headline": "Monday Night Football debuted 56 years ago with Browns vs. Jets",
+   "message_id": 10,
+   "posted_at": "2026-09-21T12:02:04.989575+00:00",
+   "topic": "Monday_Night_Football",
+   "urls": [
+    "en.wikipedia.org/wiki/Monday_Night_Football"
+   ]
+  },
+  {
+   "angle": "evolution",
+   "claim": "Field sports in the United Kingdom are rooted in 19th‑century English countryside traditions, with participants often wearing British country clothing to imitate the landed gentry of that era.",
+   "day": "2026-09-21",
+   "desk": "evergreen",
+   "format": "history",
+   "fp": "93990ada07d70cec",
+   "headline": "British country attire keeps 19th‑century spirit alive in UK field sports",
+   "message_id": 11,
+   "posted_at": "2026-09-21T12:02:48.513071+00:00",
+   "topic": "Field sports",
+   "urls": [
+    "en.wikipedia.org/wiki/Field_sports"
+   ]
+  }
+ ],
+ "runs": [
+  {
+   "ai_calls": 24,
+   "at": "2026-09-21T12:00:22.256659+00:00",
+   "due": [
+    "day_in_sports",
+    "on_this_date",
+    "evergreen_1",
+    "evergreen_2"
+   ],
+   "errors": [],
+   "exit": 0,
+   "posted": 3
+  }
+ ],
+ "schema_version": 3,
+ "source_health": {
+  "cerebras": {
+   "fail": 17,
+   "last_error": "HTTP 429: {\"message\":\"Requests per minute limit exceeded - too many requests sent.\",\"type\":\"too_many_requests_error\",\"param\":\"quota\",\"code\":\"request_quota_exceeded\"}",
+   "last_ok_at": "2026-09-21T12:00:22.256659+00:00",
+   "ok": 7
+  },
+  "espn": {
+   "fail": 153,
+   "last_error": "HTTP 403: <HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;site&#46;api&#46;espn&#46;com&#47;apis&#47;site&#47;v2&#47;spor",
+   "last_ok_at": "",
+   "ok": 0
+  },
+  "exa": {
+   "fail": 0,
+   "last_error": "",
+   "last_ok_at": "2026-09-21T12:00:22.256659+00:00",
+   "ok": 1
+  },
+  "rss:BBC Sport": {
+   "fail": 0,
+   "last_error": "",
+   "last_ok_at": "2026-09-21T12:00:22.256659+00:00",
+   "ok": 1
+  },
+  "rss:ESPN": {
+   "fail": 0,
+   "last_error": "",
+   "last_ok_at": "2026-09-21T12:00:22.256659+00:00",
+   "ok": 1
+  },
+  "rss:Sky Sports": {
+   "fail": 0,
+   "last_error": "",
+   "last_ok_at": "2026-09-21T12:00:22.256659+00:00",
+   "ok": 1
+  },
+  "rss:The Guardian": {
+   "fail": 0,
+   "last_error": "",
+   "last_ok_at": "2026-09-21T12:00:22.256659+00:00",
+   "ok": 1
+  },
+  "telegram": {
+   "fail": 0,
+   "last_error": "",
+   "last_ok_at": "2026-09-21T12:00:22.256659+00:00",
+   "ok": 3
+  },
+  "thesportsdb": {
+   "fail": 0,
+   "last_error": "",
+   "last_ok_at": "2026-09-21T12:00:22.256659+00:00",
+   "ok": 26
+  },
+  "wikipedia": {
+   "fail": 0,
+   "last_error": "",
+   "last_ok_at": "2026-09-21T12:00:22.256659+00:00",
+   "ok": 20
+  },
+  "wikipedia_otd": {
+   "fail": 0,
+   "last_error": "",
+   "last_ok_at": "2026-09-21T12:00:22.256659+00:00",
+   "ok": 1
+  }
+ },
+ "topics": {
+  "last_refresh": "2026-09-21T12:02:08.305184+00:00",
+  "per_topic": {
+   "field-sports": {
+    "angles": {
+     "evolution": 1
+    },
+    "count": 1,
+    "fails": 0,
+    "formats": {},
+    "last_at": "2026-09-21T12:02:48.513100+00:00"
+   }
+  },
+  "pool": {
+   "7-wonders-board-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "7 Wonders (board game)"
+   },
+   "abalone-board-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Abalone (board game)"
+   },
+   "accasta": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Accasta"
+   },
+   "alkkagi": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Alkkagi"
+   },
+   "american-football": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "American football"
+   },
+   "ampe-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Ampe (game)"
+   },
+   "animal-husbandry-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Animal Husbandry (game)"
+   },
+   "ante-over": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Ante Over"
+   },
+   "archery": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Archery"
+   },
+   "arctic-sports": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Arctic sports"
+   },
+   "arimaa": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Arimaa"
+   },
+   "asalto": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Asalto"
+   },
+   "association-football": {
+    "kind": "sport",
+    "pop": 1.6,
+    "seed": true,
+    "title": "Association football"
+   },
+   "astronomical-chess": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Astronomical chess"
+   },
+   "asturian-bowling": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Asturian bowling"
+   },
+   "athletics-sport": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Athletics (sport)"
+   },
+   "australian-rules-football": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Australian rules football"
+   },
+   "azul-board-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Azul (board game)"
+   },
+   "backgammon": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Backgammon"
+   },
+   "badminton": {
+    "kind": "sport",
+    "pop": 1.6,
+    "seed": true,
+    "title": "Badminton"
+   },
+   "ball-badminton": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Ball badminton"
+   },
+   "ball-game": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Ball game"
+   },
+   "balle-la-main": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Balle à la main"
+   },
+   "ballon-au-poing": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Ballon au poing"
+   },
+   "bamboo-gun": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Bamboo gun"
+   },
+   "bandy": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Bandy"
+   },
+   "barrel-of-monkeys": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Barrel of Monkeys"
+   },
+   "baseball": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Baseball"
+   },
+   "basketball": {
+    "kind": "sport",
+    "pop": 1.6,
+    "seed": true,
+    "title": "Basketball"
+   },
+   "basque-pelota": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Basque pelota"
+   },
+   "basque-rural-sports": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Basque rural sports"
+   },
+   "battle-dome-toy": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Battle Dome (toy)"
+   },
+   "battle-sheep": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Battle Sheep"
+   },
+   "battledore-and-shuttlecock": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Battledore and shuttlecock"
+   },
+   "battleship-game": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Battleship (game)"
+   },
+   "beach-tennis": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Beach tennis"
+   },
+   "beep-baseball": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Beep baseball"
+   },
+   "beer-die": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Beer die"
+   },
+   "beetle-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Beetle (game)"
+   },
+   "beikou": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Beikou"
+   },
+   "bengali-traditional-games": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Bengali traditional games"
+   },
+   "bentley-fortissimo": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Bentley Fortissimo"
+   },
+   "bergnein": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Bergnein"
+   },
+   "biathlon": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Biathlon"
+   },
+   "bidou": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Bidou"
+   },
+   "bingo": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Bingo"
+   },
+   "black-path-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Black Path Game"
+   },
+   "bladderball": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Bladderball"
+   },
+   "blockbusting-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Blockbusting (game)"
+   },
+   "blood-rage-board-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Blood Rage (board game)"
+   },
+   "bo-bing-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Bo Bing (game)"
+   },
+   "boardgame-players-association": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Boardgame Players Association"
+   },
+   "boccia": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Boccia"
+   },
+   "bowling": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Bowling"
+   },
+   "box-hockey": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Box hockey"
+   },
+   "boxing": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Boxing"
+   },
+   "br-nnbollscupen": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Brännbollscupen"
+   },
+   "broomball": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Broomball"
+   },
+   "bullfighting": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Bullfighting"
+   },
+   "bunco": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Bunco"
+   },
+   "buzkashi": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Buzkashi"
+   },
+   "cacho-bolivian-dice-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Cacho (Bolivian dice game)"
+   },
+   "cammag": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Cammag"
+   },
+   "canoe-polo": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Canoe polo"
+   },
+   "captain-action": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Captain Action"
+   },
+   "capture-the-flag": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Capture the flag"
+   },
+   "carcassonne-board-game": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Carcassonne (board game)"
+   },
+   "card-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Card game"
+   },
+   "cardroom": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Cardroom"
+   },
+   "carrom": {
+    "kind": "game",
+    "pop": 1.6,
+    "seed": true,
+    "title": "Carrom"
+   },
+   "carved-stone-balls": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Carved stone balls"
+   },
+   "catan": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Catan"
+   },
+   "catch-the-hare": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Catch the hare"
+   },
+   "ceki": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Ceki"
+   },
+   "charades": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Charades"
+   },
+   "chaturanga": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Chaturanga"
+   },
+   "check-pattern": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Check (pattern)"
+   },
+   "cherokee-marbles": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Cherokee marbles"
+   },
+   "chess": {
+    "kind": "game",
+    "pop": 1.6,
+    "seed": true,
+    "title": "Chess"
+   },
+   "chessplus": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Chessplus"
+   },
+   "chickapig": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Chickapig"
+   },
+   "chilean-rodeo": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Chilean rodeo"
+   },
+   "chinese-wall-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Chinese wall (game)"
+   },
+   "chingona": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Chingona"
+   },
+   "choboichi": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Choboichi"
+   },
+   "choctaw-stickball": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Choctaw stickball"
+   },
+   "choko-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Choko (game)"
+   },
+   "chopsticks-hand-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Chopsticks (hand game)"
+   },
+   "chor-police-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Chor Police (game)"
+   },
+   "chuck-a-luck": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Chuck-a-luck"
+   },
+   "circle-rules-football": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Circle rules football"
+   },
+   "clans-board-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Clans (board game)"
+   },
+   "cluedo": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Cluedo"
+   },
+   "cnapan": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Cnapan"
+   },
+   "cocky-laura": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Cocky laura"
+   },
+   "coconut-shell-walking": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Coconut-shell walking"
+   },
+   "codenames-board-game": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Codenames (board game)"
+   },
+   "color-war": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Color war"
+   },
+   "colt-express": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Colt Express"
+   },
+   "combat-archery": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Combat archery"
+   },
+   "composite-rules-shinty-hurling": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Composite rules shinty–hurling"
+   },
+   "connect-4x4": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Connect 4x4"
+   },
+   "connect-four": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Connect Four"
+   },
+   "conspirateurs": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Conspirateurs"
+   },
+   "contract-bridge": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Contract bridge"
+   },
+   "cosmic-wimpout": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Cosmic Wimpout"
+   },
+   "crab-soccer": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Crab soccer"
+   },
+   "craps": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Craps"
+   },
+   "cribbage": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Cribbage"
+   },
+   "cricket": {
+    "kind": "sport",
+    "pop": 1.6,
+    "seed": true,
+    "title": "Cricket"
+   },
+   "cricket-world-cup": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Cricket World Cup"
+   },
+   "crossings-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Crossings (game)"
+   },
+   "crossminton": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Crossminton"
+   },
+   "crossword": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Crossword"
+   },
+   "crown-and-anchor": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Crown and anchor"
+   },
+   "cuju": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Cuju"
+   },
+   "cup-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Cup game"
+   },
+   "curling": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Curling"
+   },
+   "cycle-polo": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Cycle polo"
+   },
+   "cycling": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Cycling"
+   },
+   "dablot-prejjesne": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Dablot Prejjesne"
+   },
+   "dameo": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Dameo"
+   },
+   "dao-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Dao (game)"
+   },
+   "dara-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Dara (game)"
+   },
+   "darts": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Darts"
+   },
+   "decathlon": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Decathlon"
+   },
+   "digor-sports": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Digor (sports)"
+   },
+   "dobble": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Dobble"
+   },
+   "dominoes": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Dominoes"
+   },
+   "don-t-go-to-jail": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Don't Go to Jail"
+   },
+   "door-knocking-prank": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Door-knocking prank"
+   },
+   "downside-ball-game": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Downside ball game"
+   },
+   "draughts": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Draughts"
+   },
+   "dress-up": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Dress-up"
+   },
+   "dribbling": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Dribbling"
+   },
+   "drop-dead-dice-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Drop dead (dice game)"
+   },
+   "english-draughts": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "English draughts"
+   },
+   "epaminondas-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Epaminondas (game)"
+   },
+   "episkyros": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Episkyros"
+   },
+   "ethnosport-cultural-festival": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Ethnosport Cultural Festival"
+   },
+   "eurogame": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Eurogame"
+   },
+   "everdell": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Everdell"
+   },
+   "fanorona": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Fanorona"
+   },
+   "farkle": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Farkle"
+   },
+   "feed-the-kraken": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Feed the Kraken"
+   },
+   "felli": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Felli"
+   },
+   "fencing": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Fencing"
+   },
+   "festival-permainan-malaysia": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Festival Permainan Malaysia"
+   },
+   "fetaix": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Fetaix"
+   },
+   "field-hockey": {
+    "kind": "sport",
+    "pop": 1.6,
+    "seed": true,
+    "title": "Field hockey"
+   },
+   "field-sports": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Field sports"
+   },
+   "fields-of-action": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Fields of Action"
+   },
+   "fierljeppen": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Fierljeppen"
+   },
+   "fifa-world-cup": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "FIFA World Cup"
+   },
+   "final-girl-board-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Final Girl (board game)"
+   },
+   "fingerkloppe": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Fingerkloppe"
+   },
+   "finnish-skittles": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Finnish skittles"
+   },
+   "fistball": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Fistball"
+   },
+   "five-field-kono": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Five-field kono"
+   },
+   "fizz-buzz": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Fizz buzz"
+   },
+   "flames-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "FLAMES (game)"
+   },
+   "flickerball": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Flickerball"
+   },
+   "floor-hockey": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Floor hockey"
+   },
+   "foot-hockey": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Foot hockey"
+   },
+   "footbag-net": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Footbag net"
+   },
+   "formula-one": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Formula One"
+   },
+   "four-corners-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Four corners (game)"
+   },
+   "frescobol": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Frescobol"
+   },
+   "frisian-draughts": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Frisian draughts"
+   },
+   "frontenis": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Frontenis"
+   },
+   "fruit-basket-turnover": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Fruit Basket Turnover"
+   },
+   "futsal": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Futsal"
+   },
+   "gaelic-football": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Gaelic football"
+   },
+   "gaelic-games": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Gaelic games"
+   },
+   "gaga-game": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Gaga (game)"
+   },
+   "game-for-fame": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Game For Fame"
+   },
+   "game-of-graces": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Game of graces"
+   },
+   "giganten-board-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Giganten (board game)"
+   },
+   "glossary-of-card-game-terms": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Glossary of card game terms"
+   },
+   "go-game": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Go (game)"
+   },
+   "goal-sports": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Goal (sports)"
+   },
+   "goalball": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Goalball"
+   },
+   "gobblet": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Gobblet"
+   },
+   "golf": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Golf"
+   },
+   "gonnect": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Gonnect"
+   },
+   "gossaum": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Gossaum"
+   },
+   "gounki": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Gounki"
+   },
+   "guanniu": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Guanniu"
+   },
+   "gymnastics": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Gymnastics"
+   },
+   "half-time": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Half-time"
+   },
+   "handball": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Handball"
+   },
+   "hat-diviyan-keliya": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Hat diviyan keliya"
+   },
+   "hearts-card-game": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Hearts (card game)"
+   },
+   "highland-games": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Highland games"
+   },
+   "hill-dill-over-the-hill": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Hill, dill, over the hill"
+   },
+   "hnefatafl": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Hnefatafl"
+   },
+   "hocker-sport": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Hocker (sport)"
+   },
+   "hopscotch": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Hopscotch"
+   },
+   "horseball": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Horseball"
+   },
+   "house-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "House (game)"
+   },
+   "hurling": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Hurling"
+   },
+   "i-spy": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "I spy"
+   },
+   "ice-hockey": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Ice hockey"
+   },
+   "ice-sledge-racing": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Ice sledge racing"
+   },
+   "imaginary-friend": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Imaginary friend"
+   },
+   "indian-and-jackrabbits": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Indian and jackrabbits"
+   },
+   "indigo-board-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Indigo (board game)"
+   },
+   "infinite-chess": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Infinite chess"
+   },
+   "intercrosse": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Intercrosse"
+   },
+   "istanbul-board-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Istanbul (board game)"
+   },
+   "italian-damone": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Italian Damone"
+   },
+   "janggi": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Janggi"
+   },
+   "jegichagi": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Jegichagi"
+   },
+   "jenga": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Jenga"
+   },
+   "jeu-de-marseille": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Jeu de Marseille"
+   },
+   "jeu-de-paume": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Jeu de paume"
+   },
+   "jokari": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Jokari"
+   },
+   "jombola": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Jombola"
+   },
+   "judo": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Judo"
+   },
+   "juggling": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Juggling"
+   },
+   "jul-gonu": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Jul-gonu"
+   },
+   "jwibullori": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Jwibullori"
+   },
+   "kabaddi": {
+    "kind": "sport",
+    "pop": 1.6,
+    "seed": true,
+    "title": "Kabaddi"
+   },
+   "karate": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Karate"
+   },
+   "kazakh-wrestling": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Kazakh wrestling"
+   },
+   "keep-away": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Keep away"
+   },
+   "ker-t-zein": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Kerētízein"
+   },
+   "kercang": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Kercang"
+   },
+   "kho-kho": {
+    "kind": "sport",
+    "pop": 1.6,
+    "seed": true,
+    "title": "Kho kho"
+   },
+   "kick-to-kick": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Kick-to-kick"
+   },
+   "kickball": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Kickball"
+   },
+   "kim-s-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Kim's Game"
+   },
+   "kingdom-builder": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Kingdom Builder"
+   },
+   "kingdomino": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Kingdomino"
+   },
+   "kismet-dice-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Kismet (dice game)"
+   },
+   "knock-down-barns": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Knock Down Barns"
+   },
+   "lacrosse": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Lacrosse"
+   },
+   "las-vegas-board-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Las Vegas (board game)"
+   },
+   "long-nardy": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Long Nardy"
+   },
+   "longue-paume": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Longue paume"
+   },
+   "loofball": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Loofball"
+   },
+   "ludo": {
+    "kind": "game",
+    "pop": 1.6,
+    "seed": true,
+    "title": "Ludo"
+   },
+   "mafia-party-game": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Mafia (party game)"
+   },
+   "mahjong": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Mahjong"
+   },
+   "mancala": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Mancala"
+   },
+   "marathon": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Marathon"
+   },
+   "marbles": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Marbles"
+   },
+   "matkot": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Matkot"
+   },
+   "mexico-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Mexico (game)"
+   },
+   "mheibes": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Mheibes"
+   },
+   "miniten": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Miniten"
+   },
+   "mixed-doubles": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Mixed doubles"
+   },
+   "mixed-martial-arts": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Mixed martial arts"
+   },
+   "monopoly-game": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Monopoly (game)"
+   },
+   "mother-may-i": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Mother may I?"
+   },
+   "motoball": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Motoball"
+   },
+   "mr-bucket": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Mr. Bucket"
+   },
+   "murus-gallicus-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Murus Gallicus (game)"
+   },
+   "mutschel": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Mutschel"
+   },
+   "mutschelspiele": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Mutschelspiele"
+   },
+   "net-and-wall-games": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Net and wall games"
+   },
+   "netball": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Netball"
+   },
+   "newcomb-ball": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Newcomb ball"
+   },
+   "nine-men-s-morris": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Nine men's morris"
+   },
+   "ollo-in-the-sunny-valley-fair": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Ollo in the Sunny Valley Fair"
+   },
+   "olympic-games": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Olympic Games"
+   },
+   "one-wall-paddleball": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "One wall paddleball"
+   },
+   "p-tanque": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Pétanque"
+   },
+   "pachisi": {
+    "kind": "game",
+    "pop": 1.6,
+    "seed": true,
+    "title": "Pachisi"
+   },
+   "padbol": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Padbol"
+   },
+   "paddle-ball-sport": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Paddle ball (sport)"
+   },
+   "paddle-tennis": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Paddle tennis"
+   },
+   "palin-game": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Palin (game)"
+   },
+   "palla-game": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Palla (game)"
+   },
+   "pandemic-board-game": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Pandemic (board game)"
+   },
+   "paper-chase-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Paper chase (game)"
+   },
+   "para-balloon": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Para-balloon"
+   },
+   "para-hockey": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Para hockey"
+   },
+   "passe-dix": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Passe-dix"
+   },
+   "patac": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Patacó"
+   },
+   "patintero": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Patintero"
+   },
+   "patolli": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Patolli"
+   },
+   "pelota-mixteca": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Pelota mixteca"
+   },
+   "pentathlon": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Pentathlon"
+   },
+   "pes-pallo": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Pesäpallo"
+   },
+   "petals-around-the-rose": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Petals around the rose"
+   },
+   "pick-up-sticks": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Pick-up sticks"
+   },
+   "pickleball": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Pickleball"
+   },
+   "pictionary": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Pictionary"
+   },
+   "pilolo": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Pilolo"
+   },
+   "pinners": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Pinners"
+   },
+   "planetarium-board-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Planetarium (board game)"
+   },
+   "platform-tennis": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Platform tennis"
+   },
+   "playing-card": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Playing card"
+   },
+   "poker": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Poker"
+   },
+   "polo": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Polo"
+   },
+   "presto-magix": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Presto Magix"
+   },
+   "pugasaing": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Pugasaing"
+   },
+   "qianball": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Qianball"
+   },
+   "quidditch-real-life-sport": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Quidditch (real-life sport)"
+   },
+   "racketlon": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Racketlon"
+   },
+   "rackets-sport": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Rackets (sport)"
+   },
+   "racquetball": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Racquetball"
+   },
+   "rattle-and-snap-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Rattle and snap (game)"
+   },
+   "real-tennis": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Real tennis"
+   },
+   "reversed-front": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Reversed Front"
+   },
+   "reversi": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Reversi"
+   },
+   "rig-a-jig-jig": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Rig-a-Jig-Jig"
+   },
+   "ringball": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Ringball"
+   },
+   "rink-bandy": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Rink bandy"
+   },
+   "rinkball": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Rinkball"
+   },
+   "risk-game": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Risk (game)"
+   },
+   "ritinis": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Ritinis"
+   },
+   "rock-paper-scissors": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Rock paper scissors"
+   },
+   "roll-for-the-galaxy": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Roll for the Galaxy"
+   },
+   "roller-derby": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Roller derby"
+   },
+   "rowing-sport": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Rowing (sport)"
+   },
+   "royal-game-of-ur": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Royal Game of Ur"
+   },
+   "rubik-s-cube": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Rubik's Cube"
+   },
+   "rugby-league": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Rugby league"
+   },
+   "rugby-union": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Rugby union"
+   },
+   "rummy": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Rummy"
+   },
+   "russian-four-square": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Russian four square"
+   },
+   "sa-ro": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Sa'-ro"
+   },
+   "sailing": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Sailing"
+   },
+   "savika": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Savika"
+   },
+   "scrabble": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Scrabble"
+   },
+   "scribbage": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Scribbage"
+   },
+   "senet": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Senet"
+   },
+   "sepak-takraw": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Sepak takraw"
+   },
+   "sevens-elevens-and-doubles": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Sevens, elevens, and doubles"
+   },
+   "shasn": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Shasn"
+   },
+   "shogi": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Shogi"
+   },
+   "shut-the-box": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Shut the box"
+   },
+   "skateboarding": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Skateboarding"
+   },
+   "ski-seat": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Ski seat"
+   },
+   "snakes-and-ladders": {
+    "kind": "game",
+    "pop": 1.6,
+    "seed": true,
+    "title": "Snakes and ladders"
+   },
+   "snooker": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Snooker"
+   },
+   "social-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Social game"
+   },
+   "soft-tennis": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Soft tennis"
+   },
+   "solitaire": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Solitaire"
+   },
+   "spades-card-game": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Spades (card game)"
+   },
+   "speed-ball": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Speed-ball"
+   },
+   "sphairee": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Sphairee"
+   },
+   "sport-in-kurdistan": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Sport in Kurdistan"
+   },
+   "squash-57": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Squash 57"
+   },
+   "squash-sport": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Squash (sport)"
+   },
+   "squash-tennis": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Squash tennis"
+   },
+   "stick": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Stické"
+   },
+   "stratego": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Stratego"
+   },
+   "sudoku": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Sudoku"
+   },
+   "summoner-wars-card-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Summoner Wars (card game)"
+   },
+   "sumo": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Sumo"
+   },
+   "super-trunfo": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Super Trunfo"
+   },
+   "superpower-board-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Superpower (board game)"
+   },
+   "surfing": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Surfing"
+   },
+   "swimming-sport": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Swimming (sport)"
+   },
+   "swipe-dice-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Swipe (dice game)"
+   },
+   "swiss-national-sports": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Swiss national sports"
+   },
+   "sygo": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Sygo"
+   },
+   "table-tennis": {
+    "kind": "sport",
+    "pop": 1.6,
+    "seed": true,
+    "title": "Table tennis"
+   },
+   "taekwondo": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Taekwondo"
+   },
+   "tangram": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Tangram"
+   },
+   "tennis": {
+    "kind": "sport",
+    "pop": 1.6,
+    "seed": true,
+    "title": "Tennis"
+   },
+   "tessera-lusoria": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Tessera lusoria"
+   },
+   "thai-traditional-games": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Thai traditional games"
+   },
+   "the-game-dice-game": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "The Game (dice game)"
+   },
+   "three-man": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Three man"
+   },
+   "tic-tac-toe": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Tic-tac-toe"
+   },
+   "ticket-to-ride-board-game": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Ticket to Ride (board game)"
+   },
+   "tien-gow": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Tien Gow"
+   },
+   "tiyakad": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Tiyakad"
+   },
+   "touchtennis": {
+    "kind": "sport",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Touchtennis"
+   },
+   "tour-de-france": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Tour de France"
+   },
+   "traditional-games-in-indonesia": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Traditional games in Indonesia"
+   },
+   "traditional-games-in-the-philippines": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Traditional games in the Philippines"
+   },
+   "traditional-games-of-afghanistan": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Traditional games of Afghanistan"
+   },
+   "traditional-games-of-andhra-pradesh": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Traditional games of Andhra Pradesh"
+   },
+   "traditional-games-of-china": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Traditional games of China"
+   },
+   "traditional-games-of-cuba": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Traditional games of Cuba"
+   },
+   "traditional-games-of-india": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Traditional games of India"
+   },
+   "traditional-games-of-iran": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Traditional games of Iran"
+   },
+   "traditional-games-of-mexico": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Traditional games of Mexico"
+   },
+   "traditional-games-of-myanmar": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Traditional games of Myanmar"
+   },
+   "traditional-games-of-new-york-city": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Traditional games of New York City"
+   },
+   "traditional-games-of-oman": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Traditional games of Oman"
+   },
+   "traditional-games-of-pakistan": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Traditional games of Pakistan"
+   },
+   "traditional-games-of-qatar": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Traditional games of Qatar"
+   },
+   "traditional-games-of-south-africa": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Traditional games of South Africa"
+   },
+   "traditional-games-of-south-asia": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Traditional games of South Asia"
+   },
+   "traditional-games-of-sri-lanka": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Traditional games of Sri Lanka"
+   },
+   "traditional-games-of-the-dominican-republic": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Traditional games of the Dominican Republic"
+   },
+   "traditional-games-of-the-united-arab-emirates": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Traditional games of the United Arab Emirates"
+   },
+   "traditional-games-of-tibet": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Traditional games of Tibet"
+   },
+   "traditional-games-of-venezuela": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Traditional games of Venezuela"
+   },
+   "traditional-sports-and-games": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Traditional sports and games"
+   },
+   "trivial-pursuit": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Trivial Pursuit"
+   },
+   "tug-of-war": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Tug of war"
+   },
+   "ultimate-sport": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Ultimate (sport)"
+   },
+   "uno-card-game": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Uno (card game)"
+   },
+   "volleyball": {
+    "kind": "sport",
+    "pop": 1.6,
+    "seed": true,
+    "title": "Volleyball"
+   },
+   "wasteland-express-delivery-service": {
+    "kind": "game",
+    "pop": 0.8,
+    "seed": false,
+    "title": "Wasteland Express Delivery Service"
+   },
+   "water-polo": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Water polo"
+   },
+   "weightlifting": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Weightlifting"
+   },
+   "wimbledon-championships": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Wimbledon Championships"
+   },
+   "wrestling": {
+    "kind": "sport",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Wrestling"
+   },
+   "xiangqi": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Xiangqi"
+   },
+   "yahtzee": {
+    "kind": "game",
+    "pop": 1.0,
+    "seed": true,
+    "title": "Yahtzee"
+   }
+  }
+ }
+}
