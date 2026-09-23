@@ -1,8 +1,7 @@
-name: TheSportsNewsroom V2.2
+name: TheSportsNewsroom V1
 
 on:
   schedule:
-    # Two production runs per day. GitHub Actions cron is UTC.
     # 02:15 UTC = 08:15 Asia/Dhaka, 14:15 UTC = 20:15 Asia/Dhaka.
     - cron: "15 2,14 * * *"
   workflow_dispatch:
@@ -27,7 +26,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: the-sports-newsroom-v2-2
+  group: the-sports-newsroom-v1
   cancel-in-progress: false
 
 jobs:
@@ -46,7 +45,7 @@ jobs:
       BOT_MODE: ${{ inputs.mode || 'run' }}
       CHANNEL_OVERRIDE: ${{ inputs.channel_override }}
       PYTHONUNBUFFERED: "1"
-      RUN_DEADLINE_SECONDS: "2100"
+      RUN_DEADLINE_SECONDS: "1500"
       HTTP_TIMEOUT: "15"
       STATE_RETENTION_DAYS: "120"
       POST_DELAY_SECONDS: "3"
@@ -62,12 +61,19 @@ jobs:
       IMAGE_SEARCH_RESULTS: "6"
       IMAGE_SEARCH_TIMEOUT: "12"
       IMAGE_PAGE_MAX_BYTES: "512000"
-      IMAGE_MIN_RELEVANCE: "0.10"
+      IMAGE_MIN_RELEVANCE: "0.30"
+      IMAGE_MIN_ASPECT: "0.60"
+      IMAGE_MAX_ASPECT: "2.00"
       MAX_IMAGE_BYTES: "10000000"
       V1_CONTENTS_CHARS: "9000"
       V1_RANK_MAX_CANDIDATES: "20"
-      V1_RANK_MAX_TOKENS: "700"
-      V1_EDITORIAL_MAX_TOKENS: "900"
+      V1_RANK_MAX_TOKENS: "768"
+      V1_EDITORIAL_MAX_TOKENS: "512"
+      CEREBRAS_MIN_INTERVAL_SECONDS: "12.5"
+      CEREBRAS_MAX_CALLS_PER_RUN: "16"
+      CEREBRAS_RATE_LIMIT_FALLBACK_SECONDS: "60"
+      CEREBRAS_RATE_LIMIT_MAX_PAUSE_SECONDS: "300"
+      LIVE_MAJOR_MIN_SCORE: "60"
 
     steps:
       - name: Checkout repository
@@ -87,7 +93,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Verify V2.2 repository structure
+      - name: Verify V1 repository structure
         run: |
           set -euo pipefail
           for f in \
@@ -102,25 +108,40 @@ jobs:
             .github/workflows/import-zip.yml; do
             test -f "$f"
           done
+          python - <<'PY'
+          from pathlib import Path
+          root = Path('.')
+          legacy_markers = ('V' + '2', 'v' + '2' + '_')
+          bad = []
+          for name in ('main.py', 'README.md', 'tests'):
+              p = root / name
+              paths = p.rglob('*') if p.is_dir() else [p]
+              for f in paths:
+                  if f.is_file() and any(marker in f.read_text(encoding='utf-8', errors='ignore') for marker in legacy_markers):
+                      bad.append(str(f))
+          if bad:
+              print('::error::Stale legacy-version reference found:', ', '.join(bad))
+              raise SystemExit(1)
+          PY
 
       - name: Compile, schema and version check
         run: |
           set -euo pipefail
           python -m py_compile main.py tests/test_v1.py
           python -m json.tool schemas/exa_agent_hard_case_v1.json >/dev/null
-          python main.py --version
+          test "$(python main.py --version)" = "The Sports Newsroom V1 1.0.0"
 
-      - name: Validate V2.2 production configuration
+      - name: Validate V1 production configuration
         if: ${{ env.BOT_MODE == 'run' || env.BOT_MODE == 'dry-run' }}
         run: python main.py --validate-config
 
-      - name: V2.2 offline contract and regression tests
+      - name: V1 offline contract and regression tests
         run: |
           set -euo pipefail
           python main.py --self-test --fast
           python -m unittest discover -s tests -v
 
-      - name: Run TheSportsNewsroom V2.2
+      - name: Run TheSportsNewsroom V1
         if: ${{ env.BOT_MODE != 'self-test' }}
         run: |
           set -euo pipefail
@@ -145,7 +166,7 @@ jobs:
           fi
 
           git diff --cached --stat
-          git commit -m "Update TheSportsNewsroom V2.2 state"
+          git commit -m "Update TheSportsNewsroom V1 state"
           for attempt in 1 2 3 4; do
             if git push; then
               exit 0

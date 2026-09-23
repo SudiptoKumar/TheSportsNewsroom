@@ -187,11 +187,21 @@ jobs:
 
           ROOT="${{ steps.project_root.outputs.ROOT }}"
 
+          # Code/config/workflows are replaced from the release ZIP, but mutable runtime
+          # state is preserved so deployment cannot reset coverage or live-message history.
           rsync -a \
             --exclude=".git/" \
+            --exclude="news_state.json" \
+            --exclude="posted_urls.txt" \
+            --exclude="coverage_index.json" \
             "$ROOT/" ./
 
-          echo "Project imported successfully."
+          # Fresh repositories still need valid placeholders; the bot's loaders initialize them.
+          if [ ! -e news_state.json ]; then printf '{}\n' > news_state.json; fi
+          if [ ! -e posted_urls.txt ]; then : > posted_urls.txt; fi
+          if [ ! -e coverage_index.json ]; then printf '{"schema":1,"updated_at":"","records":[]}\n' > coverage_index.json; fi
+
+          echo "Project imported successfully (runtime state preserved)."
 
       # ==================================================
       # DELETE ZIP FILES
