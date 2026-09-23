@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "Cerebras per-run call cap reached (16)",
-  "last_ok": "2026-09-22T18:08:17.599317+00:00",
-  "last_request_id": "a3f3410c190f398e-LAX",
+  "last_ok": "2026-09-23T07:47:14.770636+00:00",
+  "last_request_id": "a3f7f0aff9200434-IAD",
   "last_status": 429,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-21T06:43:50.838439+00:00",
- "last_run_at": "2026-09-22T18:10:31.996940+00:00",
+ "last_run_at": "2026-09-23T07:49:39.512097+00:00",
  "ledger": {
   "day_in_sports:2026-09-20": {
    "attempts": 1,
@@ -493,6 +493,142 @@
    "topic": "Official Rules of Ultimate",
    "urls": [
     "usaultimate.org/rules"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Trugo: A bizarre sport unique to Melbourne",
+   "claim": "Trugo is a strongly Melbourne-western-suburbs-associated game whose generally reported 1920s railway-workshop roots are linked to Newport. Thomas (Tom) Grieves is commonly credited with developing the game; he and Claus Ebeling founded the Yarraville Trugo Club in 1936. Play consists of striking a rubber ring with a mallet through goalposts. The backwards, between-the-legs “tunnelling” stroke is a common technique, but the rules allow a player to address the ring in any manner.",
+   "desk": "evergreen_v1",
+   "format": "Sport Discovery",
+   "headline": "Melbourne’s Trugo: Railway‑Born Game from Newport Workshops",
+   "image_status": "card_only",
+   "message_id": 73,
+   "normalized_subject": "Trugo: A bizarre sport unique to Melbourne",
+   "posted_at": "2026-09-23T07:46:15.202841+00:00",
+   "run_id": "2026-09-23-AM",
+   "sector": "Sport Discovery",
+   "topic": "Trugo: A bizarre sport unique to Melbourne",
+   "urls": [
+    "bbc.com/news/world-australia-45326460",
+    "emelbourne.net.au/biogs/EM01518b.htm",
+    "maribyrnong.vic.gov.au/files/assets/public/v/1/corporate-services-documents/communications-and-engagement/maribyrnong-messenger-autumn-2018-web.pdf",
+    "trugo.org.au/",
+    "australianmastersgames.com/wp-content/uploads/Modified_AMG_rules2025_V2.pdf",
+    "thewestsider.com.au/the-wests-own-tru-go"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Ancient Board Games",
+   "claim": "The evidence supports separate, limited statements rather than a single origin story: Alfonso X’s Libro del axedrez, dados e tablas, completed in Seville in 1283, documents alquerque; the Buddhist Vinayapiṭaka (roughly 4th–3rd century BCE) mentions aṭṭhapada/dasapada boards but supplies no rules or clear identification of the game; and a wooden game board with pieces was found in grave 731 at Shahr-i Sokhta. It does not support identifying a 19th-Dynasty Egyptian find as alquerque, treating the Shahr-i Sokhta set as backgammon/nard, or claiming any of these as a proven first origin.",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Game",
+   "headline": "Ancient Board Games Reveal Multiple Origins, Not a Single Birthplace",
+   "image_status": "card_only",
+   "message_id": 74,
+   "normalized_subject": "Ancient Board Games",
+   "posted_at": "2026-09-23T07:46:22.190805+00:00",
+   "run_id": "2026-09-23-AM",
+   "sector": "Forgotten Game",
+   "topic": "Ancient Board Games",
+   "urls": [
+    "boardgamegeek.com/geeklist/27522/ancient-board-games",
+    "rbme.patrimonionacional.es/s/rbme/item/13125",
+    "doi.org/10.2478/bgs-2021-0004",
+    "history.chess.free.fr/papers/Bock-Raming%201999.pdf",
+    "whc.unesco.org/document/152722",
+    "doi.org/10.20944/preprints202304.0788.v2"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Camping (game)",
+   "claim": "**Camping**, also known as**campyon**,**campan**, or**campball**, was a football game played inEngland. It appears to have been popular inNorfolkand other parts ofEast Anglia. Of all the traditional forms of football played in Europe, it appears to have been one of the toughest and most dangerous, which probably explains why it died out during the early 19th century. ... A match atDissCommon in the early 19th century reportedly was so brutal that nine men were killed or died of their injuries. While some people thought that camping was a combination of all athletic excellence, others saw it as little more than a stand-up fight. The contest for the ball \"never ends without black eyes and bloo",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Sport",
+   "headline": "Camping: England’s Brutal Early‑19th‑Century Football Game",
+   "image_status": "card_only",
+   "message_id": 75,
+   "normalized_subject": "Camping (game)",
+   "posted_at": "2026-09-23T07:46:27.047244+00:00",
+   "run_id": "2026-09-23-AM",
+   "sector": "Forgotten Sport",
+   "topic": "Camping (game)",
+   "urls": [
+    "en.m.wikipedia.org/wiki/Camping_(game)"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Sáhkku, The “Devil's Game” / Alan Borvo - Board Game Studies",
+   "claim": "• The dice Three dice are generally used, except in Nord-Troms where Mejland said they were only two. According to old people from Nesseby, who remembered the game, dice used to be cast into a bowl, not on a flat surface. Such dice were carved in wood like teetotums (26 x 26 x 42 mm in the Varanger / Nesseby set), with two of their end sides shaped like pyramids. All have four marked faces, and one of these always shows an “X” (sáhkku). The value of that “X” varies from place to place, either 1 or 5. In the Kunes (eastern Finnmark) rules, its value is 1, just like the “X” in the Norwegian daldøsa game from Jaeren and like the “A” in the Danish daldøs. In Friis’s description from Finnmark, it",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "Three‑sided Dice and the Cross Mark Define Sáhkku’s Play",
+   "image_status": "card_only",
+   "message_id": 76,
+   "normalized_subject": "Sáhkku, The “Devil's Game” / Alan Borvo - Board Game Studies",
+   "posted_at": "2026-09-23T07:46:31.726358+00:00",
+   "run_id": "2026-09-23-AM",
+   "sector": "Game Discovery",
+   "topic": "Sáhkku, The “Devil's Game” / Alan Borvo - Board Game Studies",
+   "urls": [
+    "yumpu.com/en/document/view/6307372/sahkku-the-devils-game-alan-borvo-board-game-studies"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Piquet: historic card game described by David Parlett",
+   "claim": "This classic game of relatively great antiquity, though still one of the most skill-rewarding card games for two, is now played only by aficionados and connoisseurs. Originating around 1500, its decline from about the end of World War One may be ascribed to the popularity of Gin Rummy and other lowbrow games that are easier to learn and faster to play. ... hand, so that it will (a) produce and score for certain card combinations and (b) subsequently win a majority of twelve tricks played at no trump. Points are scored throughout, and the winner is either the first to reach 100 points, or, in a later ... Piquet is known from the early 16th century, but for most of that century under the name ",
+   "desk": "evergreen_v1",
+   "format": "Interesting Game Fact",
+   "headline": "Piquet: A 16th‑Century Two‑Hander Now Loved by Aficionados",
+   "image_status": "card_only",
+   "message_id": 77,
+   "normalized_subject": "Piquet: historic card game described by David Parlett",
+   "posted_at": "2026-09-23T07:46:36.043811+00:00",
+   "run_id": "2026-09-23-AM",
+   "sector": "Interesting Game Fact",
+   "topic": "Piquet: historic card game described by David Parlett",
+   "urls": [
+    "davidparlett.co.uk/histocs/piquet.html"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Meet new FIFA World Cup ball: AI-sensor for better decisions, improved design for fewer surprises | Explained News - The Indian Express",
+   "claim": "Every four years when the FIFA World Cup comes around, official sponsor Adidas creates a new iteration of the ball that will be used. This time, as the world further integrates artificial intelligence (AI) models into everyday use-case scenarios, the humble football now finds itself an AI-enabled entity, loaded with a sensor specifically built to track its movements. ... But the Trionda, this edition’s ball, is notable for more than its modern sensor. It has the lowest number of panels ever used to make a football. And, unlike the mercurial Jabulani ball used during the 2010 World Cup, it promises far fewer surprises than what many players had to contend with in South Africa. ... The Telstar",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "AI‑Enabled Trionda Ball Promises Faster VAR Decisions and Fewer Surprises",
+   "image_status": "card_only",
+   "message_id": 78,
+   "normalized_subject": "Meet new FIFA World Cup ball: AI-sensor for better decisions, improved design for fewer surprises | Explained News - The Indian Express",
+   "posted_at": "2026-09-23T07:46:56.470268+00:00",
+   "run_id": "2026-09-23-AM",
+   "sector": "Equipment / Measurement",
+   "topic": "Meet new FIFA World Cup ball: AI-sensor for better decisions, improved design for fewer surprises | Explained News - The Indian Express",
+   "urls": [
+    "indianexpress.com/article/explained/explained-sports/fifa-world-cup-2026-why-the-new-ai-enabled-ball-promises-better-decisions-fewer-surprises-10726300"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The Surprising Math and Physics behind the 2026 Trionda World Cup Soccer Ball | Scientific American",
+   "claim": "Every four years, soccer fans eagerly await the sport’s biggest event: the International Federation of Association Football (FIFA) World Cup. But before each dramatic kickoff, artists and researchers spend years designing, testing and revising the official match ball. Recently images of the planned ball for the 2026 competition were leaked, and its design incorporates math, physics and style in some surprising ways. ... celebrates the three ... hosted World Cup. ... yet for a FIFA World Cup ball. And it represents a significant ... from the ... Al Rhila ... The design of any soccer ball hinges on an age-old question: How can one make rounded shapes out of flat material? Every FIFA World Cup ",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "Tetrahedron Twist: The Four‑Panel Trionda Redefines World Cup Balls",
+   "image_status": "card_only",
+   "message_id": 79,
+   "normalized_subject": "The Surprising Math and Physics behind the 2026 Trionda World Cup Soccer Ball | Scientific American",
+   "posted_at": "2026-09-23T07:47:15.978835+00:00",
+   "run_id": "2026-09-23-AM",
+   "sector": "Why Does This Happen?",
+   "topic": "The Surprising Math and Physics behind the 2026 Trionda World Cup Soccer Ball | Scientific American",
+   "urls": [
+    "scientificamerican.com/article/the-surprising-math-and-physics-behind-the-2026-trionda-world-cup-soccer-ball"
    ]
   }
  ],
@@ -3045,35 +3181,37 @@
   }
  },
  "v1": {
-  "created_at": "2026-09-22T18:03:34.911976+00:00",
+  "created_at": "2026-09-23T07:42:12.984268+00:00",
   "daily": {
    "2026-09-23": {
     "published_sectors": [
      "Sport Discovery",
-     "Sport Origin",
+     "Forgotten Game",
      "Forgotten Sport",
-     "Interesting Sports Fact",
-     "Rule Check",
      "Game Discovery",
-     "How to Play"
+     "Interesting Game Fact",
+     "Equipment / Measurement",
+     "Why Does This Happen?"
     ],
     "run_ids": [
      "2026-09-23-AM"
     ]
    }
   },
-  "last_run_at": "2026-09-22T18:10:31.996923+00:00",
+  "last_run_at": "2026-09-23T07:49:39.512074+00:00",
   "live": {
    "results": {
     "event_ids": [
      "92d92f37439fd84d",
+     "866e3c73198339b8",
      "1529d09f52bcce29",
      "4d1d407725b0eb14",
-     "27e821c145335832"
+     "27e821c145335832",
+     "ab0a348b94329459"
     ],
-    "message_id": 72,
+    "message_id": 81,
     "target_date": "2026-09-22",
-    "updated_at": "2026-09-22T18:10:31.995055+00:00"
+    "updated_at": "2026-09-23T07:49:39.509289+00:00"
    },
    "schedule": {
     "event_ids": [
@@ -3098,74 +3236,74 @@
      "d47b628201f2153f",
      "430bf8ca067f7f27"
     ],
-    "message_id": 71,
+    "message_id": 80,
     "target_date": "2026-09-24",
-    "updated_at": "2026-09-22T18:10:31.995051+00:00"
+    "updated_at": "2026-09-23T07:49:39.509276+00:00"
    }
   },
   "publication": {
-   "2026-09-23-AM:evergreen:360bfe749489e1c3": {
-    "message_id": 66,
-    "posted_at": "2026-09-22T18:07:22.176986+00:00",
+   "2026-09-23-AM:evergreen:2ae7eeacdfa2a8f7": {
+    "message_id": 74,
+    "posted_at": "2026-09-23T07:46:22.190571+00:00",
     "status": "posted"
    },
-   "2026-09-23-AM:evergreen:6e6757db943cfcd5": {
-    "message_id": 70,
-    "posted_at": "2026-09-22T18:08:19.171556+00:00",
+   "2026-09-23-AM:evergreen:318b7fda18fd9209": {
+    "message_id": 77,
+    "posted_at": "2026-09-23T07:46:36.043603+00:00",
     "status": "posted"
    },
-   "2026-09-23-AM:evergreen:890ed5368e1661a8": {
-    "message_id": 65,
-    "posted_at": "2026-09-22T18:07:15.839222+00:00",
+   "2026-09-23-AM:evergreen:7abe5ec8b3604979": {
+    "message_id": 75,
+    "posted_at": "2026-09-23T07:46:27.047037+00:00",
     "status": "posted"
    },
-   "2026-09-23-AM:evergreen:a5943a773c3460ad": {
-    "message_id": 67,
-    "posted_at": "2026-09-22T18:07:28.117570+00:00",
+   "2026-09-23-AM:evergreen:914dbbb32e63a4a6": {
+    "message_id": 79,
+    "posted_at": "2026-09-23T07:47:15.978602+00:00",
     "status": "posted"
    },
-   "2026-09-23-AM:evergreen:b10560d4d26b021d": {
-    "message_id": 68,
-    "posted_at": "2026-09-22T18:07:38.445489+00:00",
+   "2026-09-23-AM:evergreen:cbd91c894aaa8ed5": {
+    "message_id": 78,
+    "posted_at": "2026-09-23T07:46:56.469989+00:00",
     "status": "posted"
    },
-   "2026-09-23-AM:evergreen:d8e7b205a744c1c8": {
-    "message_id": 69,
-    "posted_at": "2026-09-22T18:07:59.073786+00:00",
+   "2026-09-23-AM:evergreen:d38409b5617ade29": {
+    "message_id": 76,
+    "posted_at": "2026-09-23T07:46:31.726109+00:00",
     "status": "posted"
    },
-   "2026-09-23-AM:evergreen:e2d13e9656c42c06": {
-    "message_id": 64,
-    "posted_at": "2026-09-22T18:07:10.557086+00:00",
+   "2026-09-23-AM:evergreen:e3c39c5bae57bfe2": {
+    "message_id": 73,
+    "posted_at": "2026-09-23T07:46:15.202617+00:00",
     "status": "posted"
    },
    "2026-09-23-AM:live_results:09ebecb868c2029b": {
-    "message_id": 72,
-    "posted_at": "2026-09-22T18:10:31.995042+00:00",
+    "message_id": 81,
+    "posted_at": "2026-09-23T07:49:39.509252+00:00",
     "status": "posted"
    },
    "2026-09-23-AM:live_schedule:0aedf287404bf642": {
-    "message_id": 71,
-    "posted_at": "2026-09-22T18:10:31.644291+00:00",
+    "message_id": 80,
+    "posted_at": "2026-09-23T07:49:39.181627+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-09-22T18:10:31.996929+00:00",
+    "at": "2026-09-23T07:49:39.512082+00:00",
     "evergreen": 7,
     "exit": 0,
-    "live_results": 72,
-    "live_schedule": 71,
+    "live_results": 81,
+    "live_schedule": 80,
     "run_id": "2026-09-23-AM",
     "used_sectors": [
+     "Equipment / Measurement",
+     "Forgotten Game",
      "Forgotten Sport",
      "Game Discovery",
-     "How to Play",
-     "Interesting Sports Fact",
-     "Rule Check",
+     "Interesting Game Fact",
      "Sport Discovery",
-     "Sport Origin"
+     "Why Does This Happen?"
     ]
    }
   ],

@@ -919,8 +919,356 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 70
+  },
+  {
+   "central_claim": "How much do you really love cheese? Enough to throw yourself down a near-vertical hill in pursuit of a rolling wheel of it? Welcome to the annual cheese rolling festival in Gloucestershire, England, where participants chase a 9-pound Double Gloucester cheese down Cooper's Hill, tumbling, flipping, and often crash-landing in the process. The first to cross the finish line wins the cheese and possibly a few bruises. ... If hurtling downhill at breakneck speed isn’t your thing, perhaps you'd prefer",
+   "central_knowledge_unit": "how much do you really love cheese enough to throw yourself down a near vertical hill in pursuit of a rolling wheel of it welcome to the annual cheese rolling festival in gloucestershire england where participants chase ",
+   "content_id": "63cb3cc05583d704",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7c8933da7239a045",
+    "988b909f3c0c7015"
+   ],
+   "legacy": true,
+   "normalized_subject": "strange but true some of the wackiest sports from around the",
+   "people": [],
+   "published_at": "2026-09-22T18:07:10.557261+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    "olympics.com/en/news/strange-but-true-wackiest-sports-around-the-world"
+   ],
+   "sport_or_game": "Strange but true: some of the wackiest sports from around the ...",
+   "telegram_message_id": 64
+  },
+  {
+   "central_claim": "Etlatongo in Oaxaca has the earliest known formal ballcourt in the Mesoamerican highlands reported in the cited research. Its first court is radiocarbon-dated to 1443–1305 BCE (1374 BCE is the study’s midpoint), and associated ballplayer figurines support Early Formative highland participation in the developing formal ballgame. This revises a model centered chiefly on lowland evidence, but does not establish Etlatongo—or any one region—as the single origin of the game.",
+   "central_knowledge_unit": "etlatongo in oaxaca has the earliest known formal ballcourt in the mesoamerican highlands reported in the cited research its first court is radiocarbon dated to 1443 1305 bce 1374 bce is the study s midpoint and associat",
+   "content_id": "aa854cadd11a8155",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9d520d937b9ac746",
+    "7f22f34479261b93"
+   ],
+   "legacy": true,
+   "normalized_subject": "origins of the mesoamerican ballgame earliest ballcourt from the highlands found at etlatongo oaxaca mexico science advances",
+   "people": [],
+   "published_at": "2026-09-22T18:07:15.839356+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "science.org/doi/10.1126/sciadv.aay6964",
+    "pmc.ncbi.nlm.nih.gov/articles/PMC7069692",
+    "doi.org/10.1073/pnas.1203483109",
+    "link.springer.com/article/10.1007/s12520-023-01930-1",
+    "doi.org/10.1038/31837"
+   ],
+   "sport_or_game": "Origins of the Mesoamerican ballgame: Earliest ballcourt from the highlands found at Etlatongo, Oaxaca, Mexico | Science Advances",
+   "telegram_message_id": 65
+  },
+  {
+   "central_claim": "Fen skating is a historically documented, geographically distinctive form of natural-ice skating in the English Fens. Championship racing is contingent on sufficiently hard freezes: the Museum of Cambridge and a January 2026 regional report state that the last championships were held in 2010. It should not be described as extinct or as having failed to return to Cambridgeshire, however: public fen skating was reported in Cambridgeshire in January 2025 and January 2026. FitzStephen provides early",
+   "central_knowledge_unit": "fen skating is a historically documented geographically distinctive form of natural ice skating in the english fens championship racing is contingent on sufficiently hard freezes the museum of cambridge and a january 202",
+   "content_id": "859b2d4d1620b751",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f396ecb4f0ff0259",
+    "4d1a56378981641c"
+   ],
+   "legacy": true,
+   "normalized_subject": "capturing cambridge the history of fen skating the museum of cambridge",
+   "people": [],
+   "published_at": "2026-09-22T18:07:22.177146+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    "museumofcambridge.org.uk/2021/09/the-history-of-fen-skating",
+    "edp24.co.uk/news/25742399.enough-ice-skating-fens",
+    "bbc.co.uk/news/articles/c78wdv73dggo",
+    "bbc.co.uk/news/articles/c0jv1ewlzj9o",
+    "londonmuseum.org.uk/collections/v/object-32899/skate",
+    "en.wikisource.org/wiki/Diary_of_Samuel_Pepys/1662/December"
+   ],
+   "sport_or_game": "Capturing Cambridge: The History of Fen Skating – The Museum of Cambridge",
+   "telegram_message_id": 66
+  },
+  {
+   "central_claim": "The golden section or golden ratio (61.8% or 0.618) is a mathematical phenomenon that appears in art, literature, music and nature with such ubiquity that it is thought to be a fundamental principle of aesthetic organisation. The golden ratio also manifests in sport, particularly as the proportion of wins to losses required to win a Major League Baseball championship. This study extends early work on the golden ratio in baseball by incorporating more than three decades of additional data. ... Th",
+   "central_knowledge_unit": "the golden section or golden ratio 61 8 or 0 618 is a mathematical phenomenon that appears in art literature music and nature with such ubiquity that it is thought to be a fundamental principle of aesthetic organisation ",
+   "content_id": "67cea9146d0059b6",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "5fe6f28a9a87a23a",
+    "2f860abad278492a"
+   ],
+   "legacy": true,
+   "normalized_subject": "the golden ratio in baseball the influence of historical eras on winning percentages in major league baseball",
+   "people": [],
+   "published_at": "2026-09-22T18:07:28.117698+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Sports Fact",
+   "source_urls": [
+    "pmc.ncbi.nlm.nih.gov/articles/PMC10682355"
+   ],
+   "sport_or_game": "The golden ratio in baseball: the influence of historical eras on winning percentages in major league baseball",
+   "telegram_message_id": 67
+  },
+  {
+   "central_claim": "We take for granted back-shoulder passes into the front corner and fade routes in the back corner of the end zone, yet both exist today due to a long line of changes to football's rules, strategies, and techniques. Neither was legal in football's early passing days, so let's look at why that was so and the changes that gave us such exciting plays. ... When football adopted the forward pass in 1906, most did not expect the play to have much impact. Little did they know how innovative coaches and ",
+   "central_knowledge_unit": "we take for granted back shoulder passes into the front corner and fade routes in the back corner of the end zone yet both exist today due to a long line of changes to football s rules strategies and techniques neither w",
+   "content_id": "787ff8a2d32c0093",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "2c3e40ba30e9991b",
+    "f063ad5c2c1754d4"
+   ],
+   "legacy": true,
+   "normalized_subject": "today s tidbit when passing into the end zone became legal",
+   "people": [],
+   "published_at": "2026-09-22T18:07:38.445624+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Rule Check",
+   "source_urls": [
+    "footballarchaeology.com/p/todays-tidbit-when-passing-into-the"
+   ],
+   "sport_or_game": "Today's Tidbit... When Passing Into The End Zone Became Legal",
+   "telegram_message_id": 68
+  },
+  {
+   "central_claim": "I think everyone would agree that Ludo was the game that Indians played the most during the COVID lockdown. Remember, Ludo King. While not much is known about the game’s past, we have all played and continue to love it. Allow me to take you on Ludo’s or Chauapr’s journey. ... Chaupar, chopad, or chaupad, is an indigenous game of Uttarakhand. The cross & circle board game is quite similar to pachisi, one of India’s oldest games. The board is made of wool or fabric, with wooden pawns and seven cow",
+   "central_knowledge_unit": "i think everyone would agree that ludo was the game that indians played the most during the covid lockdown remember ludo king while not much is known about the game s past we have all played and continue to love it allow",
+   "content_id": "543dc0ef9d00f31a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "77593116b445db9e",
+    "098948ccffc5c906"
+   ],
+   "legacy": true,
+   "normalized_subject": "rediscover the ancient game of chaupar a timeless journey of strategy and culture historified",
+   "people": [],
+   "published_at": "2026-09-22T18:07:59.073924+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "historified.in/2024/05/25/rediscover-the-ancient-game-of-chaupar-a-timeless-journey-of-strategy-and-culture"
+   ],
+   "sport_or_game": "Rediscover the Ancient Game of Chaupar: A Timeless Journey of Strategy and Culture - historified",
+   "telegram_message_id": 69
+  },
+  {
+   "central_claim": "Ultimate is a sport that inspires players and fans alike because of its ability to develop and showcase the athleticism, skill, teamwork, and character of its participants. The arc of the disc in flight, the opportunity for each individual to contribute equally to their team’s success, and the trust given to each player to know and uphold the rules make ultimate a sport that is embraced for its fun and excitement on the field and for the community beyond it. As a low-cost sport requiring minimal",
+   "central_knowledge_unit": "ultimate is a sport that inspires players and fans alike because of its ability to develop and showcase the athleticism skill teamwork and character of its participants the arc of the disc in flight the opportunity for e",
+   "content_id": "de04951921e66b53",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4e1ff62abead8b8f",
+    "3593a2dd08b501e6"
+   ],
+   "legacy": true,
+   "normalized_subject": "official rules of ultimate",
+   "people": [],
+   "published_at": "2026-09-22T18:08:19.171677+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "How to Play",
+   "source_urls": [
+    "usaultimate.org/rules"
+   ],
+   "sport_or_game": "Official Rules of Ultimate",
+   "telegram_message_id": 70
+  },
+  {
+   "central_claim": "Trugo is a strongly Melbourne-western-suburbs-associated game whose generally reported 1920s railway-workshop roots are linked to Newport. Thomas (Tom) Grieves is commonly credited with developing the game; he and Claus Ebeling founded the Yarraville Trugo Club in 1936. Play consists of striking a rubber ring with a mallet through goalposts. The backwards, between-the-legs “tunnelling” stroke is a common technique, but the rules allow a player to address the ring in any manner.",
+   "central_knowledge_unit": "trugo a bizarre sport unique to melbourne",
+   "content_id": "bf5a48e8734535e0",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "bf5a48e8734535e0",
+    "6570247045cf5313"
+   ],
+   "normalized_subject": "trugo a bizarre sport unique to melbourne",
+   "people": [],
+   "published_at": "2026-09-23T07:46:15.202718+00:00",
+   "region": "",
+   "run_id": "2026-09-23-AM",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    "bbc.com/news/world-australia-45326460",
+    "emelbourne.net.au/biogs/EM01518b.htm",
+    "maribyrnong.vic.gov.au/files/assets/public/v/1/corporate-services-documents/communications-and-engagement/maribyrnong-messenger-autumn-2018-web.pdf",
+    "trugo.org.au/",
+    "australianmastersgames.com/wp-content/uploads/Modified_AMG_rules2025_V2.pdf",
+    "thewestsider.com.au/the-wests-own-tru-go"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 73
+  },
+  {
+   "central_claim": "The evidence supports separate, limited statements rather than a single origin story: Alfonso X’s Libro del axedrez, dados e tablas, completed in Seville in 1283, documents alquerque; the Buddhist Vinayapiṭaka (roughly 4th–3rd century BCE) mentions aṭṭhapada/dasapada boards but supplies no rules or clear identification of the game; and a wooden game board with pieces was found in grave 731 at Shahr-i Sokhta. It does not support identifying a 19th-Dynasty Egyptian find as alquerque, treating the Shahr-i Sokhta set as backgammon/nard, or claiming any of these as a proven first origin.",
+   "central_knowledge_unit": "ancient board games",
+   "content_id": "c12ee1701ed02859",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c12ee1701ed02859",
+    "33b737154b00b58c"
+   ],
+   "normalized_subject": "ancient board games",
+   "people": [],
+   "published_at": "2026-09-23T07:46:22.190679+00:00",
+   "region": "",
+   "run_id": "2026-09-23-AM",
+   "sector": "Forgotten Game",
+   "source_urls": [
+    "boardgamegeek.com/geeklist/27522/ancient-board-games",
+    "rbme.patrimonionacional.es/s/rbme/item/13125",
+    "doi.org/10.2478/bgs-2021-0004",
+    "history.chess.free.fr/papers/Bock-Raming%201999.pdf",
+    "whc.unesco.org/document/152722",
+    "doi.org/10.20944/preprints202304.0788.v2"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 74
+  },
+  {
+   "central_claim": "**Camping**, also known as**campyon**,**campan**, or**campball**, was a football game played inEngland. It appears to have been popular inNorfolkand other parts ofEast Anglia. Of all the traditional forms of football played in Europe, it appears to have been one of the toughest and most dangerous, which probably explains why it died out during the early 19th century. ... A match atDissCommon in the early 19th century reportedly was so brutal that nine men were killed or died of their injuries. While some people thought that camping was a combination of all athletic excellence, others saw it as little more than a stand-up fight. The contest for the ball \"never ends without black eyes and bloo",
+   "central_knowledge_unit": "camping game",
+   "content_id": "ed442136d43e877c",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "ed442136d43e877c",
+    "99078de7be900ffe"
+   ],
+   "normalized_subject": "camping game",
+   "people": [],
+   "published_at": "2026-09-23T07:46:27.047144+00:00",
+   "region": "",
+   "run_id": "2026-09-23-AM",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    "en.m.wikipedia.org/wiki/Camping_(game)"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 75
+  },
+  {
+   "central_claim": "• The dice Three dice are generally used, except in Nord-Troms where Mejland said they were only two. According to old people from Nesseby, who remembered the game, dice used to be cast into a bowl, not on a flat surface. Such dice were carved in wood like teetotums (26 x 26 x 42 mm in the Varanger / Nesseby set), with two of their end sides shaped like pyramids. All have four marked faces, and one of these always shows an “X” (sáhkku). The value of that “X” varies from place to place, either 1 or 5. In the Kunes (eastern Finnmark) rules, its value is 1, just like the “X” in the Norwegian daldøsa game from Jaeren and like the “A” in the Danish daldøs. In Friis’s description from Finnmark, it",
+   "central_knowledge_unit": "s hkku the devil s game alan borvo board game studies",
+   "content_id": "76b13dc49536cec3",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "76b13dc49536cec3",
+    "f911c6706da802b5"
+   ],
+   "normalized_subject": "s hkku the devil s game alan borvo board game studies",
+   "people": [],
+   "published_at": "2026-09-23T07:46:31.726238+00:00",
+   "region": "",
+   "run_id": "2026-09-23-AM",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "yumpu.com/en/document/view/6307372/sahkku-the-devils-game-alan-borvo-board-game-studies"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 76
+  },
+  {
+   "central_claim": "This classic game of relatively great antiquity, though still one of the most skill-rewarding card games for two, is now played only by aficionados and connoisseurs. Originating around 1500, its decline from about the end of World War One may be ascribed to the popularity of Gin Rummy and other lowbrow games that are easier to learn and faster to play. ... hand, so that it will (a) produce and score for certain card combinations and (b) subsequently win a majority of twelve tricks played at no trump. Points are scored throughout, and the winner is either the first to reach 100 points, or, in a later ... Piquet is known from the early 16th century, but for most of that century under the name",
+   "central_knowledge_unit": "piquet historic card game described by david parlett",
+   "content_id": "e3268c5e32a04f24",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e3268c5e32a04f24",
+    "e1b7ca50bd814037"
+   ],
+   "normalized_subject": "piquet historic card game described by david parlett",
+   "people": [],
+   "published_at": "2026-09-23T07:46:36.043712+00:00",
+   "region": "",
+   "run_id": "2026-09-23-AM",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    "davidparlett.co.uk/histocs/piquet.html"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 77
+  },
+  {
+   "central_claim": "Every four years when the FIFA World Cup comes around, official sponsor Adidas creates a new iteration of the ball that will be used. This time, as the world further integrates artificial intelligence (AI) models into everyday use-case scenarios, the humble football now finds itself an AI-enabled entity, loaded with a sensor specifically built to track its movements. ... But the Trionda, this edition’s ball, is notable for more than its modern sensor. It has the lowest number of panels ever used to make a football. And, unlike the mercurial Jabulani ball used during the 2010 World Cup, it promises far fewer surprises than what many players had to contend with in South Africa. ... The Telstar",
+   "central_knowledge_unit": "meet new fifa world cup ball ai sensor for better decisions improved design for fewer surprises explained news the indian express",
+   "content_id": "e6dca97ba1c63254",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e6dca97ba1c63254",
+    "f88f0c421588143f"
+   ],
+   "normalized_subject": "meet new fifa world cup ball ai sensor for better decisions improved design for fewer surprises explained news the indian express",
+   "people": [],
+   "published_at": "2026-09-23T07:46:56.470146+00:00",
+   "region": "",
+   "run_id": "2026-09-23-AM",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "indianexpress.com/article/explained/explained-sports/fifa-world-cup-2026-why-the-new-ai-enabled-ball-promises-better-decisions-fewer-surprises-10726300"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 78
+  },
+  {
+   "central_claim": "Every four years, soccer fans eagerly await the sport’s biggest event: the International Federation of Association Football (FIFA) World Cup. But before each dramatic kickoff, artists and researchers spend years designing, testing and revising the official match ball. Recently images of the planned ball for the 2026 competition were leaked, and its design incorporates math, physics and style in some surprising ways. ... celebrates the three ... hosted World Cup. ... yet for a FIFA World Cup ball. And it represents a significant ... from the ... Al Rhila ... The design of any soccer ball hinges on an age-old question: How can one make rounded shapes out of flat material? Every FIFA World Cup",
+   "central_knowledge_unit": "the surprising math and physics behind the 2026 trionda world cup soccer ball scientific american",
+   "content_id": "db40fb07d8b87b98",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "db40fb07d8b87b98",
+    "516ee509128362d7"
+   ],
+   "normalized_subject": "the surprising math and physics behind the 2026 trionda world cup soccer ball scientific american",
+   "people": [],
+   "published_at": "2026-09-23T07:47:15.978719+00:00",
+   "region": "",
+   "run_id": "2026-09-23-AM",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "scientificamerican.com/article/the-surprising-math-and-physics-behind-the-2026-trionda-world-cup-soccer-ball"
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 79
   }
  ],
  "schema": 1,
- "updated_at": "2026-09-22T18:08:19.171671+00:00"
+ "updated_at": "2026-09-23T07:47:15.978823+00:00"
 }
