@@ -1,12 +1,15 @@
 {
  "ai": {
-  "last_ok": "2026-09-21T12:02:46.858226+00:00",
+  "last_error": "",
+  "last_ok": "2026-09-23T12:51:27.346931+00:00",
+  "last_request_id": "a3f9ae4d78bc89b6-IAD",
+  "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-21T06:43:50.838439+00:00",
- "last_run_at": "2026-09-21T12:00:22.256659+00:00",
+ "last_run_at": "2026-09-23T12:53:37.893015+00:00",
  "ledger": {
   "day_in_sports:2026-09-20": {
    "attempts": 1,
@@ -81,6 +84,202 @@
    "topic": "Field sports",
    "urls": [
     "en.wikipedia.org/wiki/Field_sports"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Strange but true: some of the wackiest sports from around the ...",
+   "claim": "How much do you really love cheese? Enough to throw yourself down a near-vertical hill in pursuit of a rolling wheel of it? Welcome to the annual cheese rolling festival in Gloucestershire, England, where participants chase a 9-pound Double Gloucester cheese down Cooper's Hill, tumbling, flipping, and often crash-landing in the process. The first to cross the finish line wins the cheese and possibly a few bruises. ... If hurtling downhill at breakneck speed isn’t your thing, perhaps you'd prefer a sport that requires staying put, theoretically. Toe wrestling, another uniquely British pastime, is exactly what it sounds like. Competitors lock toes and attempt to pin their opponent’s foot to th",
+   "desk": "evergreen_v1",
+   "format": "Sport Discovery",
+   "headline": "Downhill Cheese Chases and Toe Wrestling: Britain’s Wildest Sports",
+   "image_status": "card_fallback",
+   "message_id": 90,
+   "normalized_subject": "Strange but true: some of the wackiest sports from around the ...",
+   "posted_at": "2026-09-23T12:49:01.027229+00:00",
+   "run_id": "2026-09-23-PM",
+   "sector": "Sport Discovery",
+   "topic": "Strange but true: some of the wackiest sports from around the ...",
+   "urls": [
+    "olympics.com/en/news/strange-but-true-wackiest-sports-around-the-world"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Pierre de Coubertin: Visionary and Founder of the Modern Olympics",
+   "claim": "Pierre de Coubertin was the leading organizer of the 1894 Paris Congress whose successful proposal to revive the Olympic Games led to the creation of the IOC and to the first modern Olympic Games in Athens in 1896; he is widely described as a founder or reviver of the modern Olympic movement, but not as its sole or earliest precursor.",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Pierre de Coubertin: Architect of the Modern Olympic Revival",
+   "image_status": "verified_external",
+   "message_id": 91,
+   "normalized_subject": "Pierre de Coubertin: Visionary and Founder of the Modern Olympics",
+   "posted_at": "2026-09-23T12:49:31.448312+00:00",
+   "run_id": "2026-09-23-PM",
+   "sector": "Sports & Games People",
+   "topic": "Pierre de Coubertin: Visionary and Founder of the Modern Olympics",
+   "urls": [
+    "olympics.com/ioc/pierre-de-coubertin",
+    "olympics.com/en/athletes/pierre-de-coubertin",
+    "library.olympics.com/doc/SYRACUSE/185860"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Roberto Carlos' Brazil free kick in 1997: The physics behind 'impossible' strike - ESPN",
+   "claim": "Roberto Carlos’s 3 June 1997 free kick for Brazil against France can be explained by ordinary aerodynamics rather than having “defied physics”: side-spin creates aerodynamic lift, while drag reduces the ball’s forward speed; over a sufficiently long, powerful shot, the changing balance can make the path bend much more sharply late in flight. The 2010 physics paper treats Carlos’s roughly 35-m kick as an interpretation/application of its spinning-ball-spiral model, not as a direct reconstruction of that individual kick.",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "Physics Explains Roberto Carlos' 1997 Free‑Kick Curve",
+   "image_status": "verified_external",
+   "message_id": 92,
+   "normalized_subject": "Roberto Carlos' Brazil free kick in 1997: The physics behind 'impossible' strike - ESPN",
+   "posted_at": "2026-09-23T12:49:41.819884+00:00",
+   "run_id": "2026-09-23-PM",
+   "sector": "Why Does This Happen?",
+   "topic": "Roberto Carlos' Brazil free kick in 1997: The physics behind 'impossible' strike - ESPN",
+   "urls": [
+    "espn.com/soccer/story/_/id/37475858/physics-impossible-strike",
+    "journals.le.ac.uk/index.php/pst/article/view/2500",
+    "bbc.com/news/science-environment-11153466"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Rediscovering Knurr and Spell - Yorkshire's lost miners' game",
+   "claim": "Once a popular pastime across Yorkshire, the miners' game Knurr and Spell has all but disappeared from public knowledge. ... The game, also known as Nipsy, Piggy and Northern Spell, was predominantly played in mining communities in the 18th, 19th and early 20th centuries. ... There are many variations of the game, with different types of equipment used in localised versions across Yorkshire, Lancashire and the wider North of England. ... The game often took place on moorland but could be played in any area of green space. ... It is not certain when Knurr and Spell first started, and it is even less clear when the last competitive game was held - although the BBC did feature the world champio",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Sport",
+   "headline": "Yorkshire’s Forgotten Miners’ Game Knurr and Spell Resurfaces",
+   "image_status": "verified_external",
+   "message_id": 93,
+   "normalized_subject": "Rediscovering Knurr and Spell - Yorkshire's lost miners' game",
+   "posted_at": "2026-09-23T12:49:48.527888+00:00",
+   "run_id": "2026-09-23-PM",
+   "sector": "Forgotten Sport",
+   "topic": "Rediscovering Knurr and Spell - Yorkshire's lost miners' game",
+   "urls": [
+    "bbc.com/news/articles/cvgmvkygkz5o"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Balletic hits and bicycle kicks: Teqball comes of age at the Asian Games | Sport | The Guardian",
+   "claim": "Invented a little over a decade ago in Hungary, teqball is a combination of football and ping pong ... Teqball was invented a little over a decade ago in Hungary, when two friends started playing football on a ping pong table, before going on to create the signature curved table the game is played on. ... The new sport is quickly entering the mainstream. This weekend it will debut at the Asian Games in Japan, after its historic inclusion at the European and African games, with ambitions to be an Olympic sport by 2032. ... Teams from 16 nations will be competing at the competition, which will also debut padel and virtual taekwondo, a non-contact sport using virtual reality headsets. ... Teqba",
+   "desk": "evergreen_v1",
+   "format": "New Sport Discovery",
+   "headline": "Teqball Makes Its Asian Games Debut, Eyeing 2032 Olympics",
+   "image_status": "card_fallback",
+   "message_id": 94,
+   "normalized_subject": "Balletic hits and bicycle kicks: Teqball comes of age at the Asian Games | Sport | The Guardian",
+   "posted_at": "2026-09-23T12:50:21.263801+00:00",
+   "run_id": "2026-09-23-PM",
+   "sector": "New Sport Discovery",
+   "topic": "Balletic hits and bicycle kicks: Teqball comes of age at the Asian Games | Sport | The Guardian",
+   "urls": [
+    "theguardian.com/sport/2026/sep/18/balletic-hits-and-bicycle-kicks-teqball-comes-of-age-at-the-asian-games",
+    "aichi-nagoya2026.org/en/news/detail/1153",
+    "reuters.com/sports/soccer/olympic-dreams-flicker-teqball-awards-first-asian-games-medals-2026-09-20"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Trionda®, the connected ball of the 2026 FIFA World Cup | Novagraaf",
+   "claim": "The Trionda® ball used for the 2026 FIFA World Cup provides a prime opportunity to observe the convergence between elite sport and embedded technologies, says Robert Balsters. He examines the ball’s physical design, the motion-capture technology it incorporates, its implications for refereeing and the patent mechanisms that protect these innovations. Designed by Adidas for the 2026 FIFA World Cup, co-hosted by Canada, the United States (US) and Mexico, the Trionda® ball embodies a threefold logic – aerodynamics, information technology (with implications for refereeing and the game as a whole), and patent protection. This article examines each in turn. ... Beyond its symbolic meaning, the bal",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "Trionda® Ball Marries Aerodynamics, Embedded Tech, and Patent Strategy",
+   "image_status": "verified_external",
+   "message_id": 95,
+   "normalized_subject": "Trionda®, the connected ball of the 2026 FIFA World Cup | Novagraaf",
+   "posted_at": "2026-09-23T12:50:32.033717+00:00",
+   "run_id": "2026-09-23-PM",
+   "sector": "Equipment / Measurement",
+   "topic": "Trionda®, the connected ball of the 2026 FIFA World Cup | Novagraaf",
+   "urls": [
+    "novagraaf.com/en/insights/trionda-the-connected-ball-of-the-2026-fifa-world-cup",
+    "fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/official-match-ball",
+    "secerna.com/insights/news/the-patent-and-design-structure-of-the-adidas-trionda-pro-a-legal-and-technical-analysis"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Long-term trends in home advantage in professional team sports in North America and England (1876 – 2003): Journal of Sports Sciences: Vol 23, No 4",
+   "claim": "Home advantage is quantitatively defined and calculated for each season since the start of the main professional sports in North America and England. Over 400,000 games are analysed. The leagues represented are the National League (1876 – 2002) and American League (1901 – 2002) for baseball, the National Hockey League (1917 – 2003) for ice hockey, the National Football League (1933 – 2002) for American football, the National Basketball Association (1946 – 2003) for basketball, and the four levels of professional football, formerly called the Football League, in England (1888 – 2003). Problems caused by unbalanced playing schedules are considered. The results are presented graphically to show",
+   "desk": "evergreen_v1",
+   "format": "Interesting Sports Fact",
+   "headline": "Home Advantage Declines Across Major Sports Since Their Inception",
+   "image_status": "verified_external",
+   "message_id": 96,
+   "normalized_subject": "Long-term trends in home advantage in professional team sports in North America and England (1876 – 2003): Journal of Sports Sciences: Vol 23, No 4",
+   "posted_at": "2026-09-23T12:50:52.938936+00:00",
+   "run_id": "2026-09-23-PM",
+   "sector": "Interesting Sports Fact",
+   "topic": "Long-term trends in home advantage in professional team sports in North America and England (1876 – 2003): Journal of Sports Sciences: Vol 23, No 4",
+   "urls": [
+    "tandfonline.com/doi/abs/10.1080/02640410400021559",
+    "doi.org/10.1080/02640410400021559",
+    "doi.org/10.1080/02640410400021948"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The ‘Bound Game’ versus the ‘Fly Game’: A Far-Reaching Controversy at Organized Baseball’s Beginnings – Society for American Baseball Research",
+   "claim": ". However it was not a “league” in the modern sense, e.g., it conducted no championship competitions. Rule changes, major and minor, continued almost annually over the next four decades, albeit with a variety of different organizations involved after the NABBP’s demise circa 1870. ... This article focuses on the NABBP’s initial years during which the principal issue was the “bound game” versus “fly game,” the former being the existing method of play. As Marshall Wright noted in his history of the NABBP, “no rule was more hotly contested than the bound out rule.” 2 Robert Tholkes called it “the most contentious rules issue of the [1857–65] period.” 3 Richard Hershberger went further, describi",
+   "desk": "evergreen_v1",
+   "format": "Rule Check",
+   "headline": "Bound Game vs Fly Game: Early Baseball’s Most Heated Rule Debate",
+   "image_status": "verified_external",
+   "message_id": 97,
+   "normalized_subject": "The ‘Bound Game’ versus the ‘Fly Game’: A Far-Reaching Controversy at Organized Baseball’s Beginnings – Society for American Baseball Research",
+   "posted_at": "2026-09-23T12:51:08.636309+00:00",
+   "run_id": "2026-09-23-PM",
+   "sector": "Rule Check",
+   "topic": "The ‘Bound Game’ versus the ‘Fly Game’: A Far-Reaching Controversy at Organized Baseball’s Beginnings – Society for American Baseball Research",
+   "urls": [
+    "sabr.org/journal/article/the-bound-game-versus-the-fly-game-a-far-reaching-controversy-at-organized-baseballs-beginnings",
+    "sabr.org/journal/article/1864-winter-meetings-to-fly-or-not-and-other-monumental-changes",
+    "protoball.org/Chadwick's_Summary_of_Rules_Changes"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Piquet: historic card game described by David Parlett",
+   "claim": "This classic game of relatively great antiquity, though still one of the most skill-rewarding card games for two, is now played only by aficionados and connoisseurs. Originating around 1500, its decline from about the end of World War One may be ascribed to the popularity of Gin Rummy and other lowbrow games that are easier to learn and faster to play. ... hand, so that it will (a) produce and score for certain card combinations and (b) subsequently win a majority of twelve tricks played at no trump. Points are scored throughout, and the winner is either the first to reach 100 points, or, in a later ... Piquet is known from the early 16th century, but for most of that century under the name ",
+   "desk": "evergreen_v1",
+   "format": "Interesting Game Fact",
+   "headline": "Piquet: A Sixteenth‑Century Card Duel Now a Connoisseur’s Delight",
+   "image_status": "verified_external",
+   "message_id": 98,
+   "normalized_subject": "Piquet: historic card game described by David Parlett",
+   "posted_at": "2026-09-23T12:51:19.841790+00:00",
+   "run_id": "2026-09-23-PM",
+   "sector": "Interesting Game Fact",
+   "topic": "Piquet: historic card game described by David Parlett",
+   "urls": [
+    "davidparlett.co.uk/histocs/piquet.html",
+    "mmai.github.io/piquetBook/images/laws_of_piquet_Cavendish.pdf",
+    "en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Piquet"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Rediscover the Ancient Game of Chaupar: A Timeless Journey of Strategy and Culture - historified",
+   "claim": "I think everyone would agree that Ludo was the game that Indians played the most during the COVID lockdown. Remember, Ludo King. While not much is known about the game’s past, we have all played and continue to love it. Allow me to take you on Ludo’s or Chauapr’s journey. ... Chaupar, chopad, or chaupad, is an indigenous game of Uttarakhand. The cross & circle board game is quite similar to pachisi, one of India’s oldest games. The board is made of wool or fabric, with wooden pawns and seven cowry shells used to determine each player’s move; however, some distinguish Chaupar from pachisi by using three four-sided long dice. Variations are played across India. It shares similarities with Pach",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "Chaupar: Uttarakhand’s Ancient Cross‑Circle Game Echoes Mughal Courts",
+   "image_status": "verified_external",
+   "message_id": 99,
+   "normalized_subject": "Rediscover the Ancient Game of Chaupar: A Timeless Journey of Strategy and Culture - historified",
+   "posted_at": "2026-09-23T12:51:29.879669+00:00",
+   "run_id": "2026-09-23-PM",
+   "sector": "Game Discovery",
+   "topic": "Rediscover the Ancient Game of Chaupar: A Timeless Journey of Strategy and Culture - historified",
+   "urls": [
+    "historified.in/2024/05/25/rediscover-the-ancient-game-of-chaupar-a-timeless-journey-of-strategy-and-culture",
+    "reference-global.com/article/10.2478/bgs-2021-0003",
+    "penn.museum/sites/expedition/the-indian-games-of-pachisi-chaupar-and-chausar"
    ]
   }
  ],
@@ -2631,5 +2830,123 @@
     "title": "Yahtzee"
    }
   }
+ },
+ "v1": {
+  "created_at": "2026-09-23T12:42:56.017798+00:00",
+  "daily": {
+   "2026-09-23": {
+    "published_sectors": [
+     "Sport Discovery",
+     "Sports & Games People",
+     "Why Does This Happen?",
+     "Forgotten Sport",
+     "New Sport Discovery",
+     "Equipment / Measurement",
+     "Interesting Sports Fact",
+     "Rule Check",
+     "Interesting Game Fact",
+     "Game Discovery"
+    ],
+    "run_ids": [
+     "2026-09-23-PM"
+    ]
+   }
+  },
+  "last_run_at": "2026-09-23T12:53:37.892976+00:00",
+  "live": {
+   "results": {
+    "message_id": null,
+    "target_date": ""
+   },
+   "retiring_message_ids": [],
+   "schedule": {
+    "event_ids": [
+     "61fcbd5c4c2d407e"
+    ],
+    "message_id": 100,
+    "target_date": "2026-09-24",
+    "updated_at": "2026-09-23T12:53:37.623986+00:00"
+   }
+  },
+  "publication": {
+   "2026-09-23-PM:evergreen:1b9876df5dee9671": {
+    "message_id": 92,
+    "posted_at": "2026-09-23T12:49:41.819481+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:318b7fda18fd9209": {
+    "message_id": 98,
+    "posted_at": "2026-09-23T12:51:19.841449+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:4cd45c48728ef44b": {
+    "message_id": 96,
+    "posted_at": "2026-09-23T12:50:52.938446+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:5551d1540dd7e905": {
+    "message_id": 91,
+    "posted_at": "2026-09-23T12:49:31.448040+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:7976cfa3b17284ea": {
+    "message_id": 94,
+    "posted_at": "2026-09-23T12:50:21.263433+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:8a1a97d921e01576": {
+    "message_id": 97,
+    "posted_at": "2026-09-23T12:51:08.635944+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:cedc0467ccb337af": {
+    "message_id": 93,
+    "posted_at": "2026-09-23T12:49:48.527528+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:d8e7b205a744c1c8": {
+    "message_id": 99,
+    "posted_at": "2026-09-23T12:51:29.879248+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:e2d13e9656c42c06": {
+    "message_id": 90,
+    "posted_at": "2026-09-23T12:49:01.026922+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:f4a404b87911cd79": {
+    "message_id": 95,
+    "posted_at": "2026-09-23T12:50:32.033298+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:live_schedule:0aedf287404bf642": {
+    "message_id": 100,
+    "posted_at": "2026-09-23T12:53:37.623954+00:00",
+    "status": "posted"
+   }
+  },
+  "runs": [
+   {
+    "at": "2026-09-23T12:53:37.892996+00:00",
+    "evergreen": 10,
+    "exit": 0,
+    "live_results": null,
+    "live_schedule": 100,
+    "run_id": "2026-09-23-PM",
+    "used_sectors": [
+     "Equipment / Measurement",
+     "Forgotten Sport",
+     "Game Discovery",
+     "Interesting Game Fact",
+     "Interesting Sports Fact",
+     "New Sport Discovery",
+     "Rule Check",
+     "Sport Discovery",
+     "Sports & Games People",
+     "Why Does This Happen?"
+    ]
+   }
+  ],
+  "schema": 1
  }
 }
