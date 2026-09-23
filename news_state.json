@@ -1,1 +1,397 @@
-{}
+{
+ "ai": {
+  "last_error": "",
+  "last_ok": "2026-09-23T14:48:22.725613+00:00",
+  "last_request_id": "a3fa59938de1c974-CMH",
+  "last_status": 200,
+  "mode": "json_schema",
+  "model": "gpt-oss-120b"
+ },
+ "alerts": {},
+ "created_at": "2026-09-23T14:39:52.094270+00:00",
+ "last_run_at": "2026-09-23T14:52:49.061787+00:00",
+ "ledger": {},
+ "posts": [
+  {
+   "angle": "",
+   "central_knowledge_unit": "Pierre de Coubertin: Visionary and Founder of the Modern Olympics",
+   "claim": "Pierre de Coubertin is conventionally recognized as the founder or principal reviver of the modern international Olympic Games: he organized the 1894 Paris Congress, where delegates approved their re-establishment and created the IOC, leading to the Athens Games of 1896. He should not be described as the sole originator of Olympic revivalism, because earlier revival efforts and other contributors predated the 1894 initiative.",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Pierre de Coubertin: Principal Reviver of the Modern Olympics",
+   "image_status": "verified_external",
+   "message_id": 113,
+   "normalized_subject": "Pierre de Coubertin: Visionary and Founder of the Modern Olympics",
+   "posted_at": "2026-09-23T14:46:26.823304+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-23-PM",
+   "sector": "Sports & Games People",
+   "topic": "Pierre de Coubertin: Visionary and Founder of the Modern Olympics",
+   "urls": [
+    "olympics.com/ioc/pierre-de-coubertin"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Roberto Carlos' Brazil free kick in 1997: The physics behind 'impossible' strike - ESPN",
+   "claim": "Roberto Carlos’s free kick against France on 3 June 1997 was not physically impossible: a powerful, spinning ball over the unusually long roughly 35 m flight could follow a tightening, spiral-like curved trajectory as drag slows it, making its late bend appear abrupt. The published model supports that mechanism and says a comparable shot is possible under suitable speed, spin, and distance conditions; it does not establish an exact, fully reconstructed set of conditions for the individual kick.",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "Physics Shows Roberto Carlos’ 1997 Free‑Kick Was Not Impossible",
+   "image_status": "verified_external",
+   "message_id": 114,
+   "normalized_subject": "Roberto Carlos' Brazil free kick in 1997: The physics behind 'impossible' strike - ESPN",
+   "posted_at": "2026-09-23T14:46:35.351374+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-23-PM",
+   "sector": "Why Does This Happen?",
+   "topic": "Roberto Carlos' Brazil free kick in 1997: The physics behind 'impossible' strike - ESPN",
+   "urls": [
+    "espn.com/soccer/story/_/id/37475858/physics-impossible-strike"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Balletic hits and bicycle kicks: Teqball comes of age at the Asian Games | Sport | The Guardian",
+   "claim": "Invented a little over a decade ago in Hungary, teqball is a combination of football and ping pong ... Teqball was invented a little over a decade ago in Hungary, when two friends started playing football on a ping pong table, before going on to create the signature curved table the game is played on. ... The new sport is quickly entering the mainstream. This weekend it will debut at the Asian Games in Japan, after its historic inclusion at the European and African games, with ambitions to be an Olympic sport by 2032. ... Teams from 16 nations will be competing at the competition, which will also debut padel and virtual taekwondo, a non-contact sport using virtual reality headsets. ... Teqba",
+   "desk": "evergreen_v1",
+   "format": "New Sport Discovery",
+   "headline": "Teqball Debuts at Asian Games After a Decade of Growth",
+   "image_status": "card_fallback",
+   "message_id": 115,
+   "normalized_subject": "Balletic hits and bicycle kicks: Teqball comes of age at the Asian Games | Sport | The Guardian",
+   "posted_at": "2026-09-23T14:46:58.951586+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-23-PM",
+   "sector": "New Sport Discovery",
+   "topic": "Balletic hits and bicycle kicks: Teqball comes of age at the Asian Games | Sport | The Guardian",
+   "urls": [
+    "theguardian.com/sport/2026/sep/18/balletic-hits-and-bicycle-kicks-teqball-comes-of-age-at-the-asian-games"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Ulama, a 3,400-year-old ballgame that survived in Mexico | AP News",
+   "claim": "LOS LLANITOS, México (AP) — On a dirt field on Mexico’s Pacific coast, five cousins between the ages of 8 and 13 strip down and kick off their shoes. Nearby, adults help them fasten the pre-Hispanic-style “fajado,” securing loincloths and leather belts that wrap around their hips. ... The Osuna children grab the rubber ball, all 3.2 kilograms of it — around 7 pounds or seven times heavier than a soccer ball — and begin playing. Only the hips may touch it, forcing players to leap through the air or dive low when it skims the ground. ... As Mexico prepares to co-host the 2026 FIFA World Cup, the nation is looking back 3,400 years to one of the oldest team sports: the ancient ballgame known as ",
+   "desk": "evergreen_v1",
+   "format": "Sport Discovery",
+   "headline": "Ulama: Mexico’s 3,400‑Year‑Old Hip‑Only Ballgame Revives Ancient Roots",
+   "image_status": "verified_external",
+   "message_id": 116,
+   "normalized_subject": "Ulama, a 3,400-year-old ballgame that survived in Mexico | AP News",
+   "posted_at": "2026-09-23T14:47:14.322789+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-23-PM",
+   "sector": "Sport Discovery",
+   "topic": "Ulama, a 3,400-year-old ballgame that survived in Mexico | AP News",
+   "urls": [
+    "apnews.com/article/mexico-ulama-prehispanic-ballgame-fifa-cup-3819e65e272d0360979a8cd2dd78b999"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Rediscovering Knurr and Spell - Yorkshire's lost miners' game",
+   "claim": "Once a popular pastime across Yorkshire, the miners' game Knurr and Spell has all but disappeared from public knowledge. ... The game, also known as Nipsy, Piggy and Northern Spell, was predominantly played in mining communities in the 18th, 19th and early 20th centuries. ... There are many variations of the game, with different types of equipment used in localised versions across Yorkshire, Lancashire and the wider North of England. ... The game often took place on moorland but could be played in any area of green space. ... It is not certain when Knurr and Spell first started, and it is even less clear when the last competitive game was held - although the BBC did feature the world champio",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Sport",
+   "headline": "Knurr and Spell: Yorkshire’s Forgotten Miners’ Game",
+   "image_status": "verified_external",
+   "message_id": 117,
+   "normalized_subject": "Rediscovering Knurr and Spell - Yorkshire's lost miners' game",
+   "posted_at": "2026-09-23T14:47:22.351554+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-09-23-PM",
+   "sector": "Forgotten Sport",
+   "topic": "Rediscovering Knurr and Spell - Yorkshire's lost miners' game",
+   "urls": [
+    "bbc.com/news/articles/cvgmvkygkz5o"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Origins of the Mesoamerican ballgame: Earliest ballcourt from the highlands found at Etlatongo, Oaxaca, Mexico | Science Advances",
+   "claim": "The ballgame represents one of the most enduring and iconic features of ancient Mesoamerican civilization, yet its origins and evolution remain poorly understood, primarily associated with the Gulf Coast and southern Pacific coastal lowlands. While one early ballcourt dates to 1650 BCE from the Chiapas lowlands, ballcourts have remained undocumented in the Mesoamerican highlands until a millennium later, suggesting less involvement by highland civilizations in the ballgame’s evolution. We provide new data from the southern highlands of Mexico, from the Early Formative period (1500–1000 BCE), that necessitate revising previous paradigms. Along with ballplayer imagery, we recently excavated th",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "Earliest Highland Mesoamerican Ballcourt Dated to 1374 BCE at Etlatongo",
+   "image_status": "verified_external",
+   "message_id": 118,
+   "normalized_subject": "Origins of the Mesoamerican ballgame: Earliest ballcourt from the highlands found at Etlatongo, Oaxaca, Mexico | Science Advances",
+   "posted_at": "2026-09-23T14:47:38.166382+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-23-PM",
+   "sector": "Sport Origin",
+   "topic": "Origins of the Mesoamerican ballgame: Earliest ballcourt from the highlands found at Etlatongo, Oaxaca, Mexico | Science Advances",
+   "urls": [
+    "science.org/doi/10.1126/sciadv.aay6964"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The ‘Bound Game’ versus the ‘Fly Game’: A Far-Reaching Controversy at Organized Baseball’s Beginnings – Society for American Baseball Research",
+   "claim": ". However it was not a “league” in the modern sense, e.g., it conducted no championship competitions. Rule changes, major and minor, continued almost annually over the next four decades, albeit with a variety of different organizations involved after the NABBP’s demise circa 1870. ... This article focuses on the NABBP’s initial years during which the principal issue was the “bound game” versus “fly game,” the former being the existing method of play. As Marshall Wright noted in his history of the NABBP, “no rule was more hotly contested than the bound out rule.” 2 Robert Tholkes called it “the most contentious rules issue of the [1857–65] period.” 3 Richard Hershberger went further, describi",
+   "desk": "evergreen_v1",
+   "format": "Rule Check",
+   "headline": "Bound versus Fly: The Early Baseball Rule War",
+   "image_status": "card_fallback",
+   "message_id": 119,
+   "normalized_subject": "The ‘Bound Game’ versus the ‘Fly Game’: A Far-Reaching Controversy at Organized Baseball’s Beginnings – Society for American Baseball Research",
+   "posted_at": "2026-09-23T14:47:52.779755+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-23-PM",
+   "sector": "Rule Check",
+   "topic": "The ‘Bound Game’ versus the ‘Fly Game’: A Far-Reaching Controversy at Organized Baseball’s Beginnings – Society for American Baseball Research",
+   "urls": [
+    "sabr.org/journal/article/the-bound-game-versus-the-fly-game-a-far-reaching-controversy-at-organized-baseballs-beginnings"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Long-term trends in home advantage in professional team sports in North America and England (1876 – 2003): Journal of Sports Sciences: Vol 23, No 4",
+   "claim": "Home advantage is quantitatively defined and calculated for each season since the start of the main professional sports in North America and England. Over 400,000 games are analysed. The leagues represented are the National League (1876 – 2002) and American League (1901 – 2002) for baseball, the National Hockey League (1917 – 2003) for ice hockey, the National Football League (1933 – 2002) for American football, the National Basketball Association (1946 – 2003) for basketball, and the four levels of professional football, formerly called the Football League, in England (1888 – 2003). Problems caused by unbalanced playing schedules are considered. The results are presented graphically to show",
+   "desk": "evergreen_v1",
+   "format": "Interesting Sports Fact",
+   "headline": "Home Advantage Has Declined in Most Sports Since Early Years",
+   "image_status": "verified_external",
+   "message_id": 120,
+   "normalized_subject": "Long-term trends in home advantage in professional team sports in North America and England (1876 – 2003): Journal of Sports Sciences: Vol 23, No 4",
+   "posted_at": "2026-09-23T14:48:01.895621+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-23-PM",
+   "sector": "Interesting Sports Fact",
+   "topic": "Long-term trends in home advantage in professional team sports in North America and England (1876 – 2003): Journal of Sports Sciences: Vol 23, No 4",
+   "urls": [
+    "tandfonline.com/doi/abs/10.1080/02640410400021559"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Piquet: historic card game described by David Parlett",
+   "claim": "This classic game of relatively great antiquity, though still one of the most skill-rewarding card games for two, is now played only by aficionados and connoisseurs. Originating around 1500, its decline from about the end of World War One may be ascribed to the popularity of Gin Rummy and other lowbrow games that are easier to learn and faster to play. ... hand, so that it will (a) produce and score for certain card combinations and (b) subsequently win a majority of twelve tricks played at no trump. Points are scored throughout, and the winner is either the first to reach 100 points, or, in a later ... Piquet is known from the early 16th century, but for most of that century under the name ",
+   "desk": "evergreen_v1",
+   "format": "Interesting Game Fact",
+   "headline": "Piquet: A 16th‑Century Two‑Player Card Game Now Rare",
+   "image_status": "card_fallback",
+   "message_id": 121,
+   "normalized_subject": "Piquet: historic card game described by David Parlett",
+   "posted_at": "2026-09-23T14:48:17.108106+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-23-PM",
+   "sector": "Interesting Game Fact",
+   "topic": "Piquet: historic card game described by David Parlett",
+   "urls": [
+    "davidparlett.co.uk/histocs/piquet.html"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Native American Antecedents of Two Proprietary Board Games",
+   "claim": "Abstract The ways new games typically develop might be viewed as a con tinuum ranging from very gradual “evolution” based on mutations in troduced to a single progenitor during play or recall, to sudden “in telligent design” based on a purposeful and original combination — or even invention — of ludemes independent of any particular lines of transmission. This paper argues that two proprietary 20th-century games, C.A. Neves’s Fang den Hut! and Lizzie Magie’s The Landlord’s Game, were developed in a different way, a bit outside the typical continuum. It an alyzes the games’ general typologies, and specific ludemes, concluding that both games are modern adaptations of traditional Native Ameri ",
+   "desk": "evergreen_v1",
+   "format": "Game Origin",
+   "headline": "Two 20th‑Century Board Games Trace Roots to Native American Traditions",
+   "image_status": "card_fallback",
+   "message_id": 122,
+   "normalized_subject": "Native American Antecedents of Two Proprietary Board Games",
+   "posted_at": "2026-09-23T14:48:28.829229+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-23-PM",
+   "sector": "Game Origin",
+   "topic": "Native American Antecedents of Two Proprietary Board Games",
+   "urls": [
+    "cognitionandculture.net/wp-content/uploads/10.1515_bgs-2016-0002.pdf"
+   ]
+  }
+ ],
+ "runs": [],
+ "schema_version": 3,
+ "source_health": {},
+ "topics": {
+  "last_refresh": "",
+  "per_topic": {},
+  "pool": {}
+ },
+ "v1": {
+  "created_at": "2026-09-23T14:39:52.094376+00:00",
+  "daily": {
+   "2026-09-23": {
+    "published_sectors": [
+     "Sports & Games People",
+     "Why Does This Happen?",
+     "New Sport Discovery",
+     "Sport Discovery",
+     "Forgotten Sport",
+     "Sport Origin",
+     "Rule Check",
+     "Interesting Sports Fact",
+     "Interesting Game Fact",
+     "Game Origin"
+    ],
+    "run_ids": [
+     "2026-09-23-PM"
+    ]
+   }
+  },
+  "last_run_at": "2026-09-23T14:52:49.061753+00:00",
+  "live": {
+   "results": {
+    "event_ids": [
+     "c8a4c63a8ca3071f",
+     "a1d77fe9bf427baf",
+     "cfa4bc41bd529c16",
+     "a9655c5f4c066fdc",
+     "dd6998d6a092efbd",
+     "4553e81a0199cccd",
+     "0ca46324418e8f52",
+     "00f36be83bd0e21c",
+     "aba80a44900232dc",
+     "98c1dd11e31e9057"
+    ],
+    "message_id": 124,
+    "target_date": "2026-09-22",
+    "updated_at": "2026-09-23T14:52:49.060019+00:00"
+   },
+   "retiring_message_ids": [],
+   "schedule": {
+    "event_ids": [
+     "61fcbd5c4c2d407e",
+     "8e2be35843b06eb9",
+     "de40384a9f6acb50",
+     "dd32a1f6d0b359ce",
+     "c255139005b8d3a3",
+     "dbc75659506ddc7f",
+     "61364c2741116d1c",
+     "6a6c4c1e7f2a82b2",
+     "7f6c4b54ecd9d404",
+     "24a6062939dd3a72"
+    ],
+    "message_id": 123,
+    "target_date": "2026-09-24",
+    "updated_at": "2026-09-23T14:52:49.060008+00:00"
+   }
+  },
+  "publication": {
+   "2026-09-23-PM:evergreen:1b9876df5dee9671": {
+    "message_id": 114,
+    "posted_at": "2026-09-23T14:46:35.351070+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:318b7fda18fd9209": {
+    "message_id": 121,
+    "posted_at": "2026-09-23T14:48:17.107788+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:4cd45c48728ef44b": {
+    "message_id": 120,
+    "posted_at": "2026-09-23T14:48:01.895213+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:5551d1540dd7e905": {
+    "message_id": 113,
+    "posted_at": "2026-09-23T14:46:26.823031+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:7976cfa3b17284ea": {
+    "message_id": 115,
+    "posted_at": "2026-09-23T14:46:58.951254+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:890ed5368e1661a8": {
+    "message_id": 118,
+    "posted_at": "2026-09-23T14:47:38.166042+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:8a1a97d921e01576": {
+    "message_id": 119,
+    "posted_at": "2026-09-23T14:47:52.779250+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:ba9651f3872235ff": {
+    "message_id": 122,
+    "posted_at": "2026-09-23T14:48:28.828946+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:cedc0467ccb337af": {
+    "message_id": 117,
+    "posted_at": "2026-09-23T14:47:22.351252+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:evergreen:cfe0ef36d0434ef0": {
+    "message_id": 116,
+    "posted_at": "2026-09-23T14:47:14.322404+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:live_results:09ebecb868c2029b": {
+    "message_id": 124,
+    "posted_at": "2026-09-23T14:52:49.059988+00:00",
+    "status": "posted"
+   },
+   "2026-09-23-PM:live_schedule:0aedf287404bf642": {
+    "message_id": 123,
+    "posted_at": "2026-09-23T14:52:48.749795+00:00",
+    "status": "posted"
+   }
+  },
+  "runs": [
+   {
+    "at": "2026-09-23T14:52:49.061765+00:00",
+    "evergreen": 10,
+    "exit": 0,
+    "live_results": 124,
+    "live_schedule": 123,
+    "run_id": "2026-09-23-PM",
+    "used_sectors": [
+     "Forgotten Sport",
+     "Game Origin",
+     "Interesting Game Fact",
+     "Interesting Sports Fact",
+     "New Sport Discovery",
+     "Rule Check",
+     "Sport Discovery",
+     "Sport Origin",
+     "Sports & Games People",
+     "Why Does This Happen?"
+    ]
+   }
+  ],
+  "schema": 1
+ }
+}
