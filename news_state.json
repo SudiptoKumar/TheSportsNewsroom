@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-09-23T14:48:22.725613+00:00",
-  "last_request_id": "a3fa59938de1c974-CMH",
+  "last_ok": "2026-09-23T18:31:39.321199+00:00",
+  "last_request_id": "a3fba0a5799ce81c-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-23T14:39:52.094270+00:00",
- "last_run_at": "2026-09-23T14:52:49.061787+00:00",
+ "last_run_at": "2026-09-23T18:35:52.376427+00:00",
  "ledger": {},
  "posts": [
   {
@@ -239,6 +239,228 @@
    "urls": [
     "cognitionandculture.net/wp-content/uploads/10.1515_bgs-2016-0002.pdf"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Strange but true: some of the wackiest sports from around the ...",
+   "claim": "How much do you really love cheese? Enough to throw yourself down a near-vertical hill in pursuit of a rolling wheel of it? Welcome to the annual cheese rolling festival in Gloucestershire, England, where participants chase a 9-pound Double Gloucester cheese down Cooper's Hill, tumbling, flipping, and often crash-landing in the process. The first to cross the finish line wins the cheese and possibly a few bruises. ... If hurtling downhill at breakneck speed isn’t your thing, perhaps you'd prefer a sport that requires staying put, theoretically. Toe wrestling, another uniquely British pastime, is exactly what it sounds like. Competitors lock toes and attempt to pin their opponent’s foot to th",
+   "desk": "evergreen_v1",
+   "format": "Sport Discovery",
+   "headline": "Cheese Rolling Festival Turns Gloucestershire Hill Into a Wild Race",
+   "image_status": "card_fallback",
+   "message_id": 125,
+   "normalized_subject": "Strange but true: some of the wackiest sports from around the ...",
+   "posted_at": "2026-09-23T18:29:06.107324+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-09-24-AM",
+   "sector": "Sport Discovery",
+   "topic": "Strange but true: some of the wackiest sports from around the ...",
+   "urls": [
+    "olympics.com/en/news/strange-but-true-wackiest-sports-around-the-world"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Irish stick fighting: The Celtic sport making its modern comeback - BBC News",
+   "claim": "Irish stick fighting: The Celtic sport making its modern comeback - BBC News ... Bernie Leddy says bataireacht, or Irish stick fighting, is for everyone ... Bataireacht - or Irish stick fighting - is a two-handed blend of boxing, fencing and grappling all while using a shillelagh, a long blackthorn or oak stick. ... Classed as a martial art, it flourished as people took part in \"faction fights\", often held at community gatherings to settle disputes or even for fun. ... \"This basically involved losing teeth and blackened eyes and breaking noses and these would be signs ... of honour,\" Bernie said. ... After discovering bataireacht, Bernie flew to Canada for an intensive two-week training sess",
+   "desk": "evergreen_v1",
+   "format": "New Sport Discovery",
+   "headline": "Bataireacht Revives Celtic Martial Tradition with Modern Training",
+   "image_status": "verified_external",
+   "message_id": 126,
+   "normalized_subject": "Irish stick fighting: The Celtic sport making its modern comeback - BBC News",
+   "posted_at": "2026-09-23T18:29:11.977269+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-09-24-AM",
+   "sector": "New Sport Discovery",
+   "topic": "Irish stick fighting: The Celtic sport making its modern comeback - BBC News",
+   "urls": [
+    "bbc.co.uk/news/articles/c20j165p474o"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Trionda®, the connected ball of the 2026 FIFA World Cup | Novagraaf",
+   "claim": "TRIONDA was adidas’s official match ball for the 2026 FIFA World Cup. It has a four-panel construction with deep seams and a 500 Hz motion-sensor chip; FIFA says the connected-ball system sends real-time data to VAR to support decisions including offside. The available evidence supports that the ball combines engineered surface design and embedded tracking technology, but does not establish that every TRIONDA-specific innovation is patented.",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "Adidas Trionda Serves as Connected Ball for 2026 World Cup",
+   "image_status": "card_fallback",
+   "message_id": 127,
+   "normalized_subject": "Trionda®, the connected ball of the 2026 FIFA World Cup | Novagraaf",
+   "posted_at": "2026-09-23T18:29:37.642347+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-24-AM",
+   "sector": "Equipment / Measurement",
+   "topic": "Trionda®, the connected ball of the 2026 FIFA World Cup | Novagraaf",
+   "urls": [
+    "fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/official-match-ball"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The Surprising Math and Physics behind the 2026 Trionda World Cup Soccer Ball | Scientific American",
+   "claim": "Every four years, soccer fans eagerly await the sport’s biggest event: the International Federation of Association Football (FIFA) World Cup. But before each dramatic kickoff, artists and researchers spend years designing, testing and revising the official match ball. Recently images of the planned ball for the 2026 competition were leaked, and its design incorporates math, physics and style in some surprising ways. ... celebrates the three ... hosted World Cup. ... yet for a FIFA World Cup ball. And it represents a significant ... from the ... Al Rhila ... The design of any soccer ball hinges on an age-old question: How can one make rounded shapes out of flat material? Every FIFA World Cup ",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "Tetrahedron Design Gives 2026 Trionda Ball Unique Aerodynamic Edge",
+   "image_status": "verified_external",
+   "message_id": 128,
+   "normalized_subject": "The Surprising Math and Physics behind the 2026 Trionda World Cup Soccer Ball | Scientific American",
+   "posted_at": "2026-09-23T18:29:48.477474+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-24-AM",
+   "sector": "Why Does This Happen?",
+   "topic": "The Surprising Math and Physics behind the 2026 Trionda World Cup Soccer Ball | Scientific American",
+   "urls": [
+    "scientificamerican.com/article/the-surprising-math-and-physics-behind-the-2026-trionda-world-cup-soccer-ball"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "From Seoul to Los Angeles (1988–2028): the 40-year evolution of Olympic table tennis | Humanities and Social Sciences Communications",
+   "claim": "This study takes Olympic table tennis as its research object and systematically examines its 40-year evolutionary process from the 1988 Seoul Olympics to the 2028 Los Angeles Olympics, drawing on innovation diffusion theory, globalization theory, gender equality theory and critical modernity theory. The study finds that the technological standardization and equipment reforms of table tennis represent strategic interventions by the International Table Tennis Federation (ITTF) to enhance spectator appeal and balance global competitiveness. Adjustments to competition rules and event structures—including the 11-point scoring system, the replacement of doubles with team events, and the introducti",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "ITTF Reforms Shape Four Decades of Olympic Table Tennis",
+   "image_status": "card_fallback",
+   "message_id": 129,
+   "normalized_subject": "From Seoul to Los Angeles (1988–2028): the 40-year evolution of Olympic table tennis | Humanities and Social Sciences Communications",
+   "posted_at": "2026-09-23T18:30:01.609685+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-24-AM",
+   "sector": "Then vs Now",
+   "topic": "From Seoul to Los Angeles (1988–2028): the 40-year evolution of Olympic table tennis | Humanities and Social Sciences Communications",
+   "urls": [
+    "nature.com/articles/s41599-026-07748-1"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Playing Card | Durand, F. | V&A Explore The Collections",
+   "claim": "early 16th century (made) ... | Artist/Maker | Durand, F. (printmaker) | | --- | --- | | Place of origin | France (made) | ... The earliest woodcuts in Europe (13th century) were printed patterns on textile, followed in about 1400 by prints on paper, such as single sheet devotional prints, and playing cards like these. The oldest surviving examples of playing cards date to about 1420. This sheet is thought to have been made by an artist called F. Durand in Rouen or Lyons in the first half of the 16th century. It has not yet been cut, showing the way in which cards were made for economy, printed many to a sheet and cut at a later stage. Printed playing cards were sometimes coloured by hand bu",
+   "desk": "evergreen_v1",
+   "format": "Game Origin",
+   "headline": "French Printmaker F. Durand’s Early 16th‑Century Playing Card Sheet",
+   "image_status": "verified_external",
+   "message_id": 130,
+   "normalized_subject": "Playing Card | Durand, F. | V&A Explore The Collections",
+   "posted_at": "2026-09-23T18:30:39.605059+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-24-AM",
+   "sector": "Game Origin",
+   "topic": "Playing Card | Durand, F. | V&A Explore The Collections",
+   "urls": [
+    "collections.vam.ac.uk/item/O211484/playing-card-durand-f"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The golden ratio in baseball: the influence of historical eras on winning percentages in major league baseball",
+   "claim": "The golden section or golden ratio (61.8% or 0.618) is a mathematical phenomenon that appears in art, literature, music and nature with such ubiquity that it is thought to be a fundamental principle of aesthetic organisation. The golden ratio also manifests in sport, particularly as the proportion of wins to losses required to win a Major League Baseball championship. This study extends early work on the golden ratio in baseball by incorporating more than three decades of additional data. ... This study involved a historically contextualized examination of how winning percentages have changed across the seven historical eras of modern baseball, including analyses of the relative contribution",
+   "desk": "evergreen_v1",
+   "format": "Interesting Sports Fact",
+   "headline": "Championship Teams Hit the Golden Ratio in Mid‑Century Baseball Eras",
+   "image_status": "card_fallback",
+   "message_id": 131,
+   "normalized_subject": "The golden ratio in baseball: the influence of historical eras on winning percentages in major league baseball",
+   "posted_at": "2026-09-23T18:30:52.137426+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-24-AM",
+   "sector": "Interesting Sports Fact",
+   "topic": "The golden ratio in baseball: the influence of historical eras on winning percentages in major league baseball",
+   "urls": [
+    "pmc.ncbi.nlm.nih.gov/articles/PMC10682355"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Today's Tidbit... When Passing Into The End Zone Became Legal",
+   "claim": "We take for granted back-shoulder passes into the front corner and fade routes in the back corner of the end zone, yet both exist today due to a long line of changes to football's rules, strategies, and techniques. Neither was legal in football's early passing days, so let's look at why that was so and the changes that gave us such exciting plays. ... When football adopted the forward pass in 1906, most did not expect the play to have much impact. Little did they know how innovative coaches and players would make that view seem quaint, but many of the passing game’s advances came only after football eased its many restrictions on tossing the pea. We discussed other restrictions on the forwar",
+   "desk": "evergreen_v1",
+   "format": "Rule Check",
+   "headline": "How End Zones and Legal Passes Shaped Modern Football",
+   "image_status": "verified_external",
+   "message_id": 132,
+   "normalized_subject": "Today's Tidbit... When Passing Into The End Zone Became Legal",
+   "posted_at": "2026-09-23T18:31:03.490528+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-24-AM",
+   "sector": "Rule Check",
+   "topic": "Today's Tidbit... When Passing Into The End Zone Became Legal",
+   "urls": [
+    "footballarchaeology.com/p/todays-tidbit-when-passing-into-the"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Exploration the Ethnoscience of Gasing Game from Malay Riau Culture and its Potential for Physics Learning",
+   "claim": "Gasing is a traditional game played by the Malay people of Riau, crafted from wood shaped like an inflated fruit, with a rope made from bark. This game is played by the Malay community in Riau to spend time with friends and to celebrate special occasions in the province. The research explored the methods of making and playing gasing by the Malay people of Riau and analyzed the physics concepts involved in the game. This qualitative study employed a literature review, observation, and interviews. The literature review examines Malay culture and gasing games. Observations were conducted in Siak Regency to directly observe the gasing games, including the tools and materials used, the game rules",
+   "desk": "evergreen_v1",
+   "format": "Traditional / Regional Game",
+   "headline": "Gasing Game of Riau Reveals Physics Lessons in Traditional Play",
+   "image_status": "card_fallback",
+   "message_id": 133,
+   "normalized_subject": "Exploration the Ethnoscience of Gasing Game from Malay Riau Culture and its Potential for Physics Learning",
+   "posted_at": "2026-09-23T18:31:30.098960+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-09-24-AM",
+   "sector": "Traditional / Regional Game",
+   "topic": "Exploration the Ethnoscience of Gasing Game from Malay Riau Culture and its Potential for Physics Learning",
+   "urls": [
+    "doi.org/10.21831/jser.v8i2.75081"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The oval world : a global history of rugby : Collins, Tony, 1961- author : Free Download, Borrow, and Streaming : Internet Archive",
+   "claim": "viii, 551 pages ; 25 cmRugby has always been a sport with as much drama off the field as on it. For every thrilling last-minute Jonny Wilkinson drop-goal to win the World Cup or Jonah Lomu rampage down the touchline for a try there has been a split, a feud, or a controversy. The Oval World is the first full-length history of rugby on a world scale--from its origins in the village-based football games of medieval times to the globalized sport of the twenty-first century, now played over a hundred countries. It tells the story of how a game played in an obscure English public school became the winter sport of the British Empire, spreading to France, Argentina, Japan, and the rest of the world,",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "From Medieval Village Games to a Global Rugby Phenomenon",
+   "image_status": "verified_external",
+   "message_id": 134,
+   "normalized_subject": "The oval world : a global history of rugby : Collins, Tony, 1961- author : Free Download, Borrow, and Streaming : Internet Archive",
+   "posted_at": "2026-09-23T18:31:43.579679+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-09-24-AM",
+   "sector": "Sport Origin",
+   "topic": "The oval world : a global history of rugby : Collins, Tony, 1961- author : Free Download, Borrow, and Streaming : Internet Archive",
+   "urls": [
+    "archive.org/details/ovalworldglobalh0000coll"
+   ]
   }
  ],
  "runs": [],
@@ -250,144 +472,144 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-09-23T14:39:52.094376+00:00",
+  "created_at": "2026-09-23T18:22:44.389119+00:00",
   "daily": {
-   "2026-09-23": {
+   "2026-09-24": {
     "published_sectors": [
-     "Sports & Games People",
-     "Why Does This Happen?",
-     "New Sport Discovery",
      "Sport Discovery",
-     "Forgotten Sport",
-     "Sport Origin",
-     "Rule Check",
+     "New Sport Discovery",
+     "Equipment / Measurement",
+     "Why Does This Happen?",
+     "Then vs Now",
+     "Game Origin",
      "Interesting Sports Fact",
-     "Interesting Game Fact",
-     "Game Origin"
+     "Rule Check",
+     "Traditional / Regional Game",
+     "Sport Origin"
     ],
     "run_ids": [
-     "2026-09-23-PM"
+     "2026-09-24-AM"
     ]
    }
   },
-  "last_run_at": "2026-09-23T14:52:49.061753+00:00",
+  "last_run_at": "2026-09-23T18:35:52.376396+00:00",
   "live": {
    "results": {
     "event_ids": [
-     "c8a4c63a8ca3071f",
-     "a1d77fe9bf427baf",
-     "cfa4bc41bd529c16",
-     "a9655c5f4c066fdc",
-     "dd6998d6a092efbd",
-     "4553e81a0199cccd",
-     "0ca46324418e8f52",
-     "00f36be83bd0e21c",
-     "aba80a44900232dc",
-     "98c1dd11e31e9057"
+     "f74c62c719d681e0",
+     "bcfad3285de95c94",
+     "653bef255f0c8974",
+     "0a1b5f07997898a2",
+     "11445e7ac1399c2c",
+     "b98080bdf0bf3f62",
+     "a299737138f4a55a",
+     "9d1650adcc371773",
+     "5c339742e2750dec",
+     "a1be497fd3a79aac"
     ],
-    "message_id": 124,
-    "target_date": "2026-09-22",
-    "updated_at": "2026-09-23T14:52:49.060019+00:00"
+    "message_id": 136,
+    "target_date": "2026-09-23",
+    "updated_at": "2026-09-23T18:35:52.374421+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [
-     "61fcbd5c4c2d407e",
-     "8e2be35843b06eb9",
-     "de40384a9f6acb50",
-     "dd32a1f6d0b359ce",
-     "c255139005b8d3a3",
-     "dbc75659506ddc7f",
-     "61364c2741116d1c",
-     "6a6c4c1e7f2a82b2",
-     "7f6c4b54ecd9d404",
-     "24a6062939dd3a72"
+     "204d1370ebaeefc9",
+     "0c9f2df2f49c72e1",
+     "1824c9857df117bf",
+     "8ece3d25671ca67f",
+     "d13e6ad75b685a7f",
+     "55d4940aa2c5bcaf",
+     "5b7fc677b5a01784",
+     "8aaa1a95a03dbe95",
+     "719d6bc518a1b29b",
+     "71f76cbd125f499e"
     ],
-    "message_id": 123,
-    "target_date": "2026-09-24",
-    "updated_at": "2026-09-23T14:52:49.060008+00:00"
+    "message_id": 135,
+    "target_date": "2026-09-25",
+    "updated_at": "2026-09-23T18:35:52.374409+00:00"
    }
   },
   "publication": {
-   "2026-09-23-PM:evergreen:1b9876df5dee9671": {
-    "message_id": 114,
-    "posted_at": "2026-09-23T14:46:35.351070+00:00",
+   "2026-09-24-AM:evergreen:179788e5be5c6632": {
+    "message_id": 126,
+    "posted_at": "2026-09-23T18:29:11.976987+00:00",
     "status": "posted"
    },
-   "2026-09-23-PM:evergreen:318b7fda18fd9209": {
-    "message_id": 121,
-    "posted_at": "2026-09-23T14:48:17.107788+00:00",
+   "2026-09-24-AM:evergreen:29cad2b5b479cac6": {
+    "message_id": 133,
+    "posted_at": "2026-09-23T18:31:30.098659+00:00",
     "status": "posted"
    },
-   "2026-09-23-PM:evergreen:4cd45c48728ef44b": {
-    "message_id": 120,
-    "posted_at": "2026-09-23T14:48:01.895213+00:00",
+   "2026-09-24-AM:evergreen:657689994b8ee34e": {
+    "message_id": 129,
+    "posted_at": "2026-09-23T18:30:01.609322+00:00",
     "status": "posted"
    },
-   "2026-09-23-PM:evergreen:5551d1540dd7e905": {
-    "message_id": 113,
-    "posted_at": "2026-09-23T14:46:26.823031+00:00",
+   "2026-09-24-AM:evergreen:914dbbb32e63a4a6": {
+    "message_id": 128,
+    "posted_at": "2026-09-23T18:29:48.477140+00:00",
     "status": "posted"
    },
-   "2026-09-23-PM:evergreen:7976cfa3b17284ea": {
-    "message_id": 115,
-    "posted_at": "2026-09-23T14:46:58.951254+00:00",
+   "2026-09-24-AM:evergreen:a5943a773c3460ad": {
+    "message_id": 131,
+    "posted_at": "2026-09-23T18:30:52.137130+00:00",
     "status": "posted"
    },
-   "2026-09-23-PM:evergreen:890ed5368e1661a8": {
-    "message_id": 118,
-    "posted_at": "2026-09-23T14:47:38.166042+00:00",
+   "2026-09-24-AM:evergreen:acd2234de7dd4f48": {
+    "message_id": 134,
+    "posted_at": "2026-09-23T18:31:43.579340+00:00",
     "status": "posted"
    },
-   "2026-09-23-PM:evergreen:8a1a97d921e01576": {
-    "message_id": 119,
-    "posted_at": "2026-09-23T14:47:52.779250+00:00",
+   "2026-09-24-AM:evergreen:b10560d4d26b021d": {
+    "message_id": 132,
+    "posted_at": "2026-09-23T18:31:03.490200+00:00",
     "status": "posted"
    },
-   "2026-09-23-PM:evergreen:ba9651f3872235ff": {
-    "message_id": 122,
-    "posted_at": "2026-09-23T14:48:28.828946+00:00",
+   "2026-09-24-AM:evergreen:d421d5df35594999": {
+    "message_id": 130,
+    "posted_at": "2026-09-23T18:30:39.604752+00:00",
     "status": "posted"
    },
-   "2026-09-23-PM:evergreen:cedc0467ccb337af": {
-    "message_id": 117,
-    "posted_at": "2026-09-23T14:47:22.351252+00:00",
+   "2026-09-24-AM:evergreen:e2d13e9656c42c06": {
+    "message_id": 125,
+    "posted_at": "2026-09-23T18:29:06.107005+00:00",
     "status": "posted"
    },
-   "2026-09-23-PM:evergreen:cfe0ef36d0434ef0": {
-    "message_id": 116,
-    "posted_at": "2026-09-23T14:47:14.322404+00:00",
+   "2026-09-24-AM:evergreen:f4a404b87911cd79": {
+    "message_id": 127,
+    "posted_at": "2026-09-23T18:29:37.642065+00:00",
     "status": "posted"
    },
-   "2026-09-23-PM:live_results:09ebecb868c2029b": {
-    "message_id": 124,
-    "posted_at": "2026-09-23T14:52:49.059988+00:00",
+   "2026-09-24-AM:live_results:fe12adf42b253cb0": {
+    "message_id": 136,
+    "posted_at": "2026-09-23T18:35:52.374379+00:00",
     "status": "posted"
    },
-   "2026-09-23-PM:live_schedule:0aedf287404bf642": {
-    "message_id": 123,
-    "posted_at": "2026-09-23T14:52:48.749795+00:00",
+   "2026-09-24-AM:live_schedule:e7727378589f8c51": {
+    "message_id": 135,
+    "posted_at": "2026-09-23T18:35:52.047572+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-09-23T14:52:49.061765+00:00",
+    "at": "2026-09-23T18:35:52.376406+00:00",
     "evergreen": 10,
     "exit": 0,
-    "live_results": 124,
-    "live_schedule": 123,
-    "run_id": "2026-09-23-PM",
+    "live_results": 136,
+    "live_schedule": 135,
+    "run_id": "2026-09-24-AM",
     "used_sectors": [
-     "Forgotten Sport",
+     "Equipment / Measurement",
      "Game Origin",
-     "Interesting Game Fact",
      "Interesting Sports Fact",
      "New Sport Discovery",
      "Rule Check",
      "Sport Discovery",
      "Sport Origin",
-     "Sports & Games People",
+     "Then vs Now",
+     "Traditional / Regional Game",
      "Why Does This Happen?"
     ]
    }
