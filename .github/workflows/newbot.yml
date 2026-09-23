@@ -60,13 +60,15 @@ jobs:
       NORMAL_SEARCH_RESULTS: "6"
       NORMAL_SEARCH_FALLBACK_MIN: "3"
       NORMAL_SEARCH_TIMEOUT: "15"
-      IMAGE_SEARCH_RESULTS: "6"
+      IMAGE_SEARCH_RESULTS: "8"
       IMAGE_SEARCH_TIMEOUT: "12"
       IMAGE_PAGE_MAX_BYTES: "512000"
-      IMAGE_MIN_RELEVANCE: "0.30"
+      IMAGE_MIN_RELEVANCE: "0.28"
       IMAGE_MIN_ASPECT: "0.60"
       IMAGE_MAX_ASPECT: "2.00"
       MAX_IMAGE_BYTES: "10000000"
+      IMAGE_MIN_WIDTH: "320"
+      IMAGE_MIN_HEIGHT: "180"
       V1_CONTENTS_CHARS: "9000"
       V1_RANK_MAX_CANDIDATES: "20"
       V1_RANK_MAX_TOKENS: "768"
@@ -131,7 +133,7 @@ jobs:
           set -euo pipefail
           python -m py_compile main.py tests/test_v1.py
           python -m json.tool schemas/exa_agent_hard_case_v1.json >/dev/null
-          test "$(python main.py --version)" = "The Sports Newsroom V1 1.3.0"
+          test "$(python main.py --version)" = "The Sports Newsroom V1 1.4.0"
 
       - name: Validate V1 production configuration
         if: ${{ env.BOT_MODE == 'run' || env.BOT_MODE == 'dry-run' }}
