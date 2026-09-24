@@ -729,8 +729,248 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 134
+  },
+  {
+   "central_claim": "How much do you really love cheese? Enough to throw yourself down a near-vertical hill in pursuit of a rolling wheel of it? Welcome to the annual cheese rolling festival in Gloucestershire, England, where participants chase a 9-pound Double Gloucester cheese down Cooper's Hill, tumbling, flipping, and often crash-landing in the process. The first to cross the finish line wins the cheese and possibly a few bruises. ... If hurtling downhill at breakneck speed isn’t your thing, perhaps you'd prefer",
+   "central_knowledge_unit": "how much do you really love cheese enough to throw yourself down a near vertical hill in pursuit of a rolling wheel of it welcome to the annual cheese rolling festival in gloucestershire england where participants chase ",
+   "content_id": "fc93568071aca77f",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7c8933da7239a045",
+    "988b909f3c0c7015"
+   ],
+   "legacy": true,
+   "normalized_subject": "strange but true some of the wackiest sports from around the",
+   "people": [],
+   "published_at": "2026-09-23T18:29:06.107324+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    "olympics.com/en/news/strange-but-true-wackiest-sports-around-the-world"
+   ],
+   "sport_or_game": "Strange but true: some of the wackiest sports from around the ...",
+   "telegram_message_id": 125
+  },
+  {
+   "central_claim": "Irish stick fighting: The Celtic sport making its modern comeback - BBC News ... Bernie Leddy says bataireacht, or Irish stick fighting, is for everyone ... Bataireacht - or Irish stick fighting - is a two-handed blend of boxing, fencing and grappling all while using a shillelagh, a long blackthorn or oak stick. ... Classed as a martial art, it flourished as people took part in \"faction fights\", often held at community gatherings to settle disputes or even for fun. ... \"This basically involved l",
+   "central_knowledge_unit": "irish stick fighting the celtic sport making its modern comeback bbc news bernie leddy says bataireacht or irish stick fighting is for everyone bataireacht or irish stick fighting is a two handed blend of boxing fencing ",
+   "content_id": "da0de16f0dcfe1b7",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "d296f402bbb0c841",
+    "ef12bd64133b40b3"
+   ],
+   "legacy": true,
+   "normalized_subject": "irish stick fighting the celtic sport making its modern comeback bbc news",
+   "people": [],
+   "published_at": "2026-09-23T18:29:11.977269+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "bbc.co.uk/news/articles/c20j165p474o"
+   ],
+   "sport_or_game": "Irish stick fighting: The Celtic sport making its modern comeback - BBC News",
+   "telegram_message_id": 126
+  },
+  {
+   "central_claim": "TRIONDA was adidas’s official match ball for the 2026 FIFA World Cup. It has a four-panel construction with deep seams and a 500 Hz motion-sensor chip; FIFA says the connected-ball system sends real-time data to VAR to support decisions including offside. The available evidence supports that the ball combines engineered surface design and embedded tracking technology, but does not establish that every TRIONDA-specific innovation is patented.",
+   "central_knowledge_unit": "trionda was adidas s official match ball for the 2026 fifa world cup it has a four panel construction with deep seams and a 500 hz motion sensor chip fifa says the connected ball system sends real time data to var to sup",
+   "content_id": "e93288116cbb4062",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "46d4df1d775f4617",
+    "f5cdef5719adb621"
+   ],
+   "legacy": true,
+   "normalized_subject": "trionda the connected ball of the 2026 fifa world cup novagraaf",
+   "people": [],
+   "published_at": "2026-09-23T18:29:37.642347+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/official-match-ball"
+   ],
+   "sport_or_game": "Trionda®, the connected ball of the 2026 FIFA World Cup | Novagraaf",
+   "telegram_message_id": 127
+  },
+  {
+   "central_claim": "Every four years, soccer fans eagerly await the sport’s biggest event: the International Federation of Association Football (FIFA) World Cup. But before each dramatic kickoff, artists and researchers spend years designing, testing and revising the official match ball. Recently images of the planned ball for the 2026 competition were leaked, and its design incorporates math, physics and style in some surprising ways. ... celebrates the three ... hosted World Cup. ... yet for a FIFA World Cup ball",
+   "central_knowledge_unit": "every four years soccer fans eagerly await the sport s biggest event the international federation of association football fifa world cup but before each dramatic kickoff artists and researchers spend years designing test",
+   "content_id": "6d89217203cde693",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "516ee509128362d7",
+    "48cffd768eac392f"
+   ],
+   "legacy": true,
+   "normalized_subject": "the surprising math and physics behind the 2026 trionda world cup soccer ball scientific american",
+   "people": [],
+   "published_at": "2026-09-23T18:29:48.477474+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "scientificamerican.com/article/the-surprising-math-and-physics-behind-the-2026-trionda-world-cup-soccer-ball"
+   ],
+   "sport_or_game": "The Surprising Math and Physics behind the 2026 Trionda World Cup Soccer Ball | Scientific American",
+   "telegram_message_id": 128
+  },
+  {
+   "central_claim": "This study takes Olympic table tennis as its research object and systematically examines its 40-year evolutionary process from the 1988 Seoul Olympics to the 2028 Los Angeles Olympics, drawing on innovation diffusion theory, globalization theory, gender equality theory and critical modernity theory. The study finds that the technological standardization and equipment reforms of table tennis represent strategic interventions by the International Table Tennis Federation (ITTF) to enhance spectator",
+   "central_knowledge_unit": "this study takes olympic table tennis as its research object and systematically examines its 40 year evolutionary process from the 1988 seoul olympics to the 2028 los angeles olympics drawing on innovation diffusion theo",
+   "content_id": "aa2f9b755b03cde6",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a040cf60f3812349",
+    "6044586986af4e63"
+   ],
+   "legacy": true,
+   "normalized_subject": "from seoul to los angeles 1988 2028 the 40 year evolution of olympic table tennis humanities and social sciences communications",
+   "people": [],
+   "published_at": "2026-09-23T18:30:01.609685+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "nature.com/articles/s41599-026-07748-1"
+   ],
+   "sport_or_game": "From Seoul to Los Angeles (1988–2028): the 40-year evolution of Olympic table tennis | Humanities and Social Sciences Communications",
+   "telegram_message_id": 129
+  },
+  {
+   "central_claim": "early 16th century (made) ... | Artist/Maker | Durand, F. (printmaker) | | --- | --- | | Place of origin | France (made) | ... The earliest woodcuts in Europe (13th century) were printed patterns on textile, followed in about 1400 by prints on paper, such as single sheet devotional prints, and playing cards like these. The oldest surviving examples of playing cards date to about 1420. This sheet is thought to have been made by an artist called F. Durand in Rouen or Lyons in the first half of the",
+   "central_knowledge_unit": "early 16th century made artist maker durand f printmaker place of origin france made the earliest woodcuts in europe 13th century were printed patterns on textile followed in about 1400 by prints on paper such as single ",
+   "content_id": "6a15db19dc8f2773",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9f57250c8bc582dc",
+    "4ec5a1a8cfece325"
+   ],
+   "legacy": true,
+   "normalized_subject": "playing card durand f v a explore the collections",
+   "people": [],
+   "published_at": "2026-09-23T18:30:39.605059+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Origin",
+   "source_urls": [
+    "collections.vam.ac.uk/item/O211484/playing-card-durand-f"
+   ],
+   "sport_or_game": "Playing Card | Durand, F. | V&A Explore The Collections",
+   "telegram_message_id": 130
+  },
+  {
+   "central_claim": "The golden section or golden ratio (61.8% or 0.618) is a mathematical phenomenon that appears in art, literature, music and nature with such ubiquity that it is thought to be a fundamental principle of aesthetic organisation. The golden ratio also manifests in sport, particularly as the proportion of wins to losses required to win a Major League Baseball championship. This study extends early work on the golden ratio in baseball by incorporating more than three decades of additional data. ... Th",
+   "central_knowledge_unit": "the golden section or golden ratio 61 8 or 0 618 is a mathematical phenomenon that appears in art literature music and nature with such ubiquity that it is thought to be a fundamental principle of aesthetic organisation ",
+   "content_id": "c8a2a9c279779585",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "5fe6f28a9a87a23a",
+    "2f860abad278492a"
+   ],
+   "legacy": true,
+   "normalized_subject": "the golden ratio in baseball the influence of historical eras on winning percentages in major league baseball",
+   "people": [],
+   "published_at": "2026-09-23T18:30:52.137426+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Sports Fact",
+   "source_urls": [
+    "pmc.ncbi.nlm.nih.gov/articles/PMC10682355"
+   ],
+   "sport_or_game": "The golden ratio in baseball: the influence of historical eras on winning percentages in major league baseball",
+   "telegram_message_id": 131
+  },
+  {
+   "central_claim": "We take for granted back-shoulder passes into the front corner and fade routes in the back corner of the end zone, yet both exist today due to a long line of changes to football's rules, strategies, and techniques. Neither was legal in football's early passing days, so let's look at why that was so and the changes that gave us such exciting plays. ... When football adopted the forward pass in 1906, most did not expect the play to have much impact. Little did they know how innovative coaches and ",
+   "central_knowledge_unit": "we take for granted back shoulder passes into the front corner and fade routes in the back corner of the end zone yet both exist today due to a long line of changes to football s rules strategies and techniques neither w",
+   "content_id": "5497805ae5d0a87a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "2c3e40ba30e9991b",
+    "f063ad5c2c1754d4"
+   ],
+   "legacy": true,
+   "normalized_subject": "today s tidbit when passing into the end zone became legal",
+   "people": [],
+   "published_at": "2026-09-23T18:31:03.490528+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Rule Check",
+   "source_urls": [
+    "footballarchaeology.com/p/todays-tidbit-when-passing-into-the"
+   ],
+   "sport_or_game": "Today's Tidbit... When Passing Into The End Zone Became Legal",
+   "telegram_message_id": 132
+  },
+  {
+   "central_claim": "Gasing is a traditional game played by the Malay people of Riau, crafted from wood shaped like an inflated fruit, with a rope made from bark. This game is played by the Malay community in Riau to spend time with friends and to celebrate special occasions in the province. The research explored the methods of making and playing gasing by the Malay people of Riau and analyzed the physics concepts involved in the game. This qualitative study employed a literature review, observation, and interviews.",
+   "central_knowledge_unit": "gasing is a traditional game played by the malay people of riau crafted from wood shaped like an inflated fruit with a rope made from bark this game is played by the malay community in riau to spend time with friends and",
+   "content_id": "dff91135f83505cd",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "bcd882e819bb4425",
+    "a54c1487b691eea0"
+   ],
+   "legacy": true,
+   "normalized_subject": "exploration the ethnoscience of gasing game from malay riau culture and its potential for physics learning",
+   "people": [],
+   "published_at": "2026-09-23T18:31:30.098960+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    "doi.org/10.21831/jser.v8i2.75081"
+   ],
+   "sport_or_game": "Exploration the Ethnoscience of Gasing Game from Malay Riau Culture and its Potential for Physics Learning",
+   "telegram_message_id": 133
+  },
+  {
+   "central_claim": "viii, 551 pages ; 25 cmRugby has always been a sport with as much drama off the field as on it. For every thrilling last-minute Jonny Wilkinson drop-goal to win the World Cup or Jonah Lomu rampage down the touchline for a try there has been a split, a feud, or a controversy. The Oval World is the first full-length history of rugby on a world scale--from its origins in the village-based football games of medieval times to the globalized sport of the twenty-first century, now played over a hundred",
+   "central_knowledge_unit": "viii 551 pages 25 cmrugby has always been a sport with as much drama off the field as on it for every thrilling last minute jonny wilkinson drop goal to win the world cup or jonah lomu rampage down the touchline for a tr",
+   "content_id": "8935a0ec5951d61f",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "566cc05c57e76303",
+    "d0ce0532615c13ce"
+   ],
+   "legacy": true,
+   "normalized_subject": "the oval world a global history of rugby collins tony 1961 author free download borrow and streaming internet archive",
+   "people": [],
+   "published_at": "2026-09-23T18:31:43.579679+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "archive.org/details/ovalworldglobalh0000coll"
+   ],
+   "sport_or_game": "The oval world : a global history of rugby : Collins, Tony, 1961- author : Free Download, Borrow, and Streaming : Internet Archive",
+   "telegram_message_id": 134
   }
  ],
  "schema": 1,
- "updated_at": "2026-09-23T18:31:43.579653+00:00"
+ "updated_at": "2026-09-24T07:33:51.782104+00:00"
 }

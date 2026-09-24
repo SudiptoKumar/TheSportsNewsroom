@@ -2,14 +2,14 @@
  "ai": {
   "last_error": "",
   "last_ok": "2026-09-23T18:31:39.321199+00:00",
-  "last_request_id": "a3fba0a5799ce81c-CMH",
-  "last_status": 200,
+  "last_request_id": "",
+  "last_status": 0,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-23T14:39:52.094270+00:00",
- "last_run_at": "2026-09-23T18:35:52.376427+00:00",
+ "last_run_at": "2026-09-24T07:38:16.435422+00:00",
  "ledger": {},
  "posts": [
   {
@@ -472,27 +472,16 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-09-23T18:22:44.389119+00:00",
+  "created_at": "2026-09-24T07:33:51.782116+00:00",
   "daily": {
    "2026-09-24": {
-    "published_sectors": [
-     "Sport Discovery",
-     "New Sport Discovery",
-     "Equipment / Measurement",
-     "Why Does This Happen?",
-     "Then vs Now",
-     "Game Origin",
-     "Interesting Sports Fact",
-     "Rule Check",
-     "Traditional / Regional Game",
-     "Sport Origin"
-    ],
+    "published_sectors": [],
     "run_ids": [
      "2026-09-24-AM"
     ]
    }
   },
-  "last_run_at": "2026-09-23T18:35:52.376396+00:00",
+  "last_run_at": "2026-09-24T07:38:16.435399+00:00",
   "live": {
    "results": {
     "event_ids": [
@@ -507,9 +496,9 @@
      "5c339742e2750dec",
      "a1be497fd3a79aac"
     ],
-    "message_id": 136,
+    "message_id": 138,
     "target_date": "2026-09-23",
-    "updated_at": "2026-09-23T18:35:52.374421+00:00"
+    "updated_at": "2026-09-24T07:38:16.433618+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
@@ -525,93 +514,32 @@
      "719d6bc518a1b29b",
      "71f76cbd125f499e"
     ],
-    "message_id": 135,
+    "message_id": 137,
     "target_date": "2026-09-25",
-    "updated_at": "2026-09-23T18:35:52.374409+00:00"
+    "updated_at": "2026-09-24T07:38:16.433608+00:00"
    }
   },
   "publication": {
-   "2026-09-24-AM:evergreen:179788e5be5c6632": {
-    "message_id": 126,
-    "posted_at": "2026-09-23T18:29:11.976987+00:00",
-    "status": "posted"
-   },
-   "2026-09-24-AM:evergreen:29cad2b5b479cac6": {
-    "message_id": 133,
-    "posted_at": "2026-09-23T18:31:30.098659+00:00",
-    "status": "posted"
-   },
-   "2026-09-24-AM:evergreen:657689994b8ee34e": {
-    "message_id": 129,
-    "posted_at": "2026-09-23T18:30:01.609322+00:00",
-    "status": "posted"
-   },
-   "2026-09-24-AM:evergreen:914dbbb32e63a4a6": {
-    "message_id": 128,
-    "posted_at": "2026-09-23T18:29:48.477140+00:00",
-    "status": "posted"
-   },
-   "2026-09-24-AM:evergreen:a5943a773c3460ad": {
-    "message_id": 131,
-    "posted_at": "2026-09-23T18:30:52.137130+00:00",
-    "status": "posted"
-   },
-   "2026-09-24-AM:evergreen:acd2234de7dd4f48": {
-    "message_id": 134,
-    "posted_at": "2026-09-23T18:31:43.579340+00:00",
-    "status": "posted"
-   },
-   "2026-09-24-AM:evergreen:b10560d4d26b021d": {
-    "message_id": 132,
-    "posted_at": "2026-09-23T18:31:03.490200+00:00",
-    "status": "posted"
-   },
-   "2026-09-24-AM:evergreen:d421d5df35594999": {
-    "message_id": 130,
-    "posted_at": "2026-09-23T18:30:39.604752+00:00",
-    "status": "posted"
-   },
-   "2026-09-24-AM:evergreen:e2d13e9656c42c06": {
-    "message_id": 125,
-    "posted_at": "2026-09-23T18:29:06.107005+00:00",
-    "status": "posted"
-   },
-   "2026-09-24-AM:evergreen:f4a404b87911cd79": {
-    "message_id": 127,
-    "posted_at": "2026-09-23T18:29:37.642065+00:00",
-    "status": "posted"
-   },
    "2026-09-24-AM:live_results:fe12adf42b253cb0": {
-    "message_id": 136,
-    "posted_at": "2026-09-23T18:35:52.374379+00:00",
+    "message_id": 138,
+    "posted_at": "2026-09-24T07:38:16.433579+00:00",
     "status": "posted"
    },
    "2026-09-24-AM:live_schedule:e7727378589f8c51": {
-    "message_id": 135,
-    "posted_at": "2026-09-23T18:35:52.047572+00:00",
+    "message_id": 137,
+    "posted_at": "2026-09-24T07:38:16.106467+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-09-23T18:35:52.376406+00:00",
-    "evergreen": 10,
+    "at": "2026-09-24T07:38:16.435409+00:00",
+    "evergreen": 0,
     "exit": 0,
-    "live_results": 136,
-    "live_schedule": 135,
+    "live_results": 138,
+    "live_schedule": 137,
     "run_id": "2026-09-24-AM",
-    "used_sectors": [
-     "Equipment / Measurement",
-     "Game Origin",
-     "Interesting Sports Fact",
-     "New Sport Discovery",
-     "Rule Check",
-     "Sport Discovery",
-     "Sport Origin",
-     "Then vs Now",
-     "Traditional / Regional Game",
-     "Why Does This Happen?"
-    ]
+    "used_sectors": []
    }
   ],
   "schema": 1
