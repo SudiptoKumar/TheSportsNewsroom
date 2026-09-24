@@ -1,15 +1,15 @@
 {
  "ai": {
-  "last_error": "",
-  "last_ok": "2026-09-23T18:31:39.321199+00:00",
-  "last_request_id": "",
-  "last_status": 0,
+  "last_error": "Cerebras per-run call cap reached (16)",
+  "last_ok": "2026-09-24T18:33:10.481519+00:00",
+  "last_request_id": "a403e03e0e7eb75a-CMH",
+  "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-23T14:39:52.094270+00:00",
- "last_run_at": "2026-09-24T07:38:16.435422+00:00",
+ "last_run_at": "2026-09-24T18:37:22.861896+00:00",
  "ledger": {},
  "posts": [
   {
@@ -461,6 +461,167 @@
    "urls": [
     "archive.org/details/ovalworldglobalh0000coll"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "History of sport - Wikipedia",
+   "claim": "Prehistoric and ancient art can document depictions of physical activity, but the supplied examples do not establish a continuous or universal origin of modern sports. Stronger evidence supports wrestling in ancient Mesopotamia: a Badra stela is dated to about 2900 BCE and a Khafajah object to about 2600 BCE, interpreted as belt wrestling. Japanese sumō has later archaeological, mythic/literary, and historical antecedents; the first historical evidence cited by a Japanese university museum is a 642 CE event, not prehistoric cave painting. The Lascaux, Bayankhongor, and Cave of Swimmers assertions require substantially narrower wording or remain unverified.",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "Ancient Mesopotamian Stelae Reveal Earliest Known Wrestling",
+   "image_status": "verified_external",
+   "message_id": 139,
+   "normalized_subject": "History of sport - Wikipedia",
+   "posted_at": "2026-09-24T18:30:36.245217+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-25-AM",
+   "sector": "Sport Origin",
+   "topic": "History of sport - Wikipedia",
+   "urls": [
+    "en.wikipedia.org/wiki/History_of_sport"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Evergreen Game",
+   "claim": "The “Evergreen Game” is the celebrated recorded chess game in which Adolf Anderssen, playing White, defeated Jean Dufresne. It was first published in the September and October 1852 issues of the Deutsche Schachzeitung and is conventionally dated 1852. The enduring “Evergreen” name is traceable to Wilhelm Steinitz’s 1879 tribute; Anderssen was regarded as the world’s strongest player after his 1851 London victory, but the world-championship title was still unofficial.",
+   "desk": "evergreen_v1",
+   "format": "Interesting Game Fact",
+   "headline": "Anderssen’s 1852 Evergreen Game Marks Chess Mastery",
+   "image_status": "verified_external",
+   "message_id": 140,
+   "normalized_subject": "Evergreen Game",
+   "posted_at": "2026-09-24T18:30:51.312097+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-25-AM",
+   "sector": "Interesting Game Fact",
+   "topic": "Evergreen Game",
+   "urls": [
+    "en.wikipedia.org/wiki/Evergreen_Game"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Rube Foster | Biography, Baseball, & Facts | Britannica",
+   "claim": "Rube Foster (born September 17, 1879, Calvert, Texas, U.S.—died December 9, 1930, Kankakee, Illinois) was an American baseball player who gained fame as a pitcher, manager, and owner and as the “father of Black baseball” after founding in 1920 the Negro National League(NNL), the first successful professional league for African American ballplayers. ... A dispute over money with the Philadelphia Giants led to Foster’s return to Chicago and the Leland Giants in 1907. As both star pitcher and manager, he guided the team to a 110–10 record that year. His style as a manager was no different from his style as a player—aggressive and intimidating. He was an innovative strategist, and his team membe",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Rube Foster Founded the First Successful Negro Baseball League in 1920",
+   "image_status": "verified_external",
+   "message_id": 141,
+   "normalized_subject": "Rube Foster | Biography, Baseball, & Facts | Britannica",
+   "posted_at": "2026-09-24T18:31:04.329300+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-25-AM",
+   "sector": "Sports & Games People",
+   "topic": "Rube Foster | Biography, Baseball, & Facts | Britannica",
+   "urls": [
+    "britannica.com/biography/Rube-Foster"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Twelve objects to see with children | British Museum",
+   "claim": "### 8. Royal Game of Ur (Room 56) ... Originally played in the early third millennium BC and once popular across the Middle East, the rules of this two-player strategy board game were lost to history until British Museum curator Irving Finkel decoded a cuneiform tablet containing the instructions in the early 1980s.",
+   "desk": "evergreen_v1",
+   "format": "Game Origin",
+   "headline": "Royal Game of Ur: Ancient Strategy Revived by Modern Scholarship",
+   "image_status": "card_fallback",
+   "message_id": 142,
+   "normalized_subject": "Twelve objects to see with children | British Museum",
+   "posted_at": "2026-09-24T18:31:52.310252+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-25-AM",
+   "sector": "Game Origin",
+   "topic": "Twelve objects to see with children | British Museum",
+   "urls": [
+    "britishmuseum.org/visit/object-trails/twelve-objects-see-children"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "A Brief History of Revisions to the Rules of Golf: 1744 to Present",
+   "claim": "Much of the time, the Rules of Golf have changed in response to the seemingly infinite variety of unforeseen or unique circumstances that keep arising in a sport played outdoors in a natural setting. Reasons for rule change have included the evolution of course design, maintenance and agronomics; innovation in clubs, balls and other player equipment; and the expansion and diversification in the landscapes where golf is played. More generally, the Rules of Golf Committees have often made changes after listening to passionate debates among golfers about whether particular outcomes or procedures are fair or appropriate. ... Less frequent, but highly significant, have been the efforts to step ba",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "From the 1744 Leith Rules to Modern Golf Revisions",
+   "image_status": "verified_external",
+   "message_id": 143,
+   "normalized_subject": "A Brief History of Revisions to the Rules of Golf: 1744 to Present",
+   "posted_at": "2026-09-24T18:32:31.846104+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-25-AM",
+   "sector": "Then vs Now",
+   "topic": "A Brief History of Revisions to the Rules of Golf: 1744 to Present",
+   "urls": [
+    "usga.org/rules-hub/rules-modernization/text/a-brief-history-1744-to-present.html"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Ask the expert: What’s the physics behind soccer’s greatest plays? | MSUToday | Michigan State University",
+   "claim": "As the FIFA World Cup heads to North America in 2026, fans will marvel at powerful shots, bending corner kicks and spectacular saves. But behind every goal is a lesson in physics. Michigan State University physicist Stuart Tessmer explains how forces, momentum and even air pressure shape the world’s most popular sport. ... Physics is everywhere in soccer. Every pass, shot, sprint and save relies on fundamental principles that govern motion. Players may not be thinking about physics during a match, but they are constantly applying it. Running, changing direction, striking the ball and controlling it all depend on forces acting between the player, the ball and the friction with the playing sur",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "Physics Powers Every Shot, Pass and Save in Soccer",
+   "image_status": "verified_external",
+   "message_id": 144,
+   "normalized_subject": "Ask the expert: What’s the physics behind soccer’s greatest plays? | MSUToday | Michigan State University",
+   "posted_at": "2026-09-24T18:32:42.024138+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-25-AM",
+   "sector": "Why Does This Happen?",
+   "topic": "Ask the expert: What’s the physics behind soccer’s greatest plays? | MSUToday | Michigan State University",
+   "urls": [
+    "msutoday.msu.edu/news/2026/06/ate-what-is-the-physics-behind-soccers-greatest-plays"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Meet new FIFA World Cup ball: AI-sensor for better decisions, improved design for fewer surprises | Explained News - The Indian Express",
+   "claim": "Every four years when the FIFA World Cup comes around, official sponsor Adidas creates a new iteration of the ball that will be used. This time, as the world further integrates artificial intelligence (AI) models into everyday use-case scenarios, the humble football now finds itself an AI-enabled entity, loaded with a sensor specifically built to track its movements. ... But the Trionda, this edition’s ball, is notable for more than its modern sensor. It has the lowest number of panels ever used to make a football. And, unlike the mercurial Jabulani ball used during the 2010 World Cup, it promises far fewer surprises than what many players had to contend with in South Africa. ... The Telstar",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "Adidas Trionda Ball Introduces AI Sensor and Minimal Panel Design",
+   "image_status": "verified_external",
+   "message_id": 145,
+   "normalized_subject": "Meet new FIFA World Cup ball: AI-sensor for better decisions, improved design for fewer surprises | Explained News - The Indian Express",
+   "posted_at": "2026-09-24T18:33:07.076545+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-25-AM",
+   "sector": "Equipment / Measurement",
+   "topic": "Meet new FIFA World Cup ball: AI-sensor for better decisions, improved design for fewer surprises | Explained News - The Indian Express",
+   "urls": [
+    "indianexpress.com/article/explained/explained-sports/fifa-world-cup-2026-why-the-new-ai-enabled-ball-promises-better-decisions-fewer-surprises-10726300"
+   ]
   }
  ],
  "runs": [],
@@ -472,74 +633,125 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-09-24T07:33:51.782116+00:00",
+  "created_at": "2026-09-24T18:24:04.729707+00:00",
   "daily": {
-   "2026-09-24": {
-    "published_sectors": [],
+   "2026-09-25": {
+    "published_sectors": [
+     "Sport Origin",
+     "Interesting Game Fact",
+     "Sports & Games People",
+     "Game Origin",
+     "Then vs Now",
+     "Why Does This Happen?",
+     "Equipment / Measurement"
+    ],
     "run_ids": [
-     "2026-09-24-AM"
+     "2026-09-25-AM"
     ]
    }
   },
-  "last_run_at": "2026-09-24T07:38:16.435399+00:00",
+  "last_run_at": "2026-09-24T18:37:22.861863+00:00",
   "live": {
    "results": {
     "event_ids": [
-     "f74c62c719d681e0",
-     "bcfad3285de95c94",
-     "653bef255f0c8974",
-     "0a1b5f07997898a2",
-     "11445e7ac1399c2c",
-     "b98080bdf0bf3f62",
-     "a299737138f4a55a",
-     "9d1650adcc371773",
-     "5c339742e2750dec",
-     "a1be497fd3a79aac"
+     "8e2be35843b06eb9",
+     "de40384a9f6acb50",
+     "dd32a1f6d0b359ce",
+     "7f6c4b54ecd9d404",
+     "24a6062939dd3a72",
+     "4cd47f39be5e8ff3",
+     "7eb0734f9ef5d2c9",
+     "2469f56597979248",
+     "00467b60ba0677db",
+     "cf74c28812845573"
     ],
-    "message_id": 138,
-    "target_date": "2026-09-23",
-    "updated_at": "2026-09-24T07:38:16.433618+00:00"
+    "message_id": 147,
+    "target_date": "2026-09-24",
+    "updated_at": "2026-09-24T18:37:22.859420+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [
-     "204d1370ebaeefc9",
-     "0c9f2df2f49c72e1",
-     "1824c9857df117bf",
-     "8ece3d25671ca67f",
-     "d13e6ad75b685a7f",
-     "55d4940aa2c5bcaf",
-     "5b7fc677b5a01784",
-     "8aaa1a95a03dbe95",
-     "719d6bc518a1b29b",
-     "71f76cbd125f499e"
+     "b1128aca48f173b8",
+     "1e570ac75eac1ceb",
+     "78baabdb326a130d",
+     "35650816801d884d",
+     "0cd5ae347b197480",
+     "ab9afa3a5c236629",
+     "55c8e1e5a9bee118",
+     "1836ced664cdbc02",
+     "7909fd0d18d2909f",
+     "d75dcb3c93bbaedb"
     ],
-    "message_id": 137,
-    "target_date": "2026-09-25",
-    "updated_at": "2026-09-24T07:38:16.433608+00:00"
+    "message_id": 146,
+    "target_date": "2026-09-26",
+    "updated_at": "2026-09-24T18:37:22.859407+00:00"
    }
   },
   "publication": {
-   "2026-09-24-AM:live_results:fe12adf42b253cb0": {
-    "message_id": 138,
-    "posted_at": "2026-09-24T07:38:16.433579+00:00",
+   "2026-09-25-AM:evergreen:137b8db53d74916e": {
+    "message_id": 142,
+    "posted_at": "2026-09-24T18:31:52.309954+00:00",
     "status": "posted"
    },
-   "2026-09-24-AM:live_schedule:e7727378589f8c51": {
-    "message_id": 137,
-    "posted_at": "2026-09-24T07:38:16.106467+00:00",
+   "2026-09-25-AM:evergreen:28b4d6365a028948": {
+    "message_id": 144,
+    "posted_at": "2026-09-24T18:32:42.023713+00:00",
+    "status": "posted"
+   },
+   "2026-09-25-AM:evergreen:49f648312a122279": {
+    "message_id": 139,
+    "posted_at": "2026-09-24T18:30:36.244879+00:00",
+    "status": "posted"
+   },
+   "2026-09-25-AM:evergreen:506e767f99ce7978": {
+    "message_id": 141,
+    "posted_at": "2026-09-24T18:31:04.328942+00:00",
+    "status": "posted"
+   },
+   "2026-09-25-AM:evergreen:cbd91c894aaa8ed5": {
+    "message_id": 145,
+    "posted_at": "2026-09-24T18:33:07.076149+00:00",
+    "status": "posted"
+   },
+   "2026-09-25-AM:evergreen:f683c51d8eded2a2": {
+    "message_id": 140,
+    "posted_at": "2026-09-24T18:30:51.311708+00:00",
+    "status": "posted"
+   },
+   "2026-09-25-AM:evergreen:faad38c4a99d0ff4": {
+    "message_id": 143,
+    "posted_at": "2026-09-24T18:32:31.845725+00:00",
+    "status": "posted"
+   },
+   "2026-09-25-AM:live_results:0aedf287404bf642": {
+    "message_id": 147,
+    "posted_at": "2026-09-24T18:37:22.859378+00:00",
+    "status": "posted"
+   },
+   "2026-09-25-AM:live_schedule:be01481e952d4843": {
+    "message_id": 146,
+    "posted_at": "2026-09-24T18:37:22.493942+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-09-24T07:38:16.435409+00:00",
-    "evergreen": 0,
+    "at": "2026-09-24T18:37:22.861872+00:00",
+    "evergreen": 7,
     "exit": 0,
-    "live_results": 138,
-    "live_schedule": 137,
-    "run_id": "2026-09-24-AM",
-    "used_sectors": []
+    "live_results": 147,
+    "live_schedule": 146,
+    "run_id": "2026-09-25-AM",
+    "used_sectors": [
+     "Equipment / Measurement",
+     "Game Origin",
+     "Interesting Game Fact",
+     "Sport Origin",
+     "Sports & Games People",
+     "Then vs Now",
+     "Why Does This Happen?"
+    ]
    }
   ],
   "schema": 1
