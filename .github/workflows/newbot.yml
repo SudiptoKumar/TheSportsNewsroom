@@ -140,6 +140,11 @@ jobs:
         run: python main.py --validate-config
 
       - name: V1 offline contract and regression tests
+        env:
+          EXA_API_KEY: ""
+          CEREBRAS_API_KEY: ""
+          TELEGRAM_BOT_TOKEN: ""
+          CRICKETDATA_API_KEY: ""
         run: |
           set -euo pipefail
           python main.py --self-test --fast
