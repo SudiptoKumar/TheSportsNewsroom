@@ -1,1 +1,256 @@
-{"schema":1,"updated_at":"","records":[]}
+{
+ "records": [
+  {
+   "central_claim": "Pierre de Coubertin was the leading organizer of the 1894 Paris Congress that established the International Olympic Committee and approved the revival of the Olympic Games, leading to the first modern Games in Athens in 1896; he is appropriately described as a central figure in that revival, rather than unequivocally its sole founder.",
+   "central_knowledge_unit": "pierre de coubertin visionary and founder of the modern olympics",
+   "content_id": "f64a20b57ca964b2",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f64a20b57ca964b2",
+    "9baab0293ec51609"
+   ],
+   "normalized_subject": "pierre de coubertin visionary and founder of the modern olympics",
+   "people": [],
+   "published_at": "2026-09-25T08:25:17.109401+00:00",
+   "region": "",
+   "run_id": "2026-09-25-PM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 148
+  },
+  {
+   "central_claim": "Ulama—especially ulama de cadera in Sinaloa—is a living, endangered descendant/tradition of the pre-Hispanic Mesoamerican ballgame. The wider ballgame tradition has archaeological evidence reaching at least the second millennium BCE (including a formal court dated about 1650 BCE), so describing the tradition as roughly 3,400–3,500 years old is reasonable; that dating should not be presented as proof that today’s ulama has remained unchanged for that entire period.",
+   "central_knowledge_unit": "ulama a 3 400 year old ballgame that survived in mexico ap news",
+   "content_id": "7834d35df2983b29",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7834d35df2983b29",
+    "293894c5391219ed"
+   ],
+   "normalized_subject": "ulama a 3 400 year old ballgame that survived in mexico ap news",
+   "people": [],
+   "published_at": "2026-09-25T08:25:24.022119+00:00",
+   "region": "",
+   "run_id": "2026-09-25-PM",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 149
+  },
+  {
+   "central_claim": "Roberto Carlos' Brazil free kick in 1997: The physics behind 'impossible' strike - ESPN ... Roberto Carlos' Brazil free kick in 1997: The physics behind 'impossible' strike - ESPN",
+   "central_knowledge_unit": "roberto carlos brazil free kick in 1997 the physics behind impossible strike espn",
+   "content_id": "270b90d775ae68ca",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "270b90d775ae68ca",
+    "e0d317ded2f1b14c"
+   ],
+   "normalized_subject": "roberto carlos brazil free kick in 1997 the physics behind impossible strike espn",
+   "people": [],
+   "published_at": "2026-09-25T08:25:35.735968+00:00",
+   "region": "",
+   "run_id": "2026-09-25-PM",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 150
+  },
+  {
+   "central_claim": "Invented a little over a decade ago in Hungary, teqball is a combination of football and ping pong ... Teqball was invented a little over a decade ago in Hungary, when two friends started playing football on a ping pong table, before going on to create the signature curved table the game is played on. ... The new sport is quickly entering the mainstream. This weekend it will debut at the Asian Games in Japan, after its historic inclusion at the European and African games, with ambitions to be an Olympic sport by 2032. ... Teams from 16 nations will be competing at the competition, which will also debut padel and virtual taekwondo, a non-contact sport using virtual reality headsets. ... Teqba",
+   "central_knowledge_unit": "balletic hits and bicycle kicks teqball comes of age at the asian games sport the guardian",
+   "content_id": "ebfbdb039e223bbc",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "ebfbdb039e223bbc",
+    "4dbb2cd0987d70d5"
+   ],
+   "normalized_subject": "balletic hits and bicycle kicks teqball comes of age at the asian games sport the guardian",
+   "people": [],
+   "published_at": "2026-09-25T08:25:48.415177+00:00",
+   "region": "",
+   "run_id": "2026-09-25-PM",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 151
+  },
+  {
+   "central_claim": "25 September 2021 ... Fascinating indeed, as Guardiola and Manchester City travel to Paris St-Germain in the Champions League before meeting Liverpool at Anfield next Sunday.",
+   "central_knowledge_unit": "chelsea 0 1 man city pep guardiola s men have sent out powerful message to premier league rivals bbc sport",
+   "content_id": "e71dd265a78fcf91",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e71dd265a78fcf91",
+    "921967a3fb82e3b0"
+   ],
+   "normalized_subject": "chelsea 0 1 man city pep guardiola s men have sent out powerful message to premier league rivals bbc sport",
+   "people": [],
+   "published_at": "2026-09-25T08:26:12.708139+00:00",
+   "region": "",
+   "run_id": "2026-09-25-PM",
+   "sector": "On This Date",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 152
+  },
+  {
+   "central_claim": "The ballgame represents one of the most enduring and iconic features of ancient Mesoamerican civilization, yet its origins and evolution remain poorly understood, primarily associated with the Gulf Coast and southern Pacific coastal lowlands. While one early ballcourt dates to 1650 BCE from the Chiapas lowlands, ballcourts have remained undocumented in the Mesoamerican highlands until a millennium later, suggesting less involvement by highland civilizations in the ballgame’s evolution. We provide new data from the southern highlands of Mexico, from the Early Formative period (1500–1000 BCE), that necessitate revising previous paradigms. Along with ballplayer imagery, we recently excavated th",
+   "central_knowledge_unit": "origins of the mesoamerican ballgame earliest ballcourt from the highlands found at etlatongo oaxaca mexico science advances",
+   "content_id": "71bccd31f712f22a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "71bccd31f712f22a",
+    "266bb3a9837b2ab5"
+   ],
+   "normalized_subject": "origins of the mesoamerican ballgame earliest ballcourt from the highlands found at etlatongo oaxaca mexico science advances",
+   "people": [],
+   "published_at": "2026-09-25T08:26:41.561893+00:00",
+   "region": "",
+   "run_id": "2026-09-25-PM",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 153
+  },
+  {
+   "central_claim": "Home advantage is quantitatively defined and calculated for each season since the start of the main professional sports in North America and England. Over 400,000 games are analysed. The leagues represented are the National League (1876 – 2002) and American League (1901 – 2002) for baseball, the National Hockey League (1917 – 2003) for ice hockey, the National Football League (1933 – 2002) for American football, the National Basketball Association (1946 – 2003) for basketball, and the four levels of professional football, formerly called the Football League, in England (1888 – 2003). Problems caused by unbalanced playing schedules are considered. The results are presented graphically to show",
+   "central_knowledge_unit": "long term trends in home advantage in professional team sports in north america and england 1876 2003 journal of sports sciences vol 23 no 4",
+   "content_id": "82bd7ac6823b1f34",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "82bd7ac6823b1f34",
+    "55b2167426a26a5a"
+   ],
+   "normalized_subject": "long term trends in home advantage in professional team sports in north america and england 1876 2003 journal of sports sciences vol 23 no 4",
+   "people": [],
+   "published_at": "2026-09-25T08:27:05.649998+00:00",
+   "region": "",
+   "run_id": "2026-09-25-PM",
+   "sector": "Interesting Sports Fact",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 154
+  },
+  {
+   "central_claim": "This classic game of relatively great antiquity, though still one of the most skill-rewarding card games for two, is now played only by aficionados and connoisseurs. Originating around 1500, its decline from about the end of World War One may be ascribed to the popularity of Gin Rummy and other lowbrow games that are easier to learn and faster to play. ... hand, so that it will (a) produce and score for certain card combinations and (b) subsequently win a majority of twelve tricks played at no trump. Points are scored throughout, and the winner is either the first to reach 100 points, or, in a later ... Piquet is known from the early 16th century, but for most of that century under the name",
+   "central_knowledge_unit": "piquet historic card game described by david parlett",
+   "content_id": "e3268c5e32a04f24",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e3268c5e32a04f24",
+    "e1b7ca50bd814037"
+   ],
+   "normalized_subject": "piquet historic card game described by david parlett",
+   "people": [],
+   "published_at": "2026-09-25T08:27:17.625986+00:00",
+   "region": "",
+   "run_id": "2026-09-25-PM",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 155
+  },
+  {
+   "central_claim": "We take for granted back-shoulder passes into the front corner and fade routes in the back corner of the end zone, yet both exist today due to a long line of changes to football's rules, strategies, and techniques. Neither was legal in football's early passing days, so let's look at why that was so and the changes that gave us such exciting plays. ... When football adopted the forward pass in 1906, most did not expect the play to have much impact. Little did they know how innovative coaches and players would make that view seem quaint, but many of the passing game’s advances came only after football eased its many restrictions on tossing the pea. We discussed other restrictions on the forwar",
+   "central_knowledge_unit": "today s tidbit when passing into the end zone became legal",
+   "content_id": "4b8c7329ed14f6e7",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4b8c7329ed14f6e7",
+    "2c3e40ba30e9991b"
+   ],
+   "normalized_subject": "today s tidbit when passing into the end zone became legal",
+   "people": [],
+   "published_at": "2026-09-25T08:27:26.613379+00:00",
+   "region": "",
+   "run_id": "2026-09-25-PM",
+   "sector": "Rule Check",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 156
+  },
+  {
+   "central_claim": "Abstract The ways new games typically develop might be viewed as a con tinuum ranging from very gradual “evolution” based on mutations in troduced to a single progenitor during play or recall, to sudden “in telligent design” based on a purposeful and original combination — or even invention — of ludemes independent of any particular lines of transmission. This paper argues that two proprietary 20th-century games, C.A. Neves’s Fang den Hut! and Lizzie Magie’s The Landlord’s Game, were developed in a different way, a bit outside the typical continuum. It an alyzes the games’ general typologies, and specific ludemes, concluding that both games are modern adaptations of traditional Native Ameri",
+   "central_knowledge_unit": "native american antecedents of two proprietary board games",
+   "content_id": "7b435cd3e641542b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7b435cd3e641542b",
+    "f149991676cc9e86"
+   ],
+   "normalized_subject": "native american antecedents of two proprietary board games",
+   "people": [],
+   "published_at": "2026-09-25T08:27:54.037522+00:00",
+   "region": "",
+   "run_id": "2026-09-25-PM",
+   "sector": "Game Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 157
+  }
+ ],
+ "schema": 1,
+ "updated_at": "2026-09-25T08:27:54.037634+00:00"
+}
