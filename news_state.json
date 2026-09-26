@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "Cerebras per-run call cap reached (16)",
-  "last_ok": "2026-09-25T18:44:19.721981+00:00",
-  "last_request_id": "a40c2df5af9fb4c4-CMH",
+  "last_ok": "2026-09-26T07:44:10.144985+00:00",
+  "last_request_id": "a410a44e2cfce5f7-IAD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-09-25T18:48:33.526000+00:00",
+ "last_run_at": "2026-09-26T07:48:24.607194+00:00",
  "ledger": {},
  "posts": [
   {
@@ -442,6 +442,209 @@
    "urls": [
     "nature.com/articles/s41599-026-07748-1"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "What is cycle-ball? | UCI",
+   "claim": "Cycle-ball – also known as ‘radball’, especially in German-speaking countries and regions – is a fast-paced sport similar in principle to football, where teams play against each other to hit a ball into their opponent’s goal. Also like football, whoever scores the most goals wins the match. The big difference, of course, is it’s played on bicycles, and players don’t use their feet! Cycle-ball teams comprise two highly-skilled players: a goalkeeper and an outfield player. Roles can alternate, but normally players specialise. The players control the ball and shoot with their bike’s front or back wheel, and their heads, but hands and feet may not come in contact with the ball to shoot. However,",
+   "desk": "evergreen_v1",
+   "format": "Sport Discovery",
+   "headline": "Cycle‑ball: Football‑style Scoring on Two‑Wheelers",
+   "image_status": "verified_external",
+   "message_id": 171,
+   "normalized_subject": "What is cycle-ball? | UCI",
+   "posted_at": "2026-09-26T07:41:42.790461+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-09-26-AM",
+   "sector": "Sport Discovery",
+   "topic": "What is cycle-ball? | UCI",
+   "urls": [
+    "uci.org/article/what-is-cycle-ball/545EYyXdrXMhOTvuyjR0u3"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Rube Foster | Biography, Baseball, & Facts | Britannica",
+   "claim": "Andrew “Rube” Foster led the 1920 creation of the Negro National League with other Black-team owners and became its first president; the league is supported as the first successful professional baseball league for African American/Black players, following earlier unsuccessful league efforts.",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Rube Foster Founded the First Successful Negro Baseball League in 1920",
+   "image_status": "verified_external",
+   "message_id": 172,
+   "normalized_subject": "Rube Foster | Biography, Baseball, & Facts | Britannica",
+   "posted_at": "2026-09-26T07:42:08.650348+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-26-AM",
+   "sector": "Sports & Games People",
+   "topic": "Rube Foster | Biography, Baseball, & Facts | Britannica",
+   "urls": [
+    "britannica.com/biography/Rube-Foster"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Trionda®, the connected ball of the 2026 FIFA World Cup | Novagraaf",
+   "claim": "The Trionda® ball used for the 2026 FIFA World Cup provides a prime opportunity to observe the convergence between elite sport and embedded technologies, says Robert Balsters. He examines the ball’s physical design, the motion-capture technology it incorporates, its implications for refereeing and the patent mechanisms that protect these innovations. Designed by Adidas for the 2026 FIFA World Cup, co-hosted by Canada, the United States (US) and Mexico, the Trionda® ball embodies a threefold logic – aerodynamics, information technology (with implications for refereeing and the game as a whole), and patent protection. This article examines each in turn. ... Beyond its symbolic meaning, the bal",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "Trionda® Ball Marries Aerodynamics and Embedded Tech for 2026 World Cup",
+   "image_status": "verified_external",
+   "message_id": 173,
+   "normalized_subject": "Trionda®, the connected ball of the 2026 FIFA World Cup | Novagraaf",
+   "posted_at": "2026-09-26T07:42:23.439487+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-26-AM",
+   "sector": "Equipment / Measurement",
+   "topic": "Trionda®, the connected ball of the 2026 FIFA World Cup | Novagraaf",
+   "urls": [
+    "fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/official-match-ball"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Twelve objects to see with children | British Museum",
+   "claim": "### 8. Royal Game of Ur (Room 56) Originally played in the early third millennium BC and once popular across the Middle East, the rules of this two-player strategy board game were lost to history until British Museum curator Irving Finkel decoded a cuneiform tablet containing the instructions in the early 1980s.",
+   "desk": "evergreen_v1",
+   "format": "Game Origin",
+   "headline": "Royal Game of Ur: Ancient Strategy Reborn by Modern Decoding",
+   "image_status": "verified_external",
+   "message_id": 174,
+   "normalized_subject": "Twelve objects to see with children | British Museum",
+   "posted_at": "2026-09-26T07:42:39.441555+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-26-AM",
+   "sector": "Game Origin",
+   "topic": "Twelve objects to see with children | British Museum",
+   "urls": [
+    "en.wikipedia.org/wiki/Royal_Game_of_Ur"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Foot-Ball: its history for five centuries | Project Gutenberg",
+   "claim": "Before, however, an attempt be made to show how the game of football became developed as a specific sport, it is without doubt the duty of sober historians first to chronicle the legends which have attached themselves to the foundation of the[4] game. Firstly, it is said that in ancient times it was the custom to kick a large stone from parish to parish, both in Scotland and in England, for the purpose of marking boundaries and asserting rights of way; and that in this practice, which was indulged in by large bodies of the parishioners, each of whom desired to give his kick when he got the opportunity, we are to find the origin of football. Certain it is, at any rate, that the practice of ki",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "Ancient Stone‑Kicking Legends Sparked Early Football",
+   "image_status": "card_fallback",
+   "message_id": 175,
+   "normalized_subject": "Foot-Ball: its history for five centuries | Project Gutenberg",
+   "posted_at": "2026-09-26T07:43:01.904750+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-26-AM",
+   "sector": "Sport Origin",
+   "topic": "Foot-Ball: its history for five centuries | Project Gutenberg",
+   "urls": [
+    "gutenberg.org/files/74421/74421-h/74421-h.htm"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Ask the expert: What’s the physics behind soccer’s greatest plays? | MSUToday | Michigan State University",
+   "claim": "As the FIFA World Cup heads to North America in 2026, fans will marvel at powerful shots, bending corner kicks and spectacular saves. But behind every goal is a lesson in physics. Michigan State University physicist Stuart Tessmer explains how forces, momentum and even air pressure shape the world’s most popular sport. ... Physics is everywhere in soccer. Every pass, shot, sprint and save relies on fundamental principles that govern motion. Players may not be thinking about physics during a match, but they are constantly applying it. Running, changing direction, striking the ball and controlling it all depend on forces acting between the player, the ball and the friction with the playing sur",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "Physics Powers Every Shot, Curve and Save in Soccer",
+   "image_status": "verified_external",
+   "message_id": 176,
+   "normalized_subject": "Ask the expert: What’s the physics behind soccer’s greatest plays? | MSUToday | Michigan State University",
+   "posted_at": "2026-09-26T07:43:14.093063+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-26-AM",
+   "sector": "Why Does This Happen?",
+   "topic": "Ask the expert: What’s the physics behind soccer’s greatest plays? | MSUToday | Michigan State University",
+   "urls": [
+    "msutoday.msu.edu/news/2026/06/ate-what-is-the-physics-behind-soccers-greatest-plays"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Home of hurling: Has the oldest ever hurley been unearthed in Limerick?",
+   "claim": "Early medieval documentary sources describe in particular stick-and-ball games, using terms such as immáin (‘driving’), or áon líathróti (‘ball-driving’), which may be the same game using different words, or actually different games. It’s long been believed that these stick-and-ball games are ancestral to the modern Irish field sports of hurling and camogie, while recognising that these have been codified by the GAA and Camogie Association since the 19th century, and are still evolving today indeed. Modern historians of hurling have tended to meld different medieval sources together and make of them one game that would look to be hurling’s ancestor, and this may well be true. On the other ha",
+   "desk": "evergreen_v1",
+   "format": "New Sport Discovery",
+   "headline": "7th‑Century Wooden Stick May Be Ireland’s Oldest Hurley",
+   "image_status": "verified_external",
+   "message_id": 177,
+   "normalized_subject": "Home of hurling: Has the oldest ever hurley been unearthed in Limerick?",
+   "posted_at": "2026-09-26T07:43:47.030906+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-26-AM",
+   "sector": "New Sport Discovery",
+   "topic": "Home of hurling: Has the oldest ever hurley been unearthed in Limerick?",
+   "urls": [
+    "limerickleader.ie/news/history-and-heritage/home-of-hurling-has-the-oldest-ever-hurley-been-unearthed-in-limerick-8820240"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Quoiting: The History of a Lost Scottish Sport - Historic Environment Scotland Blog",
+   "claim": "Quoiting thrived for many years with clubs all across Scotland. But by the 2000s, only 5 clubs remained. So what is the history of this lost Scottish sport? ... It appears to have reached a peak either side of the First World War. By the 1930s interest was already on the wane and after the Second World War many clubs had closed. At the time of writing this, Dunnottar Club in Stonehaven is the last remaining club in Scotland. ... My research suggested that the game ... popular in industrial and farming communities, so looking at industrial towns for quoiting grounds was key: particularly mining towns and villages, where ... encouraged and thrived. However, despite my thorough search of the OS",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Sport",
+   "headline": "Quoiting’s Rise and Decline: Scotland’s Forgotten Working‑Man Sport",
+   "image_status": "verified_external",
+   "message_id": 178,
+   "normalized_subject": "Quoiting: The History of a Lost Scottish Sport - Historic Environment Scotland Blog",
+   "posted_at": "2026-09-26T07:44:00.127020+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-09-26-AM",
+   "sector": "Forgotten Sport",
+   "topic": "Quoiting: The History of a Lost Scottish Sport - Historic Environment Scotland Blog",
+   "urls": [
+    "blog.historicenvironment.scot/2025/08/quoiting-the-history-of-a-lost-scottish-sport"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Historic Day Is Ho-Hum for Mount Union - Los Angeles Times",
+   "claim": "Mount Union stirred up some suds Saturday, defeating Otterbein College, 44-20, for its 48th consecutive victory, breaking the NCAA record of 47 held for 42 years by Bud Wilkinson’s legendary Oklahoma Sooners. A representative of the College Football Hall of Fame was on hand to retrieve the game ball and Coach Larry Kehres’ game shirt. Despite the huge physical and financial gulf between major college and Division III, the mark goes into the record book without an asterisk. “We’re recording this as the record,” Shawn Robinson, the hall’s public relations coordinator, said in the Mount Union press box. ... get worked up about ... Two, Kehres is genuinely embarrassed by the comparisons between ",
+   "desk": "evergreen_v1",
+   "format": "Records & Milestones",
+   "headline": "Mount Union Breaks 42‑Year‑Old NCAA Win Streak Record",
+   "image_status": "verified_external",
+   "message_id": 179,
+   "normalized_subject": "Historic Day Is Ho-Hum for Mount Union - Los Angeles Times",
+   "posted_at": "2026-09-26T07:44:11.492145+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-26-AM",
+   "sector": "Records & Milestones",
+   "topic": "Historic Day Is Ho-Hum for Mount Union - Los Angeles Times",
+   "urls": [
+    "latimes.com/archives/la-xpm-1999-oct-17-sp-23465-story.html"
+   ]
   }
  ],
  "runs": [],
@@ -453,26 +656,26 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-09-25T18:32:34.593224+00:00",
+  "created_at": "2026-09-26T07:36:24.413756+00:00",
   "daily": {
    "2026-09-26": {
     "published_sectors": [
      "Sport Discovery",
      "Sports & Games People",
+     "Equipment / Measurement",
+     "Game Origin",
+     "Sport Origin",
+     "Why Does This Happen?",
      "New Sport Discovery",
      "Forgotten Sport",
-     "Interesting Game Fact",
-     "Interesting Sports Fact",
-     "Traditional / Regional Game",
-     "Rule Check",
-     "Then vs Now"
+     "Records & Milestones"
     ],
     "run_ids": [
      "2026-09-26-AM"
     ]
    }
   },
-  "last_run_at": "2026-09-25T18:48:33.525968+00:00",
+  "last_run_at": "2026-09-26T07:48:24.607168+00:00",
   "live": {
    "results": {
     "event_ids": [
@@ -487,9 +690,9 @@
      "1a815f7f15b19321",
      "2053f375a79f4df2"
     ],
-    "message_id": 170,
+    "message_id": 181,
     "target_date": "2026-09-25",
-    "updated_at": "2026-09-25T18:48:33.523857+00:00"
+    "updated_at": "2026-09-26T07:48:24.604898+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
@@ -505,86 +708,86 @@
      "60a67893d53c42c9",
      "9392251f4bd92eae"
     ],
-    "message_id": 169,
+    "message_id": 180,
     "target_date": "2026-09-27",
-    "updated_at": "2026-09-25T18:48:33.523844+00:00"
+    "updated_at": "2026-09-26T07:48:24.604886+00:00"
    }
   },
   "publication": {
-   "2026-09-26-AM:evergreen:179788e5be5c6632": {
-    "message_id": 162,
-    "posted_at": "2026-09-25T18:41:58.692805+00:00",
+   "2026-09-26-AM:evergreen:137b8db53d74916e": {
+    "message_id": 174,
+    "posted_at": "2026-09-26T07:42:39.441349+00:00",
     "status": "posted"
    },
-   "2026-09-26-AM:evergreen:29cad2b5b479cac6": {
-    "message_id": 166,
-    "posted_at": "2026-09-25T18:43:51.450632+00:00",
+   "2026-09-26-AM:evergreen:221d5a1ea6fc1762": {
+    "message_id": 178,
+    "posted_at": "2026-09-26T07:44:00.126781+00:00",
     "status": "posted"
    },
-   "2026-09-26-AM:evergreen:556b144afd41400a": {
-    "message_id": 161,
-    "posted_at": "2026-09-25T18:41:49.758290+00:00",
+   "2026-09-26-AM:evergreen:28b4d6365a028948": {
+    "message_id": 176,
+    "posted_at": "2026-09-26T07:43:14.092786+00:00",
     "status": "posted"
    },
-   "2026-09-26-AM:evergreen:657689994b8ee34e": {
-    "message_id": 168,
-    "posted_at": "2026-09-25T18:44:12.689113+00:00",
+   "2026-09-26-AM:evergreen:3c36657e44346447": {
+    "message_id": 175,
+    "posted_at": "2026-09-26T07:43:01.904499+00:00",
     "status": "posted"
    },
-   "2026-09-26-AM:evergreen:8a1a97d921e01576": {
-    "message_id": 167,
-    "posted_at": "2026-09-25T18:43:59.504288+00:00",
+   "2026-09-26-AM:evergreen:506e767f99ce7978": {
+    "message_id": 172,
+    "posted_at": "2026-09-26T07:42:08.650131+00:00",
     "status": "posted"
    },
-   "2026-09-26-AM:evergreen:a5943a773c3460ad": {
-    "message_id": 165,
-    "posted_at": "2026-09-25T18:43:13.372073+00:00",
+   "2026-09-26-AM:evergreen:a429f167776f8500": {
+    "message_id": 177,
+    "posted_at": "2026-09-26T07:43:47.030625+00:00",
     "status": "posted"
    },
-   "2026-09-26-AM:evergreen:cedc0467ccb337af": {
-    "message_id": 163,
-    "posted_at": "2026-09-25T18:42:11.219088+00:00",
+   "2026-09-26-AM:evergreen:dbb66b11356cd416": {
+    "message_id": 179,
+    "posted_at": "2026-09-26T07:44:11.491850+00:00",
     "status": "posted"
    },
-   "2026-09-26-AM:evergreen:e2d13e9656c42c06": {
-    "message_id": 160,
-    "posted_at": "2026-09-25T18:41:26.993876+00:00",
+   "2026-09-26-AM:evergreen:e3305ed9678badb0": {
+    "message_id": 171,
+    "posted_at": "2026-09-26T07:41:42.790209+00:00",
     "status": "posted"
    },
-   "2026-09-26-AM:evergreen:f683c51d8eded2a2": {
-    "message_id": 164,
-    "posted_at": "2026-09-25T18:42:23.958787+00:00",
+   "2026-09-26-AM:evergreen:f4a404b87911cd79": {
+    "message_id": 173,
+    "posted_at": "2026-09-26T07:42:23.439201+00:00",
     "status": "posted"
    },
    "2026-09-26-AM:live_results:e7727378589f8c51": {
-    "message_id": 170,
-    "posted_at": "2026-09-25T18:48:33.523813+00:00",
+    "message_id": 181,
+    "posted_at": "2026-09-26T07:48:24.604860+00:00",
     "status": "posted"
    },
    "2026-09-26-AM:live_schedule:ff701bce2d18ff08": {
-    "message_id": 169,
-    "posted_at": "2026-09-25T18:48:33.167862+00:00",
+    "message_id": 180,
+    "posted_at": "2026-09-26T07:48:24.277914+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-09-25T18:48:33.525977+00:00",
+    "at": "2026-09-26T07:48:24.607177+00:00",
     "evergreen": 9,
     "exit": 0,
-    "live_results": 170,
-    "live_schedule": 169,
+    "live_results": 181,
+    "live_schedule": 180,
     "run_id": "2026-09-26-AM",
     "used_sectors": [
+     "Equipment / Measurement",
      "Forgotten Sport",
-     "Interesting Game Fact",
-     "Interesting Sports Fact",
+     "Game Origin",
      "New Sport Discovery",
-     "Rule Check",
+     "Records & Milestones",
      "Sport Discovery",
+     "Sport Origin",
      "Sports & Games People",
-     "Then vs Now",
-     "Traditional / Regional Game"
+     "Why Does This Happen?"
     ]
    }
   ],

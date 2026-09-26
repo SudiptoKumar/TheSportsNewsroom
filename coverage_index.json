@@ -708,8 +708,445 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 168
+  },
+  {
+   "central_claim": "How much do you really love cheese? Enough to throw yourself down a near-vertical hill in pursuit of a rolling wheel of it? Welcome to the annual cheese rolling festival in Gloucestershire, England, where participants chase a 9-pound Double Gloucester cheese down Cooper's Hill, tumbling, flipping, and often crash-landing in the process. The first to cross the finish line wins the cheese and possibly a few bruises. ... If hurtling downhill at breakneck speed isn’t your thing, perhaps you'd prefer",
+   "central_knowledge_unit": "how much do you really love cheese enough to throw yourself down a near vertical hill in pursuit of a rolling wheel of it welcome to the annual cheese rolling festival in gloucestershire england where participants chase ",
+   "content_id": "30a0e04203015e21",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7c8933da7239a045",
+    "988b909f3c0c7015"
+   ],
+   "legacy": true,
+   "normalized_subject": "strange but true some of the wackiest sports from around the",
+   "people": [],
+   "published_at": "2026-09-25T18:41:26.994192+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    "olympics.com/en/news/strange-but-true-wackiest-sports-around-the-world"
+   ],
+   "sport_or_game": "Strange but true: some of the wackiest sports from around the ...",
+   "telegram_message_id": 160
+  },
+  {
+   "central_claim": "Marshall Walter “Major” Taylor was an Indianapolis-born Black American professional cyclist who won the mile sprint at the 1899 Montréal world championships; the UCI’s historical palmarès lists M. Taylor (USA) as the 1899 Montréal sprint winner. Archival and institutional accounts document his national and international racing prominence, racial exclusion and hostility during his career, and his 1928 autobiography, The Fastest Bicycle Rider in the World. The National Museum of American History c",
+   "central_knowledge_unit": "marshall walter major taylor was an indianapolis born black american professional cyclist who won the mile sprint at the 1899 montr al world championships the uci s historical palmar s lists m taylor usa as the 1899 mont",
+   "content_id": "90e0387a2fa60eeb",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "97d4ecbacc72fb3d",
+    "3c9145d54106af6d"
+   ],
+   "legacy": true,
+   "normalized_subject": "major taylor cycling racism records nickname biography britannica",
+   "people": [],
+   "published_at": "2026-09-25T18:41:49.758651+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "britannica.com/biography/Major-Taylor"
+   ],
+   "sport_or_game": "Major Taylor | Cycling, Racism, Records, Nickname, & Biography | Britannica",
+   "telegram_message_id": 161
+  },
+  {
+   "central_claim": "Irish stick fighting: The Celtic sport making its modern comeback - BBC News ... Bernie Leddy says bataireacht, or Irish stick fighting, is for everyone ... Bataireacht - or Irish stick fighting - is a two-handed blend of boxing, fencing and grappling all while using a shillelagh, a long blackthorn or oak stick. ... Classed as a martial art, it flourished as people took part in \"faction fights\", often held at community gatherings to settle disputes or even for fun. ... \"This basically involved l",
+   "central_knowledge_unit": "irish stick fighting the celtic sport making its modern comeback bbc news bernie leddy says bataireacht or irish stick fighting is for everyone bataireacht or irish stick fighting is a two handed blend of boxing fencing ",
+   "content_id": "97f1cb5a5c41b20f",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "d296f402bbb0c841",
+    "ef12bd64133b40b3"
+   ],
+   "legacy": true,
+   "normalized_subject": "irish stick fighting the celtic sport making its modern comeback bbc news",
+   "people": [],
+   "published_at": "2026-09-25T18:41:58.693093+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "bbc.co.uk/news/articles/c20j165p474o"
+   ],
+   "sport_or_game": "Irish stick fighting: The Celtic sport making its modern comeback - BBC News",
+   "telegram_message_id": 162
+  },
+  {
+   "central_claim": "Once a popular pastime across Yorkshire, the miners' game Knurr and Spell has all but disappeared from public knowledge. ... The game, also known as Nipsy, Piggy and Northern Spell, was predominantly played in mining communities in the 18th, 19th and early 20th centuries. ... There are many variations of the game, with different types of equipment used in localised versions across Yorkshire, Lancashire and the wider North of England. ... The game often took place on moorland but could be played ",
+   "central_knowledge_unit": "once a popular pastime across yorkshire the miners game knurr and spell has all but disappeared from public knowledge the game also known as nipsy piggy and northern spell was predominantly played in mining communities i",
+   "content_id": "e890012237fcdd4c",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a49eea8315901b61",
+    "64d6b526c59fad29"
+   ],
+   "legacy": true,
+   "normalized_subject": "rediscovering knurr and spell yorkshire s lost miners game",
+   "people": [],
+   "published_at": "2026-09-25T18:42:11.219397+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    "bbc.com/news/articles/cvgmvkygkz5o"
+   ],
+   "sport_or_game": "Rediscovering Knurr and Spell - Yorkshire's lost miners' game",
+   "telegram_message_id": 163
+  },
+  {
+   "central_claim": "“Evergreen Game” is the traditional name for the chess game score credited to Adolf Anderssen (White) and Jean Dufresne (Black), with an Anderssen win, that was published in the 1852 volume of Schachzeitung. The 1852 publications establish that the score was in circulation by September/October 1852, but do not establish the game’s exact playing date, venue, or occasion. The now-standard name is associated with Wilhelm Steinitz’s 1879 description of 19.Rad1 as “An evergreen in the laurel crown of",
+   "central_knowledge_unit": "evergreen game is the traditional name for the chess game score credited to adolf anderssen white and jean dufresne black with an anderssen win that was published in the 1852 volume of schachzeitung the 1852 publications",
+   "content_id": "f5e24740f7bc2879",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "138bf53c00c8913a",
+    "0568aaebf4b0b19f"
+   ],
+   "legacy": true,
+   "normalized_subject": "evergreen game",
+   "people": [],
+   "published_at": "2026-09-25T18:42:23.959066+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    "en.wikipedia.org/wiki/Evergreen_Game"
+   ],
+   "sport_or_game": "Evergreen Game",
+   "telegram_message_id": 164
+  },
+  {
+   "central_claim": "The golden section or golden ratio (61.8% or 0.618) is a mathematical phenomenon that appears in art, literature, music and nature with such ubiquity that it is thought to be a fundamental principle of aesthetic organisation. The golden ratio also manifests in sport, particularly as the proportion of wins to losses required to win a Major League Baseball championship. This study extends early work on the golden ratio in baseball by incorporating more than three decades of additional data. ... Th",
+   "central_knowledge_unit": "the golden section or golden ratio 61 8 or 0 618 is a mathematical phenomenon that appears in art literature music and nature with such ubiquity that it is thought to be a fundamental principle of aesthetic organisation ",
+   "content_id": "3e8a29c7833903e0",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "5fe6f28a9a87a23a",
+    "2f860abad278492a"
+   ],
+   "legacy": true,
+   "normalized_subject": "the golden ratio in baseball the influence of historical eras on winning percentages in major league baseball",
+   "people": [],
+   "published_at": "2026-09-25T18:43:13.372417+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Sports Fact",
+   "source_urls": [
+    "pmc.ncbi.nlm.nih.gov/articles/PMC10682355"
+   ],
+   "sport_or_game": "The golden ratio in baseball: the influence of historical eras on winning percentages in major league baseball",
+   "telegram_message_id": 165
+  },
+  {
+   "central_claim": "Gasing is a traditional game played by the Malay people of Riau, crafted from wood shaped like an inflated fruit, with a rope made from bark. This game is played by the Malay community in Riau to spend time with friends and to celebrate special occasions in the province. The research explored the methods of making and playing gasing by the Malay people of Riau and analyzed the physics concepts involved in the game. This qualitative study employed a literature review, observation, and interviews.",
+   "central_knowledge_unit": "gasing is a traditional game played by the malay people of riau crafted from wood shaped like an inflated fruit with a rope made from bark this game is played by the malay community in riau to spend time with friends and",
+   "content_id": "da7fb77fe1a5651e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "bcd882e819bb4425",
+    "a54c1487b691eea0"
+   ],
+   "legacy": true,
+   "normalized_subject": "exploration the ethnoscience of gasing game from malay riau culture and its potential for physics learning",
+   "people": [],
+   "published_at": "2026-09-25T18:43:51.450940+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    "doi.org/10.21831/jser.v8i2.75081"
+   ],
+   "sport_or_game": "Exploration the Ethnoscience of Gasing Game from Malay Riau Culture and its Potential for Physics Learning",
+   "telegram_message_id": 166
+  },
+  {
+   "central_claim": ". However it was not a “league” in the modern sense, e.g., it conducted no championship competitions. Rule changes, major and minor, continued almost annually over the next four decades, albeit with a variety of different organizations involved after the NABBP’s demise circa 1870. ... This article focuses on the NABBP’s initial years during which the principal issue was the “bound game” versus “fly game,” the former being the existing method of play. As Marshall Wright noted in his history of th",
+   "central_knowledge_unit": "however it was not a league in the modern sense e g it conducted no championship competitions rule changes major and minor continued almost annually over the next four decades albeit with a variety of different organizat",
+   "content_id": "60413b9c85195e56",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "79dab00bf0dec34b",
+    "cd660569d1c5f58a"
+   ],
+   "legacy": true,
+   "normalized_subject": "the bound game versus the fly game a far reaching controversy at organized baseball s beginnings society for american baseball research",
+   "people": [],
+   "published_at": "2026-09-25T18:43:59.504674+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Rule Check",
+   "source_urls": [
+    "sabr.org/journal/article/the-bound-game-versus-the-fly-game-a-far-reaching-controversy-at-organized-baseballs-beginnings"
+   ],
+   "sport_or_game": "The ‘Bound Game’ versus the ‘Fly Game’: A Far-Reaching Controversy at Organized Baseball’s Beginnings – Society for American Baseball Research",
+   "telegram_message_id": 167
+  },
+  {
+   "central_claim": "This study takes Olympic table tennis as its research object and systematically examines its 40-year evolutionary process from the 1988 Seoul Olympics to the 2028 Los Angeles Olympics, drawing on innovation diffusion theory, globalization theory, gender equality theory and critical modernity theory. The study finds that the technological standardization and equipment reforms of table tennis represent strategic interventions by the International Table Tennis Federation (ITTF) to enhance spectator",
+   "central_knowledge_unit": "this study takes olympic table tennis as its research object and systematically examines its 40 year evolutionary process from the 1988 seoul olympics to the 2028 los angeles olympics drawing on innovation diffusion theo",
+   "content_id": "ed68741e4e93e949",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a040cf60f3812349",
+    "6044586986af4e63"
+   ],
+   "legacy": true,
+   "normalized_subject": "from seoul to los angeles 1988 2028 the 40 year evolution of olympic table tennis humanities and social sciences communications",
+   "people": [],
+   "published_at": "2026-09-25T18:44:12.689497+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "nature.com/articles/s41599-026-07748-1"
+   ],
+   "sport_or_game": "From Seoul to Los Angeles (1988–2028): the 40-year evolution of Olympic table tennis | Humanities and Social Sciences Communications",
+   "telegram_message_id": 168
+  },
+  {
+   "central_claim": "Cycle-ball – also known as ‘radball’, especially in German-speaking countries and regions – is a fast-paced sport similar in principle to football, where teams play against each other to hit a ball into their opponent’s goal. Also like football, whoever scores the most goals wins the match. The big difference, of course, is it’s played on bicycles, and players don’t use their feet! Cycle-ball teams comprise two highly-skilled players: a goalkeeper and an outfield player. Roles can alternate, but normally players specialise. The players control the ball and shoot with their bike’s front or back wheel, and their heads, but hands and feet may not come in contact with the ball to shoot. However,",
+   "central_knowledge_unit": "what is cycle ball uci",
+   "content_id": "803c329978c170fb",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "803c329978c170fb",
+    "fbb7e39337558da5"
+   ],
+   "normalized_subject": "what is cycle ball uci",
+   "people": [],
+   "published_at": "2026-09-26T07:41:42.790321+00:00",
+   "region": "",
+   "run_id": "2026-09-26-AM",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 171
+  },
+  {
+   "central_claim": "Andrew “Rube” Foster led the 1920 creation of the Negro National League with other Black-team owners and became its first president; the league is supported as the first successful professional baseball league for African American/Black players, following earlier unsuccessful league efforts.",
+   "central_knowledge_unit": "rube foster biography baseball facts britannica",
+   "content_id": "7b73103ea6ec7297",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7b73103ea6ec7297",
+    "1ddb8721a4e7149b"
+   ],
+   "normalized_subject": "rube foster biography baseball facts britannica",
+   "people": [],
+   "published_at": "2026-09-26T07:42:08.650234+00:00",
+   "region": "",
+   "run_id": "2026-09-26-AM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 172
+  },
+  {
+   "central_claim": "The Trionda® ball used for the 2026 FIFA World Cup provides a prime opportunity to observe the convergence between elite sport and embedded technologies, says Robert Balsters. He examines the ball’s physical design, the motion-capture technology it incorporates, its implications for refereeing and the patent mechanisms that protect these innovations. Designed by Adidas for the 2026 FIFA World Cup, co-hosted by Canada, the United States (US) and Mexico, the Trionda® ball embodies a threefold logic – aerodynamics, information technology (with implications for refereeing and the game as a whole), and patent protection. This article examines each in turn. ... Beyond its symbolic meaning, the bal",
+   "central_knowledge_unit": "trionda the connected ball of the 2026 fifa world cup novagraaf",
+   "content_id": "1026943cfa3422eb",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "1026943cfa3422eb",
+    "ff1881695a025859"
+   ],
+   "normalized_subject": "trionda the connected ball of the 2026 fifa world cup novagraaf",
+   "people": [],
+   "published_at": "2026-09-26T07:42:23.439333+00:00",
+   "region": "",
+   "run_id": "2026-09-26-AM",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 173
+  },
+  {
+   "central_claim": "### 8. Royal Game of Ur (Room 56) Originally played in the early third millennium BC and once popular across the Middle East, the rules of this two-player strategy board game were lost to history until British Museum curator Irving Finkel decoded a cuneiform tablet containing the instructions in the early 1980s.",
+   "central_knowledge_unit": "twelve objects to see with children british museum",
+   "content_id": "842152133d185319",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "842152133d185319",
+    "cbf2fa92c55790cc"
+   ],
+   "normalized_subject": "twelve objects to see with children british museum",
+   "people": [],
+   "published_at": "2026-09-26T07:42:39.441443+00:00",
+   "region": "",
+   "run_id": "2026-09-26-AM",
+   "sector": "Game Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 174
+  },
+  {
+   "central_claim": "Before, however, an attempt be made to show how the game of football became developed as a specific sport, it is without doubt the duty of sober historians first to chronicle the legends which have attached themselves to the foundation of the[4] game. Firstly, it is said that in ancient times it was the custom to kick a large stone from parish to parish, both in Scotland and in England, for the purpose of marking boundaries and asserting rights of way; and that in this practice, which was indulged in by large bodies of the parishioners, each of whom desired to give his kick when he got the opportunity, we are to find the origin of football. Certain it is, at any rate, that the practice of ki",
+   "central_knowledge_unit": "foot ball its history for five centuries project gutenberg",
+   "content_id": "af110c3ff8b5ad0c",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "af110c3ff8b5ad0c",
+    "4ff02c0779e9c0d3"
+   ],
+   "normalized_subject": "foot ball its history for five centuries project gutenberg",
+   "people": [],
+   "published_at": "2026-09-26T07:43:01.904611+00:00",
+   "region": "",
+   "run_id": "2026-09-26-AM",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 175
+  },
+  {
+   "central_claim": "As the FIFA World Cup heads to North America in 2026, fans will marvel at powerful shots, bending corner kicks and spectacular saves. But behind every goal is a lesson in physics. Michigan State University physicist Stuart Tessmer explains how forces, momentum and even air pressure shape the world’s most popular sport. ... Physics is everywhere in soccer. Every pass, shot, sprint and save relies on fundamental principles that govern motion. Players may not be thinking about physics during a match, but they are constantly applying it. Running, changing direction, striking the ball and controlling it all depend on forces acting between the player, the ball and the friction with the playing sur",
+   "central_knowledge_unit": "ask the expert what s the physics behind soccer s greatest plays msutoday michigan state university",
+   "content_id": "645cc15037fb8cb4",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "645cc15037fb8cb4",
+    "941b833342c79555"
+   ],
+   "normalized_subject": "ask the expert what s the physics behind soccer s greatest plays msutoday michigan state university",
+   "people": [],
+   "published_at": "2026-09-26T07:43:14.092915+00:00",
+   "region": "",
+   "run_id": "2026-09-26-AM",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 176
+  },
+  {
+   "central_claim": "Early medieval documentary sources describe in particular stick-and-ball games, using terms such as immáin (‘driving’), or áon líathróti (‘ball-driving’), which may be the same game using different words, or actually different games. It’s long been believed that these stick-and-ball games are ancestral to the modern Irish field sports of hurling and camogie, while recognising that these have been codified by the GAA and Camogie Association since the 19th century, and are still evolving today indeed. Modern historians of hurling have tended to meld different medieval sources together and make of them one game that would look to be hurling’s ancestor, and this may well be true. On the other ha",
+   "central_knowledge_unit": "home of hurling has the oldest ever hurley been unearthed in limerick",
+   "content_id": "91c8ce541e58c08b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "91c8ce541e58c08b",
+    "03341539e828a0e2"
+   ],
+   "normalized_subject": "home of hurling has the oldest ever hurley been unearthed in limerick",
+   "people": [],
+   "published_at": "2026-09-26T07:43:47.030750+00:00",
+   "region": "",
+   "run_id": "2026-09-26-AM",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 177
+  },
+  {
+   "central_claim": "Quoiting thrived for many years with clubs all across Scotland. But by the 2000s, only 5 clubs remained. So what is the history of this lost Scottish sport? ... It appears to have reached a peak either side of the First World War. By the 1930s interest was already on the wane and after the Second World War many clubs had closed. At the time of writing this, Dunnottar Club in Stonehaven is the last remaining club in Scotland. ... My research suggested that the game ... popular in industrial and farming communities, so looking at industrial towns for quoiting grounds was key: particularly mining towns and villages, where ... encouraged and thrived. However, despite my thorough search of the OS",
+   "central_knowledge_unit": "quoiting the history of a lost scottish sport historic environment scotland blog",
+   "content_id": "a140c950c38088a9",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a140c950c38088a9",
+    "36cf056ebfc3bb36"
+   ],
+   "normalized_subject": "quoiting the history of a lost scottish sport historic environment scotland blog",
+   "people": [],
+   "published_at": "2026-09-26T07:44:00.126897+00:00",
+   "region": "",
+   "run_id": "2026-09-26-AM",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 178
+  },
+  {
+   "central_claim": "Mount Union stirred up some suds Saturday, defeating Otterbein College, 44-20, for its 48th consecutive victory, breaking the NCAA record of 47 held for 42 years by Bud Wilkinson’s legendary Oklahoma Sooners. A representative of the College Football Hall of Fame was on hand to retrieve the game ball and Coach Larry Kehres’ game shirt. Despite the huge physical and financial gulf between major college and Division III, the mark goes into the record book without an asterisk. “We’re recording this as the record,” Shawn Robinson, the hall’s public relations coordinator, said in the Mount Union press box. ... get worked up about ... Two, Kehres is genuinely embarrassed by the comparisons between",
+   "central_knowledge_unit": "historic day is ho hum for mount union los angeles times",
+   "content_id": "59afb6052627d0f0",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "59afb6052627d0f0",
+    "56155b5c996b5acc"
+   ],
+   "normalized_subject": "historic day is ho hum for mount union los angeles times",
+   "people": [],
+   "published_at": "2026-09-26T07:44:11.491973+00:00",
+   "region": "",
+   "run_id": "2026-09-26-AM",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 179
   }
  ],
  "schema": 1,
- "updated_at": "2026-09-25T18:44:12.689465+00:00"
+ "updated_at": "2026-09-26T07:44:11.492118+00:00"
 }
