@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "Cerebras per-run call cap reached (16)",
-  "last_ok": "2026-09-27T08:12:06.054015+00:00",
-  "last_request_id": "a4190a98081a15a0-CMH",
+  "last_ok": "2026-09-27T18:27:30.530333+00:00",
+  "last_request_id": "a41c90125d7aeb08-ORD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-09-27T08:16:26.363712+00:00",
+ "last_run_at": "2026-09-27T18:31:56.332888+00:00",
  "ledger": {},
  "posts": [
   {
@@ -804,6 +804,157 @@
    "urls": [
     "baseball-almanac.com/box-scores/boxscore.php?boxid=199509060BAL"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Camping (game)",
+   "claim": "**Camping**, also known as**campyon**,**campan**, or**campball**, was a football game played inEngland. It appears to have been popular inNorfolkand other parts ofEast Anglia. Of all the traditional forms of football played in Europe, it appears to have been one of the toughest and most dangerous, which probably explains why it died out during the early 19th century. ... A match atDissCommon in the early 19th century reportedly was so brutal that nine men were killed or died of their injuries. While some people thought that camping was a combination of all athletic excellence, others saw it as little more than a stand-up fight. The contest for the ball \"never ends without black eyes and bloo",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Sport",
+   "headline": "Camping: The Deadly East Anglian Football Game of the Early 1800s",
+   "image_status": "card_fallback",
+   "message_id": 193,
+   "normalized_subject": "Camping (game)",
+   "posted_at": "2026-09-27T18:25:31.190171+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-09-28-AM",
+   "sector": "Forgotten Sport",
+   "topic": "Camping (game)",
+   "urls": [
+    "en.m.wikipedia.org/wiki/Camping_(game)"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Rediscover the Ancient Game of Chaupar: A Timeless Journey of Strategy and Culture - historified",
+   "claim": "Chaupar, chopad, or chaupad, is an indigenous game of Uttarakhand. The cross & circle board game is quite similar to pachisi, one of India’s oldest games. The board is made of wool or fabric, with wooden pawns and seven cowry shells used to determine each player’s move; however, some distinguish Chaupar from pachisi by using three four-sided long dice. Variations are played across India. It shares similarities with Pachisi, Parcheesi, and mostly with Ludo. The game requires both strategy and luck, making it a captivating pastime for all ages. Gamesmen similar to Chaupar, but with different colour schemes, as well as dice, have been identified in Mathura during the Iron Age and Painted Grey W",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "Chaupar: Uttarakhand’s Ancient Board Game Linking Strategy and Luck",
+   "image_status": "verified_external",
+   "message_id": 194,
+   "normalized_subject": "Rediscover the Ancient Game of Chaupar: A Timeless Journey of Strategy and Culture - historified",
+   "posted_at": "2026-09-27T18:25:53.239330+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-28-AM",
+   "sector": "Game Discovery",
+   "topic": "Rediscover the Ancient Game of Chaupar: A Timeless Journey of Strategy and Culture - historified",
+   "urls": [
+    "en.wikipedia.org/wiki/Chaupar"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Hornussen: Switzerland's 300km/h Farmers' Golf",
+   "claim": "It sounds invented. It is gloriously real, and in German-speaking Switzerland it isn't a novelty but a national sport with four centuries behind it. They call it Hornussen (say it: HOR-noo-sen), after the Hornuss, or hornet, because that is exactly what the flying puck sounds like. Hornussen sits alongside Swiss wrestling and stone-throwing as one of the country's three traditional national sports, yet almost no one outside Switzerland has heard of it. It is fiercely local, gloriously odd, and improbably for a farmers' game older than modern Switzerland. ... - What it is: Two teams; one whips a 78g puck (the Nouss) off a ramp and down a long field, the other tries to swat it out of the air w",
+   "desk": "evergreen_v1",
+   "format": "New Sport Discovery",
+   "headline": "Hornussen: Switzerland’s 300 km/h Farmers’ Golf, a Four‑Century National Sport",
+   "image_status": "verified_external",
+   "message_id": 195,
+   "normalized_subject": "Hornussen: Switzerland's 300km/h Farmers' Golf",
+   "posted_at": "2026-09-27T18:26:30.248397+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-09-28-AM",
+   "sector": "New Sport Discovery",
+   "topic": "Hornussen: Switzerland's 300km/h Farmers' Golf",
+   "urls": [
+    "uniquelysport.com/post/hornussen-swiss-sport"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The Crolard Board: A Lost Cousin to Carroms and Crokinole – NewVenture Games",
+   "claim": "If you enjoy a carroms or crokinole, Carson's forgotten Crolard board feels like a missing branch on the family tree. Around 1899, newspapers in Kansas and Indiana treated it like the next parlor craze, and its maker, Ed F. Carson, like a man headed for a fortune. Today, the game is gone and forgotten. When I followed the surviving ads and records, I found a product that burned bright for a few years, then slipped through the cracks of game history. ... By the late 1800s, North America already had a taste for flicking and pocketing games related to carrom, which had roots in India and spread widely. At the same time, combination boards were booming. Publishers packed chess, checkers, dice, d",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Game",
+   "headline": "The Forgotten Crolard Board Once Thrilled Late‑1800s Parlor Gamers",
+   "image_status": "verified_external",
+   "message_id": 196,
+   "normalized_subject": "The Crolard Board: A Lost Cousin to Carroms and Crokinole – NewVenture Games",
+   "posted_at": "2026-09-27T18:26:55.701328+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-09-28-AM",
+   "sector": "Forgotten Game",
+   "topic": "The Crolard Board: A Lost Cousin to Carroms and Crokinole – NewVenture Games",
+   "urls": [
+    "newventuregames.com/blogs/news/crolard"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "RULEBOOK OF THE ULTIMATE RINGCROSS WORLD FEDERATION",
+   "claim": "Ultimate Ringcross is the official competitive team game (sport) established and organized by the Ultimate Ringcross World Federation (Powered by YOU.FO). Ultimate Ringcross involves throwing and catching an aerodynamic YOU.FO ring with specially designed YOU.FO sticks. Ultimate Ringcross is officially played in teams, with points scored by catching a pass from a teammate in the opponents scoring zone. It is a sports game that is open to all, without regard to race, color, religion, national origin, politics, sex or sexual orientation. It can be played on every (safe and flat) surface, by anyone, at any time (plug-and-play). Ultimate Ringcross is a sport that inspires players and fans alike ",
+   "desk": "evergreen_v1",
+   "format": "How to Play",
+   "headline": "Ultimate Ringcross: Inclusive Team Sport Defined by URWF Rulebook",
+   "image_status": "card_fallback",
+   "message_id": 197,
+   "normalized_subject": "RULEBOOK OF THE ULTIMATE RINGCROSS WORLD FEDERATION",
+   "posted_at": "2026-09-27T18:27:09.921896+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-09-28-AM",
+   "sector": "How to Play",
+   "topic": "RULEBOOK OF THE ULTIMATE RINGCROSS WORLD FEDERATION",
+   "urls": [
+    "you.fo/wp-content/uploads/2024/06/Rulebook.pdf"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Laws of the Game (1896) - Wikisource, the free online library",
+   "claim": "Laws of the Game (1896) - Wikisource, the free online library ... Changes from 1895: - Law 1: replace \"The length and breadth shall be marked off with flags and touch-lines\" with \"The length and breadth shall be marked off with four flags, with staffs not less than 5 feet high, and goal and touch lines\" (proposed by the Football Association). - Law 1: replace \"The goals shall be upright posts, 8 yards apart\" with \"The goals shall be upright posts, fixed on the goal lines, eight yards apart, equidistant from the corner flag staff\" (proposed by the Football Association). - Law 4: replace \"The ball hitting the goal or boundary posts or goal-bar and, rebounding into play, is considered in play\" ",
+   "desk": "evergreen_v1",
+   "format": "Rule Check",
+   "headline": "1896 Football Laws Redefined Field Markings and Goal Placement",
+   "image_status": "card_fallback",
+   "message_id": 198,
+   "normalized_subject": "Laws of the Game (1896) - Wikisource, the free online library",
+   "posted_at": "2026-09-27T18:27:21.042018+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-09-28-AM",
+   "sector": "Rule Check",
+   "topic": "Laws of the Game (1896) - Wikisource, the free online library",
+   "urls": [
+    "en.wikisource.org/wiki/Laws_of_the_Game_%281896%29"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Adapted from “A Summary of Seventy-Five Years of Rules” by William T",
+   "claim": "SIGNIFICANT RULE CHANGES (AFFECTING PLAY ONLY) SINCE 1895 1900 • Height of the net was raised to 7 feet, 6 inches • Dribbling line was eliminated • Possession of the serve changed after each side out (eliminating “innings”) • Length of game became 21 points 1912 • Court size became 30 x 60 feet • Six players per side • Each side was limited to three touches of the ball before it had to cross the net • Teams were required to rotate prior to serving 1916 • Length of game became 15 points • Two out of three games determined the winner of a match • Height of the net was raised to 8 feet • Each player rotated in order and served in turn • Serves that hit the net or any outside object was out of b",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "How Volleyball Rules Evolved From 1895 to the Modern Game",
+   "image_status": "card_fallback",
+   "message_id": 199,
+   "normalized_subject": "Adapted from “A Summary of Seventy-Five Years of Rules” by William T",
+   "posted_at": "2026-09-27T18:27:38.675312+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-28-AM",
+   "sector": "Then vs Now",
+   "topic": "Adapted from “A Summary of Seventy-Five Years of Rules” by William T",
+   "urls": [
+    "fivb.com/volleyball/the-game/history"
+   ]
   }
  ],
  "runs": [],
@@ -815,123 +966,123 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-09-27T08:03:57.574011+00:00",
+  "created_at": "2026-09-27T18:19:42.461249+00:00",
   "daily": {
-   "2026-09-27": {
+   "2026-09-28": {
     "published_sectors": [
-     "Sport Origin",
      "Forgotten Sport",
-     "Game Origin",
-     "Then vs Now",
+     "Game Discovery",
      "New Sport Discovery",
      "Forgotten Game",
-     "Records & Milestones"
+     "How to Play",
+     "Rule Check",
+     "Then vs Now"
     ],
     "run_ids": [
-     "2026-09-27-PM"
+     "2026-09-28-AM"
     ]
    }
   },
-  "last_run_at": "2026-09-27T08:16:26.363679+00:00",
+  "last_run_at": "2026-09-27T18:31:56.332860+00:00",
   "live": {
    "results": {
     "event_ids": [
-     "1e570ac75eac1ceb",
-     "35650816801d884d",
-     "0cd5ae347b197480",
-     "55eb5abe4e0eee00",
-     "ab9afa3a5c236629",
-     "55c8e1e5a9bee118",
-     "d75dcb3c93bbaedb",
-     "71f93f06c0e1de2f",
-     "169aa76f8d000526",
-     "fd80912d524ff84f"
+     "60a67893d53c42c9",
+     "fe254490afb806a3",
+     "9392251f4bd92eae",
+     "00ce6d82563656c4",
+     "5a45fad4a2d3a788",
+     "639c7e7f167dc528",
+     "c4c2f6c1cc19443f",
+     "bb8850cf5fc053c3",
+     "4d01a982c78eaf42",
+     "ec8ca93fb2184ec4"
     ],
-    "message_id": 192,
-    "target_date": "2026-09-26",
-    "updated_at": "2026-09-27T08:16:26.360733+00:00"
+    "message_id": 201,
+    "target_date": "2026-09-27",
+    "updated_at": "2026-09-27T18:31:56.329634+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [
-     "a85955a817b60363",
-     "015eb39262edbbea",
-     "526ac4cce48120cf",
-     "c7353b88c65e49ca",
-     "bd503d9240a9d9ae",
-     "8edfdcd571ac71a4",
-     "eaba97ad37e958d5",
-     "c723b9d75f24229c",
-     "29c7718b82ada473",
-     "99bb035c228926d8"
+     "d5adc21a588cb2e6",
+     "c1290ded8c5f7105",
+     "063d5dc0970a61bd",
+     "dec5fb90239c19af",
+     "573ac497cee4c6e4",
+     "917f8fdf4be1502c",
+     "55a7d4d18e533157",
+     "151557020354d2be",
+     "eeff3212790390a0",
+     "92b611abf6b9ebb2"
     ],
-    "message_id": 191,
-    "target_date": "2026-09-28",
-    "updated_at": "2026-09-27T08:16:26.360718+00:00"
+    "message_id": 200,
+    "target_date": "2026-09-29",
+    "updated_at": "2026-09-27T18:31:56.329622+00:00"
    }
   },
   "publication": {
-   "2026-09-27-PM:evergreen:1f059bcbd44e876c": {
-    "message_id": 185,
-    "posted_at": "2026-09-27T08:09:58.034276+00:00",
+   "2026-09-28-AM:evergreen:18c5ff835c3be572": {
+    "message_id": 198,
+    "posted_at": "2026-09-27T18:27:21.041791+00:00",
     "status": "posted"
    },
-   "2026-09-27-PM:evergreen:35ce11a21cd87ac2": {
-    "message_id": 190,
-    "posted_at": "2026-09-27T08:12:10.709251+00:00",
+   "2026-09-28-AM:evergreen:22ebc2004c081132": {
+    "message_id": 195,
+    "posted_at": "2026-09-27T18:26:30.248161+00:00",
     "status": "posted"
    },
-   "2026-09-27-PM:evergreen:3a2cc03894be5eca": {
-    "message_id": 186,
-    "posted_at": "2026-09-27T08:10:21.457398+00:00",
+   "2026-09-28-AM:evergreen:69a2068c4e492d69": {
+    "message_id": 197,
+    "posted_at": "2026-09-27T18:27:09.921656+00:00",
     "status": "posted"
    },
-   "2026-09-27-PM:evergreen:49f648312a122279": {
-    "message_id": 184,
-    "posted_at": "2026-09-27T08:09:16.891242+00:00",
+   "2026-09-28-AM:evergreen:7abe5ec8b3604979": {
+    "message_id": 193,
+    "posted_at": "2026-09-27T18:25:31.189941+00:00",
     "status": "posted"
    },
-   "2026-09-27-PM:evergreen:94109f2d0490dd3d": {
-    "message_id": 188,
-    "posted_at": "2026-09-27T08:11:37.902433+00:00",
+   "2026-09-28-AM:evergreen:bb13be75688d82fd": {
+    "message_id": 196,
+    "posted_at": "2026-09-27T18:26:55.701016+00:00",
     "status": "posted"
    },
-   "2026-09-27-PM:evergreen:cbd6ae626fbc822c": {
-    "message_id": 189,
-    "posted_at": "2026-09-27T08:12:02.761596+00:00",
+   "2026-09-28-AM:evergreen:d8e7b205a744c1c8": {
+    "message_id": 194,
+    "posted_at": "2026-09-27T18:25:53.239033+00:00",
     "status": "posted"
    },
-   "2026-09-27-PM:evergreen:faad38c4a99d0ff4": {
-    "message_id": 187,
-    "posted_at": "2026-09-27T08:10:58.903142+00:00",
+   "2026-09-28-AM:evergreen:fdddfd8678b97314": {
+    "message_id": 199,
+    "posted_at": "2026-09-27T18:27:38.675050+00:00",
     "status": "posted"
    },
-   "2026-09-27-PM:live_results:be01481e952d4843": {
-    "message_id": 192,
-    "posted_at": "2026-09-27T08:16:26.360690+00:00",
+   "2026-09-28-AM:live_results:ff701bce2d18ff08": {
+    "message_id": 201,
+    "posted_at": "2026-09-27T18:31:56.329592+00:00",
     "status": "posted"
    },
-   "2026-09-27-PM:live_schedule:c3d791c4860956d5": {
-    "message_id": 191,
-    "posted_at": "2026-09-27T08:16:25.988072+00:00",
+   "2026-09-28-AM:live_schedule:e3c7af5da4ffb7fe": {
+    "message_id": 200,
+    "posted_at": "2026-09-27T18:31:55.999954+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-09-27T08:16:26.363688+00:00",
+    "at": "2026-09-27T18:31:56.332871+00:00",
     "evergreen": 7,
     "exit": 0,
-    "live_results": 192,
-    "live_schedule": 191,
-    "run_id": "2026-09-27-PM",
+    "live_results": 201,
+    "live_schedule": 200,
+    "run_id": "2026-09-28-AM",
     "used_sectors": [
      "Forgotten Game",
      "Forgotten Sport",
-     "Game Origin",
+     "Game Discovery",
+     "How to Play",
      "New Sport Discovery",
-     "Records & Milestones",
-     "Sport Origin",
+     "Rule Check",
      "Then vs Now"
     ]
    }
