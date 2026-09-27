@@ -1,15 +1,15 @@
 {
  "ai": {
-  "last_error": "HTTP 402: {\"message\":\"Payment required to access this resource. Visit your billing tab.\",\"type\":\"payment_required_error\",\"param\":\"quota\",\"code\":\"payment_required\"}",
-  "last_ok": "2026-09-26T07:44:10.144985+00:00",
-  "last_request_id": "",
-  "last_status": 402,
+  "last_error": "Cerebras per-run call cap reached (16)",
+  "last_ok": "2026-09-27T08:12:06.054015+00:00",
+  "last_request_id": "a4190a98081a15a0-CMH",
+  "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-09-26T17:52:11.324717+00:00",
+ "last_run_at": "2026-09-27T08:16:26.363712+00:00",
  "ledger": {},
  "posts": [
   {
@@ -645,6 +645,165 @@
    "urls": [
     "latimes.com/archives/la-xpm-1999-oct-17-sp-23465-story.html"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "History of sport - Wikipedia",
+   "claim": "Prehistoric rock art records human figures and physical activity, and some images are interpreted as swimming or wrestling-like activity. It does not, however, establish that modern sports—or specific organized contests such as sprinting, Mongolian wrestling, or sumo—were practiced at the asserted sites and dates.",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "Prehistoric Cave Paintings Hint at Early Physical Activity, Not Organized Sport",
+   "image_status": "verified_external",
+   "message_id": 184,
+   "normalized_subject": "History of sport - Wikipedia",
+   "posted_at": "2026-09-27T08:09:16.891600+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-27-PM",
+   "sector": "Sport Origin",
+   "topic": "History of sport - Wikipedia",
+   "urls": [
+    "en.wikipedia.org/wiki/History_of_sport"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Vigoro: The Edwardian attempt to merge tennis and cricket - BBC News",
+   "claim": "Cricket and tennis compete for people's attention in ... summer. One Edwardian man had a dream of ending all this by merging the two sports. ... It might have happened. As the 20th Century began, London-based commercial traveller John George Grant felt the division between the summer ball sports of tennis and cricket was pointless and perhaps a wasted opportunity for money-making. ... moving hybrid version. \"Vig ... of between eight and ... performing like cricketers - bowling, batting and fielding - but using rac ... The cricket and ... establishments were initially keen to promote Vigoro. In October 1902, a match took place at Lord's. An eleven led by tennis star EH Miles thrashed the oppo",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Sport",
+   "headline": "John George Grant’s 1902 Vigoro Fusion of Tennis and Cricket",
+   "image_status": "card_fallback",
+   "message_id": 185,
+   "normalized_subject": "Vigoro: The Edwardian attempt to merge tennis and cricket - BBC News",
+   "posted_at": "2026-09-27T08:09:58.034655+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-09-27-PM",
+   "sector": "Forgotten Sport",
+   "topic": "Vigoro: The Edwardian attempt to merge tennis and cricket - BBC News",
+   "urls": [
+    "bbc.co.uk/news/magazine-28237387"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The Fitzwilliam Museum - Mehen Game Board",
+   "claim": "The game of the snake, or Mehen, was a board game played by the ancient Egyptians from at least Dynasties 3-6. Earliest evidence for the game comes from the Predynastic Period (Naqada II phase, 3600 - 3200 BC) and it is the leading contender for the accolade of 'oldest board game in the world'. The general form of the board is a spiral track based on a coiled snake with the head at the centre and the tail on the edge. The most important evidence for Mehen is within a painting of three board games found by James Quibell in the tomb of Hesy-Ra, a Dynasty 3 high official, c. 2650 BC. Depicted on a wall scene in his tomb is a large Mehen board together with marbles and lion and lioness game piec",
+   "desk": "evergreen_v1",
+   "format": "Game Origin",
+   "headline": "Mehen: Egypt’s Spiral Snake Game Claims Title of Oldest Board Game",
+   "image_status": "verified_external",
+   "message_id": 186,
+   "normalized_subject": "The Fitzwilliam Museum - Mehen Game Board",
+   "posted_at": "2026-09-27T08:10:21.457720+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-27-PM",
+   "sector": "Game Origin",
+   "topic": "The Fitzwilliam Museum - Mehen Game Board",
+   "urls": [
+    "fitzmuseum.cam.ac.uk/index.php/explore-our-collection/highlights/EGA44641943"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "A Brief History of Revisions to the Rules of Golf: 1744 to Present",
+   "claim": "Much of the time, the Rules of Golf have changed in response to the seemingly infinite variety of unforeseen or unique circumstances that keep arising in a sport played outdoors in a natural setting. Reasons for rule change have included the evolution of course design, maintenance and agronomics; innovation in clubs, balls and other player equipment; and the expansion and diversification in the landscapes where golf is played. More generally, the Rules of Golf Committees have often made changes after listening to passionate debates among golfers about whether particular outcomes or procedures are fair or appropriate. Less frequent, but highly significant, have been the efforts to step back a",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "How Golf Rules Evolved From 1744 to Modern Day",
+   "image_status": "verified_external",
+   "message_id": 187,
+   "normalized_subject": "A Brief History of Revisions to the Rules of Golf: 1744 to Present",
+   "posted_at": "2026-09-27T08:10:58.903551+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-27-PM",
+   "sector": "Then vs Now",
+   "topic": "A Brief History of Revisions to the Rules of Golf: 1744 to Present",
+   "urls": [
+    "usga.org/rules-hub/rules-modernization/text/a-brief-history-1744-to-present.html"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Cestoball Comes To Polk County: A U.S. First",
+   "claim": "all. ... Cestoball (pronounced SESS-toh-ball) was created in Argentina in 1897 by Professor Enrique Romero Brest, a pioneer in Argentine physical education, under the original name “pelota al cesto,” meaning ball to the basket. The sport was incorporated into Argentina’s national physical education curriculum in 1903 and underwent a major modernization in 1986, when it was officially renamed cestoball. Today the International Cestoball Association oversees the sport across 22 member countries on five continents, with active federations in the Americas, Africa, Asia, Europe, and Oceania. Argentina has dominated international competition, with its national teams winning both the women’s and me",
+   "desk": "evergreen_v1",
+   "format": "New Sport Discovery",
+   "headline": "Polk County Becomes First U.S. Home of Argentine Sport Cestoball",
+   "image_status": "verified_external",
+   "message_id": 188,
+   "normalized_subject": "Cestoball Comes To Polk County: A U.S. First",
+   "posted_at": "2026-09-27T08:11:37.902798+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-27-PM",
+   "sector": "New Sport Discovery",
+   "topic": "Cestoball Comes To Polk County: A U.S. First",
+   "urls": [
+    "thecitrustea.com/2026/09/cestoball-polk-county-florida-us-first"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Uncovering Fur Out, a forgotten Robson Valley board game - The Rocky Mountain Goat",
+   "claim": "So when he and Sehnert came across a board game that was clearly self-produced and based on illustrations done by hand at a Minneapolis estate sale in the mid-aughts, they jumped on it. Titled “Fur Out,” the game was created by a couple in Dunster, B.C. – a tiny mountain town the couple had never heard of. ... “It was obviously unplayed. There was not a scratch on it,” Tangedal says. “The rule book had not been touched… and I look at where it came from and it’s like 200 miles north of Vancouver. You Google “Dunster” and you go, holy macaroni.” ... Dunster residents and former fur trappers Rod and Deb Reimer created Fur Out in the late-‘80s, going through countless drafts of the rules and boa",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Game",
+   "headline": "Forgotten 1980s Fur‑Trapping Board Game ‘Fur Out’ Resurfaces",
+   "image_status": "card_fallback",
+   "message_id": 189,
+   "normalized_subject": "Uncovering Fur Out, a forgotten Robson Valley board game - The Rocky Mountain Goat",
+   "posted_at": "2026-09-27T08:12:02.761970+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-27-PM",
+   "sector": "Forgotten Game",
+   "topic": "Uncovering Fur Out, a forgotten Robson Valley board game - The Rocky Mountain Goat",
+   "urls": [
+    "therockymountaingoat.com/2025/12/uncovering-fur-out-a-forgotten-robson-valley-board-game"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Box Score for Angels (2) vs Orioles (4) on September 6, 1995 at Oriole Park at Camden Yards",
+   "claim": "Cal Ripken, Jr. Plays in his 2,131st Consecutive Baseball Game On September 6, 1995, Cal Ripken Jr. surpassed Lou Gehrig's 56-year-old record for consecutive games played (2,130 games). The game, between the Orioles and the California Angels, still ranks as one of ESPN network's most-watched baseball games in their entire history! Cal's children, Rachel and Ryan, threw out the ceremonial first balls. Both President Bill Clinton and Vice President Al Gore were at the game; Clinton was with the commentators on ESPN for the Orioles' half of the fourth inning and called Ripken's fourth-inning home run. When the game became official after the Angels' half of the fifth inning, the numerical banner",
+   "desk": "evergreen_v1",
+   "format": "Records & Milestones",
+   "headline": "Cal Ripken Jr. Breaks Gehrig’s Consecutive‑Games Record in Historic 1995 Orioles Game",
+   "image_status": "verified_external",
+   "message_id": 190,
+   "normalized_subject": "Box Score for Angels (2) vs Orioles (4) on September 6, 1995 at Oriole Park at Camden Yards",
+   "posted_at": "2026-09-27T08:12:10.709695+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-27-PM",
+   "sector": "Records & Milestones",
+   "topic": "Box Score for Angels (2) vs Orioles (4) on September 6, 1995 at Oriole Park at Camden Yards",
+   "urls": [
+    "baseball-almanac.com/box-scores/boxscore.php?boxid=199509060BAL"
+   ]
   }
  ],
  "runs": [],
@@ -656,74 +815,125 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-09-26T17:44:04.211628+00:00",
+  "created_at": "2026-09-27T08:03:57.574011+00:00",
   "daily": {
-   "2026-09-26": {
-    "published_sectors": [],
+   "2026-09-27": {
+    "published_sectors": [
+     "Sport Origin",
+     "Forgotten Sport",
+     "Game Origin",
+     "Then vs Now",
+     "New Sport Discovery",
+     "Forgotten Game",
+     "Records & Milestones"
+    ],
     "run_ids": [
-     "2026-09-26-PM"
+     "2026-09-27-PM"
     ]
    }
   },
-  "last_run_at": "2026-09-26T17:52:11.324693+00:00",
+  "last_run_at": "2026-09-27T08:16:26.363679+00:00",
   "live": {
    "results": {
     "event_ids": [
-     "039b515b4f8b03ca",
-     "0c9f2df2f49c72e1",
-     "1824c9857df117bf",
-     "8ece3d25671ca67f",
-     "d13e6ad75b685a7f",
-     "55d4940aa2c5bcaf",
-     "71f76cbd125f499e",
-     "7ac26acccbb0f4c8",
-     "1a815f7f15b19321",
-     "2053f375a79f4df2"
+     "1e570ac75eac1ceb",
+     "35650816801d884d",
+     "0cd5ae347b197480",
+     "55eb5abe4e0eee00",
+     "ab9afa3a5c236629",
+     "55c8e1e5a9bee118",
+     "d75dcb3c93bbaedb",
+     "71f93f06c0e1de2f",
+     "169aa76f8d000526",
+     "fd80912d524ff84f"
     ],
-    "message_id": 183,
-    "target_date": "2026-09-25",
-    "updated_at": "2026-09-26T17:52:11.322377+00:00"
+    "message_id": 192,
+    "target_date": "2026-09-26",
+    "updated_at": "2026-09-27T08:16:26.360733+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [
-     "1b1a47518e994b3b",
-     "a365da341ccc15ef",
-     "e21f2763d11f18ae",
-     "5f3335d8ac49865a",
-     "d05478f789a5786d",
-     "5a3f9af95d99415c",
-     "e6b948e45e28a5bc",
-     "5d24378a2690e49a",
-     "d40a19a675601a2f",
-     "60a67893d53c42c9"
+     "a85955a817b60363",
+     "015eb39262edbbea",
+     "526ac4cce48120cf",
+     "c7353b88c65e49ca",
+     "bd503d9240a9d9ae",
+     "8edfdcd571ac71a4",
+     "eaba97ad37e958d5",
+     "c723b9d75f24229c",
+     "29c7718b82ada473",
+     "99bb035c228926d8"
     ],
-    "message_id": 182,
-    "target_date": "2026-09-27",
-    "updated_at": "2026-09-26T17:52:11.322366+00:00"
+    "message_id": 191,
+    "target_date": "2026-09-28",
+    "updated_at": "2026-09-27T08:16:26.360718+00:00"
    }
   },
   "publication": {
-   "2026-09-26-PM:live_results:e7727378589f8c51": {
-    "message_id": 183,
-    "posted_at": "2026-09-26T17:52:11.322338+00:00",
+   "2026-09-27-PM:evergreen:1f059bcbd44e876c": {
+    "message_id": 185,
+    "posted_at": "2026-09-27T08:09:58.034276+00:00",
     "status": "posted"
    },
-   "2026-09-26-PM:live_schedule:ff701bce2d18ff08": {
-    "message_id": 182,
-    "posted_at": "2026-09-26T17:52:10.988072+00:00",
+   "2026-09-27-PM:evergreen:35ce11a21cd87ac2": {
+    "message_id": 190,
+    "posted_at": "2026-09-27T08:12:10.709251+00:00",
+    "status": "posted"
+   },
+   "2026-09-27-PM:evergreen:3a2cc03894be5eca": {
+    "message_id": 186,
+    "posted_at": "2026-09-27T08:10:21.457398+00:00",
+    "status": "posted"
+   },
+   "2026-09-27-PM:evergreen:49f648312a122279": {
+    "message_id": 184,
+    "posted_at": "2026-09-27T08:09:16.891242+00:00",
+    "status": "posted"
+   },
+   "2026-09-27-PM:evergreen:94109f2d0490dd3d": {
+    "message_id": 188,
+    "posted_at": "2026-09-27T08:11:37.902433+00:00",
+    "status": "posted"
+   },
+   "2026-09-27-PM:evergreen:cbd6ae626fbc822c": {
+    "message_id": 189,
+    "posted_at": "2026-09-27T08:12:02.761596+00:00",
+    "status": "posted"
+   },
+   "2026-09-27-PM:evergreen:faad38c4a99d0ff4": {
+    "message_id": 187,
+    "posted_at": "2026-09-27T08:10:58.903142+00:00",
+    "status": "posted"
+   },
+   "2026-09-27-PM:live_results:be01481e952d4843": {
+    "message_id": 192,
+    "posted_at": "2026-09-27T08:16:26.360690+00:00",
+    "status": "posted"
+   },
+   "2026-09-27-PM:live_schedule:c3d791c4860956d5": {
+    "message_id": 191,
+    "posted_at": "2026-09-27T08:16:25.988072+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-09-26T17:52:11.324703+00:00",
-    "evergreen": 0,
+    "at": "2026-09-27T08:16:26.363688+00:00",
+    "evergreen": 7,
     "exit": 0,
-    "live_results": 183,
-    "live_schedule": 182,
-    "run_id": "2026-09-26-PM",
-    "used_sectors": []
+    "live_results": 192,
+    "live_schedule": 191,
+    "run_id": "2026-09-27-PM",
+    "used_sectors": [
+     "Forgotten Game",
+     "Forgotten Sport",
+     "Game Origin",
+     "New Sport Discovery",
+     "Records & Milestones",
+     "Sport Origin",
+     "Then vs Now"
+    ]
    }
   ],
   "schema": 1
