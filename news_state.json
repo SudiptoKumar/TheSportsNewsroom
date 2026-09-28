@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "Cerebras per-run call cap reached (16)",
-  "last_ok": "2026-09-28T08:47:11.791011+00:00",
-  "last_request_id": "a4217b611fec73b3-CMH",
+  "last_ok": "2026-09-28T20:45:50.401977+00:00",
+  "last_request_id": "a4259814095750a1-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-09-28T08:51:26.662345+00:00",
+ "last_run_at": "2026-09-28T20:50:07.870975+00:00",
  "ledger": {},
  "posts": [
   {
@@ -1136,6 +1136,165 @@
    "urls": [
     "archive.org/details/ovalworldglobalh0000coll"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "History of chess - Wikiwand",
+   "claim": "The history of chess can be traced back nearly 1,500 years to its earliest known predecessor, called chaturanga, in India; its prehistory is the subject of speculation. From India it spread to Persia, where it was modified in terms of shapes and rules and developed into shatranj. Following the Arab invasion and conquest of Persia, chess was taken up by the Muslim world and subsequently spread to Europe via Spain (Al Andalus) and Italy (Emirate of Sicily). The game evolved roughly into its current form by about 1500 CE. ... Precursors to chess originated in India. [3] There, its early form in the 7th century CE was known as chaturaṅga(Sanskrit: चतुरङ्ग), which translates to \"four divisions (o",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "'Chaturanga' to Modern Chess: A 1,500‑Year Journey",
+   "image_status": "verified_external",
+   "message_id": 212,
+   "normalized_subject": "History of chess - Wikiwand",
+   "posted_at": "2026-09-28T20:42:55.048971+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-29-AM",
+   "sector": "Sport Origin",
+   "topic": "History of chess - Wikiwand",
+   "urls": [
+    "britannica.com/topic/chess/History"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Baseball Playing Rules Changes Before 1950",
+   "claim": "Compiled by Stew Thornley Terms differed and evolved in the 19 th century. From rules published prior to the 1871 establishment of the National Association of Base Ball Players to the rules of the National League in 1876 and beyond, fair balls, foully delivered balls, good balls to the bat, illegal delivery, foul balk, balk, fair strike, and foul strike were part of the pitching and batting lexicon. An 1870 rule book issued by R. M. De Witt Publisher, referred to fair balls and unfair balls as pitches determined by whether they are “within legitimate reach of the batter.” In the 1871 rules for the National Association (Rule II, Section 3), “Fair balls” were those “pitched over the home base,",
+   "desk": "evergreen_v1",
+   "format": "Rule Check",
+   "headline": "19th‑Century Baseball Rules Defined Fair Balls and Balk Penalties",
+   "image_status": "card_fallback",
+   "message_id": 213,
+   "normalized_subject": "Baseball Playing Rules Changes Before 1950",
+   "posted_at": "2026-09-28T20:43:20.699298+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-29-AM",
+   "sector": "Rule Check",
+   "topic": "Baseball Playing Rules Changes Before 1950",
+   "urls": [
+    "retrosheet.org/rules/PlayingRulesYearbyYearPre1950.pdf"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Jugger: Swedish rulebook - version 2.3",
+   "claim": "Under the Swedish Jugger Association’s version 2.3 rules (approved March 2024), jugger is played by two teams with five players on the field per team: one qwik and four pompfen players. The qwik alone may handle the soft ‘skull’ and score by placing it in the opposing goal; the other players use padded pompfen to protect their qwik and tag opponents. Each round starts with the skull at midfield and the teams behind their baselines; a valid goal pauses play before the next round. Match victory depends on the agreed format: most points over a set number of stones, or winning a predetermined number of sets.",
+   "desk": "evergreen_v1",
+   "format": "How to Play",
+   "headline": "Swedish Jugger Rules Define Five‑Player Teams and Single Scorer",
+   "image_status": "card_fallback",
+   "message_id": 214,
+   "normalized_subject": "Jugger: Swedish rulebook - version 2.3",
+   "posted_at": "2026-09-28T20:43:32.791162+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-29-AM",
+   "sector": "How to Play",
+   "topic": "Jugger: Swedish rulebook - version 2.3",
+   "urls": [
+    "jugger.se/wp-content/uploads/simple-file-list/Jugger__Swedish_rulebook_-_version_2_3.pdf"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "A Lost Social Institution: The Camping Close",
+   "claim": "The game of camping or camp-ball, best described as a blend of football and handball, was played for centuries in the counties of Norfolk, Suffolk, Cambridgeshire and Essex. It survived well into the nineteenth century, and indeed was consciously revived after the Napoleonic Wars. Furthermore, as a traditional form of recreation, it began to attract antiquarian interest at an early date, and was mentioned by several county and parochial historians of the eighteenth century Our evidence for the game is still regrettably scattered and circumstantial, but its quantity has increased appreciably in recent years. This, therefore, seems a good time to offer some new ideas on the subject, in the hop",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Sport",
+   "headline": "Camp-ball: The Forgotten Football‑Handball Blend of East England",
+   "image_status": "verified_external",
+   "message_id": 215,
+   "normalized_subject": "A Lost Social Institution: The Camping Close",
+   "posted_at": "2026-09-28T20:43:54.712069+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-09-29-AM",
+   "sector": "Forgotten Sport",
+   "topic": "A Lost Social Institution: The Camping Close",
+   "urls": [
+    "exa.ai/library/publication/ybqxsn1990v"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The Surprising Math and Physics behind the 2026 Trionda World Cup Soccer Ball | Scientific American",
+   "claim": "Every four years, soccer fans eagerly await the sport’s biggest event: the International Federation of Association Football (FIFA) World Cup. But before each dramatic kickoff, artists and researchers spend years designing, testing and revising the official match ball. Recently images of the planned ball for the 2026 competition were leaked, and its design incorporates math, physics and style in some surprising ways. ... celebrates the three ... hosted World Cup. ... yet for a FIFA World Cup ball. And it represents a significant ... from the ... Al Rhila ... The design of any soccer ball hinges on an age-old question: How can one make rounded shapes out of flat material? Every FIFA World Cup ",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "Tetrahedron Design Gives 2026 Trionda Ball Unique Aerodynamic Edge",
+   "image_status": "verified_external",
+   "message_id": 216,
+   "normalized_subject": "The Surprising Math and Physics behind the 2026 Trionda World Cup Soccer Ball | Scientific American",
+   "posted_at": "2026-09-28T20:45:34.576006+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-29-AM",
+   "sector": "Why Does This Happen?",
+   "topic": "The Surprising Math and Physics behind the 2026 Trionda World Cup Soccer Ball | Scientific American",
+   "urls": [
+    "scientificamerican.com/article/the-surprising-math-and-physics-behind-the-2026-trionda-world-cup-soccer-ball"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "History of Rule Changes - AFL.com.au",
+   "claim": "1866 The maximum playing area to be 182m long by 136.5m wide. A pair of goalposts to be seven yards apart, of unlimited height. A protected 4.5m area surrounding a player taking a free kick or mark) introduced. After each goal was kicked, teams to change ends. Holding to be permitted only when an opponent had the ball in hand during general play. The ball to be carried by a player no further than what was necessary for a kick, unless it was struck against the ground every 4.5m or six yards 5.4m. Each team in a match to appoint an umpire. The nearest one to be appealed to in the case of dispute. Time limit for matches introduced. Team scoring most goals declared the winner. Field umpires acte",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "Early Australian Rules Football Set Fixed Field Size and Goal Toss in 1859",
+   "image_status": "verified_external",
+   "message_id": 217,
+   "normalized_subject": "History of Rule Changes - AFL.com.au",
+   "posted_at": "2026-09-28T20:45:43.427453+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-29-AM",
+   "sector": "Then vs Now",
+   "topic": "History of Rule Changes - AFL.com.au",
+   "urls": [
+    "afl.com.au/about-afl/history/rule-changes"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Golden Pitches: The Ultimate Last-at-Bat, Game Seven Scenario – Society for American Baseball Research",
+   "claim": "In the immediate aftermath of the exciting Game Seven between the Kansas City Royals and San Francisco Giants in 2014, the baseball world fixated on one question: should Alex Gordon have been sent home with two outs in the bottom of the ninth inning as his hit was being botched and booted somewhere near the left-center field wall? Indeed, no less a numbers guru than Nate Silver tweeted that — regardless of the outcome on that potential play-at-the-plate — it would have been one of the five greatest moments in baseball history. However, what happened immediately after that play (with Gordon on third and Madison Bumgarner pitching to Salvador Perez) is far more remarkable, and this paper prese",
+   "desk": "evergreen_v1",
+   "format": "Interesting Sports Fact",
+   "headline": "Bumgarner’s Six Pitches in Game Seven Could Have Decided the 2014 World Series",
+   "image_status": "card_fallback",
+   "message_id": 218,
+   "normalized_subject": "Golden Pitches: The Ultimate Last-at-Bat, Game Seven Scenario – Society for American Baseball Research",
+   "posted_at": "2026-09-28T20:45:53.608595+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-29-AM",
+   "sector": "Interesting Sports Fact",
+   "topic": "Golden Pitches: The Ultimate Last-at-Bat, Game Seven Scenario – Society for American Baseball Research",
+   "urls": [
+    "apnews.com/bumgarner-giants-beat-kc-3-2-to-win-world-series-89829b87bc244e9c80254905a7624f56"
+   ]
   }
  ],
  "runs": [],
@@ -1147,131 +1306,124 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-09-28T08:39:02.064205+00:00",
+  "created_at": "2026-09-28T20:31:44.101382+00:00",
   "daily": {
-   "2026-09-28": {
+   "2026-09-29": {
     "published_sectors": [
-     "Interesting Game Fact",
-     "Then vs Now",
-     "Forgotten Sport",
-     "Interesting Sports Fact",
-     "Forgotten Game",
+     "Sport Origin",
      "Rule Check",
      "How to Play",
-     "Sport Origin"
+     "Forgotten Sport",
+     "Why Does This Happen?",
+     "Then vs Now",
+     "Interesting Sports Fact"
     ],
     "run_ids": [
-     "2026-09-28-PM"
+     "2026-09-29-AM"
     ]
    }
   },
-  "last_run_at": "2026-09-28T08:51:26.662317+00:00",
+  "last_run_at": "2026-09-28T20:50:07.870948+00:00",
   "live": {
    "results": {
     "event_ids": [
-     "a365da341ccc15ef",
-     "e21f2763d11f18ae",
-     "5f3335d8ac49865a",
-     "d05478f789a5786d",
-     "5a3f9af95d99415c",
-     "60a67893d53c42c9",
-     "fe254490afb806a3",
-     "9392251f4bd92eae",
-     "00ce6d82563656c4",
-     "5a45fad4a2d3a788"
+     "015eb39262edbbea",
+     "c7353b88c65e49ca",
+     "6864962d13a67a32",
+     "bd503d9240a9d9ae",
+     "8edfdcd571ac71a4",
+     "eaba97ad37e958d5",
+     "c723b9d75f24229c",
+     "29c7718b82ada473",
+     "99bb035c228926d8",
+     "d2d1ce3ac78d008b"
     ],
-    "message_id": 211,
-    "target_date": "2026-09-27",
-    "updated_at": "2026-09-28T08:51:26.658940+00:00"
+    "message_id": 220,
+    "target_date": "2026-09-28",
+    "updated_at": "2026-09-28T20:50:07.867542+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [
-     "d5adc21a588cb2e6",
-     "dec5fb90239c19af",
-     "cbd57f3c0449c21b",
-     "573ac497cee4c6e4",
-     "55a7d4d18e533157",
-     "6c26cb4f3965f1b9",
-     "151557020354d2be",
-     "eeff3212790390a0",
-     "92b611abf6b9ebb2",
-     "d6f57443ed9e20f2"
+     "3e56a1c438f0303d",
+     "1b8acc0c5df9ca9b",
+     "e4edcd249e333904",
+     "de98f56b6c6867fc",
+     "ab71102dc0bf0dfb",
+     "716099c492f03bb7",
+     "64b865949f5bfb1b",
+     "c2ba6761e17f4787",
+     "4670039cd398dc12",
+     "fbc8691007f4818d"
     ],
-    "message_id": 210,
-    "target_date": "2026-09-29",
-    "updated_at": "2026-09-28T08:51:26.658928+00:00"
+    "message_id": 219,
+    "target_date": "2026-09-30",
+    "updated_at": "2026-09-28T20:50:07.867531+00:00"
    }
   },
   "publication": {
-   "2026-09-28-PM:evergreen:2410a4f67a3093e3": {
-    "message_id": 208,
-    "posted_at": "2026-09-28T08:46:51.204195+00:00",
+   "2026-09-29-AM:evergreen:1ac2e32ec4e375be": {
+    "message_id": 212,
+    "posted_at": "2026-09-28T20:42:55.048673+00:00",
     "status": "posted"
    },
-   "2026-09-28-PM:evergreen:2c6bf89853117cda": {
-    "message_id": 207,
-    "posted_at": "2026-09-28T08:46:43.522714+00:00",
+   "2026-09-29-AM:evergreen:44412e9a70abb4eb": {
+    "message_id": 214,
+    "posted_at": "2026-09-28T20:43:32.790913+00:00",
     "status": "posted"
    },
-   "2026-09-28-PM:evergreen:360bfe749489e1c3": {
-    "message_id": 204,
-    "posted_at": "2026-09-28T08:46:00.985745+00:00",
+   "2026-09-29-AM:evergreen:906ce9a517284cf1": {
+    "message_id": 215,
+    "posted_at": "2026-09-28T20:43:54.711846+00:00",
     "status": "posted"
    },
-   "2026-09-28-PM:evergreen:608ec4839e48808e": {
-    "message_id": 206,
-    "posted_at": "2026-09-28T08:46:26.900449+00:00",
+   "2026-09-29-AM:evergreen:914dbbb32e63a4a6": {
+    "message_id": 216,
+    "posted_at": "2026-09-28T20:45:34.575693+00:00",
     "status": "posted"
    },
-   "2026-09-28-PM:evergreen:6e2906f00a59e189": {
-    "message_id": 205,
-    "posted_at": "2026-09-28T08:46:10.941630+00:00",
+   "2026-09-29-AM:evergreen:b08d8185a29d5a63": {
+    "message_id": 218,
+    "posted_at": "2026-09-28T20:45:53.608321+00:00",
     "status": "posted"
    },
-   "2026-09-28-PM:evergreen:76715afa2bfa7ee0": {
-    "message_id": 203,
-    "posted_at": "2026-09-28T08:45:23.828568+00:00",
+   "2026-09-29-AM:evergreen:e655af4526bb2e64": {
+    "message_id": 213,
+    "posted_at": "2026-09-28T20:43:20.699034+00:00",
     "status": "posted"
    },
-   "2026-09-28-PM:evergreen:acd2234de7dd4f48": {
-    "message_id": 209,
-    "posted_at": "2026-09-28T08:47:02.669520+00:00",
+   "2026-09-29-AM:evergreen:f6ba4b694fceb6c4": {
+    "message_id": 217,
+    "posted_at": "2026-09-28T20:45:43.427197+00:00",
     "status": "posted"
    },
-   "2026-09-28-PM:evergreen:bd5470bda3abc92a": {
-    "message_id": 202,
-    "posted_at": "2026-09-28T08:44:44.677756+00:00",
+   "2026-09-29-AM:live_results:c3d791c4860956d5": {
+    "message_id": 220,
+    "posted_at": "2026-09-28T20:50:07.867503+00:00",
     "status": "posted"
    },
-   "2026-09-28-PM:live_results:ff701bce2d18ff08": {
-    "message_id": 211,
-    "posted_at": "2026-09-28T08:51:26.658900+00:00",
-    "status": "posted"
-   },
-   "2026-09-28-PM:live_schedule:e3c7af5da4ffb7fe": {
-    "message_id": 210,
-    "posted_at": "2026-09-28T08:51:26.278602+00:00",
+   "2026-09-29-AM:live_schedule:1a4b94b1a69a0aae": {
+    "message_id": 219,
+    "posted_at": "2026-09-28T20:50:07.505033+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-09-28T08:51:26.662327+00:00",
-    "evergreen": 8,
+    "at": "2026-09-28T20:50:07.870956+00:00",
+    "evergreen": 7,
     "exit": 0,
-    "live_results": 211,
-    "live_schedule": 210,
-    "run_id": "2026-09-28-PM",
+    "live_results": 220,
+    "live_schedule": 219,
+    "run_id": "2026-09-29-AM",
     "used_sectors": [
-     "Forgotten Game",
      "Forgotten Sport",
      "How to Play",
-     "Interesting Game Fact",
      "Interesting Sports Fact",
      "Rule Check",
      "Sport Origin",
-     "Then vs Now"
+     "Then vs Now",
+     "Why Does This Happen?"
     ]
    }
   ],
