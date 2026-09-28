@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "Cerebras per-run call cap reached (16)",
-  "last_ok": "2026-09-27T18:27:30.530333+00:00",
-  "last_request_id": "a41c90125d7aeb08-ORD",
+  "last_ok": "2026-09-28T08:47:11.791011+00:00",
+  "last_request_id": "a4217b611fec73b3-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-09-27T18:31:56.332888+00:00",
+ "last_run_at": "2026-09-28T08:51:26.662345+00:00",
  "ledger": {},
  "posts": [
   {
@@ -955,6 +955,187 @@
    "urls": [
     "fivb.com/volleyball/the-game/history"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The History of Senet: 3,000 Years, Not One Rule | PlayNook",
+   "claim": "Senet was an ancient Egyptian 30-square game with probable archaeological evidence by the First Dynasty (about 3100–2900 BCE) and a secure Third Dynasty depiction. It had a long, changing history, but the evidence does not support calling it the oldest physically attested board game or securely extending its play to Roman Egypt; its exact ancient rules cannot be recovered as one certain rule set.",
+   "desk": "evergreen_v1",
+   "format": "Interesting Game Fact",
+   "headline": "Senet’s Three‑Millennium Legacy Defies a Single Rulebook",
+   "image_status": "verified_external",
+   "message_id": 202,
+   "normalized_subject": "The History of Senet: 3,000 Years, Not One Rule | PlayNook",
+   "posted_at": "2026-09-28T08:44:44.678037+00:00",
+   "research_urls": [
+    "",
+    ""
+   ],
+   "run_id": "2026-09-28-PM",
+   "sector": "Interesting Game Fact",
+   "topic": "The History of Senet: 3,000 Years, Not One Rule | PlayNook",
+   "urls": [
+    "playnook.io/blog/history-of-senet"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Origin, evolution and influence on the game of water polo rules",
+   "claim": "At the height of the expansion, according to Rajki (1958, pp. 14-15): \"in 1890 water polo spread to the United States, where the rules were changed to convert it to indoor and small pools. These essential changes were not to allow a goal to be scored, but to allow a goal to be scored by touching a mark with the ball in your hand. In 1897 there was a restructuring of the rules unifying them with the European ones\". In Germany, the first water polo match was played in Berlin in 1894, with the problem of not being able to play matches on a large scale, given that each club had its own rules. On 19 July 1908 the Fédération Internationale de Natation Amateur (FINA) was founded in London. In 1911,",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "How Early Rule Changes Shaped Modern Water Polo",
+   "image_status": "card_fallback",
+   "message_id": 203,
+   "normalized_subject": "Origin, evolution and influence on the game of water polo rules",
+   "posted_at": "2026-09-28T08:45:23.828938+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-28-PM",
+   "sector": "Then vs Now",
+   "topic": "Origin, evolution and influence on the game of water polo rules",
+   "urls": [
+    "repositorio.ucam.edu/bitstream/handle/10952/5698/1677-Texto%20del%20art%c3%adculo-7383-2-10-20220216.pdf?isAllowed=y&sequence=1"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Capturing Cambridge: The History of Fen Skating – The Museum of Cambridge",
+   "claim": "As we prepare for the changes brought by global warming, one sport which is certainly unlikely to return in the near future to Cambridgeshire is fen skating. The last championships were in 2010 and even over the previous two hundred years there have been periods when winters were too warm to achieve a safe thickness of ice. Enid Porter notes in her book Cambridgeshire Customs and Folklore that skating was first recorded in England by Fitzstephens in 1180. He wrote of Londoners sliding on animal bones on the Thames. But whilst the people of the Low Countries are recorded using bladed skates in the 14th century, skating as we know it only appeared in England in the 17th after members of the co",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Sport",
+   "headline": "Fen Skating Faces Extinction as Climate Warming Threatens Cambridgeshire Ice",
+   "image_status": "verified_external",
+   "message_id": 204,
+   "normalized_subject": "Capturing Cambridge: The History of Fen Skating – The Museum of Cambridge",
+   "posted_at": "2026-09-28T08:46:00.986119+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-28-PM",
+   "sector": "Forgotten Sport",
+   "topic": "Capturing Cambridge: The History of Fen Skating – The Museum of Cambridge",
+   "urls": [
+    "museumofcambridge.org.uk/2021/09/the-history-of-fen-skating"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Frontiers | The golden ratio in baseball: the influence of historical eras on winning percentages in major league baseball",
+   "claim": "The golden section or golden ratio (61.8% or 0.618) is a mathematical phenomenon that appears in art, literature, music and nature with such ubiquity that it is thought to be a fundamental principle of aesthetic organisation. The golden ratio also manifests in sport, particularly as the proportion of wins to losses required to win a Major League Baseball championship. This study extends early work on the golden ratio in baseball by incorporating more than three decades of additional data. ... Our findings suggest that winning percentages for championship teams were closest to the golden ratio during eras where the relative contribution of offense and defense was most closely balanced: the In",
+   "desk": "evergreen_v1",
+   "format": "Interesting Sports Fact",
+   "headline": "Championship Teams Hit Golden Ratio in Balanced Baseball Eras",
+   "image_status": "verified_external",
+   "message_id": 205,
+   "normalized_subject": "Frontiers | The golden ratio in baseball: the influence of historical eras on winning percentages in major league baseball",
+   "posted_at": "2026-09-28T08:46:10.941963+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-28-PM",
+   "sector": "Interesting Sports Fact",
+   "topic": "Frontiers | The golden ratio in baseball: the influence of historical eras on winning percentages in major league baseball",
+   "urls": [
+    "frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2023.1273327/full"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Top 10 historical board games",
+   "claim": "Try your hand at ten games spanning over 5,000 years of history – including ancient board games still played today, like the Game of Ur, senet, wari, mahjong and chess. If you're feeling the need to step away from the screen, here are 10 historical board games from the collection – some of which you can still play today. You can buy replicas of some of the games from our online shop. ... The Royal Game of Ur is the oldest playable boardgame in the world, originating around 4,600 years ago in ancient Mesopotamia. ... Wari is a game of calculation and strategy played widely within West Africa and also popular elsewhere in the world – you might know it as mancala. ... Beloved by Tutankhamun and",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Game",
+   "headline": "The Royal Game of Ur: World’s Oldest Playable Board Game",
+   "image_status": "verified_external",
+   "message_id": 206,
+   "normalized_subject": "Top 10 historical board games",
+   "posted_at": "2026-09-28T08:46:26.900813+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-28-PM",
+   "sector": "Forgotten Game",
+   "topic": "Top 10 historical board games",
+   "urls": [
+    "britishmuseum.org/blog/top-10-historical-board-games"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Cricket's laws were written long before the Ashes began, but are still a 'work in progress' - ABC News",
+   "claim": "- Cricket's first six laws were written in 1744, and printed on a silk handkerchief - In 1844, that number became 55, introducing the boundary and the six into the rules for the first time - Warwick Armstrong was the catalyst for many rule changes, including the still-confusing overthrows law ... 22 yards apart ... \", they will be reproducing a set of actions that have been in place for almost 300 years. ... The game in its various forms had been played possibly for hundreds of years before 1744, when a group of gentlemen calling themselves The Cricket Club first codified the game by drawing up a set of six rules at the Star and Garter Hotel in London's Pall Mall. ... Melbourne Cricket Club ",
+   "desk": "evergreen_v1",
+   "format": "Rule Check",
+   "headline": "Cricket’s First Six Laws Wrote History on a Silk Handkerchief",
+   "image_status": "verified_external",
+   "message_id": 207,
+   "normalized_subject": "Cricket's laws were written long before the Ashes began, but are still a 'work in progress' - ABC News",
+   "posted_at": "2026-09-28T08:46:43.523078+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-28-PM",
+   "sector": "Rule Check",
+   "topic": "Cricket's laws were written long before the Ashes began, but are still a 'work in progress' - ABC News",
+   "urls": [
+    "documents.bcci.tv/bcci/documents/1638283934_MCC%20Laws%20of%20Cricket.pdf"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "BASIC INDIACA RULES (BIR)",
+   "claim": "5 TOSCOREAPOINT,TOWINASETANDMATCH 5.1 Toscoreapoint 5.2 Towinaset 5.3 Towinamatch 5.4 Defaultandincompleteteam 6 STRUCTUREOFPLAY 6.1 Thetoss 6.2 Positions 6.3 Positionalfault 6.4 Rotation 6.5 Rotationalfault ... Indiacaisasportplayedbytwoteamsonaplayingcourtdividedbyanet. AspecialIndiaca ballisusedforplayingIndiaca.Indiacaisplayedwithonehand,exceptwhenblocking anddefendingagainstanattackhit. The game is very dynamic, emotional and suits well players of different ages and physical preparedness. Theobjectof thegameis foreach team to send theIndiaca ball regularlyover thenetin order to grounditontheopponent’scourt,andtopreventtheballfrombeinggroundedonitsowncourt.A team is entitled to hit the b",
+   "desk": "evergreen_v1",
+   "format": "How to Play",
+   "headline": "Indiaca Basics: Court Layout, Scoring and Play Rules",
+   "image_status": "card_fallback",
+   "message_id": 208,
+   "normalized_subject": "BASIC INDIACA RULES (BIR)",
+   "posted_at": "2026-09-28T08:46:51.204557+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-09-28-PM",
+   "sector": "How to Play",
+   "topic": "BASIC INDIACA RULES (BIR)",
+   "urls": [
+    "fjpwb.be/wp-content/uploads/2022/01/Reglement-indiaca-anglais.pdf"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The oval world : a global history of rugby : Collins, Tony, 1961- author : Free Download, Borrow, and Streaming : Internet Archive",
+   "claim": "viii, 551 pages ; 25 cmRugby has always been a sport with as much drama off the field as on it. For every thrilling last-minute Jonny Wilkinson drop-goal to win the World Cup or Jonah Lomu rampage down the touchline for a try there has been a split, a feud, or a controversy. The Oval World is the first full-length history of rugby on a world scale--from its origins in the village-based football games of medieval times to the globalized sport of the twenty-first century, now played over a hundred countries. It tells the story of how a game played in an obscure English public school became the winter sport of the British Empire, spreading to France, Argentina, Japan, and the rest of the world,",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "From Medieval Village Games to a Global Sport in Over 100 Countries",
+   "image_status": "verified_external",
+   "message_id": 209,
+   "normalized_subject": "The oval world : a global history of rugby : Collins, Tony, 1961- author : Free Download, Borrow, and Streaming : Internet Archive",
+   "posted_at": "2026-09-28T08:47:02.669890+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-28-PM",
+   "sector": "Sport Origin",
+   "topic": "The oval world : a global history of rugby : Collins, Tony, 1961- author : Free Download, Borrow, and Streaming : Internet Archive",
+   "urls": [
+    "archive.org/details/ovalworldglobalh0000coll"
+   ]
   }
  ],
  "runs": [],
@@ -966,123 +1147,130 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-09-27T18:19:42.461249+00:00",
+  "created_at": "2026-09-28T08:39:02.064205+00:00",
   "daily": {
    "2026-09-28": {
     "published_sectors": [
+     "Interesting Game Fact",
+     "Then vs Now",
      "Forgotten Sport",
-     "Game Discovery",
-     "New Sport Discovery",
+     "Interesting Sports Fact",
      "Forgotten Game",
-     "How to Play",
      "Rule Check",
-     "Then vs Now"
+     "How to Play",
+     "Sport Origin"
     ],
     "run_ids": [
-     "2026-09-28-AM"
+     "2026-09-28-PM"
     ]
    }
   },
-  "last_run_at": "2026-09-27T18:31:56.332860+00:00",
+  "last_run_at": "2026-09-28T08:51:26.662317+00:00",
   "live": {
    "results": {
     "event_ids": [
+     "a365da341ccc15ef",
+     "e21f2763d11f18ae",
+     "5f3335d8ac49865a",
+     "d05478f789a5786d",
+     "5a3f9af95d99415c",
      "60a67893d53c42c9",
      "fe254490afb806a3",
      "9392251f4bd92eae",
      "00ce6d82563656c4",
-     "5a45fad4a2d3a788",
-     "639c7e7f167dc528",
-     "c4c2f6c1cc19443f",
-     "bb8850cf5fc053c3",
-     "4d01a982c78eaf42",
-     "ec8ca93fb2184ec4"
+     "5a45fad4a2d3a788"
     ],
-    "message_id": 201,
+    "message_id": 211,
     "target_date": "2026-09-27",
-    "updated_at": "2026-09-27T18:31:56.329634+00:00"
+    "updated_at": "2026-09-28T08:51:26.658940+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [
      "d5adc21a588cb2e6",
-     "c1290ded8c5f7105",
-     "063d5dc0970a61bd",
      "dec5fb90239c19af",
+     "cbd57f3c0449c21b",
      "573ac497cee4c6e4",
-     "917f8fdf4be1502c",
      "55a7d4d18e533157",
+     "6c26cb4f3965f1b9",
      "151557020354d2be",
      "eeff3212790390a0",
-     "92b611abf6b9ebb2"
+     "92b611abf6b9ebb2",
+     "d6f57443ed9e20f2"
     ],
-    "message_id": 200,
+    "message_id": 210,
     "target_date": "2026-09-29",
-    "updated_at": "2026-09-27T18:31:56.329622+00:00"
+    "updated_at": "2026-09-28T08:51:26.658928+00:00"
    }
   },
   "publication": {
-   "2026-09-28-AM:evergreen:18c5ff835c3be572": {
-    "message_id": 198,
-    "posted_at": "2026-09-27T18:27:21.041791+00:00",
+   "2026-09-28-PM:evergreen:2410a4f67a3093e3": {
+    "message_id": 208,
+    "posted_at": "2026-09-28T08:46:51.204195+00:00",
     "status": "posted"
    },
-   "2026-09-28-AM:evergreen:22ebc2004c081132": {
-    "message_id": 195,
-    "posted_at": "2026-09-27T18:26:30.248161+00:00",
+   "2026-09-28-PM:evergreen:2c6bf89853117cda": {
+    "message_id": 207,
+    "posted_at": "2026-09-28T08:46:43.522714+00:00",
     "status": "posted"
    },
-   "2026-09-28-AM:evergreen:69a2068c4e492d69": {
-    "message_id": 197,
-    "posted_at": "2026-09-27T18:27:09.921656+00:00",
+   "2026-09-28-PM:evergreen:360bfe749489e1c3": {
+    "message_id": 204,
+    "posted_at": "2026-09-28T08:46:00.985745+00:00",
     "status": "posted"
    },
-   "2026-09-28-AM:evergreen:7abe5ec8b3604979": {
-    "message_id": 193,
-    "posted_at": "2026-09-27T18:25:31.189941+00:00",
+   "2026-09-28-PM:evergreen:608ec4839e48808e": {
+    "message_id": 206,
+    "posted_at": "2026-09-28T08:46:26.900449+00:00",
     "status": "posted"
    },
-   "2026-09-28-AM:evergreen:bb13be75688d82fd": {
-    "message_id": 196,
-    "posted_at": "2026-09-27T18:26:55.701016+00:00",
+   "2026-09-28-PM:evergreen:6e2906f00a59e189": {
+    "message_id": 205,
+    "posted_at": "2026-09-28T08:46:10.941630+00:00",
     "status": "posted"
    },
-   "2026-09-28-AM:evergreen:d8e7b205a744c1c8": {
-    "message_id": 194,
-    "posted_at": "2026-09-27T18:25:53.239033+00:00",
+   "2026-09-28-PM:evergreen:76715afa2bfa7ee0": {
+    "message_id": 203,
+    "posted_at": "2026-09-28T08:45:23.828568+00:00",
     "status": "posted"
    },
-   "2026-09-28-AM:evergreen:fdddfd8678b97314": {
-    "message_id": 199,
-    "posted_at": "2026-09-27T18:27:38.675050+00:00",
+   "2026-09-28-PM:evergreen:acd2234de7dd4f48": {
+    "message_id": 209,
+    "posted_at": "2026-09-28T08:47:02.669520+00:00",
     "status": "posted"
    },
-   "2026-09-28-AM:live_results:ff701bce2d18ff08": {
-    "message_id": 201,
-    "posted_at": "2026-09-27T18:31:56.329592+00:00",
+   "2026-09-28-PM:evergreen:bd5470bda3abc92a": {
+    "message_id": 202,
+    "posted_at": "2026-09-28T08:44:44.677756+00:00",
     "status": "posted"
    },
-   "2026-09-28-AM:live_schedule:e3c7af5da4ffb7fe": {
-    "message_id": 200,
-    "posted_at": "2026-09-27T18:31:55.999954+00:00",
+   "2026-09-28-PM:live_results:ff701bce2d18ff08": {
+    "message_id": 211,
+    "posted_at": "2026-09-28T08:51:26.658900+00:00",
+    "status": "posted"
+   },
+   "2026-09-28-PM:live_schedule:e3c7af5da4ffb7fe": {
+    "message_id": 210,
+    "posted_at": "2026-09-28T08:51:26.278602+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-09-27T18:31:56.332871+00:00",
-    "evergreen": 7,
+    "at": "2026-09-28T08:51:26.662327+00:00",
+    "evergreen": 8,
     "exit": 0,
-    "live_results": 201,
-    "live_schedule": 200,
-    "run_id": "2026-09-28-AM",
+    "live_results": 211,
+    "live_schedule": 210,
+    "run_id": "2026-09-28-PM",
     "used_sectors": [
      "Forgotten Game",
      "Forgotten Sport",
-     "Game Discovery",
      "How to Play",
-     "New Sport Discovery",
+     "Interesting Game Fact",
+     "Interesting Sports Fact",
      "Rule Check",
+     "Sport Origin",
      "Then vs Now"
     ]
    }
