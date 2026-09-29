@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "Cerebras per-run call cap reached (16)",
-  "last_ok": "2026-09-29T08:32:30.011095+00:00",
-  "last_request_id": "a429a33a4f80eb66-ORD",
+  "last_ok": "2026-09-29T19:43:25.656152+00:00",
+  "last_request_id": "a42d7a07fb9bf058-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-09-29T08:36:49.500767+00:00",
+ "last_run_at": "2026-09-29T19:47:44.548453+00:00",
  "ledger": {},
  "posts": [
   {
@@ -1454,6 +1454,184 @@
    "urls": [
     "diva-portal.org/smash/get/diva2:1415327/FULLTEXT01.pdf"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Collingwood claim 16th premiership after edging out Brisbane in classic AFL grand final | AFL | The Guardian",
+   "claim": "On September 30, 2023, Collingwood defeated the Brisbane Lions 12.18 (90) to 13.8 (86) at the MCG to win its 16th VFL/AFL premiership, equalling the competition record at the time. Bobby Hill kicked four goals in the four-point victory.",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "Collingwood Secures Record‑Equalling 16th AFL Premiership in 2023 Grand Final",
+   "image_status": "verified_external",
+   "message_id": 230,
+   "normalized_subject": "Collingwood claim 16th premiership after edging out Brisbane in classic AFL grand final | AFL | The Guardian",
+   "posted_at": "2026-09-29T19:41:42.100597+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-30-AM",
+   "sector": "On This Date",
+   "topic": "Collingwood claim 16th premiership after edging out Brisbane in classic AFL grand final | AFL | The Guardian",
+   "urls": [
+    "theguardian.com/sport/2023/sep/30/afl-grand-final-2023-collingwood-magpies-brisbane-lions-match-report-results-winner"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Solving the mystery of the first goal in league football - BBC Sport",
+   "claim": "Kenny Davenport of Bolton Wanderers is credited, on the basis of reconstructed kick-off times and contemporary match reports, with the first goal in the inaugural Football League season: approximately 3:47 p.m. on 8 September 1888, against Derby County. The evidence supports this historical attribution rather than an independently timed, indisputable ‘first goal anywhere in the world.’",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "Kenny Davenport Credited with First Football League Goal in 1888",
+   "image_status": "verified_external",
+   "message_id": 231,
+   "normalized_subject": "Solving the mystery of the first goal in league football - BBC Sport",
+   "posted_at": "2026-09-29T19:41:48.508077+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-30-AM",
+   "sector": "First / Last / Only",
+   "topic": "Solving the mystery of the first goal in league football - BBC Sport",
+   "urls": [
+    "bbc.com/sport/football/23397062"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Century mark! UConn women win 100th straight game - University of Connecticut Athletics",
+   "claim": "Century mark! UConn women win 100th straight game - University of Connecticut Athletics ... ## Century mark! UConn women win 100th straight game 2/13 ... 017 ... Feb. 13, 2017 Box Score | Quotes | USATSI Photo Gallery | Photo Gallery 2 | Photo Gallery 3 STORRS, Conn. (AP) Add 100 consecutive wins to the UConn Huskies' long list of milestones. Given the team's glitzier numbers linked to national championships, 11 titles and counting, it may seem ho-hum with no added significance. Geno Auriemma's squad already owns the longest winning streak in Division I college basketball history. UConn beat its own record of 90 consecutive wins earlier this season with little fanfare. \"I hope we can focus o",
+   "desk": "evergreen_v1",
+   "format": "Records & Milestones",
+   "headline": "UConn Women's Basketball Reaches 100 Straight Wins with South Carolina Victory",
+   "image_status": "verified_external",
+   "message_id": 232,
+   "normalized_subject": "Century mark! UConn women win 100th straight game - University of Connecticut Athletics",
+   "posted_at": "2026-09-29T19:42:16.335966+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-30-AM",
+   "sector": "Records & Milestones",
+   "topic": "Century mark! UConn women win 100th straight game - University of Connecticut Athletics",
+   "urls": [
+    "apnews.com/ap-top-25-womens-college-basketball-poll-4bd4244c13134129a3c4af3d0197b264"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Meet new FIFA World Cup ball: AI-sensor for better decisions, improved design for fewer surprises | Explained News - The Indian Express",
+   "claim": "Every four years when the FIFA World Cup comes around, official sponsor Adidas creates a new iteration of the ball that will be used. This time, as the world further integrates artificial intelligence (AI) models into everyday use-case scenarios, the humble football now finds itself an AI-enabled entity, loaded with a sensor specifically built to track its movements. But the Trionda, this edition’s ball, is notable for more than its modern sensor. It has the lowest number of panels ever used to make a football. And, unlike the mercurial Jabulani ball used during the 2010 World Cup, it promises far fewer surprises than what many players had to contend with in South Africa. ... The Telstar bal",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "AI‑Enabled Trionda Ball Brings Faster VAR Decisions and Fewer Surprises",
+   "image_status": "verified_external",
+   "message_id": 233,
+   "normalized_subject": "Meet new FIFA World Cup ball: AI-sensor for better decisions, improved design for fewer surprises | Explained News - The Indian Express",
+   "posted_at": "2026-09-29T19:42:29.546361+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-30-AM",
+   "sector": "Equipment / Measurement",
+   "topic": "Meet new FIFA World Cup ball: AI-sensor for better decisions, improved design for fewer surprises | Explained News - The Indian Express",
+   "urls": [
+    "indianexpress.com/article/explained/explained-sports/fifa-world-cup-2026-why-the-new-ai-enabled-ball-promises-better-decisions-fewer-surprises-10726300"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Designers Fine-tune the Aerodynamics of World Cup Soccer Balls | SIAM",
+   "claim": "The FIFA World Cup of football (soccer in the U.S.) has been contested quadrennially since 1930, with a gap between 1938 and 1950 because of World War II. In the early years, the host country furnished the official match balls, which were sometimes of disputed quality. Adidas, which began making soccer balls in 1963, won the contract to furnish the official World Cup ball in 1970, and has yet to relinquish it. That year’s ball, dubbed the “Telstar” (see Figure 1), was the first to consist of 12 black pentagonal leather panels and 20 hexagonal white ones, stitched together to resemble a truncated icosahedron, or “buckyball.” The blend of black and white panels made the redesigned balls especi",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "Adidas’ Evolving World Cup Balls Aim to Tame Aerodynamic Knuckling",
+   "image_status": "verified_external",
+   "message_id": 234,
+   "normalized_subject": "Designers Fine-tune the Aerodynamics of World Cup Soccer Balls | SIAM",
+   "posted_at": "2026-09-29T19:42:40.610188+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-30-AM",
+   "sector": "Why Does This Happen?",
+   "topic": "Designers Fine-tune the Aerodynamics of World Cup Soccer Balls | SIAM",
+   "urls": [
+    "siam.org/publications/siam-news/articles/designers-fine-tune-the-aerodynamics-of-world-cup-soccer-balls"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Designer Diary: Creating a unique twist on ‘writing on cards’ in Forage! – Boardgameslive.games",
+   "claim": "I wanted to share with you all the story of the evolution of Forage – a puzzly roll-and-write game about foraging in the Pacific Northwest! Molly, Robb, and I have been designing and publishing games together for almost ten years and we wanted to share some of our process in working through the design and also the development that happens with the Flatout Games CoLab team that we founded! ... Our core design team (Molly Johnson, Robert Melvin, and Shawn Stankewich) really enjoy roll and write games. From playing a lot of Yahtzee as kids and getting pretty Ganz Schön Clever(Wolfgang Warsch) obsessed a few years ago, we typically play most roll and write games that come out. One game that real",
+   "desk": "evergreen_v1",
+   "format": "New Tabletop Game Discovery",
+   "headline": "Forage Introduces Dry‑Erase Card Twist to Roll‑and‑Write Design",
+   "image_status": "verified_external",
+   "message_id": 235,
+   "normalized_subject": "Designer Diary: Creating a unique twist on ‘writing on cards’ in Forage! – Boardgameslive.games",
+   "posted_at": "2026-09-29T19:42:52.696326+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-09-30-AM",
+   "sector": "New Tabletop Game Discovery",
+   "topic": "Designer Diary: Creating a unique twist on ‘writing on cards’ in Forage! – Boardgameslive.games",
+   "urls": [
+    "boardgameslive.games/designer-diary-creating-a-unique-twist-on-writing-on-cards-in-forage"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Sáhkku, The “Devil's Game” / Alan Borvo - Board Game Studies",
+   "claim": "• The dice Three dice are generally used, except in Nord-Troms where Mejland said they were only two. According to old people from Nesseby, who remembered the game, dice used to be cast into a bowl, not on a flat surface. Such dice were carved in wood like teetotums (26 x 26 x 42 mm in the Varanger / Nesseby set), with two of their end sides shaped like pyramids. All have four marked faces, and one of these always shows an “X” (sáhkku). The value of that “X” varies from place to place, either 1 or 5. In the Kunes (eastern Finnmark) rules, its value is 1, just like the “X” in the Norwegian daldøsa game from Jaeren and like the “A” in the Danish daldøs. In Friis’s description from Finnmark, it",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "Three Wooden Dice with Cross Marks Define Sáhkku Gameplay",
+   "image_status": "card_fallback",
+   "message_id": 236,
+   "normalized_subject": "Sáhkku, The “Devil's Game” / Alan Borvo - Board Game Studies",
+   "posted_at": "2026-09-29T19:43:16.364199+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-09-30-AM",
+   "sector": "Game Discovery",
+   "topic": "Sáhkku, The “Devil's Game” / Alan Borvo - Board Game Studies",
+   "urls": [
+    "yumpu.com/en/document/view/6307372/sahkku-the-devils-game-alan-borvo-board-game-studies"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "When Baseball Threw Physics a Curve | Broadcast",
+   "claim": "At the end of the nineteenth century, baseball was rapidly professionalizing and growing in popularity. For many, its geometric diamond arrangement and the spectacular physics of bat and ball made it a truly scientific sport. In turn, fans, players, commentators, and even natural scientists used baseball to test theories about the natural world. How far could a hit ball travel? Could a thrown ball really curve? Although debates over the curve are known to fans and sports historians alike, they are usually understood in a narrative of progress: an old misperception of physics that inevitably gave way to scientific truth. But the curveball debate was more than that. It was an argument about th",
+   "desk": "evergreen_v1",
+   "format": "Interesting Sports Fact",
+   "headline": "1877 Debate Questioned the Existence of the Curveball",
+   "image_status": "verified_external",
+   "message_id": 237,
+   "normalized_subject": "When Baseball Threw Physics a Curve | Broadcast",
+   "posted_at": "2026-09-29T19:43:28.178959+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-09-30-AM",
+   "sector": "Interesting Sports Fact",
+   "topic": "When Baseball Threw Physics a Curve | Broadcast",
+   "urls": [
+    "pioneerworks.org/broadcast/brad-bolman-curveball?src=longreads"
+   ]
   }
  ],
  "runs": [],
@@ -1465,123 +1643,130 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-09-29T08:24:09.882801+00:00",
+  "created_at": "2026-09-29T19:23:08.805463+00:00",
   "daily": {
-   "2026-09-29": {
+   "2026-09-30": {
     "published_sectors": [
-     "Game Discovery",
-     "Game Origin",
-     "Why Does This Happen?",
+     "On This Date",
+     "First / Last / Only",
      "Records & Milestones",
-     "Rule Check",
-     "How to Play",
-     "Sport Origin"
+     "Equipment / Measurement",
+     "Why Does This Happen?",
+     "New Tabletop Game Discovery",
+     "Game Discovery",
+     "Interesting Sports Fact"
     ],
     "run_ids": [
-     "2026-09-29-PM"
+     "2026-09-30-AM"
     ]
    }
   },
-  "last_run_at": "2026-09-29T08:36:49.500736+00:00",
+  "last_run_at": "2026-09-29T19:47:44.548428+00:00",
   "live": {
    "results": {
     "event_ids": [
-     "a85955a817b60363",
-     "015eb39262edbbea",
-     "c7353b88c65e49ca",
-     "6864962d13a67a32",
-     "bd503d9240a9d9ae",
-     "8edfdcd571ac71a4",
-     "eaba97ad37e958d5",
-     "c723b9d75f24229c",
-     "29c7718b82ada473",
-     "99bb035c228926d8"
+     "dec5fb90239c19af",
+     "573ac497cee4c6e4",
+     "eeff3212790390a0",
+     "92b611abf6b9ebb2",
+     "e8759eaccd9a0ee5",
+     "d6f57443ed9e20f2",
+     "9e4f7ec9fed3216b",
+     "114eadd2d355550d",
+     "894ee77697c0a328",
+     "b9d18d300898bbad"
     ],
-    "message_id": 229,
-    "target_date": "2026-09-28",
-    "updated_at": "2026-09-29T08:36:49.496602+00:00"
+    "message_id": 239,
+    "target_date": "2026-09-29",
+    "updated_at": "2026-09-29T19:47:44.544736+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [
-     "3e56a1c438f0303d",
-     "1b8acc0c5df9ca9b",
-     "e4edcd249e333904",
-     "de98f56b6c6867fc",
-     "ab71102dc0bf0dfb",
-     "716099c492f03bb7",
-     "64b865949f5bfb1b",
-     "36a260cf0b80daf2",
-     "c2ba6761e17f4787",
-     "4670039cd398dc12"
+     "5ef169bbbe03c026",
+     "c929392a18c8beed",
+     "f074e1fd521aa3f7",
+     "ca29f9917dec0db0",
+     "25d4de89bc87cca2",
+     "4318a08a46db899e",
+     "0493cf58ba5c015a",
+     "7f787a037cca7906",
+     "7f1451edd8807d03",
+     "a32c53ca3e31da5f"
     ],
-    "message_id": 228,
-    "target_date": "2026-09-30",
-    "updated_at": "2026-09-29T08:36:49.496590+00:00"
+    "message_id": 238,
+    "target_date": "2026-10-01",
+    "updated_at": "2026-09-29T19:47:44.544725+00:00"
    }
   },
   "publication": {
-   "2026-09-29-PM:evergreen:2be9ae9b490dcceb": {
-    "message_id": 225,
-    "posted_at": "2026-09-29T08:32:08.153266+00:00",
+   "2026-09-30-AM:evergreen:07342c2f696e6d97": {
+    "message_id": 235,
+    "posted_at": "2026-09-29T19:42:52.696034+00:00",
     "status": "posted"
    },
-   "2026-09-29-PM:evergreen:48709984a58157b6": {
-    "message_id": 224,
-    "posted_at": "2026-09-29T08:31:57.442070+00:00",
+   "2026-09-30-AM:evergreen:229b844c1dc0927b": {
+    "message_id": 232,
+    "posted_at": "2026-09-29T19:42:16.335699+00:00",
     "status": "posted"
    },
-   "2026-09-29-PM:evergreen:7afa756e3850fc0c": {
-    "message_id": 222,
-    "posted_at": "2026-09-29T08:30:52.542875+00:00",
+   "2026-09-30-AM:evergreen:701be4397282e7f1": {
+    "message_id": 237,
+    "posted_at": "2026-09-29T19:43:28.178719+00:00",
     "status": "posted"
    },
-   "2026-09-29-PM:evergreen:cd4a9a85194bc09b": {
-    "message_id": 227,
-    "posted_at": "2026-09-29T08:32:33.784785+00:00",
+   "2026-09-30-AM:evergreen:72437d5bce96892d": {
+    "message_id": 230,
+    "posted_at": "2026-09-29T19:41:42.100367+00:00",
     "status": "posted"
    },
-   "2026-09-29-PM:evergreen:f150b366ba4d0e06": {
-    "message_id": 226,
-    "posted_at": "2026-09-29T08:32:23.312877+00:00",
+   "2026-09-30-AM:evergreen:afd2bdf4e6178946": {
+    "message_id": 231,
+    "posted_at": "2026-09-29T19:41:48.507816+00:00",
     "status": "posted"
    },
-   "2026-09-29-PM:evergreen:f1f42ada2096e06a": {
-    "message_id": 221,
-    "posted_at": "2026-09-29T08:30:28.344273+00:00",
+   "2026-09-30-AM:evergreen:bed4e0b7d1904c61": {
+    "message_id": 234,
+    "posted_at": "2026-09-29T19:42:40.609880+00:00",
     "status": "posted"
    },
-   "2026-09-29-PM:evergreen:f64be3d03faf0eba": {
-    "message_id": 223,
-    "posted_at": "2026-09-29T08:31:29.569600+00:00",
+   "2026-09-30-AM:evergreen:cbd91c894aaa8ed5": {
+    "message_id": 233,
+    "posted_at": "2026-09-29T19:42:29.546021+00:00",
     "status": "posted"
    },
-   "2026-09-29-PM:live_results:c3d791c4860956d5": {
-    "message_id": 229,
-    "posted_at": "2026-09-29T08:36:49.496561+00:00",
+   "2026-09-30-AM:evergreen:d38409b5617ade29": {
+    "message_id": 236,
+    "posted_at": "2026-09-29T19:43:16.363871+00:00",
     "status": "posted"
    },
-   "2026-09-29-PM:live_schedule:1a4b94b1a69a0aae": {
-    "message_id": 228,
-    "posted_at": "2026-09-29T08:36:49.170205+00:00",
+   "2026-09-30-AM:live_results:e3c7af5da4ffb7fe": {
+    "message_id": 239,
+    "posted_at": "2026-09-29T19:47:44.544698+00:00",
+    "status": "posted"
+   },
+   "2026-09-30-AM:live_schedule:8682af99c70673b4": {
+    "message_id": 238,
+    "posted_at": "2026-09-29T19:47:44.188773+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-09-29T08:36:49.500747+00:00",
-    "evergreen": 7,
+    "at": "2026-09-29T19:47:44.548435+00:00",
+    "evergreen": 8,
     "exit": 0,
-    "live_results": 229,
-    "live_schedule": 228,
-    "run_id": "2026-09-29-PM",
+    "live_results": 239,
+    "live_schedule": 238,
+    "run_id": "2026-09-30-AM",
     "used_sectors": [
+     "Equipment / Measurement",
+     "First / Last / Only",
      "Game Discovery",
-     "Game Origin",
-     "How to Play",
+     "Interesting Sports Fact",
+     "New Tabletop Game Discovery",
+     "On This Date",
      "Records & Milestones",
-     "Rule Check",
-     "Sport Origin",
      "Why Does This Happen?"
     ]
    }
