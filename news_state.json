@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "Cerebras per-run call cap reached (16)",
-  "last_ok": "2026-09-28T20:45:50.401977+00:00",
-  "last_request_id": "a4259814095750a1-CMH",
+  "last_ok": "2026-09-29T08:32:30.011095+00:00",
+  "last_request_id": "a429a33a4f80eb66-ORD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-09-28T20:50:07.870975+00:00",
+ "last_run_at": "2026-09-29T08:36:49.500767+00:00",
  "ledger": {},
  "posts": [
   {
@@ -1295,6 +1295,165 @@
    "urls": [
     "apnews.com/bumgarner-giants-beat-kc-3-2-to-win-world-series-89829b87bc244e9c80254905a7624f56"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Yut Nori: Korea’s New Year Race Game of Sticks and Horses",
+   "claim": "Yutnori is a traditional Korean race game played around Seollal and the first lunar full moon. In a commonly described form, players or teams throw four sticks to move four pieces each on a 29-position board; the side that gets all four pieces off the board first wins. Scholars have proposed origins in or before Korea’s Three Kingdoms era, but the claim that the game has demonstrably been played for at least 1,500 years is not established.",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "Yut Nori Remains Korea’s Classic New Year Race Game",
+   "image_status": "verified_external",
+   "message_id": 221,
+   "normalized_subject": "Yut Nori: Korea’s New Year Race Game of Sticks and Horses",
+   "posted_at": "2026-09-29T08:30:28.344591+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-29-PM",
+   "sector": "Game Discovery",
+   "topic": "Yut Nori: Korea’s New Year Race Game of Sticks and Horses",
+   "urls": [
+    "ancientgames.org/yut-nori"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Parlour games 400 years ago – almost like today – Uppsala University",
+   "claim": "In a new thesis from Uppsala University, art historian Greger Sundin studied 16th and 17th century games that have been preserved in princely collections for example. Right at the end of his work on the thesis, he and a colleague were able to solve an over 300 year old riddle about a game in the Augsburg Art Cabinet. In these times of self-isolation, as people spend a lot of time indoors with only a few others, many Monopoly games and Ludo sets have probably seen the light after many years lying forgotten in a drawer. There is nothing modern about playing board games and parlour games for entertainment and to pass the time. Many of the games we play today go back to at least the latter part ",
+   "desk": "evergreen_v1",
+   "format": "Game Origin",
+   "headline": "16th‑Century Board Games Solved After 300 Years in Augsburg Cabinet",
+   "image_status": "verified_external",
+   "message_id": 222,
+   "normalized_subject": "Parlour games 400 years ago – almost like today – Uppsala University",
+   "posted_at": "2026-09-29T08:30:52.543192+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-29-PM",
+   "sector": "Game Origin",
+   "topic": "Parlour games 400 years ago – almost like today – Uppsala University",
+   "urls": [
+    "uu.se/en/press/press-releases/2020/2020-12-17-parlour-games-400-years-ago---almost-like-today"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "How Can Soccer Players Bend Their Shots in Midair? | WIRED",
+   "claim": "As World Cup action kicks off, we look at the physics of the beautiful game. ... With the talent on tap, World Cup 2026 is sure to serve up plenty of jaw-dropping kicks, like a ball that curves in midair to go around a defender, or a shot on goal that swerves away from where the keeper thought it was headed. How is this possible? What wizardry enables a striker to change the ball’s trajectory after it leaves their foot? It’s not magic, it’s fluid dynamics, the behavior of objects in a fluid—and air is considered a fluid, since it flows. (Kids, want to be a real-life FIFA hero? Take physics.) To really understand what’s going on, let’s model the motion of a ball, starting with the simplest an",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "The Magnus Effect Explains Soccer’s Curving Free‑Kicks",
+   "image_status": "verified_external",
+   "message_id": 223,
+   "normalized_subject": "How Can Soccer Players Bend Their Shots in Midair? | WIRED",
+   "posted_at": "2026-09-29T08:31:29.569946+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-29-PM",
+   "sector": "Why Does This Happen?",
+   "topic": "How Can Soccer Players Bend Their Shots in Midair? | WIRED",
+   "urls": [
+    "wired.com/story/how-can-soccer-players-bend-their-shots-in-midair"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "47-Game Winning Streak - University of Oklahoma",
+   "claim": "47-Game Winning Streak - University of Oklahoma ... Oklahoma holds the NCAA record for most consecutive wins by a major college program at 47-straight. The streak spanned five seasons from 1953-57. OU lost to Notre Dame, 28-21, in the 1953 season opener and tied Pittsburgh, 7-7, the next week. The streak began with a 19-14 win against archrival Texas in the Cotton Bowl in Dallas on Oct. 10, 1953. Oklahoma rolled through the rest of the 1953 season and capped a 9-1-1 campaign with a 7-0 shutout of Maryland in the Orange Bowl in Miami. The Sooners went 10-0 in 1954 and 11-0 in 1955. The 30th-straight win came against Maryland, again in the Orange Bowl, on January 1, 1956, and the Sooners claim",
+   "desk": "evergreen_v1",
+   "format": "Records & Milestones",
+   "headline": "Oklahoma Holds NCAA Record with 47-Game Winning Streak",
+   "image_status": "verified_external",
+   "message_id": 224,
+   "normalized_subject": "47-Game Winning Streak - University of Oklahoma",
+   "posted_at": "2026-09-29T08:31:57.442404+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-29-PM",
+   "sector": "Records & Milestones",
+   "topic": "47-Game Winning Streak - University of Oklahoma",
+   "urls": [
+    "soonersports.com/sports/2019/8/13/208798684"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "DR. JAMES NAISMITH’S 13 ORIGINAL RULES OF",
+   "claim": "The earliest rules book available for this research was from the 1905-06 season. Some of the rules listed in 1905-06 could have actually been instituted before that season. 1891-92 The 13 original rules of basketball were written by Dr. James Naismith in December 1891 in Springfield, Massachusetts. ... 1905-06 Personal fouls were separated into two classes: “A” for general fouls and “B” for more flagrant fouls. Class A fouls were called for delay of game, tackling the ball (touching the ball when a teammate was already touching it), kicking the ball, striking the ball, advancing the ball, hugging the ball, shooting after dribbling, tackling the opponent, holding the opponent, pushing the opp",
+   "desk": "evergreen_v1",
+   "format": "Rule Check",
+   "headline": "Dr. James Naismith’s Original 13 Basketball Rules Were Drafted in 1891",
+   "image_status": "verified_external",
+   "message_id": 225,
+   "normalized_subject": "DR. JAMES NAISMITH’S 13 ORIGINAL RULES OF",
+   "posted_at": "2026-09-29T08:32:08.153614+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-29-PM",
+   "sector": "Rule Check",
+   "topic": "DR. JAMES NAISMITH’S 13 ORIGINAL RULES OF",
+   "urls": [
+    "fs.ncaa.org/Docs/stats/m_basketball_RB/Rules_History.pdf"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "RULES FOR THE GAME OF JUKSKEI",
+   "claim": "#### SPECIFICATIONS OF FACILITIES AND EQUIPMENT #### PITCH: S1 The total length of the pitch is 28 meters. S2 The pitch should be as level as possible. S3 There should be two sandpits at least 3 meters long, 2.4 meters wide and 150 mm deep, filled with loose sand. S4 There should be at least a 1.8 meter stretch of sand in front of the pen and at least 1.2 meters of sand behind and on either side of the pen. S5 The pitch should be laid out in such a manner that the distance between the two pens, when in their correct positions, is exactly 9 meters. S6 A level framework of wood, brick or concrete may be installed to support the sides of the sandpit. S7 A screw, nail or similar object must be f",
+   "desk": "evergreen_v1",
+   "format": "How to Play",
+   "headline": "Jukskei Pitch Must Measure Exactly 28 Metres with Precise Sandpit Layout",
+   "image_status": "card_fallback",
+   "message_id": 226,
+   "normalized_subject": "RULES FOR THE GAME OF JUKSKEI",
+   "posted_at": "2026-09-29T08:32:23.313156+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-09-29-PM",
+   "sector": "How to Play",
+   "topic": "RULES FOR THE GAME OF JUKSKEI",
+   "urls": [
+    "jukskei-nam.com/images/CompleteRules_2008.pdf"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Batting, Running, and 'Burning' in Early Modern Europe",
+   "claim": "ABSTRACT A common topic of discussion among baseball historians is the question whether baseball is the ancestor of rounders or not. In order to shed new light on this debate, historians need to expand the limited knowledge about the old bat-and-ball games of Continental Europe in order to develop a more cogent consideration of the origins of baseball. Traditional European bat-and-ball games, known by names such as ‘longball’, schlagball, meta, palant or lapta, have been overlooked in previous studies on the roots of baseball. By comparing variants of this game and baseball, as described by Johann Christoph Friedrich GutsMuths in the late eighteenth cen tury, resemblances and connections bet",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "European Bat‑and‑Ball Games Show Early Links to Modern Baseball",
+   "image_status": "verified_external",
+   "message_id": 227,
+   "normalized_subject": "Batting, Running, and 'Burning' in Early Modern Europe",
+   "posted_at": "2026-09-29T08:32:33.785106+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-29-PM",
+   "sector": "Sport Origin",
+   "topic": "Batting, Running, and 'Burning' in Early Modern Europe",
+   "urls": [
+    "diva-portal.org/smash/get/diva2:1415327/FULLTEXT01.pdf"
+   ]
   }
  ],
  "runs": [],
@@ -1306,27 +1465,28 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-09-28T20:31:44.101382+00:00",
+  "created_at": "2026-09-29T08:24:09.882801+00:00",
   "daily": {
    "2026-09-29": {
     "published_sectors": [
-     "Sport Origin",
+     "Game Discovery",
+     "Game Origin",
+     "Why Does This Happen?",
+     "Records & Milestones",
      "Rule Check",
      "How to Play",
-     "Forgotten Sport",
-     "Why Does This Happen?",
-     "Then vs Now",
-     "Interesting Sports Fact"
+     "Sport Origin"
     ],
     "run_ids": [
-     "2026-09-29-AM"
+     "2026-09-29-PM"
     ]
    }
   },
-  "last_run_at": "2026-09-28T20:50:07.870948+00:00",
+  "last_run_at": "2026-09-29T08:36:49.500736+00:00",
   "live": {
    "results": {
     "event_ids": [
+     "a85955a817b60363",
      "015eb39262edbbea",
      "c7353b88c65e49ca",
      "6864962d13a67a32",
@@ -1335,12 +1495,11 @@
      "eaba97ad37e958d5",
      "c723b9d75f24229c",
      "29c7718b82ada473",
-     "99bb035c228926d8",
-     "d2d1ce3ac78d008b"
+     "99bb035c228926d8"
     ],
-    "message_id": 220,
+    "message_id": 229,
     "target_date": "2026-09-28",
-    "updated_at": "2026-09-28T20:50:07.867542+00:00"
+    "updated_at": "2026-09-29T08:36:49.496602+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
@@ -1352,77 +1511,77 @@
      "ab71102dc0bf0dfb",
      "716099c492f03bb7",
      "64b865949f5bfb1b",
+     "36a260cf0b80daf2",
      "c2ba6761e17f4787",
-     "4670039cd398dc12",
-     "fbc8691007f4818d"
+     "4670039cd398dc12"
     ],
-    "message_id": 219,
+    "message_id": 228,
     "target_date": "2026-09-30",
-    "updated_at": "2026-09-28T20:50:07.867531+00:00"
+    "updated_at": "2026-09-29T08:36:49.496590+00:00"
    }
   },
   "publication": {
-   "2026-09-29-AM:evergreen:1ac2e32ec4e375be": {
-    "message_id": 212,
-    "posted_at": "2026-09-28T20:42:55.048673+00:00",
+   "2026-09-29-PM:evergreen:2be9ae9b490dcceb": {
+    "message_id": 225,
+    "posted_at": "2026-09-29T08:32:08.153266+00:00",
     "status": "posted"
    },
-   "2026-09-29-AM:evergreen:44412e9a70abb4eb": {
-    "message_id": 214,
-    "posted_at": "2026-09-28T20:43:32.790913+00:00",
+   "2026-09-29-PM:evergreen:48709984a58157b6": {
+    "message_id": 224,
+    "posted_at": "2026-09-29T08:31:57.442070+00:00",
     "status": "posted"
    },
-   "2026-09-29-AM:evergreen:906ce9a517284cf1": {
-    "message_id": 215,
-    "posted_at": "2026-09-28T20:43:54.711846+00:00",
+   "2026-09-29-PM:evergreen:7afa756e3850fc0c": {
+    "message_id": 222,
+    "posted_at": "2026-09-29T08:30:52.542875+00:00",
     "status": "posted"
    },
-   "2026-09-29-AM:evergreen:914dbbb32e63a4a6": {
-    "message_id": 216,
-    "posted_at": "2026-09-28T20:45:34.575693+00:00",
+   "2026-09-29-PM:evergreen:cd4a9a85194bc09b": {
+    "message_id": 227,
+    "posted_at": "2026-09-29T08:32:33.784785+00:00",
     "status": "posted"
    },
-   "2026-09-29-AM:evergreen:b08d8185a29d5a63": {
-    "message_id": 218,
-    "posted_at": "2026-09-28T20:45:53.608321+00:00",
+   "2026-09-29-PM:evergreen:f150b366ba4d0e06": {
+    "message_id": 226,
+    "posted_at": "2026-09-29T08:32:23.312877+00:00",
     "status": "posted"
    },
-   "2026-09-29-AM:evergreen:e655af4526bb2e64": {
-    "message_id": 213,
-    "posted_at": "2026-09-28T20:43:20.699034+00:00",
+   "2026-09-29-PM:evergreen:f1f42ada2096e06a": {
+    "message_id": 221,
+    "posted_at": "2026-09-29T08:30:28.344273+00:00",
     "status": "posted"
    },
-   "2026-09-29-AM:evergreen:f6ba4b694fceb6c4": {
-    "message_id": 217,
-    "posted_at": "2026-09-28T20:45:43.427197+00:00",
+   "2026-09-29-PM:evergreen:f64be3d03faf0eba": {
+    "message_id": 223,
+    "posted_at": "2026-09-29T08:31:29.569600+00:00",
     "status": "posted"
    },
-   "2026-09-29-AM:live_results:c3d791c4860956d5": {
-    "message_id": 220,
-    "posted_at": "2026-09-28T20:50:07.867503+00:00",
+   "2026-09-29-PM:live_results:c3d791c4860956d5": {
+    "message_id": 229,
+    "posted_at": "2026-09-29T08:36:49.496561+00:00",
     "status": "posted"
    },
-   "2026-09-29-AM:live_schedule:1a4b94b1a69a0aae": {
-    "message_id": 219,
-    "posted_at": "2026-09-28T20:50:07.505033+00:00",
+   "2026-09-29-PM:live_schedule:1a4b94b1a69a0aae": {
+    "message_id": 228,
+    "posted_at": "2026-09-29T08:36:49.170205+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-09-28T20:50:07.870956+00:00",
+    "at": "2026-09-29T08:36:49.500747+00:00",
     "evergreen": 7,
     "exit": 0,
-    "live_results": 220,
-    "live_schedule": 219,
-    "run_id": "2026-09-29-AM",
+    "live_results": 229,
+    "live_schedule": 228,
+    "run_id": "2026-09-29-PM",
     "used_sectors": [
-     "Forgotten Sport",
+     "Game Discovery",
+     "Game Origin",
      "How to Play",
-     "Interesting Sports Fact",
+     "Records & Milestones",
      "Rule Check",
      "Sport Origin",
-     "Then vs Now",
      "Why Does This Happen?"
     ]
    }

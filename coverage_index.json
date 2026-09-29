@@ -2597,8 +2597,349 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 218
+  },
+  {
+   "central_claim": "The history of chess can be traced back nearly 1,500 years to its earliest known predecessor, called chaturanga, in India; its prehistory is the subject of speculation. From India it spread to Persia, where it was modified in terms of shapes and rules and developed into shatranj. Following the Arab invasion and conquest of Persia, chess was taken up by the Muslim world and subsequently spread to Europe via Spain (Al Andalus) and Italy (Emirate of Sicily). The game evolved roughly into its curren",
+   "central_knowledge_unit": "the history of chess can be traced back nearly 1 500 years to its earliest known predecessor called chaturanga in india its prehistory is the subject of speculation from india it spread to persia where it was modified in",
+   "content_id": "dacb3ef191623226",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "476cedbe285100d9",
+    "6e8559b2ca8f3162"
+   ],
+   "legacy": true,
+   "normalized_subject": "history of chess wikiwand",
+   "people": [],
+   "published_at": "2026-09-28T20:42:55.048971+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "britannica.com/topic/chess/History"
+   ],
+   "sport_or_game": "History of chess - Wikiwand",
+   "telegram_message_id": 212
+  },
+  {
+   "central_claim": "Compiled by Stew Thornley Terms differed and evolved in the 19 th century. From rules published prior to the 1871 establishment of the National Association of Base Ball Players to the rules of the National League in 1876 and beyond, fair balls, foully delivered balls, good balls to the bat, illegal delivery, foul balk, balk, fair strike, and foul strike were part of the pitching and batting lexicon. An 1870 rule book issued by R. M. De Witt Publisher, referred to fair balls and unfair balls as p",
+   "central_knowledge_unit": "compiled by stew thornley terms differed and evolved in the 19 th century from rules published prior to the 1871 establishment of the national association of base ball players to the rules of the national league in 1876 ",
+   "content_id": "a522982f92995316",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "bfb319ab53870a9e",
+    "bebe98d57d9a8360"
+   ],
+   "legacy": true,
+   "normalized_subject": "baseball playing rules changes before 1950",
+   "people": [],
+   "published_at": "2026-09-28T20:43:20.699298+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Rule Check",
+   "source_urls": [
+    "retrosheet.org/rules/PlayingRulesYearbyYearPre1950.pdf"
+   ],
+   "sport_or_game": "Baseball Playing Rules Changes Before 1950",
+   "telegram_message_id": 213
+  },
+  {
+   "central_claim": "Under the Swedish Jugger Association’s version 2.3 rules (approved March 2024), jugger is played by two teams with five players on the field per team: one qwik and four pompfen players. The qwik alone may handle the soft ‘skull’ and score by placing it in the opposing goal; the other players use padded pompfen to protect their qwik and tag opponents. Each round starts with the skull at midfield and the teams behind their baselines; a valid goal pauses play before the next round. Match victory de",
+   "central_knowledge_unit": "under the swedish jugger association s version 2 3 rules approved march 2024 jugger is played by two teams with five players on the field per team one qwik and four pompfen players the qwik alone may handle the soft skul",
+   "content_id": "c9f73e388e50d82b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a128de9d14021d51",
+    "2b309768ad1f4bc4"
+   ],
+   "legacy": true,
+   "normalized_subject": "jugger swedish rulebook version 2 3",
+   "people": [],
+   "published_at": "2026-09-28T20:43:32.791162+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "How to Play",
+   "source_urls": [
+    "jugger.se/wp-content/uploads/simple-file-list/Jugger__Swedish_rulebook_-_version_2_3.pdf"
+   ],
+   "sport_or_game": "Jugger: Swedish rulebook - version 2.3",
+   "telegram_message_id": 214
+  },
+  {
+   "central_claim": "The game of camping or camp-ball, best described as a blend of football and handball, was played for centuries in the counties of Norfolk, Suffolk, Cambridgeshire and Essex. It survived well into the nineteenth century, and indeed was consciously revived after the Napoleonic Wars. Furthermore, as a traditional form of recreation, it began to attract antiquarian interest at an early date, and was mentioned by several county and parochial historians of the eighteenth century Our evidence for the g",
+   "central_knowledge_unit": "the game of camping or camp ball best described as a blend of football and handball was played for centuries in the counties of norfolk suffolk cambridgeshire and essex it survived well into the nineteenth century and in",
+   "content_id": "a6dd399b4ab80ca8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b70e619348afadbc",
+    "dca669d4b57133e2"
+   ],
+   "legacy": true,
+   "normalized_subject": "a lost social institution the camping close",
+   "people": [],
+   "published_at": "2026-09-28T20:43:54.712069+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    "exa.ai/library/publication/ybqxsn1990v"
+   ],
+   "sport_or_game": "A Lost Social Institution: The Camping Close",
+   "telegram_message_id": 215
+  },
+  {
+   "central_claim": "Every four years, soccer fans eagerly await the sport’s biggest event: the International Federation of Association Football (FIFA) World Cup. But before each dramatic kickoff, artists and researchers spend years designing, testing and revising the official match ball. Recently images of the planned ball for the 2026 competition were leaked, and its design incorporates math, physics and style in some surprising ways. ... celebrates the three ... hosted World Cup. ... yet for a FIFA World Cup ball",
+   "central_knowledge_unit": "every four years soccer fans eagerly await the sport s biggest event the international federation of association football fifa world cup but before each dramatic kickoff artists and researchers spend years designing test",
+   "content_id": "42b272bdce7622c7",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "516ee509128362d7",
+    "48cffd768eac392f"
+   ],
+   "legacy": true,
+   "normalized_subject": "the surprising math and physics behind the 2026 trionda world cup soccer ball scientific american",
+   "people": [],
+   "published_at": "2026-09-28T20:45:34.576006+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "scientificamerican.com/article/the-surprising-math-and-physics-behind-the-2026-trionda-world-cup-soccer-ball"
+   ],
+   "sport_or_game": "The Surprising Math and Physics behind the 2026 Trionda World Cup Soccer Ball | Scientific American",
+   "telegram_message_id": 216
+  },
+  {
+   "central_claim": "1866 The maximum playing area to be 182m long by 136.5m wide. A pair of goalposts to be seven yards apart, of unlimited height. A protected 4.5m area surrounding a player taking a free kick or mark) introduced. After each goal was kicked, teams to change ends. Holding to be permitted only when an opponent had the ball in hand during general play. The ball to be carried by a player no further than what was necessary for a kick, unless it was struck against the ground every 4.5m or six yards 5.4m.",
+   "central_knowledge_unit": "1866 the maximum playing area to be 182m long by 136 5m wide a pair of goalposts to be seven yards apart of unlimited height a protected 4 5m area surrounding a player taking a free kick or mark introduced after each goa",
+   "content_id": "79743a5e58601af7",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "084feda52b2219db",
+    "982f1968c06f7534"
+   ],
+   "legacy": true,
+   "normalized_subject": "history of rule changes afl com au",
+   "people": [],
+   "published_at": "2026-09-28T20:45:43.427453+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "afl.com.au/about-afl/history/rule-changes"
+   ],
+   "sport_or_game": "History of Rule Changes - AFL.com.au",
+   "telegram_message_id": 217
+  },
+  {
+   "central_claim": "In the immediate aftermath of the exciting Game Seven between the Kansas City Royals and San Francisco Giants in 2014, the baseball world fixated on one question: should Alex Gordon have been sent home with two outs in the bottom of the ninth inning as his hit was being botched and booted somewhere near the left-center field wall? Indeed, no less a numbers guru than Nate Silver tweeted that — regardless of the outcome on that potential play-at-the-plate — it would have been one of the five great",
+   "central_knowledge_unit": "in the immediate aftermath of the exciting game seven between the kansas city royals and san francisco giants in 2014 the baseball world fixated on one question should alex gordon have been sent home with two outs in the",
+   "content_id": "b5d9de3d543656ad",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "8dd270c4843e1542",
+    "525fe953d160736b"
+   ],
+   "legacy": true,
+   "normalized_subject": "golden pitches the ultimate last at bat game seven scenario society for american baseball research",
+   "people": [],
+   "published_at": "2026-09-28T20:45:53.608595+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Sports Fact",
+   "source_urls": [
+    "apnews.com/bumgarner-giants-beat-kc-3-2-to-win-world-series-89829b87bc244e9c80254905a7624f56"
+   ],
+   "sport_or_game": "Golden Pitches: The Ultimate Last-at-Bat, Game Seven Scenario – Society for American Baseball Research",
+   "telegram_message_id": 218
+  },
+  {
+   "central_claim": "Yutnori is a traditional Korean race game played around Seollal and the first lunar full moon. In a commonly described form, players or teams throw four sticks to move four pieces each on a 29-position board; the side that gets all four pieces off the board first wins. Scholars have proposed origins in or before Korea’s Three Kingdoms era, but the claim that the game has demonstrably been played for at least 1,500 years is not established.",
+   "central_knowledge_unit": "yut nori korea s new year race game of sticks and horses",
+   "content_id": "1de01aabab5762f8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "1de01aabab5762f8",
+    "69592c43ac9d5c29"
+   ],
+   "normalized_subject": "yut nori korea s new year race game of sticks and horses",
+   "people": [],
+   "published_at": "2026-09-29T08:30:28.344421+00:00",
+   "region": "",
+   "run_id": "2026-09-29-PM",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 221
+  },
+  {
+   "central_claim": "In a new thesis from Uppsala University, art historian Greger Sundin studied 16th and 17th century games that have been preserved in princely collections for example. Right at the end of his work on the thesis, he and a colleague were able to solve an over 300 year old riddle about a game in the Augsburg Art Cabinet. In these times of self-isolation, as people spend a lot of time indoors with only a few others, many Monopoly games and Ludo sets have probably seen the light after many years lying forgotten in a drawer. There is nothing modern about playing board games and parlour games for entertainment and to pass the time. Many of the games we play today go back to at least the latter part",
+   "central_knowledge_unit": "parlour games 400 years ago almost like today uppsala university",
+   "content_id": "cdaa0dbce4be6781",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "cdaa0dbce4be6781",
+    "b4e75b43b5718945"
+   ],
+   "normalized_subject": "parlour games 400 years ago almost like today uppsala university",
+   "people": [],
+   "published_at": "2026-09-29T08:30:52.543015+00:00",
+   "region": "",
+   "run_id": "2026-09-29-PM",
+   "sector": "Game Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 222
+  },
+  {
+   "central_claim": "As World Cup action kicks off, we look at the physics of the beautiful game. ... With the talent on tap, World Cup 2026 is sure to serve up plenty of jaw-dropping kicks, like a ball that curves in midair to go around a defender, or a shot on goal that swerves away from where the keeper thought it was headed. How is this possible? What wizardry enables a striker to change the ball’s trajectory after it leaves their foot? It’s not magic, it’s fluid dynamics, the behavior of objects in a fluid—and air is considered a fluid, since it flows. (Kids, want to be a real-life FIFA hero? Take physics.) To really understand what’s going on, let’s model the motion of a ball, starting with the simplest an",
+   "central_knowledge_unit": "how can soccer players bend their shots in midair wired",
+   "content_id": "bc32da5d2a3ad59c",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "bc32da5d2a3ad59c",
+    "bae1080d19d048f3"
+   ],
+   "normalized_subject": "how can soccer players bend their shots in midair wired",
+   "people": [],
+   "published_at": "2026-09-29T08:31:29.569751+00:00",
+   "region": "",
+   "run_id": "2026-09-29-PM",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 223
+  },
+  {
+   "central_claim": "47-Game Winning Streak - University of Oklahoma ... Oklahoma holds the NCAA record for most consecutive wins by a major college program at 47-straight. The streak spanned five seasons from 1953-57. OU lost to Notre Dame, 28-21, in the 1953 season opener and tied Pittsburgh, 7-7, the next week. The streak began with a 19-14 win against archrival Texas in the Cotton Bowl in Dallas on Oct. 10, 1953. Oklahoma rolled through the rest of the 1953 season and capped a 9-1-1 campaign with a 7-0 shutout of Maryland in the Orange Bowl in Miami. The Sooners went 10-0 in 1954 and 11-0 in 1955. The 30th-straight win came against Maryland, again in the Orange Bowl, on January 1, 1956, and the Sooners claim",
+   "central_knowledge_unit": "47 game winning streak university of oklahoma",
+   "content_id": "e156b21068fe4320",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e156b21068fe4320",
+    "df64c172de50e891"
+   ],
+   "normalized_subject": "47 game winning streak university of oklahoma",
+   "people": [],
+   "published_at": "2026-09-29T08:31:57.442206+00:00",
+   "region": "",
+   "run_id": "2026-09-29-PM",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 224
+  },
+  {
+   "central_claim": "The earliest rules book available for this research was from the 1905-06 season. Some of the rules listed in 1905-06 could have actually been instituted before that season. 1891-92 The 13 original rules of basketball were written by Dr. James Naismith in December 1891 in Springfield, Massachusetts. ... 1905-06 Personal fouls were separated into two classes: “A” for general fouls and “B” for more flagrant fouls. Class A fouls were called for delay of game, tackling the ball (touching the ball when a teammate was already touching it), kicking the ball, striking the ball, advancing the ball, hugging the ball, shooting after dribbling, tackling the opponent, holding the opponent, pushing the opp",
+   "central_knowledge_unit": "dr james naismith s 13 original rules of",
+   "content_id": "03ae3f15b95022de",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "03ae3f15b95022de",
+    "4f2fc54e3d669664"
+   ],
+   "normalized_subject": "dr james naismith s 13 original rules of",
+   "people": [],
+   "published_at": "2026-09-29T08:32:08.153434+00:00",
+   "region": "",
+   "run_id": "2026-09-29-PM",
+   "sector": "Rule Check",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 225
+  },
+  {
+   "central_claim": "#### SPECIFICATIONS OF FACILITIES AND EQUIPMENT #### PITCH: S1 The total length of the pitch is 28 meters. S2 The pitch should be as level as possible. S3 There should be two sandpits at least 3 meters long, 2.4 meters wide and 150 mm deep, filled with loose sand. S4 There should be at least a 1.8 meter stretch of sand in front of the pen and at least 1.2 meters of sand behind and on either side of the pen. S5 The pitch should be laid out in such a manner that the distance between the two pens, when in their correct positions, is exactly 9 meters. S6 A level framework of wood, brick or concrete may be installed to support the sides of the sandpit. S7 A screw, nail or similar object must be f",
+   "central_knowledge_unit": "rules for the game of jukskei",
+   "content_id": "02f733fb6dd33ab0",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "02f733fb6dd33ab0",
+    "79d7eb1827e17dc0"
+   ],
+   "normalized_subject": "rules for the game of jukskei",
+   "people": [],
+   "published_at": "2026-09-29T08:32:23.313005+00:00",
+   "region": "",
+   "run_id": "2026-09-29-PM",
+   "sector": "How to Play",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 226
+  },
+  {
+   "central_claim": "ABSTRACT A common topic of discussion among baseball historians is the question whether baseball is the ancestor of rounders or not. In order to shed new light on this debate, historians need to expand the limited knowledge about the old bat-and-ball games of Continental Europe in order to develop a more cogent consideration of the origins of baseball. Traditional European bat-and-ball games, known by names such as ‘longball’, schlagball, meta, palant or lapta, have been overlooked in previous studies on the roots of baseball. By comparing variants of this game and baseball, as described by Johann Christoph Friedrich GutsMuths in the late eighteenth cen tury, resemblances and connections bet",
+   "central_knowledge_unit": "batting running and burning in early modern europe",
+   "content_id": "64c62a366edd6bae",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "64c62a366edd6bae",
+    "7a309767776387aa"
+   ],
+   "normalized_subject": "batting running and burning in early modern europe",
+   "people": [],
+   "published_at": "2026-09-29T08:32:33.784926+00:00",
+   "region": "",
+   "run_id": "2026-09-29-PM",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 227
   }
  ],
  "schema": 1,
- "updated_at": "2026-09-28T20:45:53.608569+00:00"
+ "updated_at": "2026-09-29T08:32:33.785074+00:00"
 }
