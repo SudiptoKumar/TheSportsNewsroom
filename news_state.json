@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "Cerebras per-run call cap reached (16)",
-  "last_ok": "2026-09-30T08:35:40.367688+00:00",
-  "last_request_id": "a431e53fbd843354-CMH",
+  "last_ok": "2026-09-30T19:21:01.567752+00:00",
+  "last_request_id": "a43596970c866781-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-09-30T08:39:54.666423+00:00",
+ "last_run_at": "2026-09-30T19:25:28.666417+00:00",
  "ledger": {},
  "posts": [
   {
@@ -1837,6 +1837,119 @@
    "urls": [
     "retrosheet.org/rules/RulesChangesSummary.pdf"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "About Dr. James Naismith | Naismith Basketball Foundation",
+   "claim": "James Naismith devised basketball as an indoor winter game at the International YMCA Training School in Springfield, Massachusetts, in December 1891, after Luther Halsey Gulick challenged him to develop one. The first classroom game is commonly dated December 21, 1891, although its exact day is disputed.",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "James Naismith Created Basketball in December 1891 at Springfield YMCA",
+   "image_status": "verified_external",
+   "message_id": 251,
+   "normalized_subject": "About Dr. James Naismith | Naismith Basketball Foundation",
+   "posted_at": "2026-09-30T19:18:35.634560+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-01-AM",
+   "sector": "Sports & Games People",
+   "topic": "About Dr. James Naismith | Naismith Basketball Foundation",
+   "urls": [
+    "about.fiba.basketball/en/fiba-hall-of-fame/hall-of-famers/james-naismith"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Sáhkku ::: Open WIKI",
+   "claim": "Sáhkku is a board game of the Sami people. The game is traditional among the North Sámi, Skolt Sámi, Inari Sámi and Lule Sámi but may also have been played in other parts of Sápmi. ... Sáhkku is a running-fight game, which means that players move their pieces along a track with the goal of eliminating the other players' pieces. Many different variants of sáhkku have been played in different parts of Sápmi. The oral transfer of the sáhkku rules between generations was largely broken off during the 1900s. A few of the local variants have survived into our time, other local variants have been reconstructed based on a combination of memories and written sources, and for some places only fragment",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "Sáhkku: Traditional Sami Running‑Fight Board Game",
+   "image_status": "card_fallback",
+   "message_id": 252,
+   "normalized_subject": "Sáhkku ::: Open WIKI",
+   "posted_at": "2026-09-30T19:19:01.066344+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-01-AM",
+   "sector": "Game Discovery",
+   "topic": "Sáhkku ::: Open WIKI",
+   "urls": [
+    "owiki.org/wiki/S%C3%A1hkku"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The Game",
+   "claim": "The Game||||| ||| | || ||||||||| | ||||||| | ||| ||Volleyball RulebookVolleyball Rule CHANGEsBeach Volleyball Rule CHANGEs | | The Game - Volleyball Rules| | **major changes in volleyball rules** **1895 \\***William G. Morgan invents game of Volleyball. **1897 \\***First Volleyball rules published by William G. Morgan. **1917 \\***Game changes from 21 points to 15 points per set. ... **1920 \\***The ball can be played with any other part of the body above the waist. Three hits per side rule also adopted. **1922 \\***Back-row players not permitted to spike. Double hit rule introduced. If score is 14 -14, two-point advantage is needed to win.Two timeouts per set for each team introduced. ... **1932",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "How Volleyball Rules Evolved From 21‑Point Sets to Rally Scoring",
+   "image_status": "card_fallback",
+   "message_id": 253,
+   "normalized_subject": "The Game",
+   "posted_at": "2026-09-30T19:20:29.506496+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-01-AM",
+   "sector": "Then vs Now",
+   "topic": "The Game",
+   "urls": [
+    "fivb.com/wp-content/uploads/2025/01/FIVB-Volleyball_Rules2025_2028-EN-v05.pdf"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Pittsburgh beats Boston in first World Series game | October 1, 1903 | HISTORY",
+   "claim": "Pittsburgh beats Boston in first World Series game | October 1, 1903 | HISTORY ... In Boston on October 1, 1903, the Pittsburgh Pirates beat the Boston Americans, 7-3, in the first professional baseball World Series game. Pirates right fielder Jimmy Sebring hits the first World Series home run—an inside-the-park shot to deep center field off Americans ace Cy Young—in the seventh inning to extend the Pirates' lead to 7-0. Sebring is the game's star, driving in four runs. ... The Americans' won the series, 5 games to 3. In Game 8, Boston clinched the series with a 3-0 win. In 1904, the World Series was not played because the New York Giants refused to play the Americans. The World Series resum",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "Pirates Defeat Boston 7-3 in First World Series Game",
+   "image_status": "verified_external",
+   "message_id": 254,
+   "normalized_subject": "Pittsburgh beats Boston in first World Series game | October 1, 1903 | HISTORY",
+   "posted_at": "2026-09-30T19:20:41.791466+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-01-AM",
+   "sector": "On This Date",
+   "topic": "Pittsburgh beats Boston in first World Series game | October 1, 1903 | HISTORY",
+   "urls": [
+    "history.com/this-day-in-history/october-1/first-world-series-game-pittsburgh-pirates-boston-americans"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "tmpx1g5jh_2",
+   "claim": "Every modern player recognises the ritual. The board is fixed at its measured height. The throwing line establishes the permitted distance. Three darts rest in the hand. The player looks towards twenty narrow numbered segments arranged in a pattern so familiar that it can seem permanent. It is not permanent. It is the result of choices. The board, the numbers, the materials and even the line from which we throw all have histories. They were not delivered together by a single inventor. They emerged at different times, in different places, for different reasons. Some changes solved practical problems. Others made competition easier to organise. A few became standard because influential manufac",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "How the Modern Dartboard Evolved From Many Separate Inventions",
+   "image_status": "card_fallback",
+   "message_id": 255,
+   "normalized_subject": "tmpx1g5jh_2",
+   "posted_at": "2026-09-30T19:21:07.515761+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-01-AM",
+   "sector": "Sport Origin",
+   "topic": "tmpx1g5jh_2",
+   "urls": [
+    "download.boekhuis.nl/9789465544960_fragm-docb.pdf"
+   ]
   }
  ],
  "runs": [],
@@ -1848,138 +1961,109 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-09-30T08:27:16.729088+00:00",
+  "created_at": "2026-09-30T19:13:49.881374+00:00",
   "daily": {
-   "2026-09-30": {
+   "2026-10-01": {
     "published_sectors": [
-     "Sport Discovery",
      "Sports & Games People",
-     "Why Does This Happen?",
      "Game Discovery",
-     "Interesting Game Fact",
-     "Equipment / Measurement",
+     "Then vs Now",
      "On This Date",
-     "Records & Milestones",
-     "Then vs Now"
+     "Sport Origin"
     ],
     "run_ids": [
-     "2026-09-30-PM"
+     "2026-10-01-AM"
     ]
    }
   },
-  "last_run_at": "2026-09-30T08:39:54.666392+00:00",
+  "last_run_at": "2026-09-30T19:25:28.666384+00:00",
   "live": {
    "results": {
     "event_ids": [
-     "dec5fb90239c19af",
-     "573ac497cee4c6e4",
-     "eeff3212790390a0",
-     "92b611abf6b9ebb2",
-     "e8759eaccd9a0ee5",
-     "d6f57443ed9e20f2",
-     "9e4f7ec9fed3216b",
-     "114eadd2d355550d",
-     "894ee77697c0a328",
-     "b9d18d300898bbad"
+     "de98f56b6c6867fc",
+     "c2ba6761e17f4787",
+     "03c9d9e9b2276c16",
+     "200f9e4762f9a077",
+     "a99cdf1b43df6944",
+     "230647b875cb985b",
+     "575f4582ce38ceda",
+     "f3b2a344a69bd612",
+     "98e1fac75a738e45"
     ],
-    "message_id": 250,
-    "target_date": "2026-09-29",
-    "updated_at": "2026-09-30T08:39:54.661531+00:00"
+    "message_id": 257,
+    "target_date": "2026-09-30",
+    "updated_at": "2026-09-30T19:25:28.661451+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [
-     "5ef169bbbe03c026",
-     "c929392a18c8beed",
-     "f074e1fd521aa3f7",
-     "ca29f9917dec0db0",
-     "25d4de89bc87cca2",
-     "4318a08a46db899e",
-     "0493cf58ba5c015a",
-     "7f787a037cca7906",
-     "7f1451edd8807d03",
-     "a32c53ca3e31da5f"
+     "6aef4d5b747ea2a5",
+     "31148a50855b4858",
+     "c6c9bf7b56a17f16",
+     "46e7519a3772ced9",
+     "92fd0fdb720a6cbb",
+     "c289923434bf8325",
+     "c2937d3ac7b8dcea",
+     "95b9787ffadb5f52",
+     "bd883be39e0ebe8a",
+     "aea753989ee7f90e"
     ],
-    "message_id": 249,
-    "target_date": "2026-10-01",
-    "updated_at": "2026-09-30T08:39:54.661518+00:00"
+    "message_id": 256,
+    "target_date": "2026-10-02",
+    "updated_at": "2026-09-30T19:25:28.661443+00:00"
    }
   },
   "publication": {
-   "2026-09-30-PM:evergreen:00c6b4739315832f": {
-    "message_id": 244,
-    "posted_at": "2026-09-30T08:34:15.918260+00:00",
+   "2026-10-01-AM:evergreen:375ec7829a241eb2": {
+    "message_id": 252,
+    "posted_at": "2026-09-30T19:19:01.065981+00:00",
     "status": "posted"
    },
-   "2026-09-30-PM:evergreen:351c057a17646f4a": {
-    "message_id": 247,
-    "posted_at": "2026-09-30T08:35:04.901609+00:00",
+   "2026-10-01-AM:evergreen:84db7a6556ec5b17": {
+    "message_id": 253,
+    "posted_at": "2026-09-30T19:20:29.506128+00:00",
     "status": "posted"
    },
-   "2026-09-30-PM:evergreen:45a207998063ad87": {
-    "message_id": 243,
-    "posted_at": "2026-09-30T08:33:39.045588+00:00",
+   "2026-10-01-AM:evergreen:dd8a5c1029754d12": {
+    "message_id": 254,
+    "posted_at": "2026-09-30T19:20:41.791112+00:00",
     "status": "posted"
    },
-   "2026-09-30-PM:evergreen:6013b322235e5e63": {
-    "message_id": 246,
-    "posted_at": "2026-09-30T08:34:54.689216+00:00",
+   "2026-10-01-AM:evergreen:ef6cd17332ad8fc7": {
+    "message_id": 255,
+    "posted_at": "2026-09-30T19:21:07.515480+00:00",
     "status": "posted"
    },
-   "2026-09-30-PM:evergreen:857f3029737ab333": {
-    "message_id": 245,
-    "posted_at": "2026-09-30T08:34:34.607342+00:00",
+   "2026-10-01-AM:evergreen:f41eaa65c0598612": {
+    "message_id": 251,
+    "posted_at": "2026-09-30T19:18:35.634338+00:00",
     "status": "posted"
    },
-   "2026-09-30-PM:evergreen:c6621085a75a3d67": {
-    "message_id": 242,
-    "posted_at": "2026-09-30T08:33:27.551539+00:00",
+   "2026-10-01-AM:live_results:1a4b94b1a69a0aae": {
+    "message_id": 257,
+    "posted_at": "2026-09-30T19:25:28.661431+00:00",
     "status": "posted"
    },
-   "2026-09-30-PM:evergreen:e3c39c5bae57bfe2": {
-    "message_id": 240,
-    "posted_at": "2026-09-30T08:32:59.987464+00:00",
-    "status": "posted"
-   },
-   "2026-09-30-PM:evergreen:e8802c5663515d0a": {
-    "message_id": 248,
-    "posted_at": "2026-09-30T08:35:32.678649+00:00",
-    "status": "posted"
-   },
-   "2026-09-30-PM:evergreen:f371e300522226b1": {
-    "message_id": 241,
-    "posted_at": "2026-09-30T08:33:13.356882+00:00",
-    "status": "posted"
-   },
-   "2026-09-30-PM:live_results:e3c7af5da4ffb7fe": {
-    "message_id": 250,
-    "posted_at": "2026-09-30T08:39:54.661488+00:00",
-    "status": "posted"
-   },
-   "2026-09-30-PM:live_schedule:8682af99c70673b4": {
-    "message_id": 249,
-    "posted_at": "2026-09-30T08:39:54.261536+00:00",
+   "2026-10-01-AM:live_schedule:07872410313b9bd8": {
+    "message_id": 256,
+    "posted_at": "2026-09-30T19:25:28.300228+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-09-30T08:39:54.666402+00:00",
-    "evergreen": 9,
+    "at": "2026-09-30T19:25:28.666397+00:00",
+    "evergreen": 5,
     "exit": 0,
-    "live_results": 250,
-    "live_schedule": 249,
-    "run_id": "2026-09-30-PM",
+    "live_results": 257,
+    "live_schedule": 256,
+    "run_id": "2026-10-01-AM",
     "used_sectors": [
-     "Equipment / Measurement",
      "Game Discovery",
-     "Interesting Game Fact",
      "On This Date",
-     "Records & Milestones",
-     "Sport Discovery",
+     "Sport Origin",
      "Sports & Games People",
-     "Then vs Now",
-     "Why Does This Happen?"
+     "Then vs Now"
     ]
    }
   ],

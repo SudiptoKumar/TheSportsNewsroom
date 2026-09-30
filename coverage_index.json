@@ -3715,8 +3715,347 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 248
+  },
+  {
+   "central_claim": "Not many people have heard of trugo: a mix of croquet, golf, lawn bowls and the hammer. But, as James Bartlett writes, the unusual game that sprung from Melbourne's railway yards is trying to attract new fans. ... He's a former world (yes, world) champion at a sport that's also around 90 years old, yet it's unknown anywhere else in the world - and is even a secret to most Melburnians. ... Players take a thick rubber ring, balance it upright, and then swing a rubber-tipped wooden mallet between t",
+   "central_knowledge_unit": "not many people have heard of trugo a mix of croquet golf lawn bowls and the hammer but as james bartlett writes the unusual game that sprung from melbourne s railway yards is trying to attract new fans he s a former wor",
+   "content_id": "b58306c07f53a9b1",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "5a82f2f97c8c513c",
+    "938965982959950c"
+   ],
+   "legacy": true,
+   "normalized_subject": "trugo a bizarre sport unique to melbourne",
+   "people": [],
+   "published_at": "2026-09-30T08:32:59.987813+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    "bbc.com/news/world-australia-45326460"
+   ],
+   "sport_or_game": "Trugo: A bizarre sport unique to Melbourne",
+   "telegram_message_id": 240
+  },
+  {
+   "central_claim": "James Naismith invented basketball in Springfield, Massachusetts, in 1891 and established its 13 original rules. He was McGill University’s first full-time athletics instructor, founded the University of Kansas basketball program, and was one of the Basketball Hall of Fame’s inaugural 1959 inductees. His original, predominantly typewritten rules sold for more than $4.3 million in 2010, setting a sports-memorabilia auction record at the time.",
+   "central_knowledge_unit": "james naismith invented basketball in springfield massachusetts in 1891 and established its 13 original rules he was mcgill university s first full time athletics instructor founded the university of kansas basketball pr",
+   "content_id": "c3d0376d9964386a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "897f27d0577ec37a",
+    "94773b8c24b08e66"
+   ],
+   "legacy": true,
+   "normalized_subject": "james naismith the canadian encyclopedia",
+   "people": [],
+   "published_at": "2026-09-30T08:33:13.357187+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "thecanadianencyclopedia.ca/en/article/james-naismith"
+   ],
+   "sport_or_game": "James Naismith | The Canadian Encyclopedia",
+   "telegram_message_id": 241
+  },
+  {
+   "central_claim": "Why can a nearly non-spinning ball swerve unpredictably? In baseball, volleyball and soccer, changing asymmetries in the airflow around a ball can generate fluctuating sideways forces and a zigzagging flight. A 2016 experimental and modeling study proposes that these deviations become especially pronounced near each ball’s drag-crisis speed; seams and surface features can also affect the airflow, so this is not a single exclusive mechanism for every ball.",
+   "central_knowledge_unit": "why can a nearly non spinning ball swerve unpredictably in baseball volleyball and soccer changing asymmetries in the airflow around a ball can generate fluctuating sideways forces and a zigzagging flight a 2016 experime",
+   "content_id": "608a432d749649d6",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b3797e4edc0d23d3",
+    "7b2319168252e516"
+   ],
+   "legacy": true,
+   "normalized_subject": "physics of knuckleballs iopscience",
+   "people": [],
+   "published_at": "2026-09-30T08:33:27.551883+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "beta.iopscience.iop.org/article/10.1088/1367-2630/18/7/073027"
+   ],
+   "sport_or_game": "Physics of knuckleballs - IOPscience",
+   "telegram_message_id": 242
+  },
+  {
+   "central_claim": "Ancient wooden game board decorated with 20 shell-inlaid playing squares, carved shell edge plaques, and triangular shell inlays on the reverse. In 1926, Leonard Woolley was excavating the Royal Cemetery of Ur in what is now southern Iraq when his team uncovered something that had no obvious parallel in the ancient world. Nestled among gold headdresses, ceremonial lyres, and the remains of court attendants buried alongside their rulers was a small wooden board, roughly the size of a large book, ",
+   "central_knowledge_unit": "ancient wooden game board decorated with 20 shell inlaid playing squares carved shell edge plaques and triangular shell inlays on the reverse in 1926 leonard woolley was excavating the royal cemetery of ur in what is now",
+   "content_id": "953ea0d3200dc0c0",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a939aa698685f39e",
+    "22e5b3728e6c91df"
+   ],
+   "legacy": true,
+   "normalized_subject": "the ancient board game that predates chess by 2 000 years",
+   "people": [],
+   "published_at": "2026-09-30T08:33:39.045935+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "allthathistory.substack.com/p/royal-game-of-ur"
+   ],
+   "sport_or_game": "The Ancient Board Game That Predates Chess by 2,000 Years",
+   "telegram_message_id": 243
+  },
+  {
+   "central_claim": "Nard (نرد‎), originally called Nardashir (نردشیر‬), is a Persian game, which is played on a backgammon board. The modern backgammon and its variations originated with the Persian Nard. The earliest source to mention the game, Nardashir, by name, is the Babylonian Talmud (Ketubot 61b), in an anonymous statement, which is dated to the latest stratum of the Talmud, 500-600 CE. ... According to some historians, such as Murray, the game Nardashir was possibly invented by the 3rd century Sassanian kin",
+   "central_knowledge_unit": "nard originally called nardashir is a persian game which is played on a backgammon board the modern backgammon and its variations originated with the persian nard the earliest source to mention the game nardashir by name",
+   "content_id": "89e0f3baf4905fc1",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b20d0f3bb0de4dd4",
+    "d33a6e42b29c50c8"
+   ],
+   "legacy": true,
+   "normalized_subject": "nard the original backgammon",
+   "people": [],
+   "published_at": "2026-09-30T08:34:15.918629+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    "ancientgames.org/nard-the-original-backgammon"
+   ],
+   "sport_or_game": "Nard – The Original Backgammon",
+   "telegram_message_id": 244
+  },
+  {
+   "central_claim": "Trionda, FIFA World Cup 2026’s official match ball, has 500Hz motion sensor chip in it. Here’s why | Football News - The Indian Express ## “We gave a heartbeat to the ball,” an Adidas technician said in a recent video to a journalist after cutting open the ball and explaining why it has a chip with an accelerometer and a gyroscope in it. But it's most than just a beating heart. ... FIFA has unveiled the official match ball for the 2026 FIFA World Cup, called Trionda. Translated from Spanish, Tri",
+   "central_knowledge_unit": "trionda fifa world cup 2026 s official match ball has 500hz motion sensor chip in it here s why football news the indian express we gave a heartbeat to the ball an adidas technician said in a recent video to a journalist",
+   "content_id": "2a26fa7f5a77cc65",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b70d6fe9fa7a096b",
+    "1a6ef9f1261385f6"
+   ],
+   "legacy": true,
+   "normalized_subject": "trionda fifa world cup 2026 s official match ball has 500hz motion sensor chip in it here s why football news the indian express",
+   "people": [],
+   "published_at": "2026-09-30T08:34:34.607792+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "indianexpress.com/article/sports/football/trionda-fifa-world-cup-matchball-500hz-motion-sensor-chip-10285388"
+   ],
+   "sport_or_game": "Trionda, FIFA World Cup 2026’s official match ball, has 500Hz motion sensor chip in it. Here’s why | Football News - The Indian Express",
+   "telegram_message_id": 245
+  },
+  {
+   "central_claim": "(NYL) 9 Homestead Grays (HOM) 8 #### Game played on Saturday, September 27, 1930 (D) at Yankee Stadium I, New York NY Postseason Championship Series ... Game of Saturday, 9/27/1930, game 1 -- Homestead Grays at New York Lincoln Giants (D)",
+   "central_knowledge_unit": "nyl 9 homestead grays hom 8 game played on saturday september 27 1930 d at yankee stadium i new york ny postseason championship series game of saturday 9 27 1930 game 1 homestead grays at new york lincoln giants d",
+   "content_id": "8264505ecb24ff02",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "679a754d8bec5682",
+    "82cf7a57436a8d97"
+   ],
+   "legacy": true,
+   "normalized_subject": "retrosheet boxscore new york lincoln giants nyl 9 homestead grays hom 8",
+   "people": [],
+   "published_at": "2026-09-30T08:34:54.689486+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "retrosheet.org/NegroLeagues/boxesetc/1930/B09271NYL1930.htm"
+   ],
+   "sport_or_game": "Retrosheet Boxscore: New York Lincoln Giants (NYL) 9 Homestead Grays (HOM) 8",
+   "telegram_message_id": 246
+  },
+  {
+   "central_claim": "Football: Mount Union Extends Win Streak to 48, Breaks Oklahoma's 42-year-old NCAA Record - University of Mount Union # Football: Mount Union Extends Win Streak to 48, Breaks Oklahoma's 42-year-old NCAA Record 10/16/1999 5:04:00 PM | By: Associated Press ALLIANCE, Ohio -- Mount Union's record 48th consecutive victory wasn't a whole lot different from the 47 that preceded it. The Purple Raiders (6-0) relied on their cutting-edge offense to beat Otterbein 44-20 Saturday and surpass Oklahoma's 42-y",
+   "central_knowledge_unit": "football mount union extends win streak to 48 breaks oklahoma s 42 year old ncaa record university of mount union football mount union extends win streak to 48 breaks oklahoma s 42 year old ncaa record 10 16 1999 5 04 00",
+   "content_id": "a83d6e40ece4d9ba",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "0b28ad0e42bb788b",
+    "607b7ef423901dd9"
+   ],
+   "legacy": true,
+   "normalized_subject": "football mount union extends win streak to 48 breaks oklahoma s 42 year old ncaa record university of mount union",
+   "people": [],
+   "published_at": "2026-09-30T08:35:04.902034+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    "athletics.mountunion.edu/news/1999/10/16/football-mount-union-extends-win-streak-to-48-breaks-oklahomas-42-year-old-ncaa-record.aspx"
+   ],
+   "sport_or_game": "Football: Mount Union Extends Win Streak to 48, Breaks Oklahoma's 42-year-old NCAA Record - University of Mount Union",
+   "telegram_message_id": 247
+  },
+  {
+   "central_claim": "’s Box The dimensions were changed in 1955. Previously, it had been triangular.1.10 1954 Rule 1.00 – The Catcher’s Lines. The back of the Catcher’s box is 8’ back of Home Base and 8’ each side of Home Base Line. 1955 Rule 1.07 – The catcher’s box is laid out as shown in diagram (which shows it eight feet deep and 43 inches wide in a rectangular shape). Field Dimensions Minimum Distances for a Home Run In 1889, Rule 40 addressed “Balls Batted Outside the Grounds” and mandated that fair batted bal",
+   "central_knowledge_unit": "s box the dimensions were changed in 1955 previously it had been triangular 1 10 1954 rule 1 00 the catcher s lines the back of the catcher s box is 8 back of home base and 8 each side of home base line 1955 rule 1 07 th",
+   "content_id": "ab705a8419fd2dd8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "786f9149896e9d21",
+    "514a9ae4f60596d8"
+   ],
+   "legacy": true,
+   "normalized_subject": "summary of baseball rules changes",
+   "people": [],
+   "published_at": "2026-09-30T08:35:32.679048+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "retrosheet.org/rules/RulesChangesSummary.pdf"
+   ],
+   "sport_or_game": "Summary of Baseball Rules Changes",
+   "telegram_message_id": 248
+  },
+  {
+   "central_claim": "James Naismith devised basketball as an indoor winter game at the International YMCA Training School in Springfield, Massachusetts, in December 1891, after Luther Halsey Gulick challenged him to develop one. The first classroom game is commonly dated December 21, 1891, although its exact day is disputed.",
+   "central_knowledge_unit": "about dr james naismith naismith basketball foundation",
+   "content_id": "058e0673ecb945be",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "058e0673ecb945be",
+    "12ab6b038f8aeceb"
+   ],
+   "normalized_subject": "about dr james naismith naismith basketball foundation",
+   "people": [],
+   "published_at": "2026-09-30T19:18:35.634421+00:00",
+   "region": "",
+   "run_id": "2026-10-01-AM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 251
+  },
+  {
+   "central_claim": "Sáhkku is a board game of the Sami people. The game is traditional among the North Sámi, Skolt Sámi, Inari Sámi and Lule Sámi but may also have been played in other parts of Sápmi. ... Sáhkku is a running-fight game, which means that players move their pieces along a track with the goal of eliminating the other players' pieces. Many different variants of sáhkku have been played in different parts of Sápmi. The oral transfer of the sáhkku rules between generations was largely broken off during the 1900s. A few of the local variants have survived into our time, other local variants have been reconstructed based on a combination of memories and written sources, and for some places only fragment",
+   "central_knowledge_unit": "s hkku open wiki",
+   "content_id": "f976c895dc68fa94",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f976c895dc68fa94",
+    "89d04055da49f5ae"
+   ],
+   "normalized_subject": "s hkku open wiki",
+   "people": [],
+   "published_at": "2026-09-30T19:19:01.066169+00:00",
+   "region": "",
+   "run_id": "2026-10-01-AM",
+   "sector": "Game Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 252
+  },
+  {
+   "central_claim": "The Game||||| ||| | || ||||||||| | ||||||| | ||| ||Volleyball RulebookVolleyball Rule CHANGEsBeach Volleyball Rule CHANGEs | | The Game - Volleyball Rules| | **major changes in volleyball rules** **1895 \\***William G. Morgan invents game of Volleyball. **1897 \\***First Volleyball rules published by William G. Morgan. **1917 \\***Game changes from 21 points to 15 points per set. ... **1920 \\***The ball can be played with any other part of the body above the waist. Three hits per side rule also adopted. **1922 \\***Back-row players not permitted to spike. Double hit rule introduced. If score is 14 -14, two-point advantage is needed to win.Two timeouts per set for each team introduced. ... **1932",
+   "central_knowledge_unit": "the game",
+   "content_id": "37000c00a5f1e190",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "37000c00a5f1e190",
+    "e0057aeef35ea866"
+   ],
+   "normalized_subject": "the game",
+   "people": [],
+   "published_at": "2026-09-30T19:20:29.506267+00:00",
+   "region": "",
+   "run_id": "2026-10-01-AM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 253
+  },
+  {
+   "central_claim": "Pittsburgh beats Boston in first World Series game | October 1, 1903 | HISTORY ... In Boston on October 1, 1903, the Pittsburgh Pirates beat the Boston Americans, 7-3, in the first professional baseball World Series game. Pirates right fielder Jimmy Sebring hits the first World Series home run—an inside-the-park shot to deep center field off Americans ace Cy Young—in the seventh inning to extend the Pirates' lead to 7-0. Sebring is the game's star, driving in four runs. ... The Americans' won the series, 5 games to 3. In Game 8, Boston clinched the series with a 3-0 win. In 1904, the World Series was not played because the New York Giants refused to play the Americans. The World Series resum",
+   "central_knowledge_unit": "pittsburgh beats boston in first world series game october 1 1903 history",
+   "content_id": "2e80d3ab48a01e4a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "2e80d3ab48a01e4a",
+    "ddc23ce4b833368d"
+   ],
+   "normalized_subject": "pittsburgh beats boston in first world series game october 1 1903 history",
+   "people": [],
+   "published_at": "2026-09-30T19:20:41.791261+00:00",
+   "region": "",
+   "run_id": "2026-10-01-AM",
+   "sector": "On This Date",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 254
+  },
+  {
+   "central_claim": "Every modern player recognises the ritual. The board is fixed at its measured height. The throwing line establishes the permitted distance. Three darts rest in the hand. The player looks towards twenty narrow numbered segments arranged in a pattern so familiar that it can seem permanent. It is not permanent. It is the result of choices. The board, the numbers, the materials and even the line from which we throw all have histories. They were not delivered together by a single inventor. They emerged at different times, in different places, for different reasons. Some changes solved practical problems. Others made competition easier to organise. A few became standard because influential manufac",
+   "central_knowledge_unit": "tmpx1g5jh 2",
+   "content_id": "a1f58b99dee55a40",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a1f58b99dee55a40",
+    "a36c3b227a42d20a"
+   ],
+   "normalized_subject": "tmpx1g5jh 2",
+   "people": [],
+   "published_at": "2026-09-30T19:21:07.515592+00:00",
+   "region": "",
+   "run_id": "2026-10-01-AM",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 255
   }
  ],
  "schema": 1,
- "updated_at": "2026-09-30T08:35:32.679016+00:00"
+ "updated_at": "2026-09-30T19:21:07.515730+00:00"
 }
