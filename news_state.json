@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "Cerebras per-run call cap reached (16)",
-  "last_ok": "2026-09-29T19:43:25.656152+00:00",
-  "last_request_id": "a42d7a07fb9bf058-CMH",
+  "last_ok": "2026-09-30T08:35:40.367688+00:00",
+  "last_request_id": "a431e53fbd843354-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-09-29T19:47:44.548453+00:00",
+ "last_run_at": "2026-09-30T08:39:54.666423+00:00",
  "ledger": {},
  "posts": [
   {
@@ -1632,6 +1632,211 @@
    "urls": [
     "pioneerworks.org/broadcast/brad-bolman-curveball?src=longreads"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Trugo: A bizarre sport unique to Melbourne",
+   "claim": "Not many people have heard of trugo: a mix of croquet, golf, lawn bowls and the hammer. But, as James Bartlett writes, the unusual game that sprung from Melbourne's railway yards is trying to attract new fans. ... He's a former world (yes, world) champion at a sport that's also around 90 years old, yet it's unknown anywhere else in the world - and is even a secret to most Melburnians. ... Players take a thick rubber ring, balance it upright, and then swing a rubber-tipped wooden mallet between their legs to try and hit the ring between two posts. ... Research says that trugo was invented in the late 1920s or early 1930s by Tom Grieves, a Yarraville railwayman and first president of the Victo",
+   "desk": "evergreen_v1",
+   "format": "Sport Discovery",
+   "headline": "Trugo: Melbourne’s 90‑Year‑Old Game Mixes Croquet, Golf and More",
+   "image_status": "verified_external",
+   "message_id": 240,
+   "normalized_subject": "Trugo: A bizarre sport unique to Melbourne",
+   "posted_at": "2026-09-30T08:32:59.987813+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-09-30-PM",
+   "sector": "Sport Discovery",
+   "topic": "Trugo: A bizarre sport unique to Melbourne",
+   "urls": [
+    "bbc.com/news/world-australia-45326460"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "James Naismith | The Canadian Encyclopedia",
+   "claim": "James Naismith invented basketball in Springfield, Massachusetts, in 1891 and established its 13 original rules. He was McGill University’s first full-time athletics instructor, founded the University of Kansas basketball program, and was one of the Basketball Hall of Fame’s inaugural 1959 inductees. His original, predominantly typewritten rules sold for more than $4.3 million in 2010, setting a sports-memorabilia auction record at the time.",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "James Naismith’s 1891 Basketball Invention Sets Record in 2010 Auction",
+   "image_status": "verified_external",
+   "message_id": 241,
+   "normalized_subject": "James Naismith | The Canadian Encyclopedia",
+   "posted_at": "2026-09-30T08:33:13.357187+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-30-PM",
+   "sector": "Sports & Games People",
+   "topic": "James Naismith | The Canadian Encyclopedia",
+   "urls": [
+    "thecanadianencyclopedia.ca/en/article/james-naismith"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Physics of knuckleballs - IOPscience",
+   "claim": "Why can a nearly non-spinning ball swerve unpredictably? In baseball, volleyball and soccer, changing asymmetries in the airflow around a ball can generate fluctuating sideways forces and a zigzagging flight. A 2016 experimental and modeling study proposes that these deviations become especially pronounced near each ball’s drag-crisis speed; seams and surface features can also affect the airflow, so this is not a single exclusive mechanism for every ball.",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "Knuckleball Unpredictability Tied to Drag-Crisis Aerodynamics",
+   "image_status": "verified_external",
+   "message_id": 242,
+   "normalized_subject": "Physics of knuckleballs - IOPscience",
+   "posted_at": "2026-09-30T08:33:27.551883+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-30-PM",
+   "sector": "Why Does This Happen?",
+   "topic": "Physics of knuckleballs - IOPscience",
+   "urls": [
+    "beta.iopscience.iop.org/article/10.1088/1367-2630/18/7/073027"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The Ancient Board Game That Predates Chess by 2,000 Years",
+   "claim": "Ancient wooden game board decorated with 20 shell-inlaid playing squares, carved shell edge plaques, and triangular shell inlays on the reverse. In 1926, Leonard Woolley was excavating the Royal Cemetery of Ur in what is now southern Iraq when his team uncovered something that had no obvious parallel in the ancient world. Nestled among gold headdresses, ceremonial lyres, and the remains of court attendants buried alongside their rulers was a small wooden board, roughly the size of a large book, inlaid with shell, red limestone, and lapis lazuli. The surface was decorated with five-pointed rosettes and geometric patterns. The wood was worn smooth in places. At some point during its working li",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "Royal Game of Ur Unearthed as the World’s Oldest Known Board Game",
+   "image_status": "verified_external",
+   "message_id": 243,
+   "normalized_subject": "The Ancient Board Game That Predates Chess by 2,000 Years",
+   "posted_at": "2026-09-30T08:33:39.045935+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-30-PM",
+   "sector": "Game Discovery",
+   "topic": "The Ancient Board Game That Predates Chess by 2,000 Years",
+   "urls": [
+    "allthathistory.substack.com/p/royal-game-of-ur"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Nard – The Original Backgammon",
+   "claim": "Nard (نرد‎), originally called Nardashir (نردشیر‬), is a Persian game, which is played on a backgammon board. The modern backgammon and its variations originated with the Persian Nard. The earliest source to mention the game, Nardashir, by name, is the Babylonian Talmud (Ketubot 61b), in an anonymous statement, which is dated to the latest stratum of the Talmud, 500-600 CE. ... According to some historians, such as Murray, the game Nardashir was possibly invented by the 3rd century Sassanian king Ardashir I. However, as I will point out from the sources it is clear that that is not true. ... In a 7th century CE, Pahlavi work, called Kar-Namag i Ardashir i Papakan (کارنامهٔ اردشیر بابکان), Bo",
+   "desk": "evergreen_v1",
+   "format": "Interesting Game Fact",
+   "headline": "Nard: Persian Roots of Modern Backgammon Revealed",
+   "image_status": "verified_external",
+   "message_id": 244,
+   "normalized_subject": "Nard – The Original Backgammon",
+   "posted_at": "2026-09-30T08:34:15.918629+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-30-PM",
+   "sector": "Interesting Game Fact",
+   "topic": "Nard – The Original Backgammon",
+   "urls": [
+    "ancientgames.org/nard-the-original-backgammon"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Trionda, FIFA World Cup 2026’s official match ball, has 500Hz motion sensor chip in it. Here’s why | Football News - The Indian Express",
+   "claim": "Trionda, FIFA World Cup 2026’s official match ball, has 500Hz motion sensor chip in it. Here’s why | Football News - The Indian Express ## “We gave a heartbeat to the ball,” an Adidas technician said in a recent video to a journalist after cutting open the ball and explaining why it has a chip with an accelerometer and a gyroscope in it. But it's most than just a beating heart. ... FIFA has unveiled the official match ball for the 2026 FIFA World Cup, called Trionda. Translated from Spanish, Trionda means “three waves” which celebrates the fact that, for the first time, three host countries—Canada, Mexico and the United States—are uniting to host the FIFA World Cup. A statement from FIFA not",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "Trionda World Cup Ball Packs 500Hz Sensor for Fair Play",
+   "image_status": "verified_external",
+   "message_id": 245,
+   "normalized_subject": "Trionda, FIFA World Cup 2026’s official match ball, has 500Hz motion sensor chip in it. Here’s why | Football News - The Indian Express",
+   "posted_at": "2026-09-30T08:34:34.607792+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-30-PM",
+   "sector": "Equipment / Measurement",
+   "topic": "Trionda, FIFA World Cup 2026’s official match ball, has 500Hz motion sensor chip in it. Here’s why | Football News - The Indian Express",
+   "urls": [
+    "indianexpress.com/article/sports/football/trionda-fifa-world-cup-matchball-500hz-motion-sensor-chip-10285388"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Retrosheet Boxscore: New York Lincoln Giants (NYL) 9 Homestead Grays (HOM) 8",
+   "claim": "(NYL) 9 Homestead Grays (HOM) 8 #### Game played on Saturday, September 27, 1930 (D) at Yankee Stadium I, New York NY Postseason Championship Series ... Game of Saturday, 9/27/1930, game 1 -- Homestead Grays at New York Lincoln Giants (D)",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "Lincoln Giants Edge Homestead Grays 9-8 in 1930 Championship Game",
+   "image_status": "card_fallback",
+   "message_id": 246,
+   "normalized_subject": "Retrosheet Boxscore: New York Lincoln Giants (NYL) 9 Homestead Grays (HOM) 8",
+   "posted_at": "2026-09-30T08:34:54.689486+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-30-PM",
+   "sector": "On This Date",
+   "topic": "Retrosheet Boxscore: New York Lincoln Giants (NYL) 9 Homestead Grays (HOM) 8",
+   "urls": [
+    "retrosheet.org/NegroLeagues/boxesetc/1930/B09271NYL1930.htm"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Football: Mount Union Extends Win Streak to 48, Breaks Oklahoma's 42-year-old NCAA Record - University of Mount Union",
+   "claim": "Football: Mount Union Extends Win Streak to 48, Breaks Oklahoma's 42-year-old NCAA Record - University of Mount Union # Football: Mount Union Extends Win Streak to 48, Breaks Oklahoma's 42-year-old NCAA Record 10/16/1999 5:04:00 PM | By: Associated Press ALLIANCE, Ohio -- Mount Union's record 48th consecutive victory wasn't a whole lot different from the 47 that preceded it. The Purple Raiders (6-0) relied on their cutting-edge offense to beat Otterbein 44-20 Saturday and surpass Oklahoma's 42-year-old all-division record of 47 consecutive victories. Gary Smeck completed only 10 passes in the first half but they went for 205 yards and two touchdowns as the three-time defending Division III n",
+   "desk": "evergreen_v1",
+   "format": "Records & Milestones",
+   "headline": "Mount Union Sets New NCAA Record with 48th Straight Win",
+   "image_status": "verified_external",
+   "message_id": 247,
+   "normalized_subject": "Football: Mount Union Extends Win Streak to 48, Breaks Oklahoma's 42-year-old NCAA Record - University of Mount Union",
+   "posted_at": "2026-09-30T08:35:04.902034+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-30-PM",
+   "sector": "Records & Milestones",
+   "topic": "Football: Mount Union Extends Win Streak to 48, Breaks Oklahoma's 42-year-old NCAA Record - University of Mount Union",
+   "urls": [
+    "athletics.mountunion.edu/news/1999/10/16/football-mount-union-extends-win-streak-to-48-breaks-oklahomas-42-year-old-ncaa-record.aspx"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Summary of Baseball Rules Changes",
+   "claim": "’s Box The dimensions were changed in 1955. Previously, it had been triangular.1.10 1954 Rule 1.00 – The Catcher’s Lines. The back of the Catcher’s box is 8’ back of Home Base and 8’ each side of Home Base Line. 1955 Rule 1.07 – The catcher’s box is laid out as shown in diagram (which shows it eight feet deep and 43 inches wide in a rectangular shape). Field Dimensions Minimum Distances for a Home Run In 1889, Rule 40 addressed “Balls Batted Outside the Grounds” and mandated that fair batted balls hit over the fence had to be at a point at least 210 feet from home base to be a home run and that a distinctive line had to be marked on the fence at this point. In 1892 the distance was changed t",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "Catcher’s Box Redefined and Home‑Run Distances Set in 19th‑20th Century",
+   "image_status": "verified_external",
+   "message_id": 248,
+   "normalized_subject": "Summary of Baseball Rules Changes",
+   "posted_at": "2026-09-30T08:35:32.679048+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-09-30-PM",
+   "sector": "Then vs Now",
+   "topic": "Summary of Baseball Rules Changes",
+   "urls": [
+    "retrosheet.org/rules/RulesChangesSummary.pdf"
+   ]
   }
  ],
  "runs": [],
@@ -1643,25 +1848,26 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-09-29T19:23:08.805463+00:00",
+  "created_at": "2026-09-30T08:27:16.729088+00:00",
   "daily": {
    "2026-09-30": {
     "published_sectors": [
-     "On This Date",
-     "First / Last / Only",
-     "Records & Milestones",
-     "Equipment / Measurement",
+     "Sport Discovery",
+     "Sports & Games People",
      "Why Does This Happen?",
-     "New Tabletop Game Discovery",
      "Game Discovery",
-     "Interesting Sports Fact"
+     "Interesting Game Fact",
+     "Equipment / Measurement",
+     "On This Date",
+     "Records & Milestones",
+     "Then vs Now"
     ],
     "run_ids": [
-     "2026-09-30-AM"
+     "2026-09-30-PM"
     ]
    }
   },
-  "last_run_at": "2026-09-29T19:47:44.548428+00:00",
+  "last_run_at": "2026-09-30T08:39:54.666392+00:00",
   "live": {
    "results": {
     "event_ids": [
@@ -1676,9 +1882,9 @@
      "894ee77697c0a328",
      "b9d18d300898bbad"
     ],
-    "message_id": 239,
+    "message_id": 250,
     "target_date": "2026-09-29",
-    "updated_at": "2026-09-29T19:47:44.544736+00:00"
+    "updated_at": "2026-09-30T08:39:54.661531+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
@@ -1694,79 +1900,85 @@
      "7f1451edd8807d03",
      "a32c53ca3e31da5f"
     ],
-    "message_id": 238,
+    "message_id": 249,
     "target_date": "2026-10-01",
-    "updated_at": "2026-09-29T19:47:44.544725+00:00"
+    "updated_at": "2026-09-30T08:39:54.661518+00:00"
    }
   },
   "publication": {
-   "2026-09-30-AM:evergreen:07342c2f696e6d97": {
-    "message_id": 235,
-    "posted_at": "2026-09-29T19:42:52.696034+00:00",
+   "2026-09-30-PM:evergreen:00c6b4739315832f": {
+    "message_id": 244,
+    "posted_at": "2026-09-30T08:34:15.918260+00:00",
     "status": "posted"
    },
-   "2026-09-30-AM:evergreen:229b844c1dc0927b": {
-    "message_id": 232,
-    "posted_at": "2026-09-29T19:42:16.335699+00:00",
+   "2026-09-30-PM:evergreen:351c057a17646f4a": {
+    "message_id": 247,
+    "posted_at": "2026-09-30T08:35:04.901609+00:00",
     "status": "posted"
    },
-   "2026-09-30-AM:evergreen:701be4397282e7f1": {
-    "message_id": 237,
-    "posted_at": "2026-09-29T19:43:28.178719+00:00",
+   "2026-09-30-PM:evergreen:45a207998063ad87": {
+    "message_id": 243,
+    "posted_at": "2026-09-30T08:33:39.045588+00:00",
     "status": "posted"
    },
-   "2026-09-30-AM:evergreen:72437d5bce96892d": {
-    "message_id": 230,
-    "posted_at": "2026-09-29T19:41:42.100367+00:00",
+   "2026-09-30-PM:evergreen:6013b322235e5e63": {
+    "message_id": 246,
+    "posted_at": "2026-09-30T08:34:54.689216+00:00",
     "status": "posted"
    },
-   "2026-09-30-AM:evergreen:afd2bdf4e6178946": {
-    "message_id": 231,
-    "posted_at": "2026-09-29T19:41:48.507816+00:00",
+   "2026-09-30-PM:evergreen:857f3029737ab333": {
+    "message_id": 245,
+    "posted_at": "2026-09-30T08:34:34.607342+00:00",
     "status": "posted"
    },
-   "2026-09-30-AM:evergreen:bed4e0b7d1904c61": {
-    "message_id": 234,
-    "posted_at": "2026-09-29T19:42:40.609880+00:00",
+   "2026-09-30-PM:evergreen:c6621085a75a3d67": {
+    "message_id": 242,
+    "posted_at": "2026-09-30T08:33:27.551539+00:00",
     "status": "posted"
    },
-   "2026-09-30-AM:evergreen:cbd91c894aaa8ed5": {
-    "message_id": 233,
-    "posted_at": "2026-09-29T19:42:29.546021+00:00",
+   "2026-09-30-PM:evergreen:e3c39c5bae57bfe2": {
+    "message_id": 240,
+    "posted_at": "2026-09-30T08:32:59.987464+00:00",
     "status": "posted"
    },
-   "2026-09-30-AM:evergreen:d38409b5617ade29": {
-    "message_id": 236,
-    "posted_at": "2026-09-29T19:43:16.363871+00:00",
+   "2026-09-30-PM:evergreen:e8802c5663515d0a": {
+    "message_id": 248,
+    "posted_at": "2026-09-30T08:35:32.678649+00:00",
     "status": "posted"
    },
-   "2026-09-30-AM:live_results:e3c7af5da4ffb7fe": {
-    "message_id": 239,
-    "posted_at": "2026-09-29T19:47:44.544698+00:00",
+   "2026-09-30-PM:evergreen:f371e300522226b1": {
+    "message_id": 241,
+    "posted_at": "2026-09-30T08:33:13.356882+00:00",
     "status": "posted"
    },
-   "2026-09-30-AM:live_schedule:8682af99c70673b4": {
-    "message_id": 238,
-    "posted_at": "2026-09-29T19:47:44.188773+00:00",
+   "2026-09-30-PM:live_results:e3c7af5da4ffb7fe": {
+    "message_id": 250,
+    "posted_at": "2026-09-30T08:39:54.661488+00:00",
+    "status": "posted"
+   },
+   "2026-09-30-PM:live_schedule:8682af99c70673b4": {
+    "message_id": 249,
+    "posted_at": "2026-09-30T08:39:54.261536+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-09-29T19:47:44.548435+00:00",
-    "evergreen": 8,
+    "at": "2026-09-30T08:39:54.666402+00:00",
+    "evergreen": 9,
     "exit": 0,
-    "live_results": 239,
-    "live_schedule": 238,
-    "run_id": "2026-09-30-AM",
+    "live_results": 250,
+    "live_schedule": 249,
+    "run_id": "2026-09-30-PM",
     "used_sectors": [
      "Equipment / Measurement",
-     "First / Last / Only",
      "Game Discovery",
-     "Interesting Sports Fact",
-     "New Tabletop Game Discovery",
+     "Interesting Game Fact",
      "On This Date",
      "Records & Milestones",
+     "Sport Discovery",
+     "Sports & Games People",
+     "Then vs Now",
      "Why Does This Happen?"
     ]
    }

@@ -3300,8 +3300,423 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 237
+  },
+  {
+   "central_claim": "On September 30, 2023, Collingwood defeated the Brisbane Lions 12.18 (90) to 13.8 (86) at the MCG to win its 16th VFL/AFL premiership, equalling the competition record at the time. Bobby Hill kicked four goals in the four-point victory.",
+   "central_knowledge_unit": "on september 30 2023 collingwood defeated the brisbane lions 12 18 90 to 13 8 86 at the mcg to win its 16th vfl afl premiership equalling the competition record at the time bobby hill kicked four goals in the four point ",
+   "content_id": "e59c72dc28ee9850",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a24e7e97c8fbafca",
+    "56dd678ef3fb179b"
+   ],
+   "legacy": true,
+   "normalized_subject": "collingwood claim 16th premiership after edging out brisbane in classic afl grand final afl the guardian",
+   "people": [],
+   "published_at": "2026-09-29T19:41:42.100597+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "theguardian.com/sport/2023/sep/30/afl-grand-final-2023-collingwood-magpies-brisbane-lions-match-report-results-winner"
+   ],
+   "sport_or_game": "Collingwood claim 16th premiership after edging out Brisbane in classic AFL grand final | AFL | The Guardian",
+   "telegram_message_id": 230
+  },
+  {
+   "central_claim": "Kenny Davenport of Bolton Wanderers is credited, on the basis of reconstructed kick-off times and contemporary match reports, with the first goal in the inaugural Football League season: approximately 3:47 p.m. on 8 September 1888, against Derby County. The evidence supports this historical attribution rather than an independently timed, indisputable ‘first goal anywhere in the world.’",
+   "central_knowledge_unit": "kenny davenport of bolton wanderers is credited on the basis of reconstructed kick off times and contemporary match reports with the first goal in the inaugural football league season approximately 3 47 p m on 8 septembe",
+   "content_id": "f8d2b010ff94f39d",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "ef7e1a8217b5c523",
+    "2ce70bde6a3a0437"
+   ],
+   "legacy": true,
+   "normalized_subject": "solving the mystery of the first goal in league football bbc sport",
+   "people": [],
+   "published_at": "2026-09-29T19:41:48.508077+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "bbc.com/sport/football/23397062"
+   ],
+   "sport_or_game": "Solving the mystery of the first goal in league football - BBC Sport",
+   "telegram_message_id": 231
+  },
+  {
+   "central_claim": "Century mark! UConn women win 100th straight game - University of Connecticut Athletics ... ## Century mark! UConn women win 100th straight game 2/13 ... 017 ... Feb. 13, 2017 Box Score | Quotes | USATSI Photo Gallery | Photo Gallery 2 | Photo Gallery 3 STORRS, Conn. (AP) Add 100 consecutive wins to the UConn Huskies' long list of milestones. Given the team's glitzier numbers linked to national championships, 11 titles and counting, it may seem ho-hum with no added significance. Geno Auriemma's ",
+   "central_knowledge_unit": "century mark uconn women win 100th straight game university of connecticut athletics century mark uconn women win 100th straight game 2 13 017 feb 13 2017 box score quotes usatsi photo gallery photo gallery 2 photo galle",
+   "content_id": "dbdbcc4d4d6b3cf9",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "8c8234ea8a59fed9",
+    "bbd30809f874eac1"
+   ],
+   "legacy": true,
+   "normalized_subject": "century mark uconn women win 100th straight game university of connecticut athletics",
+   "people": [],
+   "published_at": "2026-09-29T19:42:16.335966+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    "apnews.com/ap-top-25-womens-college-basketball-poll-4bd4244c13134129a3c4af3d0197b264"
+   ],
+   "sport_or_game": "Century mark! UConn women win 100th straight game - University of Connecticut Athletics",
+   "telegram_message_id": 232
+  },
+  {
+   "central_claim": "Every four years when the FIFA World Cup comes around, official sponsor Adidas creates a new iteration of the ball that will be used. This time, as the world further integrates artificial intelligence (AI) models into everyday use-case scenarios, the humble football now finds itself an AI-enabled entity, loaded with a sensor specifically built to track its movements. But the Trionda, this edition’s ball, is notable for more than its modern sensor. It has the lowest number of panels ever used to ",
+   "central_knowledge_unit": "every four years when the fifa world cup comes around official sponsor adidas creates a new iteration of the ball that will be used this time as the world further integrates artificial intelligence ai models into everyda",
+   "content_id": "60516a2beae83f6c",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e4926b5f0caf7590",
+    "420eada9f5a22985"
+   ],
+   "legacy": true,
+   "normalized_subject": "meet new fifa world cup ball ai sensor for better decisions improved design for fewer surprises explained news the indian express",
+   "people": [],
+   "published_at": "2026-09-29T19:42:29.546361+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "indianexpress.com/article/explained/explained-sports/fifa-world-cup-2026-why-the-new-ai-enabled-ball-promises-better-decisions-fewer-surprises-10726300"
+   ],
+   "sport_or_game": "Meet new FIFA World Cup ball: AI-sensor for better decisions, improved design for fewer surprises | Explained News - The Indian Express",
+   "telegram_message_id": 233
+  },
+  {
+   "central_claim": "The FIFA World Cup of football (soccer in the U.S.) has been contested quadrennially since 1930, with a gap between 1938 and 1950 because of World War II. In the early years, the host country furnished the official match balls, which were sometimes of disputed quality. Adidas, which began making soccer balls in 1963, won the contract to furnish the official World Cup ball in 1970, and has yet to relinquish it. That year’s ball, dubbed the “Telstar” (see Figure 1), was the first to consist of 12 ",
+   "central_knowledge_unit": "the fifa world cup of football soccer in the u s has been contested quadrennially since 1930 with a gap between 1938 and 1950 because of world war ii in the early years the host country furnished the official match balls",
+   "content_id": "f58ca305172d05fe",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4e369edff26dd22f",
+    "449eb91d54c7899e"
+   ],
+   "legacy": true,
+   "normalized_subject": "designers fine tune the aerodynamics of world cup soccer balls siam",
+   "people": [],
+   "published_at": "2026-09-29T19:42:40.610188+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "siam.org/publications/siam-news/articles/designers-fine-tune-the-aerodynamics-of-world-cup-soccer-balls"
+   ],
+   "sport_or_game": "Designers Fine-tune the Aerodynamics of World Cup Soccer Balls | SIAM",
+   "telegram_message_id": 234
+  },
+  {
+   "central_claim": "I wanted to share with you all the story of the evolution of Forage – a puzzly roll-and-write game about foraging in the Pacific Northwest! Molly, Robb, and I have been designing and publishing games together for almost ten years and we wanted to share some of our process in working through the design and also the development that happens with the Flatout Games CoLab team that we founded! ... Our core design team (Molly Johnson, Robert Melvin, and Shawn Stankewich) really enjoy roll and write ga",
+   "central_knowledge_unit": "i wanted to share with you all the story of the evolution of forage a puzzly roll and write game about foraging in the pacific northwest molly robb and i have been designing and publishing games together for almost ten y",
+   "content_id": "f76876a60553d225",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e47eb06e4811e469",
+    "003d98fffcfd2611"
+   ],
+   "legacy": true,
+   "normalized_subject": "designer diary creating a unique twist on writing on cards in forage boardgameslive games",
+   "people": [],
+   "published_at": "2026-09-29T19:42:52.696326+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    "boardgameslive.games/designer-diary-creating-a-unique-twist-on-writing-on-cards-in-forage"
+   ],
+   "sport_or_game": "Designer Diary: Creating a unique twist on ‘writing on cards’ in Forage! – Boardgameslive.games",
+   "telegram_message_id": 235
+  },
+  {
+   "central_claim": "• The dice Three dice are generally used, except in Nord-Troms where Mejland said they were only two. According to old people from Nesseby, who remembered the game, dice used to be cast into a bowl, not on a flat surface. Such dice were carved in wood like teetotums (26 x 26 x 42 mm in the Varanger / Nesseby set), with two of their end sides shaped like pyramids. All have four marked faces, and one of these always shows an “X” (sáhkku). The value of that “X” varies from place to place, either 1 ",
+   "central_knowledge_unit": "the dice three dice are generally used except in nord troms where mejland said they were only two according to old people from nesseby who remembered the game dice used to be cast into a bowl not on a flat surface such d",
+   "content_id": "36b57b0952e444a9",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f911c6706da802b5",
+    "d79def7050ddc7c6"
+   ],
+   "legacy": true,
+   "normalized_subject": "s hkku the devil s game alan borvo board game studies",
+   "people": [],
+   "published_at": "2026-09-29T19:43:16.364199+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "yumpu.com/en/document/view/6307372/sahkku-the-devils-game-alan-borvo-board-game-studies"
+   ],
+   "sport_or_game": "Sáhkku, The “Devil's Game” / Alan Borvo - Board Game Studies",
+   "telegram_message_id": 236
+  },
+  {
+   "central_claim": "At the end of the nineteenth century, baseball was rapidly professionalizing and growing in popularity. For many, its geometric diamond arrangement and the spectacular physics of bat and ball made it a truly scientific sport. In turn, fans, players, commentators, and even natural scientists used baseball to test theories about the natural world. How far could a hit ball travel? Could a thrown ball really curve? Although debates over the curve are known to fans and sports historians alike, they a",
+   "central_knowledge_unit": "at the end of the nineteenth century baseball was rapidly professionalizing and growing in popularity for many its geometric diamond arrangement and the spectacular physics of bat and ball made it a truly scientific spor",
+   "content_id": "8da6c4a6a8f51bec",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9ae2f5e22e654118",
+    "095c8fe28a2940b8"
+   ],
+   "legacy": true,
+   "normalized_subject": "when baseball threw physics a curve broadcast",
+   "people": [],
+   "published_at": "2026-09-29T19:43:28.178959+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Sports Fact",
+   "source_urls": [
+    "pioneerworks.org/broadcast/brad-bolman-curveball?src=longreads"
+   ],
+   "sport_or_game": "When Baseball Threw Physics a Curve | Broadcast",
+   "telegram_message_id": 237
+  },
+  {
+   "central_claim": "Not many people have heard of trugo: a mix of croquet, golf, lawn bowls and the hammer. But, as James Bartlett writes, the unusual game that sprung from Melbourne's railway yards is trying to attract new fans. ... He's a former world (yes, world) champion at a sport that's also around 90 years old, yet it's unknown anywhere else in the world - and is even a secret to most Melburnians. ... Players take a thick rubber ring, balance it upright, and then swing a rubber-tipped wooden mallet between their legs to try and hit the ring between two posts. ... Research says that trugo was invented in the late 1920s or early 1930s by Tom Grieves, a Yarraville railwayman and first president of the Victo",
+   "central_knowledge_unit": "trugo a bizarre sport unique to melbourne",
+   "content_id": "89dab8b2389ee800",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "89dab8b2389ee800",
+    "5a82f2f97c8c513c"
+   ],
+   "normalized_subject": "trugo a bizarre sport unique to melbourne",
+   "people": [],
+   "published_at": "2026-09-30T08:32:59.987593+00:00",
+   "region": "",
+   "run_id": "2026-09-30-PM",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 240
+  },
+  {
+   "central_claim": "James Naismith invented basketball in Springfield, Massachusetts, in 1891 and established its 13 original rules. He was McGill University’s first full-time athletics instructor, founded the University of Kansas basketball program, and was one of the Basketball Hall of Fame’s inaugural 1959 inductees. His original, predominantly typewritten rules sold for more than $4.3 million in 2010, setting a sports-memorabilia auction record at the time.",
+   "central_knowledge_unit": "james naismith the canadian encyclopedia",
+   "content_id": "a149b3bb6b4c6e74",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a149b3bb6b4c6e74",
+    "897f27d0577ec37a"
+   ],
+   "normalized_subject": "james naismith the canadian encyclopedia",
+   "people": [],
+   "published_at": "2026-09-30T08:33:13.357015+00:00",
+   "region": "",
+   "run_id": "2026-09-30-PM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 241
+  },
+  {
+   "central_claim": "Why can a nearly non-spinning ball swerve unpredictably? In baseball, volleyball and soccer, changing asymmetries in the airflow around a ball can generate fluctuating sideways forces and a zigzagging flight. A 2016 experimental and modeling study proposes that these deviations become especially pronounced near each ball’s drag-crisis speed; seams and surface features can also affect the airflow, so this is not a single exclusive mechanism for every ball.",
+   "central_knowledge_unit": "physics of knuckleballs iopscience",
+   "content_id": "7218b293d6f67c33",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7218b293d6f67c33",
+    "b3797e4edc0d23d3"
+   ],
+   "normalized_subject": "physics of knuckleballs iopscience",
+   "people": [],
+   "published_at": "2026-09-30T08:33:27.551670+00:00",
+   "region": "",
+   "run_id": "2026-09-30-PM",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 242
+  },
+  {
+   "central_claim": "Ancient wooden game board decorated with 20 shell-inlaid playing squares, carved shell edge plaques, and triangular shell inlays on the reverse. In 1926, Leonard Woolley was excavating the Royal Cemetery of Ur in what is now southern Iraq when his team uncovered something that had no obvious parallel in the ancient world. Nestled among gold headdresses, ceremonial lyres, and the remains of court attendants buried alongside their rulers was a small wooden board, roughly the size of a large book, inlaid with shell, red limestone, and lapis lazuli. The surface was decorated with five-pointed rosettes and geometric patterns. The wood was worn smooth in places. At some point during its working li",
+   "central_knowledge_unit": "the ancient board game that predates chess by 2 000 years",
+   "content_id": "27e8cfade9e6e14a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "27e8cfade9e6e14a",
+    "a939aa698685f39e"
+   ],
+   "normalized_subject": "the ancient board game that predates chess by 2 000 years",
+   "people": [],
+   "published_at": "2026-09-30T08:33:39.045748+00:00",
+   "region": "",
+   "run_id": "2026-09-30-PM",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 243
+  },
+  {
+   "central_claim": "Nard (نرد‎), originally called Nardashir (نردشیر‬), is a Persian game, which is played on a backgammon board. The modern backgammon and its variations originated with the Persian Nard. The earliest source to mention the game, Nardashir, by name, is the Babylonian Talmud (Ketubot 61b), in an anonymous statement, which is dated to the latest stratum of the Talmud, 500-600 CE. ... According to some historians, such as Murray, the game Nardashir was possibly invented by the 3rd century Sassanian king Ardashir I. However, as I will point out from the sources it is clear that that is not true. ... In a 7th century CE, Pahlavi work, called Kar-Namag i Ardashir i Papakan (کارنامهٔ اردشیر بابکان), Bo",
+   "central_knowledge_unit": "nard the original backgammon",
+   "content_id": "8e31340b97382226",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "8e31340b97382226",
+    "b20d0f3bb0de4dd4"
+   ],
+   "normalized_subject": "nard the original backgammon",
+   "people": [],
+   "published_at": "2026-09-30T08:34:15.918413+00:00",
+   "region": "",
+   "run_id": "2026-09-30-PM",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 244
+  },
+  {
+   "central_claim": "Trionda, FIFA World Cup 2026’s official match ball, has 500Hz motion sensor chip in it. Here’s why | Football News - The Indian Express ## “We gave a heartbeat to the ball,” an Adidas technician said in a recent video to a journalist after cutting open the ball and explaining why it has a chip with an accelerometer and a gyroscope in it. But it's most than just a beating heart. ... FIFA has unveiled the official match ball for the 2026 FIFA World Cup, called Trionda. Translated from Spanish, Trionda means “three waves” which celebrates the fact that, for the first time, three host countries—Canada, Mexico and the United States—are uniting to host the FIFA World Cup. A statement from FIFA not",
+   "central_knowledge_unit": "trionda fifa world cup 2026 s official match ball has 500hz motion sensor chip in it here s why football news the indian express",
+   "content_id": "4e39e8efd933da5b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4e39e8efd933da5b",
+    "b70d6fe9fa7a096b"
+   ],
+   "normalized_subject": "trionda fifa world cup 2026 s official match ball has 500hz motion sensor chip in it here s why football news the indian express",
+   "people": [],
+   "published_at": "2026-09-30T08:34:34.607518+00:00",
+   "region": "",
+   "run_id": "2026-09-30-PM",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 245
+  },
+  {
+   "central_claim": "(NYL) 9 Homestead Grays (HOM) 8 #### Game played on Saturday, September 27, 1930 (D) at Yankee Stadium I, New York NY Postseason Championship Series ... Game of Saturday, 9/27/1930, game 1 -- Homestead Grays at New York Lincoln Giants (D)",
+   "central_knowledge_unit": "retrosheet boxscore new york lincoln giants nyl 9 homestead grays hom 8",
+   "content_id": "08920df0a5822578",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "08920df0a5822578",
+    "679a754d8bec5682"
+   ],
+   "normalized_subject": "retrosheet boxscore new york lincoln giants nyl 9 homestead grays hom 8",
+   "people": [],
+   "published_at": "2026-09-30T08:34:54.689332+00:00",
+   "region": "",
+   "run_id": "2026-09-30-PM",
+   "sector": "On This Date",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 246
+  },
+  {
+   "central_claim": "Football: Mount Union Extends Win Streak to 48, Breaks Oklahoma's 42-year-old NCAA Record - University of Mount Union # Football: Mount Union Extends Win Streak to 48, Breaks Oklahoma's 42-year-old NCAA Record 10/16/1999 5:04:00 PM | By: Associated Press ALLIANCE, Ohio -- Mount Union's record 48th consecutive victory wasn't a whole lot different from the 47 that preceded it. The Purple Raiders (6-0) relied on their cutting-edge offense to beat Otterbein 44-20 Saturday and surpass Oklahoma's 42-year-old all-division record of 47 consecutive victories. Gary Smeck completed only 10 passes in the first half but they went for 205 yards and two touchdowns as the three-time defending Division III n",
+   "central_knowledge_unit": "football mount union extends win streak to 48 breaks oklahoma s 42 year old ncaa record university of mount union",
+   "content_id": "142c8cb12a702b81",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "142c8cb12a702b81",
+    "0b28ad0e42bb788b"
+   ],
+   "normalized_subject": "football mount union extends win streak to 48 breaks oklahoma s 42 year old ncaa record university of mount union",
+   "people": [],
+   "published_at": "2026-09-30T08:35:04.901817+00:00",
+   "region": "",
+   "run_id": "2026-09-30-PM",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 247
+  },
+  {
+   "central_claim": "’s Box The dimensions were changed in 1955. Previously, it had been triangular.1.10 1954 Rule 1.00 – The Catcher’s Lines. The back of the Catcher’s box is 8’ back of Home Base and 8’ each side of Home Base Line. 1955 Rule 1.07 – The catcher’s box is laid out as shown in diagram (which shows it eight feet deep and 43 inches wide in a rectangular shape). Field Dimensions Minimum Distances for a Home Run In 1889, Rule 40 addressed “Balls Batted Outside the Grounds” and mandated that fair batted balls hit over the fence had to be at a point at least 210 feet from home base to be a home run and that a distinctive line had to be marked on the fence at this point. In 1892 the distance was changed t",
+   "central_knowledge_unit": "summary of baseball rules changes",
+   "content_id": "5c8f5efcedda40c2",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "5c8f5efcedda40c2",
+    "786f9149896e9d21"
+   ],
+   "normalized_subject": "summary of baseball rules changes",
+   "people": [],
+   "published_at": "2026-09-30T08:35:32.678831+00:00",
+   "region": "",
+   "run_id": "2026-09-30-PM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 248
   }
  ],
  "schema": 1,
- "updated_at": "2026-09-29T19:43:28.178926+00:00"
+ "updated_at": "2026-09-30T08:35:32.679016+00:00"
 }
