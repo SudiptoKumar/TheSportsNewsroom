@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "Cerebras per-run call cap reached (16)",
-  "last_ok": "2026-09-30T19:21:01.567752+00:00",
-  "last_request_id": "a43596970c866781-CMH",
+  "last_ok": "2026-10-01T08:57:13.419897+00:00",
+  "last_request_id": "a43a42317b4046d4-IND",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-09-30T19:25:28.666417+00:00",
+ "last_run_at": "2026-10-01T09:01:28.703503+00:00",
  "ledger": {},
  "posts": [
   {
@@ -1950,6 +1950,142 @@
    "urls": [
     "download.boekhuis.nl/9789465544960_fragm-docb.pdf"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Lacrosse | Hopkins Press",
+   "claim": "Lacrosse developed from Indigenous North American stick-and-ball games, including the Mohawk game tewaarathon. These games had spiritual, social and practical purposes. In nineteenth-century Canada, non-Indigenous players adopted and transformed the game; William George Beers published rules in 1860, and a national lacrosse association adopted them in 1867. Indigenous players and traditions continued alongside the modern sport.",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "Lacrosse Originates from Indigenous Stick‑Ball Games, Modernized in 19th‑Century Canada",
+   "image_status": "verified_external",
+   "message_id": 258,
+   "normalized_subject": "Lacrosse | Hopkins Press",
+   "posted_at": "2026-10-01T08:54:52.920784+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-01-PM",
+   "sector": "Sport Origin",
+   "topic": "Lacrosse | Hopkins Press",
+   "urls": [
+    "press.jhu.edu/books/title/8442/lacrosse"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "BOARD GAMES in pre-Islamic Persia - Encyclopaedia Iranica",
+   "claim": "The earliest example of a board for this game found in Persia comes from the site of Šahr-e Suḵta (also spelled in literature as Shahr-i Sokhta or Shahr-e Sukhteh) in southern Sistān (Piperno and Salvatori, 1983, pp. 179-89, figs. 5-7, pl. VI; FIGURE 1). The form of the wooden board and the order of the individual spaces or fields follow the earlier examples from the royal cemetery at Ur (Woolley, 1934, pp. 274-79, pls. 95-98). The central row of eight fields is accompanied on either side by four fields on one end of the board, making a rectangle of 4 x 3 fields, and by two fields on the other end of the board, making a rectangle of 2 x 3 fields (see FIGURE 1 and FIGURE 2). On the board foun",
+   "desk": "evergreen_v1",
+   "format": "Game Origin",
+   "headline": "Ancient Persian Board Game Unearthed at Shahr‑e Sukhteh",
+   "image_status": "verified_external",
+   "message_id": 259,
+   "normalized_subject": "BOARD GAMES in pre-Islamic Persia - Encyclopaedia Iranica",
+   "posted_at": "2026-10-01T08:55:17.879762+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-01-PM",
+   "sector": "Game Origin",
+   "topic": "BOARD GAMES in pre-Islamic Persia - Encyclopaedia Iranica",
+   "urls": [
+    "iranicaonline.org/articles/board-games-in-pre-islamic-persia"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Engora Data Blog: Vanishing home field advantage in English football",
+   "claim": "Home field advantage is well-known to fans of different sports and is well-supported by the data. How prevalent is it in English football? That’s what I’m going to explore in this blog post. A few years ago, I did a similar analysis, but with a much smaller data set (see https://blog.engora.com/2021/01/covid-and-soccer-home-team-advantage.html). This time, I have complete English football league data from 1888 to the 2024-2025 season, so my analysis is going to be much more thorough. Frankly, I was surprised by what I found. ... The goal metric is simple, it’s just the mean over all the matches in a season of home goals – away goals. I’ll call it the per-match home goal advantage. A value of",
+   "desk": "evergreen_v1",
+   "format": "Interesting Sports Fact",
+   "headline": "Home Advantage in English Football Has Been Eroding Over Time",
+   "image_status": "verified_external",
+   "message_id": 260,
+   "normalized_subject": "Engora Data Blog: Vanishing home field advantage in English football",
+   "posted_at": "2026-10-01T08:55:41.732959+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-01-PM",
+   "sector": "Interesting Sports Fact",
+   "topic": "Engora Data Blog: Vanishing home field advantage in English football",
+   "urls": [
+    "blog.engora.com/2025/07/vanishing-home-field-advantage-in.html"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Bending It Like Beckham: How to Visually Fool the Goalkeeper",
+   "claim": "As bending free-kicks becomes the norm in modern day soccer, implications for goalkeepers have largely been ignored. Although it has been reported that poor sensitivity to visual acceleration makes it harder for expert goalkeepers to perceptually judge where the curved free-kicks will cross the goal line, it is unknown how this affects the goalkeeper's actual movements. ... While it has previously been shown that humans can internalize the effects of gravitational acceleration, these results show that it is much more difficult for goalkeepers to account for spin-induced visual acceleration, which varies from situation to situation. The limited sensitivity of the human visual system for detec",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "Goalkeepers Misjudge Curved Free‑Kicks Due to Visual Acceleration Limits",
+   "image_status": "verified_external",
+   "message_id": 261,
+   "normalized_subject": "Bending It Like Beckham: How to Visually Fool the Goalkeeper",
+   "posted_at": "2026-10-01T08:55:52.792632+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-01-PM",
+   "sector": "Why Does This Happen?",
+   "topic": "Bending It Like Beckham: How to Visually Fool the Goalkeeper",
+   "urls": [
+    "pmc.ncbi.nlm.nih.gov/articles/PMC2950839"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Olympedia – Pierre, Baron de Coubertin",
+   "claim": "Pierre, Baron de Coubertin, served as the 2nd President of the International Olympic Committee, but his importance in the Olympic Movement far overshadows that simple statement. Although recent scholarship has shown that he was not the only person who had the idea to begin international Olympic Games, he is certainly the person still mostly responsible for the revival of the Olympic Games in 1896. For this effort, he is correctly termed le rénovateur. ... Spurred by these findings, and hearing of multiple archaeological discoveries in ancient Olympia between 1875 and 1881, Coubertin became enthralled with the idea of re-establishing the Olympic Games as a modern international sporting festiv",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Pierre de Coubertin: The Architect Behind the Modern Olympic Revival",
+   "image_status": "verified_external",
+   "message_id": 262,
+   "normalized_subject": "Olympedia – Pierre, Baron de Coubertin",
+   "posted_at": "2026-10-01T08:56:32.672969+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-01-PM",
+   "sector": "Sports & Games People",
+   "topic": "Olympedia – Pierre, Baron de Coubertin",
+   "urls": [
+    "olympics.com/en/athletes/pierre-de-coubertin"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Inside FIFA World Cup 2026’s Connected Match Ball - The Engineer",
+   "claim": "The FIFA World Cup 2026 match ball combined advanced materials, aerodynamic design and embedded electronics to help referees make faster, more accurate decisions. Just don’t call it a smart ball. It’s been described as the most advanced football ever created. Constructed from just four thermally bonded panels – the fewest ever used on an official World Cup match ball – every aspect of Adidas’s Trionda reflects the latest thinking in football design. ... ,” said Sam Handy, general manager at Adidas Football. Intentionally deep seams and strategically placed surface textures generate evenly distributed drag as the ball travels through the air, as well as improved grip in wet or humid condition",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "Adidas Trionda Ball Brings Real‑Time Data to World Cup VAR",
+   "image_status": "verified_external",
+   "message_id": 263,
+   "normalized_subject": "Inside FIFA World Cup 2026’s Connected Match Ball - The Engineer",
+   "posted_at": "2026-10-01T08:57:06.106925+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-01-PM",
+   "sector": "Equipment / Measurement",
+   "topic": "Inside FIFA World Cup 2026’s Connected Match Ball - The Engineer",
+   "urls": [
+    "theengineer.co.uk/content/in-depth/how-adidas-world-cup-ball-took-in-game-analytics-to-the-next-level"
+   ]
   }
  ],
  "runs": [],
@@ -1961,38 +2097,40 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-09-30T19:13:49.881374+00:00",
+  "created_at": "2026-10-01T08:49:21.112900+00:00",
   "daily": {
    "2026-10-01": {
     "published_sectors": [
+     "Sport Origin",
+     "Game Origin",
+     "Interesting Sports Fact",
+     "Why Does This Happen?",
      "Sports & Games People",
-     "Game Discovery",
-     "Then vs Now",
-     "On This Date",
-     "Sport Origin"
+     "Equipment / Measurement"
     ],
     "run_ids": [
-     "2026-10-01-AM"
+     "2026-10-01-PM"
     ]
    }
   },
-  "last_run_at": "2026-09-30T19:25:28.666384+00:00",
+  "last_run_at": "2026-10-01T09:01:28.703450+00:00",
   "live": {
    "results": {
     "event_ids": [
+     "e4edcd249e333904",
      "de98f56b6c6867fc",
+     "ab71102dc0bf0dfb",
      "c2ba6761e17f4787",
      "03c9d9e9b2276c16",
      "200f9e4762f9a077",
      "a99cdf1b43df6944",
      "230647b875cb985b",
      "575f4582ce38ceda",
-     "f3b2a344a69bd612",
-     "98e1fac75a738e45"
+     "f3b2a344a69bd612"
     ],
-    "message_id": 257,
+    "message_id": 265,
     "target_date": "2026-09-30",
-    "updated_at": "2026-09-30T19:25:28.661451+00:00"
+    "updated_at": "2026-10-01T09:01:28.696666+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
@@ -2008,62 +2146,68 @@
      "bd883be39e0ebe8a",
      "aea753989ee7f90e"
     ],
-    "message_id": 256,
+    "message_id": 264,
     "target_date": "2026-10-02",
-    "updated_at": "2026-09-30T19:25:28.661443+00:00"
+    "updated_at": "2026-10-01T09:01:28.696655+00:00"
    }
   },
   "publication": {
-   "2026-10-01-AM:evergreen:375ec7829a241eb2": {
-    "message_id": 252,
-    "posted_at": "2026-09-30T19:19:01.065981+00:00",
+   "2026-10-01-PM:evergreen:4847cd6286994143": {
+    "message_id": 258,
+    "posted_at": "2026-10-01T08:54:52.920388+00:00",
     "status": "posted"
    },
-   "2026-10-01-AM:evergreen:84db7a6556ec5b17": {
-    "message_id": 253,
-    "posted_at": "2026-09-30T19:20:29.506128+00:00",
+   "2026-10-01-PM:evergreen:53cd07f0feb7d0bc": {
+    "message_id": 261,
+    "posted_at": "2026-10-01T08:55:52.792333+00:00",
     "status": "posted"
    },
-   "2026-10-01-AM:evergreen:dd8a5c1029754d12": {
-    "message_id": 254,
-    "posted_at": "2026-09-30T19:20:41.791112+00:00",
+   "2026-10-01-PM:evergreen:61f65d38b9316ad5": {
+    "message_id": 259,
+    "posted_at": "2026-10-01T08:55:17.879397+00:00",
     "status": "posted"
    },
-   "2026-10-01-AM:evergreen:ef6cd17332ad8fc7": {
-    "message_id": 255,
-    "posted_at": "2026-09-30T19:21:07.515480+00:00",
+   "2026-10-01-PM:evergreen:75b257f26b714b5d": {
+    "message_id": 262,
+    "posted_at": "2026-10-01T08:56:32.672646+00:00",
     "status": "posted"
    },
-   "2026-10-01-AM:evergreen:f41eaa65c0598612": {
-    "message_id": 251,
-    "posted_at": "2026-09-30T19:18:35.634338+00:00",
+   "2026-10-01-PM:evergreen:8be8973fb5f0f5da": {
+    "message_id": 260,
+    "posted_at": "2026-10-01T08:55:41.732599+00:00",
     "status": "posted"
    },
-   "2026-10-01-AM:live_results:1a4b94b1a69a0aae": {
-    "message_id": 257,
-    "posted_at": "2026-09-30T19:25:28.661431+00:00",
+   "2026-10-01-PM:evergreen:b227940145c1a380": {
+    "message_id": 263,
+    "posted_at": "2026-10-01T08:57:06.106604+00:00",
     "status": "posted"
    },
-   "2026-10-01-AM:live_schedule:07872410313b9bd8": {
-    "message_id": 256,
-    "posted_at": "2026-09-30T19:25:28.300228+00:00",
+   "2026-10-01-PM:live_results:1a4b94b1a69a0aae": {
+    "message_id": 265,
+    "posted_at": "2026-10-01T09:01:28.696626+00:00",
+    "status": "posted"
+   },
+   "2026-10-01-PM:live_schedule:07872410313b9bd8": {
+    "message_id": 264,
+    "posted_at": "2026-10-01T09:01:28.304523+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-09-30T19:25:28.666397+00:00",
-    "evergreen": 5,
+    "at": "2026-10-01T09:01:28.703480+00:00",
+    "evergreen": 6,
     "exit": 0,
-    "live_results": 257,
-    "live_schedule": 256,
-    "run_id": "2026-10-01-AM",
+    "live_results": 265,
+    "live_schedule": 264,
+    "run_id": "2026-10-01-PM",
     "used_sectors": [
-     "Game Discovery",
-     "On This Date",
+     "Equipment / Measurement",
+     "Game Origin",
+     "Interesting Sports Fact",
      "Sport Origin",
      "Sports & Games People",
-     "Then vs Now"
+     "Why Does This Happen?"
     ]
    }
   ],

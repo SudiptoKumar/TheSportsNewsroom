@@ -4054,8 +4054,276 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 255
+  },
+  {
+   "central_claim": "James Naismith devised basketball as an indoor winter game at the International YMCA Training School in Springfield, Massachusetts, in December 1891, after Luther Halsey Gulick challenged him to develop one. The first classroom game is commonly dated December 21, 1891, although its exact day is disputed.",
+   "central_knowledge_unit": "james naismith devised basketball as an indoor winter game at the international ymca training school in springfield massachusetts in december 1891 after luther halsey gulick challenged him to develop one the first classr",
+   "content_id": "9d32bb65a8c2c469",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "12ab6b038f8aeceb",
+    "ee55073573b3da73"
+   ],
+   "legacy": true,
+   "normalized_subject": "about dr james naismith naismith basketball foundation",
+   "people": [],
+   "published_at": "2026-09-30T19:18:35.634560+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "about.fiba.basketball/en/fiba-hall-of-fame/hall-of-famers/james-naismith"
+   ],
+   "sport_or_game": "About Dr. James Naismith | Naismith Basketball Foundation",
+   "telegram_message_id": 251
+  },
+  {
+   "central_claim": "Sáhkku is a board game of the Sami people. The game is traditional among the North Sámi, Skolt Sámi, Inari Sámi and Lule Sámi but may also have been played in other parts of Sápmi. ... Sáhkku is a running-fight game, which means that players move their pieces along a track with the goal of eliminating the other players' pieces. Many different variants of sáhkku have been played in different parts of Sápmi. The oral transfer of the sáhkku rules between generations was largely broken off during th",
+   "central_knowledge_unit": "s hkku is a board game of the sami people the game is traditional among the north s mi skolt s mi inari s mi and lule s mi but may also have been played in other parts of s pmi s hkku is a running fight game which means ",
+   "content_id": "1f0a973eece0355d",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "89d04055da49f5ae",
+    "bb1e4a36a575b6fb"
+   ],
+   "legacy": true,
+   "normalized_subject": "s hkku open wiki",
+   "people": [],
+   "published_at": "2026-09-30T19:19:01.066344+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "owiki.org/wiki/S%C3%A1hkku"
+   ],
+   "sport_or_game": "Sáhkku ::: Open WIKI",
+   "telegram_message_id": 252
+  },
+  {
+   "central_claim": "The Game||||| ||| | || ||||||||| | ||||||| | ||| ||Volleyball RulebookVolleyball Rule CHANGEsBeach Volleyball Rule CHANGEs | | The Game - Volleyball Rules| | **major changes in volleyball rules** **1895 \\***William G. Morgan invents game of Volleyball. **1897 \\***First Volleyball rules published by William G. Morgan. **1917 \\***Game changes from 21 points to 15 points per set. ... **1920 \\***The ball can be played with any other part of the body above the waist. Three hits per side rule also ado",
+   "central_knowledge_unit": "the game volleyball rulebookvolleyball rule changesbeach volleyball rule changes the game volleyball rules major changes in volleyball rules 1895 william g morgan invents game of volleyball 1897 first volleyball rules pu",
+   "content_id": "372b4d5ecda425f3",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e0057aeef35ea866",
+    "b2f0488b6a7af2e8"
+   ],
+   "legacy": true,
+   "normalized_subject": "the game",
+   "people": [],
+   "published_at": "2026-09-30T19:20:29.506496+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "fivb.com/wp-content/uploads/2025/01/FIVB-Volleyball_Rules2025_2028-EN-v05.pdf"
+   ],
+   "sport_or_game": "The Game",
+   "telegram_message_id": 253
+  },
+  {
+   "central_claim": "Pittsburgh beats Boston in first World Series game | October 1, 1903 | HISTORY ... In Boston on October 1, 1903, the Pittsburgh Pirates beat the Boston Americans, 7-3, in the first professional baseball World Series game. Pirates right fielder Jimmy Sebring hits the first World Series home run—an inside-the-park shot to deep center field off Americans ace Cy Young—in the seventh inning to extend the Pirates' lead to 7-0. Sebring is the game's star, driving in four runs. ... The Americans' won th",
+   "central_knowledge_unit": "pittsburgh beats boston in first world series game october 1 1903 history in boston on october 1 1903 the pittsburgh pirates beat the boston americans 7 3 in the first professional baseball world series game pirates righ",
+   "content_id": "55ccadff2971ca79",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "ddc23ce4b833368d",
+    "52d98f7d6d5dd720"
+   ],
+   "legacy": true,
+   "normalized_subject": "pittsburgh beats boston in first world series game october 1 1903 history",
+   "people": [],
+   "published_at": "2026-09-30T19:20:41.791466+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "history.com/this-day-in-history/october-1/first-world-series-game-pittsburgh-pirates-boston-americans"
+   ],
+   "sport_or_game": "Pittsburgh beats Boston in first World Series game | October 1, 1903 | HISTORY",
+   "telegram_message_id": 254
+  },
+  {
+   "central_claim": "Every modern player recognises the ritual. The board is fixed at its measured height. The throwing line establishes the permitted distance. Three darts rest in the hand. The player looks towards twenty narrow numbered segments arranged in a pattern so familiar that it can seem permanent. It is not permanent. It is the result of choices. The board, the numbers, the materials and even the line from which we throw all have histories. They were not delivered together by a single inventor. They emerg",
+   "central_knowledge_unit": "every modern player recognises the ritual the board is fixed at its measured height the throwing line establishes the permitted distance three darts rest in the hand the player looks towards twenty narrow numbered segmen",
+   "content_id": "1b9c01451386c029",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a36c3b227a42d20a",
+    "c13ae786e4c38101"
+   ],
+   "legacy": true,
+   "normalized_subject": "tmpx1g5jh 2",
+   "people": [],
+   "published_at": "2026-09-30T19:21:07.515761+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "download.boekhuis.nl/9789465544960_fragm-docb.pdf"
+   ],
+   "sport_or_game": "tmpx1g5jh_2",
+   "telegram_message_id": 255
+  },
+  {
+   "central_claim": "Lacrosse developed from Indigenous North American stick-and-ball games, including the Mohawk game tewaarathon. These games had spiritual, social and practical purposes. In nineteenth-century Canada, non-Indigenous players adopted and transformed the game; William George Beers published rules in 1860, and a national lacrosse association adopted them in 1867. Indigenous players and traditions continued alongside the modern sport.",
+   "central_knowledge_unit": "lacrosse hopkins press",
+   "content_id": "dbdda9e51652cf72",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "dbdda9e51652cf72",
+    "bcda319d76ab5260"
+   ],
+   "normalized_subject": "lacrosse hopkins press",
+   "people": [],
+   "published_at": "2026-10-01T08:54:52.920589+00:00",
+   "region": "",
+   "run_id": "2026-10-01-PM",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 258
+  },
+  {
+   "central_claim": "The earliest example of a board for this game found in Persia comes from the site of Šahr-e Suḵta (also spelled in literature as Shahr-i Sokhta or Shahr-e Sukhteh) in southern Sistān (Piperno and Salvatori, 1983, pp. 179-89, figs. 5-7, pl. VI; FIGURE 1). The form of the wooden board and the order of the individual spaces or fields follow the earlier examples from the royal cemetery at Ur (Woolley, 1934, pp. 274-79, pls. 95-98). The central row of eight fields is accompanied on either side by four fields on one end of the board, making a rectangle of 4 x 3 fields, and by two fields on the other end of the board, making a rectangle of 2 x 3 fields (see FIGURE 1 and FIGURE 2). On the board foun",
+   "central_knowledge_unit": "board games in pre islamic persia encyclopaedia iranica",
+   "content_id": "26a064fe6ad175c3",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "26a064fe6ad175c3",
+    "4374979a547a962a"
+   ],
+   "normalized_subject": "board games in pre islamic persia encyclopaedia iranica",
+   "people": [],
+   "published_at": "2026-10-01T08:55:17.879573+00:00",
+   "region": "",
+   "run_id": "2026-10-01-PM",
+   "sector": "Game Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 259
+  },
+  {
+   "central_claim": "Home field advantage is well-known to fans of different sports and is well-supported by the data. How prevalent is it in English football? That’s what I’m going to explore in this blog post. A few years ago, I did a similar analysis, but with a much smaller data set (see https://blog.engora.com/2021/01/covid-and-soccer-home-team-advantage.html). This time, I have complete English football league data from 1888 to the 2024-2025 season, so my analysis is going to be much more thorough. Frankly, I was surprised by what I found. ... The goal metric is simple, it’s just the mean over all the matches in a season of home goals – away goals. I’ll call it the per-match home goal advantage. A value of",
+   "central_knowledge_unit": "engora data blog vanishing home field advantage in english football",
+   "content_id": "c0107e7d04b6e97c",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c0107e7d04b6e97c",
+    "78308a05d4a71acf"
+   ],
+   "normalized_subject": "engora data blog vanishing home field advantage in english football",
+   "people": [],
+   "published_at": "2026-10-01T08:55:41.732771+00:00",
+   "region": "",
+   "run_id": "2026-10-01-PM",
+   "sector": "Interesting Sports Fact",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 260
+  },
+  {
+   "central_claim": "As bending free-kicks becomes the norm in modern day soccer, implications for goalkeepers have largely been ignored. Although it has been reported that poor sensitivity to visual acceleration makes it harder for expert goalkeepers to perceptually judge where the curved free-kicks will cross the goal line, it is unknown how this affects the goalkeeper's actual movements. ... While it has previously been shown that humans can internalize the effects of gravitational acceleration, these results show that it is much more difficult for goalkeepers to account for spin-induced visual acceleration, which varies from situation to situation. The limited sensitivity of the human visual system for detec",
+   "central_knowledge_unit": "bending it like beckham how to visually fool the goalkeeper",
+   "content_id": "c6d28b0d7b7f62fa",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c6d28b0d7b7f62fa",
+    "7762dce948cd064a"
+   ],
+   "normalized_subject": "bending it like beckham how to visually fool the goalkeeper",
+   "people": [],
+   "published_at": "2026-10-01T08:55:52.792488+00:00",
+   "region": "",
+   "run_id": "2026-10-01-PM",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 261
+  },
+  {
+   "central_claim": "Pierre, Baron de Coubertin, served as the 2nd President of the International Olympic Committee, but his importance in the Olympic Movement far overshadows that simple statement. Although recent scholarship has shown that he was not the only person who had the idea to begin international Olympic Games, he is certainly the person still mostly responsible for the revival of the Olympic Games in 1896. For this effort, he is correctly termed le rénovateur. ... Spurred by these findings, and hearing of multiple archaeological discoveries in ancient Olympia between 1875 and 1881, Coubertin became enthralled with the idea of re-establishing the Olympic Games as a modern international sporting festiv",
+   "central_knowledge_unit": "olympedia pierre baron de coubertin",
+   "content_id": "4bf00dcfcc9af6b2",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4bf00dcfcc9af6b2",
+    "1c105ac4388950ea"
+   ],
+   "normalized_subject": "olympedia pierre baron de coubertin",
+   "people": [],
+   "published_at": "2026-10-01T08:56:32.672799+00:00",
+   "region": "",
+   "run_id": "2026-10-01-PM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 262
+  },
+  {
+   "central_claim": "The FIFA World Cup 2026 match ball combined advanced materials, aerodynamic design and embedded electronics to help referees make faster, more accurate decisions. Just don’t call it a smart ball. It’s been described as the most advanced football ever created. Constructed from just four thermally bonded panels – the fewest ever used on an official World Cup match ball – every aspect of Adidas’s Trionda reflects the latest thinking in football design. ... ,” said Sam Handy, general manager at Adidas Football. Intentionally deep seams and strategically placed surface textures generate evenly distributed drag as the ball travels through the air, as well as improved grip in wet or humid condition",
+   "central_knowledge_unit": "inside fifa world cup 2026 s connected match ball the engineer",
+   "content_id": "59eece96357ce474",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "59eece96357ce474",
+    "286bb72c7c40105f"
+   ],
+   "normalized_subject": "inside fifa world cup 2026 s connected match ball the engineer",
+   "people": [],
+   "published_at": "2026-10-01T08:57:06.106751+00:00",
+   "region": "",
+   "run_id": "2026-10-01-PM",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 263
   }
  ],
  "schema": 1,
- "updated_at": "2026-09-30T19:21:07.515730+00:00"
+ "updated_at": "2026-10-01T08:57:06.106894+00:00"
 }
