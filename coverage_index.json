@@ -4322,8 +4322,396 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 263
+  },
+  {
+   "central_claim": "Lacrosse developed from Indigenous North American stick-and-ball games, including the Mohawk game tewaarathon. These games had spiritual, social and practical purposes. In nineteenth-century Canada, non-Indigenous players adopted and transformed the game; William George Beers published rules in 1860, and a national lacrosse association adopted them in 1867. Indigenous players and traditions continued alongside the modern sport.",
+   "central_knowledge_unit": "lacrosse developed from indigenous north american stick and ball games including the mohawk game tewaarathon these games had spiritual social and practical purposes in nineteenth century canada non indigenous players ado",
+   "content_id": "14c624a65800d9d5",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "bcda319d76ab5260",
+    "f0615f9a24c11688"
+   ],
+   "legacy": true,
+   "normalized_subject": "lacrosse hopkins press",
+   "people": [],
+   "published_at": "2026-10-01T08:54:52.920784+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "press.jhu.edu/books/title/8442/lacrosse"
+   ],
+   "sport_or_game": "Lacrosse | Hopkins Press",
+   "telegram_message_id": 258
+  },
+  {
+   "central_claim": "The earliest example of a board for this game found in Persia comes from the site of Šahr-e Suḵta (also spelled in literature as Shahr-i Sokhta or Shahr-e Sukhteh) in southern Sistān (Piperno and Salvatori, 1983, pp. 179-89, figs. 5-7, pl. VI; FIGURE 1). The form of the wooden board and the order of the individual spaces or fields follow the earlier examples from the royal cemetery at Ur (Woolley, 1934, pp. 274-79, pls. 95-98). The central row of eight fields is accompanied on either side by fou",
+   "central_knowledge_unit": "the earliest example of a board for this game found in persia comes from the site of ahr e su ta also spelled in literature as shahr i sokhta or shahr e sukhteh in southern sist n piperno and salvatori 1983 pp 179 89 fig",
+   "content_id": "fc8118f26dbd319e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4374979a547a962a",
+    "b3a9f454fa7f4350"
+   ],
+   "legacy": true,
+   "normalized_subject": "board games in pre islamic persia encyclopaedia iranica",
+   "people": [],
+   "published_at": "2026-10-01T08:55:17.879762+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Origin",
+   "source_urls": [
+    "iranicaonline.org/articles/board-games-in-pre-islamic-persia"
+   ],
+   "sport_or_game": "BOARD GAMES in pre-Islamic Persia - Encyclopaedia Iranica",
+   "telegram_message_id": 259
+  },
+  {
+   "central_claim": "Home field advantage is well-known to fans of different sports and is well-supported by the data. How prevalent is it in English football? That’s what I’m going to explore in this blog post. A few years ago, I did a similar analysis, but with a much smaller data set (see https://blog.engora.com/2021/01/covid-and-soccer-home-team-advantage.html). This time, I have complete English football league data from 1888 to the 2024-2025 season, so my analysis is going to be much more thorough. Frankly, I ",
+   "central_knowledge_unit": "home field advantage is well known to fans of different sports and is well supported by the data how prevalent is it in english football that s what i m going to explore in this blog post a few years ago i did a similar ",
+   "content_id": "2e8d1bfbe352b2bc",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "78308a05d4a71acf",
+    "39bc8aa843cf5141"
+   ],
+   "legacy": true,
+   "normalized_subject": "engora data blog vanishing home field advantage in english football",
+   "people": [],
+   "published_at": "2026-10-01T08:55:41.732959+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Sports Fact",
+   "source_urls": [
+    "blog.engora.com/2025/07/vanishing-home-field-advantage-in.html"
+   ],
+   "sport_or_game": "Engora Data Blog: Vanishing home field advantage in English football",
+   "telegram_message_id": 260
+  },
+  {
+   "central_claim": "As bending free-kicks becomes the norm in modern day soccer, implications for goalkeepers have largely been ignored. Although it has been reported that poor sensitivity to visual acceleration makes it harder for expert goalkeepers to perceptually judge where the curved free-kicks will cross the goal line, it is unknown how this affects the goalkeeper's actual movements. ... While it has previously been shown that humans can internalize the effects of gravitational acceleration, these results sho",
+   "central_knowledge_unit": "as bending free kicks becomes the norm in modern day soccer implications for goalkeepers have largely been ignored although it has been reported that poor sensitivity to visual acceleration makes it harder for expert goa",
+   "content_id": "303412046df93cc7",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7762dce948cd064a",
+    "092184483fc1c6e5"
+   ],
+   "legacy": true,
+   "normalized_subject": "bending it like beckham how to visually fool the goalkeeper",
+   "people": [],
+   "published_at": "2026-10-01T08:55:52.792632+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "pmc.ncbi.nlm.nih.gov/articles/PMC2950839"
+   ],
+   "sport_or_game": "Bending It Like Beckham: How to Visually Fool the Goalkeeper",
+   "telegram_message_id": 261
+  },
+  {
+   "central_claim": "Pierre, Baron de Coubertin, served as the 2nd President of the International Olympic Committee, but his importance in the Olympic Movement far overshadows that simple statement. Although recent scholarship has shown that he was not the only person who had the idea to begin international Olympic Games, he is certainly the person still mostly responsible for the revival of the Olympic Games in 1896. For this effort, he is correctly termed le rénovateur. ... Spurred by these findings, and hearing o",
+   "central_knowledge_unit": "pierre baron de coubertin served as the 2nd president of the international olympic committee but his importance in the olympic movement far overshadows that simple statement although recent scholarship has shown that he ",
+   "content_id": "7a71387439302f19",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "1c105ac4388950ea",
+    "d349c7c1464100d6"
+   ],
+   "legacy": true,
+   "normalized_subject": "olympedia pierre baron de coubertin",
+   "people": [],
+   "published_at": "2026-10-01T08:56:32.672969+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "olympics.com/en/athletes/pierre-de-coubertin"
+   ],
+   "sport_or_game": "Olympedia – Pierre, Baron de Coubertin",
+   "telegram_message_id": 262
+  },
+  {
+   "central_claim": "The FIFA World Cup 2026 match ball combined advanced materials, aerodynamic design and embedded electronics to help referees make faster, more accurate decisions. Just don’t call it a smart ball. It’s been described as the most advanced football ever created. Constructed from just four thermally bonded panels – the fewest ever used on an official World Cup match ball – every aspect of Adidas’s Trionda reflects the latest thinking in football design. ... ,” said Sam Handy, general manager at Adid",
+   "central_knowledge_unit": "the fifa world cup 2026 match ball combined advanced materials aerodynamic design and embedded electronics to help referees make faster more accurate decisions just don t call it a smart ball it s been described as the m",
+   "content_id": "4a34ec0d3a73668b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "286bb72c7c40105f",
+    "77f597bd1fd49caf"
+   ],
+   "legacy": true,
+   "normalized_subject": "inside fifa world cup 2026 s connected match ball the engineer",
+   "people": [],
+   "published_at": "2026-10-01T08:57:06.106925+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "theengineer.co.uk/content/in-depth/how-adidas-world-cup-ball-took-in-game-analytics-to-the-next-level"
+   ],
+   "sport_or_game": "Inside FIFA World Cup 2026’s Connected Match Ball - The Engineer",
+   "telegram_message_id": 263
+  },
+  {
+   "central_claim": "Pierre de Coubertin (1863–1937) was a French educator and a principal organizer of the international Olympic movement that established the IOC in 1894 and staged the 1896 Athens Games; he served as the IOC’s second president from 1896 to 1925. Beyond the Olympics, he promoted sport in education, organized a physical-education congress in 1889, was active in the French sports federation USFSA, and founded later educational organizations. He was neither the sole pioneer of Olympic revival nor demonstrably a founder of the USFSA in 1890.",
+   "central_knowledge_unit": "who was baron pierre de coubertin what were some of his lesser known contributions know the founder of the modern olympic games",
+   "content_id": "18d204ec5e56430e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "18d204ec5e56430e",
+    "838b0273cdd51e31"
+   ],
+   "normalized_subject": "who was baron pierre de coubertin what were some of his lesser known contributions know the founder of the modern olympic games",
+   "people": [],
+   "published_at": "2026-10-01T19:35:50.582955+00:00",
+   "region": "",
+   "run_id": "2026-10-02-AM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 266
+  },
+  {
+   "central_claim": "Pato, also known as juego del pato, is played on horseback and is a mix of basketball and polo. The original version of the sport, invented in the 17th Century, saw horsemen (known as gauchos) race across huge distances aiming to be the first to reach a ranch house while carrying a live duck in a basket. Pato is Spanish for duck – which is where the sport’s name comes from. ... Pato wasn’t simply a racing game and would often lead to violence and death as players fought for possession of the duck – leading to the sport being banned. In the 20th Century, pato was modernised – with the ducks being replaced by a leather ball with handles. Teams are made up of four horses and riders who compete",
+   "central_knowledge_unit": "three unique national sports from around the world bbc",
+   "content_id": "fcfe1c5d23b49870",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "fcfe1c5d23b49870",
+    "bee11ddba8432523"
+   ],
+   "normalized_subject": "three unique national sports from around the world bbc",
+   "people": [],
+   "published_at": "2026-10-01T19:35:57.185955+00:00",
+   "region": "",
+   "run_id": "2026-10-02-AM",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 267
+  },
+  {
+   "central_claim": "The Evergreen Game is Anderssen’s celebrated win over Jean Dufresne, conventionally dated to 1852 and published in the September and October 1852 Deutsche Schachzeitung. It was probably an informal game. Berlin is a customary attribution, not a venue established by the earliest accounts; its exact date and circumstances are unverified. Anderssen had won the 1851 London international tournament, but held no formal world-champion title.",
+   "central_knowledge_unit": "evergreen game wikipedia",
+   "content_id": "77143f4091fd3a9e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "77143f4091fd3a9e",
+    "42c030fbe64d3cd9"
+   ],
+   "normalized_subject": "evergreen game wikipedia",
+   "people": [],
+   "published_at": "2026-10-01T19:36:14.004574+00:00",
+   "region": "",
+   "run_id": "2026-10-02-AM",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 268
+  },
+  {
+   "central_claim": "Sports equipment, also called sporting goods, are the tools, materials, apparel, and gear that vary in shape, size, and usage in a particular sport. It includes balls, nets, rackets, protective gears like helmets, goggles, etc. Since the performer must use sports equipment, [1] it can also serve for protection. [2] [a] ## History and development of sports ... As the sporting equipment industry improves, so do the athletes' performance. This is due to the fact that the equipment is more efficient, lighter and stronger, thus forming a biomechanical system that is interacting with the athlete. [7] Since the massive adoption of wearable, new sport equipment tend to be electronics and connected t",
+   "central_knowledge_unit": "sports equipment wikipedia",
+   "content_id": "078ba0a9fdd7fde4",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "078ba0a9fdd7fde4",
+    "eea57bbf8924af37"
+   ],
+   "normalized_subject": "sports equipment wikipedia",
+   "people": [],
+   "published_at": "2026-10-01T19:36:21.618301+00:00",
+   "region": "",
+   "run_id": "2026-10-02-AM",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 269
+  },
+  {
+   "central_claim": "Lacrosse is older than the printing press. Golf was invented before Abraham Lincoln was born, but basketball didn’t exist until decades after his death. The first book on figure skating was published before the Declaration of Independence. ... and ever-evolving ... . Spanning ... to the ... , here are the ... of seven of the most popular games. ... Basketball is the only major American sport with a clearly identifiable inventor. James Naismith wrote the sport’s original 13 rules as part of a December 1891 class assignment at a Young Men’s Christian Association (YMCA) training school in Springfield, Massachusetts. Born and educated in Canada, Naismith came south to pursue his interests in phy",
+   "central_knowledge_unit": "the origins of 7 popular sports history com",
+   "content_id": "aa9ca97d47de601d",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "aa9ca97d47de601d",
+    "f696a5befaff88fb"
+   ],
+   "normalized_subject": "the origins of 7 popular sports history com",
+   "people": [],
+   "published_at": "2026-10-01T19:36:34.582160+00:00",
+   "region": "",
+   "run_id": "2026-10-02-AM",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 270
+  },
+  {
+   "central_claim": "them. For example, full length swimsuits were first debated in 2000, (Magdalinski 2000) but not banned until 2011 (Craik 2011). Likewise, Pistorius’s prostheses first drew attention in 2008, but took until 2012 until he finally used them in both the ... The most cited case study of athlete access to sports equipment surrounds the use of full body swimsuits (n = 10). For the 1992 Olympic Games, Speedo introduced the S2000 fabric (Craik 2011) which reduced the drag of the swimmer by 15 % over more traditional fabrics (Stefani 2012). Speedo’s new fabric ultimately led to them introducing full length swim wear in 1999 (Craik 2011) and at the Sydney 2000 Olympics (Zettler 2009; Magdalinski 2000).",
+   "central_knowledge_unit": "the controversy of sports technology a systematic review pmc nih",
+   "content_id": "3f8b0d31c81b5a41",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "3f8b0d31c81b5a41",
+    "f4ed72dc9bb550a3"
+   ],
+   "normalized_subject": "the controversy of sports technology a systematic review pmc nih",
+   "people": [],
+   "published_at": "2026-10-01T19:37:01.064578+00:00",
+   "region": "",
+   "run_id": "2026-10-02-AM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 271
+  },
+  {
+   "central_claim": "The long-range goal is supposed to be dead. Depending on whom you listen to, it's the result of analytics or the new mode of managerial tactics. Whatever the answer, the broader cause is the same: stop shooting from so far away; it's easier to score from closer to the goal. ... In the 2008-09 season -- the earliest in the Stats Perform database -- Premier League teams took 45.7% of their shots from outside the box. This season, it's down to 32.5%, the second-smallest share after last season. The average shot in 2008-09 came from 18.3 meters away. This season, teams are shooting, on average, from 15.4 meters, tied with last season for the closest on record. Combine that with the general, sudd",
+   "central_knowledge_unit": "is a new premier league ball helping with long range goals espn",
+   "content_id": "009a3a101e1da097",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "009a3a101e1da097",
+    "238fffa75ec190ee"
+   ],
+   "normalized_subject": "is a new premier league ball helping with long range goals espn",
+   "people": [],
+   "published_at": "2026-10-01T19:37:51.246113+00:00",
+   "region": "",
+   "run_id": "2026-10-02-AM",
+   "sector": "Interesting Sports Fact",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 272
+  },
+  {
+   "central_claim": "This is a (digital) reprinting of the game “Detroit”, originally published in 1982 by MASHER Games, the shortly lived independent roleplaying project of Games Workshop veteran Heap Robinson who is widely known for his work on Fresh Ice. Detroit, MASHER’s first and only game was released as a boxset in a short run of less than a hundred copies, where they lingered on shelves longer than Robinson had hoped. It was never reprinted, and indeed almost all of the original edition boxes were lost in the 1995 British Inkcrash. This reprinting – unauthorised, the copyright having lapsed due to MASHER’s dissolution and Robinson’s disappearance – has been pieced together based on scans from a recovered",
+   "central_knowledge_unit": "detroit a roleplaying game by lichen arrowsmith",
+   "content_id": "1def03a333a1c9d0",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "1def03a333a1c9d0",
+    "09097fa96394877d"
+   ],
+   "normalized_subject": "detroit a roleplaying game by lichen arrowsmith",
+   "people": [],
+   "published_at": "2026-10-01T19:38:01.732832+00:00",
+   "region": "",
+   "run_id": "2026-10-02-AM",
+   "sector": "Forgotten Game",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 273
+  },
+  {
+   "central_claim": "Spore-adic! A Token Placement Game of Mushroom Mayhem | Nonymous Games # Spore-adic! A Token Placement Game of Mushroom Mayhem (Currently In Development) WARNING: Choking Hazard Not for children under 3 years. Overview & How to Play - Grow your mushroom chains to control the board. - Earn points by placing mushrooms, colonies, and creating Fairy Rings. - Use cards to grow your chains faster or slow down your opponents. - Contains \"Garden\" hex grid game board, rule book, 48 Game Cards, 6 player token boxes each containing 3 Colony & 40 Mushroom tokens, \"Desert of No Return\" mat. - 2-6 Players, Ages 10+, Play time: 20-40 minutes ##### This game is currently in playtesting. We will be at Oklaho",
+   "central_knowledge_unit": "spore adic a token placement game of mushroom mayhem nonymous games",
+   "content_id": "daaa96dc5b2eeb6a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "daaa96dc5b2eeb6a",
+    "5396ef2959c9111f"
+   ],
+   "normalized_subject": "spore adic a token placement game of mushroom mayhem nonymous games",
+   "people": [],
+   "published_at": "2026-10-01T19:38:14.133844+00:00",
+   "region": "",
+   "run_id": "2026-10-02-AM",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 274
+  },
+  {
+   "central_claim": "1936 World Series Game 2, New York Yankees vs New York Giants: October 2, 1936 | Baseball-Reference.com ... | Game 1, September 30 | | | | --- | --- | --- | | NYY | 1 | F inal | | NYG | 6 | | | Game 2, October 2 | | | | --- | --- | --- | | NYY | 18 | F inal | | NYG | 4 | | ... ## Series Summary New York Yankees ... 102-51 New York Giants ... Friday, October 2, 1936",
+   "central_knowledge_unit": "1936 world series game 2 new york yankees vs new york giants october 2 1936 baseball reference com",
+   "content_id": "b3724167f239e6f7",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b3724167f239e6f7",
+    "2ad33269d6aaca39"
+   ],
+   "normalized_subject": "1936 world series game 2 new york yankees vs new york giants october 2 1936 baseball reference com",
+   "people": [],
+   "published_at": "2026-10-01T19:38:32.270266+00:00",
+   "region": "",
+   "run_id": "2026-10-02-AM",
+   "sector": "On This Date",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 275
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-01T08:57:06.106894+00:00"
+ "updated_at": "2026-10-01T19:38:32.270439+00:00"
 }

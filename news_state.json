@@ -1,15 +1,15 @@
 {
  "ai": {
-  "last_error": "Cerebras per-run call cap reached (16)",
-  "last_ok": "2026-10-01T08:57:13.419897+00:00",
-  "last_request_id": "a43a42317b4046d4-IND",
+  "last_error": "",
+  "last_ok": "2026-10-01T19:38:23.920470+00:00",
+  "last_request_id": "a43ded697ebc60d0-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-01T09:01:28.703503+00:00",
+ "last_run_at": "2026-10-01T19:42:44.667028+00:00",
  "ledger": {},
  "posts": [
   {
@@ -2086,6 +2086,230 @@
    "urls": [
     "theengineer.co.uk/content/in-depth/how-adidas-world-cup-ball-took-in-game-analytics-to-the-next-level"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Who was Baron Pierre de Coubertin? What were some of his lesser-known contributions? Know the founder of the Modern Olympic Games",
+   "claim": "Pierre de Coubertin (1863–1937) was a French educator and a principal organizer of the international Olympic movement that established the IOC in 1894 and staged the 1896 Athens Games; he served as the IOC’s second president from 1896 to 1925. Beyond the Olympics, he promoted sport in education, organized a physical-education congress in 1889, was active in the French sports federation USFSA, and founded later educational organizations. He was neither the sole pioneer of Olympic revival nor demonstrably a founder of the USFSA in 1890.",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Pierre de Coubertin: Olympic Founder and Education Reformer",
+   "image_status": "card_fallback",
+   "message_id": 266,
+   "normalized_subject": "Who was Baron Pierre de Coubertin? What were some of his lesser-known contributions? Know the founder of the Modern Olympic Games",
+   "posted_at": "2026-10-01T19:35:50.583136+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-02-AM",
+   "sector": "Sports & Games People",
+   "topic": "Who was Baron Pierre de Coubertin? What were some of his lesser-known contributions? Know the founder of the Modern Olympic Games",
+   "urls": [
+    "olympics.com/en/news/baron-pierre-de-coubertin-lesser-known-facts-founder-modern-olympic-games"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Three unique national sports from around the world - BBC",
+   "claim": "Pato, also known as juego del pato, is played on horseback and is a mix of basketball and polo. The original version of the sport, invented in the 17th Century, saw horsemen (known as gauchos) race across huge distances aiming to be the first to reach a ranch house while carrying a live duck in a basket. Pato is Spanish for duck – which is where the sport’s name comes from. ... Pato wasn’t simply a racing game and would often lead to violence and death as players fought for possession of the duck – leading to the sport being banned. In the 20th Century, pato was modernised – with the ducks being replaced by a leather ball with handles. Teams are made up of four horses and riders who compete ",
+   "desk": "evergreen_v1",
+   "format": "Sport Discovery",
+   "headline": "Pato: Argentina’s Historic Horseback Sport Evolving from Duck to Ball",
+   "image_status": "verified_external",
+   "message_id": 267,
+   "normalized_subject": "Three unique national sports from around the world - BBC",
+   "posted_at": "2026-10-01T19:35:57.186176+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-02-AM",
+   "sector": "Sport Discovery",
+   "topic": "Three unique national sports from around the world - BBC",
+   "urls": [
+    "bbc.co.uk/bitesize/articles/zwm2s82"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Evergreen Game - Wikipedia",
+   "claim": "The Evergreen Game is Anderssen’s celebrated win over Jean Dufresne, conventionally dated to 1852 and published in the September and October 1852 Deutsche Schachzeitung. It was probably an informal game. Berlin is a customary attribution, not a venue established by the earliest accounts; its exact date and circumstances are unverified. Anderssen had won the 1851 London international tournament, but held no formal world-champion title.",
+   "desk": "evergreen_v1",
+   "format": "Interesting Game Fact",
+   "headline": "Anderssen’s Evergreen Game: 1852 Victory Over Dufresne",
+   "image_status": "verified_external",
+   "message_id": 268,
+   "normalized_subject": "Evergreen Game - Wikipedia",
+   "posted_at": "2026-10-01T19:36:14.004714+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-02-AM",
+   "sector": "Interesting Game Fact",
+   "topic": "Evergreen Game - Wikipedia",
+   "urls": [
+    "en.wikipedia.org/wiki/Evergreen_Game"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Sports equipment - Wikipedia",
+   "claim": "Sports equipment, also called sporting goods, are the tools, materials, apparel, and gear that vary in shape, size, and usage in a particular sport. It includes balls, nets, rackets, protective gears like helmets, goggles, etc. Since the performer must use sports equipment, [1] it can also serve for protection. [2] [a] ## History and development of sports ... As the sporting equipment industry improves, so do the athletes' performance. This is due to the fact that the equipment is more efficient, lighter and stronger, thus forming a biomechanical system that is interacting with the athlete. [7] Since the massive adoption of wearable, new sport equipment tend to be electronics and connected t",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "Sports Equipment: Tools, Protection, and Performance Boosters",
+   "image_status": "verified_external",
+   "message_id": 269,
+   "normalized_subject": "Sports equipment - Wikipedia",
+   "posted_at": "2026-10-01T19:36:21.618496+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-02-AM",
+   "sector": "Equipment / Measurement",
+   "topic": "Sports equipment - Wikipedia",
+   "urls": [
+    "en.wikipedia.org/wiki/Sports_equipment"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The Origins of 7 Popular Sports - History.com",
+   "claim": "Lacrosse is older than the printing press. Golf was invented before Abraham Lincoln was born, but basketball didn’t exist until decades after his death. The first book on figure skating was published before the Declaration of Independence. ... and ever-evolving ... . Spanning ... to the ... , here are the ... of seven of the most popular games. ... Basketball is the only major American sport with a clearly identifiable inventor. James Naismith wrote the sport’s original 13 rules as part of a December 1891 class assignment at a Young Men’s Christian Association (YMCA) training school in Springfield, Massachusetts. Born and educated in Canada, Naismith came south to pursue his interests in phy",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "Basketball’s Canadian Creator and the Ancient Roots of Popular Sports",
+   "image_status": "card_fallback",
+   "message_id": 270,
+   "normalized_subject": "The Origins of 7 Popular Sports - History.com",
+   "posted_at": "2026-10-01T19:36:34.582467+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-02-AM",
+   "sector": "Sport Origin",
+   "topic": "The Origins of 7 Popular Sports - History.com",
+   "urls": [
+    "history.com/articles/origins-invention-popular-sports"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The controversy of sports technology: a systematic review - PMC - NIH",
+   "claim": "them. For example, full length swimsuits were first debated in 2000, (Magdalinski 2000) but not banned until 2011 (Craik 2011). Likewise, Pistorius’s prostheses first drew attention in 2008, but took until 2012 until he finally used them in both the ... The most cited case study of athlete access to sports equipment surrounds the use of full body swimsuits (n = 10). For the 1992 Olympic Games, Speedo introduced the S2000 fabric (Craik 2011) which reduced the drag of the swimmer by 15 % over more traditional fabrics (Stefani 2012). Speedo’s new fabric ultimately led to them introducing full length swim wear in 1999 (Craik 2011) and at the Sydney 2000 Olympics (Zettler 2009; Magdalinski 2000).",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "Full‑length swimsuits sparked debate before 2011 ban",
+   "image_status": "verified_external",
+   "message_id": 271,
+   "normalized_subject": "The controversy of sports technology: a systematic review - PMC - NIH",
+   "posted_at": "2026-10-01T19:37:01.064769+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-02-AM",
+   "sector": "Then vs Now",
+   "topic": "The controversy of sports technology: a systematic review - PMC - NIH",
+   "urls": [
+    "pmc.ncbi.nlm.nih.gov/articles/PMC4575312"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Is a new Premier League ball helping with long-range goals? - ESPN",
+   "claim": "The long-range goal is supposed to be dead. Depending on whom you listen to, it's the result of analytics or the new mode of managerial tactics. Whatever the answer, the broader cause is the same: stop shooting from so far away; it's easier to score from closer to the goal. ... In the 2008-09 season -- the earliest in the Stats Perform database -- Premier League teams took 45.7% of their shots from outside the box. This season, it's down to 32.5%, the second-smallest share after last season. The average shot in 2008-09 came from 18.3 meters away. This season, teams are shooting, on average, from 15.4 meters, tied with last season for the closest on record. Combine that with the general, sudd",
+   "desk": "evergreen_v1",
+   "format": "Interesting Sports Fact",
+   "headline": "Premier League teams shoot closer, but long-range goals stay steady",
+   "image_status": "verified_external",
+   "message_id": 272,
+   "normalized_subject": "Is a new Premier League ball helping with long-range goals? - ESPN",
+   "posted_at": "2026-10-01T19:37:51.246310+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-02-AM",
+   "sector": "Interesting Sports Fact",
+   "topic": "Is a new Premier League ball helping with long-range goals? - ESPN",
+   "urls": [
+    "espn.com/soccer/story/_/id/48541371/premier-league-ball-nike-puma-science-analysis-goals-ryan-ohanlon"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Detroit - A Roleplaying Game by Lichen Arrowsmith",
+   "claim": "This is a (digital) reprinting of the game “Detroit”, originally published in 1982 by MASHER Games, the shortly lived independent roleplaying project of Games Workshop veteran Heap Robinson who is widely known for his work on Fresh Ice. Detroit, MASHER’s first and only game was released as a boxset in a short run of less than a hundred copies, where they lingered on shelves longer than Robinson had hoped. It was never reprinted, and indeed almost all of the original edition boxes were lost in the 1995 British Inkcrash. This reprinting – unauthorised, the copyright having lapsed due to MASHER’s dissolution and Robinson’s disappearance – has been pieced together based on scans from a recovered",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Game",
+   "headline": "Forgotten 1982 RPG Detroit Reappears as Digital Reprint",
+   "image_status": "verified_external",
+   "message_id": 273,
+   "normalized_subject": "Detroit - A Roleplaying Game by Lichen Arrowsmith",
+   "posted_at": "2026-10-01T19:38:01.733071+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-02-AM",
+   "sector": "Forgotten Game",
+   "topic": "Detroit - A Roleplaying Game by Lichen Arrowsmith",
+   "urls": [
+    "lsv-invisible-city.itch.io/detroit-a-roleplaying-game"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Spore-adic! A Token Placement Game of Mushroom Mayhem | Nonymous Games",
+   "claim": "Spore-adic! A Token Placement Game of Mushroom Mayhem | Nonymous Games # Spore-adic! A Token Placement Game of Mushroom Mayhem (Currently In Development) WARNING: Choking Hazard Not for children under 3 years. Overview & How to Play - Grow your mushroom chains to control the board. - Earn points by placing mushrooms, colonies, and creating Fairy Rings. - Use cards to grow your chains faster or slow down your opponents. - Contains \"Garden\" hex grid game board, rule book, 48 Game Cards, 6 player token boxes each containing 3 Colony & 40 Mushroom tokens, \"Desert of No Return\" mat. - 2-6 Players, Ages 10+, Play time: 20-40 minutes ##### This game is currently in playtesting. We will be at Oklaho",
+   "desk": "evergreen_v1",
+   "format": "New Tabletop Game Discovery",
+   "headline": "Spore-adic Brings Mushroom Mayhem to the Tabletop",
+   "image_status": "verified_external",
+   "message_id": 274,
+   "normalized_subject": "Spore-adic! A Token Placement Game of Mushroom Mayhem | Nonymous Games",
+   "posted_at": "2026-10-01T19:38:14.134009+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-02-AM",
+   "sector": "New Tabletop Game Discovery",
+   "topic": "Spore-adic! A Token Placement Game of Mushroom Mayhem | Nonymous Games",
+   "urls": [
+    "nonymous.games/spore-adic-a-token-placement-game-of-mushroom-mayhem-p-3"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "1936 World Series Game 2, New York Yankees vs New York Giants: October 2, 1936 | Baseball-Reference.com",
+   "claim": "1936 World Series Game 2, New York Yankees vs New York Giants: October 2, 1936 | Baseball-Reference.com ... | Game 1, September 30 | | | | --- | --- | --- | | NYY | 1 | F inal | | NYG | 6 | | | Game 2, October 2 | | | | --- | --- | --- | | NYY | 18 | F inal | | NYG | 4 | | ... ## Series Summary New York Yankees ... 102-51 New York Giants ... Friday, October 2, 1936",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "Yankees Crush Giants 18-4 in Game 2 of 1936 World Series",
+   "image_status": "verified_external",
+   "message_id": 275,
+   "normalized_subject": "1936 World Series Game 2, New York Yankees vs New York Giants: October 2, 1936 | Baseball-Reference.com",
+   "posted_at": "2026-10-01T19:38:32.270478+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-02-AM",
+   "sector": "On This Date",
+   "topic": "1936 World Series Game 2, New York Yankees vs New York Giants: October 2, 1936 | Baseball-Reference.com",
+   "urls": [
+    "baseball-reference.com/boxes/NY1/NY1193610020.shtml"
+   ]
   }
  ],
  "runs": [],
@@ -2097,117 +2321,145 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-10-01T08:49:21.112900+00:00",
+  "created_at": "2026-10-01T19:30:16.175188+00:00",
   "daily": {
-   "2026-10-01": {
+   "2026-10-02": {
     "published_sectors": [
-     "Sport Origin",
-     "Game Origin",
-     "Interesting Sports Fact",
-     "Why Does This Happen?",
      "Sports & Games People",
-     "Equipment / Measurement"
+     "Sport Discovery",
+     "Interesting Game Fact",
+     "Equipment / Measurement",
+     "Sport Origin",
+     "Then vs Now",
+     "Interesting Sports Fact",
+     "Forgotten Game",
+     "New Tabletop Game Discovery",
+     "On This Date"
     ],
     "run_ids": [
-     "2026-10-01-PM"
+     "2026-10-02-AM"
     ]
    }
   },
-  "last_run_at": "2026-10-01T09:01:28.703450+00:00",
+  "last_run_at": "2026-10-01T19:42:44.666999+00:00",
   "live": {
    "results": {
     "event_ids": [
-     "e4edcd249e333904",
-     "de98f56b6c6867fc",
-     "ab71102dc0bf0dfb",
-     "c2ba6761e17f4787",
-     "03c9d9e9b2276c16",
-     "200f9e4762f9a077",
-     "a99cdf1b43df6944",
-     "230647b875cb985b",
-     "575f4582ce38ceda",
-     "f3b2a344a69bd612"
+     "5ef169bbbe03c026",
+     "c929392a18c8beed",
+     "f074e1fd521aa3f7",
+     "ca29f9917dec0db0",
+     "750458634fb4472c",
+     "7f1451edd8807d03",
+     "a32c53ca3e31da5f",
+     "8cc7001a8b23e0f5",
+     "6c6f32b11196035e",
+     "8bfdfc4c16724e5c"
     ],
-    "message_id": 265,
-    "target_date": "2026-09-30",
-    "updated_at": "2026-10-01T09:01:28.696666+00:00"
+    "message_id": 277,
+    "target_date": "2026-10-01",
+    "updated_at": "2026-10-01T19:42:44.661075+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [
-     "6aef4d5b747ea2a5",
-     "31148a50855b4858",
-     "c6c9bf7b56a17f16",
-     "46e7519a3772ced9",
-     "92fd0fdb720a6cbb",
-     "c289923434bf8325",
-     "c2937d3ac7b8dcea",
-     "95b9787ffadb5f52",
-     "bd883be39e0ebe8a",
-     "aea753989ee7f90e"
+     "6d45bff4a13eda6f",
+     "fc5395dace6f55e6",
+     "b1726f8671e53cf5",
+     "0fe5b32f34c7a958",
+     "65571b81b77a94a4",
+     "ea70ebd4f065b9af",
+     "9674d2ca8e2f5f96",
+     "794d8cd8ca4a1104",
+     "e367d393bee26d14",
+     "bc19bdc4c3265ae0"
     ],
-    "message_id": 264,
-    "target_date": "2026-10-02",
-    "updated_at": "2026-10-01T09:01:28.696655+00:00"
+    "message_id": 276,
+    "target_date": "2026-10-03",
+    "updated_at": "2026-10-01T19:42:44.661065+00:00"
    }
   },
   "publication": {
-   "2026-10-01-PM:evergreen:4847cd6286994143": {
-    "message_id": 258,
-    "posted_at": "2026-10-01T08:54:52.920388+00:00",
+   "2026-10-02-AM:evergreen:22411792a079f3a1": {
+    "message_id": 270,
+    "posted_at": "2026-10-01T19:36:34.582028+00:00",
     "status": "posted"
    },
-   "2026-10-01-PM:evergreen:53cd07f0feb7d0bc": {
-    "message_id": 261,
-    "posted_at": "2026-10-01T08:55:52.792333+00:00",
+   "2026-10-02-AM:evergreen:2fcbfb595cca1d04": {
+    "message_id": 267,
+    "posted_at": "2026-10-01T19:35:57.185798+00:00",
     "status": "posted"
    },
-   "2026-10-01-PM:evergreen:61f65d38b9316ad5": {
-    "message_id": 259,
-    "posted_at": "2026-10-01T08:55:17.879397+00:00",
+   "2026-10-02-AM:evergreen:398d38c7ccec72e0": {
+    "message_id": 272,
+    "posted_at": "2026-10-01T19:37:51.245969+00:00",
     "status": "posted"
    },
-   "2026-10-01-PM:evergreen:75b257f26b714b5d": {
-    "message_id": 262,
-    "posted_at": "2026-10-01T08:56:32.672646+00:00",
+   "2026-10-02-AM:evergreen:771ad8e28423678c": {
+    "message_id": 271,
+    "posted_at": "2026-10-01T19:37:01.064452+00:00",
     "status": "posted"
    },
-   "2026-10-01-PM:evergreen:8be8973fb5f0f5da": {
-    "message_id": 260,
-    "posted_at": "2026-10-01T08:55:41.732599+00:00",
+   "2026-10-02-AM:evergreen:79c2e1eff06d7523": {
+    "message_id": 269,
+    "posted_at": "2026-10-01T19:36:21.618179+00:00",
     "status": "posted"
    },
-   "2026-10-01-PM:evergreen:b227940145c1a380": {
-    "message_id": 263,
-    "posted_at": "2026-10-01T08:57:06.106604+00:00",
+   "2026-10-02-AM:evergreen:8bf75f0c07a636ac": {
+    "message_id": 273,
+    "posted_at": "2026-10-01T19:38:01.732697+00:00",
     "status": "posted"
    },
-   "2026-10-01-PM:live_results:1a4b94b1a69a0aae": {
-    "message_id": 265,
-    "posted_at": "2026-10-01T09:01:28.696626+00:00",
+   "2026-10-02-AM:evergreen:b8da8bdf36a36e18": {
+    "message_id": 268,
+    "posted_at": "2026-10-01T19:36:14.004491+00:00",
     "status": "posted"
    },
-   "2026-10-01-PM:live_schedule:07872410313b9bd8": {
-    "message_id": 264,
-    "posted_at": "2026-10-01T09:01:28.304523+00:00",
+   "2026-10-02-AM:evergreen:d67e158f7a1fe1a6": {
+    "message_id": 266,
+    "posted_at": "2026-10-01T19:35:50.582845+00:00",
+    "status": "posted"
+   },
+   "2026-10-02-AM:evergreen:d85d22456323a65c": {
+    "message_id": 274,
+    "posted_at": "2026-10-01T19:38:14.133706+00:00",
+    "status": "posted"
+   },
+   "2026-10-02-AM:evergreen:e1c604e995984149": {
+    "message_id": 275,
+    "posted_at": "2026-10-01T19:38:32.270140+00:00",
+    "status": "posted"
+   },
+   "2026-10-02-AM:live_results:8682af99c70673b4": {
+    "message_id": 277,
+    "posted_at": "2026-10-01T19:42:44.661038+00:00",
+    "status": "posted"
+   },
+   "2026-10-02-AM:live_schedule:9f67b29ebe438299": {
+    "message_id": 276,
+    "posted_at": "2026-10-01T19:42:44.293209+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-10-01T09:01:28.703480+00:00",
-    "evergreen": 6,
+    "at": "2026-10-01T19:42:44.667009+00:00",
+    "evergreen": 10,
     "exit": 0,
-    "live_results": 265,
-    "live_schedule": 264,
-    "run_id": "2026-10-01-PM",
+    "live_results": 277,
+    "live_schedule": 276,
+    "run_id": "2026-10-02-AM",
     "used_sectors": [
      "Equipment / Measurement",
-     "Game Origin",
+     "Forgotten Game",
+     "Interesting Game Fact",
      "Interesting Sports Fact",
+     "New Tabletop Game Discovery",
+     "On This Date",
+     "Sport Discovery",
      "Sport Origin",
      "Sports & Games People",
-     "Why Does This Happen?"
+     "Then vs Now"
     ]
    }
   ],
