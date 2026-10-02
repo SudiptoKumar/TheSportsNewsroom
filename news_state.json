@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "Cerebras per-run call cap reached (16)",
-  "last_ok": "2026-10-02T08:33:46.783452+00:00",
-  "last_request_id": "a4425d3a19565629-IAD",
+  "last_ok": "2026-10-02T19:29:39.671235+00:00",
+  "last_request_id": "a4461df9e9a8d6a7-IAD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-02T08:37:57.639937+00:00",
+ "last_run_at": "2026-10-02T19:33:59.474392+00:00",
  "ledger": {},
  "posts": [
   {
@@ -2488,6 +2488,142 @@
    "urls": [
     "ospreypublishing.com/ca/osprey-blog/2026/flip-pick-towers-design-diary"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Pierre, Baron de Coubertin: Father of the Modern Olympics | Britannica",
+   "claim": "Pierre de Coubertin was a leading organizer of the international Olympic revival: his campaign led to the 1894 Paris congress that established the International Olympic Committee and planned the 1896 Athens Games. He was neither the first to propose reviving the Olympics nor the sole contributor to their modern development.",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Pierre de Coubertin Led the 1894 Congress that Revived the Olympics",
+   "image_status": "verified_external",
+   "message_id": 288,
+   "normalized_subject": "Pierre, Baron de Coubertin: Father of the Modern Olympics | Britannica",
+   "posted_at": "2026-10-02T19:27:26.026542+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-03-AM",
+   "sector": "Sports & Games People",
+   "topic": "Pierre, Baron de Coubertin: Father of the Modern Olympics | Britannica",
+   "urls": [
+    "britannica.com/biography/Pierre-Baron-de-Coubertin-Father-of-the-Modern-Olympics"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Designer Diary: Creating a unique twist on 'writing on cards' in Forage! | BoardGameGeek Blog | BoardGameGeek",
+   "claim": "diary, please read: https://tinyurl.com/yfm4btup # Designer Diary: Creating a unique twist on 'writing on cards' in Forage! ## Shawn Stankewich Sep 25, 2026 9:00 AM I wanted to share with you all the story of the evolution of Forage - a puzzly roll-and-write game about foraging in the Pacific Northwest! Molly, Robb, and I have been designing and publishing games together for almost ten years and we wanted to share some of our process in working through the design and also the development that happens with the Flatout Games CoLab team that we founded! Why design a game like Forage? What inspired us? Our core design team (Molly Johnson, Robert Melvin, and Shawn Stankewich) really enjoy roll an",
+   "desk": "evergreen_v1",
+   "format": "New Tabletop Game Discovery",
+   "headline": "Forage Introduces Innovative Card-Writing Twist to Roll‑and‑Write Games",
+   "image_status": "verified_external",
+   "message_id": 289,
+   "normalized_subject": "Designer Diary: Creating a unique twist on 'writing on cards' in Forage! | BoardGameGeek Blog | BoardGameGeek",
+   "posted_at": "2026-10-02T19:28:06.316223+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-03-AM",
+   "sector": "New Tabletop Game Discovery",
+   "topic": "Designer Diary: Creating a unique twist on 'writing on cards' in Forage! | BoardGameGeek Blog | BoardGameGeek",
+   "urls": [
+    "boardgamegeek.com/blog/1/blogpost/191300/designer-diary-creating-a-unique-twist-on-writing"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "the real story of the evolution of modern football",
+   "claim": "# Football's missing link: the real story of the evolution of modern football.",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "Scotland May Be the True Birthplace of Modern Football",
+   "image_status": "verified_external",
+   "message_id": 290,
+   "normalized_subject": "the real story of the evolution of modern football",
+   "posted_at": "2026-10-02T19:28:13.684253+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-03-AM",
+   "sector": "Sport Origin",
+   "topic": "the real story of the evolution of modern football",
+   "urls": [
+    "bbc.com/news/articles/ce8g4rj805no"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The Evergreen Game: Anderssen vs. Dufresne (1852) | ChessMind AI",
+   "claim": "The Evergreen Game: Anderssen vs. Dufresne (1852) | ChessMind AI ... Anderssen vs. Dufresne, Berlin 1852 Adolf Anderssen 1–0 Jean Dufresne ... Berlin (casual) 1852 · ECO C52 · Evans Gambit ... 1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4 Bxb4 5. c3 Ba5 6. d4 exd4 7. O-O d3 8. Qb3 Qf6 9. e5 Qg6 10. Re1 Nge7 11. Ba3 b5 12. Qxb5 Rb8 13. Qa4 Bb6 14. Nbd2 Bb7 15. Ne4 Qf5 16. Bxd3 Qh5 17. Nf6+ gxf6 18. exf6 Rg8 19. Rad1 Qxf3 20. Rxe7+ Nxe7 21. Qxd7+ Kxd7 22. Bf5+ Ke8 23. Bd7+ Kf8 24. Bxe7# 1-0 ... Replaying classics shows you what mastery looks like; the fastest way to close the gap is knowing exactly where your own game breaks down. Scan your games for free to find your weaknesses, or play the ideas out ",
+   "desk": "evergreen_v1",
+   "format": "Interesting Game Fact",
+   "headline": "Anderssen’s 1852 Evergreen Game Showcases Classic Evans Gambit Brilliance",
+   "image_status": "verified_external",
+   "message_id": 291,
+   "normalized_subject": "The Evergreen Game: Anderssen vs. Dufresne (1852) | ChessMind AI",
+   "posted_at": "2026-10-02T19:28:40.247975+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-03-AM",
+   "sector": "Interesting Game Fact",
+   "topic": "The Evergreen Game: Anderssen vs. Dufresne (1852) | ChessMind AI",
+   "urls": [
+    "en.m.wikipedia.org/wiki/Evergreen_Game"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Why A 2000 Year Old Cousin Of Chess Completely Disappeared F — Mdi",
+   "claim": "Imagine a game so addictive that it caused bar fights between emperors, drove peasants to gamble away their livelihoods, and was buried alongside the elite so they wouldn't get bored in the afterlife. It wasn't chess. It wasn't Go. It was Liubo, an ancient board game often called the long-lost cousin of chess. For centuries, this game dominated Chinese culture before vanishing into thin air during the Tang dynasty. For over a thousand years, nobody even knew how the board looked, let alone how to play it. The Shaanxi Provincial Institute of Archaeology broke the internet in historical circles by announcing a massive find from their 2023 excavations. They dug up pristine, 2,000-year-old Liubo",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Game",
+   "headline": "Ancient Liubo Boards Unearthed After Millennia of Mystery",
+   "image_status": "verified_external",
+   "message_id": 292,
+   "normalized_subject": "Why A 2000 Year Old Cousin Of Chess Completely Disappeared F — Mdi",
+   "posted_at": "2026-10-02T19:28:51.416680+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-03-AM",
+   "sector": "Forgotten Game",
+   "topic": "Why A 2000 Year Old Cousin Of Chess Completely Disappeared F — Mdi",
+   "urls": [
+    "mdi.us.com/2000-year-old-cousin-chess-completely-disappeared-world"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The Mantle Griffith Stadium Home Run",
+   "claim": "On April 17, 1953, a young Mickey Mantle stepped up to the plate in Griffith Stadium. It was the 5th inning with two outs and Yogi Berra on first. Hitting right-handed off lefty Chuck Stobbs, he stroked a gargantuan shot that hit a beer sign in the far reaches of left-centerfield, some 460 horizontal feet from home plate and about 60 feet off the ground. The ball glanced off the sign, exited the stadium, crossed 5th St NW, and ended up in a residential neighborhood. There seems to be no controversy about that much of the story. What happened next is both unknown and quite likely unknowable with any certainty, given the long passage of time and the lack of eye-witnesses. The generally accepte",
+   "desk": "evergreen_v1",
+   "format": "Interesting Sports Fact",
+   "headline": "Mickey Mantle’s 565‑Foot Blast at Griffith Stadium",
+   "image_status": "verified_external",
+   "message_id": 293,
+   "normalized_subject": "The Mantle Griffith Stadium Home Run",
+   "posted_at": "2026-10-02T19:29:45.357258+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-03-AM",
+   "sector": "Interesting Sports Fact",
+   "topic": "The Mantle Griffith Stadium Home Run",
+   "urls": [
+    "baseball.physics.illinois.edu/mantle565.html"
+   ]
   }
  ],
  "runs": [],
@@ -2499,129 +2635,115 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-10-02T08:25:48.487207+00:00",
+  "created_at": "2026-10-02T19:14:33.295693+00:00",
   "daily": {
-   "2026-10-02": {
+   "2026-10-03": {
     "published_sectors": [
      "Sports & Games People",
-     "Interesting Game Fact",
-     "Interesting Sports Fact",
-     "Equipment / Measurement",
-     "Rule Check",
+     "New Tabletop Game Discovery",
      "Sport Origin",
-     "Game Discovery",
-     "New Tabletop Game Discovery"
+     "Interesting Game Fact",
+     "Forgotten Game",
+     "Interesting Sports Fact"
     ],
     "run_ids": [
-     "2026-10-02-PM"
+     "2026-10-03-AM"
     ]
    }
   },
-  "last_run_at": "2026-10-02T08:37:57.639897+00:00",
+  "last_run_at": "2026-10-02T19:33:59.474368+00:00",
   "live": {
    "results": {
     "event_ids": [
-     "5ef169bbbe03c026",
-     "c929392a18c8beed",
-     "f074e1fd521aa3f7",
-     "ca29f9917dec0db0",
-     "750458634fb4472c",
-     "7f1451edd8807d03",
-     "a32c53ca3e31da5f",
-     "8cc7001a8b23e0f5",
-     "6c6f32b11196035e",
-     "8bfdfc4c16724e5c"
+     "31148a50855b4858",
+     "c6c9bf7b56a17f16",
+     "46e7519a3772ced9",
+     "95b9787ffadb5f52",
+     "ba9bfcd665906b5a",
+     "80c1862c9c75296b",
+     "e45ed001f8966419",
+     "c4af6a1a23344a3b",
+     "8fb5b025793644b9",
+     "53ab6f300829abdc"
     ],
-    "message_id": 287,
-    "target_date": "2026-10-01",
-    "updated_at": "2026-10-02T08:37:57.633837+00:00"
+    "message_id": 295,
+    "target_date": "2026-10-02",
+    "updated_at": "2026-10-02T19:33:59.469007+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [
-     "6d45bff4a13eda6f",
-     "fc5395dace6f55e6",
-     "b1726f8671e53cf5",
-     "0fe5b32f34c7a958",
-     "65571b81b77a94a4",
-     "ea70ebd4f065b9af",
-     "9674d2ca8e2f5f96",
-     "794d8cd8ca4a1104",
-     "e367d393bee26d14",
-     "bc19bdc4c3265ae0"
+     "c9d1283af53cb5ee",
+     "7c9ff3680abe2640",
+     "c16017fc06b33ca8",
+     "2ca95ef89e50ac04",
+     "c6994ac5691697aa",
+     "d0eb04e01246c113",
+     "cb3c479df6b18a1f",
+     "734b7002ef4ba0af",
+     "79d65fa21146eb62",
+     "7fa560c3770190c5"
     ],
-    "message_id": 286,
-    "target_date": "2026-10-03",
-    "updated_at": "2026-10-02T08:37:57.633826+00:00"
+    "message_id": 294,
+    "target_date": "2026-10-04",
+    "updated_at": "2026-10-02T19:33:59.468994+00:00"
    }
   },
   "publication": {
-   "2026-10-02-PM:evergreen:14435042323c66be": {
-    "message_id": 280,
-    "posted_at": "2026-10-02T08:32:09.078294+00:00",
+   "2026-10-03-AM:evergreen:21a2d4c65bf41f1b": {
+    "message_id": 291,
+    "posted_at": "2026-10-02T19:28:40.247661+00:00",
     "status": "posted"
    },
-   "2026-10-02-PM:evergreen:21f0df76ec601214": {
-    "message_id": 282,
-    "posted_at": "2026-10-02T08:32:33.294419+00:00",
+   "2026-10-03-AM:evergreen:24e500cfe376be72": {
+    "message_id": 288,
+    "posted_at": "2026-10-02T19:27:26.026337+00:00",
     "status": "posted"
    },
-   "2026-10-02-PM:evergreen:2dddcc13ba8b23cd": {
-    "message_id": 283,
-    "posted_at": "2026-10-02T08:32:46.994110+00:00",
+   "2026-10-03-AM:evergreen:965c1b117554ea04": {
+    "message_id": 289,
+    "posted_at": "2026-10-02T19:28:06.315965+00:00",
     "status": "posted"
    },
-   "2026-10-02-PM:evergreen:486f4a46187218f9": {
-    "message_id": 278,
-    "posted_at": "2026-10-02T08:31:13.565899+00:00",
+   "2026-10-03-AM:evergreen:b9d690599b24a40b": {
+    "message_id": 293,
+    "posted_at": "2026-10-02T19:29:45.357006+00:00",
     "status": "posted"
    },
-   "2026-10-02-PM:evergreen:72d5f413e4621625": {
-    "message_id": 281,
-    "posted_at": "2026-10-02T08:32:22.087253+00:00",
+   "2026-10-03-AM:evergreen:ec70e8a886fe3ad7": {
+    "message_id": 292,
+    "posted_at": "2026-10-02T19:28:51.416422+00:00",
     "status": "posted"
    },
-   "2026-10-02-PM:evergreen:cf85dcf280782453": {
-    "message_id": 284,
-    "posted_at": "2026-10-02T08:33:01.864472+00:00",
+   "2026-10-03-AM:evergreen:fdd67cf3d51303ac": {
+    "message_id": 290,
+    "posted_at": "2026-10-02T19:28:13.684079+00:00",
     "status": "posted"
    },
-   "2026-10-02-PM:evergreen:df908fd6d6300c47": {
-    "message_id": 279,
-    "posted_at": "2026-10-02T08:31:43.874410+00:00",
+   "2026-10-03-AM:live_results:07872410313b9bd8": {
+    "message_id": 295,
+    "posted_at": "2026-10-02T19:33:59.468966+00:00",
     "status": "posted"
    },
-   "2026-10-02-PM:evergreen:fb1d15dd3fde4c25": {
-    "message_id": 285,
-    "posted_at": "2026-10-02T08:33:25.654810+00:00",
-    "status": "posted"
-   },
-   "2026-10-02-PM:live_results:8682af99c70673b4": {
-    "message_id": 287,
-    "posted_at": "2026-10-02T08:37:57.633800+00:00",
-    "status": "posted"
-   },
-   "2026-10-02-PM:live_schedule:9f67b29ebe438299": {
-    "message_id": 286,
-    "posted_at": "2026-10-02T08:37:57.321302+00:00",
+   "2026-10-03-AM:live_schedule:b62fd41df15a3d08": {
+    "message_id": 294,
+    "posted_at": "2026-10-02T19:33:59.163565+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-10-02T08:37:57.639915+00:00",
-    "evergreen": 8,
+    "at": "2026-10-02T19:33:59.474375+00:00",
+    "evergreen": 6,
     "exit": 0,
-    "live_results": 287,
-    "live_schedule": 286,
-    "run_id": "2026-10-02-PM",
+    "live_results": 295,
+    "live_schedule": 294,
+    "run_id": "2026-10-03-AM",
     "used_sectors": [
-     "Equipment / Measurement",
-     "Game Discovery",
+     "Forgotten Game",
      "Interesting Game Fact",
      "Interesting Sports Fact",
      "New Tabletop Game Discovery",
-     "Rule Check",
      "Sport Origin",
      "Sports & Games People"
     ]
