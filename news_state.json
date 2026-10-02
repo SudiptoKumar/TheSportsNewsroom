@@ -1,15 +1,15 @@
 {
  "ai": {
-  "last_error": "",
-  "last_ok": "2026-10-01T19:38:23.920470+00:00",
-  "last_request_id": "a43ded697ebc60d0-CMH",
+  "last_error": "Cerebras per-run call cap reached (16)",
+  "last_ok": "2026-10-02T08:33:46.783452+00:00",
+  "last_request_id": "a4425d3a19565629-IAD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-01T19:42:44.667028+00:00",
+ "last_run_at": "2026-10-02T08:37:57.639937+00:00",
  "ledger": {},
  "posts": [
   {
@@ -2310,6 +2310,184 @@
    "urls": [
     "baseball-reference.com/boxes/NY1/NY1193610020.shtml"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "History of volleyball: From origins to the Olympics",
+   "claim": "William G. Morgan developed volleyball, originally called “Mintonette,” at the Holyoke, Massachusetts, YMCA in 1895 as a less physically intense alternative to basketball for adult participants. He demonstrated the game at a YMCA physical directors’ conference in Springfield in 1896, where the name “Volley Ball” was proposed.",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "William G. Morgan Created Volleyball as a Gentle Alternative to Basketball",
+   "image_status": "card_fallback",
+   "message_id": 278,
+   "normalized_subject": "History of volleyball: From origins to the Olympics",
+   "posted_at": "2026-10-02T08:31:13.566183+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-02-PM",
+   "sector": "Sports & Games People",
+   "topic": "History of volleyball: From origins to the Olympics",
+   "urls": [
+    "olympics.com/en/news/what-history-volleyball-game-origin-mintonette-ymca-fivb-olympics"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "History of chess - Wikipedia",
+   "claim": "Chess was introduced to Persia from India and became a part of the princely or courtly education of Persian nobility. [4] Around 600 CE in Sassanid Persia, the name for the game became chatrang (Persian: چترنگ), which subsequently evolved to shatranj (Arabic: شطرنج; Persian: شترنج) after the conquest of Persia by the Rashidun Caliphate, due to the lack of native \"ch\" and \"ng\" sounds in the Arabic language. [5] The rules were developed further during this time; players started calling \"Shāh!\" (Persian for \"King!\") when attacking the opponent's king, and \"Shāh Māt!\" (Persian for \"the king is helpless\" – see checkmate) when the king was attacked and could not escape from attack. These exclamati",
+   "desk": "evergreen_v1",
+   "format": "Interesting Game Fact",
+   "headline": "Chess Arrives in Persia as Chatrang, Evolves into Shatranj",
+   "image_status": "verified_external",
+   "message_id": 279,
+   "normalized_subject": "History of chess - Wikipedia",
+   "posted_at": "2026-10-02T08:31:43.874780+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-02-PM",
+   "sector": "Interesting Game Fact",
+   "topic": "History of chess - Wikipedia",
+   "urls": [
+    "en.wikipedia.org/wiki/History_of_chess"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "How top footballers have become taller, faster and older - BBC News",
+   "claim": "Two historic goals in the Fifa Men's World Cup tell the story of a radical transformation in both football and the bodies of its elite players. ... But fast forward five decades, and a similar seven-pass manoeuvre by Argentina against France in the 2022 final - finished by winger Angel Di Maria – took just 12 seconds. ... Dr Laitano, who worked with the Brazilian national team in the 2014 World Cup, says modern footballers have become biologically different players from their predecessors. He says the evolution of exercise and medicine, and changes to the way the game is played, mean elite football has evolved into a battle for every inch of pitch space and \"as a consequence, modern players ",
+   "desk": "evergreen_v1",
+   "format": "Interesting Sports Fact",
+   "headline": "Modern footballers are taller, faster and playing longer",
+   "image_status": "verified_external",
+   "message_id": 280,
+   "normalized_subject": "How top footballers have become taller, faster and older - BBC News",
+   "posted_at": "2026-10-02T08:32:09.078707+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-02-PM",
+   "sector": "Interesting Sports Fact",
+   "topic": "How top footballers have become taller, faster and older - BBC News",
+   "urls": [
+    "bbc.co.uk/news/articles/cx23018r8lxo"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Metric in Sports: Summer Games Fast Facts | NIST",
+   "claim": "Archery is a sport that involves an archer shooting arrows with a bow at a target. Recurve bows varies in length but average about 173 cm. Arrows also vary, with an average of about 56 cm long. The distance between the 122 cm diameter target and the athlete is 70 m (± 30 cm). Archers aim to hit the 12.2 cm diameter center ring. In the international games, team members and coaches must stand 1 m behind the shooting line during the competition. ... Basketball is a sport played between two teams of five players each on a rectangular court. Each team tries to score by tossing the ball through the opponent’s basket. International competition follows the International Basketball Federation (FIBA) ",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "Archery Specs: Bow Length, Arrow Size, and Target Distances",
+   "image_status": "verified_external",
+   "message_id": 281,
+   "normalized_subject": "Metric in Sports: Summer Games Fast Facts | NIST",
+   "posted_at": "2026-10-02T08:32:22.087631+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-02-PM",
+   "sector": "Equipment / Measurement",
+   "topic": "Metric in Sports: Summer Games Fast Facts | NIST",
+   "urls": [
+    "nist.gov/pml/owm/metric-sports-summer-games-fast-facts"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "10 bizarre baseball rules you won't believe actually existed",
+   "claim": "But the path the game took to get here was more trial and error than divine intervention, the game's founding fathers throwing all kinds of stuff against the wall to see what stuck. It was a long and winding road, full of detours and dead ends and pegging innocent baserunners (no, really). To appreciate just how far we've come, behold, we give you 10 incredibly weird rules that we swear actually existed: 1. Batters had the right to request a low or high pitch from 1867 to 1887 Imagine Mike Trout walking up to the plate and telling David Price exactly where he wanted the ball. In the game's infancy, that was a reality: Prior to every at-bat, batters would request a high or low strike zone -- ",
+   "desk": "evergreen_v1",
+   "format": "Rule Check",
+   "headline": "Historic Rule Let Batters Choose High or Low Pitch (1867‑1887)",
+   "image_status": "verified_external",
+   "message_id": 282,
+   "normalized_subject": "10 bizarre baseball rules you won't believe actually existed",
+   "posted_at": "2026-10-02T08:32:33.294758+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-02-PM",
+   "sector": "Rule Check",
+   "topic": "10 bizarre baseball rules you won't believe actually existed",
+   "urls": [
+    "mlb.com/cut4/10-bizarre-rules-from-baseballs-past/c-124363454"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "On the Evolution of Sport - PMC",
+   "claim": "Sports have received little attention from evolutionary biologists. I argue that sport began as a way for men to develop the skills needed in primitive hunting and warfare, then developed to act primarily as a lek where athletes display and male spectators evaluate the qualities of potential allies and rivals. This hypothesis predicts that (1) the most popular modern male sports require the skills needed for success in male-male physical competition and primitive hunting and warfare; (2) champion male athletes obtain high status and thereby reproductive opportunities in ways that parallel those gained by successful primitive hunters and warriors; (3) men pay closer attention than do women to",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "Sport Originated as a Hunting and Warfare Training Ground",
+   "image_status": "verified_external",
+   "message_id": 283,
+   "normalized_subject": "On the Evolution of Sport - PMC",
+   "posted_at": "2026-10-02T08:32:46.994492+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-02-PM",
+   "sector": "Sport Origin",
+   "topic": "On the Evolution of Sport - PMC",
+   "urls": [
+    "pmc.ncbi.nlm.nih.gov/articles/PMC10901181"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Surakarta - Indonesian strategy board game - Rules and strategy of tabletop games",
+   "claim": "Surakarta is a little-known Indonesian strategy board game for two players, named after the ancient city of Surakarta in central Java. The game features an unusual method of capture which is \"possibly unique\" and \"not known to exist in any other recorded board game\". The real name of the game is permainan (meaning the game in Bahasa Indonesia). In Java, the game is also called dam-daman. It was first published in France in 1970 as \"Surakarta\". The game is called \"Roundabouts\" in Sid Sackson's The Book of Classic Board Games. ... Traditionial Indonesian game pieces are shells versus pebbles or stones, with the board grid inscribed in sand or volcanic ash. But any easily distinguished sets of ",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "Surakarta: Indonesia’s Unique Two‑Player Strategy Game",
+   "image_status": "verified_external",
+   "message_id": 284,
+   "normalized_subject": "Surakarta - Indonesian strategy board game - Rules and strategy of tabletop games",
+   "posted_at": "2026-10-02T08:33:01.864778+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-02-PM",
+   "sector": "Game Discovery",
+   "topic": "Surakarta - Indonesian strategy board game - Rules and strategy of tabletop games",
+   "urls": [
+    "gambiter.com/tabletop/Surakarta_game.html"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Flip Pick Towers – Design Diary - Osprey",
+   "claim": "I immediately knew I wanted to create a flip-and-write game using a standard deck of playing cards. My favourite titles in this genre are Cartographers, Avenue, and Welcome to, so these served as my inspiration. I pulled together a few initial concepts and approached my good friend and frequent collaborator Rob Fisher (co-designer on Qwuzzle, Kompromat, Happy Hoppers, and Emberheart). As often happens, Rob wasn’t keen on my early implementations, but he liked the core idea. He took it away, and a few days later came back with a clear vision: a tower-building game. ... Rob’s starting point for our flip-and-write was inspired. With an illustrator already attached, he imagined a game that becam",
+   "desk": "evergreen_v1",
+   "format": "New Tabletop Game Discovery",
+   "headline": "Flip‑and‑Write Meets Tower Building in Flip Pick Towers",
+   "image_status": "card_fallback",
+   "message_id": 285,
+   "normalized_subject": "Flip Pick Towers – Design Diary - Osprey",
+   "posted_at": "2026-10-02T08:33:25.655217+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-02-PM",
+   "sector": "New Tabletop Game Discovery",
+   "topic": "Flip Pick Towers – Design Diary - Osprey",
+   "urls": [
+    "ospreypublishing.com/ca/osprey-blog/2026/flip-pick-towers-design-diary"
+   ]
   }
  ],
  "runs": [],
@@ -2321,27 +2499,25 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-10-01T19:30:16.175188+00:00",
+  "created_at": "2026-10-02T08:25:48.487207+00:00",
   "daily": {
    "2026-10-02": {
     "published_sectors": [
      "Sports & Games People",
-     "Sport Discovery",
      "Interesting Game Fact",
-     "Equipment / Measurement",
-     "Sport Origin",
-     "Then vs Now",
      "Interesting Sports Fact",
-     "Forgotten Game",
-     "New Tabletop Game Discovery",
-     "On This Date"
+     "Equipment / Measurement",
+     "Rule Check",
+     "Sport Origin",
+     "Game Discovery",
+     "New Tabletop Game Discovery"
     ],
     "run_ids": [
-     "2026-10-02-AM"
+     "2026-10-02-PM"
     ]
    }
   },
-  "last_run_at": "2026-10-01T19:42:44.666999+00:00",
+  "last_run_at": "2026-10-02T08:37:57.639897+00:00",
   "live": {
    "results": {
     "event_ids": [
@@ -2356,9 +2532,9 @@
      "6c6f32b11196035e",
      "8bfdfc4c16724e5c"
     ],
-    "message_id": 277,
+    "message_id": 287,
     "target_date": "2026-10-01",
-    "updated_at": "2026-10-01T19:42:44.661075+00:00"
+    "updated_at": "2026-10-02T08:37:57.633837+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
@@ -2374,92 +2550,80 @@
      "e367d393bee26d14",
      "bc19bdc4c3265ae0"
     ],
-    "message_id": 276,
+    "message_id": 286,
     "target_date": "2026-10-03",
-    "updated_at": "2026-10-01T19:42:44.661065+00:00"
+    "updated_at": "2026-10-02T08:37:57.633826+00:00"
    }
   },
   "publication": {
-   "2026-10-02-AM:evergreen:22411792a079f3a1": {
-    "message_id": 270,
-    "posted_at": "2026-10-01T19:36:34.582028+00:00",
+   "2026-10-02-PM:evergreen:14435042323c66be": {
+    "message_id": 280,
+    "posted_at": "2026-10-02T08:32:09.078294+00:00",
     "status": "posted"
    },
-   "2026-10-02-AM:evergreen:2fcbfb595cca1d04": {
-    "message_id": 267,
-    "posted_at": "2026-10-01T19:35:57.185798+00:00",
+   "2026-10-02-PM:evergreen:21f0df76ec601214": {
+    "message_id": 282,
+    "posted_at": "2026-10-02T08:32:33.294419+00:00",
     "status": "posted"
    },
-   "2026-10-02-AM:evergreen:398d38c7ccec72e0": {
-    "message_id": 272,
-    "posted_at": "2026-10-01T19:37:51.245969+00:00",
+   "2026-10-02-PM:evergreen:2dddcc13ba8b23cd": {
+    "message_id": 283,
+    "posted_at": "2026-10-02T08:32:46.994110+00:00",
     "status": "posted"
    },
-   "2026-10-02-AM:evergreen:771ad8e28423678c": {
-    "message_id": 271,
-    "posted_at": "2026-10-01T19:37:01.064452+00:00",
+   "2026-10-02-PM:evergreen:486f4a46187218f9": {
+    "message_id": 278,
+    "posted_at": "2026-10-02T08:31:13.565899+00:00",
     "status": "posted"
    },
-   "2026-10-02-AM:evergreen:79c2e1eff06d7523": {
-    "message_id": 269,
-    "posted_at": "2026-10-01T19:36:21.618179+00:00",
+   "2026-10-02-PM:evergreen:72d5f413e4621625": {
+    "message_id": 281,
+    "posted_at": "2026-10-02T08:32:22.087253+00:00",
     "status": "posted"
    },
-   "2026-10-02-AM:evergreen:8bf75f0c07a636ac": {
-    "message_id": 273,
-    "posted_at": "2026-10-01T19:38:01.732697+00:00",
+   "2026-10-02-PM:evergreen:cf85dcf280782453": {
+    "message_id": 284,
+    "posted_at": "2026-10-02T08:33:01.864472+00:00",
     "status": "posted"
    },
-   "2026-10-02-AM:evergreen:b8da8bdf36a36e18": {
-    "message_id": 268,
-    "posted_at": "2026-10-01T19:36:14.004491+00:00",
+   "2026-10-02-PM:evergreen:df908fd6d6300c47": {
+    "message_id": 279,
+    "posted_at": "2026-10-02T08:31:43.874410+00:00",
     "status": "posted"
    },
-   "2026-10-02-AM:evergreen:d67e158f7a1fe1a6": {
-    "message_id": 266,
-    "posted_at": "2026-10-01T19:35:50.582845+00:00",
+   "2026-10-02-PM:evergreen:fb1d15dd3fde4c25": {
+    "message_id": 285,
+    "posted_at": "2026-10-02T08:33:25.654810+00:00",
     "status": "posted"
    },
-   "2026-10-02-AM:evergreen:d85d22456323a65c": {
-    "message_id": 274,
-    "posted_at": "2026-10-01T19:38:14.133706+00:00",
+   "2026-10-02-PM:live_results:8682af99c70673b4": {
+    "message_id": 287,
+    "posted_at": "2026-10-02T08:37:57.633800+00:00",
     "status": "posted"
    },
-   "2026-10-02-AM:evergreen:e1c604e995984149": {
-    "message_id": 275,
-    "posted_at": "2026-10-01T19:38:32.270140+00:00",
-    "status": "posted"
-   },
-   "2026-10-02-AM:live_results:8682af99c70673b4": {
-    "message_id": 277,
-    "posted_at": "2026-10-01T19:42:44.661038+00:00",
-    "status": "posted"
-   },
-   "2026-10-02-AM:live_schedule:9f67b29ebe438299": {
-    "message_id": 276,
-    "posted_at": "2026-10-01T19:42:44.293209+00:00",
+   "2026-10-02-PM:live_schedule:9f67b29ebe438299": {
+    "message_id": 286,
+    "posted_at": "2026-10-02T08:37:57.321302+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-10-01T19:42:44.667009+00:00",
-    "evergreen": 10,
+    "at": "2026-10-02T08:37:57.639915+00:00",
+    "evergreen": 8,
     "exit": 0,
-    "live_results": 277,
-    "live_schedule": 276,
-    "run_id": "2026-10-02-AM",
+    "live_results": 287,
+    "live_schedule": 286,
+    "run_id": "2026-10-02-PM",
     "used_sectors": [
      "Equipment / Measurement",
-     "Forgotten Game",
+     "Game Discovery",
      "Interesting Game Fact",
      "Interesting Sports Fact",
      "New Tabletop Game Discovery",
-     "On This Date",
-     "Sport Discovery",
+     "Rule Check",
      "Sport Origin",
-     "Sports & Games People",
-     "Then vs Now"
+     "Sports & Games People"
     ]
    }
   ],
