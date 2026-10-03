@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "Cerebras per-run call cap reached (16)",
-  "last_ok": "2026-10-03T08:12:03.108124+00:00",
-  "last_request_id": "a44a7ac5eac9cb93-CMH",
+  "last_ok": "2026-10-03T18:03:05.361546+00:00",
+  "last_request_id": "a44ddc8cc86fe8c2-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-03T08:16:28.241524+00:00",
+ "last_run_at": "2026-10-03T18:07:19.106569+00:00",
  "ledger": {},
  "posts": [
   {
@@ -2760,6 +2760,165 @@
    "urls": [
     "newventuregames.com/blogs/news/zig-a-game-of-cards-cubes-and-connections"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Tsan (Valle d’Aosta, Italy) - Traditional Sports",
+   "claim": "Tsan is a long-established traditional team sport of Italy’s Valle d’Aosta, historically associated with agricultural seasons and now governed by written rules. Its precise origin is unknown. An origin among shepherds is a hypothesis, not an established historical fact; the reported seventeenth-century Val d’Ayas custom is a later account, not proof of the sport’s founding date.",
+   "desk": "evergreen_v1",
+   "format": "New Sport Discovery",
+   "headline": "Tsan: Valle d'Aosta’s Historic Team Sport Linked to Pastoral Seasons",
+   "image_status": "card_fallback",
+   "message_id": 304,
+   "normalized_subject": "Tsan (Valle d’Aosta, Italy) - Traditional Sports",
+   "posted_at": "2026-10-03T18:00:37.943079+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-03-PM",
+   "sector": "New Sport Discovery",
+   "topic": "Tsan (Valle d’Aosta, Italy) - Traditional Sports",
+   "urls": [
+    "traditionalsports.org/traditional-sports/europe/tsan-valle-daosta-italy.html"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Discovering Dadu: A Ludemic Enigma from South Asia",
+   "claim": "Jacob Schmidt-Madsen Max Planck Institute for the History of Science (MPIWG), Berlin jschmidtmadsen@mpiwg-berlin.mpg.de Abstract. Dadu is a traditional board game exclusively played within the Muslim Dawoodi Bohra community in South Asia. Most households have their own hand stitched cloth board, together with a set of wood-turned playing pieces and cowrie shells for dice. Though formally a two-player game, it is commonly played in large teams during family gatherings. Non-community members rarely take part and the game remains virtually unknown to outsiders. Descriptions of the game are absent from the scholarly literature and it does not find mention in any of the major game encyclopedias. ",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "Dadu: A Secret Traditional Board Game of the Dawoodi Bohra Community",
+   "image_status": "verified_external",
+   "message_id": 305,
+   "normalized_subject": "Discovering Dadu: A Ludemic Enigma from South Asia",
+   "posted_at": "2026-10-03T18:01:01.647260+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-03-PM",
+   "sector": "Game Discovery",
+   "topic": "Discovering Dadu: A Ludemic Enigma from South Asia",
+   "urls": [
+    "exa.ai/library/publication/lcxzhjpf2t5"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "UBC Press | Sports - The First Five Millennia, By Allen Guttmann",
+   "claim": "By Allen Guttmann University of Massachusetts Press From ancient Egyptian archery and medieval Japanese football to contemporary American baseball, every sport has been shaped by—and in turn has helped shape—the culture of which it is part. Yet as Allen Guttmann shows in this far-ranging study, for all their differences sports have followed a similar historical trajectory from traditional to modern forms. In Sports: The First Five Millennia, Guttmann traces this evolution across continents, cultures, and historical epochs to construct a single comprehensive narrative of the world’s sports. > Allen Guttmann is one of the stars in the history of sports as a serious academic subject. His expert",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "Sports Evolved From Tradition to Modernity Across Millennia",
+   "image_status": "card_fallback",
+   "message_id": 306,
+   "normalized_subject": "UBC Press | Sports - The First Five Millennia, By Allen Guttmann",
+   "posted_at": "2026-10-03T18:01:34.569370+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-03-PM",
+   "sector": "Sport Origin",
+   "topic": "UBC Press | Sports - The First Five Millennia, By Allen Guttmann",
+   "urls": [
+    "ubcpress.ca/sports-1"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Football Then vs Now: How the Game Has Transformed Over 150 Years - Football Streets",
+   "claim": "This article moves across equipment, coaching, athletes, media, and rules. The goal is to show how the sport transformed over 150 years while keeping the same basic tension between territory, ... , and decision- ... 4. Helmets evolved from soft leather caps into advanced protective shells with facemasks and padding systems. ... 6. Modern football relies heavily on film study, analytics, strength training, nutrition, and sports science. 7. Rule changes have made the game safer, faster, and more focused on passing and scoring. ... 6. Modern quarterbacks are expected to master coverages, protections, timing, motion, and full-field reads. 7. Passing rules changed over time to make offense more o",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "From Leather Caps to High-Tech Helmets: Football’s Protective Evolution",
+   "image_status": "verified_external",
+   "message_id": 307,
+   "normalized_subject": "Football Then vs Now: How the Game Has Transformed Over 150 Years - Football Streets",
+   "posted_at": "2026-10-03T18:01:42.196768+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-03-PM",
+   "sector": "Equipment / Measurement",
+   "topic": "Football Then vs Now: How the Game Has Transformed Over 150 Years - Football Streets",
+   "urls": [
+    "apnews.com/article/6f087549b22d921989948acae722e3ee"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The 7 longest winning streaks in college football history | NCAA.com",
+   "claim": "In the history of major college football, only 11 teams have managed to win more than 30 games in a row. Penn (1896-1898), Pitt (1914-1918) and Oklahoma (1948-1950) reached 31 in a row, while Nebraska hit 32 consecutive victories from 1969 to 1972. Here, we’ll look at the seven teams with the longest win streaks in FBS history: ## T6. Penn — 34 (1894-96 seasons) Pennsylvania Athletics Penn's 1896 football team. Pennsylvania may play in the FCS now, but John Heisman’s alma mater ruled college football’s top division in the late 19th century. From 1890 to 1899, Penn went 124-14-2, for a win percentage of .893. That included nine straight seasons of at least 11 wins. More importantly, it held t",
+   "desk": "evergreen_v1",
+   "format": "Records & Milestones",
+   "headline": "Penn’s 34-Game Winning Streak Dominates Early College Football Era",
+   "image_status": "verified_external",
+   "message_id": 308,
+   "normalized_subject": "The 7 longest winning streaks in college football history | NCAA.com",
+   "posted_at": "2026-10-03T18:01:56.077575+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-03-PM",
+   "sector": "Records & Milestones",
+   "topic": "The 7 longest winning streaks in college football history | NCAA.com",
+   "urls": [
+    "espn.com/college-football/story/_/id/41031996/what-longest-college-football-winning-streaks"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Doc Adams helped shape baseball’s earliest days | Baseball Hall of Fame",
+   "claim": "In the mid-19th century, Doc Adams was first introduced to “base ball,” a sporting activity with rules and regulations that varied from team to team. A few decades later, this figure from the game’s nascent years would be called by many the “Father of Baseball” due to his important contributions in turning the sport into the National Pastime. Adams, a talented ballplayer who became a pioneering force on a multitude of fronts in baseball’s early years, is one of 10 finalists on this year’s Pre-Integration Committee ballot at the National Baseball Hall of Fame and Museum. The Pre-Integration Committee will vote on Dec. 7 at baseball’s Winter Meetings in Nashville, Tenn.. ... among the young pr",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Doc Adams Named Father of Baseball and Hall of Fame Finalist",
+   "image_status": "verified_external",
+   "message_id": 309,
+   "normalized_subject": "Doc Adams helped shape baseball’s earliest days | Baseball Hall of Fame",
+   "posted_at": "2026-10-03T18:02:19.043971+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-03-PM",
+   "sector": "Sports & Games People",
+   "topic": "Doc Adams helped shape baseball’s earliest days | Baseball Hall of Fame",
+   "urls": [
+    "baseballhall.org/index%2ephp/discover-more/stories/pre-integration/adams-doc"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The Patriots’ Opponents Can’t Kick! - Wharton Sports Analytics and Business Initiative",
+   "claim": "Ryan Paganetti spotted a statistic that demands an explanation. From 2001 through 2019, the New England Patriots made 86.25% of their field-goal attempts. Their opponents made only 76.83%. That 9.41-percentage-point gap was by far the largest in the NFL. Paganetti provided an explanation: During opposing teams’ field-goal attempts, the Gillette Stadium video board sometimes showed a reverse camera angle containing a distracting second, offset set of yellow uprights. Could that visual interference have been costing visiting kickers field goals? It is a terrific hypothesis: interesting, diabolical, and consistent with the Patriots’ reputation for pursuing every possible competitive edge. Bette",
+   "desk": "evergreen_v1",
+   "format": "Interesting Sports Fact",
+   "headline": "Patriots’ Home Field‑Goal Edge Linked to Video‑Board Distraction",
+   "image_status": "verified_external",
+   "message_id": 310,
+   "normalized_subject": "The Patriots’ Opponents Can’t Kick! - Wharton Sports Analytics and Business Initiative",
+   "posted_at": "2026-10-03T18:02:42.415177+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-03-PM",
+   "sector": "Interesting Sports Fact",
+   "topic": "The Patriots’ Opponents Can’t Kick! - Wharton Sports Analytics and Business Initiative",
+   "urls": [
+    "wsb.wharton.upenn.edu/the-patriots-opponents-cant-kick"
+   ]
   }
  ],
  "runs": [],
@@ -2771,23 +2930,24 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-10-03T08:02:12.596946+00:00",
+  "created_at": "2026-10-03T17:54:54.130256+00:00",
   "daily": {
    "2026-10-03": {
     "published_sectors": [
+     "New Sport Discovery",
+     "Game Discovery",
+     "Sport Origin",
+     "Equipment / Measurement",
+     "Records & Milestones",
      "Sports & Games People",
-     "Forgotten Game",
-     "Traditional / Regional Game",
-     "How to Play",
-     "Interesting Sports Fact",
-     "New Tabletop Game Discovery"
+     "Interesting Sports Fact"
     ],
     "run_ids": [
      "2026-10-03-PM"
     ]
    }
   },
-  "last_run_at": "2026-10-03T08:16:28.241505+00:00",
+  "last_run_at": "2026-10-03T18:07:19.106541+00:00",
   "live": {
    "results": {
     "event_ids": [
@@ -2802,9 +2962,9 @@
      "c4af6a1a23344a3b",
      "8fb5b025793644b9"
     ],
-    "message_id": 303,
+    "message_id": 312,
     "target_date": "2026-10-02",
-    "updated_at": "2026-10-03T08:16:28.237592+00:00"
+    "updated_at": "2026-10-03T18:07:19.099820+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
@@ -2820,68 +2980,74 @@
      "79d65fa21146eb62",
      "7fa560c3770190c5"
     ],
-    "message_id": 302,
+    "message_id": 311,
     "target_date": "2026-10-04",
-    "updated_at": "2026-10-03T08:16:28.237585+00:00"
+    "updated_at": "2026-10-03T18:07:19.099808+00:00"
    }
   },
   "publication": {
-   "2026-10-03-PM:evergreen:22062fbd93119184": {
-    "message_id": 297,
-    "posted_at": "2026-10-03T08:10:42.661476+00:00",
+   "2026-10-03-PM:evergreen:30a441ec37c3db6b": {
+    "message_id": 309,
+    "posted_at": "2026-10-03T18:02:19.043308+00:00",
     "status": "posted"
    },
-   "2026-10-03-PM:evergreen:4f2194cbb1b3fbdb": {
-    "message_id": 299,
-    "posted_at": "2026-10-03T08:11:16.847091+00:00",
+   "2026-10-03-PM:evergreen:3468508147ec41f9": {
+    "message_id": 308,
+    "posted_at": "2026-10-03T18:01:56.077198+00:00",
     "status": "posted"
    },
-   "2026-10-03-PM:evergreen:5caa3c36c088b194": {
-    "message_id": 300,
-    "posted_at": "2026-10-03T08:11:46.023099+00:00",
+   "2026-10-03-PM:evergreen:3920eee2ef899281": {
+    "message_id": 305,
+    "posted_at": "2026-10-03T18:01:01.646932+00:00",
     "status": "posted"
    },
-   "2026-10-03-PM:evergreen:8abe703e23aa0fb1": {
-    "message_id": 301,
-    "posted_at": "2026-10-03T08:12:09.615374+00:00",
+   "2026-10-03-PM:evergreen:41ae7412ba40eab6": {
+    "message_id": 307,
+    "posted_at": "2026-10-03T18:01:42.196444+00:00",
     "status": "posted"
    },
-   "2026-10-03-PM:evergreen:a8b76987f9fe2137": {
-    "message_id": 298,
-    "posted_at": "2026-10-03T08:10:55.214015+00:00",
+   "2026-10-03-PM:evergreen:695bd0d59350724a": {
+    "message_id": 306,
+    "posted_at": "2026-10-03T18:01:34.569037+00:00",
     "status": "posted"
    },
-   "2026-10-03-PM:evergreen:e68e429d70cd7be1": {
-    "message_id": 296,
-    "posted_at": "2026-10-03T08:10:16.879441+00:00",
+   "2026-10-03-PM:evergreen:a130c2bf38d38e33": {
+    "message_id": 310,
+    "posted_at": "2026-10-03T18:02:42.414778+00:00",
+    "status": "posted"
+   },
+   "2026-10-03-PM:evergreen:f8b96eac85b271d0": {
+    "message_id": 304,
+    "posted_at": "2026-10-03T18:00:37.942743+00:00",
     "status": "posted"
    },
    "2026-10-03-PM:live_results:07872410313b9bd8": {
-    "message_id": 303,
-    "posted_at": "2026-10-03T08:16:28.237575+00:00",
+    "message_id": 312,
+    "posted_at": "2026-10-03T18:07:19.099783+00:00",
     "status": "posted"
    },
    "2026-10-03-PM:live_schedule:b62fd41df15a3d08": {
-    "message_id": 302,
-    "posted_at": "2026-10-03T08:16:27.840446+00:00",
+    "message_id": 311,
+    "posted_at": "2026-10-03T18:07:18.738719+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-10-03T08:16:28.241511+00:00",
-    "evergreen": 6,
+    "at": "2026-10-03T18:07:19.106551+00:00",
+    "evergreen": 7,
     "exit": 0,
-    "live_results": 303,
-    "live_schedule": 302,
+    "live_results": 312,
+    "live_schedule": 311,
     "run_id": "2026-10-03-PM",
     "used_sectors": [
-     "Forgotten Game",
-     "How to Play",
+     "Equipment / Measurement",
+     "Game Discovery",
      "Interesting Sports Fact",
-     "New Tabletop Game Discovery",
-     "Sports & Games People",
-     "Traditional / Regional Game"
+     "New Sport Discovery",
+     "Records & Milestones",
+     "Sport Origin",
+     "Sports & Games People"
     ]
    }
   ],

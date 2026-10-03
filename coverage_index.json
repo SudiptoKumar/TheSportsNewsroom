@@ -5776,8 +5776,325 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 301
+  },
+  {
+   "central_claim": "James Naismith Naismith created the game of basketball as a way to make physical education more enjoyable and less dangerous. (more) ... James Naismith (born November 6, 1861, Almonte, Ontario, Canada—died November 28, 1939, Lawrence, Kansas, U.S.) was a Canadian-American physical education director who, in 1891, invented the game of basketball as a way to make physical education more enjoyable and less dangerous. ... As a young man, Naismith studied theology and excelled in various sports. In t",
+   "central_knowledge_unit": "james naismith naismith created the game of basketball as a way to make physical education more enjoyable and less dangerous more james naismith born november 6 1861 almonte ontario canada died november 28 1939 lawrence ",
+   "content_id": "86062624813c33ed",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "19c6d13f90acddee",
+    "c08c1212ed75c31e"
+   ],
+   "legacy": true,
+   "normalized_subject": "james naismith biography rules of basketball facts britannica",
+   "people": [],
+   "published_at": "2026-10-03T08:10:16.879649+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "britannica.com/biography/James-Naismith"
+   ],
+   "sport_or_game": "James Naismith | Biography, Rules of Basketball, & Facts | Britannica",
+   "telegram_message_id": 296
+  },
+  {
+   "central_claim": "So far, more than 100 of these types of ancient intellectual games have been discovered in the Middle East with different patterns, shapes and materials such as wood, clay and stone. In the ancient times, intellectual games of twenty houses were of interest to everyone and they played this game in every culture and it was not specific to one culture. The Oldest Complete Board Game In the ancient cemetery of Shahr-i Sokhta in Sistan,Iran, a remarkable discovery was made within grave number 731, a",
+   "central_knowledge_unit": "so far more than 100 of these types of ancient intellectual games have been discovered in the middle east with different patterns shapes and materials such as wood clay and stone in the ancient times intellectual games o",
+   "content_id": "a1a54b5bff76e63c",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "043ff6f9ce06b637",
+    "7d90254ec00300be"
+   ],
+   "legacy": true,
+   "normalized_subject": "the shahr i sokhta board game",
+   "people": [],
+   "published_at": "2026-10-03T08:10:42.661640+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Game",
+   "source_urls": [
+    "persianwonders.com/Game/The-Shahr-i-Sokhta-Game"
+   ],
+   "sport_or_game": "The Shahr-i Sokhta Board Game",
+   "telegram_message_id": 297
+  },
+  {
+   "central_claim": "This research identifies, describes, and documents three traditional indigenous games practiced in Sabangan, Mountain Province, the Philippines: bawet, dong-as, and pinakpakan. It aims to examine their objectives, mechanics, and raw materials, which are representative of the values, knowledge, and customs of the community. The indigenous peoples mandatory representatives (IPMRs) of the Applai and Kankanaey groups, as well as community elders (mostly male, aged 45–75 yr), were included in this qu",
+   "central_knowledge_unit": "this research identifies describes and documents three traditional indigenous games practiced in sabangan mountain province the philippines bawet dong as and pinakpakan it aims to examine their objectives mechanics and r",
+   "content_id": "58d8519ce2cfb117",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "1b705381074deaf5",
+    "af4337db7e587e8e"
+   ],
+   "legacy": true,
+   "normalized_subject": "ay ayam ed eyaka uncovering the rules objectives and cultural significance of e sabangan s traditional indigenous games",
+   "people": [],
+   "published_at": "2026-10-03T08:10:55.214213+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    "philjournalsci.dost.gov.ph/wp-content/uploads/2025/12/Ay-ayam-ed-Eyaka-uncovering-the-rules-objectives-and-cultural-significance-of-sebangan-games_.pdf"
+   ],
+   "sport_or_game": "Ay-ayam ed Eyaka: Uncovering the Rules, Objectives, and Cultural Significance of e-Sabangan’s Traditional Indigenous Games",
+   "telegram_message_id": 298
+  },
+  {
+   "central_claim": "Jugger is a team based game in which aspects of ball games and martial arts are combined. Two teams of five players try to score a goal by placing the ball in the opposing team's goal while simultaneously trying to prevent the opposing team from scoring. Jugger is played with a ball, which is called a skull, and padded equipment with different designs/appearance/shape called pompfen. What separates jugger from many other sports is that only one member of the team can pick up the skull and score.",
+   "central_knowledge_unit": "jugger is a team based game in which aspects of ball games and martial arts are combined two teams of five players try to score a goal by placing the ball in the opposing team s goal while simultaneously trying to preven",
+   "content_id": "3787001510afe3b7",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "52daf29a8be9540f",
+    "d116d6baf2da83f9"
+   ],
+   "legacy": true,
+   "normalized_subject": "jugger swedish rulebook version 2 2",
+   "people": [],
+   "published_at": "2026-10-03T08:11:16.847296+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "How to Play",
+   "source_urls": [
+    "jugger.se/wp-content/uploads/simple-file-list/Jugger__Swedish_rulebook_-_version_2_2.pdf"
+   ],
+   "sport_or_game": "Jugger: Swedish rulebook - version 2.2",
+   "telegram_message_id": 299
+  },
+  {
+   "central_claim": "or all the conventional sports wisdom that can be deconstructed, disproved or called into question, home team advantage is no myth. Indisputably, it exists—and it’s remarkably consistent. Across all sports and at all levels, from Japanese baseball to Brazilian soccer to the NFL, the team hosting a game wins more often than not. The size of the advantage is remarkably stable in each sport too: The home team’s success rate has been almost exactly the same in the last decade as it was 50 and even 1",
+   "central_knowledge_unit": "or all the conventional sports wisdom that can be deconstructed disproved or called into question home team advantage is no myth indisputably it exists and it s remarkably consistent across all sports and at all levels f",
+   "content_id": "00f08d9d6bfc3fb0",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "3c805f20de8a4529",
+    "5ebbf8e0490295db"
+   ],
+   "legacy": true,
+   "normalized_subject": "advantage",
+   "people": [],
+   "published_at": "2026-10-03T08:11:46.023265+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Sports Fact",
+   "source_urls": [
+    "harrywalker.com/media/2001/scorecasting_si_1-17-111.pdf"
+   ],
+   "sport_or_game": "Advantage?",
+   "telegram_message_id": 300
+  },
+  {
+   "central_claim": "Zig: A Game of Cards, Cubes and Connections – NewVenture Games # Zig: A Game of Cards, Cubes and Connections ... I designed Zig about 10 years ago, but relegated it to the back burner while I worked on peg games. Now it's back! ... Zig is an acquisition game built around cards and patterns which lead to the acquisition (and sometimes loss) of point-scoring cubes. The name comes from the zigzag connections on the cards, linking pieces of information together so actions happen. ... A Zig mat for e",
+   "central_knowledge_unit": "zig a game of cards cubes and connections newventure games zig a game of cards cubes and connections i designed zig about 10 years ago but relegated it to the back burner while i worked on peg games now it s back zig is ",
+   "content_id": "2e93ca097847d1a3",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f7a2062a45d37fdb",
+    "84fc0cc83fc0d927"
+   ],
+   "legacy": true,
+   "normalized_subject": "zig a game of cards cubes and connections newventure games",
+   "people": [],
+   "published_at": "2026-10-03T08:12:09.615567+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    "newventuregames.com/blogs/news/zig-a-game-of-cards-cubes-and-connections"
+   ],
+   "sport_or_game": "Zig: A Game of Cards, Cubes and Connections – NewVenture Games",
+   "telegram_message_id": 301
+  },
+  {
+   "central_claim": "Tsan is a long-established traditional team sport of Italy’s Valle d’Aosta, historically associated with agricultural seasons and now governed by written rules. Its precise origin is unknown. An origin among shepherds is a hypothesis, not an established historical fact; the reported seventeenth-century Val d’Ayas custom is a later account, not proof of the sport’s founding date.",
+   "central_knowledge_unit": "tsan valle d aosta italy traditional sports",
+   "content_id": "7ec70ae9ac1a994d",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7ec70ae9ac1a994d",
+    "0f26fb0506d0337e"
+   ],
+   "normalized_subject": "tsan valle d aosta italy traditional sports",
+   "people": [],
+   "published_at": "2026-10-03T18:00:37.942856+00:00",
+   "region": "",
+   "run_id": "2026-10-03-PM",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 304
+  },
+  {
+   "central_claim": "Jacob Schmidt-Madsen Max Planck Institute for the History of Science (MPIWG), Berlin jschmidtmadsen@mpiwg-berlin.mpg.de Abstract. Dadu is a traditional board game exclusively played within the Muslim Dawoodi Bohra community in South Asia. Most households have their own hand stitched cloth board, together with a set of wood-turned playing pieces and cowrie shells for dice. Though formally a two-player game, it is commonly played in large teams during family gatherings. Non-community members rarely take part and the game remains virtually unknown to outsiders. Descriptions of the game are absent from the scholarly literature and it does not find mention in any of the major game encyclopedias.",
+   "central_knowledge_unit": "discovering dadu a ludemic enigma from south asia",
+   "content_id": "408ce964b83872c4",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "408ce964b83872c4",
+    "5efa7db5e25caae1"
+   ],
+   "normalized_subject": "discovering dadu a ludemic enigma from south asia",
+   "people": [],
+   "published_at": "2026-10-03T18:01:01.647088+00:00",
+   "region": "",
+   "run_id": "2026-10-03-PM",
+   "sector": "Game Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 305
+  },
+  {
+   "central_claim": "By Allen Guttmann University of Massachusetts Press From ancient Egyptian archery and medieval Japanese football to contemporary American baseball, every sport has been shaped by—and in turn has helped shape—the culture of which it is part. Yet as Allen Guttmann shows in this far-ranging study, for all their differences sports have followed a similar historical trajectory from traditional to modern forms. In Sports: The First Five Millennia, Guttmann traces this evolution across continents, cultures, and historical epochs to construct a single comprehensive narrative of the world’s sports. > Allen Guttmann is one of the stars in the history of sports as a serious academic subject. His expert",
+   "central_knowledge_unit": "ubc press sports the first five millennia by allen guttmann",
+   "content_id": "c3e3518811e915b5",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c3e3518811e915b5",
+    "933739198716d953"
+   ],
+   "normalized_subject": "ubc press sports the first five millennia by allen guttmann",
+   "people": [],
+   "published_at": "2026-10-03T18:01:34.569177+00:00",
+   "region": "",
+   "run_id": "2026-10-03-PM",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 306
+  },
+  {
+   "central_claim": "This article moves across equipment, coaching, athletes, media, and rules. The goal is to show how the sport transformed over 150 years while keeping the same basic tension between territory, ... , and decision- ... 4. Helmets evolved from soft leather caps into advanced protective shells with facemasks and padding systems. ... 6. Modern football relies heavily on film study, analytics, strength training, nutrition, and sports science. 7. Rule changes have made the game safer, faster, and more focused on passing and scoring. ... 6. Modern quarterbacks are expected to master coverages, protections, timing, motion, and full-field reads. 7. Passing rules changed over time to make offense more o",
+   "central_knowledge_unit": "football then vs now how the game has transformed over 150 years football streets",
+   "content_id": "3a9dbbe493ae401e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "3a9dbbe493ae401e",
+    "989ff1ea33a5a9aa"
+   ],
+   "normalized_subject": "football then vs now how the game has transformed over 150 years football streets",
+   "people": [],
+   "published_at": "2026-10-03T18:01:42.196578+00:00",
+   "region": "",
+   "run_id": "2026-10-03-PM",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 307
+  },
+  {
+   "central_claim": "In the history of major college football, only 11 teams have managed to win more than 30 games in a row. Penn (1896-1898), Pitt (1914-1918) and Oklahoma (1948-1950) reached 31 in a row, while Nebraska hit 32 consecutive victories from 1969 to 1972. Here, we’ll look at the seven teams with the longest win streaks in FBS history: ## T6. Penn — 34 (1894-96 seasons) Pennsylvania Athletics Penn's 1896 football team. Pennsylvania may play in the FCS now, but John Heisman’s alma mater ruled college football’s top division in the late 19th century. From 1890 to 1899, Penn went 124-14-2, for a win percentage of .893. That included nine straight seasons of at least 11 wins. More importantly, it held t",
+   "central_knowledge_unit": "the 7 longest winning streaks in college football history ncaa com",
+   "content_id": "e294fc8c820335e6",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e294fc8c820335e6",
+    "9a290d4369adc5f7"
+   ],
+   "normalized_subject": "the 7 longest winning streaks in college football history ncaa com",
+   "people": [],
+   "published_at": "2026-10-03T18:01:56.077354+00:00",
+   "region": "",
+   "run_id": "2026-10-03-PM",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 308
+  },
+  {
+   "central_claim": "In the mid-19th century, Doc Adams was first introduced to “base ball,” a sporting activity with rules and regulations that varied from team to team. A few decades later, this figure from the game’s nascent years would be called by many the “Father of Baseball” due to his important contributions in turning the sport into the National Pastime. Adams, a talented ballplayer who became a pioneering force on a multitude of fronts in baseball’s early years, is one of 10 finalists on this year’s Pre-Integration Committee ballot at the National Baseball Hall of Fame and Museum. The Pre-Integration Committee will vote on Dec. 7 at baseball’s Winter Meetings in Nashville, Tenn.. ... among the young pr",
+   "central_knowledge_unit": "doc adams helped shape baseball s earliest days baseball hall of fame",
+   "content_id": "4be9430bb4ec8ffc",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4be9430bb4ec8ffc",
+    "b98ac1d5f1015cdb"
+   ],
+   "normalized_subject": "doc adams helped shape baseball s earliest days baseball hall of fame",
+   "people": [],
+   "published_at": "2026-10-03T18:02:19.043478+00:00",
+   "region": "",
+   "run_id": "2026-10-03-PM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 309
+  },
+  {
+   "central_claim": "Ryan Paganetti spotted a statistic that demands an explanation. From 2001 through 2019, the New England Patriots made 86.25% of their field-goal attempts. Their opponents made only 76.83%. That 9.41-percentage-point gap was by far the largest in the NFL. Paganetti provided an explanation: During opposing teams’ field-goal attempts, the Gillette Stadium video board sometimes showed a reverse camera angle containing a distracting second, offset set of yellow uprights. Could that visual interference have been costing visiting kickers field goals? It is a terrific hypothesis: interesting, diabolical, and consistent with the Patriots’ reputation for pursuing every possible competitive edge. Bette",
+   "central_knowledge_unit": "the patriots opponents can t kick wharton sports analytics and business initiative",
+   "content_id": "26818bed6acc6ae9",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "26818bed6acc6ae9",
+    "1ee3a5420a843c39"
+   ],
+   "normalized_subject": "the patriots opponents can t kick wharton sports analytics and business initiative",
+   "people": [],
+   "published_at": "2026-10-03T18:02:42.414964+00:00",
+   "region": "",
+   "run_id": "2026-10-03-PM",
+   "sector": "Interesting Sports Fact",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 310
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-03T08:12:09.615552+00:00"
+ "updated_at": "2026-10-03T18:02:42.415144+00:00"
 }
