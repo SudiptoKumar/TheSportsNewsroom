@@ -5484,8 +5484,300 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 293
+  },
+  {
+   "central_claim": "Pierre de Coubertin was a leading organizer of the international Olympic revival: his campaign led to the 1894 Paris congress that established the International Olympic Committee and planned the 1896 Athens Games. He was neither the first to propose reviving the Olympics nor the sole contributor to their modern development.",
+   "central_knowledge_unit": "pierre de coubertin was a leading organizer of the international olympic revival his campaign led to the 1894 paris congress that established the international olympic committee and planned the 1896 athens games he was n",
+   "content_id": "c0efeb95a50e7e16",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "992ec9a1869f0aa7",
+    "ec7e8852d5a8ab54"
+   ],
+   "legacy": true,
+   "normalized_subject": "pierre baron de coubertin father of the modern olympics britannica",
+   "people": [],
+   "published_at": "2026-10-02T19:27:26.026542+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "britannica.com/biography/Pierre-Baron-de-Coubertin-Father-of-the-Modern-Olympics"
+   ],
+   "sport_or_game": "Pierre, Baron de Coubertin: Father of the Modern Olympics | Britannica",
+   "telegram_message_id": 288
+  },
+  {
+   "central_claim": "diary, please read: https://tinyurl.com/yfm4btup # Designer Diary: Creating a unique twist on 'writing on cards' in Forage! ## Shawn Stankewich Sep 25, 2026 9:00 AM I wanted to share with you all the story of the evolution of Forage - a puzzly roll-and-write game about foraging in the Pacific Northwest! Molly, Robb, and I have been designing and publishing games together for almost ten years and we wanted to share some of our process in working through the design and also the development that ha",
+   "central_knowledge_unit": "diary please read https tinyurl com yfm4btup designer diary creating a unique twist on writing on cards in forage shawn stankewich sep 25 2026 9 00 am i wanted to share with you all the story of the evolution of forage a",
+   "content_id": "265dbed7c62dc987",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "31379abbbc0c9f05",
+    "ae6bb66558feef42"
+   ],
+   "legacy": true,
+   "normalized_subject": "designer diary creating a unique twist on writing on cards in forage boardgamegeek blog boardgamegeek",
+   "people": [],
+   "published_at": "2026-10-02T19:28:06.316223+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    "boardgamegeek.com/blog/1/blogpost/191300/designer-diary-creating-a-unique-twist-on-writing"
+   ],
+   "sport_or_game": "Designer Diary: Creating a unique twist on 'writing on cards' in Forage! | BoardGameGeek Blog | BoardGameGeek",
+   "telegram_message_id": 289
+  },
+  {
+   "central_claim": "# Football's missing link: the real story of the evolution of modern football.",
+   "central_knowledge_unit": "football s missing link the real story of the evolution of modern football",
+   "content_id": "a79a7eaa9b387370",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c7c106b8fb79e849",
+    "27ef83dde3a37853"
+   ],
+   "legacy": true,
+   "normalized_subject": "the real story of the evolution of modern football",
+   "people": [],
+   "published_at": "2026-10-02T19:28:13.684253+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "bbc.com/news/articles/ce8g4rj805no"
+   ],
+   "sport_or_game": "the real story of the evolution of modern football",
+   "telegram_message_id": 290
+  },
+  {
+   "central_claim": "The Evergreen Game: Anderssen vs. Dufresne (1852) | ChessMind AI ... Anderssen vs. Dufresne, Berlin 1852 Adolf Anderssen 1–0 Jean Dufresne ... Berlin (casual) 1852 · ECO C52 · Evans Gambit ... 1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4 Bxb4 5. c3 Ba5 6. d4 exd4 7. O-O d3 8. Qb3 Qf6 9. e5 Qg6 10. Re1 Nge7 11. Ba3 b5 12. Qxb5 Rb8 13. Qa4 Bb6 14. Nbd2 Bb7 15. Ne4 Qf5 16. Bxd3 Qh5 17. Nf6+ gxf6 18. exf6 Rg8 19. Rad1 Qxf3 20. Rxe7+ Nxe7 21. Qxd7+ Kxd7 22. Bf5+ Ke8 23. Bd7+ Kf8 24. Bxe7# 1-0 ... Replaying c",
+   "central_knowledge_unit": "the evergreen game anderssen vs dufresne 1852 chessmind ai anderssen vs dufresne berlin 1852 adolf anderssen 1 0 jean dufresne berlin casual 1852 eco c52 evans gambit 1 e4 e5 2 nf3 nc6 3 bc4 bc5 4 b4 bxb4 5 c3 ba5 6 d4 e",
+   "content_id": "2bbc11b55afd41b5",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "6a7eca613324033b",
+    "b9c58bc8be5fb50e"
+   ],
+   "legacy": true,
+   "normalized_subject": "the evergreen game anderssen vs dufresne 1852 chessmind ai",
+   "people": [],
+   "published_at": "2026-10-02T19:28:40.247975+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    "en.m.wikipedia.org/wiki/Evergreen_Game"
+   ],
+   "sport_or_game": "The Evergreen Game: Anderssen vs. Dufresne (1852) | ChessMind AI",
+   "telegram_message_id": 291
+  },
+  {
+   "central_claim": "Imagine a game so addictive that it caused bar fights between emperors, drove peasants to gamble away their livelihoods, and was buried alongside the elite so they wouldn't get bored in the afterlife. It wasn't chess. It wasn't Go. It was Liubo, an ancient board game often called the long-lost cousin of chess. For centuries, this game dominated Chinese culture before vanishing into thin air during the Tang dynasty. For over a thousand years, nobody even knew how the board looked, let alone how t",
+   "central_knowledge_unit": "imagine a game so addictive that it caused bar fights between emperors drove peasants to gamble away their livelihoods and was buried alongside the elite so they wouldn t get bored in the afterlife it wasn t chess it was",
+   "content_id": "2b95d1b3d5c2d171",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "59f934c39b5fed69",
+    "8ce895cbc35a2321"
+   ],
+   "legacy": true,
+   "normalized_subject": "why a 2000 year old cousin of chess completely disappeared f mdi",
+   "people": [],
+   "published_at": "2026-10-02T19:28:51.416680+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Game",
+   "source_urls": [
+    "mdi.us.com/2000-year-old-cousin-chess-completely-disappeared-world"
+   ],
+   "sport_or_game": "Why A 2000 Year Old Cousin Of Chess Completely Disappeared F — Mdi",
+   "telegram_message_id": 292
+  },
+  {
+   "central_claim": "On April 17, 1953, a young Mickey Mantle stepped up to the plate in Griffith Stadium. It was the 5th inning with two outs and Yogi Berra on first. Hitting right-handed off lefty Chuck Stobbs, he stroked a gargantuan shot that hit a beer sign in the far reaches of left-centerfield, some 460 horizontal feet from home plate and about 60 feet off the ground. The ball glanced off the sign, exited the stadium, crossed 5th St NW, and ended up in a residential neighborhood. There seems to be no controve",
+   "central_knowledge_unit": "on april 17 1953 a young mickey mantle stepped up to the plate in griffith stadium it was the 5th inning with two outs and yogi berra on first hitting right handed off lefty chuck stobbs he stroked a gargantuan shot that",
+   "content_id": "64abd70f687c7d15",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "206af499f1f23019",
+    "984d20ce518d1468"
+   ],
+   "legacy": true,
+   "normalized_subject": "the mantle griffith stadium home run",
+   "people": [],
+   "published_at": "2026-10-02T19:29:45.357258+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Sports Fact",
+   "source_urls": [
+    "baseball.physics.illinois.edu/mantle565.html"
+   ],
+   "sport_or_game": "The Mantle Griffith Stadium Home Run",
+   "telegram_message_id": 293
+  },
+  {
+   "central_claim": "James Naismith Naismith created the game of basketball as a way to make physical education more enjoyable and less dangerous. (more) ... James Naismith (born November 6, 1861, Almonte, Ontario, Canada—died November 28, 1939, Lawrence, Kansas, U.S.) was a Canadian-American physical education director who, in 1891, invented the game of basketball as a way to make physical education more enjoyable and less dangerous. ... As a young man, Naismith studied theology and excelled in various sports. In the autumn of 1891 he was named an instructor by Luther Halsey Gulick, Jr., head of the Physical Education Department at the International Young Men’s Christian Association Training School, in Springfi",
+   "central_knowledge_unit": "james naismith biography rules of basketball facts britannica",
+   "content_id": "e7b256148715dec3",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e7b256148715dec3",
+    "19c6d13f90acddee"
+   ],
+   "normalized_subject": "james naismith biography rules of basketball facts britannica",
+   "people": [],
+   "published_at": "2026-10-03T08:10:16.879532+00:00",
+   "region": "",
+   "run_id": "2026-10-03-PM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 296
+  },
+  {
+   "central_claim": "So far, more than 100 of these types of ancient intellectual games have been discovered in the Middle East with different patterns, shapes and materials such as wood, clay and stone. In the ancient times, intellectual games of twenty houses were of interest to everyone and they played this game in every culture and it was not specific to one culture. The Oldest Complete Board Game In the ancient cemetery of Shahr-i Sokhta in Sistan,Iran, a remarkable discovery was made within grave number 731, an ancient game that represents the oldest complete collection of its kind found to date. While it's important to note that this isn't the world's first or oldest board game, it stands as the oldest co",
+   "central_knowledge_unit": "the shahr i sokhta board game",
+   "content_id": "c1ab183ce725d314",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c1ab183ce725d314",
+    "043ff6f9ce06b637"
+   ],
+   "normalized_subject": "the shahr i sokhta board game",
+   "people": [],
+   "published_at": "2026-10-03T08:10:42.661544+00:00",
+   "region": "",
+   "run_id": "2026-10-03-PM",
+   "sector": "Forgotten Game",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 297
+  },
+  {
+   "central_claim": "This research identifies, describes, and documents three traditional indigenous games practiced in Sabangan, Mountain Province, the Philippines: bawet, dong-as, and pinakpakan. It aims to examine their objectives, mechanics, and raw materials, which are representative of the values, knowledge, and customs of the community. The indigenous peoples mandatory representatives (IPMRs) of the Applai and Kankanaey groups, as well as community elders (mostly male, aged 45–75 yr), were included in this qualitative study. The study adhered to ethical standards and obtained free, prior, and informed consent (FPIC) from the National Commission on Indigenous Peoples (NCIP). Data were gathered through inte",
+   "central_knowledge_unit": "ay ayam ed eyaka uncovering the rules objectives and cultural significance of e sabangan s traditional indigenous games",
+   "content_id": "90b145f41d03377d",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "90b145f41d03377d",
+    "1b705381074deaf5"
+   ],
+   "normalized_subject": "ay ayam ed eyaka uncovering the rules objectives and cultural significance of e sabangan s traditional indigenous games",
+   "people": [],
+   "published_at": "2026-10-03T08:10:55.214101+00:00",
+   "region": "",
+   "run_id": "2026-10-03-PM",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 298
+  },
+  {
+   "central_claim": "Jugger is a team based game in which aspects of ball games and martial arts are combined. Two teams of five players try to score a goal by placing the ball in the opposing team's goal while simultaneously trying to prevent the opposing team from scoring. Jugger is played with a ball, which is called a skull, and padded equipment with different designs/appearance/shape called pompfen. What separates jugger from many other sports is that only one member of the team can pick up the skull and score. This player is called the qwik. The remaining players are called pompfen players, they will battle the opposing team to protect and help their qwik to score a point by using pompfen of different shap",
+   "central_knowledge_unit": "jugger swedish rulebook version 2 2",
+   "content_id": "ac55338fcca91395",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "ac55338fcca91395",
+    "52daf29a8be9540f"
+   ],
+   "normalized_subject": "jugger swedish rulebook version 2 2",
+   "people": [],
+   "published_at": "2026-10-03T08:11:16.847192+00:00",
+   "region": "",
+   "run_id": "2026-10-03-PM",
+   "sector": "How to Play",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 299
+  },
+  {
+   "central_claim": "or all the conventional sports wisdom that can be deconstructed, disproved or called into question, home team advantage is no myth. Indisputably, it exists—and it’s remarkably consistent. Across all sports and at all levels, from Japanese baseball to Brazilian soccer to the NFL, the team hosting a game wins more often than not. The size of the advantage is remarkably stable in each sport too: The home team’s success rate has been almost exactly the same in the last decade as it was 50 and even 100 years ago. And home field advantage is the same within any sport, no matter where it is played. The home winning percentage in Arena Football is essentially the same as in the NFL. The home field a",
+   "central_knowledge_unit": "advantage",
+   "content_id": "e89c6f32130388c1",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e89c6f32130388c1",
+    "3c805f20de8a4529"
+   ],
+   "normalized_subject": "advantage",
+   "people": [],
+   "published_at": "2026-10-03T08:11:46.023167+00:00",
+   "region": "",
+   "run_id": "2026-10-03-PM",
+   "sector": "Interesting Sports Fact",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 300
+  },
+  {
+   "central_claim": "Zig: A Game of Cards, Cubes and Connections – NewVenture Games # Zig: A Game of Cards, Cubes and Connections ... I designed Zig about 10 years ago, but relegated it to the back burner while I worked on peg games. Now it's back! ... Zig is an acquisition game built around cards and patterns which lead to the acquisition (and sometimes loss) of point-scoring cubes. The name comes from the zigzag connections on the cards, linking pieces of information together so actions happen. ... A Zig mat for each player, a “round tracker” mat & pawn, a tall deck of Zag cards, lots of colored cubes, a first-player token, and the rulebook. ... The goal is to collect as many cubes as you can with two scoring",
+   "central_knowledge_unit": "zig a game of cards cubes and connections newventure games",
+   "content_id": "b853420bbbecf96e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b853420bbbecf96e",
+    "f7a2062a45d37fdb"
+   ],
+   "normalized_subject": "zig a game of cards cubes and connections newventure games",
+   "people": [],
+   "published_at": "2026-10-03T08:12:09.615468+00:00",
+   "region": "",
+   "run_id": "2026-10-03-PM",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 301
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-02T19:29:45.357233+00:00"
+ "updated_at": "2026-10-03T08:12:09.615552+00:00"
 }

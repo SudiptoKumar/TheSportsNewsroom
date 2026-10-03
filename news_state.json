@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "Cerebras per-run call cap reached (16)",
-  "last_ok": "2026-10-02T19:29:39.671235+00:00",
-  "last_request_id": "a4461df9e9a8d6a7-IAD",
+  "last_ok": "2026-10-03T08:12:03.108124+00:00",
+  "last_request_id": "a44a7ac5eac9cb93-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-02T19:33:59.474392+00:00",
+ "last_run_at": "2026-10-03T08:16:28.241524+00:00",
  "ledger": {},
  "posts": [
   {
@@ -2624,6 +2624,142 @@
    "urls": [
     "baseball.physics.illinois.edu/mantle565.html"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "James Naismith | Biography, Rules of Basketball, & Facts | Britannica",
+   "claim": "James Naismith Naismith created the game of basketball as a way to make physical education more enjoyable and less dangerous. (more) ... James Naismith (born November 6, 1861, Almonte, Ontario, Canada—died November 28, 1939, Lawrence, Kansas, U.S.) was a Canadian-American physical education director who, in 1891, invented the game of basketball as a way to make physical education more enjoyable and less dangerous. ... As a young man, Naismith studied theology and excelled in various sports. In the autumn of 1891 he was named an instructor by Luther Halsey Gulick, Jr., head of the Physical Education Department at the International Young Men’s Christian Association Training School, in Springfi",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "James Naismith Invented Basketball to Safer, More Fun Physical Education",
+   "image_status": "verified_external",
+   "message_id": 296,
+   "normalized_subject": "James Naismith | Biography, Rules of Basketball, & Facts | Britannica",
+   "posted_at": "2026-10-03T08:10:16.879649+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-03-PM",
+   "sector": "Sports & Games People",
+   "topic": "James Naismith | Biography, Rules of Basketball, & Facts | Britannica",
+   "urls": [
+    "britannica.com/biography/James-Naismith"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The Shahr-i Sokhta Board Game",
+   "claim": "So far, more than 100 of these types of ancient intellectual games have been discovered in the Middle East with different patterns, shapes and materials such as wood, clay and stone. In the ancient times, intellectual games of twenty houses were of interest to everyone and they played this game in every culture and it was not specific to one culture. The Oldest Complete Board Game In the ancient cemetery of Shahr-i Sokhta in Sistan,Iran, a remarkable discovery was made within grave number 731, an ancient game that represents the oldest complete collection of its kind found to date. While it's important to note that this isn't the world's first or oldest board game, it stands as the oldest co",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Game",
+   "headline": "Shahr-i Sokhta Grave Yields Oldest Complete Ancient Board Game",
+   "image_status": "verified_external",
+   "message_id": 297,
+   "normalized_subject": "The Shahr-i Sokhta Board Game",
+   "posted_at": "2026-10-03T08:10:42.661640+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-03-PM",
+   "sector": "Forgotten Game",
+   "topic": "The Shahr-i Sokhta Board Game",
+   "urls": [
+    "persianwonders.com/Game/The-Shahr-i-Sokhta-Game"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Ay-ayam ed Eyaka: Uncovering the Rules, Objectives, and Cultural Significance of e-Sabangan’s Traditional Indigenous Games",
+   "claim": "This research identifies, describes, and documents three traditional indigenous games practiced in Sabangan, Mountain Province, the Philippines: bawet, dong-as, and pinakpakan. It aims to examine their objectives, mechanics, and raw materials, which are representative of the values, knowledge, and customs of the community. The indigenous peoples mandatory representatives (IPMRs) of the Applai and Kankanaey groups, as well as community elders (mostly male, aged 45–75 yr), were included in this qualitative study. The study adhered to ethical standards and obtained free, prior, and informed consent (FPIC) from the National Commission on Indigenous Peoples (NCIP). Data were gathered through inte",
+   "desk": "evergreen_v1",
+   "format": "Traditional / Regional Game",
+   "headline": "Sabangan’s Indigenous Games: Bawet Persists While Dong‑as and Pinakpakan Fade",
+   "image_status": "card_fallback",
+   "message_id": 298,
+   "normalized_subject": "Ay-ayam ed Eyaka: Uncovering the Rules, Objectives, and Cultural Significance of e-Sabangan’s Traditional Indigenous Games",
+   "posted_at": "2026-10-03T08:10:55.214213+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-03-PM",
+   "sector": "Traditional / Regional Game",
+   "topic": "Ay-ayam ed Eyaka: Uncovering the Rules, Objectives, and Cultural Significance of e-Sabangan’s Traditional Indigenous Games",
+   "urls": [
+    "philjournalsci.dost.gov.ph/wp-content/uploads/2025/12/Ay-ayam-ed-Eyaka-uncovering-the-rules-objectives-and-cultural-significance-of-sebangan-games_.pdf"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Jugger: Swedish rulebook - version 2.2",
+   "claim": "Jugger is a team based game in which aspects of ball games and martial arts are combined. Two teams of five players try to score a goal by placing the ball in the opposing team's goal while simultaneously trying to prevent the opposing team from scoring. Jugger is played with a ball, which is called a skull, and padded equipment with different designs/appearance/shape called pompfen. What separates jugger from many other sports is that only one member of the team can pick up the skull and score. This player is called the qwik. The remaining players are called pompfen players, they will battle the opposing team to protect and help their qwik to score a point by using pompfen of different shap",
+   "desk": "evergreen_v1",
+   "format": "How to Play",
+   "headline": "Jugger blends ball play and martial arts in a five‑player team sport",
+   "image_status": "card_fallback",
+   "message_id": 299,
+   "normalized_subject": "Jugger: Swedish rulebook - version 2.2",
+   "posted_at": "2026-10-03T08:11:16.847296+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-03-PM",
+   "sector": "How to Play",
+   "topic": "Jugger: Swedish rulebook - version 2.2",
+   "urls": [
+    "jugger.se/wp-content/uploads/simple-file-list/Jugger__Swedish_rulebook_-_version_2_2.pdf"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Advantage?",
+   "claim": "or all the conventional sports wisdom that can be deconstructed, disproved or called into question, home team advantage is no myth. Indisputably, it exists—and it’s remarkably consistent. Across all sports and at all levels, from Japanese baseball to Brazilian soccer to the NFL, the team hosting a game wins more often than not. The size of the advantage is remarkably stable in each sport too: The home team’s success rate has been almost exactly the same in the last decade as it was 50 and even 100 years ago. And home field advantage is the same within any sport, no matter where it is played. The home winning percentage in Arena Football is essentially the same as in the NFL. The home field a",
+   "desk": "evergreen_v1",
+   "format": "Interesting Sports Fact",
+   "headline": "Home Field Advantage Persists Across Sports and Centuries",
+   "image_status": "verified_external",
+   "message_id": 300,
+   "normalized_subject": "Advantage?",
+   "posted_at": "2026-10-03T08:11:46.023265+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-03-PM",
+   "sector": "Interesting Sports Fact",
+   "topic": "Advantage?",
+   "urls": [
+    "harrywalker.com/media/2001/scorecasting_si_1-17-111.pdf"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Zig: A Game of Cards, Cubes and Connections – NewVenture Games",
+   "claim": "Zig: A Game of Cards, Cubes and Connections – NewVenture Games # Zig: A Game of Cards, Cubes and Connections ... I designed Zig about 10 years ago, but relegated it to the back burner while I worked on peg games. Now it's back! ... Zig is an acquisition game built around cards and patterns which lead to the acquisition (and sometimes loss) of point-scoring cubes. The name comes from the zigzag connections on the cards, linking pieces of information together so actions happen. ... A Zig mat for each player, a “round tracker” mat & pawn, a tall deck of Zag cards, lots of colored cubes, a first-player token, and the rulebook. ... The goal is to collect as many cubes as you can with two scoring ",
+   "desk": "evergreen_v1",
+   "format": "New Tabletop Game Discovery",
+   "headline": "Zig Introduces a Fresh Take on Card‑Cube Acquisition Games",
+   "image_status": "verified_external",
+   "message_id": 301,
+   "normalized_subject": "Zig: A Game of Cards, Cubes and Connections – NewVenture Games",
+   "posted_at": "2026-10-03T08:12:09.615567+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-03-PM",
+   "sector": "New Tabletop Game Discovery",
+   "topic": "Zig: A Game of Cards, Cubes and Connections – NewVenture Games",
+   "urls": [
+    "newventuregames.com/blogs/news/zig-a-game-of-cards-cubes-and-connections"
+   ]
   }
  ],
  "runs": [],
@@ -2635,26 +2771,27 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-10-02T19:14:33.295693+00:00",
+  "created_at": "2026-10-03T08:02:12.596946+00:00",
   "daily": {
    "2026-10-03": {
     "published_sectors": [
      "Sports & Games People",
-     "New Tabletop Game Discovery",
-     "Sport Origin",
-     "Interesting Game Fact",
      "Forgotten Game",
-     "Interesting Sports Fact"
+     "Traditional / Regional Game",
+     "How to Play",
+     "Interesting Sports Fact",
+     "New Tabletop Game Discovery"
     ],
     "run_ids": [
-     "2026-10-03-AM"
+     "2026-10-03-PM"
     ]
    }
   },
-  "last_run_at": "2026-10-02T19:33:59.474368+00:00",
+  "last_run_at": "2026-10-03T08:16:28.241505+00:00",
   "live": {
    "results": {
     "event_ids": [
+     "6aef4d5b747ea2a5",
      "31148a50855b4858",
      "c6c9bf7b56a17f16",
      "46e7519a3772ced9",
@@ -2663,12 +2800,11 @@
      "80c1862c9c75296b",
      "e45ed001f8966419",
      "c4af6a1a23344a3b",
-     "8fb5b025793644b9",
-     "53ab6f300829abdc"
+     "8fb5b025793644b9"
     ],
-    "message_id": 295,
+    "message_id": 303,
     "target_date": "2026-10-02",
-    "updated_at": "2026-10-02T19:33:59.469007+00:00"
+    "updated_at": "2026-10-03T08:16:28.237592+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
@@ -2684,68 +2820,68 @@
      "79d65fa21146eb62",
      "7fa560c3770190c5"
     ],
-    "message_id": 294,
+    "message_id": 302,
     "target_date": "2026-10-04",
-    "updated_at": "2026-10-02T19:33:59.468994+00:00"
+    "updated_at": "2026-10-03T08:16:28.237585+00:00"
    }
   },
   "publication": {
-   "2026-10-03-AM:evergreen:21a2d4c65bf41f1b": {
-    "message_id": 291,
-    "posted_at": "2026-10-02T19:28:40.247661+00:00",
+   "2026-10-03-PM:evergreen:22062fbd93119184": {
+    "message_id": 297,
+    "posted_at": "2026-10-03T08:10:42.661476+00:00",
     "status": "posted"
    },
-   "2026-10-03-AM:evergreen:24e500cfe376be72": {
-    "message_id": 288,
-    "posted_at": "2026-10-02T19:27:26.026337+00:00",
+   "2026-10-03-PM:evergreen:4f2194cbb1b3fbdb": {
+    "message_id": 299,
+    "posted_at": "2026-10-03T08:11:16.847091+00:00",
     "status": "posted"
    },
-   "2026-10-03-AM:evergreen:965c1b117554ea04": {
-    "message_id": 289,
-    "posted_at": "2026-10-02T19:28:06.315965+00:00",
+   "2026-10-03-PM:evergreen:5caa3c36c088b194": {
+    "message_id": 300,
+    "posted_at": "2026-10-03T08:11:46.023099+00:00",
     "status": "posted"
    },
-   "2026-10-03-AM:evergreen:b9d690599b24a40b": {
-    "message_id": 293,
-    "posted_at": "2026-10-02T19:29:45.357006+00:00",
+   "2026-10-03-PM:evergreen:8abe703e23aa0fb1": {
+    "message_id": 301,
+    "posted_at": "2026-10-03T08:12:09.615374+00:00",
     "status": "posted"
    },
-   "2026-10-03-AM:evergreen:ec70e8a886fe3ad7": {
-    "message_id": 292,
-    "posted_at": "2026-10-02T19:28:51.416422+00:00",
+   "2026-10-03-PM:evergreen:a8b76987f9fe2137": {
+    "message_id": 298,
+    "posted_at": "2026-10-03T08:10:55.214015+00:00",
     "status": "posted"
    },
-   "2026-10-03-AM:evergreen:fdd67cf3d51303ac": {
-    "message_id": 290,
-    "posted_at": "2026-10-02T19:28:13.684079+00:00",
+   "2026-10-03-PM:evergreen:e68e429d70cd7be1": {
+    "message_id": 296,
+    "posted_at": "2026-10-03T08:10:16.879441+00:00",
     "status": "posted"
    },
-   "2026-10-03-AM:live_results:07872410313b9bd8": {
-    "message_id": 295,
-    "posted_at": "2026-10-02T19:33:59.468966+00:00",
+   "2026-10-03-PM:live_results:07872410313b9bd8": {
+    "message_id": 303,
+    "posted_at": "2026-10-03T08:16:28.237575+00:00",
     "status": "posted"
    },
-   "2026-10-03-AM:live_schedule:b62fd41df15a3d08": {
-    "message_id": 294,
-    "posted_at": "2026-10-02T19:33:59.163565+00:00",
+   "2026-10-03-PM:live_schedule:b62fd41df15a3d08": {
+    "message_id": 302,
+    "posted_at": "2026-10-03T08:16:27.840446+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-10-02T19:33:59.474375+00:00",
+    "at": "2026-10-03T08:16:28.241511+00:00",
     "evergreen": 6,
     "exit": 0,
-    "live_results": 295,
-    "live_schedule": 294,
-    "run_id": "2026-10-03-AM",
+    "live_results": 303,
+    "live_schedule": 302,
+    "run_id": "2026-10-03-PM",
     "used_sectors": [
      "Forgotten Game",
-     "Interesting Game Fact",
+     "How to Play",
      "Interesting Sports Fact",
      "New Tabletop Game Discovery",
-     "Sport Origin",
-     "Sports & Games People"
+     "Sports & Games People",
+     "Traditional / Regional Game"
     ]
    }
   ],
