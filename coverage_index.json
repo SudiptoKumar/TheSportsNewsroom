@@ -6093,8 +6093,322 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 310
+  },
+  {
+   "central_claim": "Tsan is a long-established traditional team sport of Italy’s Valle d’Aosta, historically associated with agricultural seasons and now governed by written rules. Its precise origin is unknown. An origin among shepherds is a hypothesis, not an established historical fact; the reported seventeenth-century Val d’Ayas custom is a later account, not proof of the sport’s founding date.",
+   "central_knowledge_unit": "tsan is a long established traditional team sport of italy s valle d aosta historically associated with agricultural seasons and now governed by written rules its precise origin is unknown an origin among shepherds is a ",
+   "content_id": "7a00d91c3a788f3a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "0f26fb0506d0337e",
+    "809fb67f98cc7f37"
+   ],
+   "legacy": true,
+   "normalized_subject": "tsan valle d aosta italy traditional sports",
+   "people": [],
+   "published_at": "2026-10-03T18:00:37.943079+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "traditionalsports.org/traditional-sports/europe/tsan-valle-daosta-italy.html"
+   ],
+   "sport_or_game": "Tsan (Valle d’Aosta, Italy) - Traditional Sports",
+   "telegram_message_id": 304
+  },
+  {
+   "central_claim": "Jacob Schmidt-Madsen Max Planck Institute for the History of Science (MPIWG), Berlin jschmidtmadsen@mpiwg-berlin.mpg.de Abstract. Dadu is a traditional board game exclusively played within the Muslim Dawoodi Bohra community in South Asia. Most households have their own hand stitched cloth board, together with a set of wood-turned playing pieces and cowrie shells for dice. Though formally a two-player game, it is commonly played in large teams during family gatherings. Non-community members rarel",
+   "central_knowledge_unit": "jacob schmidt madsen max planck institute for the history of science mpiwg berlin jschmidtmadsen mpiwg berlin mpg de abstract dadu is a traditional board game exclusively played within the muslim dawoodi bohra community ",
+   "content_id": "df1df008d64b7df5",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "5efa7db5e25caae1",
+    "0e8852343c87dcc4"
+   ],
+   "legacy": true,
+   "normalized_subject": "discovering dadu a ludemic enigma from south asia",
+   "people": [],
+   "published_at": "2026-10-03T18:01:01.647260+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "exa.ai/library/publication/lcxzhjpf2t5"
+   ],
+   "sport_or_game": "Discovering Dadu: A Ludemic Enigma from South Asia",
+   "telegram_message_id": 305
+  },
+  {
+   "central_claim": "By Allen Guttmann University of Massachusetts Press From ancient Egyptian archery and medieval Japanese football to contemporary American baseball, every sport has been shaped by—and in turn has helped shape—the culture of which it is part. Yet as Allen Guttmann shows in this far-ranging study, for all their differences sports have followed a similar historical trajectory from traditional to modern forms. In Sports: The First Five Millennia, Guttmann traces this evolution across continents, cult",
+   "central_knowledge_unit": "by allen guttmann university of massachusetts press from ancient egyptian archery and medieval japanese football to contemporary american baseball every sport has been shaped by and in turn has helped shape the culture o",
+   "content_id": "0d85af80a220f79b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "933739198716d953",
+    "237ccf05fbce96a3"
+   ],
+   "legacy": true,
+   "normalized_subject": "ubc press sports the first five millennia by allen guttmann",
+   "people": [],
+   "published_at": "2026-10-03T18:01:34.569370+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "ubcpress.ca/sports-1"
+   ],
+   "sport_or_game": "UBC Press | Sports - The First Five Millennia, By Allen Guttmann",
+   "telegram_message_id": 306
+  },
+  {
+   "central_claim": "This article moves across equipment, coaching, athletes, media, and rules. The goal is to show how the sport transformed over 150 years while keeping the same basic tension between territory, ... , and decision- ... 4. Helmets evolved from soft leather caps into advanced protective shells with facemasks and padding systems. ... 6. Modern football relies heavily on film study, analytics, strength training, nutrition, and sports science. 7. Rule changes have made the game safer, faster, and more f",
+   "central_knowledge_unit": "this article moves across equipment coaching athletes media and rules the goal is to show how the sport transformed over 150 years while keeping the same basic tension between territory and decision 4 helmets evolved fro",
+   "content_id": "96b386ffc7d44f1a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "989ff1ea33a5a9aa",
+    "96832453269f9ed4"
+   ],
+   "legacy": true,
+   "normalized_subject": "football then vs now how the game has transformed over 150 years football streets",
+   "people": [],
+   "published_at": "2026-10-03T18:01:42.196768+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "apnews.com/article/6f087549b22d921989948acae722e3ee"
+   ],
+   "sport_or_game": "Football Then vs Now: How the Game Has Transformed Over 150 Years - Football Streets",
+   "telegram_message_id": 307
+  },
+  {
+   "central_claim": "In the history of major college football, only 11 teams have managed to win more than 30 games in a row. Penn (1896-1898), Pitt (1914-1918) and Oklahoma (1948-1950) reached 31 in a row, while Nebraska hit 32 consecutive victories from 1969 to 1972. Here, we’ll look at the seven teams with the longest win streaks in FBS history: ## T6. Penn — 34 (1894-96 seasons) Pennsylvania Athletics Penn's 1896 football team. Pennsylvania may play in the FCS now, but John Heisman’s alma mater ruled college foo",
+   "central_knowledge_unit": "in the history of major college football only 11 teams have managed to win more than 30 games in a row penn 1896 1898 pitt 1914 1918 and oklahoma 1948 1950 reached 31 in a row while nebraska hit 32 consecutive victories ",
+   "content_id": "a04a36024c3ee318",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9a290d4369adc5f7",
+    "3d798bec6a353e59"
+   ],
+   "legacy": true,
+   "normalized_subject": "the 7 longest winning streaks in college football history ncaa com",
+   "people": [],
+   "published_at": "2026-10-03T18:01:56.077575+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    "espn.com/college-football/story/_/id/41031996/what-longest-college-football-winning-streaks"
+   ],
+   "sport_or_game": "The 7 longest winning streaks in college football history | NCAA.com",
+   "telegram_message_id": 308
+  },
+  {
+   "central_claim": "In the mid-19th century, Doc Adams was first introduced to “base ball,” a sporting activity with rules and regulations that varied from team to team. A few decades later, this figure from the game’s nascent years would be called by many the “Father of Baseball” due to his important contributions in turning the sport into the National Pastime. Adams, a talented ballplayer who became a pioneering force on a multitude of fronts in baseball’s early years, is one of 10 finalists on this year’s Pre-In",
+   "central_knowledge_unit": "in the mid 19th century doc adams was first introduced to base ball a sporting activity with rules and regulations that varied from team to team a few decades later this figure from the game s nascent years would be call",
+   "content_id": "993a643cf0896d56",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b98ac1d5f1015cdb",
+    "07361ff16883c1f2"
+   ],
+   "legacy": true,
+   "normalized_subject": "doc adams helped shape baseball s earliest days baseball hall of fame",
+   "people": [],
+   "published_at": "2026-10-03T18:02:19.043971+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "baseballhall.org/index%2ephp/discover-more/stories/pre-integration/adams-doc"
+   ],
+   "sport_or_game": "Doc Adams helped shape baseball’s earliest days | Baseball Hall of Fame",
+   "telegram_message_id": 309
+  },
+  {
+   "central_claim": "Ryan Paganetti spotted a statistic that demands an explanation. From 2001 through 2019, the New England Patriots made 86.25% of their field-goal attempts. Their opponents made only 76.83%. That 9.41-percentage-point gap was by far the largest in the NFL. Paganetti provided an explanation: During opposing teams’ field-goal attempts, the Gillette Stadium video board sometimes showed a reverse camera angle containing a distracting second, offset set of yellow uprights. Could that visual interferenc",
+   "central_knowledge_unit": "ryan paganetti spotted a statistic that demands an explanation from 2001 through 2019 the new england patriots made 86 25 of their field goal attempts their opponents made only 76 83 that 9 41 percentage point gap was by",
+   "content_id": "37050adb5786e803",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "1ee3a5420a843c39",
+    "18eda4cf7e096c41"
+   ],
+   "legacy": true,
+   "normalized_subject": "the patriots opponents can t kick wharton sports analytics and business initiative",
+   "people": [],
+   "published_at": "2026-10-03T18:02:42.415177+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Sports Fact",
+   "source_urls": [
+    "wsb.wharton.upenn.edu/the-patriots-opponents-cant-kick"
+   ],
+   "sport_or_game": "The Patriots’ Opponents Can’t Kick! - Wharton Sports Analytics and Business Initiative",
+   "telegram_message_id": 310
+  },
+  {
+   "central_claim": "Fencing has traditions documented by European guilds in the 15th century and has featured at every modern Summer Olympics since 1896. Olympic equipment and scoring evolved from masks and manual judging to electrical scoring (épée at the 1936 Games, foil in 1956, sabre in 1988) and, beginning at Athens 2004, wireless scoring; Beijing 2008 used wireless scoring in foil and sabre, but not épée.",
+   "central_knowledge_unit": "from duelling at dawn to wireless scoring fencing through the ages with olympic champion szasz olympic news",
+   "content_id": "2b93c8eed386de87",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "2b93c8eed386de87",
+    "254f1531cf727117"
+   ],
+   "normalized_subject": "from duelling at dawn to wireless scoring fencing through the ages with olympic champion szasz olympic news",
+   "people": [],
+   "published_at": "2026-10-04T08:30:50.042742+00:00",
+   "region": "",
+   "run_id": "2026-10-04-PM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 313
+  },
+  {
+   "central_claim": "How can we predict the trajectory of a baseball from bat to outfield? How do the dimples in a golf ball influence its flight from tee to pin? What forces determine the path of a soccer ball steered over a defensive wall by an elite player? An understanding of the physical processes involved in throwing, hitting, firing and releasing sporting projectiles is essential for a full understanding of the science that underpins sport. This is the first book to comprehensively examine those processes and to explain the factors governing the trajectories of sporting projectiles once they are set in motion. From a serve in tennis to the flight of a ’human projectile’ over a high jump bar, this book exp",
+   "central_knowledge_unit": "projectile dynamics in sport principles and applications",
+   "content_id": "241cc1ed89be73f7",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "241cc1ed89be73f7",
+    "4ca528cfc4629238"
+   ],
+   "normalized_subject": "projectile dynamics in sport principles and applications",
+   "people": [],
+   "published_at": "2026-10-04T08:30:58.187172+00:00",
+   "region": "",
+   "run_id": "2026-10-04-PM",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 314
+  },
+  {
+   "central_claim": "In Sahkku, your soldiers begin asleep, a neutral king can change sides, and a single landing can remove several opposing pieces. If you're learning the game, the soldier’s path and the king's shifting allegiance are the parts to watch. Sahkku is a traditional Sámi \"running-fight\" game with several historical rule variations. The board and pieces make more sense once you follow their route through a turn. ... In Laponia, published in 1673, Johannes Schefferus described a game played among the Sámi people of northern Europe. He noted its long dice and their markings but didn't record the game's name. John Milford supplied that name in 1841, describing Sahkku in Norway and Her Laplanders. Later",
+   "central_knowledge_unit": "sahkku how to play the traditional s mi strategy board game newventure games",
+   "content_id": "233047131ecbd6d1",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "233047131ecbd6d1",
+    "8d6e6c77c2b85aef"
+   ],
+   "normalized_subject": "sahkku how to play the traditional s mi strategy board game newventure games",
+   "people": [],
+   "published_at": "2026-10-04T08:31:09.369086+00:00",
+   "region": "",
+   "run_id": "2026-10-04-PM",
+   "sector": "Game Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 315
+  },
+  {
+   "central_claim": "Naismith ... In the winter of 1891, when a 30-year-old physical education instructor from the International YMCA Training School in Springfield, Massachusetts invented an indoor game that could be played between football and baseball seasons, basket ball, originally two words, was born. James Naismith wrote and developed the game’s original thirteen rules and, through the YMCA network, quickly spread the news throughout the country. As basketball’s popularity grew, Naismith neither sought publicity nor engaged in self-promotion. He was first and foremost an educator, holding posts at the International YMCA Training School and the University of Kansas. He embraced recreational sport, but shie",
+   "central_knowledge_unit": "james naismith the naismith basketball hall of fame",
+   "content_id": "fab3f425d967ccb9",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "fab3f425d967ccb9",
+    "550e2b970d468846"
+   ],
+   "normalized_subject": "james naismith the naismith basketball hall of fame",
+   "people": [],
+   "published_at": "2026-10-04T08:31:48.223064+00:00",
+   "region": "",
+   "run_id": "2026-10-04-PM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 316
+  },
+  {
+   "central_claim": "Entry (2.4.1, 4.2.1, 6.3.2, 6.4.1). Occupancy: each team has exactly two players on the Grid. The Grid Advantage team starts each half in Prime and Major; after that either team may hold any quadrant (2.4, 4.1). Serve target: the serve must go to a quadrant held by an opponent, never a teammate. Rallies keep the legal-return rule (2.4, 2.6.3, 6.1.1). Officiator signals: Out of Bounds, Illegal Serve and Timeout redesigned so no two signals look alike; new signals for Warning, Ejection, Ball In, Replay and Possession (12.3). Court color: no single league color; each club sets its home court's hardwood finish, with NGL approval and clear contrast with the ball and lines (3.1.3). Overtime: conti",
+   "central_knowledge_unit": "ngl official rulebook version 3 1 2026 edition",
+   "content_id": "c9763b122ac2fcf0",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c9763b122ac2fcf0",
+    "5d6f6231c72f4f7b"
+   ],
+   "normalized_subject": "ngl official rulebook version 3 1 2026 edition",
+   "people": [],
+   "published_at": "2026-10-04T08:32:50.186890+00:00",
+   "region": "",
+   "run_id": "2026-10-04-PM",
+   "sector": "How to Play",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 317
+  },
+  {
+   "central_claim": "Tar Heels Capture 1000th Victory In Home Opener - University of North Carolina Athletics ... ## Tar Heels Capture 1000th Victory In Home Opener ... CHAPEL HILL – No. 12 Carolina continued its perfect season on Saturday night, winning its fifth straight to open the year and first in Carmichael Arena with a 3-0 sweep of TCU. The victory over the Horned Frogs (4-1) marked the 1,000th win all time for the Tar Heels, doing so in straight sets: 25-23, 25-20, 25-18. ... The 3-0 victory was the 1,000th for the Tar Heel program since its inaugural season in 1971. Prior to Saturday, just one ACC team had reached the 1,000-win mark, as Florida State did so in 2013. Coincidentally, Pittsburgh also won i",
+   "central_knowledge_unit": "tar heels capture 1000th victory in home opener university of north carolina athletics",
+   "content_id": "382da23d94aa8c47",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "382da23d94aa8c47",
+    "586ccd0deac52547"
+   ],
+   "normalized_subject": "tar heels capture 1000th victory in home opener university of north carolina athletics",
+   "people": [],
+   "published_at": "2026-10-04T08:33:01.271388+00:00",
+   "region": "",
+   "run_id": "2026-10-04-PM",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 318
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-03T18:02:42.415144+00:00"
+ "updated_at": "2026-10-04T08:33:01.271508+00:00"
 }

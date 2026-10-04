@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "Cerebras per-run call cap reached (16)",
-  "last_ok": "2026-10-03T18:03:05.361546+00:00",
-  "last_request_id": "a44ddc8cc86fe8c2-CMH",
+  "last_ok": "2026-10-04T08:32:58.319414+00:00",
+  "last_request_id": "a452d6cad8202668-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-03T18:07:19.106569+00:00",
+ "last_run_at": "2026-10-04T08:37:16.423071+00:00",
  "ledger": {},
  "posts": [
   {
@@ -2919,6 +2919,140 @@
    "urls": [
     "wsb.wharton.upenn.edu/the-patriots-opponents-cant-kick"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "From duelling at dawn to wireless scoring: fencing through the ages with Olympic champion Szasz - Olympic News",
+   "claim": "Fencing has traditions documented by European guilds in the 15th century and has featured at every modern Summer Olympics since 1896. Olympic equipment and scoring evolved from masks and manual judging to electrical scoring (épée at the 1936 Games, foil in 1956, sabre in 1988) and, beginning at Athens 2004, wireless scoring; Beijing 2008 used wireless scoring in foil and sabre, but not épée.",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "Fencing’s Olympic Journey: From 15th‑Century Guilds to Wireless Scoring",
+   "image_status": "card_fallback",
+   "message_id": 313,
+   "normalized_subject": "From duelling at dawn to wireless scoring: fencing through the ages with Olympic champion Szasz - Olympic News",
+   "posted_at": "2026-10-04T08:30:50.042848+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-04-PM",
+   "sector": "Then vs Now",
+   "topic": "From duelling at dawn to wireless scoring: fencing through the ages with Olympic champion Szasz - Olympic News",
+   "urls": [
+    "olympics.com/en/news/from-duelling-at-dawn-to-wireless-scoring-fencing-through-the-ages-with-olympic-"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Projectile Dynamics in Sport: Principles and Applications",
+   "claim": "How can we predict the trajectory of a baseball from bat to outfield? How do the dimples in a golf ball influence its flight from tee to pin? What forces determine the path of a soccer ball steered over a defensive wall by an elite player? An understanding of the physical processes involved in throwing, hitting, firing and releasing sporting projectiles is essential for a full understanding of the science that underpins sport. This is the first book to comprehensively examine those processes and to explain the factors governing the trajectories of sporting projectiles once they are set in motion. From a serve in tennis to the flight of a ’human projectile’ over a high jump bar, this book exp",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "How Physics Shapes the Flight of Sports Projectiles",
+   "image_status": "card_fallback",
+   "message_id": 314,
+   "normalized_subject": "Projectile Dynamics in Sport: Principles and Applications",
+   "posted_at": "2026-10-04T08:30:58.187275+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-04-PM",
+   "sector": "Why Does This Happen?",
+   "topic": "Projectile Dynamics in Sport: Principles and Applications",
+   "urls": [
+    "exa.ai/library/publication/pdgh5wll85h"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Sahkku How to Play the Traditional Sámi Strategy Board Game – NewVenture Games",
+   "claim": "In Sahkku, your soldiers begin asleep, a neutral king can change sides, and a single landing can remove several opposing pieces. If you're learning the game, the soldier’s path and the king's shifting allegiance are the parts to watch. Sahkku is a traditional Sámi \"running-fight\" game with several historical rule variations. The board and pieces make more sense once you follow their route through a turn. ... In Laponia, published in 1673, Johannes Schefferus described a game played among the Sámi people of northern Europe. He noted its long dice and their markings but didn't record the game's name. John Milford supplied that name in 1841, describing Sahkku in Norway and Her Laplanders. Later",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "Sahkku’s Sleeping Soldiers and Shifting King Define Its Unique Play",
+   "image_status": "verified_external",
+   "message_id": 315,
+   "normalized_subject": "Sahkku How to Play the Traditional Sámi Strategy Board Game – NewVenture Games",
+   "posted_at": "2026-10-04T08:31:09.369196+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-04-PM",
+   "sector": "Game Discovery",
+   "topic": "Sahkku How to Play the Traditional Sámi Strategy Board Game – NewVenture Games",
+   "urls": [
+    "newventuregames.com/blogs/news/sahkku-how-to-play-the-traditional-sami-board-game"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "James Naismith :: The Naismith Basketball Hall of Fame",
+   "claim": "Naismith ... In the winter of 1891, when a 30-year-old physical education instructor from the International YMCA Training School in Springfield, Massachusetts invented an indoor game that could be played between football and baseball seasons, basket ball, originally two words, was born. James Naismith wrote and developed the game’s original thirteen rules and, through the YMCA network, quickly spread the news throughout the country. As basketball’s popularity grew, Naismith neither sought publicity nor engaged in self-promotion. He was first and foremost an educator, holding posts at the International YMCA Training School and the University of Kansas. He embraced recreational sport, but shie",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "James Naismith Invented Basketball in 1891 While Teaching at Springfield",
+   "image_status": "verified_external",
+   "message_id": 316,
+   "normalized_subject": "James Naismith :: The Naismith Basketball Hall of Fame",
+   "posted_at": "2026-10-04T08:31:48.223174+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-04-PM",
+   "sector": "Sports & Games People",
+   "topic": "James Naismith :: The Naismith Basketball Hall of Fame",
+   "urls": [
+    "britannica.com/biography/James-Naismith"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "NGL Official Rulebook — Version 3.1 · 2026 Edition",
+   "claim": "Entry (2.4.1, 4.2.1, 6.3.2, 6.4.1). Occupancy: each team has exactly two players on the Grid. The Grid Advantage team starts each half in Prime and Major; after that either team may hold any quadrant (2.4, 4.1). Serve target: the serve must go to a quadrant held by an opponent, never a teammate. Rallies keep the legal-return rule (2.4, 2.6.3, 6.1.1). Officiator signals: Out of Bounds, Illegal Serve and Timeout redesigned so no two signals look alike; new signals for Warning, Ejection, Ball In, Replay and Possession (12.3). Court color: no single league color; each club sets its home court's hardwood finish, with NGL approval and clear contrast with the ball and lines (3.1.3). Overtime: conti",
+   "desk": "evergreen_v1",
+   "format": "How to Play",
+   "headline": "Gridball Entry Rules Define Two‑Player Teams and Serve Targets",
+   "image_status": "verified_external",
+   "message_id": 317,
+   "normalized_subject": "NGL Official Rulebook — Version 3.1 · 2026 Edition",
+   "posted_at": "2026-10-04T08:32:50.187010+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-04-PM",
+   "sector": "How to Play",
+   "topic": "NGL Official Rulebook — Version 3.1 · 2026 Edition",
+   "urls": [
+    "nglgridball.com/public/assets/2026%20NGL%20Official%20Rulebook%20V3.1.pdf"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Tar Heels Capture 1000th Victory In Home Opener - University of North Carolina Athletics",
+   "claim": "Tar Heels Capture 1000th Victory In Home Opener - University of North Carolina Athletics ... ## Tar Heels Capture 1000th Victory In Home Opener ... CHAPEL HILL – No. 12 Carolina continued its perfect season on Saturday night, winning its fifth straight to open the year and first in Carmichael Arena with a 3-0 sweep of TCU. The victory over the Horned Frogs (4-1) marked the 1,000th win all time for the Tar Heels, doing so in straight sets: 25-23, 25-20, 25-18. ... The 3-0 victory was the 1,000th for the Tar Heel program since its inaugural season in 1971. Prior to Saturday, just one ACC team had reached the 1,000-win mark, as Florida State did so in 2013. Coincidentally, Pittsburgh also won i",
+   "desk": "evergreen_v1",
+   "format": "Records & Milestones",
+   "headline": "Tar Heels Volleyball Marks 1,000th Program Win with Sweep of TCU",
+   "image_status": "verified_external",
+   "message_id": 318,
+   "normalized_subject": "Tar Heels Capture 1000th Victory In Home Opener - University of North Carolina Athletics",
+   "posted_at": "2026-10-04T08:33:01.271528+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-04-PM",
+   "sector": "Records & Milestones",
+   "topic": "Tar Heels Capture 1000th Victory In Home Opener - University of North Carolina Athletics",
+   "urls": [
+    "goheels.com/news/2016/9/4/211159949"
+   ]
   }
  ],
  "runs": [],
@@ -2930,124 +3064,117 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-10-03T17:54:54.130256+00:00",
+  "created_at": "2026-10-04T08:23:40.513292+00:00",
   "daily": {
-   "2026-10-03": {
+   "2026-10-04": {
     "published_sectors": [
-     "New Sport Discovery",
+     "Then vs Now",
+     "Why Does This Happen?",
      "Game Discovery",
-     "Sport Origin",
-     "Equipment / Measurement",
-     "Records & Milestones",
      "Sports & Games People",
-     "Interesting Sports Fact"
+     "How to Play",
+     "Records & Milestones"
     ],
     "run_ids": [
-     "2026-10-03-PM"
+     "2026-10-04-PM"
     ]
    }
   },
-  "last_run_at": "2026-10-03T18:07:19.106541+00:00",
+  "last_run_at": "2026-10-04T08:37:16.423050+00:00",
   "live": {
    "results": {
     "event_ids": [
-     "6aef4d5b747ea2a5",
-     "31148a50855b4858",
-     "c6c9bf7b56a17f16",
-     "46e7519a3772ced9",
-     "95b9787ffadb5f52",
-     "ba9bfcd665906b5a",
-     "80c1862c9c75296b",
-     "e45ed001f8966419",
-     "c4af6a1a23344a3b",
-     "8fb5b025793644b9"
+     "6d45bff4a13eda6f",
+     "fc5395dace6f55e6",
+     "b1726f8671e53cf5",
+     "de175cfe4dd1df42",
+     "0fe5b32f34c7a958",
+     "65571b81b77a94a4",
+     "9674d2ca8e2f5f96",
+     "22e1dde81b7aa05a",
+     "bd2a85dc5d073322",
+     "9d9802ac3c77b4c3"
     ],
-    "message_id": 312,
-    "target_date": "2026-10-02",
-    "updated_at": "2026-10-03T18:07:19.099820+00:00"
+    "message_id": 320,
+    "target_date": "2026-10-03",
+    "updated_at": "2026-10-04T08:37:16.418502+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [
-     "c9d1283af53cb5ee",
-     "7c9ff3680abe2640",
-     "c16017fc06b33ca8",
-     "2ca95ef89e50ac04",
-     "c6994ac5691697aa",
-     "d0eb04e01246c113",
-     "cb3c479df6b18a1f",
-     "734b7002ef4ba0af",
-     "79d65fa21146eb62",
-     "7fa560c3770190c5"
+     "a1d0920a7a2b8cf2",
+     "30938987fddb5098",
+     "a2281bb69e5f6d07",
+     "bae6602a88526d1e",
+     "66eb0758eef489ad",
+     "7fc16ebda8f7aa0c",
+     "efe3dd142d2de015",
+     "ea69d861e1649d0f",
+     "65a73a08fd19e68c",
+     "f76cec7c2133285b"
     ],
-    "message_id": 311,
-    "target_date": "2026-10-04",
-    "updated_at": "2026-10-03T18:07:19.099808+00:00"
+    "message_id": 319,
+    "target_date": "2026-10-05",
+    "updated_at": "2026-10-04T08:37:16.418493+00:00"
    }
   },
   "publication": {
-   "2026-10-03-PM:evergreen:30a441ec37c3db6b": {
-    "message_id": 309,
-    "posted_at": "2026-10-03T18:02:19.043308+00:00",
+   "2026-10-04-PM:evergreen:16c5a17cbd4714b3": {
+    "message_id": 313,
+    "posted_at": "2026-10-04T08:30:50.042646+00:00",
     "status": "posted"
    },
-   "2026-10-03-PM:evergreen:3468508147ec41f9": {
-    "message_id": 308,
-    "posted_at": "2026-10-03T18:01:56.077198+00:00",
+   "2026-10-04-PM:evergreen:47c2971eb19e7f51": {
+    "message_id": 317,
+    "posted_at": "2026-10-04T08:32:50.186779+00:00",
     "status": "posted"
    },
-   "2026-10-03-PM:evergreen:3920eee2ef899281": {
-    "message_id": 305,
-    "posted_at": "2026-10-03T18:01:01.646932+00:00",
+   "2026-10-04-PM:evergreen:9317d6d36c97513e": {
+    "message_id": 315,
+    "posted_at": "2026-10-04T08:31:09.368968+00:00",
     "status": "posted"
    },
-   "2026-10-03-PM:evergreen:41ae7412ba40eab6": {
-    "message_id": 307,
-    "posted_at": "2026-10-03T18:01:42.196444+00:00",
+   "2026-10-04-PM:evergreen:b3766b8a3188cc8a": {
+    "message_id": 314,
+    "posted_at": "2026-10-04T08:30:58.187066+00:00",
     "status": "posted"
    },
-   "2026-10-03-PM:evergreen:695bd0d59350724a": {
-    "message_id": 306,
-    "posted_at": "2026-10-03T18:01:34.569037+00:00",
+   "2026-10-04-PM:evergreen:bbd8b50bcb60329a": {
+    "message_id": 318,
+    "posted_at": "2026-10-04T08:33:01.271278+00:00",
     "status": "posted"
    },
-   "2026-10-03-PM:evergreen:a130c2bf38d38e33": {
-    "message_id": 310,
-    "posted_at": "2026-10-03T18:02:42.414778+00:00",
+   "2026-10-04-PM:evergreen:be86d59c5b3c3f4b": {
+    "message_id": 316,
+    "posted_at": "2026-10-04T08:31:48.222957+00:00",
     "status": "posted"
    },
-   "2026-10-03-PM:evergreen:f8b96eac85b271d0": {
-    "message_id": 304,
-    "posted_at": "2026-10-03T18:00:37.942743+00:00",
+   "2026-10-04-PM:live_results:9f67b29ebe438299": {
+    "message_id": 320,
+    "posted_at": "2026-10-04T08:37:16.418464+00:00",
     "status": "posted"
    },
-   "2026-10-03-PM:live_results:07872410313b9bd8": {
-    "message_id": 312,
-    "posted_at": "2026-10-03T18:07:19.099783+00:00",
-    "status": "posted"
-   },
-   "2026-10-03-PM:live_schedule:b62fd41df15a3d08": {
-    "message_id": 311,
-    "posted_at": "2026-10-03T18:07:18.738719+00:00",
+   "2026-10-04-PM:live_schedule:666fee160ef818bd": {
+    "message_id": 319,
+    "posted_at": "2026-10-04T08:37:16.045092+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-10-03T18:07:19.106551+00:00",
-    "evergreen": 7,
+    "at": "2026-10-04T08:37:16.423055+00:00",
+    "evergreen": 6,
     "exit": 0,
-    "live_results": 312,
-    "live_schedule": 311,
-    "run_id": "2026-10-03-PM",
+    "live_results": 320,
+    "live_schedule": 319,
+    "run_id": "2026-10-04-PM",
     "used_sectors": [
-     "Equipment / Measurement",
      "Game Discovery",
-     "Interesting Sports Fact",
-     "New Sport Discovery",
+     "How to Play",
      "Records & Milestones",
-     "Sport Origin",
-     "Sports & Games People"
+     "Sports & Games People",
+     "Then vs Now",
+     "Why Does This Happen?"
     ]
    }
   ],
