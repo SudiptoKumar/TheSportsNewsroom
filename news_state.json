@@ -1,15 +1,15 @@
 {
  "ai": {
-  "last_error": "Cerebras per-run call cap reached (16)",
-  "last_ok": "2026-10-04T08:32:58.319414+00:00",
-  "last_request_id": "a452d6cad8202668-CMH",
+  "last_error": "",
+  "last_ok": "2026-10-04T18:25:11.120203+00:00",
+  "last_request_id": "a4563a4a5b576c32-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-04T08:37:16.423071+00:00",
+ "last_run_at": "2026-10-04T18:29:27.725867+00:00",
  "ledger": {},
  "posts": [
   {
@@ -3053,6 +3053,136 @@
    "urls": [
     "goheels.com/news/2016/9/4/211159949"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "History of the sports at the Olympic Summer Games / The Olympic Studies Centre - Olympic World Library",
+   "claim": "The Olympic Studies Centre’s 45-volume “History of the sports at the Olympic Summer Games” collection provides introductions, key stages and changes in the number of Olympic events for the listed sports and disciplines from their beginnings at the Summer Games through the Paris 2024 programme; it does not, by that description alone, establish their original invention or earliest pre-Olympic history.",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "45‑Volume Series Tracks Olympic Summer Sports Evolution to Paris 2024",
+   "image_status": "card_fallback",
+   "message_id": 321,
+   "normalized_subject": "History of the sports at the Olympic Summer Games / The Olympic Studies Centre - Olympic World Library",
+   "posted_at": "2026-10-04T18:23:29.272211+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-05-AM",
+   "sector": "Sport Origin",
+   "topic": "History of the sports at the Olympic Summer Games / The Olympic Studies Centre - Olympic World Library",
+   "urls": [
+    "library.olympics.com/doc/SYRACUSE/161865"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Badminton, A historical glimpse into the sport’s changing face over the decades",
+   "claim": "Badminton developed from older shuttle-and-battledore games, but its precise origins are uncertain: related play evolved toward the modern sport at Badminton House in the mid-19th century while similar games were played in India. The International Badminton Federation was founded in 1934; the Thomas Cup was first staged in 1948–49 as a major international men’s team championship; and badminton became an Olympic medal sport in 1992. Rackets evolved beyond wood, rally-point scoring replaced the older system in 2006, and synthetic shuttlecocks have been approved for selected tournaments—not universally substituted for feather shuttles.",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "From Wooden Rackets to Olympic Glory: Badminton’s Century‑Long Evolution",
+   "image_status": "card_fallback",
+   "message_id": 322,
+   "normalized_subject": "Badminton, A historical glimpse into the sport’s changing face over the decades",
+   "posted_at": "2026-10-04T18:23:52.751946+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-05-AM",
+   "sector": "Then vs Now",
+   "topic": "Badminton, A historical glimpse into the sport’s changing face over the decades",
+   "urls": [
+    "olympics.com/en/news/badminton-evolution-historical-glimpse-sport-over-decades"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Beautiful Science in the Beautiful Game | University of Puget Sound",
+   "claim": "The single most important piece of equipment in the world’s most popular game is less than nine inches wide and weighs just under a pound, yet its flight has brought euphoria to entire nations while plunging others into anguish. Such a crucial ingredient in soccer had better fly true. I am a physicist whose main research domain is sports, and investigating the aerodynamics of soccer balls, particularly those used in the World Cup, has been a true delight. You likely stuck your hand out of a moving car’s window as a child. Without knowing much science, you felt air drag firsthand. With your palm facing forward, the air pushed back strongly, but when your hand tilted into “airplane mode,” the ",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "How a Rough Soccer Ball Surface Boosts World Cup Flight",
+   "image_status": "card_fallback",
+   "message_id": 323,
+   "normalized_subject": "Beautiful Science in the Beautiful Game | University of Puget Sound",
+   "posted_at": "2026-10-04T18:24:10.589288+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-05-AM",
+   "sector": "Why Does This Happen?",
+   "topic": "Beautiful Science in the Beautiful Game | University of Puget Sound",
+   "urls": [
+    "pugetsound.edu/stories/beautiful-science-beautiful-game"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Major Walter Clopton Wingfield",
+   "claim": "Major Walter Clopton Wingfield was a Welsh Renaissance Man remembered as a creator and promoter of modern lawn tennis. Wingfield patented the game in Great Britain in 1874 after others had previously combined sports like court tennis and rackets to play a game similar to what Wingfield called Sphairistiké– or Greek for \"ball games.\" Wingfield’s patent expired in 1877, allowing the game to further evolve. He secured the patent for the game in February 1874 and had it authoritatively signed by Queen Victoria. All indications point to Wingfield having the foresight to launch the game. He patented a New and Improved Court for Playing the Ancient Game of Tennis and began marketing his game in the",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Major Walter Wingfield Patented Modern Lawn Tennis in 1874",
+   "image_status": "verified_external",
+   "message_id": 324,
+   "normalized_subject": "Major Walter Clopton Wingfield",
+   "posted_at": "2026-10-04T18:24:36.166163+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-05-AM",
+   "sector": "Sports & Games People",
+   "topic": "Major Walter Clopton Wingfield",
+   "urls": [
+    "tennisfame.com/hall-of-famers/inductees/major-walter-clopton-wingfield"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Mancala, the National Game of Africa, by Stewart Culin—A Project Gutenberg eBook",
+   "claim": "The comparative study of games is one that promises an important contribution to the history of culture. The questions involved in their diffusion over the earth are among the vital ones that confound the ethnologist. Their origins are lost in the unwritten history of the childhood of man. Mancala is a game that is remarkable for its peculiar distribution, which seems to mark the limits of Arab culture, and which has just penetrated our own continent after having served for ages to divert the inhabitants of nearly half the inhabited area of the globe. ... Dr. Thomas Hyde gave a very good account of it two hundred years ago in his treatise, “De Ludis Orientalibus” (see fig. 3), and Lane, in h",
+   "desk": "evergreen_v1",
+   "format": "Interesting Game Fact",
+   "headline": "Mancala’s Unique Spread Highlights the Edge of Arab Cultural Influence",
+   "image_status": "card_fallback",
+   "message_id": 325,
+   "normalized_subject": "Mancala, the National Game of Africa, by Stewart Culin—A Project Gutenberg eBook",
+   "posted_at": "2026-10-04T18:24:48.336892+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-05-AM",
+   "sector": "Interesting Game Fact",
+   "topic": "Mancala, the National Game of Africa, by Stewart Culin—A Project Gutenberg eBook",
+   "urls": [
+    "mirrorservice.org/sites/ftp.ibiblio.org/pub/docs/books/gutenberg/6/6/2/2/66220/66220-h/66220-h.htm"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Historic Achievement: Bayer Leverkusen Set New Unbeaten Record | beIN SPORTS",
+   "claim": "Historic Achievement: Bayer Leverkusen Set New Unbeaten Record | beIN SPORTS # Historic Achievement: Bayer Leverkusen ... New Unbe ... With a 2-2 draw against Stuttgart, thanks to a goal in the 97th minute by Robert Andrich, Bayer Leverkusen extended their unbeaten streak to 46 official matches, surpassing Rijeka and Dinamo Zagreb to achieve a 21st-century world record. Andrich's late goal allowed Xabi Alonso's team to further extend their unbeaten run. Until that 97th minute, Leverkusen was tied at 45 with Rijeka and Dinamo Zagreb, but Andrich's goal marked a historic milestone for the German side. Dinamo Zagreb set the previous record of 45 unbeaten matches between November 2014 and Septem",
+   "desk": "evergreen_v1",
+   "format": "Records & Milestones",
+   "headline": "Bayer Leverkusen Breaks 21st‑Century Unbeaten Record with 46th Match",
+   "image_status": "verified_external",
+   "message_id": 326,
+   "normalized_subject": "Historic Achievement: Bayer Leverkusen Set New Unbeaten Record | beIN SPORTS",
+   "posted_at": "2026-10-04T18:25:14.345939+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-05-AM",
+   "sector": "Records & Milestones",
+   "topic": "Historic Achievement: Bayer Leverkusen Set New Unbeaten Record | beIN SPORTS",
+   "urls": [
+    "beinsports.com/en-us/soccer/articles-video/historic-achievement-bayer-leverkusen-set-new-unbeaten-record-2024-04-27"
+   ]
   }
  ],
  "runs": [],
@@ -3064,114 +3194,114 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-10-04T08:23:40.513292+00:00",
+  "created_at": "2026-10-04T18:08:17.782820+00:00",
   "daily": {
-   "2026-10-04": {
+   "2026-10-05": {
     "published_sectors": [
+     "Sport Origin",
      "Then vs Now",
      "Why Does This Happen?",
-     "Game Discovery",
      "Sports & Games People",
-     "How to Play",
+     "Interesting Game Fact",
      "Records & Milestones"
     ],
     "run_ids": [
-     "2026-10-04-PM"
+     "2026-10-05-AM"
     ]
    }
   },
-  "last_run_at": "2026-10-04T08:37:16.423050+00:00",
+  "last_run_at": "2026-10-04T18:29:27.725841+00:00",
   "live": {
    "results": {
     "event_ids": [
-     "6d45bff4a13eda6f",
-     "fc5395dace6f55e6",
-     "b1726f8671e53cf5",
-     "de175cfe4dd1df42",
-     "0fe5b32f34c7a958",
-     "65571b81b77a94a4",
-     "9674d2ca8e2f5f96",
-     "22e1dde81b7aa05a",
-     "bd2a85dc5d073322",
-     "9d9802ac3c77b4c3"
+     "c9d1283af53cb5ee",
+     "7c9ff3680abe2640",
+     "c16017fc06b33ca8",
+     "c6994ac5691697aa",
+     "d0eb04e01246c113",
+     "cb3c479df6b18a1f",
+     "734b7002ef4ba0af",
+     "7fa560c3770190c5",
+     "45978b737b748ee5",
+     "3cc4114694cd327a"
     ],
-    "message_id": 320,
-    "target_date": "2026-10-03",
-    "updated_at": "2026-10-04T08:37:16.418502+00:00"
+    "message_id": 328,
+    "target_date": "2026-10-04",
+    "updated_at": "2026-10-04T18:29:27.718729+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [
-     "a1d0920a7a2b8cf2",
-     "30938987fddb5098",
-     "a2281bb69e5f6d07",
-     "bae6602a88526d1e",
-     "66eb0758eef489ad",
-     "7fc16ebda8f7aa0c",
-     "efe3dd142d2de015",
-     "ea69d861e1649d0f",
-     "65a73a08fd19e68c",
-     "f76cec7c2133285b"
+     "7694b8afc3a927d2",
+     "6969a483b427e984",
+     "62c9a5bd3beb69fa",
+     "c340377a1848d1bb",
+     "937cffeea7dc25ee",
+     "9aff05e75e84062f",
+     "f692c5d638a1a7c8",
+     "ef951d63d2fbdbe7",
+     "62ccfc41c9205b25",
+     "93913e2d8098bb13"
     ],
-    "message_id": 319,
-    "target_date": "2026-10-05",
-    "updated_at": "2026-10-04T08:37:16.418493+00:00"
+    "message_id": 327,
+    "target_date": "2026-10-06",
+    "updated_at": "2026-10-04T18:29:27.718717+00:00"
    }
   },
   "publication": {
-   "2026-10-04-PM:evergreen:16c5a17cbd4714b3": {
-    "message_id": 313,
-    "posted_at": "2026-10-04T08:30:50.042646+00:00",
+   "2026-10-05-AM:evergreen:23ae2c1456b03077": {
+    "message_id": 325,
+    "posted_at": "2026-10-04T18:24:48.336542+00:00",
     "status": "posted"
    },
-   "2026-10-04-PM:evergreen:47c2971eb19e7f51": {
-    "message_id": 317,
-    "posted_at": "2026-10-04T08:32:50.186779+00:00",
+   "2026-10-05-AM:evergreen:26f3fa7d93bd105d": {
+    "message_id": 326,
+    "posted_at": "2026-10-04T18:25:14.345619+00:00",
     "status": "posted"
    },
-   "2026-10-04-PM:evergreen:9317d6d36c97513e": {
-    "message_id": 315,
-    "posted_at": "2026-10-04T08:31:09.368968+00:00",
+   "2026-10-05-AM:evergreen:36ef98f68836aa96": {
+    "message_id": 321,
+    "posted_at": "2026-10-04T18:23:29.271886+00:00",
     "status": "posted"
    },
-   "2026-10-04-PM:evergreen:b3766b8a3188cc8a": {
-    "message_id": 314,
-    "posted_at": "2026-10-04T08:30:58.187066+00:00",
+   "2026-10-05-AM:evergreen:413a85f3c29a7f4a": {
+    "message_id": 322,
+    "posted_at": "2026-10-04T18:23:52.751553+00:00",
     "status": "posted"
    },
-   "2026-10-04-PM:evergreen:bbd8b50bcb60329a": {
-    "message_id": 318,
-    "posted_at": "2026-10-04T08:33:01.271278+00:00",
+   "2026-10-05-AM:evergreen:52005118183fc619": {
+    "message_id": 324,
+    "posted_at": "2026-10-04T18:24:36.165849+00:00",
     "status": "posted"
    },
-   "2026-10-04-PM:evergreen:be86d59c5b3c3f4b": {
-    "message_id": 316,
-    "posted_at": "2026-10-04T08:31:48.222957+00:00",
+   "2026-10-05-AM:evergreen:98f667ab1c6921eb": {
+    "message_id": 323,
+    "posted_at": "2026-10-04T18:24:10.588875+00:00",
     "status": "posted"
    },
-   "2026-10-04-PM:live_results:9f67b29ebe438299": {
-    "message_id": 320,
-    "posted_at": "2026-10-04T08:37:16.418464+00:00",
+   "2026-10-05-AM:live_results:b62fd41df15a3d08": {
+    "message_id": 328,
+    "posted_at": "2026-10-04T18:29:27.718698+00:00",
     "status": "posted"
    },
-   "2026-10-04-PM:live_schedule:666fee160ef818bd": {
-    "message_id": 319,
-    "posted_at": "2026-10-04T08:37:16.045092+00:00",
+   "2026-10-05-AM:live_schedule:093cf177b074ca7d": {
+    "message_id": 327,
+    "posted_at": "2026-10-04T18:29:27.367645+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-10-04T08:37:16.423055+00:00",
+    "at": "2026-10-04T18:29:27.725851+00:00",
     "evergreen": 6,
     "exit": 0,
-    "live_results": 320,
-    "live_schedule": 319,
-    "run_id": "2026-10-04-PM",
+    "live_results": 328,
+    "live_schedule": 327,
+    "run_id": "2026-10-05-AM",
     "used_sectors": [
-     "Game Discovery",
-     "How to Play",
+     "Interesting Game Fact",
      "Records & Milestones",
+     "Sport Origin",
      "Sports & Games People",
      "Then vs Now",
      "Why Does This Happen?"

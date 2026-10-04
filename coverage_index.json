@@ -6407,8 +6407,294 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 318
+  },
+  {
+   "central_claim": "Fencing has traditions documented by European guilds in the 15th century and has featured at every modern Summer Olympics since 1896. Olympic equipment and scoring evolved from masks and manual judging to electrical scoring (épée at the 1936 Games, foil in 1956, sabre in 1988) and, beginning at Athens 2004, wireless scoring; Beijing 2008 used wireless scoring in foil and sabre, but not épée.",
+   "central_knowledge_unit": "fencing has traditions documented by european guilds in the 15th century and has featured at every modern summer olympics since 1896 olympic equipment and scoring evolved from masks and manual judging to electrical scori",
+   "content_id": "c049c11ad4e22eac",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "254f1531cf727117",
+    "0b7d042d0ef5df85"
+   ],
+   "legacy": true,
+   "normalized_subject": "from duelling at dawn to wireless scoring fencing through the ages with olympic champion szasz olympic news",
+   "people": [],
+   "published_at": "2026-10-04T08:30:50.042848+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "olympics.com/en/news/from-duelling-at-dawn-to-wireless-scoring-fencing-through-the-ages-with-olympic-"
+   ],
+   "sport_or_game": "From duelling at dawn to wireless scoring: fencing through the ages with Olympic champion Szasz - Olympic News",
+   "telegram_message_id": 313
+  },
+  {
+   "central_claim": "How can we predict the trajectory of a baseball from bat to outfield? How do the dimples in a golf ball influence its flight from tee to pin? What forces determine the path of a soccer ball steered over a defensive wall by an elite player? An understanding of the physical processes involved in throwing, hitting, firing and releasing sporting projectiles is essential for a full understanding of the science that underpins sport. This is the first book to comprehensively examine those processes and",
+   "central_knowledge_unit": "how can we predict the trajectory of a baseball from bat to outfield how do the dimples in a golf ball influence its flight from tee to pin what forces determine the path of a soccer ball steered over a defensive wall by",
+   "content_id": "cf2281b2290604fb",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4ca528cfc4629238",
+    "9d5fe590f809d9c6"
+   ],
+   "legacy": true,
+   "normalized_subject": "projectile dynamics in sport principles and applications",
+   "people": [],
+   "published_at": "2026-10-04T08:30:58.187275+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "exa.ai/library/publication/pdgh5wll85h"
+   ],
+   "sport_or_game": "Projectile Dynamics in Sport: Principles and Applications",
+   "telegram_message_id": 314
+  },
+  {
+   "central_claim": "In Sahkku, your soldiers begin asleep, a neutral king can change sides, and a single landing can remove several opposing pieces. If you're learning the game, the soldier’s path and the king's shifting allegiance are the parts to watch. Sahkku is a traditional Sámi \"running-fight\" game with several historical rule variations. The board and pieces make more sense once you follow their route through a turn. ... In Laponia, published in 1673, Johannes Schefferus described a game played among the Sám",
+   "central_knowledge_unit": "in sahkku your soldiers begin asleep a neutral king can change sides and a single landing can remove several opposing pieces if you re learning the game the soldier s path and the king s shifting allegiance are the parts",
+   "content_id": "e7ea5e4fb57ec37c",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "8d6e6c77c2b85aef",
+    "32453d4074d11e1b"
+   ],
+   "legacy": true,
+   "normalized_subject": "sahkku how to play the traditional s mi strategy board game newventure games",
+   "people": [],
+   "published_at": "2026-10-04T08:31:09.369196+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "newventuregames.com/blogs/news/sahkku-how-to-play-the-traditional-sami-board-game"
+   ],
+   "sport_or_game": "Sahkku How to Play the Traditional Sámi Strategy Board Game – NewVenture Games",
+   "telegram_message_id": 315
+  },
+  {
+   "central_claim": "Naismith ... In the winter of 1891, when a 30-year-old physical education instructor from the International YMCA Training School in Springfield, Massachusetts invented an indoor game that could be played between football and baseball seasons, basket ball, originally two words, was born. James Naismith wrote and developed the game’s original thirteen rules and, through the YMCA network, quickly spread the news throughout the country. As basketball’s popularity grew, Naismith neither sought public",
+   "central_knowledge_unit": "naismith in the winter of 1891 when a 30 year old physical education instructor from the international ymca training school in springfield massachusetts invented an indoor game that could be played between football and b",
+   "content_id": "0e681068184cf019",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "550e2b970d468846",
+    "fbc52c4946be1c0e"
+   ],
+   "legacy": true,
+   "normalized_subject": "james naismith the naismith basketball hall of fame",
+   "people": [],
+   "published_at": "2026-10-04T08:31:48.223174+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "britannica.com/biography/James-Naismith"
+   ],
+   "sport_or_game": "James Naismith :: The Naismith Basketball Hall of Fame",
+   "telegram_message_id": 316
+  },
+  {
+   "central_claim": "Entry (2.4.1, 4.2.1, 6.3.2, 6.4.1). Occupancy: each team has exactly two players on the Grid. The Grid Advantage team starts each half in Prime and Major; after that either team may hold any quadrant (2.4, 4.1). Serve target: the serve must go to a quadrant held by an opponent, never a teammate. Rallies keep the legal-return rule (2.4, 2.6.3, 6.1.1). Officiator signals: Out of Bounds, Illegal Serve and Timeout redesigned so no two signals look alike; new signals for Warning, Ejection, Ball In, R",
+   "central_knowledge_unit": "entry 2 4 1 4 2 1 6 3 2 6 4 1 occupancy each team has exactly two players on the grid the grid advantage team starts each half in prime and major after that either team may hold any quadrant 2 4 4 1 serve target the serv",
+   "content_id": "8c06ce764205c1cb",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "5d6f6231c72f4f7b",
+    "8e4382c2d7d1ac21"
+   ],
+   "legacy": true,
+   "normalized_subject": "ngl official rulebook version 3 1 2026 edition",
+   "people": [],
+   "published_at": "2026-10-04T08:32:50.187010+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "How to Play",
+   "source_urls": [
+    "nglgridball.com/public/assets/2026%20NGL%20Official%20Rulebook%20V3.1.pdf"
+   ],
+   "sport_or_game": "NGL Official Rulebook — Version 3.1 · 2026 Edition",
+   "telegram_message_id": 317
+  },
+  {
+   "central_claim": "Tar Heels Capture 1000th Victory In Home Opener - University of North Carolina Athletics ... ## Tar Heels Capture 1000th Victory In Home Opener ... CHAPEL HILL – No. 12 Carolina continued its perfect season on Saturday night, winning its fifth straight to open the year and first in Carmichael Arena with a 3-0 sweep of TCU. The victory over the Horned Frogs (4-1) marked the 1,000th win all time for the Tar Heels, doing so in straight sets: 25-23, 25-20, 25-18. ... The 3-0 victory was the 1,000th ",
+   "central_knowledge_unit": "tar heels capture 1000th victory in home opener university of north carolina athletics tar heels capture 1000th victory in home opener chapel hill no 12 carolina continued its perfect season on saturday night winning its",
+   "content_id": "f98563c943473136",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "586ccd0deac52547",
+    "75f8270fd5c1a103"
+   ],
+   "legacy": true,
+   "normalized_subject": "tar heels capture 1000th victory in home opener university of north carolina athletics",
+   "people": [],
+   "published_at": "2026-10-04T08:33:01.271528+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    "goheels.com/news/2016/9/4/211159949"
+   ],
+   "sport_or_game": "Tar Heels Capture 1000th Victory In Home Opener - University of North Carolina Athletics",
+   "telegram_message_id": 318
+  },
+  {
+   "central_claim": "The Olympic Studies Centre’s 45-volume “History of the sports at the Olympic Summer Games” collection provides introductions, key stages and changes in the number of Olympic events for the listed sports and disciplines from their beginnings at the Summer Games through the Paris 2024 programme; it does not, by that description alone, establish their original invention or earliest pre-Olympic history.",
+   "central_knowledge_unit": "history of the sports at the olympic summer games the olympic studies centre olympic world library",
+   "content_id": "d7437212a12b6402",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "d7437212a12b6402",
+    "99dcbb502c369950"
+   ],
+   "normalized_subject": "history of the sports at the olympic summer games the olympic studies centre olympic world library",
+   "people": [],
+   "published_at": "2026-10-04T18:23:29.272004+00:00",
+   "region": "",
+   "run_id": "2026-10-05-AM",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 321
+  },
+  {
+   "central_claim": "Badminton developed from older shuttle-and-battledore games, but its precise origins are uncertain: related play evolved toward the modern sport at Badminton House in the mid-19th century while similar games were played in India. The International Badminton Federation was founded in 1934; the Thomas Cup was first staged in 1948–49 as a major international men’s team championship; and badminton became an Olympic medal sport in 1992. Rackets evolved beyond wood, rally-point scoring replaced the older system in 2006, and synthetic shuttlecocks have been approved for selected tournaments—not universally substituted for feather shuttles.",
+   "central_knowledge_unit": "badminton a historical glimpse into the sport s changing face over the decades",
+   "content_id": "ebbe8757c713c337",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "ebbe8757c713c337",
+    "152a054964e6a244"
+   ],
+   "normalized_subject": "badminton a historical glimpse into the sport s changing face over the decades",
+   "people": [],
+   "published_at": "2026-10-04T18:23:52.751710+00:00",
+   "region": "",
+   "run_id": "2026-10-05-AM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 322
+  },
+  {
+   "central_claim": "The single most important piece of equipment in the world’s most popular game is less than nine inches wide and weighs just under a pound, yet its flight has brought euphoria to entire nations while plunging others into anguish. Such a crucial ingredient in soccer had better fly true. I am a physicist whose main research domain is sports, and investigating the aerodynamics of soccer balls, particularly those used in the World Cup, has been a true delight. You likely stuck your hand out of a moving car’s window as a child. Without knowing much science, you felt air drag firsthand. With your palm facing forward, the air pushed back strongly, but when your hand tilted into “airplane mode,” the",
+   "central_knowledge_unit": "beautiful science in the beautiful game university of puget sound",
+   "content_id": "7218ae8b5b88d248",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7218ae8b5b88d248",
+    "a82a1b186428cb2f"
+   ],
+   "normalized_subject": "beautiful science in the beautiful game university of puget sound",
+   "people": [],
+   "published_at": "2026-10-04T18:24:10.589022+00:00",
+   "region": "",
+   "run_id": "2026-10-05-AM",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 323
+  },
+  {
+   "central_claim": "Major Walter Clopton Wingfield was a Welsh Renaissance Man remembered as a creator and promoter of modern lawn tennis. Wingfield patented the game in Great Britain in 1874 after others had previously combined sports like court tennis and rackets to play a game similar to what Wingfield called Sphairistiké– or Greek for \"ball games.\" Wingfield’s patent expired in 1877, allowing the game to further evolve. He secured the patent for the game in February 1874 and had it authoritatively signed by Queen Victoria. All indications point to Wingfield having the foresight to launch the game. He patented a New and Improved Court for Playing the Ancient Game of Tennis and began marketing his game in the",
+   "central_knowledge_unit": "major walter clopton wingfield",
+   "content_id": "618fa1bfbeaf7ccd",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "618fa1bfbeaf7ccd",
+    "4c361584aba7cc2f"
+   ],
+   "normalized_subject": "major walter clopton wingfield",
+   "people": [],
+   "published_at": "2026-10-04T18:24:36.165968+00:00",
+   "region": "",
+   "run_id": "2026-10-05-AM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 324
+  },
+  {
+   "central_claim": "The comparative study of games is one that promises an important contribution to the history of culture. The questions involved in their diffusion over the earth are among the vital ones that confound the ethnologist. Their origins are lost in the unwritten history of the childhood of man. Mancala is a game that is remarkable for its peculiar distribution, which seems to mark the limits of Arab culture, and which has just penetrated our own continent after having served for ages to divert the inhabitants of nearly half the inhabited area of the globe. ... Dr. Thomas Hyde gave a very good account of it two hundred years ago in his treatise, “De Ludis Orientalibus” (see fig. 3), and Lane, in h",
+   "central_knowledge_unit": "mancala the national game of africa by stewart culin a project gutenberg ebook",
+   "content_id": "f7f5b325ca160271",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f7f5b325ca160271",
+    "5b7a909d3e49c35c"
+   ],
+   "normalized_subject": "mancala the national game of africa by stewart culin a project gutenberg ebook",
+   "people": [],
+   "published_at": "2026-10-04T18:24:48.336701+00:00",
+   "region": "",
+   "run_id": "2026-10-05-AM",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 325
+  },
+  {
+   "central_claim": "Historic Achievement: Bayer Leverkusen Set New Unbeaten Record | beIN SPORTS # Historic Achievement: Bayer Leverkusen ... New Unbe ... With a 2-2 draw against Stuttgart, thanks to a goal in the 97th minute by Robert Andrich, Bayer Leverkusen extended their unbeaten streak to 46 official matches, surpassing Rijeka and Dinamo Zagreb to achieve a 21st-century world record. Andrich's late goal allowed Xabi Alonso's team to further extend their unbeaten run. Until that 97th minute, Leverkusen was tied at 45 with Rijeka and Dinamo Zagreb, but Andrich's goal marked a historic milestone for the German side. Dinamo Zagreb set the previous record of 45 unbeaten matches between November 2014 and Septem",
+   "central_knowledge_unit": "historic achievement bayer leverkusen set new unbeaten record bein sports",
+   "content_id": "56b96dcb736793e6",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "56b96dcb736793e6",
+    "8db0c8f789c07e67"
+   ],
+   "normalized_subject": "historic achievement bayer leverkusen set new unbeaten record bein sports",
+   "people": [],
+   "published_at": "2026-10-04T18:25:14.345775+00:00",
+   "region": "",
+   "run_id": "2026-10-05-AM",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 326
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-04T08:33:01.271508+00:00"
+ "updated_at": "2026-10-04T18:25:14.345912+00:00"
 }
