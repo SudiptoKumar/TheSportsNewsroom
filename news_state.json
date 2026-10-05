@@ -2,14 +2,14 @@
  "ai": {
   "last_error": "",
   "last_ok": "2026-10-04T18:25:11.120203+00:00",
-  "last_request_id": "a4563a4a5b576c32-CMH",
-  "last_status": 200,
+  "last_request_id": "",
+  "last_status": 0,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-04T18:29:27.725867+00:00",
+ "last_run_at": "2026-10-05T08:59:41.054664+00:00",
  "ledger": {},
  "posts": [
   {
@@ -3194,23 +3194,16 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-10-04T18:08:17.782820+00:00",
+  "created_at": "2026-10-05T08:55:16.722813+00:00",
   "daily": {
    "2026-10-05": {
-    "published_sectors": [
-     "Sport Origin",
-     "Then vs Now",
-     "Why Does This Happen?",
-     "Sports & Games People",
-     "Interesting Game Fact",
-     "Records & Milestones"
-    ],
+    "published_sectors": [],
     "run_ids": [
-     "2026-10-05-AM"
+     "2026-10-05-PM"
     ]
    }
   },
-  "last_run_at": "2026-10-04T18:29:27.725841+00:00",
+  "last_run_at": "2026-10-05T08:59:41.054641+00:00",
   "live": {
    "results": {
     "event_ids": [
@@ -3225,9 +3218,9 @@
      "45978b737b748ee5",
      "3cc4114694cd327a"
     ],
-    "message_id": 328,
+    "message_id": 330,
     "target_date": "2026-10-04",
-    "updated_at": "2026-10-04T18:29:27.718729+00:00"
+    "updated_at": "2026-10-05T08:59:41.047016+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
@@ -3237,75 +3230,38 @@
      "62c9a5bd3beb69fa",
      "c340377a1848d1bb",
      "937cffeea7dc25ee",
-     "9aff05e75e84062f",
+     "797281797e43e218",
      "f692c5d638a1a7c8",
      "ef951d63d2fbdbe7",
      "62ccfc41c9205b25",
      "93913e2d8098bb13"
     ],
-    "message_id": 327,
+    "message_id": 329,
     "target_date": "2026-10-06",
-    "updated_at": "2026-10-04T18:29:27.718717+00:00"
+    "updated_at": "2026-10-05T08:59:41.047003+00:00"
    }
   },
   "publication": {
-   "2026-10-05-AM:evergreen:23ae2c1456b03077": {
-    "message_id": 325,
-    "posted_at": "2026-10-04T18:24:48.336542+00:00",
+   "2026-10-05-PM:live_results:b62fd41df15a3d08": {
+    "message_id": 330,
+    "posted_at": "2026-10-05T08:59:41.046975+00:00",
     "status": "posted"
    },
-   "2026-10-05-AM:evergreen:26f3fa7d93bd105d": {
-    "message_id": 326,
-    "posted_at": "2026-10-04T18:25:14.345619+00:00",
-    "status": "posted"
-   },
-   "2026-10-05-AM:evergreen:36ef98f68836aa96": {
-    "message_id": 321,
-    "posted_at": "2026-10-04T18:23:29.271886+00:00",
-    "status": "posted"
-   },
-   "2026-10-05-AM:evergreen:413a85f3c29a7f4a": {
-    "message_id": 322,
-    "posted_at": "2026-10-04T18:23:52.751553+00:00",
-    "status": "posted"
-   },
-   "2026-10-05-AM:evergreen:52005118183fc619": {
-    "message_id": 324,
-    "posted_at": "2026-10-04T18:24:36.165849+00:00",
-    "status": "posted"
-   },
-   "2026-10-05-AM:evergreen:98f667ab1c6921eb": {
-    "message_id": 323,
-    "posted_at": "2026-10-04T18:24:10.588875+00:00",
-    "status": "posted"
-   },
-   "2026-10-05-AM:live_results:b62fd41df15a3d08": {
-    "message_id": 328,
-    "posted_at": "2026-10-04T18:29:27.718698+00:00",
-    "status": "posted"
-   },
-   "2026-10-05-AM:live_schedule:093cf177b074ca7d": {
-    "message_id": 327,
-    "posted_at": "2026-10-04T18:29:27.367645+00:00",
+   "2026-10-05-PM:live_schedule:093cf177b074ca7d": {
+    "message_id": 329,
+    "posted_at": "2026-10-05T08:59:40.688655+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-10-04T18:29:27.725851+00:00",
-    "evergreen": 6,
+    "at": "2026-10-05T08:59:41.054651+00:00",
+    "evergreen": 0,
     "exit": 0,
-    "live_results": 328,
-    "live_schedule": 327,
-    "run_id": "2026-10-05-AM",
-    "used_sectors": [
-     "Interesting Game Fact",
-     "Records & Milestones",
-     "Sport Origin",
-     "Sports & Games People",
-     "Then vs Now",
-     "Why Does This Happen?"
-    ]
+    "live_results": 330,
+    "live_schedule": 329,
+    "run_id": "2026-10-05-PM",
+    "used_sectors": []
    }
   ],
   "schema": 1
