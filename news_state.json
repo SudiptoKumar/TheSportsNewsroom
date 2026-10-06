@@ -1,15 +1,15 @@
 {
  "ai": {
-  "last_error": "",
-  "last_ok": "2026-10-04T18:25:11.120203+00:00",
-  "last_request_id": "",
-  "last_status": 0,
+  "last_error": "Cerebras per-run call cap reached (16)",
+  "last_ok": "2026-10-06T19:42:36.510017+00:00",
+  "last_request_id": "a4672674b92cff4d-IAD",
+  "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-06T08:59:09.197452+00:00",
+ "last_run_at": "2026-10-06T19:45:04.219886+00:00",
  "ledger": {},
  "posts": [
   {
@@ -3183,6 +3183,188 @@
    "urls": [
     "beinsports.com/en-us/soccer/articles-video/historic-achievement-bayer-leverkusen-set-new-unbeaten-record-2024-04-27"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "From pigeons to Olympic participation – Centenary of the first Women's Olympiad | News | Heritage | World Athletics",
+   "claim": "The Monte-Carlo competition was the initiative of Alice Milliat, a pioneer in the women’s sports movement. Milliat (born 5 May 1884 in Nantes; died 19 May 1957 in Paris), was a multi-talented sportswoman, a good rower and swimmer, who also played hockey. A pioneer for women’s rights to participate in sport, Milliat founded the International Women's Sports Federation (FSFI) in 1921. Milliat’s principal motivation and the key objective of the FSFI was women’s participation in athletics at the Olympic Games. After numerous rebuffs from the International Olympic Committee, she began to organise international competitions for women. The first of these was the Women’s Olympiad in Monte-Carlo. It w",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Alice Milliat’s 1921 Monte‑Carlo Women’s Olympiad Paved Olympic Path",
+   "image_status": "verified_external",
+   "message_id": 335,
+   "normalized_subject": "From pigeons to Olympic participation – Centenary of the first Women's Olympiad | News | Heritage | World Athletics",
+   "posted_at": "2026-10-06T19:39:29.819616+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-07-AM",
+   "sector": "Sports & Games People",
+   "topic": "From pigeons to Olympic participation – Centenary of the first Women's Olympiad | News | Heritage | World Athletics",
+   "urls": [
+    "worldathletics.org/heritage/news/centenary-first-womens-olympiad"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "UI Press | Stephen Hardy and Andrew C. Holman | Hockey",
+   "claim": "Modern organized ice hockey took shape in Montreal in the 1870s, notably in a publicly announced indoor game on 3 March 1875 and with Montreal rules published in 1877. It drew on older stick-and-ball and ice games, including British Isles traditions, rather than originating from nothing in Canada. Canadian-style ice hockey subsequently spread internationally, including to the United States and Europe; its precursors, not the standardized modern sport, have histories extending back centuries.",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "Montreal’s 1875 Indoor Game Marked Birth of Modern Ice Hockey",
+   "image_status": "verified_external",
+   "message_id": 336,
+   "normalized_subject": "UI Press | Stephen Hardy and Andrew C. Holman | Hockey",
+   "posted_at": "2026-10-06T19:39:58.774786+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-07-AM",
+   "sector": "Sport Origin",
+   "topic": "UI Press | Stephen Hardy and Andrew C. Holman | Hockey",
+   "urls": [
+    "press.uillinois.edu/books?id=p083976"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Scottish Draughts - Evergreen Game",
+   "claim": "## Evergreen Game ... Draughts is not a new game. New games are being invented constantly. Of the next crop that will be presented for public approval, some will have a brief tenure in the spotlight and then fade into oblivion, some will take hold and keep their supporters for a few seasons, and a limited number will endure. Among the ranks of games on view now, draughts is an old game, a veteran in a company of various vintages. Behind it is a long span of history and memory. But its presence today is a testimony to its staying power. It holds its place in the array of games available in the modern scene. It has stood the test of time and preserves its appeal. Draughts does not project the ",
+   "desk": "evergreen_v1",
+   "format": "Interesting Game Fact",
+   "headline": "Draughts Endures as an Evergreen Game Amid Modern Competition",
+   "image_status": "card_fallback",
+   "message_id": 337,
+   "normalized_subject": "Scottish Draughts - Evergreen Game",
+   "posted_at": "2026-10-06T19:41:14.480120+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-07-AM",
+   "sector": "Interesting Game Fact",
+   "topic": "Scottish Draughts - Evergreen Game",
+   "urls": [
+    "scottishdraughts.com/evergreen-game.html"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Laws of the Game (1874) - Wikisource, the free online library",
+   "claim": "Laws of association football, adopted at the Annual General Meeting of the Football Association, Freemasons' Tavern, London, February 26th, 1874. Effective from the beginning of the 1874-5 season. [1] ... Changes from 1873: - Law 2: append \" nor shall any player on either side pass the centre of the ground in the direction of his opponents' goal until the ball is kicked off\" (proposed by Harrow Chequers). - Law 3: append \" After the change of ends at half-time, the same side as originally kicked off shall kick off as provided in the second part of Rule II\" (proposed by Harrow Chequers). - Law 7: replace \"shall kick it from the nearest corner flag post\" with \"shall kick it from within one yar",
+   "desk": "evergreen_v1",
+   "format": "Rule Check",
+   "headline": "1874 Football Laws Added Restrictions on Center‑field Play",
+   "image_status": "card_fallback",
+   "message_id": 338,
+   "normalized_subject": "Laws of the Game (1874) - Wikisource, the free online library",
+   "posted_at": "2026-10-06T19:41:30.751017+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-07-AM",
+   "sector": "Rule Check",
+   "topic": "Laws of the Game (1874) - Wikisource, the free online library",
+   "urls": [
+    "en.wikisource.org/wiki/Laws_of_the_Game_(1874)"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "No. 1/1 Women's Basketball Makes History With 71st Straight Win - University of Connecticut Athletics",
+   "claim": "No. 1/1 Women's Basketball Makes History With 71st Straight Win - University of Connecticut Athletics ... ## No. 1/1 Women's Basketball Makes History With 71st Straight Win ... HARTFORD, Conn. (AP)-- Tina Charles, Maya Moore and the latest Connecticut Huskies dynasty now has its own place in the record books. Charles scored 16 points and Moore added 11 to help top-ranked Connecticut win an NCAA record 71st straight game--a 59-44 victory over No. 6 Notre Dame on Monday night in the semifinals of the Big East tournament. UConn surpassed its own mark set from Nov. 9, 2001, to March 11, 2003. Unlike that amazing run, which ended in a loss in the Big East conference tournament semifinals to Villa",
+   "desk": "evergreen_v1",
+   "format": "Records & Milestones",
+   "headline": "UConn Women’s Basketball Sets NCAA Record with 71st Straight Win",
+   "image_status": "verified_external",
+   "message_id": 339,
+   "normalized_subject": "No. 1/1 Women's Basketball Makes History With 71st Straight Win - University of Connecticut Athletics",
+   "posted_at": "2026-10-06T19:41:50.713429+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-07-AM",
+   "sector": "Records & Milestones",
+   "topic": "No. 1/1 Women's Basketball Makes History With 71st Straight Win - University of Connecticut Athletics",
+   "urls": [
+    "uconnhuskies.com/news/2010/3/8/No_1_1_Women_s_Basketball_Makes_History_With_71st_Straight_Win"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Basketball goal sensing system (US Patent 12649097)",
+   "claim": "A basketball goal sensing system includes a sensor assembly integrated with the cover plate pad of a commercially available basketball hoop. The sensor assembly includes a plurality of infrared LEDs and a plurality of sensors for detecting infrared light that reflects off an object passing through the basketball rim and/or net. If an object passing through the rim and/or net exhibits a reflective profile of a basketball, the system considers the event to be a goal and transmits a signal to the base station. If that goal is a clock-stopping event the game clock is stopped. ... The present invention relates generally to sports timing and scoring systems, and more particularly, to a basketball ",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "Infrared Sensors Enable Automatic Scoring in Basketball Hoops",
+   "image_status": "verified_external",
+   "message_id": 340,
+   "normalized_subject": "Basketball goal sensing system (US Patent 12649097)",
+   "posted_at": "2026-10-06T19:42:07.098926+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-07-AM",
+   "sector": "Equipment / Measurement",
+   "topic": "Basketball goal sensing system (US Patent 12649097)",
+   "urls": [
+    "exa.ai/library/legal/patent/0jmkbwd5gcm"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "What Native American tribes played lacrosse? - TimesMojo",
+   "claim": "There is evidence that a version of lacrosse originated in Mesoamerica or canada as early as the 17th century. Native American lacrosse was played throughout modern Canada, but was most popular around the Great Lakes, Mid-Atlantic seaboard, and American South. ... In the early 1800’s French settlers in Montreal took-up the game of lacrosse and the game started to become a more civilized and organized sport. A Canadian dentist standardized the game in 1867 by establishing limits on the number of players, field dimensions and rules of play. ... Lacrosse, not currently an Olympic sport, has appeared at the Games before. The first time it was played at the Olympics was in 1904 in St. Louis. It w",
+   "desk": "evergreen_v1",
+   "format": "New Sport Discovery",
+   "headline": "Native Tribes That Shaped Early Lacrosse Across North America",
+   "image_status": "verified_external",
+   "message_id": 341,
+   "normalized_subject": "What Native American tribes played lacrosse? - TimesMojo",
+   "posted_at": "2026-10-06T19:42:25.413665+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-07-AM",
+   "sector": "New Sport Discovery",
+   "topic": "What Native American tribes played lacrosse? - TimesMojo",
+   "urls": [
+    "timesmojo.com/what-native-american-tribes-played-lacrosse"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "TWO CLASSIC GAMES OF",
+   "claim": "by Peter Michaelsen Dablo is a game of the Sámit from Lappland – those we previously called “Lapps” – nomadic reindeer herders of northern Scandinavia and the Kola peninsula. The word ‘dablo’ is probably an archaic loan from Scandinavian languages. Like the related northern Germanic ‘tafl’, ‘dablo’ is ultimately derived from the Latin ‘tabula’. All these words had the wider meaning: “board game”, and it seems that ‘dablo’ (also pronounced ‘tablo’, ‘tablu’ and ‘dabla’) was used of at least three types of board games: 1) the old Viking game ‘hnefatafl’, described in earlier issues of this magazine, 2) hunt games, or asymmetric blockade games with jump capture – a well-known example of this typ",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "Dablo: The Sámi Board Game Linking Viking Roots and Hunt Play",
+   "image_status": "card_fallback",
+   "message_id": 342,
+   "normalized_subject": "TWO CLASSIC GAMES OF",
+   "posted_at": "2026-10-06T19:42:41.088383+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-07-AM",
+   "sector": "Game Discovery",
+   "topic": "TWO CLASSIC GAMES OF",
+   "urls": [
+    "aagenielsen.dk/michaelsen/dablo_a_sami_game.pdf"
+   ]
   }
  ],
  "runs": [],
@@ -3194,74 +3376,132 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-10-06T08:54:39.167107+00:00",
+  "created_at": "2026-10-06T19:30:10.842897+00:00",
   "daily": {
-   "2026-10-06": {
-    "published_sectors": [],
+   "2026-10-07": {
+    "published_sectors": [
+     "Sports & Games People",
+     "Sport Origin",
+     "Interesting Game Fact",
+     "Rule Check",
+     "Records & Milestones",
+     "Equipment / Measurement",
+     "New Sport Discovery",
+     "Game Discovery"
+    ],
     "run_ids": [
-     "2026-10-06-PM"
+     "2026-10-07-AM"
     ]
    }
   },
-  "last_run_at": "2026-10-06T08:59:09.197430+00:00",
+  "last_run_at": "2026-10-06T19:45:04.219842+00:00",
   "live": {
    "results": {
     "event_ids": [
-     "a1d0920a7a2b8cf2",
-     "a2281bb69e5f6d07",
-     "bae6602a88526d1e",
-     "66eb0758eef489ad",
-     "7fc16ebda8f7aa0c",
-     "efe3dd142d2de015",
-     "f76cec7c2133285b",
-     "ea69d861e1649d0f",
-     "65a73a08fd19e68c",
-     "5e56df1ac76dc34f"
+     "7694b8afc3a927d2",
+     "6969a483b427e984",
+     "62c9a5bd3beb69fa",
+     "c340377a1848d1bb",
+     "ef951d63d2fbdbe7",
+     "62ccfc41c9205b25",
+     "93913e2d8098bb13",
+     "9b439be07640aed4",
+     "a11c6f2cac164c4a",
+     "4615835d907fa289"
     ],
-    "message_id": 334,
-    "target_date": "2026-10-05",
-    "updated_at": "2026-10-06T08:59:09.189647+00:00"
+    "message_id": 344,
+    "target_date": "2026-10-06",
+    "updated_at": "2026-10-06T19:45:04.211989+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [
-     "07cc254140d32464",
-     "590559507a3d83c5",
-     "5d727427a12463bf",
-     "a172ec15f9165060",
-     "ae6dd7c7f715e4e1",
-     "95561894abc226ec",
-     "c7895e124da9b1cd",
-     "c15bb3329473d9a7",
-     "b834c485367107f8",
-     "0731e37f0d1bd330"
+     "98fa53c76b931075",
+     "aefb1a3c0073930d",
+     "69ea3f427ffb1e70",
+     "1e648d085a7aa601",
+     "fa9ab9ef1f909f5d",
+     "cb6b2012e3ba7838",
+     "6b11548c75aae7f8",
+     "464bde28515e79b2",
+     "fd9503a69a21772f",
+     "5a2159435ed343d0"
     ],
-    "message_id": 333,
-    "target_date": "2026-10-07",
-    "updated_at": "2026-10-06T08:59:09.189637+00:00"
+    "message_id": 343,
+    "target_date": "2026-10-08",
+    "updated_at": "2026-10-06T19:45:04.211975+00:00"
    }
   },
   "publication": {
-   "2026-10-06-PM:live_results:666fee160ef818bd": {
-    "message_id": 334,
-    "posted_at": "2026-10-06T08:59:09.189612+00:00",
+   "2026-10-07-AM:evergreen:1efcddf23c8a93ee": {
+    "message_id": 341,
+    "posted_at": "2026-10-06T19:42:25.413343+00:00",
     "status": "posted"
    },
-   "2026-10-06-PM:live_schedule:322533aa1041f6d3": {
-    "message_id": 333,
-    "posted_at": "2026-10-06T08:59:08.828047+00:00",
+   "2026-10-07-AM:evergreen:344b1e0d8b61ae19": {
+    "message_id": 335,
+    "posted_at": "2026-10-06T19:39:29.819194+00:00",
+    "status": "posted"
+   },
+   "2026-10-07-AM:evergreen:49a7c9b663e7157c": {
+    "message_id": 336,
+    "posted_at": "2026-10-06T19:39:58.774492+00:00",
+    "status": "posted"
+   },
+   "2026-10-07-AM:evergreen:52051efad5200fdb": {
+    "message_id": 338,
+    "posted_at": "2026-10-06T19:41:30.750704+00:00",
+    "status": "posted"
+   },
+   "2026-10-07-AM:evergreen:74fdb51fd87948f0": {
+    "message_id": 342,
+    "posted_at": "2026-10-06T19:42:41.088016+00:00",
+    "status": "posted"
+   },
+   "2026-10-07-AM:evergreen:7d00ab25fc393876": {
+    "message_id": 340,
+    "posted_at": "2026-10-06T19:42:07.098641+00:00",
+    "status": "posted"
+   },
+   "2026-10-07-AM:evergreen:db46ccc805494c71": {
+    "message_id": 337,
+    "posted_at": "2026-10-06T19:41:14.479804+00:00",
+    "status": "posted"
+   },
+   "2026-10-07-AM:evergreen:faf13ef1f9674374": {
+    "message_id": 339,
+    "posted_at": "2026-10-06T19:41:50.713074+00:00",
+    "status": "posted"
+   },
+   "2026-10-07-AM:live_results:093cf177b074ca7d": {
+    "message_id": 344,
+    "posted_at": "2026-10-06T19:45:04.211947+00:00",
+    "status": "posted"
+   },
+   "2026-10-07-AM:live_schedule:3b59f6598c32b35d": {
+    "message_id": 343,
+    "posted_at": "2026-10-06T19:45:03.908619+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-10-06T08:59:09.197440+00:00",
-    "evergreen": 0,
+    "at": "2026-10-06T19:45:04.219862+00:00",
+    "evergreen": 8,
     "exit": 0,
-    "live_results": 334,
-    "live_schedule": 333,
-    "run_id": "2026-10-06-PM",
-    "used_sectors": []
+    "live_results": 344,
+    "live_schedule": 343,
+    "run_id": "2026-10-07-AM",
+    "used_sectors": [
+     "Equipment / Measurement",
+     "Game Discovery",
+     "Interesting Game Fact",
+     "New Sport Discovery",
+     "Records & Milestones",
+     "Rule Check",
+     "Sport Origin",
+     "Sports & Games People"
+    ]
    }
   ],
   "schema": 1
