@@ -7470,8 +7470,471 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 354
+  },
+  {
+   "central_claim": "The history of sports extends back to the Ancient world in 7000 BC. The physical activity that developed into sports had early links with warfare and entertainment. [1] ... Cave paintings found in the Lascaux caves in France appear to depict sprinting in the Upper Paleolithic around 15,300 years ago. [6] [7] [8] Cave paintings in the Bayankhongor Province of Mongolia dating back to the Neolithic Age (c. 7000 BC) show a wrestling match surrounded by crowds. [9] [failed verification] Neolithic Roc",
+   "central_knowledge_unit": "the history of sports extends back to the ancient world in 7000 bc the physical activity that developed into sports had early links with warfare and entertainment 1 cave paintings found in the lascaux caves in france app",
+   "content_id": "0c0464d27c1c5378",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "eaacb035e8376aae",
+    "56dbb89a24321a70"
+   ],
+   "legacy": true,
+   "normalized_subject": "history of sport",
+   "people": [],
+   "published_at": "2026-10-07T08:44:43.671506+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "en.wikipedia.org/wiki/History_of_sport"
+   ],
+   "sport_or_game": "History of sport",
+   "telegram_message_id": 345
+  },
+  {
+   "central_claim": "Have you heard about the Rural Olympics? While most modern Indians are only passionate about mainstream sports—the Rural Olympics or the Kila Raipur Sports Festival is a local sporting event held every year near Ludhiana (Punjab). In this sporting fest, some lesser-known Indian sports are enjoyed that have been in existence for many generations in that area. However, Punjab is not the only Indian state that holds such indigenous sports competitions. Let us take a quick look at some indigenous le",
+   "central_knowledge_unit": "have you heard about the rural olympics while most modern indians are only passionate about mainstream sports the rural olympics or the kila raipur sports festival is a local sporting event held every year near ludhiana ",
+   "content_id": "5585e027755c63d4",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "8234926b49777add",
+    "9589c6389c0e5cc9"
+   ],
+   "legacy": true,
+   "normalized_subject": "from dhopkhel to vallamkali learn about six indigenous lesser known sports of india and how they are played",
+   "people": [],
+   "published_at": "2026-10-07T08:45:01.597727+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    "uat.buzztribe.news/from-dhopkhel-to-vallamkali-learn-about-six-indigenous-lesser-known-sports-of-india-and-how-they-are-played-tmb"
+   ],
+   "sport_or_game": "From Dhopkhel To Vallamkali, Learn About Six Indigenous Lesser-Known Sports of India And How They Are Played",
+   "telegram_message_id": 346
+  },
+  {
+   "central_claim": "Achahpi (also alhchahpi) was a traditional Choctaw form of the stone-rolling, javelin-throwing game commonly called chunkey. It may be older than Choctaw stickball, but the available evidence does not establish which game originated first.",
+   "central_knowledge_unit": "achahpi also alhchahpi was a traditional choctaw form of the stone rolling javelin throwing game commonly called chunkey it may be older than choctaw stickball but the available evidence does not establish which game ori",
+   "content_id": "018e71a1e609293b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "47d4fe71cf5032b0",
+    "4c0d02eaecffa563"
+   ],
+   "legacy": true,
+   "normalized_subject": "a choctaw sport older than stickball",
+   "people": [],
+   "published_at": "2026-10-07T08:45:10.766427+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    "choctawnationculture.com/media/32765/2013.11%20A%20Choctaw%20sport%20older%20than%20stickball.pdf"
+   ],
+   "sport_or_game": "A Choctaw sport older than stickball?!",
+   "telegram_message_id": 347
+  },
+  {
+   "central_claim": "Tchoukball is often called the “Sport of Peace” due to its foundational philosophy of mandatory non-contact play. The basic rules of tchoukball are designed to emphasize flow, precision, and strategy over brute force or aggressive defense. At its core, the game involves two teams attempting to score points by throwing a ball against a rebound frame (tchouk) so that it bounces outside a forbidden semicircle without being caught by the opposing team. Unlike most team sports, the defensive team can",
+   "central_knowledge_unit": "tchoukball is often called the sport of peace due to its foundational philosophy of mandatory non contact play the basic rules of tchoukball are designed to emphasize flow precision and strategy over brute force or aggre",
+   "content_id": "3d0269d2b4460444",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "138f055dc6577683",
+    "c047322cfe1f10a9"
+   ],
+   "legacy": true,
+   "normalized_subject": "basic rules of tchoukball a beginner s guide non contact sport corelabs blog",
+   "people": [],
+   "published_at": "2026-10-07T08:45:21.838928+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "How to Play",
+   "source_urls": [
+    "corelabs.blog/basic-rules-tchoukball-beginner-guide"
+   ],
+   "sport_or_game": "Basic Rules of Tchoukball: A Beginner's Guide (Non-Contact Sport) - Corelabs.blog",
+   "telegram_message_id": 348
+  },
+  {
+   "central_claim": "It is not surprising to find dice, cards and a board inside the box when opening a tabletop game. Well-known examples of this are MONOPOLY, TRIVIAL PURSUIT, THE SETTLERS OF CATAN, which are games that are among the most popular today. Players of these modern games are used to typ ical game elements such as dice, cards or boards that are re-combined again and again in new games. This is a historically new and unique phe nomenon. Outside the current industrialized situation, it is typical to know ",
+   "central_knowledge_unit": "it is not surprising to find dice cards and a board inside the box when opening a tabletop game well known examples of this are monopoly trivial pursuit the settlers of catan which are games that are among the most popul",
+   "content_id": "82f56ec1f6e12a4e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7f13820c34457663",
+    "0aaf0214d3af90f3"
+   ],
+   "legacy": true,
+   "normalized_subject": "pdf dice cards and boards material elements of games and the",
+   "people": [],
+   "published_at": "2026-10-07T08:45:39.365179+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "d-nb.info/127344308X/34"
+   ],
+   "sport_or_game": "[PDF] Dice, Cards and Boards. Material Elements of Games and the ...",
+   "telegram_message_id": 349
+  },
+  {
+   "central_claim": "WIZĀRIŠN Ī ČATRANG UD NIHIŠN Ī NĒW-ARDAXŠĪR [WČN], “the explanation of chess and the arrangement of backgammon.” WČN is a minor Pahlavi text, mainly attested in ms MK (fols. 115-20), edited by Jamaspji Jamasp-Asana (1913) with the help of other minor codices (for its editions and translations see the bibliography; Cereti 2001, pp. 203-5; all citations of the text here are by chapter), whose content remains basic for any research concerning the earlier history of these two games (Murray, 1913; Ut",
+   "central_knowledge_unit": "wiz ri n atrang ud nihi n n w ardax r w n the explanation of chess and the arrangement of backgammon w n is a minor pahlavi text mainly attested in ms mk fols 115 20 edited by jamaspji jamasp asana 1913 with the help of ",
+   "content_id": "f4a706a7f95d0d9c",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "cf336ef383397fff",
+    "08a6c2c699273e46"
+   ],
+   "legacy": true,
+   "normalized_subject": "wiz ri n atrang ud nihi n n w ardax r encyclopaedia iranica",
+   "people": [],
+   "published_at": "2026-10-07T08:45:50.410956+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Origin",
+   "source_urls": [
+    "iranicaonline.org/articles/wizarisn-catrang-nihisn-ardaxir"
+   ],
+   "sport_or_game": "WIZĀRIŠN Ī ČATRANG UD NIHIŠN Ī NĒW-ARDAXŠĪR - Encyclopaedia Iranica",
+   "telegram_message_id": 350
+  },
+  {
+   "central_claim": "Laws of association football, adopted at the Annual General Meeting of the Football Association, Freemasons' Tavern, London, February 24th, 1875. Effective from the beginning of the 1875-6 season. [1] ... 1. The maximum length of the ground shall be 200 yards, minimum length 100 yards; maximum breadth 100 yards, minimum breadth 50 yards. The length and breadth shall be marked off with flags; and the goals shall be upright posts, eight yards apart, with a tape or bar across them, eight feet from ",
+   "central_knowledge_unit": "laws of association football adopted at the annual general meeting of the football association freemasons tavern london february 24th 1875 effective from the beginning of the 1875 6 season 1 1 the maximum length of the g",
+   "content_id": "dca83534460ec6d8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c652d892a89a00bf",
+    "5719f6eecfb27f04"
+   ],
+   "legacy": true,
+   "normalized_subject": "laws of the game 1875 wikisource the free online library",
+   "people": [],
+   "published_at": "2026-10-07T08:46:02.523086+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Rule Check",
+   "source_urls": [
+    "en.wikisource.org/wiki/Laws_of_the_Game_(1875)"
+   ],
+   "sport_or_game": "Laws of the Game (1875) - Wikisource, the free online library",
+   "telegram_message_id": 351
+  },
+  {
+   "central_claim": "Laws of Sport is an independent reference site for the official rules, playing-field dimensions, equipment standards, terminology, records and history of football, cricket, basketball and tennis. We explain the rulebooks in clear language and link to the governing bodies' official documents. ... Basketball 24s / 14s FIBA & NBA Clock ... Metric & Imperial specs shown throughout ... Now in force with 73 material changes: laminated bats in open-age cricket, new ball sizes 1–3, and completion of the",
+   "central_knowledge_unit": "laws of sport is an independent reference site for the official rules playing field dimensions equipment standards terminology records and history of football cricket basketball and tennis we explain the rulebooks in cle",
+   "content_id": "0e3eb7cc544e1423",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4cd9d0bdca590c5c",
+    "6f8612dd61260e43"
+   ],
+   "legacy": true,
+   "normalized_subject": "sports rules dimensions records 2026 laws of sport",
+   "people": [],
+   "published_at": "2026-10-07T08:46:13.263333+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "assets.fiba.basketball/image/upload/documents-corporate-fiba-official-rules-2026-v1-1.pdf"
+   ],
+   "sport_or_game": "Sports Rules, Dimensions & Records 2026 | Laws of Sport",
+   "telegram_message_id": 352
+  },
+  {
+   "central_claim": "Many people still believe that the game was influenced by Gaelic football, an impression that is sometimes reinforced by the hybrid game played between teams of Australian and Irish footballers in recent years. But the Gaelic game was not codified or some would say reinvented until the 1880s and there is no contemporary evidence that Victorians borrowed from the Irish in any significant way in the 1850s when our version of football started. Others, including the Australian Football League, have ",
+   "central_knowledge_unit": "many people still believe that the game was influenced by gaelic football an impression that is sometimes reinforced by the hybrid game played between teams of australian and irish footballers in recent years but the gae",
+   "content_id": "dd28912b3f828d99",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "91f0bd01c258d1d3",
+    "d24e04fe48e60afa"
+   ],
+   "legacy": true,
+   "normalized_subject": "how footy kicked off origins of our great game unclear sesa sport",
+   "people": [],
+   "published_at": "2026-10-07T08:46:26.364974+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "sesasport.com/how-footy-kicked-off-origins-of-our-great-game-unclear"
+   ],
+   "sport_or_game": "How footy kicked off: Origins of Our Great Game Unclear | SESA Sport",
+   "telegram_message_id": 353
+  },
+  {
+   "central_claim": "1947 World Series Game 7, Brooklyn Dodgers vs New York Yankees: October 6, 1947 | Baseball-Reference.com ... | Game 7, October 6 | | | | --- | --- | --- | | BRO | 2 | F inal | | NYY | 5 | | ## Series Summary via Sports Logos.net Brooklyn Dodgers ... 94-60 New York Yankees ... Monday, October 6, 1947",
+   "central_knowledge_unit": "1947 world series game 7 brooklyn dodgers vs new york yankees october 6 1947 baseball reference com game 7 october 6 bro 2 f inal nyy 5 series summary via sports logos net brooklyn dodgers 94 60 new york yankees monday o",
+   "content_id": "10aadfa7849ded53",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "93a694407e8f1c5c",
+    "ce2d4b3c2d9ef5cc"
+   ],
+   "legacy": true,
+   "normalized_subject": "1947 world series game 7 brooklyn dodgers vs new york yankees october 6 1947 baseball reference com",
+   "people": [],
+   "published_at": "2026-10-07T08:47:05.795366+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "baseball-reference.com/boxes/NYA/NYA194710060.shtml"
+   ],
+   "sport_or_game": "1947 World Series Game 7, Brooklyn Dodgers vs New York Yankees: October 6, 1947 | Baseball-Reference.com",
+   "telegram_message_id": 354
+  },
+  {
+   "central_claim": "Modern association football took shape in nineteenth-century Britain: older local football traditions and differing public-school and club codes preceded the Football Association, founded in London on 26 October 1863, which agreed a common set of laws that year. The FA inaugurated its cross-regional Challenge Cup in 1871–72; it did not stage the earliest known football cup tournament.",
+   "central_knowledge_unit": "football soccer history 2026 fifa world cup game rules",
+   "content_id": "62928e508785f191",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "62928e508785f191",
+    "b98e41dea2e04f85"
+   ],
+   "normalized_subject": "football soccer history 2026 fifa world cup game rules",
+   "people": [],
+   "published_at": "2026-10-07T20:03:50.345488+00:00",
+   "region": "",
+   "run_id": "2026-10-08-AM",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 357
+  },
+  {
+   "central_claim": "Gasing (top-spinning) is a traditional game played in Sarawak. A 2006 Sarawak State Library publication documents Malay practices in particular, including tops made from fruit, wood or improvised materials and local variations in which players compete for spinning duration or strike an opponent’s top. This documents a Malay cultural tradition in Sarawak, not an exclusive Malay origin for top-spinning.",
+   "central_knowledge_unit": "the sarawakiana series traditional gasing of sarawak malays",
+   "content_id": "3ce7c101e7de7a36",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "3ce7c101e7de7a36",
+    "a69a45712c7922da"
+   ],
+   "normalized_subject": "the sarawakiana series traditional gasing of sarawak malays",
+   "people": [],
+   "published_at": "2026-10-07T20:04:03.942983+00:00",
+   "region": "",
+   "run_id": "2026-10-08-AM",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 358
+  },
+  {
+   "central_claim": "In 1283, a team of scribes working for King Alfonso X of Castile finished a manuscript that game historians have been mining ever since: the Libro de los juegos, the Book of Games. Most of its hundred or so illuminated pages belong to chess. But tucked between the chess problems and the dice games sit a handful of pages describing a board of twenty-five points joined by lines, twelve black pieces facing twelve white, and a rule that lets one piece leap over another and remove it from the board. The scribes called it alquerque. You almost certainly know its grandchild: checkers. ... The teeth of the game is the jump. A piece adjacent to an enemy piece may leap over it to the empty point direc",
+   "central_knowledge_unit": "alquerque the moorish game that became checkers",
+   "content_id": "9f2c844cb4095150",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9f2c844cb4095150",
+    "fe17657b7903660c"
+   ],
+   "normalized_subject": "alquerque the moorish game that became checkers",
+   "people": [],
+   "published_at": "2026-10-07T20:04:12.488459+00:00",
+   "region": "",
+   "run_id": "2026-10-08-AM",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 359
+  },
+  {
+   "central_claim": "Laws of association football, adopted at the meeting of the International Football Association Board, Station Hotel, Ayr, Scotland, 15th June, 1903. Effective from the beginning of the 1903-4 season [1] ... event of any infringement of Laws 5, 6, 8, 10, or 15, a free ... be awarded to ... opposite side, from the place where ... of any intentional infringement of Law 9 outside the penalty ... , or by ... within the penalty ... the opposite side from the ... any intentional infringement of Law ... the penalty area ... be taken from the ... the opponents' goal ... goal area. The ... be in play when ... a goal may ... . If necessary ... taken. A ... the ball is not kicked forward, or is played a",
+   "central_knowledge_unit": "laws of the game 1903 wikisource the free online library",
+   "content_id": "ce18c6780b0e3b99",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "ce18c6780b0e3b99",
+    "e3fcc5bbbfdf630f"
+   ],
+   "normalized_subject": "laws of the game 1903 wikisource the free online library",
+   "people": [],
+   "published_at": "2026-10-07T20:04:39.816839+00:00",
+   "region": "",
+   "run_id": "2026-10-08-AM",
+   "sector": "Rule Check",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 360
+  },
+  {
+   "central_claim": "For the fans, it was all about the result. For the players, it was all about their rivals. For the scientists, however, it was all ... the ball. ... FIFA, football’s governing body, introduces a new ball for every World Cup. It’s partly a marketing exercise, partly a way to improve things for the players, the officials and the fans. For instance, the ... star, introduced at the 1970 World ... , was the first to have ... so people watching on black ... and-white TVs could follow its ... ca, used for the 1986 World Cup, was the first to be ... materials to make it ... to maintain its ... and shape in the rain. ... The Trionda, the ball created for this year’s tournament, is perhaps the most ad",
+   "central_knowledge_unit": "how new changes to the world cup ball design could decide the tightest games bbc science focus magazine",
+   "content_id": "b7fb39919f8efb19",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b7fb39919f8efb19",
+    "20ea6e7e8847f042"
+   ],
+   "normalized_subject": "how new changes to the world cup ball design could decide the tightest games bbc science focus magazine",
+   "people": [],
+   "published_at": "2026-10-07T20:04:47.977468+00:00",
+   "region": "",
+   "run_id": "2026-10-08-AM",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 361
+  },
+  {
+   "central_claim": "Basket in Ball Game: Understanding the Heart of Basketball Basket in ball game is a phrase that might sound a bit unusual at first, but it essentially points to one of the most fundamental elements of basketball - the basket itself. In the world of sports, especially basketball, the basket is not just a piece of equipment; it's the target, the goal, and the main point of scoring. Whether you're a casual fan, an aspiring player, or someone curious about how basketball works, understanding what the basket means in the ball game is crucial. Let's dive deeper into this fascinating aspect and explore its role, history, and significance in the sport. ... In basketball, the basket is the ultimate s",
+   "central_knowledge_unit": "basket in ball game",
+   "content_id": "4dc292d6ec63146f",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4dc292d6ec63146f",
+    "a9495789fa4aeaa9"
+   ],
+   "normalized_subject": "basket in ball game",
+   "people": [],
+   "published_at": "2026-10-07T20:05:04.105038+00:00",
+   "region": "",
+   "run_id": "2026-10-08-AM",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 362
+  },
+  {
+   "central_claim": "During one impressive stretch from the end of the 1928 season to the middle of the 1930 campaign, the Longhorns posted 14 shutouts in 16 games. The streak began with three shutouts to end 1928 and continued with seven more shutouts to start 1929. In fact, during the decade of the 1920s, UT shutout 49 opponents in 89 games (.551). ... All-time games played______________________________1,228 in 120 years Overall record (winning percentage)__________________863-332-33 (.716) National Championships (four)_____________________1963, ’69, ’70, 2005 Undefeated and untied teams (nine)_ __ 1893, ’95, 1900, ’14, ’18, ’20, ’63, ’69, 2005 Undefeated and once-tied teams (two)________________________ 1923,",
+   "central_knowledge_unit": "team records",
+   "content_id": "fe168b18af07401d",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "fe168b18af07401d",
+    "f4b0a81c30a25edb"
+   ],
+   "normalized_subject": "team records",
+   "people": [],
+   "published_at": "2026-10-07T20:05:13.945945+00:00",
+   "region": "",
+   "run_id": "2026-10-08-AM",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 363
+  },
+  {
+   "central_claim": "Designer Diary: Rooftop Roses - Making Games by Chris Backe ### Dice rolling, area controlling, rose planting, print-and-playing ... Rooftop Roses started out in January 2026 as my entry into our first PnP Bundle (which arrives to Gamefound on July 21, 2026 - follow, back, or get the late pledge depending on when you’re reading this). I had several self-given goals / constraints when putting this together: - It needed to be a low or no assembly print-and-play - It needed to be a stand-alone sort of game (there are 2 other games in the print-and-play bundle, and each of them would be its own stand-alone experience without a ton of add-ons / different ways to play) - It needed to work as a sol",
+   "central_knowledge_unit": "designer diary rooftop roses making games by chris backe",
+   "content_id": "adc5f90f33d05854",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "adc5f90f33d05854",
+    "d4b87a966494c5c2"
+   ],
+   "normalized_subject": "designer diary rooftop roses making games by chris backe",
+   "people": [],
+   "published_at": "2026-10-07T20:05:40.718449+00:00",
+   "region": "",
+   "run_id": "2026-10-08-AM",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 364
+  },
+  {
+   "central_claim": "October 8, 1908: Cubs defeat Giants, win NL pennant in makeup of ‘Merkle Game’ – Society for American Baseball Research # October 8, 1908: Cubs defeat Giants, win NL pennant in makeup of ‘Merkle Game’ ... The 1908 baseball season was “one of the most sensational on record,” 1 according to the sportswriters who saw it unfold. And even some modern baseball scholars agree with that assessment. 2 There were hard-fought pennant races in each league, and the winners weren’t known till the final games of the season. In the American League, the Detroit Tigers clinched the pennant on October 6, defeating the Chicago White Sox, 7-0, to edge the Cleveland Naps by a half-game. In the National League, th",
+   "central_knowledge_unit": "october 8 1908 cubs defeat giants win nl pennant in makeup of merkle game society for american baseball research",
+   "content_id": "fc4f9b9d1e57b533",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "fc4f9b9d1e57b533",
+    "b622a2212b4a714c"
+   ],
+   "normalized_subject": "october 8 1908 cubs defeat giants win nl pennant in makeup of merkle game society for american baseball research",
+   "people": [],
+   "published_at": "2026-10-07T20:06:20.894754+00:00",
+   "region": "",
+   "run_id": "2026-10-08-AM",
+   "sector": "On This Date",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 365
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-07T08:47:05.795335+00:00"
+ "updated_at": "2026-10-07T20:06:20.894894+00:00"
 }

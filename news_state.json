@@ -1,15 +1,15 @@
 {
  "ai": {
-  "last_error": "",
-  "last_ok": "2026-10-07T08:46:59.220860+00:00",
-  "last_request_id": "a46ba3721f5687a6-CMH",
+  "last_error": "Cerebras per-run call cap reached (16)",
+  "last_ok": "2026-10-07T20:06:13.334995+00:00",
+  "last_request_id": "a46f86689ce41413-ORD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-07T08:49:26.986447+00:00",
+ "last_run_at": "2026-10-07T20:08:46.374953+00:00",
  "ledger": {},
  "posts": [
   {
@@ -3588,6 +3588,211 @@
    "urls": [
     "baseball-reference.com/boxes/NYA/NYA194710060.shtml"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Football (soccer) | History, 2026 FIFA World Cup, Game, Rules ...",
+   "claim": "Modern association football took shape in nineteenth-century Britain: older local football traditions and differing public-school and club codes preceded the Football Association, founded in London on 26 October 1863, which agreed a common set of laws that year. The FA inaugurated its cross-regional Challenge Cup in 1871–72; it did not stage the earliest known football cup tournament.",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "Football Association Founded 1863 Unified Rules, Challenge Cup Arrives 1871",
+   "image_status": "verified_external",
+   "message_id": 357,
+   "normalized_subject": "Football (soccer) | History, 2026 FIFA World Cup, Game, Rules ...",
+   "posted_at": "2026-10-07T20:03:50.345639+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-08-AM",
+   "sector": "Sport Origin",
+   "topic": "Football (soccer) | History, 2026 FIFA World Cup, Game, Rules ...",
+   "urls": [
+    "britannica.com/sports/football-soccer"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The Sarawakiana Series : Traditional Gasing of Sarawak Malays",
+   "claim": "Gasing (top-spinning) is a traditional game played in Sarawak. A 2006 Sarawak State Library publication documents Malay practices in particular, including tops made from fruit, wood or improvised materials and local variations in which players compete for spinning duration or strike an opponent’s top. This documents a Malay cultural tradition in Sarawak, not an exclusive Malay origin for top-spinning.",
+   "desk": "evergreen_v1",
+   "format": "Traditional / Regional Game",
+   "headline": "Gasing Remains a Vibrant Malay Tradition in Saraji",
+   "image_status": "card_fallback",
+   "message_id": 358,
+   "normalized_subject": "The Sarawakiana Series : Traditional Gasing of Sarawak Malays",
+   "posted_at": "2026-10-07T20:04:03.943129+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-08-AM",
+   "sector": "Traditional / Regional Game",
+   "topic": "The Sarawakiana Series : Traditional Gasing of Sarawak Malays",
+   "urls": [
+    "lib.perdana.org.my/PLF/Digital_Content/PNS/Traditional%20Gasing%20of%20Sarawak%20Malays%20%5BKamil%20Salem%5D%202006.pdf"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Alquerque: The Moorish Game That Became Checkers",
+   "claim": "In 1283, a team of scribes working for King Alfonso X of Castile finished a manuscript that game historians have been mining ever since: the Libro de los juegos, the Book of Games. Most of its hundred or so illuminated pages belong to chess. But tucked between the chess problems and the dice games sit a handful of pages describing a board of twenty-five points joined by lines, twelve black pieces facing twelve white, and a rule that lets one piece leap over another and remove it from the board. The scribes called it alquerque. You almost certainly know its grandchild: checkers. ... The teeth of the game is the jump. A piece adjacent to an enemy piece may leap over it to the empty point direc",
+   "desk": "evergreen_v1",
+   "format": "Interesting Game Fact",
+   "headline": "Alquerque: The 13th‑Century Moorish Game That Spawned Checkers",
+   "image_status": "verified_external",
+   "message_id": 359,
+   "normalized_subject": "Alquerque: The Moorish Game That Became Checkers",
+   "posted_at": "2026-10-07T20:04:12.488618+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-08-AM",
+   "sector": "Interesting Game Fact",
+   "topic": "Alquerque: The Moorish Game That Became Checkers",
+   "urls": [
+    "ancientgames.org/alquerque"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Laws of the Game (1903) - Wikisource, the free online library",
+   "claim": "Laws of association football, adopted at the meeting of the International Football Association Board, Station Hotel, Ayr, Scotland, 15th June, 1903. Effective from the beginning of the 1903-4 season [1] ... event of any infringement of Laws 5, 6, 8, 10, or 15, a free ... be awarded to ... opposite side, from the place where ... of any intentional infringement of Law 9 outside the penalty ... , or by ... within the penalty ... the opposite side from the ... any intentional infringement of Law ... the penalty area ... be taken from the ... the opponents' goal ... goal area. The ... be in play when ... a goal may ... . If necessary ... taken. A ... the ball is not kicked forward, or is played a",
+   "desk": "evergreen_v1",
+   "format": "Rule Check",
+   "headline": "1903 IFAB Meeting Formalizes Modern Football Laws",
+   "image_status": "card_fallback",
+   "message_id": 360,
+   "normalized_subject": "Laws of the Game (1903) - Wikisource, the free online library",
+   "posted_at": "2026-10-07T20:04:39.817035+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-08-AM",
+   "sector": "Rule Check",
+   "topic": "Laws of the Game (1903) - Wikisource, the free online library",
+   "urls": [
+    "downloads.theifab.com/downloads/laws-of-the-game-1903-04?l=en"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "How new changes to the World Cup ball design could decide the tightest games | BBC Science Focus Magazine",
+   "claim": "For the fans, it was all about the result. For the players, it was all about their rivals. For the scientists, however, it was all ... the ball. ... FIFA, football’s governing body, introduces a new ball for every World Cup. It’s partly a marketing exercise, partly a way to improve things for the players, the officials and the fans. For instance, the ... star, introduced at the 1970 World ... , was the first to have ... so people watching on black ... and-white TVs could follow its ... ca, used for the 1986 World Cup, was the first to be ... materials to make it ... to maintain its ... and shape in the rain. ... The Trionda, the ball created for this year’s tournament, is perhaps the most ad",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "Trionda Ball’s Aerodynamics May Tip Tight World Cup Matches",
+   "image_status": "verified_external",
+   "message_id": 361,
+   "normalized_subject": "How new changes to the World Cup ball design could decide the tightest games | BBC Science Focus Magazine",
+   "posted_at": "2026-10-07T20:04:47.977654+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-08-AM",
+   "sector": "Why Does This Happen?",
+   "topic": "How new changes to the World Cup ball design could decide the tightest games | BBC Science Focus Magazine",
+   "urls": [
+    "bbc.com/sport/football/articles/c1jy8pr6k37o"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "BASKET IN BALL GAME",
+   "claim": "Basket in Ball Game: Understanding the Heart of Basketball Basket in ball game is a phrase that might sound a bit unusual at first, but it essentially points to one of the most fundamental elements of basketball - the basket itself. In the world of sports, especially basketball, the basket is not just a piece of equipment; it's the target, the goal, and the main point of scoring. Whether you're a casual fan, an aspiring player, or someone curious about how basketball works, understanding what the basket means in the ball game is crucial. Let's dive deeper into this fascinating aspect and explore its role, history, and significance in the sport. ... In basketball, the basket is the ultimate s",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "Basket in Basketball: The Central Scoring Target Defined by Standard Dimensions",
+   "image_status": "card_fallback",
+   "message_id": 362,
+   "normalized_subject": "BASKET IN BALL GAME",
+   "posted_at": "2026-10-07T20:05:04.105178+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-08-AM",
+   "sector": "Equipment / Measurement",
+   "topic": "BASKET IN BALL GAME",
+   "urls": [
+    "admin.asohns.org.au/textbook/gDn67U0dinHn/Basket_In_Ball_Game"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Team Records",
+   "claim": "During one impressive stretch from the end of the 1928 season to the middle of the 1930 campaign, the Longhorns posted 14 shutouts in 16 games. The streak began with three shutouts to end 1928 and continued with seven more shutouts to start 1929. In fact, during the decade of the 1920s, UT shutout 49 opponents in 89 games (.551). ... All-time games played______________________________1,228 in 120 years Overall record (winning percentage)__________________863-332-33 (.716) National Championships (four)_____________________1963, ’69, ’70, 2005 Undefeated and untied teams (nine)_ __ 1893, ’95, 1900, ’14, ’18, ’20, ’63, ’69, 2005 Undefeated and once-tied teams (two)________________________ 1923,",
+   "desk": "evergreen_v1",
+   "format": "Records & Milestones",
+   "headline": "Longhorns Achieve 14 Shutouts in 16 Games Across 1928‑1930",
+   "image_status": "verified_external",
+   "message_id": 363,
+   "normalized_subject": "Team Records",
+   "posted_at": "2026-10-07T20:05:13.946131+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-08-AM",
+   "sector": "Records & Milestones",
+   "topic": "Team Records",
+   "urls": [
+    "texaslonghorns.com/documents/download/2012/10/26/records-team-recs.pdf"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Designer Diary: Rooftop Roses - Making Games by Chris Backe",
+   "claim": "Designer Diary: Rooftop Roses - Making Games by Chris Backe ### Dice rolling, area controlling, rose planting, print-and-playing ... Rooftop Roses started out in January 2026 as my entry into our first PnP Bundle (which arrives to Gamefound on July 21, 2026 - follow, back, or get the late pledge depending on when you’re reading this). I had several self-given goals / constraints when putting this together: - It needed to be a low or no assembly print-and-play - It needed to be a stand-alone sort of game (there are 2 other games in the print-and-play bundle, and each of them would be its own stand-alone experience without a ton of add-ons / different ways to play) - It needed to work as a sol",
+   "desk": "evergreen_v1",
+   "format": "New Tabletop Game Discovery",
+   "headline": "Rooftop Roses Debuts as Low‑Assembly Print‑Play Game",
+   "image_status": "verified_external",
+   "message_id": 364,
+   "normalized_subject": "Designer Diary: Rooftop Roses - Making Games by Chris Backe",
+   "posted_at": "2026-10-07T20:05:40.718640+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-08-AM",
+   "sector": "New Tabletop Game Discovery",
+   "topic": "Designer Diary: Rooftop Roses - Making Games by Chris Backe",
+   "urls": [
+    "entrogames.substack.com/p/designer-diary-rooftop-roses"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "October 8, 1908: Cubs defeat Giants, win NL pennant in makeup of ‘Merkle Game’ – Society for American Baseball Research",
+   "claim": "October 8, 1908: Cubs defeat Giants, win NL pennant in makeup of ‘Merkle Game’ – Society for American Baseball Research # October 8, 1908: Cubs defeat Giants, win NL pennant in makeup of ‘Merkle Game’ ... The 1908 baseball season was “one of the most sensational on record,” 1 according to the sportswriters who saw it unfold. And even some modern baseball scholars agree with that assessment. 2 There were hard-fought pennant races in each league, and the winners weren’t known till the final games of the season. In the American League, the Detroit Tigers clinched the pennant on October 6, defeating the Chicago White Sox, 7-0, to edge the Cleveland Naps by a half-game. In the National League, th",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "Cubs Secure National League Pennant in Oct. 8, 1908 Replay of Merkle’s Game",
+   "image_status": "card_fallback",
+   "message_id": 365,
+   "normalized_subject": "October 8, 1908: Cubs defeat Giants, win NL pennant in makeup of ‘Merkle Game’ – Society for American Baseball Research",
+   "posted_at": "2026-10-07T20:06:20.894921+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-08-AM",
+   "sector": "On This Date",
+   "topic": "October 8, 1908: Cubs defeat Giants, win NL pennant in makeup of ‘Merkle Game’ – Society for American Baseball Research",
+   "urls": [
+    "en.wikipedia.org/wiki/Merkle%27s_Boner"
+   ]
   }
  ],
  "runs": [],
@@ -3599,145 +3804,138 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-10-07T08:35:02.087590+00:00",
+  "created_at": "2026-10-07T19:57:14.378992+00:00",
   "daily": {
-   "2026-10-07": {
+   "2026-10-08": {
     "published_sectors": [
      "Sport Origin",
-     "Sport Discovery",
      "Traditional / Regional Game",
-     "How to Play",
-     "Game Discovery",
-     "Game Origin",
+     "Interesting Game Fact",
      "Rule Check",
+     "Why Does This Happen?",
      "Equipment / Measurement",
-     "New Sport Discovery",
+     "Records & Milestones",
+     "New Tabletop Game Discovery",
      "On This Date"
     ],
     "run_ids": [
-     "2026-10-07-PM"
+     "2026-10-08-AM"
     ]
    }
   },
-  "last_run_at": "2026-10-07T08:49:26.986418+00:00",
+  "last_run_at": "2026-10-07T20:08:46.374921+00:00",
   "live": {
    "results": {
     "event_ids": [
-     "7694b8afc3a927d2",
-     "6969a483b427e984",
-     "ef951d63d2fbdbe7",
-     "62ccfc41c9205b25",
-     "93913e2d8098bb13",
-     "9b439be07640aed4",
-     "a11c6f2cac164c4a",
-     "4615835d907fa289",
-     "321e6eec3a616b89",
-     "6d59fa0657d1525e"
+     "07cc254140d32464",
+     "5d727427a12463bf",
+     "c7895e124da9b1cd",
+     "c15bb3329473d9a7",
+     "f3f7ce869f1b3ce6",
+     "e5ea809d460c23b2",
+     "f49826ed80ab7a79",
+     "0b47e585f1eed345",
+     "a2ba7e75389f69a3",
+     "8c86bfbc8f02570f"
     ],
-    "message_id": 356,
-    "target_date": "2026-10-06",
-    "updated_at": "2026-10-07T08:49:26.978337+00:00"
+    "message_id": 367,
+    "target_date": "2026-10-07",
+    "updated_at": "2026-10-07T20:08:46.367009+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [
-     "98fa53c76b931075",
-     "aefb1a3c0073930d",
-     "69ea3f427ffb1e70",
-     "1e648d085a7aa601",
-     "fa9ab9ef1f909f5d",
-     "cb6b2012e3ba7838",
-     "6b11548c75aae7f8",
-     "5bf4d4f9a2e64b01",
-     "464bde28515e79b2",
-     "fd9503a69a21772f"
+     "432a7dcf662353bf",
+     "cfdb5fc0839e8a76",
+     "a2376fd14964a6ab",
+     "8078fc49fedcf749",
+     "19208905f114f8af",
+     "812ae1b6a61c3f01",
+     "c7258fee28c1602d",
+     "39d59ea8d734c719",
+     "c4b077b02c8010d5",
+     "3211dc7f8343dd64"
     ],
-    "message_id": 355,
-    "target_date": "2026-10-08",
-    "updated_at": "2026-10-07T08:49:26.978325+00:00"
+    "message_id": 366,
+    "target_date": "2026-10-09",
+    "updated_at": "2026-10-07T20:08:46.366998+00:00"
    }
   },
   "publication": {
-   "2026-10-07-PM:evergreen:06249399d653ace7": {
-    "message_id": 353,
-    "posted_at": "2026-10-07T08:46:26.364524+00:00",
+   "2026-10-08-AM:evergreen:0649b09ac18b306b": {
+    "message_id": 364,
+    "posted_at": "2026-10-07T20:05:40.718286+00:00",
     "status": "posted"
    },
-   "2026-10-07-PM:evergreen:14a80d68ec41112e": {
-    "message_id": 348,
-    "posted_at": "2026-10-07T08:45:21.838563+00:00",
+   "2026-10-08-AM:evergreen:28922d165e662553": {
+    "message_id": 362,
+    "posted_at": "2026-10-07T20:05:04.104915+00:00",
     "status": "posted"
    },
-   "2026-10-07-PM:evergreen:26ab7637669880c5": {
-    "message_id": 352,
-    "posted_at": "2026-10-07T08:46:13.262964+00:00",
+   "2026-10-08-AM:evergreen:541c49bee011a8b5": {
+    "message_id": 360,
+    "posted_at": "2026-10-07T20:04:39.816676+00:00",
     "status": "posted"
    },
-   "2026-10-07-PM:evergreen:345fbcb535924a11": {
-    "message_id": 347,
-    "posted_at": "2026-10-07T08:45:10.766161+00:00",
+   "2026-10-08-AM:evergreen:83c3f8b835213f92": {
+    "message_id": 357,
+    "posted_at": "2026-10-07T20:03:50.345351+00:00",
     "status": "posted"
    },
-   "2026-10-07-PM:evergreen:48978cdafc12be4b": {
-    "message_id": 351,
-    "posted_at": "2026-10-07T08:46:02.522693+00:00",
+   "2026-10-08-AM:evergreen:8ced77604ebc614b": {
+    "message_id": 358,
+    "posted_at": "2026-10-07T20:04:03.942860+00:00",
     "status": "posted"
    },
-   "2026-10-07-PM:evergreen:79f2abcd03d64c18": {
-    "message_id": 349,
-    "posted_at": "2026-10-07T08:45:39.364823+00:00",
+   "2026-10-08-AM:evergreen:939700b15732af90": {
+    "message_id": 359,
+    "posted_at": "2026-10-07T20:04:12.488306+00:00",
     "status": "posted"
    },
-   "2026-10-07-PM:evergreen:a3a16dfd73cf0a22": {
-    "message_id": 345,
-    "posted_at": "2026-10-07T08:44:43.671176+00:00",
+   "2026-10-08-AM:evergreen:d29a87f2b4661caa": {
+    "message_id": 361,
+    "posted_at": "2026-10-07T20:04:47.977291+00:00",
     "status": "posted"
    },
-   "2026-10-07-PM:evergreen:ab06d5b1ef25fb59": {
-    "message_id": 354,
-    "posted_at": "2026-10-07T08:47:05.795063+00:00",
+   "2026-10-08-AM:evergreen:e30999a662b942f4": {
+    "message_id": 363,
+    "posted_at": "2026-10-07T20:05:13.945805+00:00",
     "status": "posted"
    },
-   "2026-10-07-PM:evergreen:b60542832d0c9581": {
-    "message_id": 350,
-    "posted_at": "2026-10-07T08:45:50.410506+00:00",
+   "2026-10-08-AM:evergreen:f567982c7bca9aa7": {
+    "message_id": 365,
+    "posted_at": "2026-10-07T20:06:20.894600+00:00",
     "status": "posted"
    },
-   "2026-10-07-PM:evergreen:ef82987610268aa0": {
-    "message_id": 346,
-    "posted_at": "2026-10-07T08:45:01.597357+00:00",
+   "2026-10-08-AM:live_results:322533aa1041f6d3": {
+    "message_id": 367,
+    "posted_at": "2026-10-07T20:08:46.366969+00:00",
     "status": "posted"
    },
-   "2026-10-07-PM:live_results:093cf177b074ca7d": {
-    "message_id": 356,
-    "posted_at": "2026-10-07T08:49:26.978299+00:00",
-    "status": "posted"
-   },
-   "2026-10-07-PM:live_schedule:3b59f6598c32b35d": {
-    "message_id": 355,
-    "posted_at": "2026-10-07T08:49:26.657418+00:00",
+   "2026-10-08-AM:live_schedule:763c76e10e1f8c7e": {
+    "message_id": 366,
+    "posted_at": "2026-10-07T20:08:46.007730+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-10-07T08:49:26.986427+00:00",
-    "evergreen": 10,
+    "at": "2026-10-07T20:08:46.374932+00:00",
+    "evergreen": 9,
     "exit": 0,
-    "live_results": 356,
-    "live_schedule": 355,
-    "run_id": "2026-10-07-PM",
+    "live_results": 367,
+    "live_schedule": 366,
+    "run_id": "2026-10-08-AM",
     "used_sectors": [
      "Equipment / Measurement",
-     "Game Discovery",
-     "Game Origin",
-     "How to Play",
-     "New Sport Discovery",
+     "Interesting Game Fact",
+     "New Tabletop Game Discovery",
      "On This Date",
+     "Records & Milestones",
      "Rule Check",
-     "Sport Discovery",
      "Sport Origin",
-     "Traditional / Regional Game"
+     "Traditional / Regional Game",
+     "Why Does This Happen?"
     ]
    }
   ],
