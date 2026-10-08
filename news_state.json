@@ -1,15 +1,15 @@
 {
  "ai": {
-  "last_error": "Cerebras per-run call cap reached (16)",
-  "last_ok": "2026-10-07T20:06:13.334995+00:00",
-  "last_request_id": "a46f86689ce41413-ORD",
+  "last_error": "",
+  "last_ok": "2026-10-08T09:03:45.704041+00:00",
+  "last_request_id": "a473f9622b66ebf3-ORD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-07T20:08:46.374953+00:00",
+ "last_run_at": "2026-10-08T09:08:06.720943+00:00",
  "ledger": {},
  "posts": [
   {
@@ -3793,6 +3793,121 @@
    "urls": [
     "en.wikipedia.org/wiki/Merkle%27s_Boner"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "History – FIVB",
+   "claim": "William G. Morgan devised volleyball, initially called Mintonette, at the Holyoke, Massachusetts, YMCA in 1895 as a less strenuous alternative to basketball. He demonstrated it at a YMCA physical-education conference at Springfield College in 1896, where the name “Volley Ball” was proposed. The game subsequently spread through YMCA networks and its rules evolved; the modern federation-count and largest-federation claims in the quoted history should not be repeated.",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "William G. Morgan Created Volleyball in 1895 as a Gentle Alternative to Basketball",
+   "image_status": "card_fallback",
+   "message_id": 368,
+   "normalized_subject": "History – FIVB",
+   "posted_at": "2026-10-08T09:00:18.688123+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-08-PM",
+   "sector": "Sport Origin",
+   "topic": "History – FIVB",
+   "urls": [
+    "fivb.com/volleyball/the-game/history"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Carlos Correa stars against former team as Twins beat Astros 6-2 in Game 2 to tie ALDS | AP News",
+   "claim": "Minnesota Twins’ Carlos Correa celebrates after a RBI-double against the Houston Astros during the first inning in Game 2 of an American League Division Series baseball game in Houston, Sunday, Oct. 8, 2023. (AP Photo/Tony Gutierrez) Minnesota Twins’ Carlos Correa hits RBI-double against the Houston Astros during the first inning in Game 2 of an American League Division Series baseball game in Houston, Sunday, Oct. 8, 2023. (AP Photo/Kevin M. Cox) Minnesota Twins second baseman Edouard Julien celebrates the end of the seventh inning in Game 2 of an American League Division Series baseball game. against the Houston Astros in Houston, Sunday, Oct. 8, 2023. ... /Tony Gutierrez ... Astros starti",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "Carlos Correa’s three‑run night lifts Twins over Astros",
+   "image_status": "verified_external",
+   "message_id": 369,
+   "normalized_subject": "Carlos Correa stars against former team as Twins beat Astros 6-2 in Game 2 to tie ALDS | AP News",
+   "posted_at": "2026-10-08T09:01:22.101491+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-08-PM",
+   "sector": "On This Date",
+   "topic": "Carlos Correa stars against former team as Twins beat Astros 6-2 in Game 2 to tie ALDS | AP News",
+   "urls": [
+    "apnews.com/article/twins-correa-astros-alds-lopez-minnesota-valdez-4000d6d179ba0c42c5db37bc1fb55070"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Bayesian sensory integration explains ball-count bias in Major League Baseball umpires | Communications Psychology",
+   "claim": "Bayesian sensory integration, the brain’s strategy of combining noisy sensory evidence with prior expectations in proportion to their relative reliability, is one of the most influential frameworks in cognitive neuroscience, yet its validity has been primarily demonstrated in controlled experimental settings. Whether it also governs real-world expert decision-making remains largely untested. Here, we leveraged 451,172 called pitches from ten seasons of Major League Baseball (2015–2024) to ask whether the count-dependent bias in umpire strike–ball judgements, a systematic expansion and contraction of the effective strike zone depending on the ball count, is a signature of Bayesian sensory int",
+   "desk": "evergreen_v1",
+   "format": "Interesting Sports Fact",
+   "headline": "Bayesian Brain Model Explains MLB Umpires' Count‑Dependent Strike Zone Shifts",
+   "image_status": "card_fallback",
+   "message_id": 370,
+   "normalized_subject": "Bayesian sensory integration explains ball-count bias in Major League Baseball umpires | Communications Psychology",
+   "posted_at": "2026-10-08T09:03:16.965221+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-08-PM",
+   "sector": "Interesting Sports Fact",
+   "topic": "Bayesian sensory integration explains ball-count bias in Major League Baseball umpires | Communications Psychology",
+   "urls": [
+    "nature.com/articles/s44271-026-00534-4"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Chadwick, Henry | Baseball Hall of Fame",
+   "claim": "# Henry Chadwick Executive Class of 1938 # Henry Chadwick Executive Class of 1938 Enlarge Plaque An Englishman whose skill lay in his pen instead of a bat, Henry Chadwick was instrumental in cultivating interest in the new game of baseball. Primary Team Or Role Birth year ## Henry Chadwick An Englishman whose skill lay in his pen instead of a bat, Henry Chadwick was instrumental in cultivating interest in the new game of baseball. ... An Englishman whose skill lay in his pen instead of a bat, Henry Chadwick was instrumental in cultivating interest in the new game of baseball among the American people. As the preeminent writer on baseball for more than half a century, Chadwick developed many ",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Henry Chadwick Inducted into Baseball Hall of Fame Executive Class 1938",
+   "image_status": "verified_external",
+   "message_id": 371,
+   "normalized_subject": "Chadwick, Henry | Baseball Hall of Fame",
+   "posted_at": "2026-10-08T09:03:22.637175+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-08-PM",
+   "sector": "Sports & Games People",
+   "topic": "Chadwick, Henry | Baseball Hall of Fame",
+   "urls": [
+    "en.wikipedia.org/wiki/Henry_Chadwick_(writer)"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "development and evaluation of the IdeaTRIZ-X board game",
+   "claim": "Teaching and learning methodologies have recently been changing. The use of gamification techniques and game-based learning based on digital platforms has grown in recent years. However, physical board games are used much less than digital board games. Some authors justify the use of board games to improve divergent thinking. To catalyze this effect in design engineer students, we have developed a new board game based on the TRIZ10 creative approach. The card distribution was established using a new method, parTRIZ, suitable for considering the probability of each group of inventive principles of the TRIZ contradiction matrix. A total of 6 physical copies of a new board game, IdeaTRIZ-X, ver",
+   "desk": "evergreen_v1",
+   "format": "New Tabletop Game Discovery",
+   "headline": "IdeaTRIZ‑X Board Game Boosts Divergent Thinking in Engineering Students",
+   "image_status": "verified_external",
+   "message_id": 372,
+   "normalized_subject": "development and evaluation of the IdeaTRIZ-X board game",
+   "posted_at": "2026-10-08T09:03:49.943721+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-08-PM",
+   "sector": "New Tabletop Game Discovery",
+   "topic": "development and evaluation of the IdeaTRIZ-X board game",
+   "urls": [
+    "link.springer.com/article/10.1007/s10798-026-10068-9"
+   ]
   }
  ],
  "runs": [],
@@ -3804,43 +3919,39 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-10-07T19:57:14.378992+00:00",
+  "created_at": "2026-10-08T08:53:20.916616+00:00",
   "daily": {
    "2026-10-08": {
     "published_sectors": [
      "Sport Origin",
-     "Traditional / Regional Game",
-     "Interesting Game Fact",
-     "Rule Check",
-     "Why Does This Happen?",
-     "Equipment / Measurement",
-     "Records & Milestones",
-     "New Tabletop Game Discovery",
-     "On This Date"
+     "On This Date",
+     "Interesting Sports Fact",
+     "Sports & Games People",
+     "New Tabletop Game Discovery"
     ],
     "run_ids": [
-     "2026-10-08-AM"
+     "2026-10-08-PM"
     ]
    }
   },
-  "last_run_at": "2026-10-07T20:08:46.374921+00:00",
+  "last_run_at": "2026-10-08T09:08:06.720912+00:00",
   "live": {
    "results": {
     "event_ids": [
      "07cc254140d32464",
      "5d727427a12463bf",
+     "a172ec15f9165060",
+     "ae6dd7c7f715e4e1",
      "c7895e124da9b1cd",
      "c15bb3329473d9a7",
      "f3f7ce869f1b3ce6",
      "e5ea809d460c23b2",
      "f49826ed80ab7a79",
-     "0b47e585f1eed345",
-     "a2ba7e75389f69a3",
-     "8c86bfbc8f02570f"
+     "0b47e585f1eed345"
     ],
-    "message_id": 367,
+    "message_id": 374,
     "target_date": "2026-10-07",
-    "updated_at": "2026-10-07T20:08:46.367009+00:00"
+    "updated_at": "2026-10-08T09:08:06.712320+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
@@ -3851,91 +3962,67 @@
      "8078fc49fedcf749",
      "19208905f114f8af",
      "812ae1b6a61c3f01",
-     "c7258fee28c1602d",
      "39d59ea8d734c719",
      "c4b077b02c8010d5",
-     "3211dc7f8343dd64"
+     "3211dc7f8343dd64",
+     "f4349c22cb15179e"
     ],
-    "message_id": 366,
+    "message_id": 373,
     "target_date": "2026-10-09",
-    "updated_at": "2026-10-07T20:08:46.366998+00:00"
+    "updated_at": "2026-10-08T09:08:06.712308+00:00"
    }
   },
   "publication": {
-   "2026-10-08-AM:evergreen:0649b09ac18b306b": {
-    "message_id": 364,
-    "posted_at": "2026-10-07T20:05:40.718286+00:00",
+   "2026-10-08-PM:evergreen:85291f20d449f586": {
+    "message_id": 372,
+    "posted_at": "2026-10-08T09:03:49.943382+00:00",
     "status": "posted"
    },
-   "2026-10-08-AM:evergreen:28922d165e662553": {
-    "message_id": 362,
-    "posted_at": "2026-10-07T20:05:04.104915+00:00",
+   "2026-10-08-PM:evergreen:856ab948b7861471": {
+    "message_id": 371,
+    "posted_at": "2026-10-08T09:03:22.636769+00:00",
     "status": "posted"
    },
-   "2026-10-08-AM:evergreen:541c49bee011a8b5": {
-    "message_id": 360,
-    "posted_at": "2026-10-07T20:04:39.816676+00:00",
+   "2026-10-08-PM:evergreen:a714606169e851d6": {
+    "message_id": 370,
+    "posted_at": "2026-10-08T09:03:16.964804+00:00",
     "status": "posted"
    },
-   "2026-10-08-AM:evergreen:83c3f8b835213f92": {
-    "message_id": 357,
-    "posted_at": "2026-10-07T20:03:50.345351+00:00",
+   "2026-10-08-PM:evergreen:dbf45fcce5633788": {
+    "message_id": 368,
+    "posted_at": "2026-10-08T09:00:18.687804+00:00",
     "status": "posted"
    },
-   "2026-10-08-AM:evergreen:8ced77604ebc614b": {
-    "message_id": 358,
-    "posted_at": "2026-10-07T20:04:03.942860+00:00",
+   "2026-10-08-PM:evergreen:e61c66579465324d": {
+    "message_id": 369,
+    "posted_at": "2026-10-08T09:01:22.101032+00:00",
     "status": "posted"
    },
-   "2026-10-08-AM:evergreen:939700b15732af90": {
-    "message_id": 359,
-    "posted_at": "2026-10-07T20:04:12.488306+00:00",
+   "2026-10-08-PM:live_results:322533aa1041f6d3": {
+    "message_id": 374,
+    "posted_at": "2026-10-08T09:08:06.712279+00:00",
     "status": "posted"
    },
-   "2026-10-08-AM:evergreen:d29a87f2b4661caa": {
-    "message_id": 361,
-    "posted_at": "2026-10-07T20:04:47.977291+00:00",
-    "status": "posted"
-   },
-   "2026-10-08-AM:evergreen:e30999a662b942f4": {
-    "message_id": 363,
-    "posted_at": "2026-10-07T20:05:13.945805+00:00",
-    "status": "posted"
-   },
-   "2026-10-08-AM:evergreen:f567982c7bca9aa7": {
-    "message_id": 365,
-    "posted_at": "2026-10-07T20:06:20.894600+00:00",
-    "status": "posted"
-   },
-   "2026-10-08-AM:live_results:322533aa1041f6d3": {
-    "message_id": 367,
-    "posted_at": "2026-10-07T20:08:46.366969+00:00",
-    "status": "posted"
-   },
-   "2026-10-08-AM:live_schedule:763c76e10e1f8c7e": {
-    "message_id": 366,
-    "posted_at": "2026-10-07T20:08:46.007730+00:00",
+   "2026-10-08-PM:live_schedule:763c76e10e1f8c7e": {
+    "message_id": 373,
+    "posted_at": "2026-10-08T09:08:06.339172+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-10-07T20:08:46.374932+00:00",
-    "evergreen": 9,
+    "at": "2026-10-08T09:08:06.720923+00:00",
+    "evergreen": 5,
     "exit": 0,
-    "live_results": 367,
-    "live_schedule": 366,
-    "run_id": "2026-10-08-AM",
+    "live_results": 374,
+    "live_schedule": 373,
+    "run_id": "2026-10-08-PM",
     "used_sectors": [
-     "Equipment / Measurement",
-     "Interesting Game Fact",
+     "Interesting Sports Fact",
      "New Tabletop Game Discovery",
      "On This Date",
-     "Records & Milestones",
-     "Rule Check",
      "Sport Origin",
-     "Traditional / Regional Game",
-     "Why Does This Happen?"
+     "Sports & Games People"
     ]
    }
   ],
