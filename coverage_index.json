@@ -8274,8 +8274,374 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 372
+  },
+  {
+   "central_claim": "William G. Morgan devised volleyball, initially called Mintonette, at the Holyoke, Massachusetts, YMCA in 1895 as a less strenuous alternative to basketball. He demonstrated it at a YMCA physical-education conference at Springfield College in 1896, where the name “Volley Ball” was proposed. The game subsequently spread through YMCA networks and its rules evolved; the modern federation-count and largest-federation claims in the quoted history should not be repeated.",
+   "central_knowledge_unit": "william g morgan devised volleyball initially called mintonette at the holyoke massachusetts ymca in 1895 as a less strenuous alternative to basketball he demonstrated it at a ymca physical education conference at spring",
+   "content_id": "4843aa3fd5025003",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4b134907a9625d2e",
+    "7f15856d6aa90837"
+   ],
+   "legacy": true,
+   "normalized_subject": "history fivb",
+   "people": [],
+   "published_at": "2026-10-08T09:00:18.688123+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "fivb.com/volleyball/the-game/history"
+   ],
+   "sport_or_game": "History – FIVB",
+   "telegram_message_id": 368
+  },
+  {
+   "central_claim": "Minnesota Twins’ Carlos Correa celebrates after a RBI-double against the Houston Astros during the first inning in Game 2 of an American League Division Series baseball game in Houston, Sunday, Oct. 8, 2023. (AP Photo/Tony Gutierrez) Minnesota Twins’ Carlos Correa hits RBI-double against the Houston Astros during the first inning in Game 2 of an American League Division Series baseball game in Houston, Sunday, Oct. 8, 2023. (AP Photo/Kevin M. Cox) Minnesota Twins second baseman Edouard Julien ce",
+   "central_knowledge_unit": "minnesota twins carlos correa celebrates after a rbi double against the houston astros during the first inning in game 2 of an american league division series baseball game in houston sunday oct 8 2023 ap photo tony guti",
+   "content_id": "c395042933f92889",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "66946cf1d546be96",
+    "78d5ed6dbe7f9d9d"
+   ],
+   "legacy": true,
+   "normalized_subject": "carlos correa stars against former team as twins beat astros 6 2 in game 2 to tie alds ap news",
+   "people": [],
+   "published_at": "2026-10-08T09:01:22.101491+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "apnews.com/article/twins-correa-astros-alds-lopez-minnesota-valdez-4000d6d179ba0c42c5db37bc1fb55070"
+   ],
+   "sport_or_game": "Carlos Correa stars against former team as Twins beat Astros 6-2 in Game 2 to tie ALDS | AP News",
+   "telegram_message_id": 369
+  },
+  {
+   "central_claim": "Bayesian sensory integration, the brain’s strategy of combining noisy sensory evidence with prior expectations in proportion to their relative reliability, is one of the most influential frameworks in cognitive neuroscience, yet its validity has been primarily demonstrated in controlled experimental settings. Whether it also governs real-world expert decision-making remains largely untested. Here, we leveraged 451,172 called pitches from ten seasons of Major League Baseball (2015–2024) to ask wh",
+   "central_knowledge_unit": "bayesian sensory integration the brain s strategy of combining noisy sensory evidence with prior expectations in proportion to their relative reliability is one of the most influential frameworks in cognitive neuroscienc",
+   "content_id": "99ec98d0d6abc280",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "2447873f251f4566",
+    "82599588dd3065ae"
+   ],
+   "legacy": true,
+   "normalized_subject": "bayesian sensory integration explains ball count bias in major league baseball umpires communications psychology",
+   "people": [],
+   "published_at": "2026-10-08T09:03:16.965221+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Sports Fact",
+   "source_urls": [
+    "nature.com/articles/s44271-026-00534-4"
+   ],
+   "sport_or_game": "Bayesian sensory integration explains ball-count bias in Major League Baseball umpires | Communications Psychology",
+   "telegram_message_id": 370
+  },
+  {
+   "central_claim": "# Henry Chadwick Executive Class of 1938 # Henry Chadwick Executive Class of 1938 Enlarge Plaque An Englishman whose skill lay in his pen instead of a bat, Henry Chadwick was instrumental in cultivating interest in the new game of baseball. Primary Team Or Role Birth year ## Henry Chadwick An Englishman whose skill lay in his pen instead of a bat, Henry Chadwick was instrumental in cultivating interest in the new game of baseball. ... An Englishman whose skill lay in his pen instead of a bat, He",
+   "central_knowledge_unit": "henry chadwick executive class of 1938 henry chadwick executive class of 1938 enlarge plaque an englishman whose skill lay in his pen instead of a bat henry chadwick was instrumental in cultivating interest in the new ga",
+   "content_id": "551fc5ce13cd5d88",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "dd7e533e6c8afcd7",
+    "0e20f4bfa34e7ec0"
+   ],
+   "legacy": true,
+   "normalized_subject": "chadwick henry baseball hall of fame",
+   "people": [],
+   "published_at": "2026-10-08T09:03:22.637175+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "en.wikipedia.org/wiki/Henry_Chadwick_(writer)"
+   ],
+   "sport_or_game": "Chadwick, Henry | Baseball Hall of Fame",
+   "telegram_message_id": 371
+  },
+  {
+   "central_claim": "Teaching and learning methodologies have recently been changing. The use of gamification techniques and game-based learning based on digital platforms has grown in recent years. However, physical board games are used much less than digital board games. Some authors justify the use of board games to improve divergent thinking. To catalyze this effect in design engineer students, we have developed a new board game based on the TRIZ10 creative approach. The card distribution was established using a",
+   "central_knowledge_unit": "teaching and learning methodologies have recently been changing the use of gamification techniques and game based learning based on digital platforms has grown in recent years however physical board games are used much l",
+   "content_id": "ba756ab5f1e8a8fb",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "2c89affde5035d1c",
+    "ec4a82cc57b937e2"
+   ],
+   "legacy": true,
+   "normalized_subject": "development and evaluation of the ideatriz x board game",
+   "people": [],
+   "published_at": "2026-10-08T09:03:49.943721+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    "link.springer.com/article/10.1007/s10798-026-10068-9"
+   ],
+   "sport_or_game": "development and evaluation of the IdeaTRIZ-X board game",
+   "telegram_message_id": 372
+  },
+  {
+   "central_claim": "How to play badminton: rules, scoring system and equipment ... Know all the basic badminton rules and regulations, how to play the game, court lines, how to score points and more! ... Want to learn more about badminton? Here’s a look at the rules and equipment you need to play. ... ## Badminton rules As outlined by the Badminton World Federation (BWF), here is a simplified rundown of the rules of badminton. Badminton can be played either as singles or doubles. In singles, there are two players competing against each other. In doubles, two pairs of players form teams and compete against each other, resulting in a game of four players. ### Badminton scoring system All singles and doubles match",
+   "central_knowledge_unit": "how to play badminton rules scoring system and equipment",
+   "content_id": "27a5c6731c95a7d8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "27a5c6731c95a7d8",
+    "da74434f41333c57"
+   ],
+   "normalized_subject": "how to play badminton rules scoring system and equipment",
+   "people": [],
+   "published_at": "2026-10-08T20:00:22.239662+00:00",
+   "region": "",
+   "run_id": "2026-10-09-AM",
+   "sector": "How to Play",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 375
+  },
+  {
+   "central_claim": "Britannica describes a real, ground-based sport adapted from the fictional, airborne Quidditch of Harry Potter. Developed in 2005 and renamed quadball in 2022, it is played with a stick held between the legs: players score through hoops, use dodgeballs to temporarily knock opponents out of play, and seek a flag attached to a flag runner rather than a flying Golden Snitch.",
+   "central_knowledge_unit": "10 unusual sports britannica",
+   "content_id": "f532bb35136da572",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f532bb35136da572",
+    "c9fb729d259c40da"
+   ],
+   "normalized_subject": "10 unusual sports britannica",
+   "people": [],
+   "published_at": "2026-10-08T20:00:29.168838+00:00",
+   "region": "",
+   "run_id": "2026-10-09-AM",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 376
+  },
+  {
+   "central_claim": "A regulation NFL or NCAA American football field is 120 yards (360 feet) long and 53⅓ yards (160 feet) wide: 100 yards lie between the goal lines, with a 10-yard end zone at each end. These dimensions also describe the standard 11-player high-school field, but not every variant or state-approved field.",
+   "central_knowledge_unit": "football field size dimensions",
+   "content_id": "4f1f52f88dc173b2",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4f1f52f88dc173b2",
+    "f5ab75af572c3fd1"
+   ],
+   "normalized_subject": "football field size dimensions",
+   "people": [],
+   "published_at": "2026-10-08T20:00:45.115768+00:00",
+   "region": "",
+   "run_id": "2026-10-09-AM",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 377
+  },
+  {
+   "central_claim": ", and using only cards? And, above all, how could we ensure that this wasn't just a simple abstraction, but truly conveyed the feeling of driving on the edge, deciding when to push and when to preserve the car? The answer came from combining a trick-taking system with a car race. A combination that allowed us to concentrate the decisions of each round on how to drive, how much to risk, and which resources to sacrifice to try and gain positions. However, reaching the current system required a lot of testing, changes, and ideas that would eventually disappear. This is the story of how we went from a trackless race with seven asymmetrical suits to the final version of Nascard. STARTING POINT At",
+   "central_knowledge_unit": "designer diary nascard boardgamegeek blog boardgamegeek",
+   "content_id": "5f81d7dd9ec2618b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "5f81d7dd9ec2618b",
+    "529bc79fd4fed7d7"
+   ],
+   "normalized_subject": "designer diary nascard boardgamegeek blog boardgamegeek",
+   "people": [],
+   "published_at": "2026-10-08T20:00:54.040623+00:00",
+   "region": "",
+   "run_id": "2026-10-09-AM",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 378
+  },
+  {
+   "central_claim": "# Fists of Glory: The Ancient Origins of Boxing | Oxford Academic Author: Roubineau, Jean-Manuel Source: academic.oup.com Language: en ## Story Fists of Glory: The Ancient Origins of Boxing | Oxford Academic Advertisement [ ![Oxford Academic](https://oup.silverchair-cdn.com/UI/app/svg/umbrella/oxford-academic-logo.svg) ](https://academic.oup.com/) ... Assistant* ]( ... ists of Glory: The Ancient Origins of Boxing ... and Roman ArchaeologyOxford Scholarship Online",
+   "central_knowledge_unit": "fists of glory the ancient origins of boxing oxford academic",
+   "content_id": "89909f45d6ad5156",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "89909f45d6ad5156",
+    "796bf6b4606806bd"
+   ],
+   "normalized_subject": "fists of glory the ancient origins of boxing oxford academic",
+   "people": [],
+   "published_at": "2026-10-08T20:01:08.020766+00:00",
+   "region": "",
+   "run_id": "2026-10-09-AM",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 379
+  },
+  {
+   "central_claim": "The nineteenth century lithographic process of printing from a stone- rather than earlier processes of engraving or etching which printed from wood or copper plates that degraded- revolutionized the manufacture of popular prints by allowing for a nearly unlimited quantity of impressions. The demand for lithographic presses in America was then on the rise with color lithographs increasing from 15 to 30 percent of prints in the US by the 1870s. 3 After purchasing a press in Providence, on January 31, 1860 Milton brought the press to Springfield, where his first commissions included a design book for a local monument maker. Next came what seemed the opportunity of a lifetime for Milton when the",
+   "central_knowledge_unit": "a history of play in print board games from the renaissance to milton bradley",
+   "content_id": "c8e0c3a6a643b7eb",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c8e0c3a6a643b7eb",
+    "9591e6858239d46b"
+   ],
+   "normalized_subject": "a history of play in print board games from the renaissance to milton bradley",
+   "people": [],
+   "published_at": "2026-10-08T20:01:22.714175+00:00",
+   "region": "",
+   "run_id": "2026-10-09-AM",
+   "sector": "Game Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 380
+  },
+  {
+   "central_claim": "# Football to Play in NCAA Record 1,300th Game Saturday - University of Pennsylvania Athletics ... **PHILADELPHIA - **Number 1,300! Penn becomes the first program in NCAA history—at any level—to play in 1,300 games. The NCAA record coincides with Penn's biggest game of the season to this point as the Quakers travel to Brown Stadium to take on the Bears. Brown can't afford another Ivy loss, while the Quakers look to remain unbeaten and on top of the league standings. Kickoff is at 12:30 p.m. ... **All-Time Games Played - NCAA History (all levels) ***(as of 10/30/2009) * |**Rank**|**Team**|**Seasons Played**|**Total Games**|**First Year**| |***1.***|***Penn***|***133***|***1,299***|***1876***|",
+   "central_knowledge_unit": "football to play in ncaa record 1 300th game saturday university of pennsylvania athletics",
+   "content_id": "20e8ffa4dddf6635",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "20e8ffa4dddf6635",
+    "67fe8f9fb9b0b95f"
+   ],
+   "normalized_subject": "football to play in ncaa record 1 300th game saturday university of pennsylvania athletics",
+   "people": [],
+   "published_at": "2026-10-08T20:01:45.361803+00:00",
+   "region": "",
+   "run_id": "2026-10-09-AM",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 381
+  },
+  {
+   "central_claim": "T hink \"sport\" and the words that spring to mind are likely to be fitness, exercise, competition, endurance... and fun; \"science\" is probably not among them. It's obvious to anyone who loves sport that it's a powerful demonstration of pushing the human body its limits. What's less obvious is that sport is an equally powerful demonstration of science. From the cutting-edge composite materials packed into racing bikes and tennis rackets to the 17th-century maths that bends baseballs through the air, science is the foundation of almost every sport you care to mention. How can Usain Bolt sprint so much faster than you? Is a wooden baseball bat going to make you play better than one made from alu",
+   "central_knowledge_unit": "the science of sport explain that stuff",
+   "content_id": "99f4659657891202",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "99f4659657891202",
+    "fd5f4c2686873f21"
+   ],
+   "normalized_subject": "the science of sport explain that stuff",
+   "people": [],
+   "published_at": "2026-10-08T20:01:57.639741+00:00",
+   "region": "",
+   "run_id": "2026-10-09-AM",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 382
+  },
+  {
+   "central_claim": "Today three rubber ballgames are played in the Maya Region: pok-ta-pok, chajchaay, and chaaj. In the countries of Guatemala, Belize, and the Mexican states of Chiapas, Tabasco, Campeche, Yucatan, and Quintana Roo, pok-ta-pok and chajchaay players strike a solid rubber-ball with a diameter between 6 – 7.5 inches weighing approximately 4 – 8 pounds, squarely with their hip, whereas chaaj players use their forearm to hit a hollow inflatable rubber ball measuring approximately 6.26 inches in diameter. Played in an “I” shaped court, the games feature portable rings set across the short axis. To score in pok-ta-pok and chajchaay, the ball must pass through the double ring suspended 13 feet above t",
+   "central_knowledge_unit": "chaaj pok ta pok and chajchaay rubber ballgames from middle america to the world journal of sport for development",
+   "content_id": "1295f263b7a03d9f",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "1295f263b7a03d9f",
+    "53d81153d7847cb9"
+   ],
+   "normalized_subject": "chaaj pok ta pok and chajchaay rubber ballgames from middle america to the world journal of sport for development",
+   "people": [],
+   "published_at": "2026-10-08T20:02:19.757552+00:00",
+   "region": "",
+   "run_id": "2026-10-09-AM",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 383
+  },
+  {
+   "central_claim": "1909 World Series Game 2, Detroit Tigers vs Pittsburgh Pirates: October 9, 1909 | Baseball-Reference.com ... | Game 2, October 9 | | | | --- | --- | --- | | DET | 7 | F inal | | PIT | 2 | | ... Saturday, October 9, 1909 Attendance: 30,915 Venue: Forbes Field Game Duration: 1:45 Day Game, on grass Logos via Sports Logos.net / About logos",
+   "central_knowledge_unit": "1909 world series game 2 detroit tigers vs pittsburgh pirates october 9 1909 baseball reference com",
+   "content_id": "eddea5a6ce878ff5",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "eddea5a6ce878ff5",
+    "256f40f4093b18c3"
+   ],
+   "normalized_subject": "1909 world series game 2 detroit tigers vs pittsburgh pirates october 9 1909 baseball reference com",
+   "people": [],
+   "published_at": "2026-10-08T20:02:46.350145+00:00",
+   "region": "",
+   "run_id": "2026-10-09-AM",
+   "sector": "On This Date",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 384
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-08T09:03:49.943688+00:00"
+ "updated_at": "2026-10-08T20:02:46.350271+00:00"
 }
