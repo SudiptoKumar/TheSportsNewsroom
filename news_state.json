@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-10-09T09:05:43.450416+00:00",
-  "last_request_id": "a47c39a42b5bd8a7-ORD",
+  "last_ok": "2026-10-09T19:40:04.061423+00:00",
+  "last_request_id": "a47fdadc1dc39d25-IAD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-09T09:10:00.255126+00:00",
+ "last_run_at": "2026-10-09T19:44:17.544284+00:00",
  "ledger": {},
  "posts": [
   {
@@ -4337,6 +4337,232 @@
    "urls": [
     "en.wikipedia.org/wiki/Albert_Spalding"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Who is Jahangir Khan? Know Pakistan’s squash legend",
+   "claim": "Pakistani squash player Jahangir Khan won six World Open titles and ten consecutive British Opens (1982–1991), becoming the youngest World Open champion at 17 in 1981. He is often credited with 555 consecutive wins in softball squash between 1981 and 1986, a run ended by Ross Norman; the exact tally is disputed, and the claim does not extend to all professional squash matches.",
+   "desk": "evergreen_v1",
+   "format": "Records & Milestones",
+   "headline": "Jahangir Khan’s Record‑Setting Run Dominated 1980s Squash",
+   "image_status": "verified_external",
+   "message_id": 398,
+   "normalized_subject": "Who is Jahangir Khan? Know Pakistan’s squash legend",
+   "posted_at": "2026-10-09T19:38:20.839188+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-10-AM",
+   "sector": "Records & Milestones",
+   "topic": "Who is Jahangir Khan? Know Pakistan’s squash legend",
+   "urls": [
+    "olympics.com/en/news/who-is-jahangir-khan-pakistan-squash-player"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Yulunga - Traditional Indigenous Games",
+   "claim": "Yulunga: Traditional Indigenous Games presents a selection of games and activities played in Australian Aboriginal and Torres Strait Islander societies. Traditional pastimes have been included along with some more ‘modern’ activities. This book is based on extensive research, including several hundred accounts collected over many years from all parts of Australia and the Torres Strait Islands. Many of the original accounts of games were recorded during the nineteenth century by explorers, government officials, settlers, scientists and missionaries. There are comparatively few descriptions of games and sports by Indigenous people, but efforts have been made to include a significant level of I",
+   "desk": "evergreen_v1",
+   "format": "Traditional / Regional Game",
+   "headline": "Yulunga Resource Brings Indigenous Games Into Australian Classrooms",
+   "image_status": "card_fallback",
+   "message_id": 399,
+   "normalized_subject": "Yulunga - Traditional Indigenous Games",
+   "posted_at": "2026-10-09T19:38:33.304357+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-10-AM",
+   "sector": "Traditional / Regional Game",
+   "topic": "Yulunga - Traditional Indigenous Games",
+   "urls": [
+    "qld.gov.au/__data/assets/pdf_file/0021/13548/indigenous-games-yulunga.pdf"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "9 Unusual Sports and Activities Explained - KeepActive Blog",
+   "claim": "Some unusual sports are easier to try in Australia than their names suggest. Others need a specialist court, pool or commercial operator. This guide explains what actually happens in nine eye-catching sports and activities, what equipment they use, and how realistic it is to find a local session. ... Kabaddi is a contact team sport built around short raids. One raider crosses into the opponents’ half, tries to tag a defender and return safely. The defenders try to stop the raider from getting back. International rules add timing, boundary and scoring details, so a casual explanation only captures the basic idea. It needs a marked court rather than costly personal equipment. Australian compet",
+   "desk": "evergreen_v1",
+   "format": "Sport Discovery",
+   "headline": "Kabaddi: A Contact Team Sport That Needs Only a Marked Court",
+   "image_status": "verified_external",
+   "message_id": 400,
+   "normalized_subject": "9 Unusual Sports and Activities Explained - KeepActive Blog",
+   "posted_at": "2026-10-09T19:38:39.999948+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-10-AM",
+   "sector": "Sport Discovery",
+   "topic": "9 Unusual Sports and Activities Explained - KeepActive Blog",
+   "urls": [
+    "keepactive.com.au/blog/post/these-9-lesser-known-sports-will-blow-your-mind"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The physics of football",
+   "claim": "The first explanation of the lateral deflection of a spinning object was credited by Lord Rayleigh to work done by the German physicist Gustav Magnus in 1852. Magnus had actually been trying to determine why spinning shells and bullets deflect to one side, but his explanation applies equally well to balls. Indeed, the fundamental mechanism of a curving ball in football is almost the same as in other sports such as baseball, golf, cricket and tennis. Consider a ball that is spinning about an axis perpendicular to the flow of air across it (figure 1). The air travels faster relative to the centre of the ball where the periphery of the ball is moving in the same direction as the airflow. This r",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "Lord Rayleigh credited Magnus effect for curving footballs in 1852",
+   "image_status": "verified_external",
+   "message_id": 401,
+   "normalized_subject": "The physics of football",
+   "posted_at": "2026-10-09T19:38:51.871760+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-10-AM",
+   "sector": "Why Does This Happen?",
+   "topic": "The physics of football",
+   "urls": [
+    "physicsworld.com/a/the-physics-of-football"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Baseball before We Knew It - Nebraska Press",
+   "claim": "Winner of the Seymour Medal from the Society for American Baseball ResearchWinner of the North American Society for Sport History Book AwardNamed a 2005 Choice Outstanding Academic TitleNamed a 2025Choice Outstanding Academic TitleWhen Baseball before We Knew It was first published in 2005, it shattered many long-held assumptions about the pastime’s origins. No, baseball was not original to America. No, baseball did not come from the English game rounders. Yes, of course, the Doubleday story was in fact a myth, but for the first time its secret backstory had been revealed. Beyond all its myth busting, Baseball before We Knew It traveled back in time to uncover the true roots of the sport, ex",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "David Block’s ‘Baseball before We Knew It’ Wins Top Scholarly Awards",
+   "image_status": "card_fallback",
+   "message_id": 402,
+   "normalized_subject": "Baseball before We Knew It - Nebraska Press",
+   "posted_at": "2026-10-09T19:39:06.403273+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-10-AM",
+   "sector": "Sport Origin",
+   "topic": "Baseball before We Knew It - Nebraska Press",
+   "urls": [
+    "nebraskapress.unl.edu/nebraska/9781496242693/baseball-before-we-knew-it"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Notes Related to Cy Young’s First No-Hitter – Society for American Baseball Research",
+   "claim": "Denton True (Cyclone, Cy for short) Young pitched three no-hitters in his career, one of which (May 5, 1904) was the first perfect game in American League history and also the first in the majors at the present pitching distance. 1, 2, 3, 4, 5, 6 ... > Critics carped that Cy Young got a break from the official scorer on a ball that Bobby Wallace threw away. Others, however, disagreed, and Wallace himself declared the error call to have been correct. In any case, Young’s first no-hit effort—also the first by anyone in four years in the major league—was a brilliant accomplishment against a fine Cincinnati team. 18 ... The Young no-hitter of 1897 was actually an improvement on his best one-game",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "Cy Young’s 1904 Perfect Game Marks First AL No‑Hitter at Modern Distance",
+   "image_status": "card_fallback",
+   "message_id": 403,
+   "normalized_subject": "Notes Related to Cy Young’s First No-Hitter – Society for American Baseball Research",
+   "posted_at": "2026-10-09T19:39:19.032071+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-10-AM",
+   "sector": "First / Last / Only",
+   "topic": "Notes Related to Cy Young’s First No-Hitter – Society for American Baseball Research",
+   "urls": [
+    "sabr.org/journal/article/notes-related-to-cy-youngs-first-no-hitter"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "P1: “Hexster” (Team Bilby) – The Mechanics of Magic",
+   "claim": "Hexster is a team-based route-building game that explores how people collaborate without words. Players play as hamsters digging an underground network, working in teams of two to meet with their teammate and build a continuous tunnel between their respective homes. While many strategy games emphasize individual competition, Hexster focuses on predictive coordination and shared problem-solving. Our core mechanic is a single silent choice: each turn, without communicating, teammates must decide whether to move or dig. This deliberate synchronization creates a mind-reading dynamic between teammates, which produces aesthetics of Fellowship with real Challenge underneath. The hexagonal board pro",
+   "desk": "evergreen_v1",
+   "format": "New Tabletop Game Discovery",
+   "headline": "Hexster Introduces Silent Coordination to Team‑Based Tunnel Building",
+   "image_status": "card_fallback",
+   "message_id": 404,
+   "normalized_subject": "P1: “Hexster” (Team Bilby) – The Mechanics of Magic",
+   "posted_at": "2026-10-09T19:39:30.200279+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-10-AM",
+   "sector": "New Tabletop Game Discovery",
+   "topic": "P1: “Hexster” (Team Bilby) – The Mechanics of Magic",
+   "urls": [
+    "mechanicsofmagic.com/2026/07/10/p1-hexster-team-bilby"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "2026 - 2027 Game Manual Version 0.2",
+   "claim": "Quick Reference Guide Scoring Rules All scoring statuses are evaluated after the Match ends All scoring statuses are evaluated visually by a Head Referee Scored Bean Bag in a Floor Goal criteria Scored Bean Bag in a L1, L2, or L3 Goal criteria Scored Bean Bag on a L4 Goal criteria Specific Game Rules Starting a Match Horizontal expansion is limited Vertical expansion is unlimited Keep Scoring Objects in the Field Each Robot gets one yellow Bean Bag as a Preload Possession is limited to one (1) Bean Bag Using the Load Zone ... VIQRC Level Up - A PrimerVEX IQ Robotics Competition Level Up is played on a 6’x8’ rectangular Field, set up as illustrated in the figures throughout this game manual. ",
+   "desk": "evergreen_v1",
+   "format": "How to Play",
+   "headline": "Scoring Rules for VEX IQ Level Up Highlight Post‑Match Evaluation",
+   "image_status": "verified_external",
+   "message_id": 405,
+   "normalized_subject": "2026 - 2027 Game Manual Version 0.2",
+   "posted_at": "2026-10-09T19:39:44.193162+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-10-AM",
+   "sector": "How to Play",
+   "topic": "2026 - 2027 Game Manual Version 0.2",
+   "urls": [
+    "content.vexrobotics.com/docs/2026-2027/level-up/files/levelup-v0.2.pdf"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "[PDF] 2025 and 2026 Rules Book",
+   "claim": "(¼ inch) spikes for synthetic surfaces and 3 millimeter (⅛ inch) spikes for wood . Where technically possible, runways shall have a uniform resilience . c . The track shall normally consist of two parallel straights and two semicircular curves of equal and consistent design . d . A track may be banked . The angle of banking should not be more than 18 degrees for a 200 meter track . This angle may vary based upon the size of a track . The angle of banking in all lanes should be the same at any cross section . Multi-radius clothoid-type transitions may be constructed between the straights and the curves . e . Lanes shall be marked on both sides by white lines 5 centimeters wide . The lanes sha",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "NCAA Track Rules Define Spike Size, Banking Limits, and Lane Markings",
+   "image_status": "card_fallback",
+   "message_id": 406,
+   "normalized_subject": "[PDF] 2025 and 2026 Rules Book",
+   "posted_at": "2026-10-09T19:39:55.599467+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-10-AM",
+   "sector": "Equipment / Measurement",
+   "topic": "[PDF] 2025 and 2026 Rules Book",
+   "urls": [
+    "ncaaorg.s3.amazonaws.com/championships/sports/crosstrack/rules/PRXTF_RulesBook.pdf"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Football’s 1884 Rule Book: Section I - Rules Used As Definitions",
+   "claim": "The Library of Congress has since scanned the document and provided me with a PDF, which I will share in sections over the next few days. In each section, I’ll comment on the rules themselves and how they compare to the first rules of football, outlined in 1876. Football changed substantially in those nine years. Many of those changes are summarized nicely in the Substack Amator Ludis, though we still disagree on when football started. (He says 1883. I say 1876.) ... We’ll cover the details as we go along, but the 1876 and 1884 rule books differ for several reasons. First, the 1876 rugby rules, which the IFA’s rule book copies nearly verbatim, were a disorganized mess. They read as if a comm",
+   "desk": "evergreen_v1",
+   "format": "Rule Check",
+   "headline": "Library of Congress Scans 1884 Football Rule Book Edited by Walter Camp",
+   "image_status": "verified_external",
+   "message_id": 407,
+   "normalized_subject": "Football’s 1884 Rule Book: Section I - Rules Used As Definitions",
+   "posted_at": "2026-10-09T19:40:05.564766+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-10-AM",
+   "sector": "Rule Check",
+   "topic": "Football’s 1884 Rule Book: Section I - Rules Used As Definitions",
+   "urls": [
+    "footballarchaeology.com/p/footballs-1884-rule-book-section"
+   ]
   }
  ],
  "runs": [],
@@ -4348,138 +4574,145 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-10-09T08:56:59.694951+00:00",
+  "created_at": "2026-10-09T19:31:05.036706+00:00",
   "daily": {
-   "2026-10-09": {
+   "2026-10-10": {
     "published_sectors": [
-     "Sport Origin",
      "Records & Milestones",
-     "Sport Discovery",
-     "How to Play",
-     "Forgotten Game",
      "Traditional / Regional Game",
-     "On This Date",
+     "Sport Discovery",
+     "Why Does This Happen?",
+     "Sport Origin",
      "First / Last / Only",
-     "Sports & Games People"
+     "New Tabletop Game Discovery",
+     "How to Play",
+     "Equipment / Measurement",
+     "Rule Check"
     ],
     "run_ids": [
-     "2026-10-09-PM"
+     "2026-10-10-AM"
     ]
    }
   },
-  "last_run_at": "2026-10-09T09:10:00.255098+00:00",
+  "last_run_at": "2026-10-09T19:44:17.544247+00:00",
   "live": {
    "results": {
     "event_ids": [
-     "98fa53c76b931075",
-     "aefb1a3c0073930d",
-     "69ea3f427ffb1e70",
-     "1e648d085a7aa601",
-     "fa9ab9ef1f909f5d",
-     "cb6b2012e3ba7838",
-     "6b11548c75aae7f8",
-     "464bde28515e79b2",
-     "fd9503a69a21772f",
-     "5a2159435ed343d0"
+     "432a7dcf662353bf",
+     "8078fc49fedcf749",
+     "19208905f114f8af",
+     "812ae1b6a61c3f01",
+     "39d59ea8d734c719",
+     "d7c887ca7cd22964",
+     "a4af30e4f5c837b7",
+     "f929fade4674109b",
+     "078836fe5d94eae4",
+     "e17a66c06a39bdbd"
     ],
-    "message_id": 397,
-    "target_date": "2026-10-08",
-    "updated_at": "2026-10-09T09:10:00.245797+00:00"
+    "message_id": 409,
+    "target_date": "2026-10-09",
+    "updated_at": "2026-10-09T19:44:17.534649+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [
-     "fa69afd62932883c",
-     "15321db94f47e288",
-     "6b9f5bd3c8d59017",
-     "13b6ed6313718048",
-     "3a8df21219728645",
-     "edc32d4ec0b6a1e2",
-     "9ef7727354498cab",
-     "f9495ee982886175",
-     "81af1f03d316a40a",
-     "65bf33a3228435e9"
+     "3afe838878fe2fd9",
+     "4bd9699e82e53fe2",
+     "3c41b9a5eb48b1da",
+     "8b7d7488bdad0a42",
+     "0089b32d50206f1b",
+     "7153377af72257e4",
+     "a7d2c55a29cbc1fb",
+     "3ecad8c1a2c7a563",
+     "07f7a39a8d0bddbf",
+     "7fd2a7e876547660"
     ],
-    "message_id": 396,
-    "target_date": "2026-10-10",
-    "updated_at": "2026-10-09T09:10:00.245786+00:00"
+    "message_id": 408,
+    "target_date": "2026-10-11",
+    "updated_at": "2026-10-09T19:44:17.534634+00:00"
    }
   },
   "publication": {
-   "2026-10-09-PM:evergreen:1751024d3ade86a1": {
-    "message_id": 389,
-    "posted_at": "2026-10-09T09:03:56.059041+00:00",
+   "2026-10-10-AM:evergreen:17bdbb44bee12cf6": {
+    "message_id": 405,
+    "posted_at": "2026-10-09T19:39:44.192833+00:00",
     "status": "posted"
    },
-   "2026-10-09-PM:evergreen:39ecbb2da0d54770": {
-    "message_id": 395,
-    "posted_at": "2026-10-09T09:05:45.383930+00:00",
+   "2026-10-10-AM:evergreen:17c8a72c28c5f9c5": {
+    "message_id": 407,
+    "posted_at": "2026-10-09T19:40:05.564360+00:00",
     "status": "posted"
    },
-   "2026-10-09-PM:evergreen:4f6b2120a8a25e32": {
-    "message_id": 394,
-    "posted_at": "2026-10-09T09:05:23.349330+00:00",
+   "2026-10-10-AM:evergreen:2e737011f96cc4f1": {
+    "message_id": 406,
+    "posted_at": "2026-10-09T19:39:55.599140+00:00",
     "status": "posted"
    },
-   "2026-10-09-PM:evergreen:61556d3b9328f246": {
-    "message_id": 390,
-    "posted_at": "2026-10-09T09:04:09.306935+00:00",
+   "2026-10-10-AM:evergreen:3de2b0d851fda68b": {
+    "message_id": 403,
+    "posted_at": "2026-10-09T19:39:19.031714+00:00",
     "status": "posted"
    },
-   "2026-10-09-PM:evergreen:6e0cdcedef43d2d6": {
-    "message_id": 393,
-    "posted_at": "2026-10-09T09:05:09.240426+00:00",
+   "2026-10-10-AM:evergreen:5309de8bca64ff1f": {
+    "message_id": 398,
+    "posted_at": "2026-10-09T19:38:20.838914+00:00",
     "status": "posted"
    },
-   "2026-10-09-PM:evergreen:74fa1611957fc5ab": {
-    "message_id": 388,
-    "posted_at": "2026-10-09T09:03:47.544077+00:00",
+   "2026-10-10-AM:evergreen:891c950a43558b8a": {
+    "message_id": 402,
+    "posted_at": "2026-10-09T19:39:06.402956+00:00",
     "status": "posted"
    },
-   "2026-10-09-PM:evergreen:c8f56bbd96398582": {
-    "message_id": 392,
-    "posted_at": "2026-10-09T09:04:55.786087+00:00",
+   "2026-10-10-AM:evergreen:c9d8d295c010d941": {
+    "message_id": 401,
+    "posted_at": "2026-10-09T19:38:51.871413+00:00",
     "status": "posted"
    },
-   "2026-10-09-PM:evergreen:caafb8c656ff79bc": {
-    "message_id": 391,
-    "posted_at": "2026-10-09T09:04:17.303439+00:00",
+   "2026-10-10-AM:evergreen:cbf6d24e81d63d48": {
+    "message_id": 400,
+    "posted_at": "2026-10-09T19:38:39.999634+00:00",
     "status": "posted"
    },
-   "2026-10-09-PM:evergreen:e5851eeecab4043a": {
-    "message_id": 387,
-    "posted_at": "2026-10-09T09:03:25.497132+00:00",
+   "2026-10-10-AM:evergreen:d03c8a23f89fa9b3": {
+    "message_id": 404,
+    "posted_at": "2026-10-09T19:39:30.199968+00:00",
     "status": "posted"
    },
-   "2026-10-09-PM:live_results:3b59f6598c32b35d": {
-    "message_id": 397,
-    "posted_at": "2026-10-09T09:10:00.245759+00:00",
+   "2026-10-10-AM:evergreen:fae4aeae502e521d": {
+    "message_id": 399,
+    "posted_at": "2026-10-09T19:38:33.304036+00:00",
     "status": "posted"
    },
-   "2026-10-09-PM:live_schedule:38ec77865eced125": {
-    "message_id": 396,
-    "posted_at": "2026-10-09T09:09:59.840719+00:00",
+   "2026-10-10-AM:live_results:763c76e10e1f8c7e": {
+    "message_id": 409,
+    "posted_at": "2026-10-09T19:44:17.534567+00:00",
+    "status": "posted"
+   },
+   "2026-10-10-AM:live_schedule:acfef6d960f1d471": {
+    "message_id": 408,
+    "posted_at": "2026-10-09T19:44:17.230404+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-10-09T09:10:00.255107+00:00",
-    "evergreen": 9,
+    "at": "2026-10-09T19:44:17.544260+00:00",
+    "evergreen": 10,
     "exit": 0,
-    "live_results": 397,
-    "live_schedule": 396,
-    "run_id": "2026-10-09-PM",
+    "live_results": 409,
+    "live_schedule": 408,
+    "run_id": "2026-10-10-AM",
     "used_sectors": [
+     "Equipment / Measurement",
      "First / Last / Only",
-     "Forgotten Game",
      "How to Play",
-     "On This Date",
+     "New Tabletop Game Discovery",
      "Records & Milestones",
+     "Rule Check",
      "Sport Discovery",
      "Sport Origin",
-     "Sports & Games People",
-     "Traditional / Regional Game"
+     "Traditional / Regional Game",
+     "Why Does This Happen?"
     ]
    }
   ],

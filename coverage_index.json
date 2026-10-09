@@ -9101,8 +9101,470 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 395
+  },
+  {
+   "central_claim": "The ancient Olympic Games developed at Olympia, a Greek religious sanctuary associated especially with Zeus. The traditional date 776 BCE identifies the beginning of the later-recorded Olympic victor sequence, not a provable first-ever contest; the festival and its facilities changed over centuries. The modern Olympic Games were organized as a revival in 1894 and first held in Athens in 1896, rather than continuing uninterrupted from antiquity.",
+   "central_knowledge_unit": "the ancient olympic games developed at olympia a greek religious sanctuary associated especially with zeus the traditional date 776 bce identifies the beginning of the later recorded olympic victor sequence not a provabl",
+   "content_id": "ce7c0cf6a5a5adb5",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4a367f3838a70b6a",
+    "340bd219e98b5357"
+   ],
+   "legacy": true,
+   "normalized_subject": "olympic history from the home of zeus in olympia to the modern games",
+   "people": [],
+   "published_at": "2026-10-09T09:03:25.497416+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "olympics.com/ioc/ancient-olympic-games/history"
+   ],
+   "sport_or_game": "Olympic History - from the home of Zeus in Olympia to the modern Games",
+   "telegram_message_id": 387
+  },
+  {
+   "central_claim": "On 29 July 2023 in Fukuoka, Katie Ledecky won the women’s 800 m freestyle at the World Aquatics Championships in 8:08.87, securing her sixth straight world title in that event—the first swimmer to win the same event six times at the championships. Her 16th individual world-championship gold surpassed Michael Phelps’s 15 individual golds; it did not surpass his total including relays.",
+   "central_knowledge_unit": "on 29 july 2023 in fukuoka katie ledecky won the women s 800 m freestyle at the world aquatics championships in 8 08 87 securing her sixth straight world title in that event the first swimmer to win the same event six ti",
+   "content_id": "83dd2dc561615ae8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "d131c1e8b68780f8",
+    "a36b8b7b05e14d73"
+   ],
+   "legacy": true,
+   "normalized_subject": "world aquatics championships 2023 title no 6 for katie ledecky in women s 800m free moves her ahead of phelps gold haul",
+   "people": [],
+   "published_at": "2026-10-09T09:03:47.544403+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    "olympics.com/en/news/world-aquatics-championships-2023-womens-800-freestyle"
+   ],
+   "sport_or_game": "World Aquatics Championships 2023: Title No. 6 for Katie Ledecky in women's 800m free moves her ahead of Phelps' gold haul",
+   "telegram_message_id": 388
+  },
+  {
+   "central_claim": "- Bog Snorkelling - Participants race while snorkeling in a swampy, muddy bog, and they must exclusively use flippers to propel themselves forward. - Canal Vaulting - Competitors attempt to pole-vault over a canal without getting wet. - Chess Boxing - Competitors play a game with 11 rounds that alternate chess and boxing—so it requires plenty of brains and brawn. - Extreme Ironing - Participants find the most extreme places to iron their clothes and take pictures for proof. - Underwater Hockey -",
+   "central_knowledge_unit": "bog snorkelling participants race while snorkeling in a swampy muddy bog and they must exclusively use flippers to propel themselves forward canal vaulting competitors attempt to pole vault over a canal without getting w",
+   "content_id": "0188b75497ae91ea",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a550378314f26790",
+    "d73a6d1b3e3e57f9"
+   ],
+   "legacy": true,
+   "normalized_subject": "25 weird rare sports from around the world wikihow",
+   "people": [],
+   "published_at": "2026-10-09T09:03:56.059400+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    "wikihow.com/Weird-Sports"
+   ],
+   "sport_or_game": "25+ Weird & Rare Sports From Around the World - wikiHow",
+   "telegram_message_id": 389
+  },
+  {
+   "central_claim": "Dart Football is a hybrid sport that marries the accuracy and mental discipline of darts with football-style footwork, ball-handling, and tactical positioning. Teams or individuals compete on setups that incorporate standard dart boards or football-themed targets alongside space for light football skills during breaks in play. The primary objective remains straightforward—to accrue points or achieve goals by hitting designated targets with darts while maintaining or transferring ball control thr",
+   "central_knowledge_unit": "dart football is a hybrid sport that marries the accuracy and mental discipline of darts with football style footwork ball handling and tactical positioning teams or individuals compete on setups that incorporate standar",
+   "content_id": "8597a7c1d1966f63",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "205fc534e3f32c0d",
+    "097c04f26418923e"
+   ],
+   "legacy": true,
+   "normalized_subject": "dart football the definitive guide to the hybrid sport of darting and football skills adam king co uk",
+   "people": [],
+   "published_at": "2026-10-09T09:04:09.307249+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "How to Play",
+   "source_urls": [
+    "adam-king.co.uk/dart-football"
+   ],
+   "sport_or_game": "Dart Football: The Definitive Guide to the Hybrid Sport of Darting and Football Skills – Adam-king.co.uk",
+   "telegram_message_id": 390
+  },
+  {
+   "central_claim": "Some ancient games come down to us carved in tomb walls and buried with kings. Daldøs (pronounced roughly DAL-durss) is not one of those. It survived a different way — barely — passed hand to hand in the fishing villages of coastal Scandinavia until it nearly slipped out of living memory in the early twentieth century. It's a fast, aggressive little race-and-capture game played with two four-sided dice, and it deserves to be far better known than it is. Here's the honest story of where it comes ",
+   "central_knowledge_unit": "some ancient games come down to us carved in tomb walls and buried with kings dald s pronounced roughly dal durss is not one of those it survived a different way barely passed hand to hand in the fishing villages of coas",
+   "content_id": "3be5c16e3005c22b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a386fff5d35cd98e",
+    "e5d186b97b301b7c"
+   ],
+   "legacy": true,
+   "normalized_subject": "how to play dald s the history and rules of scandinavia s almost forg ancient games",
+   "people": [],
+   "published_at": "2026-10-09T09:04:17.303906+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Game",
+   "source_urls": [
+    "en.wikipedia.org/wiki/Dald%C3%B8s"
+   ],
+   "sport_or_game": "How to Play Daldøs: The History and Rules of Scandinavia's Almost-Forg – Ancient Games",
+   "telegram_message_id": 391
+  },
+  {
+   "central_claim": "The Board Game is probably one of the oldest pastimes in Uganda. Many tribes appear to have known it for centuries. The place of its origin is still obscure although some people have ventured to advance theories which have not yet been satisfactorily substantiated. Travellers and anthropologists have seen it played in countries bordering on Uganda, namely Kenya, Sudan, Congo, Ruanda, Tanzania and further down in Central Africa, on the West Coast and in Northern Africa. ... The name omweso (plura",
+   "central_knowledge_unit": "the board game is probably one of the oldest pastimes in uganda many tribes appear to have known it for centuries the place of its origin is still obscure although some people have ventured to advance theories which have",
+   "content_id": "8db0401b6b579dbe",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "8aeb040c8253c8ec",
+    "ec4b74b33b3baf2c"
+   ],
+   "legacy": true,
+   "normalized_subject": "occasional papers series",
+   "people": [],
+   "published_at": "2026-10-09T09:04:55.786406+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    "en.wikipedia.org/wiki/Omweso"
+   ],
+   "sport_or_game": "Occasional Papers Series",
+   "telegram_message_id": 392
+  },
+  {
+   "central_claim": "October 9, 1919: Cincinnati Reds beat the Black Sox to win first World Series championship – Society for American Baseball Research # October 9, 1919: Cincinnati Reds beat the Black Sox to win first World Series championship September 17, 2019/ in Games Project Postseason 1910s Black Sox Scandal, Comiskey Park greatest games / by admin ... That brought up Shoeless Joe Jackson with a chance to get the Sox closer, and when Collins stole second all it would take was a base hit to pull them to withi",
+   "central_knowledge_unit": "october 9 1919 cincinnati reds beat the black sox to win first world series championship society for american baseball research october 9 1919 cincinnati reds beat the black sox to win first world series championship sep",
+   "content_id": "00cec04e0fd7f2ef",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "31198324abed8599",
+    "7a3eb5f2300b63d9"
+   ],
+   "legacy": true,
+   "normalized_subject": "october 9 1919 cincinnati reds beat the black sox to win first world series championship society for american baseball research",
+   "people": [],
+   "published_at": "2026-10-09T09:05:09.240844+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "sabr.org/gamesproj/game/october-9-1919-cincinnati-reds-beat-the-black-sox-to-win-first-world-series-championship"
+   ],
+   "sport_or_game": "October 9, 1919: Cincinnati Reds beat the Black Sox to win first World Series championship – Society for American Baseball Research",
+   "telegram_message_id": 393
+  },
+  {
+   "central_claim": "The events to follow have taken on the force of baseball legend. Boston starting pitcher Babe Ruth became agitated after walking Ray Morgan, Washington’s leadoff hitter; Ruth then confronted umpire Brick Owens about balls and strikes, suffering a swift ejection; Shore entered the game; and, after Morgan was caught stealing on the first pitch, Shore retired the next 26 batters consecutively, resulting in what would, for many years, be considered a perfect game. The Shore game is likely the most r",
+   "central_knowledge_unit": "the events to follow have taken on the force of baseball legend boston starting pitcher babe ruth became agitated after walking ray morgan washington s leadoff hitter ruth then confronted umpire brick owens about balls a",
+   "content_id": "d9440191bc9f3ab0",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "02c9325bf92b4215",
+    "041ca74bbb2f2682"
+   ],
+   "legacy": true,
+   "normalized_subject": "100 years later looking back at ernie shore s perfect game society for american baseball research",
+   "people": [],
+   "published_at": "2026-10-09T09:05:23.349755+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "sabr.org/journal/article/100-years-later-looking-back-at-ernie-shores-perfect-game"
+   ],
+   "sport_or_game": "100 years later, looking back at Ernie Shore’s ‘perfect game’ – Society for American Baseball Research",
+   "telegram_message_id": 394
+  },
+  {
+   "central_claim": "# Al Spalding Class of 1939 # Al Spalding Executive Class of 1939 Enlarge Plaque Al Spalding served baseball for decades as a star pitcher, accomplished ambassador and trusted supplier of the game's equipment. Primary Team Or Role Birth year ## Albert Goodwill \"Al\" Spalding Boston Red Stockings, 1871-1875 Chicago White Stockings, 1876-1877 Al Spalding served baseball for decades as a star pitcher, accomplished ambassador and trusted supplier of the game's equipment. ... Albert Goodwill Spalding ",
+   "central_knowledge_unit": "al spalding class of 1939 al spalding executive class of 1939 enlarge plaque al spalding served baseball for decades as a star pitcher accomplished ambassador and trusted supplier of the game s equipment primary team or ",
+   "content_id": "bd68b0cd591734d7",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "cc15d5308e58e49b",
+    "545b5513e233a13c"
+   ],
+   "legacy": true,
+   "normalized_subject": "spalding al baseball hall of fame",
+   "people": [],
+   "published_at": "2026-10-09T09:05:45.384268+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "en.wikipedia.org/wiki/Albert_Spalding"
+   ],
+   "sport_or_game": "Spalding, Al | Baseball Hall of Fame",
+   "telegram_message_id": 395
+  },
+  {
+   "central_claim": "Pakistani squash player Jahangir Khan won six World Open titles and ten consecutive British Opens (1982–1991), becoming the youngest World Open champion at 17 in 1981. He is often credited with 555 consecutive wins in softball squash between 1981 and 1986, a run ended by Ross Norman; the exact tally is disputed, and the claim does not extend to all professional squash matches.",
+   "central_knowledge_unit": "who is jahangir khan know pakistan s squash legend",
+   "content_id": "f06817d6bce86ec8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f06817d6bce86ec8",
+    "fd8bc8c769e076b8"
+   ],
+   "normalized_subject": "who is jahangir khan know pakistan s squash legend",
+   "people": [],
+   "published_at": "2026-10-09T19:38:20.839024+00:00",
+   "region": "",
+   "run_id": "2026-10-10-AM",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 398
+  },
+  {
+   "central_claim": "Yulunga: Traditional Indigenous Games presents a selection of games and activities played in Australian Aboriginal and Torres Strait Islander societies. Traditional pastimes have been included along with some more ‘modern’ activities. This book is based on extensive research, including several hundred accounts collected over many years from all parts of Australia and the Torres Strait Islands. Many of the original accounts of games were recorded during the nineteenth century by explorers, government officials, settlers, scientists and missionaries. There are comparatively few descriptions of games and sports by Indigenous people, but efforts have been made to include a significant level of I",
+   "central_knowledge_unit": "yulunga traditional indigenous games",
+   "content_id": "9d7e7f20fa3c73ff",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9d7e7f20fa3c73ff",
+    "88665655cefeacde"
+   ],
+   "normalized_subject": "yulunga traditional indigenous games",
+   "people": [],
+   "published_at": "2026-10-09T19:38:33.304165+00:00",
+   "region": "",
+   "run_id": "2026-10-10-AM",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 399
+  },
+  {
+   "central_claim": "Some unusual sports are easier to try in Australia than their names suggest. Others need a specialist court, pool or commercial operator. This guide explains what actually happens in nine eye-catching sports and activities, what equipment they use, and how realistic it is to find a local session. ... Kabaddi is a contact team sport built around short raids. One raider crosses into the opponents’ half, tries to tag a defender and return safely. The defenders try to stop the raider from getting back. International rules add timing, boundary and scoring details, so a casual explanation only captures the basic idea. It needs a marked court rather than costly personal equipment. Australian compet",
+   "central_knowledge_unit": "9 unusual sports and activities explained keepactive blog",
+   "content_id": "932fbb32bbfd5fda",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "932fbb32bbfd5fda",
+    "1b28487cd97db094"
+   ],
+   "normalized_subject": "9 unusual sports and activities explained keepactive blog",
+   "people": [],
+   "published_at": "2026-10-09T19:38:39.999780+00:00",
+   "region": "",
+   "run_id": "2026-10-10-AM",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 400
+  },
+  {
+   "central_claim": "The first explanation of the lateral deflection of a spinning object was credited by Lord Rayleigh to work done by the German physicist Gustav Magnus in 1852. Magnus had actually been trying to determine why spinning shells and bullets deflect to one side, but his explanation applies equally well to balls. Indeed, the fundamental mechanism of a curving ball in football is almost the same as in other sports such as baseball, golf, cricket and tennis. Consider a ball that is spinning about an axis perpendicular to the flow of air across it (figure 1). The air travels faster relative to the centre of the ball where the periphery of the ball is moving in the same direction as the airflow. This r",
+   "central_knowledge_unit": "the physics of football",
+   "content_id": "795a2abc2b2b91c6",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "795a2abc2b2b91c6",
+    "b1c2acef44368338"
+   ],
+   "normalized_subject": "the physics of football",
+   "people": [],
+   "published_at": "2026-10-09T19:38:51.871559+00:00",
+   "region": "",
+   "run_id": "2026-10-10-AM",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 401
+  },
+  {
+   "central_claim": "Winner of the Seymour Medal from the Society for American Baseball ResearchWinner of the North American Society for Sport History Book AwardNamed a 2005 Choice Outstanding Academic TitleNamed a 2025Choice Outstanding Academic TitleWhen Baseball before We Knew It was first published in 2005, it shattered many long-held assumptions about the pastime’s origins. No, baseball was not original to America. No, baseball did not come from the English game rounders. Yes, of course, the Doubleday story was in fact a myth, but for the first time its secret backstory had been revealed. Beyond all its myth busting, Baseball before We Knew It traveled back in time to uncover the true roots of the sport, ex",
+   "central_knowledge_unit": "baseball before we knew it nebraska press",
+   "content_id": "d5442607826ad97b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "d5442607826ad97b",
+    "581d95ac66956085"
+   ],
+   "normalized_subject": "baseball before we knew it nebraska press",
+   "people": [],
+   "published_at": "2026-10-09T19:39:06.403088+00:00",
+   "region": "",
+   "run_id": "2026-10-10-AM",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 402
+  },
+  {
+   "central_claim": "Denton True (Cyclone, Cy for short) Young pitched three no-hitters in his career, one of which (May 5, 1904) was the first perfect game in American League history and also the first in the majors at the present pitching distance. 1, 2, 3, 4, 5, 6 ... > Critics carped that Cy Young got a break from the official scorer on a ball that Bobby Wallace threw away. Others, however, disagreed, and Wallace himself declared the error call to have been correct. In any case, Young’s first no-hit effort—also the first by anyone in four years in the major league—was a brilliant accomplishment against a fine Cincinnati team. 18 ... The Young no-hitter of 1897 was actually an improvement on his best one-game",
+   "central_knowledge_unit": "notes related to cy young s first no hitter society for american baseball research",
+   "content_id": "31b1bcfa1a430b35",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "31b1bcfa1a430b35",
+    "5e3109a0499e6d9f"
+   ],
+   "normalized_subject": "notes related to cy young s first no hitter society for american baseball research",
+   "people": [],
+   "published_at": "2026-10-09T19:39:19.031865+00:00",
+   "region": "",
+   "run_id": "2026-10-10-AM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 403
+  },
+  {
+   "central_claim": "Hexster is a team-based route-building game that explores how people collaborate without words. Players play as hamsters digging an underground network, working in teams of two to meet with their teammate and build a continuous tunnel between their respective homes. While many strategy games emphasize individual competition, Hexster focuses on predictive coordination and shared problem-solving. Our core mechanic is a single silent choice: each turn, without communicating, teammates must decide whether to move or dig. This deliberate synchronization creates a mind-reading dynamic between teammates, which produces aesthetics of Fellowship with real Challenge underneath. The hexagonal board pro",
+   "central_knowledge_unit": "p1 hexster team bilby the mechanics of magic",
+   "content_id": "11875ed930f7c995",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "11875ed930f7c995",
+    "72d0e27ad885d276"
+   ],
+   "normalized_subject": "p1 hexster team bilby the mechanics of magic",
+   "people": [],
+   "published_at": "2026-10-09T19:39:30.200096+00:00",
+   "region": "",
+   "run_id": "2026-10-10-AM",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 404
+  },
+  {
+   "central_claim": "Quick Reference Guide Scoring Rules All scoring statuses are evaluated after the Match ends All scoring statuses are evaluated visually by a Head Referee Scored Bean Bag in a Floor Goal criteria Scored Bean Bag in a L1, L2, or L3 Goal criteria Scored Bean Bag on a L4 Goal criteria Specific Game Rules Starting a Match Horizontal expansion is limited Vertical expansion is unlimited Keep Scoring Objects in the Field Each Robot gets one yellow Bean Bag as a Preload Possession is limited to one (1) Bean Bag Using the Load Zone ... VIQRC Level Up - A PrimerVEX IQ Robotics Competition Level Up is played on a 6’x8’ rectangular Field, set up as illustrated in the figures throughout this game manual.",
+   "central_knowledge_unit": "2026 2027 game manual version 0 2",
+   "content_id": "2a1c4873dc7afba2",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "2a1c4873dc7afba2",
+    "2b0f7326480a5a9b"
+   ],
+   "normalized_subject": "2026 2027 game manual version 0 2",
+   "people": [],
+   "published_at": "2026-10-09T19:39:44.192969+00:00",
+   "region": "",
+   "run_id": "2026-10-10-AM",
+   "sector": "How to Play",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 405
+  },
+  {
+   "central_claim": "(¼ inch) spikes for synthetic surfaces and 3 millimeter (⅛ inch) spikes for wood . Where technically possible, runways shall have a uniform resilience . c . The track shall normally consist of two parallel straights and two semicircular curves of equal and consistent design . d . A track may be banked . The angle of banking should not be more than 18 degrees for a 200 meter track . This angle may vary based upon the size of a track . The angle of banking in all lanes should be the same at any cross section . Multi-radius clothoid-type transitions may be constructed between the straights and the curves . e . Lanes shall be marked on both sides by white lines 5 centimeters wide . The lanes sha",
+   "central_knowledge_unit": "pdf 2025 and 2026 rules book",
+   "content_id": "f35d37354fefc3f0",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f35d37354fefc3f0",
+    "bb690ee5678b7e62"
+   ],
+   "normalized_subject": "pdf 2025 and 2026 rules book",
+   "people": [],
+   "published_at": "2026-10-09T19:39:55.599273+00:00",
+   "region": "",
+   "run_id": "2026-10-10-AM",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 406
+  },
+  {
+   "central_claim": "The Library of Congress has since scanned the document and provided me with a PDF, which I will share in sections over the next few days. In each section, I’ll comment on the rules themselves and how they compare to the first rules of football, outlined in 1876. Football changed substantially in those nine years. Many of those changes are summarized nicely in the Substack Amator Ludis, though we still disagree on when football started. (He says 1883. I say 1876.) ... We’ll cover the details as we go along, but the 1876 and 1884 rule books differ for several reasons. First, the 1876 rugby rules, which the IFA’s rule book copies nearly verbatim, were a disorganized mess. They read as if a comm",
+   "central_knowledge_unit": "football s 1884 rule book section i rules used as definitions",
+   "content_id": "16657f582d911cdc",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "16657f582d911cdc",
+    "897dbc9d8ac5daf1"
+   ],
+   "normalized_subject": "football s 1884 rule book section i rules used as definitions",
+   "people": [],
+   "published_at": "2026-10-09T19:40:05.564509+00:00",
+   "region": "",
+   "run_id": "2026-10-10-AM",
+   "sector": "Rule Check",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 407
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-09T09:05:45.384235+00:00"
+ "updated_at": "2026-10-09T19:40:05.564733+00:00"
 }
