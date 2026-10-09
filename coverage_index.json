@@ -8640,8 +8640,469 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 384
+  },
+  {
+   "central_claim": "How to play badminton: rules, scoring system and equipment ... Know all the basic badminton rules and regulations, how to play the game, court lines, how to score points and more! ... Want to learn more about badminton? Here’s a look at the rules and equipment you need to play. ... ## Badminton rules As outlined by the Badminton World Federation (BWF), here is a simplified rundown of the rules of badminton. Badminton can be played either as singles or doubles. In singles, there are two players c",
+   "central_knowledge_unit": "how to play badminton rules scoring system and equipment know all the basic badminton rules and regulations how to play the game court lines how to score points and more want to learn more about badminton here s a look a",
+   "content_id": "a61fb7a832ad3906",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "da74434f41333c57",
+    "f4cb4b0005cab687"
+   ],
+   "legacy": true,
+   "normalized_subject": "how to play badminton rules scoring system and equipment",
+   "people": [],
+   "published_at": "2026-10-08T20:00:22.239846+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "How to Play",
+   "source_urls": [
+    "olympics.com/en/news/badminton-guide-how-to-play-rules-olympic-history"
+   ],
+   "sport_or_game": "How to play badminton: rules, scoring system and equipment",
+   "telegram_message_id": 375
+  },
+  {
+   "central_claim": "Britannica describes a real, ground-based sport adapted from the fictional, airborne Quidditch of Harry Potter. Developed in 2005 and renamed quadball in 2022, it is played with a stick held between the legs: players score through hoops, use dodgeballs to temporarily knock opponents out of play, and seek a flag attached to a flag runner rather than a flying Golden Snitch.",
+   "central_knowledge_unit": "britannica describes a real ground based sport adapted from the fictional airborne quidditch of harry potter developed in 2005 and renamed quadball in 2022 it is played with a stick held between the legs players score th",
+   "content_id": "a8ce99055c2e2993",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c9fb729d259c40da",
+    "0ba877b4c8e289db"
+   ],
+   "legacy": true,
+   "normalized_subject": "10 unusual sports britannica",
+   "people": [],
+   "published_at": "2026-10-08T20:00:29.168978+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    "britannica.com/list/10-unusual-sports"
+   ],
+   "sport_or_game": "10 Unusual Sports | Britannica",
+   "telegram_message_id": 376
+  },
+  {
+   "central_claim": "A regulation NFL or NCAA American football field is 120 yards (360 feet) long and 53⅓ yards (160 feet) wide: 100 yards lie between the goal lines, with a 10-yard end zone at each end. These dimensions also describe the standard 11-player high-school field, but not every variant or state-approved field.",
+   "central_knowledge_unit": "a regulation nfl or ncaa american football field is 120 yards 360 feet long and 53 yards 160 feet wide 100 yards lie between the goal lines with a 10 yard end zone at each end these dimensions also describe the standard ",
+   "content_id": "f2d2859fb37aaf1d",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f5ab75af572c3fd1",
+    "9224758415be1abe"
+   ],
+   "legacy": true,
+   "normalized_subject": "football field size dimensions",
+   "people": [],
+   "published_at": "2026-10-08T20:00:45.115911+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "admin.asohns.org.au/catalogue/WYKkt5fpa74q/Football-Field-Size-Dimensions"
+   ],
+   "sport_or_game": "FOOTBALL FIELD SIZE DIMENSIONS",
+   "telegram_message_id": 377
+  },
+  {
+   "central_claim": ", and using only cards? And, above all, how could we ensure that this wasn't just a simple abstraction, but truly conveyed the feeling of driving on the edge, deciding when to push and when to preserve the car? The answer came from combining a trick-taking system with a car race. A combination that allowed us to concentrate the decisions of each round on how to drive, how much to risk, and which resources to sacrifice to try and gain positions. However, reaching the current system required a lot",
+   "central_knowledge_unit": "and using only cards and above all how could we ensure that this wasn t just a simple abstraction but truly conveyed the feeling of driving on the edge deciding when to push and when to preserve the car the answer came f",
+   "content_id": "5f3f8f507aef6991",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "529bc79fd4fed7d7",
+    "e8b43d0113d210ff"
+   ],
+   "legacy": true,
+   "normalized_subject": "designer diary nascard boardgamegeek blog boardgamegeek",
+   "people": [],
+   "published_at": "2026-10-08T20:00:54.040804+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    "boardgamegeek.com/blog/1/blogpost/190133/designer-diary-nascard"
+   ],
+   "sport_or_game": "Designer diary: NASCARD | BoardGameGeek Blog | BoardGameGeek",
+   "telegram_message_id": 378
+  },
+  {
+   "central_claim": "# Fists of Glory: The Ancient Origins of Boxing | Oxford Academic Author: Roubineau, Jean-Manuel Source: academic.oup.com Language: en ## Story Fists of Glory: The Ancient Origins of Boxing | Oxford Academic Advertisement [ ![Oxford Academic](https://oup.silverchair-cdn.com/UI/app/svg/umbrella/oxford-academic-logo.svg) ](https://academic.oup.com/) ... Assistant* ]( ... ists of Glory: The Ancient Origins of Boxing ... and Roman ArchaeologyOxford Scholarship Online",
+   "central_knowledge_unit": "fists of glory the ancient origins of boxing oxford academic author roubineau jean manuel source academic oup com language en story fists of glory the ancient origins of boxing oxford academic advertisement oxford academ",
+   "content_id": "21cc81de98729759",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "796bf6b4606806bd",
+    "69f3dba560ce8766"
+   ],
+   "legacy": true,
+   "normalized_subject": "fists of glory the ancient origins of boxing oxford academic",
+   "people": [],
+   "published_at": "2026-10-08T20:01:08.020927+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "academic.oup.com/book/63191"
+   ],
+   "sport_or_game": "Fists of Glory: The Ancient Origins of Boxing | Oxford Academic",
+   "telegram_message_id": 379
+  },
+  {
+   "central_claim": "The nineteenth century lithographic process of printing from a stone- rather than earlier processes of engraving or etching which printed from wood or copper plates that degraded- revolutionized the manufacture of popular prints by allowing for a nearly unlimited quantity of impressions. The demand for lithographic presses in America was then on the rise with color lithographs increasing from 15 to 30 percent of prints in the US by the 1870s. 3 After purchasing a press in Providence, on January ",
+   "central_knowledge_unit": "the nineteenth century lithographic process of printing from a stone rather than earlier processes of engraving or etching which printed from wood or copper plates that degraded revolutionized the manufacture of popular ",
+   "content_id": "793ed95e0e441557",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9591e6858239d46b",
+    "6a6d18cb302ef516"
+   ],
+   "legacy": true,
+   "normalized_subject": "a history of play in print board games from the renaissance to milton bradley",
+   "people": [],
+   "published_at": "2026-10-08T20:01:22.714372+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Origin",
+   "source_urls": [
+    "oasis.library.unlv.edu/cgi/viewcontent.cgi?article=1050&context=occ_papers"
+   ],
+   "sport_or_game": "A History of Play in Print Board Games from the Renaissance to Milton Bradley",
+   "telegram_message_id": 380
+  },
+  {
+   "central_claim": "# Football to Play in NCAA Record 1,300th Game Saturday - University of Pennsylvania Athletics ... **PHILADELPHIA - **Number 1,300! Penn becomes the first program in NCAA history—at any level—to play in 1,300 games. The NCAA record coincides with Penn's biggest game of the season to this point as the Quakers travel to Brown Stadium to take on the Bears. Brown can't afford another Ivy loss, while the Quakers look to remain unbeaten and on top of the league standings. Kickoff is at 12:30 p.m. ... ",
+   "central_knowledge_unit": "football to play in ncaa record 1 300th game saturday university of pennsylvania athletics philadelphia number 1 300 penn becomes the first program in ncaa history at any level to play in 1 300 games the ncaa record coin",
+   "content_id": "83b1e4c1bf6c9792",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "67fe8f9fb9b0b95f",
+    "f3dab8d6d17fb418"
+   ],
+   "legacy": true,
+   "normalized_subject": "football to play in ncaa record 1 300th game saturday university of pennsylvania athletics",
+   "people": [],
+   "published_at": "2026-10-08T20:01:45.362021+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    "pennathletics.com/news/2016/6/27/5771aba3e4b0028e7235e8bd_131492712344237046.aspx"
+   ],
+   "sport_or_game": "Football to Play in NCAA Record 1,300th Game Saturday - University of Pennsylvania Athletics",
+   "telegram_message_id": 381
+  },
+  {
+   "central_claim": "T hink \"sport\" and the words that spring to mind are likely to be fitness, exercise, competition, endurance... and fun; \"science\" is probably not among them. It's obvious to anyone who loves sport that it's a powerful demonstration of pushing the human body its limits. What's less obvious is that sport is an equally powerful demonstration of science. From the cutting-edge composite materials packed into racing bikes and tennis rackets to the 17th-century maths that bends baseballs through the ai",
+   "central_knowledge_unit": "t hink sport and the words that spring to mind are likely to be fitness exercise competition endurance and fun science is probably not among them it s obvious to anyone who loves sport that it s a powerful demonstration ",
+   "content_id": "12068cac370ff005",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "fd5f4c2686873f21",
+    "5f50411fb5a4ddf5"
+   ],
+   "legacy": true,
+   "normalized_subject": "the science of sport explain that stuff",
+   "people": [],
+   "published_at": "2026-10-08T20:01:57.639899+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "explainthatstuff.com/science-of-sport.html"
+   ],
+   "sport_or_game": "The science of sport - Explain that Stuff",
+   "telegram_message_id": 382
+  },
+  {
+   "central_claim": "Today three rubber ballgames are played in the Maya Region: pok-ta-pok, chajchaay, and chaaj. In the countries of Guatemala, Belize, and the Mexican states of Chiapas, Tabasco, Campeche, Yucatan, and Quintana Roo, pok-ta-pok and chajchaay players strike a solid rubber-ball with a diameter between 6 – 7.5 inches weighing approximately 4 – 8 pounds, squarely with their hip, whereas chaaj players use their forearm to hit a hollow inflatable rubber ball measuring approximately 6.26 inches in diamete",
+   "central_knowledge_unit": "today three rubber ballgames are played in the maya region pok ta pok chajchaay and chaaj in the countries of guatemala belize and the mexican states of chiapas tabasco campeche yucatan and quintana roo pok ta pok and ch",
+   "content_id": "cb873d8620855c50",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "53d81153d7847cb9",
+    "0689b546fdfd402b"
+   ],
+   "legacy": true,
+   "normalized_subject": "chaaj pok ta pok and chajchaay rubber ballgames from middle america to the world journal of sport for development",
+   "people": [],
+   "published_at": "2026-10-08T20:02:19.757781+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    "jsfd.org/2023/09/13/chaaj-pok-ta-pok-and-chajchaay-rubber-ballgames-from-middle-america-to-the-world"
+   ],
+   "sport_or_game": "Chaaj, Pok-Ta-Pok and Chajchaay: Rubber ballgames from Middle America to the World – Journal of Sport for Development",
+   "telegram_message_id": 383
+  },
+  {
+   "central_claim": "1909 World Series Game 2, Detroit Tigers vs Pittsburgh Pirates: October 9, 1909 | Baseball-Reference.com ... | Game 2, October 9 | | | | --- | --- | --- | | DET | 7 | F inal | | PIT | 2 | | ... Saturday, October 9, 1909 Attendance: 30,915 Venue: Forbes Field Game Duration: 1:45 Day Game, on grass Logos via Sports Logos.net / About logos",
+   "central_knowledge_unit": "1909 world series game 2 detroit tigers vs pittsburgh pirates october 9 1909 baseball reference com game 2 october 9 det 7 f inal pit 2 saturday october 9 1909 attendance 30 915 venue forbes field game duration 1 45 day ",
+   "content_id": "fde0b989813ba4b6",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "256f40f4093b18c3",
+    "c1ddfdd25b908de7"
+   ],
+   "legacy": true,
+   "normalized_subject": "1909 world series game 2 detroit tigers vs pittsburgh pirates october 9 1909 baseball reference com",
+   "people": [],
+   "published_at": "2026-10-08T20:02:46.350303+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "baseball-reference.com/boxes/PIT/PIT190910090.shtml"
+   ],
+   "sport_or_game": "1909 World Series Game 2, Detroit Tigers vs Pittsburgh Pirates: October 9, 1909 | Baseball-Reference.com",
+   "telegram_message_id": 384
+  },
+  {
+   "central_claim": "The ancient Olympic Games developed at Olympia, a Greek religious sanctuary associated especially with Zeus. The traditional date 776 BCE identifies the beginning of the later-recorded Olympic victor sequence, not a provable first-ever contest; the festival and its facilities changed over centuries. The modern Olympic Games were organized as a revival in 1894 and first held in Athens in 1896, rather than continuing uninterrupted from antiquity.",
+   "central_knowledge_unit": "olympic history from the home of zeus in olympia to the modern games",
+   "content_id": "23ecc1a51ba38ecd",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "23ecc1a51ba38ecd",
+    "4a367f3838a70b6a"
+   ],
+   "normalized_subject": "olympic history from the home of zeus in olympia to the modern games",
+   "people": [],
+   "published_at": "2026-10-09T09:03:25.497249+00:00",
+   "region": "",
+   "run_id": "2026-10-09-PM",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 387
+  },
+  {
+   "central_claim": "On 29 July 2023 in Fukuoka, Katie Ledecky won the women’s 800 m freestyle at the World Aquatics Championships in 8:08.87, securing her sixth straight world title in that event—the first swimmer to win the same event six times at the championships. Her 16th individual world-championship gold surpassed Michael Phelps’s 15 individual golds; it did not surpass his total including relays.",
+   "central_knowledge_unit": "world aquatics championships 2023 title no 6 for katie ledecky in women s 800m free moves her ahead of phelps gold haul",
+   "content_id": "98f8b42d749dee4e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "98f8b42d749dee4e",
+    "d131c1e8b68780f8"
+   ],
+   "normalized_subject": "world aquatics championships 2023 title no 6 for katie ledecky in women s 800m free moves her ahead of phelps gold haul",
+   "people": [],
+   "published_at": "2026-10-09T09:03:47.544225+00:00",
+   "region": "",
+   "run_id": "2026-10-09-PM",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 388
+  },
+  {
+   "central_claim": "- Bog Snorkelling - Participants race while snorkeling in a swampy, muddy bog, and they must exclusively use flippers to propel themselves forward. - Canal Vaulting - Competitors attempt to pole-vault over a canal without getting wet. - Chess Boxing - Competitors play a game with 11 rounds that alternate chess and boxing—so it requires plenty of brains and brawn. - Extreme Ironing - Participants find the most extreme places to iron their clothes and take pictures for proof. - Underwater Hockey - This sport follows the basic rules of hockey, but it’s played underwater with a weighted puck, and players swim, not skate. ... This competitive sport involves snorkeling in a peat bog, not the ocean",
+   "central_knowledge_unit": "25 weird rare sports from around the world wikihow",
+   "content_id": "ebcc9eaf07eb7fc8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "ebcc9eaf07eb7fc8",
+    "a550378314f26790"
+   ],
+   "normalized_subject": "25 weird rare sports from around the world wikihow",
+   "people": [],
+   "published_at": "2026-10-09T09:03:56.059202+00:00",
+   "region": "",
+   "run_id": "2026-10-09-PM",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 389
+  },
+  {
+   "central_claim": "Dart Football is a hybrid sport that marries the accuracy and mental discipline of darts with football-style footwork, ball-handling, and tactical positioning. Teams or individuals compete on setups that incorporate standard dart boards or football-themed targets alongside space for light football skills during breaks in play. The primary objective remains straightforward—to accrue points or achieve goals by hitting designated targets with darts while maintaining or transferring ball control through a series of football-based challenges. The gameplay emphasizes rhythm, precision, strategy, and the ability to switch between fine motor control (hand-eye coordination for darts) and gross motor",
+   "central_knowledge_unit": "dart football the definitive guide to the hybrid sport of darting and football skills adam king co uk",
+   "content_id": "4efc3b5b882c30b3",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4efc3b5b882c30b3",
+    "205fc534e3f32c0d"
+   ],
+   "normalized_subject": "dart football the definitive guide to the hybrid sport of darting and football skills adam king co uk",
+   "people": [],
+   "published_at": "2026-10-09T09:04:09.307079+00:00",
+   "region": "",
+   "run_id": "2026-10-09-PM",
+   "sector": "How to Play",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 390
+  },
+  {
+   "central_claim": "Some ancient games come down to us carved in tomb walls and buried with kings. Daldøs (pronounced roughly DAL-durss) is not one of those. It survived a different way — barely — passed hand to hand in the fishing villages of coastal Scandinavia until it nearly slipped out of living memory in the early twentieth century. It's a fast, aggressive little race-and-capture game played with two four-sided dice, and it deserves to be far better known than it is. Here's the honest story of where it comes from, and exactly how to play it. ... Daldøs is firmly documented only from the 1800s, and by the first half of the 1900s it had fallen almost entirely out of use. Its home was the coast of southern S",
+   "central_knowledge_unit": "how to play dald s the history and rules of scandinavia s almost forg ancient games",
+   "content_id": "fa23ba77c1bfbbf0",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "fa23ba77c1bfbbf0",
+    "a386fff5d35cd98e"
+   ],
+   "normalized_subject": "how to play dald s the history and rules of scandinavia s almost forg ancient games",
+   "people": [],
+   "published_at": "2026-10-09T09:04:17.303677+00:00",
+   "region": "",
+   "run_id": "2026-10-09-PM",
+   "sector": "Forgotten Game",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 391
+  },
+  {
+   "central_claim": "The Board Game is probably one of the oldest pastimes in Uganda. Many tribes appear to have known it for centuries. The place of its origin is still obscure although some people have ventured to advance theories which have not yet been satisfactorily substantiated. Travellers and anthropologists have seen it played in countries bordering on Uganda, namely Kenya, Sudan, Congo, Ruanda, Tanzania and further down in Central Africa, on the West Coast and in Northern Africa. ... The name omweso (plural eznyeso) means the board itself and the game as well. The board is usually carved out of wood. One square or hole of omweso is called essa (plural amasa). Brown seeds called empiki from a tree known",
+   "central_knowledge_unit": "occasional papers series",
+   "content_id": "27d14caa32f9d4c1",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "27d14caa32f9d4c1",
+    "8aeb040c8253c8ec"
+   ],
+   "normalized_subject": "occasional papers series",
+   "people": [],
+   "published_at": "2026-10-09T09:04:55.786219+00:00",
+   "region": "",
+   "run_id": "2026-10-09-PM",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 392
+  },
+  {
+   "central_claim": "October 9, 1919: Cincinnati Reds beat the Black Sox to win first World Series championship – Society for American Baseball Research # October 9, 1919: Cincinnati Reds beat the Black Sox to win first World Series championship September 17, 2019/ in Games Project Postseason 1910s Black Sox Scandal, Comiskey Park greatest games / by admin ... That brought up Shoeless Joe Jackson with a chance to get the Sox closer, and when Collins stole second all it would take was a base hit to pull them to within 10-7, but Jackson grounded out to Rath and the Cincinnati Reds were world champions for the first time in franchise history. ... 4 Fred R. Coburn, “Short Squibs on the Game,” Minneapolis Star Tribun",
+   "central_knowledge_unit": "october 9 1919 cincinnati reds beat the black sox to win first world series championship society for american baseball research",
+   "content_id": "26fab4987a9dd067",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "26fab4987a9dd067",
+    "31198324abed8599"
+   ],
+   "normalized_subject": "october 9 1919 cincinnati reds beat the black sox to win first world series championship society for american baseball research",
+   "people": [],
+   "published_at": "2026-10-09T09:05:09.240632+00:00",
+   "region": "",
+   "run_id": "2026-10-09-PM",
+   "sector": "On This Date",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 393
+  },
+  {
+   "central_claim": "The events to follow have taken on the force of baseball legend. Boston starting pitcher Babe Ruth became agitated after walking Ray Morgan, Washington’s leadoff hitter; Ruth then confronted umpire Brick Owens about balls and strikes, suffering a swift ejection; Shore entered the game; and, after Morgan was caught stealing on the first pitch, Shore retired the next 26 batters consecutively, resulting in what would, for many years, be considered a perfect game. The Shore game is likely the most remembered baseball event of 1917. Its only plausible challenger for the most remarkable moment of the season is the Red-Cubs double no-hit game which took place nearly two months earlier. Fred Toney o",
+   "central_knowledge_unit": "100 years later looking back at ernie shore s perfect game society for american baseball research",
+   "content_id": "9bef104fb78fc2d5",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9bef104fb78fc2d5",
+    "02c9325bf92b4215"
+   ],
+   "normalized_subject": "100 years later looking back at ernie shore s perfect game society for american baseball research",
+   "people": [],
+   "published_at": "2026-10-09T09:05:23.349534+00:00",
+   "region": "",
+   "run_id": "2026-10-09-PM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 394
+  },
+  {
+   "central_claim": "# Al Spalding Class of 1939 # Al Spalding Executive Class of 1939 Enlarge Plaque Al Spalding served baseball for decades as a star pitcher, accomplished ambassador and trusted supplier of the game's equipment. Primary Team Or Role Birth year ## Albert Goodwill \"Al\" Spalding Boston Red Stockings, 1871-1875 Chicago White Stockings, 1876-1877 Al Spalding served baseball for decades as a star pitcher, accomplished ambassador and trusted supplier of the game's equipment. ... Albert Goodwill Spalding led the way. Following the 1888 season, the well-respected businessman and former pitcher led a group of 20 National League players on a “round-the-world” barnstorming sweep, visiting eight countries",
+   "central_knowledge_unit": "spalding al baseball hall of fame",
+   "content_id": "37d5b6bdb3588bc4",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "37d5b6bdb3588bc4",
+    "cc15d5308e58e49b"
+   ],
+   "normalized_subject": "spalding al baseball hall of fame",
+   "people": [],
+   "published_at": "2026-10-09T09:05:45.384069+00:00",
+   "region": "",
+   "run_id": "2026-10-09-PM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 395
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-08T20:02:46.350271+00:00"
+ "updated_at": "2026-10-09T09:05:45.384235+00:00"
 }

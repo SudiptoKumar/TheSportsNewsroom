@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-10-08T20:02:43.084872+00:00",
-  "last_request_id": "a477bea9392a4783-ORD",
+  "last_ok": "2026-10-09T09:05:43.450416+00:00",
+  "last_request_id": "a47c39a42b5bd8a7-ORD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-08T20:05:06.163063+00:00",
+ "last_run_at": "2026-10-09T09:10:00.255126+00:00",
  "ledger": {},
  "posts": [
   {
@@ -4134,6 +4134,209 @@
    "urls": [
     "baseball-reference.com/boxes/PIT/PIT190910090.shtml"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Olympic History - from the home of Zeus in Olympia to the modern Games",
+   "claim": "The ancient Olympic Games developed at Olympia, a Greek religious sanctuary associated especially with Zeus. The traditional date 776 BCE identifies the beginning of the later-recorded Olympic victor sequence, not a provable first-ever contest; the festival and its facilities changed over centuries. The modern Olympic Games were organized as a revival in 1894 and first held in Athens in 1896, rather than continuing uninterrupted from antiquity.",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "Ancient Olympic Games Began at Zeus’s Sanctuary in Olympia, Modern Revival Launched in 1894",
+   "image_status": "verified_external",
+   "message_id": 387,
+   "normalized_subject": "Olympic History - from the home of Zeus in Olympia to the modern Games",
+   "posted_at": "2026-10-09T09:03:25.497416+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-09-PM",
+   "sector": "Sport Origin",
+   "topic": "Olympic History - from the home of Zeus in Olympia to the modern Games",
+   "urls": [
+    "olympics.com/ioc/ancient-olympic-games/history"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "World Aquatics Championships 2023: Title No. 6 for Katie Ledecky in women's 800m free moves her ahead of Phelps' gold haul",
+   "claim": "On 29 July 2023 in Fukuoka, Katie Ledecky won the women’s 800 m freestyle at the World Aquatics Championships in 8:08.87, securing her sixth straight world title in that event—the first swimmer to win the same event six times at the championships. Her 16th individual world-championship gold surpassed Michael Phelps’s 15 individual golds; it did not surpass his total including relays.",
+   "desk": "evergreen_v1",
+   "format": "Records & Milestones",
+   "headline": "Katie Ledecky Wins Sixth Straight 800m Title, Surpassing Phelps",
+   "image_status": "verified_external",
+   "message_id": 388,
+   "normalized_subject": "World Aquatics Championships 2023: Title No. 6 for Katie Ledecky in women's 800m free moves her ahead of Phelps' gold haul",
+   "posted_at": "2026-10-09T09:03:47.544403+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-09-PM",
+   "sector": "Records & Milestones",
+   "topic": "World Aquatics Championships 2023: Title No. 6 for Katie Ledecky in women's 800m free moves her ahead of Phelps' gold haul",
+   "urls": [
+    "olympics.com/en/news/world-aquatics-championships-2023-womens-800-freestyle"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "25+ Weird & Rare Sports From Around the World - wikiHow",
+   "claim": "- Bog Snorkelling - Participants race while snorkeling in a swampy, muddy bog, and they must exclusively use flippers to propel themselves forward. - Canal Vaulting - Competitors attempt to pole-vault over a canal without getting wet. - Chess Boxing - Competitors play a game with 11 rounds that alternate chess and boxing—so it requires plenty of brains and brawn. - Extreme Ironing - Participants find the most extreme places to iron their clothes and take pictures for proof. - Underwater Hockey - This sport follows the basic rules of hockey, but it’s played underwater with a weighted puck, and players swim, not skate. ... This competitive sport involves snorkeling in a peat bog, not the ocean",
+   "desk": "evergreen_v1",
+   "format": "Sport Discovery",
+   "headline": "Bog Snorkelling: Racing Through Muddy Bogs With Flippers",
+   "image_status": "verified_external",
+   "message_id": 389,
+   "normalized_subject": "25+ Weird & Rare Sports From Around the World - wikiHow",
+   "posted_at": "2026-10-09T09:03:56.059400+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-09-PM",
+   "sector": "Sport Discovery",
+   "topic": "25+ Weird & Rare Sports From Around the World - wikiHow",
+   "urls": [
+    "wikihow.com/Weird-Sports"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Dart Football: The Definitive Guide to the Hybrid Sport of Darting and Football Skills – Adam-king.co.uk",
+   "claim": "Dart Football is a hybrid sport that marries the accuracy and mental discipline of darts with football-style footwork, ball-handling, and tactical positioning. Teams or individuals compete on setups that incorporate standard dart boards or football-themed targets alongside space for light football skills during breaks in play. The primary objective remains straightforward—to accrue points or achieve goals by hitting designated targets with darts while maintaining or transferring ball control through a series of football-based challenges. The gameplay emphasizes rhythm, precision, strategy, and the ability to switch between fine motor control (hand-eye coordination for darts) and gross motor ",
+   "desk": "evergreen_v1",
+   "format": "How to Play",
+   "headline": "Dart Football Merges Precision Throwing with Football Footwork",
+   "image_status": "card_fallback",
+   "message_id": 390,
+   "normalized_subject": "Dart Football: The Definitive Guide to the Hybrid Sport of Darting and Football Skills – Adam-king.co.uk",
+   "posted_at": "2026-10-09T09:04:09.307249+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-09-PM",
+   "sector": "How to Play",
+   "topic": "Dart Football: The Definitive Guide to the Hybrid Sport of Darting and Football Skills – Adam-king.co.uk",
+   "urls": [
+    "adam-king.co.uk/dart-football"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "How to Play Daldøs: The History and Rules of Scandinavia's Almost-Forg – Ancient Games",
+   "claim": "Some ancient games come down to us carved in tomb walls and buried with kings. Daldøs (pronounced roughly DAL-durss) is not one of those. It survived a different way — barely — passed hand to hand in the fishing villages of coastal Scandinavia until it nearly slipped out of living memory in the early twentieth century. It's a fast, aggressive little race-and-capture game played with two four-sided dice, and it deserves to be far better known than it is. Here's the honest story of where it comes from, and exactly how to play it. ... Daldøs is firmly documented only from the 1800s, and by the first half of the 1900s it had fallen almost entirely out of use. Its home was the coast of southern S",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Game",
+   "headline": "Daldøs: A Fast Race‑and‑Capture Game from Coastal Scandinavia",
+   "image_status": "verified_external",
+   "message_id": 391,
+   "normalized_subject": "How to Play Daldøs: The History and Rules of Scandinavia's Almost-Forg – Ancient Games",
+   "posted_at": "2026-10-09T09:04:17.303906+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-09-PM",
+   "sector": "Forgotten Game",
+   "topic": "How to Play Daldøs: The History and Rules of Scandinavia's Almost-Forg – Ancient Games",
+   "urls": [
+    "en.wikipedia.org/wiki/Dald%C3%B8s"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Occasional Papers Series",
+   "claim": "The Board Game is probably one of the oldest pastimes in Uganda. Many tribes appear to have known it for centuries. The place of its origin is still obscure although some people have ventured to advance theories which have not yet been satisfactorily substantiated. Travellers and anthropologists have seen it played in countries bordering on Uganda, namely Kenya, Sudan, Congo, Ruanda, Tanzania and further down in Central Africa, on the West Coast and in Northern Africa. ... The name omweso (plural eznyeso) means the board itself and the game as well. The board is usually carved out of wood. One square or hole of omweso is called essa (plural amasa). Brown seeds called empiki from a tree known",
+   "desk": "evergreen_v1",
+   "format": "Traditional / Regional Game",
+   "headline": "Omweso: Uganda’s Ancient Board Game Spanning Centuries and Borders",
+   "image_status": "verified_external",
+   "message_id": 392,
+   "normalized_subject": "Occasional Papers Series",
+   "posted_at": "2026-10-09T09:04:55.786406+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-09-PM",
+   "sector": "Traditional / Regional Game",
+   "topic": "Occasional Papers Series",
+   "urls": [
+    "en.wikipedia.org/wiki/Omweso"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "October 9, 1919: Cincinnati Reds beat the Black Sox to win first World Series championship – Society for American Baseball Research",
+   "claim": "October 9, 1919: Cincinnati Reds beat the Black Sox to win first World Series championship – Society for American Baseball Research # October 9, 1919: Cincinnati Reds beat the Black Sox to win first World Series championship September 17, 2019/ in Games Project Postseason 1910s Black Sox Scandal, Comiskey Park greatest games / by admin ... That brought up Shoeless Joe Jackson with a chance to get the Sox closer, and when Collins stole second all it would take was a base hit to pull them to within 10-7, but Jackson grounded out to Rath and the Cincinnati Reds were world champions for the first time in franchise history. ... 4 Fred R. Coburn, “Short Squibs on the Game,” Minneapolis Star Tribun",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "Reds Capture First World Series Title with 10‑5 Victory Over Black Sox",
+   "image_status": "card_fallback",
+   "message_id": 393,
+   "normalized_subject": "October 9, 1919: Cincinnati Reds beat the Black Sox to win first World Series championship – Society for American Baseball Research",
+   "posted_at": "2026-10-09T09:05:09.240844+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-09-PM",
+   "sector": "On This Date",
+   "topic": "October 9, 1919: Cincinnati Reds beat the Black Sox to win first World Series championship – Society for American Baseball Research",
+   "urls": [
+    "sabr.org/gamesproj/game/october-9-1919-cincinnati-reds-beat-the-black-sox-to-win-first-world-series-championship"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "100 years later, looking back at Ernie Shore’s ‘perfect game’ – Society for American Baseball Research",
+   "claim": "The events to follow have taken on the force of baseball legend. Boston starting pitcher Babe Ruth became agitated after walking Ray Morgan, Washington’s leadoff hitter; Ruth then confronted umpire Brick Owens about balls and strikes, suffering a swift ejection; Shore entered the game; and, after Morgan was caught stealing on the first pitch, Shore retired the next 26 batters consecutively, resulting in what would, for many years, be considered a perfect game. The Shore game is likely the most remembered baseball event of 1917. Its only plausible challenger for the most remarkable moment of the season is the Red-Cubs double no-hit game which took place nearly two months earlier. Fred Toney o",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "Ernie Shore’s 1917 No‑Hit Performance Became Baseball’s Legendary Perfect Game",
+   "image_status": "card_fallback",
+   "message_id": 394,
+   "normalized_subject": "100 years later, looking back at Ernie Shore’s ‘perfect game’ – Society for American Baseball Research",
+   "posted_at": "2026-10-09T09:05:23.349755+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-09-PM",
+   "sector": "First / Last / Only",
+   "topic": "100 years later, looking back at Ernie Shore’s ‘perfect game’ – Society for American Baseball Research",
+   "urls": [
+    "sabr.org/journal/article/100-years-later-looking-back-at-ernie-shores-perfect-game"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Spalding, Al | Baseball Hall of Fame",
+   "claim": "# Al Spalding Class of 1939 # Al Spalding Executive Class of 1939 Enlarge Plaque Al Spalding served baseball for decades as a star pitcher, accomplished ambassador and trusted supplier of the game's equipment. Primary Team Or Role Birth year ## Albert Goodwill \"Al\" Spalding Boston Red Stockings, 1871-1875 Chicago White Stockings, 1876-1877 Al Spalding served baseball for decades as a star pitcher, accomplished ambassador and trusted supplier of the game's equipment. ... Albert Goodwill Spalding led the way. Following the 1888 season, the well-respected businessman and former pitcher led a group of 20 National League players on a “round-the-world” barnstorming sweep, visiting eight countries ",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Al Spalding Inducted into Hall of Fame as Executive Pioneer in 1939",
+   "image_status": "verified_external",
+   "message_id": 395,
+   "normalized_subject": "Spalding, Al | Baseball Hall of Fame",
+   "posted_at": "2026-10-09T09:05:45.384268+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-09-PM",
+   "sector": "Sports & Games People",
+   "topic": "Spalding, Al | Baseball Hall of Fame",
+   "urls": [
+    "en.wikipedia.org/wiki/Albert_Spalding"
+   ]
   }
  ],
  "runs": [],
@@ -4145,44 +4348,43 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-10-08T19:54:15.502238+00:00",
+  "created_at": "2026-10-09T08:56:59.694951+00:00",
   "daily": {
    "2026-10-09": {
     "published_sectors": [
-     "How to Play",
-     "Sport Discovery",
-     "Equipment / Measurement",
-     "New Tabletop Game Discovery",
      "Sport Origin",
-     "Game Origin",
      "Records & Milestones",
-     "Why Does This Happen?",
+     "Sport Discovery",
+     "How to Play",
+     "Forgotten Game",
      "Traditional / Regional Game",
-     "On This Date"
+     "On This Date",
+     "First / Last / Only",
+     "Sports & Games People"
     ],
     "run_ids": [
-     "2026-10-09-AM"
+     "2026-10-09-PM"
     ]
    }
   },
-  "last_run_at": "2026-10-08T20:05:06.163029+00:00",
+  "last_run_at": "2026-10-09T09:10:00.255098+00:00",
   "live": {
    "results": {
     "event_ids": [
      "98fa53c76b931075",
      "aefb1a3c0073930d",
+     "69ea3f427ffb1e70",
      "1e648d085a7aa601",
      "fa9ab9ef1f909f5d",
      "cb6b2012e3ba7838",
      "6b11548c75aae7f8",
      "464bde28515e79b2",
      "fd9503a69a21772f",
-     "5a2159435ed343d0",
-     "7e949cd696a40369"
+     "5a2159435ed343d0"
     ],
-    "message_id": 386,
+    "message_id": 397,
     "target_date": "2026-10-08",
-    "updated_at": "2026-10-08T20:05:06.153798+00:00"
+    "updated_at": "2026-10-09T09:10:00.245797+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
@@ -4198,92 +4400,86 @@
      "81af1f03d316a40a",
      "65bf33a3228435e9"
     ],
-    "message_id": 385,
+    "message_id": 396,
     "target_date": "2026-10-10",
-    "updated_at": "2026-10-08T20:05:06.153785+00:00"
+    "updated_at": "2026-10-09T09:10:00.245786+00:00"
    }
   },
   "publication": {
-   "2026-10-09-AM:evergreen:0dd5bef0e5583296": {
-    "message_id": 375,
-    "posted_at": "2026-10-08T20:00:22.239474+00:00",
+   "2026-10-09-PM:evergreen:1751024d3ade86a1": {
+    "message_id": 389,
+    "posted_at": "2026-10-09T09:03:56.059041+00:00",
     "status": "posted"
    },
-   "2026-10-09-AM:evergreen:47d8ae856f149757": {
-    "message_id": 381,
-    "posted_at": "2026-10-08T20:01:45.361640+00:00",
+   "2026-10-09-PM:evergreen:39ecbb2da0d54770": {
+    "message_id": 395,
+    "posted_at": "2026-10-09T09:05:45.383930+00:00",
     "status": "posted"
    },
-   "2026-10-09-AM:evergreen:6bb5460ad4dda83f": {
-    "message_id": 378,
-    "posted_at": "2026-10-08T20:00:54.040469+00:00",
+   "2026-10-09-PM:evergreen:4f6b2120a8a25e32": {
+    "message_id": 394,
+    "posted_at": "2026-10-09T09:05:23.349330+00:00",
     "status": "posted"
    },
-   "2026-10-09-AM:evergreen:872a8d58a92f32ff": {
-    "message_id": 380,
-    "posted_at": "2026-10-08T20:01:22.714039+00:00",
+   "2026-10-09-PM:evergreen:61556d3b9328f246": {
+    "message_id": 390,
+    "posted_at": "2026-10-09T09:04:09.306935+00:00",
     "status": "posted"
    },
-   "2026-10-09-AM:evergreen:a0bc5689137061dc": {
-    "message_id": 377,
-    "posted_at": "2026-10-08T20:00:45.115659+00:00",
+   "2026-10-09-PM:evergreen:6e0cdcedef43d2d6": {
+    "message_id": 393,
+    "posted_at": "2026-10-09T09:05:09.240426+00:00",
     "status": "posted"
    },
-   "2026-10-09-AM:evergreen:a10588e2c597fbd7": {
-    "message_id": 384,
-    "posted_at": "2026-10-08T20:02:46.350021+00:00",
+   "2026-10-09-PM:evergreen:74fa1611957fc5ab": {
+    "message_id": 388,
+    "posted_at": "2026-10-09T09:03:47.544077+00:00",
     "status": "posted"
    },
-   "2026-10-09-AM:evergreen:a43e700e355c1156": {
-    "message_id": 379,
-    "posted_at": "2026-10-08T20:01:08.020643+00:00",
+   "2026-10-09-PM:evergreen:c8f56bbd96398582": {
+    "message_id": 392,
+    "posted_at": "2026-10-09T09:04:55.786087+00:00",
     "status": "posted"
    },
-   "2026-10-09-AM:evergreen:c23a85b5e9d0ba36": {
-    "message_id": 383,
-    "posted_at": "2026-10-08T20:02:19.757392+00:00",
+   "2026-10-09-PM:evergreen:caafb8c656ff79bc": {
+    "message_id": 391,
+    "posted_at": "2026-10-09T09:04:17.303439+00:00",
     "status": "posted"
    },
-   "2026-10-09-AM:evergreen:c64c0608c1145dbf": {
-    "message_id": 376,
-    "posted_at": "2026-10-08T20:00:29.168733+00:00",
+   "2026-10-09-PM:evergreen:e5851eeecab4043a": {
+    "message_id": 387,
+    "posted_at": "2026-10-09T09:03:25.497132+00:00",
     "status": "posted"
    },
-   "2026-10-09-AM:evergreen:ec56f3c3dab9658e": {
-    "message_id": 382,
-    "posted_at": "2026-10-08T20:01:57.639606+00:00",
+   "2026-10-09-PM:live_results:3b59f6598c32b35d": {
+    "message_id": 397,
+    "posted_at": "2026-10-09T09:10:00.245759+00:00",
     "status": "posted"
    },
-   "2026-10-09-AM:live_results:3b59f6598c32b35d": {
-    "message_id": 386,
-    "posted_at": "2026-10-08T20:05:06.153754+00:00",
-    "status": "posted"
-   },
-   "2026-10-09-AM:live_schedule:38ec77865eced125": {
-    "message_id": 385,
-    "posted_at": "2026-10-08T20:05:05.826366+00:00",
+   "2026-10-09-PM:live_schedule:38ec77865eced125": {
+    "message_id": 396,
+    "posted_at": "2026-10-09T09:09:59.840719+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-10-08T20:05:06.163041+00:00",
-    "evergreen": 10,
+    "at": "2026-10-09T09:10:00.255107+00:00",
+    "evergreen": 9,
     "exit": 0,
-    "live_results": 386,
-    "live_schedule": 385,
-    "run_id": "2026-10-09-AM",
+    "live_results": 397,
+    "live_schedule": 396,
+    "run_id": "2026-10-09-PM",
     "used_sectors": [
-     "Equipment / Measurement",
-     "Game Origin",
+     "First / Last / Only",
+     "Forgotten Game",
      "How to Play",
-     "New Tabletop Game Discovery",
      "On This Date",
      "Records & Milestones",
      "Sport Discovery",
      "Sport Origin",
-     "Traditional / Regional Game",
-     "Why Does This Happen?"
+     "Sports & Games People",
+     "Traditional / Regional Game"
     ]
    }
   ],
