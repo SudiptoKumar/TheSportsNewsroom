@@ -9,7 +9,7 @@
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-10T08:30:44.620270+00:00",
+ "last_run_at": "2026-10-10T18:36:16.083158+00:00",
  "ledger": {},
  "posts": [
   {
@@ -4574,73 +4574,73 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-10-10T08:26:18.613888+00:00",
+  "created_at": "2026-10-10T18:31:46.188080+00:00",
   "daily": {
-   "2026-10-10": {
+   "2026-10-11": {
     "published_sectors": [],
     "run_ids": [
-     "2026-10-10-PM"
+     "2026-10-11-AM"
     ]
    }
   },
-  "last_run_at": "2026-10-10T08:30:44.620246+00:00",
+  "last_run_at": "2026-10-10T18:36:16.083135+00:00",
   "live": {
    "results": {
     "event_ids": [
-     "432a7dcf662353bf",
-     "a2376fd14964a6ab",
-     "8078fc49fedcf749",
-     "19208905f114f8af",
-     "812ae1b6a61c3f01",
-     "39d59ea8d734c719",
-     "d7c887ca7cd22964",
-     "a4af30e4f5c837b7",
-     "f929fade4674109b",
-     "078836fe5d94eae4"
+     "15321db94f47e288",
+     "6b9f5bd3c8d59017",
+     "13b6ed6313718048",
+     "3a8df21219728645",
+     "9ef7727354498cab",
+     "f9495ee982886175",
+     "81af1f03d316a40a",
+     "64baa00ca03d58fc",
+     "5a6ee75fdd4bd5ee",
+     "ac341fdcfd38f438"
     ],
-    "message_id": 411,
-    "target_date": "2026-10-09",
-    "updated_at": "2026-10-10T08:30:44.610252+00:00"
+    "message_id": 413,
+    "target_date": "2026-10-10",
+    "updated_at": "2026-10-10T18:36:16.073335+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [
-     "3afe838878fe2fd9",
-     "4bd9699e82e53fe2",
-     "3c41b9a5eb48b1da",
-     "8b7d7488bdad0a42",
-     "0089b32d50206f1b",
-     "a7d2c55a29cbc1fb",
-     "3ecad8c1a2c7a563",
-     "7153377af72257e4",
-     "07f7a39a8d0bddbf",
-     "7fd2a7e876547660"
+     "cbfcd1cd32140bee",
+     "46be2af7ff81ae7e",
+     "e540bac8e2af4d62",
+     "e1e19e580c2a2372",
+     "28c35c776719a1df",
+     "2c67fbb45a172525",
+     "dea309fb86b15966",
+     "0b5f1dc6d0f89a97",
+     "bed7f45441a292e3",
+     "aa84e40263a2e052"
     ],
-    "message_id": 410,
-    "target_date": "2026-10-11",
-    "updated_at": "2026-10-10T08:30:44.610240+00:00"
+    "message_id": 412,
+    "target_date": "2026-10-12",
+    "updated_at": "2026-10-10T18:36:16.073322+00:00"
    }
   },
   "publication": {
-   "2026-10-10-PM:live_results:763c76e10e1f8c7e": {
-    "message_id": 411,
-    "posted_at": "2026-10-10T08:30:44.610215+00:00",
+   "2026-10-11-AM:live_results:38ec77865eced125": {
+    "message_id": 413,
+    "posted_at": "2026-10-10T18:36:16.073295+00:00",
     "status": "posted"
    },
-   "2026-10-10-PM:live_schedule:acfef6d960f1d471": {
-    "message_id": 410,
-    "posted_at": "2026-10-10T08:30:44.229586+00:00",
+   "2026-10-11-AM:live_schedule:1070eb0fa5f248ef": {
+    "message_id": 412,
+    "posted_at": "2026-10-10T18:36:15.721517+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-10-10T08:30:44.620257+00:00",
+    "at": "2026-10-10T18:36:16.083145+00:00",
     "evergreen": 0,
     "exit": 0,
-    "live_results": 411,
-    "live_schedule": 410,
-    "run_id": "2026-10-10-PM",
+    "live_results": 413,
+    "live_schedule": 412,
+    "run_id": "2026-10-11-AM",
     "used_sectors": []
    }
   ],
