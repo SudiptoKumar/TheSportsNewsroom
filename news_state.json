@@ -2,14 +2,14 @@
  "ai": {
   "last_error": "",
   "last_ok": "2026-10-09T19:40:04.061423+00:00",
-  "last_request_id": "a47fdadc1dc39d25-IAD",
-  "last_status": 200,
+  "last_request_id": "",
+  "last_status": 0,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-09T19:44:17.544284+00:00",
+ "last_run_at": "2026-10-10T08:30:44.620270+00:00",
  "ledger": {},
  "posts": [
   {
@@ -4574,31 +4574,21 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-10-09T19:31:05.036706+00:00",
+  "created_at": "2026-10-10T08:26:18.613888+00:00",
   "daily": {
    "2026-10-10": {
-    "published_sectors": [
-     "Records & Milestones",
-     "Traditional / Regional Game",
-     "Sport Discovery",
-     "Why Does This Happen?",
-     "Sport Origin",
-     "First / Last / Only",
-     "New Tabletop Game Discovery",
-     "How to Play",
-     "Equipment / Measurement",
-     "Rule Check"
-    ],
+    "published_sectors": [],
     "run_ids": [
-     "2026-10-10-AM"
+     "2026-10-10-PM"
     ]
    }
   },
-  "last_run_at": "2026-10-09T19:44:17.544247+00:00",
+  "last_run_at": "2026-10-10T08:30:44.620246+00:00",
   "live": {
    "results": {
     "event_ids": [
      "432a7dcf662353bf",
+     "a2376fd14964a6ab",
      "8078fc49fedcf749",
      "19208905f114f8af",
      "812ae1b6a61c3f01",
@@ -4606,12 +4596,11 @@
      "d7c887ca7cd22964",
      "a4af30e4f5c837b7",
      "f929fade4674109b",
-     "078836fe5d94eae4",
-     "e17a66c06a39bdbd"
+     "078836fe5d94eae4"
     ],
-    "message_id": 409,
+    "message_id": 411,
     "target_date": "2026-10-09",
-    "updated_at": "2026-10-09T19:44:17.534649+00:00"
+    "updated_at": "2026-10-10T08:30:44.610252+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
@@ -4621,99 +4610,38 @@
      "3c41b9a5eb48b1da",
      "8b7d7488bdad0a42",
      "0089b32d50206f1b",
-     "7153377af72257e4",
      "a7d2c55a29cbc1fb",
      "3ecad8c1a2c7a563",
+     "7153377af72257e4",
      "07f7a39a8d0bddbf",
      "7fd2a7e876547660"
     ],
-    "message_id": 408,
+    "message_id": 410,
     "target_date": "2026-10-11",
-    "updated_at": "2026-10-09T19:44:17.534634+00:00"
+    "updated_at": "2026-10-10T08:30:44.610240+00:00"
    }
   },
   "publication": {
-   "2026-10-10-AM:evergreen:17bdbb44bee12cf6": {
-    "message_id": 405,
-    "posted_at": "2026-10-09T19:39:44.192833+00:00",
+   "2026-10-10-PM:live_results:763c76e10e1f8c7e": {
+    "message_id": 411,
+    "posted_at": "2026-10-10T08:30:44.610215+00:00",
     "status": "posted"
    },
-   "2026-10-10-AM:evergreen:17c8a72c28c5f9c5": {
-    "message_id": 407,
-    "posted_at": "2026-10-09T19:40:05.564360+00:00",
-    "status": "posted"
-   },
-   "2026-10-10-AM:evergreen:2e737011f96cc4f1": {
-    "message_id": 406,
-    "posted_at": "2026-10-09T19:39:55.599140+00:00",
-    "status": "posted"
-   },
-   "2026-10-10-AM:evergreen:3de2b0d851fda68b": {
-    "message_id": 403,
-    "posted_at": "2026-10-09T19:39:19.031714+00:00",
-    "status": "posted"
-   },
-   "2026-10-10-AM:evergreen:5309de8bca64ff1f": {
-    "message_id": 398,
-    "posted_at": "2026-10-09T19:38:20.838914+00:00",
-    "status": "posted"
-   },
-   "2026-10-10-AM:evergreen:891c950a43558b8a": {
-    "message_id": 402,
-    "posted_at": "2026-10-09T19:39:06.402956+00:00",
-    "status": "posted"
-   },
-   "2026-10-10-AM:evergreen:c9d8d295c010d941": {
-    "message_id": 401,
-    "posted_at": "2026-10-09T19:38:51.871413+00:00",
-    "status": "posted"
-   },
-   "2026-10-10-AM:evergreen:cbf6d24e81d63d48": {
-    "message_id": 400,
-    "posted_at": "2026-10-09T19:38:39.999634+00:00",
-    "status": "posted"
-   },
-   "2026-10-10-AM:evergreen:d03c8a23f89fa9b3": {
-    "message_id": 404,
-    "posted_at": "2026-10-09T19:39:30.199968+00:00",
-    "status": "posted"
-   },
-   "2026-10-10-AM:evergreen:fae4aeae502e521d": {
-    "message_id": 399,
-    "posted_at": "2026-10-09T19:38:33.304036+00:00",
-    "status": "posted"
-   },
-   "2026-10-10-AM:live_results:763c76e10e1f8c7e": {
-    "message_id": 409,
-    "posted_at": "2026-10-09T19:44:17.534567+00:00",
-    "status": "posted"
-   },
-   "2026-10-10-AM:live_schedule:acfef6d960f1d471": {
-    "message_id": 408,
-    "posted_at": "2026-10-09T19:44:17.230404+00:00",
+   "2026-10-10-PM:live_schedule:acfef6d960f1d471": {
+    "message_id": 410,
+    "posted_at": "2026-10-10T08:30:44.229586+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-10-09T19:44:17.544260+00:00",
-    "evergreen": 10,
+    "at": "2026-10-10T08:30:44.620257+00:00",
+    "evergreen": 0,
     "exit": 0,
-    "live_results": 409,
-    "live_schedule": 408,
-    "run_id": "2026-10-10-AM",
-    "used_sectors": [
-     "Equipment / Measurement",
-     "First / Last / Only",
-     "How to Play",
-     "New Tabletop Game Discovery",
-     "Records & Milestones",
-     "Rule Check",
-     "Sport Discovery",
-     "Sport Origin",
-     "Traditional / Regional Game",
-     "Why Does This Happen?"
-    ]
+    "live_results": 411,
+    "live_schedule": 410,
+    "run_id": "2026-10-10-PM",
+    "used_sectors": []
    }
   ],
   "schema": 1
