@@ -9,7 +9,7 @@
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-10T18:36:16.083158+00:00",
+ "last_run_at": "2026-10-11T08:48:31.377338+00:00",
  "ledger": {},
  "posts": [
   {
@@ -4574,19 +4574,20 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-10-10T18:31:46.188080+00:00",
+  "created_at": "2026-10-11T08:44:02.001263+00:00",
   "daily": {
    "2026-10-11": {
     "published_sectors": [],
     "run_ids": [
-     "2026-10-11-AM"
+     "2026-10-11-PM"
     ]
    }
   },
-  "last_run_at": "2026-10-10T18:36:16.083135+00:00",
+  "last_run_at": "2026-10-11T08:48:31.377316+00:00",
   "live": {
    "results": {
     "event_ids": [
+     "fa69afd62932883c",
      "15321db94f47e288",
      "6b9f5bd3c8d59017",
      "13b6ed6313718048",
@@ -4595,12 +4596,11 @@
      "f9495ee982886175",
      "81af1f03d316a40a",
      "64baa00ca03d58fc",
-     "5a6ee75fdd4bd5ee",
-     "ac341fdcfd38f438"
+     "5a6ee75fdd4bd5ee"
     ],
-    "message_id": 413,
+    "message_id": 415,
     "target_date": "2026-10-10",
-    "updated_at": "2026-10-10T18:36:16.073335+00:00"
+    "updated_at": "2026-10-11T08:48:31.368763+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
@@ -4616,31 +4616,31 @@
      "bed7f45441a292e3",
      "aa84e40263a2e052"
     ],
-    "message_id": 412,
+    "message_id": 414,
     "target_date": "2026-10-12",
-    "updated_at": "2026-10-10T18:36:16.073322+00:00"
+    "updated_at": "2026-10-11T08:48:31.368753+00:00"
    }
   },
   "publication": {
-   "2026-10-11-AM:live_results:38ec77865eced125": {
-    "message_id": 413,
-    "posted_at": "2026-10-10T18:36:16.073295+00:00",
+   "2026-10-11-PM:live_results:38ec77865eced125": {
+    "message_id": 415,
+    "posted_at": "2026-10-11T08:48:31.368727+00:00",
     "status": "posted"
    },
-   "2026-10-11-AM:live_schedule:1070eb0fa5f248ef": {
-    "message_id": 412,
-    "posted_at": "2026-10-10T18:36:15.721517+00:00",
+   "2026-10-11-PM:live_schedule:1070eb0fa5f248ef": {
+    "message_id": 414,
+    "posted_at": "2026-10-11T08:48:30.965234+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-10-10T18:36:16.083145+00:00",
+    "at": "2026-10-11T08:48:31.377326+00:00",
     "evergreen": 0,
     "exit": 0,
-    "live_results": 413,
-    "live_schedule": 412,
-    "run_id": "2026-10-11-AM",
+    "live_results": 415,
+    "live_schedule": 414,
+    "run_id": "2026-10-11-PM",
     "used_sectors": []
    }
   ],
