@@ -9,7 +9,7 @@
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-13T20:16:40.288867+00:00",
+ "last_run_at": "2026-10-14T07:36:12.262501+00:00",
  "ledger": {},
  "posts": [
   {
@@ -4574,7 +4574,7 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-10-13T20:14:12.277022+00:00",
+  "created_at": "2026-10-14T07:31:45.573263+00:00",
   "daily": {
    "2026-10-14": {
     "published_sectors": [],
@@ -4583,7 +4583,7 @@
     ]
    }
   },
-  "last_run_at": "2026-10-13T20:16:40.288845+00:00",
+  "last_run_at": "2026-10-14T07:36:12.262474+00:00",
   "live": {
    "results": {
     "event_ids": [
@@ -4598,9 +4598,9 @@
      "4d369afb060e3365",
      "ba14f0b765cc4e31"
     ],
-    "message_id": 425,
+    "message_id": 427,
     "target_date": "2026-10-13",
-    "updated_at": "2026-10-13T20:16:40.278930+00:00"
+    "updated_at": "2026-10-14T07:36:12.252762+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
@@ -4616,30 +4616,30 @@
      "98412d386cb6f639",
      "2b22edfa2cdc781e"
     ],
-    "message_id": 424,
+    "message_id": 426,
     "target_date": "2026-10-15",
-    "updated_at": "2026-10-13T20:16:40.278917+00:00"
+    "updated_at": "2026-10-14T07:36:12.252752+00:00"
    }
   },
   "publication": {
    "2026-10-14-AM:live_results:3884b4d66a650d1c": {
-    "message_id": 425,
-    "posted_at": "2026-10-13T20:16:40.278888+00:00",
+    "message_id": 427,
+    "posted_at": "2026-10-14T07:36:12.252727+00:00",
     "status": "posted"
    },
    "2026-10-14-AM:live_schedule:4267bc8dfe77bb1a": {
-    "message_id": 424,
-    "posted_at": "2026-10-13T20:16:39.910948+00:00",
+    "message_id": 426,
+    "posted_at": "2026-10-14T07:36:11.884843+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-10-13T20:16:40.288854+00:00",
+    "at": "2026-10-14T07:36:12.262487+00:00",
     "evergreen": 0,
     "exit": 0,
-    "live_results": 425,
-    "live_schedule": 424,
+    "live_results": 427,
+    "live_schedule": 426,
     "run_id": "2026-10-14-AM",
     "used_sectors": []
    }
