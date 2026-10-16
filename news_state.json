@@ -9,7 +9,7 @@
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-16T07:16:01.255209+00:00",
+ "last_run_at": "2026-10-16T18:07:55.350049+00:00",
  "ledger": {},
  "posts": [
   {
@@ -4574,51 +4574,73 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-10-16T07:05:35.325230+00:00",
+  "created_at": "2026-10-16T17:59:27.596508+00:00",
   "daily": {
    "2026-10-16": {
     "published_sectors": [],
     "run_ids": [
-     "2026-10-16-AM"
+     "2026-10-16-PM"
     ]
    }
   },
-  "last_run_at": "2026-10-16T07:16:01.255191+00:00",
+  "last_run_at": "2026-10-16T18:07:55.350032+00:00",
   "live": {
    "results": {
-    "event_ids": [],
-    "message_id": 435,
+    "event_ids": [
+     "8dc9fbd0e7f9f168",
+     "929c73aa51e38f78",
+     "4288f7c1dd1bf20a",
+     "7023a8f98271d07e",
+     "80007d6823db5a87",
+     "98412d386cb6f639",
+     "2b22edfa2cdc781e",
+     "09828c3628730657",
+     "509e0029f1698f16",
+     "2e032ddfa1136656"
+    ],
+    "message_id": 437,
     "target_date": "2026-10-15",
-    "updated_at": "2026-10-16T07:16:01.248893+00:00"
+    "updated_at": "2026-10-16T18:07:55.339858+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
-    "event_ids": [],
-    "message_id": 434,
+    "event_ids": [
+     "193c10eea44195be",
+     "d08fd71d507fcb63",
+     "5b251bbf05a69f53",
+     "26a4ad3a78d01268",
+     "c7274dfe5257e190",
+     "577778a593cc2362",
+     "394e86ae2d798736",
+     "4b809ff4f79967d1",
+     "3e7a4765d828b600",
+     "4a3123f7d349e99d"
+    ],
+    "message_id": 436,
     "target_date": "2026-10-17",
-    "updated_at": "2026-10-16T07:16:01.248889+00:00"
+    "updated_at": "2026-10-16T18:07:55.339850+00:00"
    }
   },
   "publication": {
-   "2026-10-16-AM:live_results:4267bc8dfe77bb1a": {
-    "message_id": 435,
-    "posted_at": "2026-10-16T07:16:01.248862+00:00",
+   "2026-10-16-PM:live_results:4267bc8dfe77bb1a": {
+    "message_id": 437,
+    "posted_at": "2026-10-16T18:07:55.339825+00:00",
     "status": "posted"
    },
-   "2026-10-16-AM:live_schedule:eadd477b92200d0d": {
-    "message_id": 434,
-    "posted_at": "2026-10-16T07:16:00.834065+00:00",
+   "2026-10-16-PM:live_schedule:eadd477b92200d0d": {
+    "message_id": 436,
+    "posted_at": "2026-10-16T18:07:54.990726+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-10-16T07:16:01.255198+00:00",
+    "at": "2026-10-16T18:07:55.350038+00:00",
     "evergreen": 0,
     "exit": 0,
-    "live_results": 435,
-    "live_schedule": 434,
-    "run_id": "2026-10-16-AM",
+    "live_results": 437,
+    "live_schedule": 436,
+    "run_id": "2026-10-16-PM",
     "used_sectors": []
    }
   ],
