@@ -2695,6 +2695,7 @@ def cleanup_live_retirements(vstate: dict, *, exclude_ids: Iterable[int] = ()) -
     # batch is rejected, fall back to one-by-one deletion so a single stale ID
     # cannot block the rest. "Message not found" counts as resolved.
     remaining=[]
+    undeletable=[]
     deleted=0
     first_error=""
     for start in range(0,len(pending),100):
@@ -2708,13 +2709,21 @@ def cleanup_live_retirements(vstate: dict, *, exclude_ids: Iterable[int] = ()) -
             first_error=text(res.get("description"))
         for mid in batch:
             single=tg_call("deleteMessage", {"chat_id":CHANNEL, "message_id":mid})
-            if single.get("ok") or "not found" in text(single.get("description")).lower():
+            desc=text(single.get("description")).lower()
+            if single.get("ok") or "not found" in desc:
                 deleted+=1
+            elif "can't be deleted" in desc:
+                # Telegram refuses this specific message permanently (only the
+                # channel owner can remove it in the app). Retrying every run
+                # would never succeed, so drop it from the queue and count it.
+                undeletable.append(mid)
             else:
                 if not first_error:
                     first_error=text(single.get("description"))
                 remaining.append(mid)
             sleep(0.5)
+    if undeletable:
+        logger.warning("Live pair cleanup: %d message(s) cannot be deleted by the bot (Telegram: message can't be deleted); dropped from the queue: %s",len(undeletable),undeletable)
     if not remaining:
         live["retiring_message_ids"]=[]
         logger.info("Live pair cleanup complete: deleted %d retired message(s)",deleted)
