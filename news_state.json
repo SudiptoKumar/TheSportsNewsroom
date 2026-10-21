@@ -9,7 +9,7 @@
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-20T18:27:23.386790+00:00",
+ "last_run_at": "2026-10-21T07:32:27.013754+00:00",
  "ledger": {},
  "posts": [
   {
@@ -4574,7 +4574,7 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-10-20T18:26:57.052141+00:00",
+  "created_at": "2026-10-21T07:32:02.441516+00:00",
   "daily": {
    "2026-10-21": {
     "published_sectors": [],
@@ -4583,41 +4583,41 @@
     ]
    }
   },
-  "last_run_at": "2026-10-20T18:27:23.386772+00:00",
+  "last_run_at": "2026-10-21T07:32:27.013731+00:00",
   "live": {
    "results": {
     "event_ids": [],
-    "message_id": 453,
+    "message_id": 455,
     "target_date": "2026-10-20",
-    "updated_at": "2026-10-20T18:27:23.380505+00:00"
+    "updated_at": "2026-10-21T07:32:27.006801+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
-    "message_id": 452,
+    "message_id": 454,
     "target_date": "2026-10-22",
-    "updated_at": "2026-10-20T18:27:23.380500+00:00"
+    "updated_at": "2026-10-21T07:32:27.006796+00:00"
    }
   },
   "publication": {
    "2026-10-21-AM:live_results:ac415cc7ffb49d53": {
-    "message_id": 453,
-    "posted_at": "2026-10-20T18:27:23.380474+00:00",
+    "message_id": 455,
+    "posted_at": "2026-10-21T07:32:27.006766+00:00",
     "status": "posted"
    },
    "2026-10-21-AM:live_schedule:e4d821d99d35f649": {
-    "message_id": 452,
-    "posted_at": "2026-10-20T18:27:23.046931+00:00",
+    "message_id": 454,
+    "posted_at": "2026-10-21T07:32:26.631882+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-10-20T18:27:23.386779+00:00",
+    "at": "2026-10-21T07:32:27.013741+00:00",
     "evergreen": 0,
     "exit": 0,
-    "live_results": 453,
-    "live_schedule": 452,
+    "live_results": 455,
+    "live_schedule": 454,
     "run_id": "2026-10-21-AM",
     "used_sectors": []
    }
