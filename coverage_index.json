@@ -9803,8 +9803,54 @@
    ],
    "sport_or_game": "Football’s 1884 Rule Book: Section I - Rules Used As Definitions",
    "telegram_message_id": 407
+  },
+  {
+   "central_claim": "As of January 2025, Documented employs seventeen full-time staff and other freelance journalists, working in a newsroom shared …",
+   "central_knowledge_unit": "documented news organization wikipedia",
+   "content_id": "c02d387274b5564a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c02d387274b5564a",
+    "6652c195ba292690"
+   ],
+   "normalized_subject": "documented news organization wikipedia",
+   "people": [],
+   "published_at": "2026-10-21T09:53:30.344391+00:00",
+   "region": "",
+   "run_id": "2026-10-21-PM",
+   "sector": "Sport Origin",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 456
+  },
+  {
+   "central_claim": "Traditions can persist and evolve for thousands of years. The word tradition itself derives from the Latin word tradere literally …",
+   "central_knowledge_unit": "tradition wikipedia",
+   "content_id": "d0df13bf1da02dba",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "d0df13bf1da02dba",
+    "285862ed119faf5c"
+   ],
+   "normalized_subject": "tradition wikipedia",
+   "people": [],
+   "published_at": "2026-10-21T09:53:54.869053+00:00",
+   "region": "",
+   "run_id": "2026-10-21-PM",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 457
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-21T07:32:02.441486+00:00"
+ "updated_at": "2026-10-21T09:53:54.869124+00:00"
 }
