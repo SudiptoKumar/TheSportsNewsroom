@@ -9,7 +9,7 @@ There is one production engine. Scheduled runs, `--dry-run`, diagnostics, and se
 ```text
 Evergreen
 
-Normal web search
+RSS feeds + Google News RSS (normal web search fills gaps)
    ↓
 Sports/scope gate + source normalization
    ↓
@@ -17,11 +17,7 @@ Sports/scope gate + source normalization
    ↓
 Cerebras ranking
    ↓
-Normal source-page evidence retrieval
-   ↓
-Exa Contents fallback when normal evidence is insufficient
-   ↓
-Optional Exa Agent hard-case verification
+Direct source-page evidence retrieval
    ↓
 Cerebras editorial generation
    ↓
@@ -58,7 +54,7 @@ Batch delete + retry queue
 
 ## 2. Evergreen discovery
 
-Normal web search is the default discovery layer. Exa Search is a recovery fallback only when ordinary search results are sparse. Exa is not required for every successful story.
+RSS is the default discovery layer: Google News RSS answers each sector query and mapped publisher feeds add a topical pool, while normal web search only fills remaining gaps. Discovery is entirely free and uses no paid search API.
 
 The 20 sectors are:
 
@@ -89,7 +85,7 @@ A sector can remain uncovered without aborting the run. Only candidates that pas
 
 The discovery layer rejects dictionary/definition pages, obvious non-sports sources, gaming/esports, betting/rumours, invalid source URLs, current-news framing, and duplicate knowledge already present in the coverage index.
 
-Verification requires readable evidence from a real source page. If normal page retrieval is insufficient, Exa Contents may be used. The bot never publishes an unverified search result merely because an AI verification path is unavailable.
+Verification requires readable evidence fetched directly from a real source page. The bot never publishes an unverified search result.
 
 ## 4. Cerebras handling
 
@@ -128,7 +124,7 @@ The channel name is bold and clickable on the same line as exactly two topic-rel
 
 ## 6. Image system
 
-The bot tries source-page lead images first, then ordinary Bing Images search, then Exa image fallback. Every external image is downloaded and verified before Telegram receives it.
+The bot tries source-page lead images first, then ordinary Bing Images search. Every external image is downloaded and verified before Telegram receives it.
 
 Checks include HTTP 200, supported image MIME type, maximum file size, decodability, minimum dimensions, blank/near-blank detection, and a reasonable aspect ratio. Verified JPEGs keep their original bytes; PNG/WebP candidates are normalized to JPEG before upload. No cropping is applied. If Telegram rejects an otherwise verified external image, the post is retried once with the branded card. Obvious low-quality/repost hosts are penalized or rejected. If no relevant verified image survives, the bot uses the branded 1200×675 fallback card.
 
@@ -164,8 +160,7 @@ The runner keeps one active schedule message and one active results message. Kno
 - runs repository structure and compile checks
 - runs the offline self-test suite before production
 - uses a 25-minute application deadline inside the 40-minute job
-- uses normal web search as the primary discovery path
-- keeps Exa credentials optional for successful normal-search runs
+- uses RSS (Google News RSS + publisher feeds) as the primary discovery path, with normal web search as the gap filler
 - commits state changes back to `main`
 
 Workflow-dispatch modes are `run`, `diagnose`, `dry-run`, and `self-test`.
@@ -180,7 +175,7 @@ python main.py --validate-config
 python main.py --dry-run
 ```
 
-Required production secrets are `TELEGRAM_BOT_TOKEN` and `CEREBRAS_API_KEY`. `EXA_API_KEY` is optional and only needed for fallback research/image paths. `CRICKETDATA_API_KEY` is optional.
+Required production secrets are `TELEGRAM_BOT_TOKEN` and `CEREBRAS_API_KEY`. `CRICKETDATA_API_KEY` is optional. No paid search API key is used.
 
 ## 11. Repository tree
 
@@ -192,11 +187,7 @@ Required production secrets are `TELEGRAM_BOT_TOKEN` and `CEREBRAS_API_KEY`. `EX
 │       └── newbot.yml
 ├── prompts/
 │   ├── cerebras_editorial_v1.txt
-│   ├── cerebras_rank_v1.txt
-│   ├── exa_hard_case_agent_v1.txt
-│   └── exa_sector_discovery_v1.txt
-├── schemas/
-│   └── exa_agent_hard_case_v1.json
+│   └── cerebras_rank_v1.txt
 ├── tests/
 │   ├── __init__.py
 │   └── test_v1.py
@@ -214,5 +205,5 @@ Required production secrets are `TELEGRAM_BOT_TOKEN` and `CEREBRAS_API_KEY`. `EX
 
 ## V1.4.0 hotfix
 
-The GitHub Actions regression-test step now runs with external provider credentials cleared. Unit tests also isolate provider keys and explicitly disable the Exa image fallback for deterministic card-fallback tests. Production runs keep the Exa image recovery path enabled by default.
+The GitHub Actions regression-test step now runs with external provider credentials cleared. Unit tests also isolate provider keys for deterministic card-fallback tests.
 
