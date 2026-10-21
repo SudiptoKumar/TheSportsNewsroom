@@ -9849,8 +9849,254 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 457
+  },
+  {
+   "central_claim": "As of January 2025, Documented employs seventeen full-time staff and other freelance journalists, working in a newsroom shared …",
+   "central_knowledge_unit": "as of january 2025 documented employs seventeen full time staff and other freelance journalists working in a newsroom shared",
+   "content_id": "60adfd4158a7cdc3",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "6652c195ba292690",
+    "23c68b690cb085f0"
+   ],
+   "legacy": true,
+   "normalized_subject": "documented news organization wikipedia",
+   "people": [],
+   "published_at": "2026-10-21T09:53:30.344510+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "en.wikipedia.org/wiki/Documented_(news_organization)"
+   ],
+   "sport_or_game": "Documented (news organization) - Wikipedia",
+   "telegram_message_id": 456
+  },
+  {
+   "central_claim": "Traditions can persist and evolve for thousands of years. The word tradition itself derives from the Latin word tradere literally …",
+   "central_knowledge_unit": "traditions can persist and evolve for thousands of years the word tradition itself derives from the latin word tradere literally",
+   "content_id": "05471b84c7e2469b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "285862ed119faf5c",
+    "e430d578b88afff8"
+   ],
+   "legacy": true,
+   "normalized_subject": "tradition wikipedia",
+   "people": [],
+   "published_at": "2026-10-21T09:53:54.869151+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    "en.wikipedia.org/wiki/Tradition"
+   ],
+   "sport_or_game": "Tradition - Wikipedia",
+   "telegram_message_id": 457
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiowFBVV95cUxNQlJpU3hOZVlkeEgwTjlrcnRhbGZPdHJ0eHhSSmdFUHllV3o2QkF1MG5WUTJ1TjZSUlp6VHlMNXhDb2RsLUE1VUkwN2FmS0lQUGgxc29aNGI4X1Z1eFNiYjZJUFdpVlk5S2dyNFdhcWVIU1pzMi1xSENQQ3d6NXVFc0JGY1BuQ3pkX2dSbG12Q1JmTHF6NWl0T0RTQlRacFVLN3o0?oc=5\" target=\"_blank\">Beyond the finish line: women who changed the sport – and the world</a> <font color=\"#6f6f6f\">worldathletics.org</font>",
+   "central_knowledge_unit": "beyond the finish line women who changed the sport and the world",
+   "content_id": "809ed2b1422c90de",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "809ed2b1422c90de",
+    "a7bbc26532775aa4"
+   ],
+   "normalized_subject": "beyond the finish line women who changed the sport and the world",
+   "people": [],
+   "published_at": "2026-10-21T10:35:04.370359+00:00",
+   "region": "",
+   "run_id": "2026-10-21-PM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 460
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiZEFVX3lxTE0wbkp1dUtNTjlXWXo2VW5mT3dLWnRCRzJGSlBYWGx6Z3JwQTY2UzFJeHpxZDItY3BfNFhTVzBDUnhZbVhoZ1poTk5XVGxZQWZUeFNPQUs2UEdjd0VZTWw3azl2ZFA?oc=5\" target=\"_blank\">Summer Olympic Games</a> <font color=\"#6f6f6f\">Britannica</font>",
+   "central_knowledge_unit": "summer olympic games",
+   "content_id": "45f27028342baeae",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "45f27028342baeae",
+    "5388fdcc7a70ce4d"
+   ],
+   "normalized_subject": "summer olympic games",
+   "people": [],
+   "published_at": "2026-10-21T10:35:28.971607+00:00",
+   "region": "",
+   "run_id": "2026-10-21-PM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 461
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiZEFVX3lxTE5LZE9SbWVBWDh5cmZnQm9pTzBoSlB3eFhrUkZpQWdRTzBqS2xkUXppbU5keWdMVktfSGF5SkkzczJweExza1Y2NVpmY0k5eDN5ckJPbEJ4OHh4aEJESTVwTHBqTWM?oc=5\" target=\"_blank\">Wimbledon 2026: The man who invented wheelchair tennis 50 years ago</a> <font color=\"#6f6f6f\">BBC</font>",
+   "central_knowledge_unit": "wimbledon 2026 the man who invented wheelchair tennis 50 years ago",
+   "content_id": "05f7b1fe5308d68c",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "05f7b1fe5308d68c",
+    "a197f4a405a19806"
+   ],
+   "normalized_subject": "wimbledon 2026 the man who invented wheelchair tennis 50 years ago",
+   "people": [],
+   "published_at": "2026-10-21T10:35:41.679729+00:00",
+   "region": "",
+   "run_id": "2026-10-21-PM",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 462
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiZ0FVX3lxTE11Mk1wVGJsLXMwbU5OUjhNYURJZDd3QWhwYnZVM3U3dGRUVktHdE5HOEl5NGpYMDhUQktaUXBiaTdPM2RNNzFWVzFoS1BjRHAxY3NmQ0pLaWZQY25qSHZ1LURXRjJCNjA?oc=5\" target=\"_blank\">World Cup 2026: VAR makes 'mistaken identity' history as strange booking confuses fans</a> <font color=\"#6f6f6f\">BBC</font>",
+   "central_knowledge_unit": "world cup 2026 var makes mistaken identity history as strange booking confuses fans",
+   "content_id": "aec97cc7e8be740c",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "aec97cc7e8be740c",
+    "0d1a4e8d9d7d857f"
+   ],
+   "normalized_subject": "world cup 2026 var makes mistaken identity history as strange booking confuses fans",
+   "people": [],
+   "published_at": "2026-10-21T10:36:18.531324+00:00",
+   "region": "",
+   "run_id": "2026-10-21-PM",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 463
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBQQlI1dWUtUTFSSERJcGgwNGdmSUtfTUdUeEFpZGNRbXRCY21QLWpWS3dMRlB5cHNia3g3QldCTDdiUVFzNWM5SDg2OExCaXZtcmxqa2FaeHY4MFRla0VDU3JrUEx6bzQ?oc=5\" target=\"_blank\">World Cup 2026: Neymar - the return of Brazil's forgotten hero</a> <font color=\"#6f6f6f\">BBC</font>",
+   "central_knowledge_unit": "world cup 2026 neymar the return of brazil s forgotten hero",
+   "content_id": "a6ee0f80da80618d",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a6ee0f80da80618d",
+    "b8a4bf1d0c029fe4"
+   ],
+   "normalized_subject": "world cup 2026 neymar the return of brazil s forgotten hero",
+   "people": [],
+   "published_at": "2026-10-21T10:36:43.960339+00:00",
+   "region": "",
+   "run_id": "2026-10-21-PM",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 464
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMimgFBVV95cUxPZDJkVXROSU1OQmJLTjE2ZFpFSUVlZnd4Z1ZkTm10eFZaTFd1RURvenZHc0RYOW0xYXNaYWlNcHV2dEhuZGhBRDV4OVh4VHRkbFhIY3VwTTdPZlB2RndsUS1yVU9id2xNV3JsbkpOeFVubG5FcVpwcEtDSEl5ZHN0clI1UmlKY2NjSzMtWmRGRTlfc0VidFk5XzZn?oc=5\" target=\"_blank\">AI Cracks Rules of Roman Board Game Found in the Netherlands</a> <font color=\"#6f6f6f\">Ancient Origins</font>",
+   "central_knowledge_unit": "ai cracks rules of roman board game found in the netherlands",
+   "content_id": "a0a1796f9ae465bc",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a0a1796f9ae465bc",
+    "3870748a8c3cc8bd"
+   ],
+   "normalized_subject": "ai cracks rules of roman board game found in the netherlands",
+   "people": [],
+   "published_at": "2026-10-21T10:37:08.564009+00:00",
+   "region": "",
+   "run_id": "2026-10-21-PM",
+   "sector": "Game Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 465
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE5yOVVhVnRWU0pQMFNCOGhtdHhLbW15bGQ4elpmb0NXaVlHWEIwdU12dEpGeXlfYUwzSlUxZjNkWDVFMEJ5cFBTYmN6MGR3R2VhUnlWS0NvRjJCSmpCMFpramhCd212VWd1Z0Q3bjlBNkRjWThxN0Ftckw5VDdsZm8?oc=5\" target=\"_blank\">AI Cracked the Rules of a Lost Roman Board Game, and It’s Unlike Anything We Expected</a> <font color=\"#6f6f6f\">ZME Science</font>",
+   "central_knowledge_unit": "ai cracked the rules of a lost roman board game and it s unlike anything we expected",
+   "content_id": "7da89c0292943091",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7da89c0292943091",
+    "62ac978d94fd55b6"
+   ],
+   "normalized_subject": "ai cracked the rules of a lost roman board game and it s unlike anything we expected",
+   "people": [],
+   "published_at": "2026-10-21T10:37:21.706885+00:00",
+   "region": "",
+   "run_id": "2026-10-21-PM",
+   "sector": "Forgotten Game",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 466
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMic0FVX3lxTFBVYkF6Y21nV1J0eVdlZkJZNVVXS1hYazBSN2ppLWlGZHdhazFXdnFOMlJlT1huRTFIdlM2VHFIeTZQZktGX3JnamlONDR4OE83cW91M1Byb29CY2txdGk3S1RKQWM1ZkgwMmVqRm5zLUVsQmc?oc=5\" target=\"_blank\">Everyone Hates the Most Classic Board Game. Apparently, That’s Because We’ve Been Playing It All Wrong.</a> <font color=\"#6f6f6f\">Slate</font>",
+   "central_knowledge_unit": "everyone hates the most classic board game apparently that s because we ve been playing it all wrong",
+   "content_id": "488a93c345919454",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "488a93c345919454",
+    "f6d9f88583e90170"
+   ],
+   "normalized_subject": "everyone hates the most classic board game apparently that s because we ve been playing it all wrong",
+   "people": [],
+   "published_at": "2026-10-21T10:37:36.985452+00:00",
+   "region": "",
+   "run_id": "2026-10-21-PM",
+   "sector": "How to Play",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 467
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-21T09:53:54.869124+00:00"
+ "updated_at": "2026-10-21T10:37:36.985596+00:00"
 }

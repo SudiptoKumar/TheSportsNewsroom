@@ -1,15 +1,15 @@
 {
  "ai": {
-  "last_error": "",
-  "last_ok": "2026-10-21T09:53:52.835643+00:00",
-  "last_request_id": "a4df60b02c34e625-CMH",
+  "last_error": "Cerebras per-run call cap reached (16)",
+  "last_ok": "2026-10-21T10:37:31.967488+00:00",
+  "last_request_id": "a4dfa0a18b7c45a9-IAD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-21T09:54:02.443527+00:00",
+ "last_run_at": "2026-10-21T10:38:24.179639+00:00",
  "ledger": {},
  "posts": [
   {
@@ -4605,6 +4605,188 @@
    "urls": [
     "en.wikipedia.org/wiki/Tradition"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Beyond the finish line: women who changed the sport – and the world",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMiowFBVV95cUxNQlJpU3hOZVlkeEgwTjlrcnRhbGZPdHJ0eHhSSmdFUHllV3o2QkF1MG5WUTJ1TjZSUlp6VHlMNXhDb2RsLUE1VUkwN2FmS0lQUGgxc29aNGI4X1Z1eFNiYjZJUFdpVlk5S2dyNFdhcWVIU1pzMi1xSENQQ3d6NXVFc0JGY1BuQ3pkX2dSbG12Q1JmTHF6NWl0T0RTQlRacFVLN3o0?oc=5\" target=\"_blank\">Beyond the finish line: women who changed the sport – and the world</a> <font color=\"#6f6f6f\">worldathletics.org</font>",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Fanny Blankers‑Koen shattered stereotypes at the 1948 Olympics",
+   "image_status": "verified_external",
+   "message_id": 460,
+   "normalized_subject": "Beyond the finish line: women who changed the sport – and the world",
+   "posted_at": "2026-10-21T10:35:04.370530+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-21-PM",
+   "sector": "Sports & Games People",
+   "topic": "Beyond the finish line: women who changed the sport – and the world",
+   "urls": [
+    "worldathletics.org/women-in-athletics/news/beyond-the-finish-line-women-who-changed-athletics"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Summer Olympic Games",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMiZEFVX3lxTE0wbkp1dUtNTjlXWXo2VW5mT3dLWnRCRzJGSlBYWGx6Z3JwQTY2UzFJeHpxZDItY3BfNFhTVzBDUnhZbVhoZ1poTk5XVGxZQWZUeFNPQUs2UEdjd0VZTWw3azl2ZFA?oc=5\" target=\"_blank\">Summer Olympic Games</a> <font color=\"#6f6f6f\">Britannica</font>",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "Understanding the Word “then” in Sports Writing",
+   "image_status": "card_fallback",
+   "message_id": 461,
+   "normalized_subject": "Summer Olympic Games",
+   "posted_at": "2026-10-21T10:35:28.971758+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-21-PM",
+   "sector": "Then vs Now",
+   "topic": "Summer Olympic Games",
+   "urls": [
+    "britannica.com/sports/Summer-Olympic-Games"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Wimbledon 2026: The man who invented wheelchair tennis 50 years ago",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMiZEFVX3lxTE5LZE9SbWVBWDh5cmZnQm9pTzBoSlB3eFhrUkZpQWdRTzBqS2xkUXppbU5keWdMVktfSGF5SkkzczJweExza1Y2NVpmY0k5eDN5ckJPbEJ4OHh4aEJESTVwTHBqTWM?oc=5\" target=\"_blank\">Wimbledon 2026: The man who invented wheelchair tennis 50 years ago</a> <font color=\"#6f6f6f\">BBC</font>",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "Brad Parks Celebrated at Wimbledon 2026 for Inventing Wheelchair Tennis",
+   "image_status": "verified_external",
+   "message_id": 462,
+   "normalized_subject": "Wimbledon 2026: The man who invented wheelchair tennis 50 years ago",
+   "posted_at": "2026-10-21T10:35:41.679876+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-21-PM",
+   "sector": "Sport Origin",
+   "topic": "Wimbledon 2026: The man who invented wheelchair tennis 50 years ago",
+   "urls": [
+    "bbc.com/sport/tennis/articles/c1e2nlj58zxo"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "World Cup 2026: VAR makes 'mistaken identity' history as strange booking confuses fans",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMiZ0FVX3lxTE11Mk1wVGJsLXMwbU5OUjhNYURJZDd3QWhwYnZVM3U3dGRUVktHdE5HOEl5NGpYMDhUQktaUXBiaTdPM2RNNzFWVzFoS1BjRHAxY3NmQ0pLaWZQY25qSHZ1LURXRjJCNjA?oc=5\" target=\"_blank\">World Cup 2026: VAR makes 'mistaken identity' history as strange booking confuses fans</a> <font color=\"#6f6f6f\">BBC</font>",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "VAR makes historic mistaken‑identity decision at World Cup 2026",
+   "image_status": "verified_external",
+   "message_id": 463,
+   "normalized_subject": "World Cup 2026: VAR makes 'mistaken identity' history as strange booking confuses fans",
+   "posted_at": "2026-10-21T10:36:18.531481+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-21-PM",
+   "sector": "Game Discovery",
+   "topic": "World Cup 2026: VAR makes 'mistaken identity' history as strange booking confuses fans",
+   "urls": [
+    "bbc.com/sport/football/articles/c5yze890365o"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "World Cup 2026: Neymar - the return of Brazil's forgotten hero",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBQQlI1dWUtUTFSSERJcGgwNGdmSUtfTUdUeEFpZGNRbXRCY21QLWpWS3dMRlB5cHNia3g3QldCTDdiUVFzNWM5SDg2OExCaXZtcmxqa2FaeHY4MFRla0VDU3JrUEx6bzQ?oc=5\" target=\"_blank\">World Cup 2026: Neymar - the return of Brazil's forgotten hero</a> <font color=\"#6f6f6f\">BBC</font>",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Sport",
+   "headline": "Neymar Returns to Brazil Squad in Miami World Cup Opener",
+   "image_status": "verified_external",
+   "message_id": 464,
+   "normalized_subject": "World Cup 2026: Neymar - the return of Brazil's forgotten hero",
+   "posted_at": "2026-10-21T10:36:43.960487+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-21-PM",
+   "sector": "Forgotten Sport",
+   "topic": "World Cup 2026: Neymar - the return of Brazil's forgotten hero",
+   "urls": [
+    "bbc.com/sport/football/articles/cgl3gk52nz3o"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "AI Cracks Rules of Roman Board Game Found in the Netherlands",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMimgFBVV95cUxPZDJkVXROSU1OQmJLTjE2ZFpFSUVlZnd4Z1ZkTm10eFZaTFd1RURvenZHc0RYOW0xYXNaYWlNcHV2dEhuZGhBRDV4OVh4VHRkbFhIY3VwTTdPZlB2RndsUS1yVU9id2xNV3JsbkpOeFVubG5FcVpwcEtDSEl5ZHN0clI1UmlKY2NjSzMtWmRGRTlfc0VidFk5XzZn?oc=5\" target=\"_blank\">AI Cracks Rules of Roman Board Game Found in the Netherlands</a> <font color=\"#6f6f6f\">Ancient Origins</font>",
+   "desk": "evergreen_v1",
+   "format": "Game Origin",
+   "headline": "AI Deciphers Rules of Ancient Roman Board Game from Dutch Find",
+   "image_status": "card_fallback",
+   "message_id": 465,
+   "normalized_subject": "AI Cracks Rules of Roman Board Game Found in the Netherlands",
+   "posted_at": "2026-10-21T10:37:08.564179+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-21-PM",
+   "sector": "Game Origin",
+   "topic": "AI Cracks Rules of Roman Board Game Found in the Netherlands",
+   "urls": [
+    "ancient-origins.net/news-history-archaeology/roman-board-game-netherlands-00102514"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "AI Cracked the Rules of a Lost Roman Board Game, and It’s Unlike Anything We Expected",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE5yOVVhVnRWU0pQMFNCOGhtdHhLbW15bGQ4elpmb0NXaVlHWEIwdU12dEpGeXlfYUwzSlUxZjNkWDVFMEJ5cFBTYmN6MGR3R2VhUnlWS0NvRjJCSmpCMFpramhCd212VWd1Z0Q3bjlBNkRjWThxN0Ftckw5VDdsZm8?oc=5\" target=\"_blank\">AI Cracked the Rules of a Lost Roman Board Game, and It’s Unlike Anything We Expected</a> <font color=\"#6f6f6f\">ZME Science</font>",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Game",
+   "headline": "AI Deciphers Rules of Lost Roman Board Game",
+   "image_status": "verified_external",
+   "message_id": 466,
+   "normalized_subject": "AI Cracked the Rules of a Lost Roman Board Game, and It’s Unlike Anything We Expected",
+   "posted_at": "2026-10-21T10:37:21.707051+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-21-PM",
+   "sector": "Forgotten Game",
+   "topic": "AI Cracked the Rules of a Lost Roman Board Game, and It’s Unlike Anything We Expected",
+   "urls": [
+    "zmescience.com/science/archaeology/ai-unlocks-lost-roman-game"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Everyone Hates the Most Classic Board Game. Apparently, That’s Because We’ve Been Playing It All Wrong.",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMic0FVX3lxTFBVYkF6Y21nV1J0eVdlZkJZNVVXS1hYazBSN2ppLWlGZHdhazFXdnFOMlJlT1huRTFIdlM2VHFIeTZQZktGX3JnamlONDR4OE83cW91M1Byb29CY2txdGk3S1RKQWM1ZkgwMmVqRm5zLUVsQmc?oc=5\" target=\"_blank\">Everyone Hates the Most Classic Board Game. Apparently, That’s Because We’ve Been Playing It All Wrong.</a> <font color=\"#6f6f6f\">Slate</font>",
+   "desk": "evergreen_v1",
+   "format": "How to Play",
+   "headline": "Why Monopoly’s Reputation Stems From Misplaying the Classic Game",
+   "image_status": "card_fallback",
+   "message_id": 467,
+   "normalized_subject": "Everyone Hates the Most Classic Board Game. Apparently, That’s Because We’ve Been Playing It All Wrong.",
+   "posted_at": "2026-10-21T10:37:36.985630+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-21-PM",
+   "sector": "How to Play",
+   "topic": "Everyone Hates the Most Classic Board Game. Apparently, That’s Because We’ve Been Playing It All Wrong.",
+   "urls": [
+    "slate.com/life/2026/07/monopoly-go-rules-board-games.html"
+   ]
   }
  ],
  "runs": [],
@@ -4616,67 +4798,109 @@
   "pool": {}
  },
  "v1": {
-  "created_at": "2026-10-21T09:52:59.404841+00:00",
+  "created_at": "2026-10-21T10:33:04.095850+00:00",
   "daily": {
    "2026-10-21": {
     "published_sectors": [
+     "Sports & Games People",
+     "Then vs Now",
      "Sport Origin",
-     "Traditional / Regional Game"
+     "Game Discovery",
+     "Forgotten Sport",
+     "Game Origin",
+     "Forgotten Game",
+     "How to Play"
     ],
     "run_ids": [
      "2026-10-21-PM"
     ]
    }
   },
-  "last_run_at": "2026-10-21T09:54:02.443496+00:00",
+  "last_run_at": "2026-10-21T10:38:24.179610+00:00",
   "live": {
    "results": {
     "event_ids": [],
-    "message_id": 459,
+    "message_id": 469,
     "target_date": "2026-10-20",
-    "updated_at": "2026-10-21T09:54:02.435451+00:00"
+    "updated_at": "2026-10-21T10:38:24.169606+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
-    "message_id": 458,
+    "message_id": 468,
     "target_date": "2026-10-22",
-    "updated_at": "2026-10-21T09:54:02.435446+00:00"
+    "updated_at": "2026-10-21T10:38:24.169599+00:00"
    }
   },
   "publication": {
-   "2026-10-21-PM:evergreen:2a9c1be171d9a82a": {
-    "message_id": 456,
-    "posted_at": "2026-10-21T09:53:30.344307+00:00",
+   "2026-10-21-PM:evergreen:192e22219fe5c90e": {
+    "message_id": 467,
+    "posted_at": "2026-10-21T10:37:36.985301+00:00",
     "status": "posted"
    },
-   "2026-10-21-PM:evergreen:71fe83227b1b8d77": {
-    "message_id": 457,
-    "posted_at": "2026-10-21T09:53:54.868943+00:00",
+   "2026-10-21-PM:evergreen:1f080884eae5c25f": {
+    "message_id": 462,
+    "posted_at": "2026-10-21T10:35:41.679614+00:00",
+    "status": "posted"
+   },
+   "2026-10-21-PM:evergreen:56d63388064e2d02": {
+    "message_id": 460,
+    "posted_at": "2026-10-21T10:35:04.370226+00:00",
+    "status": "posted"
+   },
+   "2026-10-21-PM:evergreen:5e1ad461c14bbe2a": {
+    "message_id": 464,
+    "posted_at": "2026-10-21T10:36:43.960217+00:00",
+    "status": "posted"
+   },
+   "2026-10-21-PM:evergreen:6c7dcee2b3ca9c5d": {
+    "message_id": 461,
+    "posted_at": "2026-10-21T10:35:28.971496+00:00",
+    "status": "posted"
+   },
+   "2026-10-21-PM:evergreen:8a30dce9bf8eabdd": {
+    "message_id": 465,
+    "posted_at": "2026-10-21T10:37:08.563886+00:00",
+    "status": "posted"
+   },
+   "2026-10-21-PM:evergreen:9de9856e17d824ce": {
+    "message_id": 466,
+    "posted_at": "2026-10-21T10:37:21.706730+00:00",
+    "status": "posted"
+   },
+   "2026-10-21-PM:evergreen:e6e445800443d138": {
+    "message_id": 463,
+    "posted_at": "2026-10-21T10:36:18.531205+00:00",
     "status": "posted"
    },
    "2026-10-21-PM:live_results:ac415cc7ffb49d53": {
-    "message_id": 459,
-    "posted_at": "2026-10-21T09:54:02.435418+00:00",
+    "message_id": 469,
+    "posted_at": "2026-10-21T10:38:24.169573+00:00",
     "status": "posted"
    },
    "2026-10-21-PM:live_schedule:e4d821d99d35f649": {
-    "message_id": 458,
-    "posted_at": "2026-10-21T09:54:02.125256+00:00",
+    "message_id": 468,
+    "posted_at": "2026-10-21T10:38:23.859014+00:00",
     "status": "posted"
    }
   },
   "runs": [
    {
-    "at": "2026-10-21T09:54:02.443510+00:00",
-    "evergreen": 2,
+    "at": "2026-10-21T10:38:24.179620+00:00",
+    "evergreen": 8,
     "exit": 0,
-    "live_results": 459,
-    "live_schedule": 458,
+    "live_results": 469,
+    "live_schedule": 468,
     "run_id": "2026-10-21-PM",
     "used_sectors": [
+     "Forgotten Game",
+     "Forgotten Sport",
+     "Game Discovery",
+     "Game Origin",
+     "How to Play",
      "Sport Origin",
-     "Traditional / Regional Game"
+     "Sports & Games People",
+     "Then vs Now"
     ]
    }
   ],
