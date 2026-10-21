@@ -10095,8 +10095,450 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 467
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiowFBVV95cUxNQlJpU3hOZVlkeEgwTjlrcnRhbGZPdHJ0eHhSSmdFUHllV3o2QkF1MG5WUTJ1TjZSUlp6VHlMNXhDb2RsLUE1VUkwN2FmS0lQUGgxc29aNGI4X1Z1eFNiYjZJUFdpVlk5S2dyNFdhcWVIU1pzMi1xSENQQ3d6NXVFc0JGY1BuQ3pkX2dSbG12Q1JmTHF6NWl0T0RTQlRacFVLN3o0?oc=5\" target=\"_blank\">Beyond the finish line: women who changed the sport – and the world</a> <font color=\"#6f6f6f\">worldathletics.org</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmiowfbvv95cuxnqljpu3hozvlkeegwtjlrcnrhbgzpdhj0ehhssmdfuhllv3o2qkf1mg5wutj1tjzsulp6vhlmnxhdb2rslue1vukwn2fms0lquggxc29angi4x1z1efniyjzjufdpvlk5s2dynfdhcwviu1pzmi1xsenqq3d6nxvfc0",
+   "content_id": "d2d824f181057b43",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a7bbc26532775aa4",
+    "1cf4dddf8951b720"
+   ],
+   "legacy": true,
+   "normalized_subject": "beyond the finish line women who changed the sport and the world",
+   "people": [],
+   "published_at": "2026-10-21T10:35:04.370530+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "worldathletics.org/women-in-athletics/news/beyond-the-finish-line-women-who-changed-athletics"
+   ],
+   "sport_or_game": "Beyond the finish line: women who changed the sport – and the world",
+   "telegram_message_id": 460
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiZEFVX3lxTE0wbkp1dUtNTjlXWXo2VW5mT3dLWnRCRzJGSlBYWGx6Z3JwQTY2UzFJeHpxZDItY3BfNFhTVzBDUnhZbVhoZ1poTk5XVGxZQWZUeFNPQUs2UEdjd0VZTWw3azl2ZFA?oc=5\" target=\"_blank\">Summer Olympic Games</a> <font color=\"#6f6f6f\">Britannica</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmizefvx3lxte0wbkp1dutntjlxwxo2vw5mt3dlwnrcrzjgslbywgx6z3jwqty2uzfjehpxzdity3bfnfhtvzbdunhzbvhoz1potk5xvgxzqwzuefnpqus2uedjd0vztww3azl2zfa oc 5 target blank summer olympic games",
+   "content_id": "6086437a3131e5b1",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "5388fdcc7a70ce4d",
+    "7417accbecaebcf6"
+   ],
+   "legacy": true,
+   "normalized_subject": "summer olympic games",
+   "people": [],
+   "published_at": "2026-10-21T10:35:28.971758+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "britannica.com/sports/Summer-Olympic-Games"
+   ],
+   "sport_or_game": "Summer Olympic Games",
+   "telegram_message_id": 461
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiZEFVX3lxTE5LZE9SbWVBWDh5cmZnQm9pTzBoSlB3eFhrUkZpQWdRTzBqS2xkUXppbU5keWdMVktfSGF5SkkzczJweExza1Y2NVpmY0k5eDN5ckJPbEJ4OHh4aEJESTVwTHBqTWM?oc=5\" target=\"_blank\">Wimbledon 2026: The man who invented wheelchair tennis 50 years ago</a> <font color=\"#6f6f6f\">BBC</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmizefvx3lxte5lze9sbwvbwdh5cmznqm9ptzboslb3efhrukzpqwdrtzbqs2xkuxppbu5kewdmvktfsgf5skkzczjweexza1y2nvpmy0k5edn5ckjpbej4ohh4aejestvwthbqtwm oc 5 target blank wimbledon 2026 the m",
+   "content_id": "389fcc07e9f22c3b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a197f4a405a19806",
+    "2427a27a8aad29a9"
+   ],
+   "legacy": true,
+   "normalized_subject": "wimbledon 2026 the man who invented wheelchair tennis 50 years ago",
+   "people": [],
+   "published_at": "2026-10-21T10:35:41.679876+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "bbc.com/sport/tennis/articles/c1e2nlj58zxo"
+   ],
+   "sport_or_game": "Wimbledon 2026: The man who invented wheelchair tennis 50 years ago",
+   "telegram_message_id": 462
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiZ0FVX3lxTE11Mk1wVGJsLXMwbU5OUjhNYURJZDd3QWhwYnZVM3U3dGRUVktHdE5HOEl5NGpYMDhUQktaUXBiaTdPM2RNNzFWVzFoS1BjRHAxY3NmQ0pLaWZQY25qSHZ1LURXRjJCNjA?oc=5\" target=\"_blank\">World Cup 2026: VAR makes 'mistaken identity' history as strange booking confuses fans</a> <font color=\"#6f6f6f\">BBC</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmiz0fvx3lxte11mk1wvgjslxmwbu5oujhnyurjzdd3qwhwynzvm3u3dgruvkthde5hoel5ngpymdhuqktauxbiatdpm2rnnzfwvzfos1bjrhaxy3nmq0plawzqy25qshz1lurxrjjcnja oc 5 target blank world cup 2026 v",
+   "content_id": "12e7ba0cba5e2c8a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "0d1a4e8d9d7d857f",
+    "cd51d0bf6475f682"
+   ],
+   "legacy": true,
+   "normalized_subject": "world cup 2026 var makes mistaken identity history as strange booking confuses fans",
+   "people": [],
+   "published_at": "2026-10-21T10:36:18.531481+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "bbc.com/sport/football/articles/c5yze890365o"
+   ],
+   "sport_or_game": "World Cup 2026: VAR makes 'mistaken identity' history as strange booking confuses fans",
+   "telegram_message_id": 463
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBQQlI1dWUtUTFSSERJcGgwNGdmSUtfTUdUeEFpZGNRbXRCY21QLWpWS3dMRlB5cHNia3g3QldCTDdiUVFzNWM5SDg2OExCaXZtcmxqa2FaeHY4MFRla0VDU3JrUEx6bzQ?oc=5\" target=\"_blank\">World Cup 2026: Neymar - the return of Brazil's forgotten hero</a> <font color=\"#6f6f6f\">BBC</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmiz0fvx3lxtfbqqli1dwututfsserjcggwngdmsutftudueefpzgnrbxrcy21qlwpws3dmrlb5chnia3g3qldctddiuvfznwm5sdg2oexcaxztcmxqa2faehy4mfrla0vdu3jruex6bzq oc 5 target blank world cup 2026 n",
+   "content_id": "2879164f016b5d25",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b8a4bf1d0c029fe4",
+    "d21e966b2e32d458"
+   ],
+   "legacy": true,
+   "normalized_subject": "world cup 2026 neymar the return of brazil s forgotten hero",
+   "people": [],
+   "published_at": "2026-10-21T10:36:43.960487+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    "bbc.com/sport/football/articles/cgl3gk52nz3o"
+   ],
+   "sport_or_game": "World Cup 2026: Neymar - the return of Brazil's forgotten hero",
+   "telegram_message_id": 464
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMimgFBVV95cUxPZDJkVXROSU1OQmJLTjE2ZFpFSUVlZnd4Z1ZkTm10eFZaTFd1RURvenZHc0RYOW0xYXNaYWlNcHV2dEhuZGhBRDV4OVh4VHRkbFhIY3VwTTdPZlB2RndsUS1yVU9id2xNV3JsbkpOeFVubG5FcVpwcEtDSEl5ZHN0clI1UmlKY2NjSzMtWmRGRTlfc0VidFk5XzZn?oc=5\" target=\"_blank\">AI Cracks Rules of Roman Board Game Found in the Netherlands</a> <font color=\"#6f6f6f\">Ancient Origins</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmimgfbvv95cuxpzdjkvxrosu1oqmjltje2zfpfsuvlznd4z1zktm10efzatfd1rurvenzhc0ryow0xyxnaywlnchv2dehuzghbrdv4ovh4vhrkbfhiy3vwttdpzlb2rndsus1yvu9id2xnv3jsbkpoefvubg5fcvpwcetdsel5zhn0cl",
+   "content_id": "de160b2229e333fe",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "3870748a8c3cc8bd",
+    "adb451d83f1099f1"
+   ],
+   "legacy": true,
+   "normalized_subject": "ai cracks rules of roman board game found in the netherlands",
+   "people": [],
+   "published_at": "2026-10-21T10:37:08.564179+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Origin",
+   "source_urls": [
+    "ancient-origins.net/news-history-archaeology/roman-board-game-netherlands-00102514"
+   ],
+   "sport_or_game": "AI Cracks Rules of Roman Board Game Found in the Netherlands",
+   "telegram_message_id": 465
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE5yOVVhVnRWU0pQMFNCOGhtdHhLbW15bGQ4elpmb0NXaVlHWEIwdU12dEpGeXlfYUwzSlUxZjNkWDVFMEJ5cFBTYmN6MGR3R2VhUnlWS0NvRjJCSmpCMFpramhCd212VWd1Z0Q3bjlBNkRjWThxN0Ftckw5VDdsZm8?oc=5\" target=\"_blank\">AI Cracked the Rules of a Lost Roman Board Game, and It’s Unlike Anything We Expected</a> <font color=\"#6f6f6f\">ZME Science</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmif0fvx3lxte5yovvhvnrwu0pqmfncoghtdhhlbw15bgq4elpmb0nxavlhweiwdu12depgexlfyuwzsluxzjnkwdvfmej5cfbtymn6mgr3r2vhunlws0nvrjjcsmpcmfpramhcd212vwd1z0q3bjlbnkrjwthxn0ftckw5vddszm8 oc",
+   "content_id": "5c4c26f5f713975f",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "62ac978d94fd55b6",
+    "df97965fde58a032"
+   ],
+   "legacy": true,
+   "normalized_subject": "ai cracked the rules of a lost roman board game and it s unlike anything we expected",
+   "people": [],
+   "published_at": "2026-10-21T10:37:21.707051+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Game",
+   "source_urls": [
+    "zmescience.com/science/archaeology/ai-unlocks-lost-roman-game"
+   ],
+   "sport_or_game": "AI Cracked the Rules of a Lost Roman Board Game, and It’s Unlike Anything We Expected",
+   "telegram_message_id": 466
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMic0FVX3lxTFBVYkF6Y21nV1J0eVdlZkJZNVVXS1hYazBSN2ppLWlGZHdhazFXdnFOMlJlT1huRTFIdlM2VHFIeTZQZktGX3JnamlONDR4OE83cW91M1Byb29CY2txdGk3S1RKQWM1ZkgwMmVqRm5zLUVsQmc?oc=5\" target=\"_blank\">Everyone Hates the Most Classic Board Game. Apparently, That’s Because We’ve Been Playing It All Wrong.</a> <font color=\"#6f6f6f\">Slate</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmic0fvx3lxtfbvykf6y21nv1j0evdlzkjznvvxs1hyazbsn2pplwlgzhdhazfxdnfomljlt1hurtfidlm2vhfietzqzktgx3jnamlondr4oe83cw91m1byb29cy2txdgk3s1rkqwm1zkgwmmvqrm5zluvsqmc oc 5 target blank ",
+   "content_id": "13cae590c558687e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f6d9f88583e90170",
+    "d9131c761333609d"
+   ],
+   "legacy": true,
+   "normalized_subject": "everyone hates the most classic board game apparently that s because we ve been playing it all wrong",
+   "people": [],
+   "published_at": "2026-10-21T10:37:36.985630+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "How to Play",
+   "source_urls": [
+    "slate.com/life/2026/07/monopoly-go-rules-board-games.html"
+   ],
+   "sport_or_game": "Everyone Hates the Most Classic Board Game. Apparently, That’s Because We’ve Been Playing It All Wrong.",
+   "telegram_message_id": 467
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxNT01XZ2dQeV82Y1IwSml2TkdkVEoyYTV4RjJHOWlXUFduQ1lrdEd4a0xQajQzMFFBcThqTUctSGd2cHB6U0ZUYThOVVp3dDZWeFJISTdnZnZkWjhCUGF4cmJUQXlPT09XSlNIaTMwdmdiRlFzcmdsRmxWaC02YlVDekh2UzRLOEYtM1ByNkxTbngyTTRXN2ctNGhEd2tkaWZoNGkwSkpMTzJPQkJTdUE?oc=5\" target=\"_blank\">The secret history of Monopoly: the capitalist board game’s leftwing origins</a> <font color=\"#6f6f6f\">The Guardian</font>",
+   "central_knowledge_unit": "the secret history of monopoly the capitalist board game s leftwing origins",
+   "content_id": "0ea9f11674378268",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "0ea9f11674378268",
+    "a6c596bbe5a15d53"
+   ],
+   "normalized_subject": "the secret history of monopoly the capitalist board game s leftwing origins",
+   "people": [],
+   "published_at": "2026-10-21T18:36:21.145515+00:00",
+   "region": "",
+   "run_id": "2026-10-22-AM",
+   "sector": "Game Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 470
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiYkFVX3lxTE5lSXpoQ1dpZXJOZ0haOF8tcElFV0E0bDlCVHJORHc3NFNCSDRzejEtNFN5VHU3NWo1QXZHeVZwampxYm14Z3JkYzVUZW5YY2N3M21hbmgtd21jZzlyOGFYU1Vn?oc=5\" target=\"_blank\">FIFA World Cup | Memorable Moments, Football, Soccer, History, 2026, Schedule, Winners, Awards, & Facts</a> <font color=\"#6f6f6f\">Britannica</font>",
+   "central_knowledge_unit": "fifa world cup memorable moments football soccer history 2026 schedule winners awards facts",
+   "content_id": "f26e846341924c09",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f26e846341924c09",
+    "c65dcdbca4bcde2c"
+   ],
+   "normalized_subject": "fifa world cup memorable moments football soccer history 2026 schedule winners awards facts",
+   "people": [],
+   "published_at": "2026-10-21T18:36:45.355013+00:00",
+   "region": "",
+   "run_id": "2026-10-22-AM",
+   "sector": "Interesting Sports Fact",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 471
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMilAFBVV95cUxQNmxMLWRzMFJzbUM2R3U2RTJBUlBuTTViZmQ3RE9SYTM1eEtYdXNPSFF1TER0OXNZeUo1S3ZIaUdZR29PYm9EeXY2TW5WTHY2UUVOQTJ6TnhkeS1FVW9kRE9WOTJSQ0FMZGp4aHF0UzVhVHd0Ul9qU3JtU2FiZWU1SUJVSm5GcTZ0SU1oOVUwaWxfYzAy?oc=5\" target=\"_blank\">The lost gods of college football: Why the sport no longer produces megastar running backs</a> <font color=\"#6f6f6f\">247Sports</font>",
+   "central_knowledge_unit": "the lost gods of college football why the sport no longer produces megastar running backs",
+   "content_id": "f97ce4c553adcfa4",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f97ce4c553adcfa4",
+    "9acf696a5a576e6b"
+   ],
+   "normalized_subject": "the lost gods of college football why the sport no longer produces megastar running backs",
+   "people": [],
+   "published_at": "2026-10-21T18:37:22.897045+00:00",
+   "region": "",
+   "run_id": "2026-10-22-AM",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 472
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMivwFBVV95cUxPX2xEejlzaEdCYjVPNjhGZTFBNWpsRnNlckNYSnVWcjR3SU9heUM2dUl5cWthX3NlbjlxVkZRWVlhTktzbGdxM0t2bjhEcWpGT1J0QXduSTR4RUhqQ0hNOTBjYUVkb0J1bnNRbFpMWUxBTUtLUGxnZ2poY3hMRG9lcWl0OHY4bWN3UVZrQUlWejVzR0RnUDBCc0Q4cURKTnVhTERtVWxZRUVYd3VUUVpMZ1BtdzgwRHRiZnlKeDRJOA?oc=5\" target=\"_blank\">With The Rules Lost For 1,500 Years, AI Learns How To Play Board Game From The Roman Empire</a> <font color=\"#6f6f6f\">IFLScience</font>",
+   "central_knowledge_unit": "with the rules lost for 1 500 years ai learns how to play board game from the roman empire",
+   "content_id": "0f7cd7571efa2113",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "0f7cd7571efa2113",
+    "86cf73e1251702ec"
+   ],
+   "normalized_subject": "with the rules lost for 1 500 years ai learns how to play board game from the roman empire",
+   "people": [],
+   "published_at": "2026-10-21T18:37:35.765323+00:00",
+   "region": "",
+   "run_id": "2026-10-22-AM",
+   "sector": "Forgotten Game",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 473
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMickFVX3lxTE80TWF3RHhRQm9WQzVnSWxKX0YxbzhybG5wcGlEcHFSQnhOWmlQend2UnIyR1ljLV9mV1JFSFItVkdPRV91Wk1KOXk5S0V1OUxGdzhjM2ZKQ1JBdGNCRHZsNnVyODVoZlNfZW9mcGFCTjRsQQ?oc=5\" target=\"_blank\">13 Outstanding, History-Making Black Winter Olympians, from Surya Bonaly to Erin Jackson</a> <font color=\"#6f6f6f\">People.com</font>",
+   "central_knowledge_unit": "13 outstanding history making black winter olympians from surya bonaly to erin jackson",
+   "content_id": "efebcc7447707f9a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "efebcc7447707f9a",
+    "7ac08acec7cb8c1d"
+   ],
+   "normalized_subject": "13 outstanding history making black winter olympians from surya bonaly to erin jackson",
+   "people": [],
+   "published_at": "2026-10-21T18:37:48.704997+00:00",
+   "region": "",
+   "run_id": "2026-10-22-AM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 474
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMi9AFBVV95cUxQZmxsTm90c2Y3Nm1mUkpjamgzY2d0Q0RXb1gxTXZPS0h5M2pNSTExdGRrYnpLR0VOalFMdWlUUGJRLUp1YzVoaTY5RDBCNHc3MHN6dTNuTUIyQm1ibVNSMjc5bllCV28ya1VMVFFhTFFzZTlKWFFTMkxRSEd4WUQwWFVrRW9jMEhaYkRqSTd6bzViWkltdWI2eWJBUXg3dllncG54ZzNSeDhSMW4wNlVXOTFCb2I0bUJfcTZuZ3ZQaDlPcWRpZGtTNXNJZDU0TXNqNzFwejI4dE11NXFBNGVsOU5nRmZtWTZ6Ql9mTUNleDl4Skth?oc=5\" target=\"_blank\">Educator Voice: This class invented a board game to teach the history of Juneteenth</a> <font color=\"#6f6f6f\">PBS</font>",
+   "central_knowledge_unit": "educator voice this class invented a board game to teach the history of juneteenth",
+   "content_id": "9c5052073d7e4951",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9c5052073d7e4951",
+    "e10893f4c0728ded"
+   ],
+   "normalized_subject": "educator voice this class invented a board game to teach the history of juneteenth",
+   "people": [],
+   "published_at": "2026-10-21T18:38:01.434871+00:00",
+   "region": "",
+   "run_id": "2026-10-22-AM",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 475
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxPU3pHQ1M1dEtZeWQxb1pVczFtTGEyWFRNdzZNakJDczdXUjdsSjFFaXR5eXJ6Mmh4UEk5Vzh6aDlEY2dTOEh5NHRBUTlhNHhrVlVET1BxVlFRWGlnNzdwUnh2eTZQN0VMdnRtNy1Fek1HcVVQSm04c0NNb3hFUUpFY2pPYk9XWGJFNmNyT0xPakh3RzJBd09STXRUdGhFc25jTXVobllqVQ?oc=5\" target=\"_blank\">The lesser-known players making waves at the 2026 World Cup so far</a> <font color=\"#6f6f6f\">NBC Sports</font>",
+   "central_knowledge_unit": "the lesser known players making waves at the 2026 world cup so far",
+   "content_id": "fed53d457f27f749",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "fed53d457f27f749",
+    "df749160e99b7438"
+   ],
+   "normalized_subject": "the lesser known players making waves at the 2026 world cup so far",
+   "people": [],
+   "published_at": "2026-10-21T18:38:26.956635+00:00",
+   "region": "",
+   "run_id": "2026-10-22-AM",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 476
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiW0FVX3lxTE1wdDR4VWNLZmlpRDQyb1ZveDBuazZtOE9TSnhMU0hEVkxaN3hmYU51UE96cUdDZ0ZmelM3WFcxakcwR3hNMUR5b1lxdU51N1pzcDFQSVNVcTJGNWc?oc=5\" target=\"_blank\">Olympic Games | 2026, Milano Cortina, History, Sports, Medals, Locations, & Winners</a> <font color=\"#6f6f6f\">Britannica</font>",
+   "central_knowledge_unit": "olympic games 2026 milano cortina history sports medals locations winners",
+   "content_id": "db038b31fec7a7e3",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "db038b31fec7a7e3",
+    "8617a459acfc7365"
+   ],
+   "normalized_subject": "olympic games 2026 milano cortina history sports medals locations winners",
+   "people": [],
+   "published_at": "2026-10-21T18:38:37.544108+00:00",
+   "region": "",
+   "run_id": "2026-10-22-AM",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 477
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMigwFBVV95cUxPY2c4Z04ybjNMZFNiMl9nMU5SZVhtNXJLVkFRVzQ1NTJfOGZhUXZCUVlPa2MwNWp3Sl9EY3JYTWdyaG9fM0hXYlUxNkxzN2hLdWpEbjNRRGktUGk1a3dtdElkeDJxZTRXbFJuQ3RkS3JPX2pqX25VcV9HRWl2ZndFOTN5UdIBjwFBVV95cUxNTUFfOF9fcXBYQld4WHdvaFpHbEkwRy1qRVVLWjVBWUVVRjdSSHpzZGQ4cXhBYWJ4UmxteGlaTmxBTU9tazV4cHZaOGloM3lWUXlfSU11VGk4ZTFQbm16V0VnbUF3eVNnN1U1bjlCakFLcDl5NU1kQVplM2dZWUtIcFhJT1VuNmY3b1Rld3BwQQ?oc=5\" target=\"_blank\">2026 World Baseball Classic rules and rule modifications</a> <font color=\"#6f6f6f\">MLB.com</font>",
+   "central_knowledge_unit": "2026 world baseball classic rules and rule modifications",
+   "content_id": "08509b35de91e056",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "08509b35de91e056",
+    "605330cfb1dc9256"
+   ],
+   "normalized_subject": "2026 world baseball classic rules and rule modifications",
+   "people": [],
+   "published_at": "2026-10-21T18:38:50.214329+00:00",
+   "region": "",
+   "run_id": "2026-10-22-AM",
+   "sector": "How to Play",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 478
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMi3AFBVV95cUxOSDBnRTVZQ1V5N2Q1TXhrWnE0bkF3NFZNUUdXV1BXbGxFbnAxNXF5ZlNzT2JERzc5REEtZHRFWHRqRzlfYXhIYTlvSlhxN1hUMGFmUHRDQjFtREp2OXVqc0JibFJ2ZEt6LWxFdUdMcnQyUUR2SHpoMkZ6VExDN3FkZWFjbzVxSkd6VGQ3dmEyRERWbExaUGJwTWZKUFA2QXAtSS1sa2dUMEx4MTBaaldfN3dvSF81WTRCWFJaUlZuODdfU0l4S0kwU3lXNE5PcjNRUFBoakd3UHNtMThQ?oc=5\" target=\"_blank\">This Day in Sports History: Sept. 22 and the Long Count Fight, Jackie Robinson’s Pennant and More</a> <font color=\"#6f6f6f\">RiverBender.com</font>",
+   "central_knowledge_unit": "this day in sports history sept 22 and the long count fight jackie robinson s pennant and more",
+   "content_id": "9d7929e87dd92cdb",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9d7929e87dd92cdb",
+    "0c72210fe8120047"
+   ],
+   "normalized_subject": "this day in sports history sept 22 and the long count fight jackie robinson s pennant and more",
+   "people": [],
+   "published_at": "2026-10-21T18:39:03.980608+00:00",
+   "region": "",
+   "run_id": "2026-10-22-AM",
+   "sector": "On This Date",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 479
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-21T10:37:36.985596+00:00"
+ "updated_at": "2026-10-21T18:39:03.980720+00:00"
 }
