@@ -2690,14 +2690,31 @@ def cleanup_live_retirements(vstate: dict, *, exclude_ids: Iterable[int] = ()) -
     if not pending:
         live["retiring_message_ids"]=[]
         return True
-    payload={"chat_id":CHANNEL, "message_ids":json.dumps(pending,separators=(",",":"))}
-    res=tg_call("deleteMessages", payload)
-    if res.get("ok"):
+    # Telegram accepts at most 100 IDs per deleteMessages call, and one stale
+    # ID (already deleted) rejects the whole batch. Delete in batches; when a
+    # batch is rejected, fall back to one-by-one deletion so a single stale ID
+    # cannot block the rest. "Message not found" counts as resolved.
+    remaining=[]
+    deleted=0
+    for start in range(0,len(pending),100):
+        batch=pending[start:start+100]
+        payload={"chat_id":CHANNEL, "message_ids":json.dumps(batch,separators=(",",":"))}
+        res=tg_call("deleteMessages", payload)
+        if res.get("ok"):
+            deleted+=len(batch)
+            continue
+        for mid in batch:
+            single=tg_call("deleteMessage", {"chat_id":CHANNEL, "message_id":mid})
+            if single.get("ok") or "not found" in text(single.get("description")).lower():
+                deleted+=1
+            else:
+                remaining.append(mid)
+    if not remaining:
         live["retiring_message_ids"]=[]
-        logger.info("Live pair cleanup complete: deleted %d retired message(s)",len(pending))
+        logger.info("Live pair cleanup complete: deleted %d retired message(s)",deleted)
         return True
-    live["retiring_message_ids"]=pending
-    logger.warning("Live pair cleanup deferred for %d message(s): %s",len(pending),text(res.get("description")))
+    live["retiring_message_ids"]=remaining
+    logger.warning("Live pair cleanup deferred for %d message(s)",len(remaining))
     return False
 
 def retire_live_pair_permanently(vstate: dict, *, dry: bool) -> bool:
