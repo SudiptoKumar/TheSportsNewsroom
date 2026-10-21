@@ -2696,6 +2696,7 @@ def cleanup_live_retirements(vstate: dict, *, exclude_ids: Iterable[int] = ()) -
     # cannot block the rest. "Message not found" counts as resolved.
     remaining=[]
     deleted=0
+    first_error=""
     for start in range(0,len(pending),100):
         batch=pending[start:start+100]
         payload={"chat_id":CHANNEL, "message_ids":json.dumps(batch,separators=(",",":"))}
@@ -2703,18 +2704,23 @@ def cleanup_live_retirements(vstate: dict, *, exclude_ids: Iterable[int] = ()) -
         if res.get("ok"):
             deleted+=len(batch)
             continue
+        if not first_error:
+            first_error=text(res.get("description"))
         for mid in batch:
             single=tg_call("deleteMessage", {"chat_id":CHANNEL, "message_id":mid})
             if single.get("ok") or "not found" in text(single.get("description")).lower():
                 deleted+=1
             else:
+                if not first_error:
+                    first_error=text(single.get("description"))
                 remaining.append(mid)
+            sleep(0.5)
     if not remaining:
         live["retiring_message_ids"]=[]
         logger.info("Live pair cleanup complete: deleted %d retired message(s)",deleted)
         return True
     live["retiring_message_ids"]=remaining
-    logger.warning("Live pair cleanup deferred for %d message(s)",len(remaining))
+    logger.warning("Live pair cleanup deferred for %d message(s): %s",len(remaining),first_error)
     return False
 
 def retire_live_pair_permanently(vstate: dict, *, dry: bool) -> bool:
