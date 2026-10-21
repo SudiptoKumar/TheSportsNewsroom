@@ -28,12 +28,10 @@ EDITORIAL_SAMPLE = {
 class OfflineProviderIsolationMixin:
     def setUp(self):
         self._provider_keys = {
-            "EXA_API_KEY": main.EXA_API_KEY,
             "CEREBRAS_API_KEY": main.CEREBRAS_API_KEY,
             "TELEGRAM_BOT_TOKEN": main.TELEGRAM_BOT_TOKEN,
             "CRICKETDATA_API_KEY": main.CRICKETDATA_API_KEY,
         }
-        main.EXA_API_KEY = ""
         main.CEREBRAS_API_KEY = ""
         main.TELEGRAM_BOT_TOKEN = ""
         main.CRICKETDATA_API_KEY = ""
@@ -54,7 +52,7 @@ class TestV1Contracts(OfflineProviderIsolationMixin, unittest.TestCase):
         self.assertIn("TELEGRAM_CHANNEL_NAME: ${{ vars.TELEGRAM_CHANNEL_NAME || 'Sports News' }}", text)
         self.assertIn("TELEGRAM_CHANNEL_URL: ${{ vars.TELEGRAM_CHANNEL_URL || 'https://t.me/TheSportsNewsroom' }}", text)
         self.assertIn('test "$(python main.py --version)" = "The Sports Newsroom V1 1.4.0"', text)
-        self.assertNotIn("prompts/exa_contents_verification_v1.txt", text)
+        self.assertNotIn("EXA_API_KEY", text)
         importer=(Path(main.__file__).parent / ".github" / "workflows" / "import-zip.yml").read_text(encoding="utf-8")
         self.assertIn('--exclude="news_state.json"', importer)
         self.assertIn('--exclude="coverage_index.json"', importer)
@@ -84,71 +82,59 @@ class TestV1Contracts(OfflineProviderIsolationMixin, unittest.TestCase):
             self.assertNotIn(symbol, source)
         self.assertEqual(1, source.count("render_evergreen_post(story)"))
 
-    def test_discovery_search_has_no_output_schema(self):
-        calls = []
-        class R:
-            ok = True
-            status = 200
-            error = ""
-            data = {"results": [], "requestId": "test"}
-        def fake(url, body, **kwargs):
-            calls.append((url, body))
-            return R()
-        with patch.object(main, "EXA_API_KEY", "test"), patch.object(main, "_v1_exa_request", fake):
-            main.v1_exa_search_sector("Sport Discovery", date(2026, 9, 22), set(), num=6)
-        self.assertEqual(1, len(calls))
-        url, body = calls[0]
-        self.assertTrue(url.endswith("/search"))
-        self.assertNotIn("outputSchema", body)
-        self.assertEqual(6, body["numResults"])
-        self.assertEqual({"highlights": True}, body["contents"])
-        self.assertTrue(body["moderation"])
+    def test_feed_parser_handles_rss_and_atom(self):
+        rss = ('<?xml version="1.0"?><rss version="2.0"><channel>'
+               '<item><title>The History of Football Rules</title><link>https://example.com/football-history</link>'
+               '<description>How football rules were codified in the nineteenth century.</description>'
+               '<pubDate>Sat, 20 Sep 2026 10:00:00 GMT</pubDate></item></channel></rss>')
+        items = main._parse_feed_items(rss)
+        self.assertEqual(1, len(items))
+        self.assertEqual("https://example.com/football-history", items[0]["url"])
+        self.assertEqual(2026, items[0]["published"].year)
+        atom = ('<?xml version="1.0"?><feed xmlns="http://www.w3.org/2005/Atom">'
+                '<entry><title>Ancient Board Games</title><link href="https://example.org/board-games"/>'
+                '<summary>The history of ancient board games.</summary>'
+                '<published>2026-09-20T10:00:00Z</published></entry></feed>')
+        items = main._parse_feed_items(atom)
+        self.assertEqual(1, len(items))
+        self.assertEqual("Ancient Board Games", items[0]["title"])
 
-    def test_auto_search_omits_type(self):
-        calls = []
-        class R:
-            ok = True
-            status = 200
-            error = ""
-            data = {"results": []}
-        def fake(url, body, **kwargs):
-            calls.append(body)
-            return R()
-        with patch.object(main, "EXA_API_KEY", "test"), patch.object(main, "_v1_exa_request", fake):
-            main.v1_exa_search_query("specific verification query", date(2026, 9, 22), set(), mode="auto", num=4)
-        self.assertNotIn("type", calls[0])
+    def test_rss_discovery_uses_google_news_rss(self):
+        xml = ('<?xml version="1.0"?><rss version="2.0"><channel>'
+               '<item><title>The History of Football Rules - Example</title>'
+               '<link>https://news.google.com/rss/articles/abc</link>'
+               '<description>How football rules and laws were codified in 1863 in England.</description>'
+               '<pubDate>Sat, 20 Sep 2026 10:00:00 GMT</pubDate></item></channel></rss>')
+        resp = main.Resp(200, text_=xml, headers={"Content-Type": "application/rss+xml"})
+        with patch.object(main, "http", return_value=resp), patch.object(main, "resolve_google_news_url", return_value="https://example.com/football-history"):
+            rows = main.rss_discovery_sector("Sport Origin", date(2026, 9, 22), set(), num=3)
+        self.assertEqual(1, len(rows))
+        self.assertEqual("google_news_rss", rows[0]["search_provider"])
+        self.assertEqual("The History of Football Rules", rows[0]["normalized_subject"])
+        self.assertEqual("https://example.com/football-history", rows[0]["source_url"])
+
+    def test_rss_search_query_returns_targeted_rows(self):
+        item = {"url": "https://example.com/a", "title": "Football Laws Codified in 1863",
+                "text": "The history of football laws and rules.", "published": None, "image": ""}
+        with patch.object(main, "google_news_rss_items", return_value=[item]):
+            rows = main.rss_search_query("football laws history", num=4)
+        self.assertEqual(1, len(rows))
+        self.assertEqual("https://example.com/a", rows[0]["url"])
+        self.assertIn("text", rows[0])
+
+    def test_no_paid_search_layer_remains(self):
+        source = Path(main.__file__).read_text(encoding="utf-8")
+        self.assertNotIn("api.exa.ai", source)
+        self.assertNotIn("EXA_API_KEY", source)
+        self.assertFalse(hasattr(main, "v1_exa_search_sector"))
 
     def test_network_url_preserves_absolute_scheme_for_provider_calls(self):
         self.assertEqual("https://example.com/a/", main.v1_network_url("example.com/a/?utm_source=x"))
 
-    def test_contents_is_batch_and_cache_friendly(self):
-        calls = []
-        class R:
-            ok = True
-            status = 200
-            error = ""
-            data = {"results": [], "statuses": []}
-        def fake(url, body, **kwargs):
-            calls.append((url, body))
-            return R()
-        with patch.object(main, "EXA_API_KEY", "test"), patch.object(main, "_v1_exa_request", fake):
-            pages, status = main.v1_contents_for_urls(["https://example.com/a", "https://example.com/a/"])
-        self.assertEqual({}, pages)
-        self.assertEqual("ok", status)
-        self.assertEqual(1, len(calls[0][1]["urls"]))
-        self.assertEqual(720, calls[0][1]["maxAgeHours"])
-        self.assertTrue(calls[0][1]["text"])
-        self.assertTrue(calls[0][1]["highlights"])
-
-    def test_embedded_agent_schema_matches_repo_schema(self):
-        schema = json.loads(Path("schemas/exa_agent_hard_case_v1.json").read_text(encoding="utf-8"))
-        self.assertEqual(schema, main.AGENT_HARD_CASE_SCHEMA)
-        self.assertEqual(5, len(schema["properties"]))
-
     def test_prompt_fallback_exists(self):
-        self.assertTrue(main.PROMPT_FALLBACKS["exa_sector_discovery_v1.txt"])
+        self.assertTrue(main.PROMPT_FALLBACKS["cerebras_rank_v1.txt"])
         with patch.object(Path, "exists", return_value=False):
-            prompt = main._v1_prompt("exa_sector_discovery_v1.txt")
+            prompt = main._v1_prompt("cerebras_rank_v1.txt")
         self.assertTrue(prompt)
 
     def test_null_story_values_are_normalized(self):
@@ -527,37 +513,27 @@ class TestV1Contracts(OfflineProviderIsolationMixin, unittest.TestCase):
         finally:
             path.unlink(missing_ok=True)
 
-    def test_exa_image_search_is_only_used_after_normal_candidates_fail(self):
+    def test_image_search_success_needs_no_fallback(self):
         story={"headline":"Example football history","normalized_subject":"Example football history","central_knowledge_unit":"Example football history","topic":"Example football history","sector":"Sport Discovery","sources":[],"people":[]}
         candidate={"image_url":"https://img.example/original.jpg","page_url":"https://example.com/story","title":"Example football history photo","alt":"football history","source_name":"Example","provider":"bing_images","score":90}
         verified={"path":"/tmp/verified.jpg","url":candidate["image_url"],"source_page_url":candidate["page_url"],"source_name":"Example","provider":"bing_images","bytes":1000,"width":641,"height":479,"score":90}
-        with patch.object(main,"discover_evergreen_image_candidates",return_value=[candidate]), patch.object(main,"download_verified_image",return_value=verified), patch.object(main,"v1_exa_search_query",side_effect=AssertionError("Exa image fallback must not run when normal image succeeds")):
+        with patch.object(main,"discover_evergreen_image_candidates",return_value=[candidate]), patch.object(main,"download_verified_image",return_value=verified):
             path,meta=main.prepare_evergreen_media(story)
         self.assertEqual("/tmp/verified.jpg",path)
         self.assertEqual("verified_external",story["image_status"])
 
-    def test_exa_image_fallback_runs_only_after_normal_candidates_fail(self):
+    def test_no_image_candidates_falls_back_to_branded_card(self):
         story={"headline":"Example football history","normalized_subject":"Example football history","central_knowledge_unit":"Example football history","topic":"Example football history","sector":"Sport Discovery","sources":[],"people":[]}
-        exa_row={"url":"https://example.com/story","title":"Example football history photo","text":"Example football history","source":"Example","image":"https://img.example/exa.jpg"}
-        verified={"path":"/tmp/verified-exa.jpg","url":"https://img.example/exa.jpg","source_page_url":"https://example.com/story","source_name":"Example","provider":"exa_image_fallback","bytes":1000,"width":800,"height":600,"score":60}
-        with patch.object(main,"discover_evergreen_image_candidates",return_value=[]), patch.object(main,"download_verified_image",return_value=verified), patch.object(main,"v1_exa_search_query",return_value=[exa_row]) as mocked, patch.object(main,"EXA_API_KEY","test"):
+        with patch.object(main,"discover_evergreen_image_candidates",return_value=[]), patch.object(main,"make_card",return_value="/tmp/fallback-card.jpg"):
             path,meta=main.prepare_evergreen_media(story)
-        self.assertEqual("/tmp/verified-exa.jpg",path)
-        mocked.assert_called_once()
-        self.assertEqual("verified_external",story["image_status"])
-
-    def test_external_image_failure_falls_back_to_branded_card(self):
-        story={"headline":"Example sports story","body":EDITORIAL_BODY,"sources":[("Example","https://example.com/story")],"tags":["#Sports"],"image":{},"image_status":"pending"}
-        with patch.object(main,"discover_evergreen_image_candidates",return_value=[]), patch.object(main,"make_card",return_value="/tmp/fallback-card.jpg"), patch.object(main,"v1_exa_search_query",side_effect=AssertionError("offline fallback test must not call Exa")):
-            path,meta=main.prepare_evergreen_media(story, allow_exa_fallback=False)
         self.assertEqual("/tmp/fallback-card.jpg",path)
         self.assertEqual("card_fallback",story["image_status"])
         self.assertEqual("card_fallback",meta["mode"])
 
-    def test_exa_image_fallback_can_be_explicitly_disabled(self):
-        story={"headline":"Example sports story","body":EDITORIAL_BODY,"sources":[],"tags":["#Sports"],"image":{},"image_status":"pending"}
-        with patch.object(main,"discover_evergreen_image_candidates",return_value=[]), patch.object(main,"v1_exa_search_query",side_effect=AssertionError("disabled Exa fallback must not run")), patch.object(main,"make_card",return_value="/tmp/fallback-card.jpg"), patch.object(main,"EXA_API_KEY","configured"):
-            path,meta=main.prepare_evergreen_media(story, allow_exa_fallback=False)
+    def test_external_image_failure_falls_back_to_branded_card(self):
+        story={"headline":"Example sports story","body":EDITORIAL_BODY,"sources":[("Example","https://example.com/story")],"tags":["#Sports"],"image":{},"image_status":"pending"}
+        with patch.object(main,"discover_evergreen_image_candidates",return_value=[]), patch.object(main,"make_card",return_value="/tmp/fallback-card.jpg"):
+            path,meta=main.prepare_evergreen_media(story)
         self.assertEqual("/tmp/fallback-card.jpg",path)
         self.assertEqual("card_fallback",story["image_status"])
         self.assertEqual("card_fallback",meta["mode"])
@@ -808,46 +784,42 @@ class TestV1SearchAndCard(OfflineProviderIsolationMixin, unittest.TestCase):
         self.assertEqual("https://example.org/a",b[0]["url"])
         self.assertEqual("A useful snippet here.",b[0]["text"])
 
-    def test_normal_search_is_primary_and_does_not_call_exa_when_sufficient(self):
+    def test_rss_search_is_primary_and_does_not_call_web_search_when_sufficient(self):
+        rss=[{"sector":"Sport Discovery","normalized_subject":"RSS Story","source_url":"https://example.com/rss","source":"Example","grade":"B","highlights":["evidence"],"text":"evidence","image":"","search_provider":"google_news_rss"}]
+        with patch.object(main,"rss_discovery_sector",return_value=rss), patch.object(main,"normal_search_sector",side_effect=AssertionError("web search should not be called")), patch.object(main,"NORMAL_SEARCH_FALLBACK_MIN",1):
+            rows=main._search_sector("Sport Discovery",date(2026,9,23),set(),num=1)
+        self.assertEqual(1,len(rows))
+        self.assertEqual("google_news_rss",rows[0]["search_provider"])
+
+    def test_web_search_fills_gaps_when_rss_is_sparse(self):
         html='''<a class="result__a" href="https://example.com/a">Example Football History</a><a class="result__snippet">A documented football history story about the sport and its rules.</a>'''
         calls=[]
         def fake_normal(url, engine, limit):
-            calls.append(("normal",engine))
-            return main._normal_search_parse(html,"duckduckgo",limit)
-        with patch.object(main,"_normal_search_engine",fake_normal), patch.object(main,"v1_exa_search_sector",side_effect=AssertionError("Exa should not be called")), patch.object(main,"NORMAL_SEARCH_FALLBACK_MIN",1):
-            rows=main._search_with_exa_fallback_sector("Sport Discovery",date(2026,9,23),set(),num=1)
-        self.assertEqual(1,len(rows))
-        self.assertEqual("normal",calls[0][0])
-
-    def test_normal_search_falls_back_to_exa_when_sparse(self):
-        exa=[{"sector":"Sport Discovery","normalized_subject":"Fallback","source_url":"https://example.org/f","source":"Example","grade":"B","highlights":["fallback evidence"],"text":"fallback evidence","image":"","search_provider":"exa_fallback"}]
-        calls=[]
-        def fake_normal(url, engine, limit):
             calls.append(engine)
-            return []
-        with patch.object(main,"_normal_search_engine",fake_normal), patch.object(main,"v1_exa_search_sector",return_value=exa) as mocked_exa:
-            rows=main._search_with_exa_fallback_sector("Sport Discovery",date(2026,9,23),set(),num=6)
+            return main._normal_search_parse(html,"duckduckgo",limit)
+        with patch.object(main,"rss_discovery_sector",return_value=[]), patch.object(main,"_normal_search_engine",fake_normal):
+            rows=main._search_sector("Sport Discovery",date(2026,9,23),set(),num=6)
         self.assertEqual(["duckduckgo","bing"],calls)
-        mocked_exa.assert_called_once()
-        self.assertEqual("Fallback",rows[-1]["normalized_subject"])
+        self.assertEqual(1,len(rows))
+        self.assertEqual("Example Football History",rows[0]["normalized_subject"])
 
-    def test_v1_normal_search_does_not_require_exa_secret_for_config(self):
-        with patch.object(main,"EXA_API_KEY",""):
-            with patch.object(main,"CEREBRAS_API_KEY","x"), patch.object(main,"TELEGRAM_BOT_TOKEN","x"), patch.object(main,"v1_cerebras_preflight",return_value=(True,"ok")):
-                self.assertEqual(0,main.v1_validate_config(require_secrets=True))
+    def test_config_does_not_require_any_paid_search_secret(self):
+        self.assertFalse(hasattr(main, "EXA_API_KEY"))
+        with patch.object(main,"CEREBRAS_API_KEY","x"), patch.object(main,"TELEGRAM_BOT_TOKEN","x"), patch.object(main,"v1_cerebras_preflight",return_value=(True,"ok")):
+            self.assertEqual(0,main.v1_validate_config(require_secrets=True))
 
-    def test_discovery_entrypoint_is_normal_search_first(self):
+    def test_discovery_entrypoint_visits_all_sectors(self):
         calls=[]
         def fake(sector,target,used_sectors,**kwargs):
             calls.append((sector,kwargs))
             return [{"sector":sector,"normalized_subject":sector,"source_url":"https://example.com/"+main.slugify(sector),"source":"Example","grade":"B","highlights":["evidence"],"text":"evidence","image":"","search_provider":"normal"}]
-        with patch.object(main,"_search_with_exa_fallback_sector",fake):
+        with patch.object(main,"_search_sector",fake):
             rows=main.v1_discover_all_sectors(date(2026,9,23),set())
         self.assertEqual(20,len(calls))
         self.assertEqual(20,len(rows))
         self.assertTrue(all(k.get("num")==main.NORMAL_SEARCH_RESULTS for _,k in calls))
 
-    def test_normal_image_search_is_non_exa_primary(self):
+    def test_normal_image_search_uses_bing_images(self):
         with patch.object(main, "http", return_value=main.Resp(200, text_='<a class="iusc" m="{&quot;murl&quot;:&quot;https://img.example/x.jpg&quot;,&quot;purl&quot;:&quot;https://example.com/story&quot;,&quot;t&quot;:&quot;Example football photo&quot;}"></a>', headers={"Content-Type":"text/html"})) as mocked:
             rows=main.normal_image_search("Example football story", num=1)
         self.assertEqual(1,len(rows))
@@ -885,3 +857,4 @@ class TestV1SearchAndCard(OfflineProviderIsolationMixin, unittest.TestCase):
         finally:
             if path:
                 Path(path).unlink(missing_ok=True)
+
