@@ -3987,6 +3987,12 @@ def v1_run_once(mode: str = "live") -> int:
     now=now_bd(); run_slot="AM" if now.hour < 14 else "PM"; run_id=f"{now.date().isoformat()}-{run_slot}"
     daily=vs["daily"].setdefault(now.date().isoformat(),{"published_sectors":[],"run_ids":[]})
     used_sectors=set(daily.get("published_sectors",[]))
+    if not dry:
+        # Housekeeping before the slot guard: draining leftover live-pair
+        # deletions must not depend on this slot still needing evergreen posts.
+        if not retire_live_pair_permanently(vs,dry=False):
+            logger.warning("V1 retired live-pair messages remain queued for deletion on the next run")
+        save_state(state)
     if run_id in daily.get("run_ids",[]) and not dry:
         logger.info("V1 run %s already completed; nothing to do.",run_id); return 0
     deadline=Deadline(RUN_DEADLINE_SECONDS)
