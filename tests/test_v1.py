@@ -364,6 +364,25 @@ class TestV1Contracts(OfflineProviderIsolationMixin, unittest.TestCase):
         self.assertTrue(ok)
         self.assertEqual([], live["retiring_message_ids"])
 
+    def test_completed_slot_still_drains_live_retirement_queue(self):
+        fixed_now = datetime(2026, 9, 22, 10, 0, tzinfo=main.BD_TZ)
+        state = {"posts": [], "v1": {"daily": {"2026-09-22": {"published_sectors": [], "run_ids": ["2026-09-22-AM"]}},
+                                     "live": {"schedule": {"message_id": None, "target_date": ""}, "results": {"message_id": None, "target_date": ""}, "retiring_message_ids": [55]},
+                                     "runs": [], "publication": {}}}
+        calls = []
+        def fake_tg(method, data=None, file_path="", file_field="photo"):
+            calls.append((method, data))
+            return {"ok": True}
+        with patch.object(main, "CEREBRAS_API_KEY", "test"), patch.object(main, "TELEGRAM_BOT_TOKEN", "test"), \
+             patch.object(main, "now_bd", return_value=fixed_now), patch.object(main, "load_state", return_value=state), \
+             patch.object(main, "load_coverage", return_value={"records": []}), patch.object(main, "save_state", return_value=None), \
+             patch.object(main, "tg_call", side_effect=fake_tg):
+            rc = main.run_once(mode="run")
+        self.assertEqual(0, rc)
+        self.assertEqual("deleteMessages", calls[0][0])
+        self.assertEqual([55], json.loads(calls[0][1]["message_ids"]))
+        self.assertEqual([], state["v1"]["live"]["retiring_message_ids"])
+
     def test_retire_live_pair_permanently_dry_run_makes_no_telegram_calls(self):
         vstate = {"live": {"schedule": {"message_id": 468, "target_date": "2026-10-22"}, "results": {"message_id": None, "target_date": ""}, "retiring_message_ids": []}}
         with patch.object(main, "tg_call", side_effect=AssertionError("dry run must not call Telegram")):
