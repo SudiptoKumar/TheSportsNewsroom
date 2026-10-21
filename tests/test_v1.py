@@ -222,7 +222,7 @@ class TestV1Contracts(OfflineProviderIsolationMixin, unittest.TestCase):
         state={"posts":[]}
         candidates=[{"sector":main.V1_SECTORS[0],"normalized_subject":"Football History","central_knowledge_unit":"Football history","central_claim":"A verified football claim","topic":"Football History","source_url":"https://example.com/football","source":"Example","grade":"B","highlights":["football evidence"],"image":"","sources":[{"name":"Example","url":"https://example.com/football","grade":"B"}],"research_images":[]}]
         ranked=[{"post_number":1,"score":100,"reason":"","_candidate_pool":candidates}]
-        with patch.object(main,"CEREBRAS_API_KEY","test"), patch.object(main,"TELEGRAM_BOT_TOKEN","test"),              patch.object(main,"now_bd",return_value=fixed_now), patch.object(main,"load_state",return_value=state),              patch.object(main,"load_coverage",return_value={"records":[]}), patch.object(main,"v1_discover_all_sectors",return_value=candidates),              patch.object(main,"v1_rank",return_value=ranked), patch.object(main,"v1_verify_selected",return_value=([],"no_verified_candidates")),              patch.object(main,"v1_editorialize",side_effect=AssertionError("editorial must not run without verification")),              patch.object(main,"live_pair",return_value=({"target_date":"2026-09-23"},{"target_date":"2026-09-21"},[],[])):
+        with patch.object(main,"CEREBRAS_API_KEY","test"), patch.object(main,"TELEGRAM_BOT_TOKEN","test"),              patch.object(main,"now_bd",return_value=fixed_now), patch.object(main,"load_state",return_value=state),              patch.object(main,"load_coverage",return_value={"records":[]}), patch.object(main,"v1_discover_all_sectors",return_value=candidates),              patch.object(main,"v1_rank",return_value=ranked), patch.object(main,"v1_verify_selected",return_value=([],"no_verified_candidates")),              patch.object(main,"v1_editorialize",side_effect=AssertionError("editorial must not run without verification")),              patch.object(main,"live_pair",side_effect=AssertionError("live pair must not run")):
             rc=main.run_once(mode="dry-run")
         self.assertEqual(0,rc)
         self.assertEqual([], [p for p in state.get("posts",[]) if p.get("desk")=="evergreen_v1"])
@@ -312,6 +312,42 @@ class TestV1Contracts(OfflineProviderIsolationMixin, unittest.TestCase):
             ok = main.cleanup_live_retirements({"live": live})
         self.assertFalse(ok)
         self.assertEqual([101, 102], live["retiring_message_ids"])
+
+    def test_migrate_state_preserves_v1_subtree(self):
+        merged = main.migrate_state({"v1": {"live": {"retiring_message_ids": [7]}, "daily": {"2026-10-21": {"published_sectors": ["Sport Origin"]}}}})
+        self.assertEqual([7], merged["v1"]["live"]["retiring_message_ids"])
+        self.assertEqual(["Sport Origin"], merged["v1"]["daily"]["2026-10-21"]["published_sectors"])
+
+    def test_retire_live_pair_permanently_deletes_active_and_queued(self):
+        vstate = {"live": {"schedule": {"message_id": 468, "target_date": "2026-10-22"}, "results": {"message_id": 469, "target_date": "2026-10-20"}, "retiring_message_ids": [454]}}
+        calls = []
+        def fake_tg(method, data=None, file_path="", file_field="photo"):
+            calls.append((method, data))
+            return {"ok": True}
+        with patch.object(main, "tg_call", side_effect=fake_tg):
+            ok = main.retire_live_pair_permanently(vstate, dry=False)
+        self.assertTrue(ok)
+        self.assertEqual("deleteMessages", calls[0][0])
+        self.assertEqual({454, 468, 469}, set(json.loads(calls[0][1]["message_ids"])))
+        self.assertIsNone(vstate["live"]["schedule"]["message_id"])
+        self.assertIsNone(vstate["live"]["results"]["message_id"])
+        self.assertEqual([], vstate["live"]["retiring_message_ids"])
+
+    def test_retire_live_pair_permanently_keeps_queue_on_failure(self):
+        vstate = {"live": {"schedule": {"message_id": 468, "target_date": "2026-10-22"}, "results": {"message_id": 469, "target_date": "2026-10-20"}, "retiring_message_ids": []}}
+        with patch.object(main, "tg_call", return_value={"ok": False, "description": "permission denied"}):
+            ok = main.retire_live_pair_permanently(vstate, dry=False)
+        self.assertFalse(ok)
+        self.assertEqual([468, 469], vstate["live"]["retiring_message_ids"])
+        self.assertIsNone(vstate["live"]["schedule"]["message_id"])
+
+    def test_retire_live_pair_permanently_dry_run_makes_no_telegram_calls(self):
+        vstate = {"live": {"schedule": {"message_id": 468, "target_date": "2026-10-22"}, "results": {"message_id": None, "target_date": ""}, "retiring_message_ids": []}}
+        with patch.object(main, "tg_call", side_effect=AssertionError("dry run must not call Telegram")):
+            ok = main.retire_live_pair_permanently(vstate, dry=True)
+        self.assertFalse(ok)
+        self.assertEqual([468], vstate["live"]["retiring_message_ids"])
+        self.assertIsNone(vstate["live"]["schedule"]["message_id"])
 
     def test_live_rotation_queues_old_pair_then_deletes_it(self):
         state={"ai":{},"last_run_at":""}
@@ -598,7 +634,7 @@ class TestV1Contracts(OfflineProviderIsolationMixin, unittest.TestCase):
         self.assertIn("Do not use an em dash (—) or en dash (–)", prompt)
         self.assertIn("Avoid hype, clichés, marketing language", prompt)
 
-    def test_production_orchestrator_dry_run_reaches_live_pair(self):
+    def test_production_orchestrator_dry_run_never_runs_live_pair(self):
         fixed_now = datetime(2026, 9, 22, 10, 0, tzinfo=main.BD_TZ)
         state = {"posts": []}
         candidates = []
@@ -620,7 +656,7 @@ class TestV1Contracts(OfflineProviderIsolationMixin, unittest.TestCase):
              patch.object(main, "v1_editorialize", return_value=editorial), \
              patch.object(main, "prepare_evergreen_media", side_effect=lambda story: ("/tmp/test-card.jpg", {"mode":"card_fallback"})), \
              patch.object(main, "V1_POST_DELAY_SECONDS", 0), \
-             patch.object(main, "live_pair", return_value=({"target_date": "2026-09-23"}, {"target_date": "2026-09-21"}, [{"event_id": "e1"}], [{"event_id": "e2"}])):
+             patch.object(main, "live_pair", side_effect=AssertionError("live pair must not run")):
             rc = main.run_once(mode="dry-run")
         self.assertEqual(0, rc)
         self.assertEqual(10, len([p for p in state["posts"] if p.get("desk") == "evergreen_v1"]))
@@ -650,7 +686,7 @@ class TestV1Contracts(OfflineProviderIsolationMixin, unittest.TestCase):
         self.assertIn("per-run call cap", ai.last_error)
         self.assertGreaterEqual(ai.rate_limit_streak, 5)
 
-    def test_partial_evergreen_volume_does_not_block_live_pair(self):
+    def test_partial_evergreen_volume_still_completes_run(self):
         fixed_now = datetime(2026, 9, 22, 10, 0, tzinfo=main.BD_TZ)
         state = {"posts": []}
         candidates = []
@@ -672,7 +708,7 @@ class TestV1Contracts(OfflineProviderIsolationMixin, unittest.TestCase):
              patch.object(main, "v1_editorialize", return_value=editorial), \
              patch.object(main, "prepare_evergreen_media", side_effect=lambda story: ("/tmp/test-card.jpg", {"mode":"card_fallback"})), \
              patch.object(main, "V1_POST_DELAY_SECONDS", 0), \
-             patch.object(main, "live_pair", return_value=({"target_date": "2026-09-23"}, {"target_date": "2026-09-21"}, [{"event_id": "e1"}], [{"event_id": "e2"}])):
+             patch.object(main, "live_pair", side_effect=AssertionError("live pair must not run")):
             rc = main.run_once(mode="dry-run")
         self.assertEqual(0, rc)
         self.assertEqual(5, len([p for p in state["posts"] if p.get("desk") == "evergreen_v1"]))
@@ -699,7 +735,7 @@ class TestV1Contracts(OfflineProviderIsolationMixin, unittest.TestCase):
              patch.object(main, "v1_editorialize", return_value=editorial), \
              patch.object(main, "prepare_evergreen_media", side_effect=lambda story: ("/tmp/test-card.jpg", {"mode":"card_fallback"})), \
              patch.object(main, "V1_POST_DELAY_SECONDS", 0), \
-             patch.object(main, "live_pair", return_value=({"target_date": "2026-09-23"}, {"target_date": "2026-09-21"}, [{"event_id": "e1"}], [{"event_id": "e2"}])):
+             patch.object(main, "live_pair", side_effect=AssertionError("live pair must not run")):
             rc = main.run_once(mode="dry-run")
         self.assertEqual(0, rc)
         self.assertEqual(10, len([p for p in state["posts"] if p.get("desk") == "evergreen_v1"]))

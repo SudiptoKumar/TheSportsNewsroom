@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# The Sports Newsroom V1 - one production engine for evergreen Sports & Games knowledge and a rotating live pair for @TheSportsNewsroom.
+# The Sports Newsroom V1 - one production engine for evergreen Sports & Games knowledge for @TheSportsNewsroom.
 #
 # Design (see README.md):
 #   V1: RSS feeds + Google News RSS discover (normal web search fills gaps) -> strict sports/evidence gate ->
 #   Cerebras ranks -> direct source-page evidence verifies -> Cerebras edits -> normalization/validation -> Telegram publishes.
-#   Live sports is a rotating two-message rich pair with transactional replacement and cleanup.
+#   The former live-sports pair was removed on 2026-10-21; runs retire any leftover pair messages and never post new ones.
 #
 # Dependencies: requests, Pillow.  RSS, normal web search/image search, Cerebras and Telegram are called over plain REST. No paid search API is used.
 # Content scope: real-world sports and physical/tabletop games only.
@@ -478,6 +478,11 @@ def migrate_state(state: dict) -> dict:
     for key in ("posts", "runs"):
         if isinstance(state.get(key), list):
             merged[key] = state[key]
+    # The V1 subtree (daily sector memory, run records, live-pair retirement
+    # queue) must survive a load. Dropping it here once made every run forget
+    # the previous live pair, so pairs piled up undeleted in the channel.
+    if isinstance(state.get("v1"), dict):
+        merged["v1"] = state["v1"]
     # Older posts may use published_at/subject/claim; keep them readable by current dedupe
     for p in merged["posts"]:
         p.setdefault("desk", "legacy")
@@ -2695,6 +2700,28 @@ def cleanup_live_retirements(vstate: dict, *, exclude_ids: Iterable[int] = ()) -
     logger.warning("Live pair cleanup deferred for %d message(s): %s",len(pending),text(res.get("description")))
     return False
 
+def retire_live_pair_permanently(vstate: dict, *, dry: bool) -> bool:
+    """The live pair was removed from the channel format on 2026-10-21.
+
+    Move any still-active pair messages into the retirement queue, clear the
+    slots, and delete everything queued. Failures stay queued and are retried
+    on the next run; once the queue is empty this is a no-op. Returns True
+    when no retired pair messages remain pending.
+    """
+    live=vstate.setdefault("live", _v1_default_state()["live"])
+    pending=_unique_message_ids(live.get("retiring_message_ids", []))
+    for side in ("schedule", "results"):
+        slot=live.get(side) if isinstance(live.get(side), dict) else {}
+        mid=slot.get("message_id")
+        if isinstance(mid, int) and mid > 0:
+            pending.append(mid)
+        live[side]={"message_id": None, "target_date": "", "event_ids": [], "updated_at": utc_iso(now_bd())}
+    live["retiring_message_ids"]=_unique_message_ids(pending)
+    if dry:
+        return not live["retiring_message_ids"]
+    return cleanup_live_retirements(vstate)
+
+
 def live_pair(state: dict, now: datetime) -> tuple[dict, dict, list[dict], list[dict]]:
     tomorrow=now.date()+timedelta(days=1); yesterday=now.date()-timedelta(days=1)
     ai=AIClient(state.get("ai"))
@@ -3963,7 +3990,7 @@ def v1_run_once(mode: str = "live") -> int:
     ranked=v1_rank(ai,reservoir,used_sectors) if reservoir else []
     posted=[]
     if not ranked:
-        logger.warning("V1 ranking produced no candidates; continuing to live pair only: %s", ai.last_error)
+        logger.warning("V1 ranking produced no candidates; no evergreen posts this run: %s", ai.last_error)
     pool=ranked[0].get("_candidate_pool") if ranked and isinstance(ranked[0].get("_candidate_pool"),list) else reservoir
     by_num={i+1:c for i,c in enumerate(pool)}
     ordered=[by_num[r["post_number"]] for r in ranked if r["post_number"] in by_num]
@@ -3980,7 +4007,7 @@ def v1_run_once(mode: str = "live") -> int:
     if len(selected) < EVERGREEN_POSTS_PER_RUN:
         logger.info("V1 partial evergreen selection: %d/%d target posts available",len(selected),EVERGREEN_POSTS_PER_RUN)
     if deadline.expired():
-        logger.warning("V1 deadline reached before evergreen verification; continuing with live pair")
+        logger.warning("V1 deadline reached before evergreen verification; skipping verification")
     verification_targets=[]; verification_sectors=set()
     for c in selected + ordered:
         sec=text(c.get("sector"))
@@ -4038,20 +4065,15 @@ def v1_run_once(mode: str = "live") -> int:
         if not dry: save_state(state); save_coverage(coverage)
         if len(posted) < EVERGREEN_POSTS_PER_RUN: sleep(V1_POST_DELAY_SECONDS)
     if len(posted) != EVERGREEN_POSTS_PER_RUN:
-        logger.info("V1 evergreen phase partial: %d/%d target posts published; continuing to live pair",len(posted),EVERGREEN_POSTS_PER_RUN)
-    try:
-        sched_meta,res_meta,next_events,past_events=live_pair(state,now)
-    except Exception as exc:
-        logger.error("V1 live pair generation failed: %s",redact(str(exc))); return 1
-    live_result=rotate_live_pair(state,vs,run_id,sched_meta,res_meta,next_events,past_events,dry=dry)
-    if not dry and not live_result.get("cleanup_ok"):
-        logger.warning("V1 live pair published, but retired messages remain queued for deletion")
+        logger.info("V1 evergreen phase partial: %d/%d target posts published; finishing run",len(posted),EVERGREEN_POSTS_PER_RUN)
+    if not retire_live_pair_permanently(vs,dry=dry):
+        logger.warning("V1 retired live-pair messages remain queued for deletion on the next run")
     daily["run_ids"]=list(dict.fromkeys(daily.get("run_ids",[])+[run_id]))
     vs["last_run_at"]=utc_iso(now_bd())
     if not dry:
-        vs["runs"].append({"run_id":run_id,"at":utc_iso(now_bd()),"evergreen":len(posted),"live_schedule":vs["live"]["schedule"].get("message_id"),"live_results":vs["live"]["results"].get("message_id"),"used_sectors":sorted(set(x.get("sector") for x in posted)),"exit":0})
+        vs["runs"].append({"run_id":run_id,"at":utc_iso(now_bd()),"evergreen":len(posted),"used_sectors":sorted(set(x.get("sector") for x in posted)),"exit":0})
         state["ai"]=ai.export(); state["last_run_at"]=utc_iso(now_bd()); save_state(state); save_coverage(coverage)
-    logger.info("V1 RUN %s %s: %d evergreen + 2 live", "DRY" if dry else "SUCCESS", run_id, len(posted)); return 0
+    logger.info("V1 RUN %s %s: %d evergreen", "DRY" if dry else "SUCCESS", run_id, len(posted)); return 0
 
 
 

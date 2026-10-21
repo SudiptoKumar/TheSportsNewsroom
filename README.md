@@ -1,6 +1,6 @@
 # The Sports Newsroom V1 1.4.0
 
-Automated Telegram newsroom for evergreen Sports & Games knowledge, relevant internet-sourced photos, and a rotating live schedule/results pair for `@TheSportsNewsroom`.
+Automated Telegram newsroom for evergreen Sports & Games knowledge and relevant internet-sourced photos for `@TheSportsNewsroom`.
 
 ## 1. Production engine
 
@@ -28,29 +28,7 @@ Relevant image discovery + local verification
 Telegram publication
 ```
 
-```text
-Live pair
-
-ESPN / TheSportsDB / CricketData
-   ↓
-Date + state validation
-   ↓
-Cross-source enrichment + sport diversity
-   ↓
-Major-event threshold
-   ↓
-SPORT + GAME + TIME/RESULT
-   ↓
-Rich H1 + table
-   ↓
-Publish replacement
-   ↓
-Persist new IDs
-   ↓
-Retire known older live IDs
-   ↓
-Batch delete + retry queue
-```
+The former live schedule/results pair was removed on 2026-10-21. The channel is evergreen-only; each run retires any leftover live-pair messages and never posts new ones.
 
 ## 2. Evergreen discovery
 
@@ -102,7 +80,7 @@ Cerebras is used for ranking and editorial generation only.
 - HTTP 402: stop AI work for the run, do not retry credits/payment failures
 - Three consecutive failed logical AI operations open the circuit
 
-The run continues with partial evergreen output instead of allowing AI throttling to abort the live pair.
+The run continues with partial evergreen output instead of allowing AI throttling to abort the run.
 
 ## 5. Evergreen post format
 
@@ -128,23 +106,11 @@ The bot tries source-page lead images first, then ordinary Bing Images search. E
 
 Checks include HTTP 200, supported image MIME type, maximum file size, decodability, minimum dimensions, blank/near-blank detection, and a reasonable aspect ratio. Verified JPEGs keep their original bytes; PNG/WebP candidates are normalized to JPEG before upload. No cropping is applied. If Telegram rejects an otherwise verified external image, the post is retried once with the branded card. Obvious low-quality/repost hosts are penalized or rejected. If no relevant verified image survives, the bot uses the branded 1200×675 fallback card.
 
-## 7. Live pair
+## 7. Live pair (removed 2026-10-21)
 
-Every run computes:
+The rotating schedule/results pair no longer exists. The channel publishes evergreen posts only.
 
-- previous-day results = `run date - 1 day`
-- next-day games = `run date + 1 day`
-
-Results are only final events with a real score/result. Schedule rows are only future scheduled events. A major-event threshold prevents low-importance fixture dumps.
-
-Both messages use a Rich H1 and three table columns (SPORT, GAME, TIME/RESULT):
-
-```text
-Previous-day results: SPORT | GAME | RESULT
-Next-day games:       SPORT | GAME | TIME
-```
-
-The runner keeps one active schedule message and one active results message. Known older live message IDs from active state and historical V1 run records are queued for deletion after the replacement succeeds. Failed deletions remain queued for retry.
+Removal is permanent and self-cleaning: at the end of every run, any message IDs still recorded as the active pair — plus any IDs waiting in the live retirement queue — are batch-deleted through Telegram `deleteMessages`, and the pair slots are cleared. Failed deletions stay queued and are retried on the next run. Once the queue is empty, this step is a no-op.
 
 ## 8. State management
 
