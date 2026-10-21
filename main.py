@@ -13,6 +13,7 @@
 from __future__ import annotations
 
 import argparse
+import base64
 import hashlib
 import html
 import json
@@ -302,6 +303,13 @@ def is_excluded(value: str) -> bool:
 
 HEADERS = {"User-Agent": f"TheSportsNewsroom/{APP_VERSION} (https://t.me/TheSportsNewsroom; newsroom bot)",
            "Accept-Language": "en-US,en;q=0.8"}
+
+# Search engines serve no results to the bot User-Agent above (verified:
+# DuckDuckGo returns an empty page, so normal search silently found nothing
+# and discovery depended entirely on the Exa fallback). Web search requests
+# therefore identify as a regular browser; all other traffic keeps HEADERS.
+SEARCH_USER_AGENT = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                     "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
 
 HEALTH: dict[str, dict] = {}
 _HEALTH_LOCK = threading.Lock()
@@ -3010,6 +3018,7 @@ class _SearchHTMLParser(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.results: list[dict] = []
         self._bing_item: dict | None = None
+        self._bing_in_h2 = False
         self._bing_title_active = False
         self._bing_snippet_active = False
         self._buffer: list[str] = []
@@ -3029,8 +3038,17 @@ class _SearchHTMLParser(HTMLParser):
             self._bing_item={"url":"","title":"","text":""}
             return
         if self._bing_item is not None:
+            if tag == "h2":
+                self._bing_in_h2=True
             if tag == "a":
                 href=next((v for k,v in attrs if k == "href"), "")
+                if href and self._bing_in_h2:
+                    # The <h2> link is the headline; it overrides the
+                    # breadcrumb (tilk) link Bing places first in the item.
+                    self._bing_item["url"]=href
+                    self._bing_title_active=True
+                    self._buffer=[]
+                    return
                 if href and not self._bing_item.get("url"):
                     self._bing_item["url"]=href
                     self._bing_title_active=True
@@ -3058,6 +3076,8 @@ class _SearchHTMLParser(HTMLParser):
             self._buffer.append(data)
 
     def handle_endtag(self, tag):
+        if tag == "h2":
+            self._bing_in_h2=False
         if self._bing_title_active and tag == "a" and self._bing_item is not None:
             self._bing_item["title"]=" ".join(self._buffer).strip()
             self._bing_title_active=False
@@ -3087,7 +3107,19 @@ def _search_redirect_url(raw: str) -> str:
         qs=dict(parse_qsl(parts.query, keep_blank_values=True))
         for key in ("uddg", "url", "u"):
             if qs.get(key):
-                return v1_network_url(qs[key])
+                target=qs[key]
+                if key == "u" and target.startswith("a1"):
+                    # Bing wraps the real URL as "a1" + base64url; without
+                    # decoding, the result is a garbage host that
+                    # canonical_url() rejects, dropping every Bing result.
+                    try:
+                        body=target[2:]
+                        decoded=base64.urlsafe_b64decode(body + "=" * (-len(body) % 4)).decode("utf-8", "ignore")
+                        if decoded.startswith("http"):
+                            target=decoded
+                    except Exception:
+                        pass
+                return v1_network_url(target)
     except Exception:
         pass
     return v1_network_url(u)
@@ -3133,7 +3165,8 @@ def _normal_search_engine(query: str, engine: str, limit: int) -> list[dict]:
     else:
         return []
     r=http(f"normal-search:{engine}", "GET", url, params=params,
-           headers={"Accept":"text/html,application/xhtml+xml"}, timeout=NORMAL_SEARCH_TIMEOUT,
+           headers={"Accept":"text/html,application/xhtml+xml", "User-Agent": SEARCH_USER_AGENT},
+           timeout=NORMAL_SEARCH_TIMEOUT,
            retries=0, want_json=False)
     if not r.ok or not r.text:
         logger.warning("Normal search failed engine=%s status=%s error=%s", engine, r.status, redact(r.error)[:180])
