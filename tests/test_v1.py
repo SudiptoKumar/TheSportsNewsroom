@@ -341,6 +341,29 @@ class TestV1Contracts(OfflineProviderIsolationMixin, unittest.TestCase):
         self.assertEqual([468, 469], vstate["live"]["retiring_message_ids"])
         self.assertIsNone(vstate["live"]["schedule"]["message_id"])
 
+    def test_live_retirement_cleanup_batches_over_one_hundred_ids(self):
+        live = {"retiring_message_ids": list(range(1, 102))}
+        calls = []
+        def fake_tg(method, data=None, file_path="", file_field="photo"):
+            calls.append((method, json.loads(data["message_ids"])))
+            return {"ok": True}
+        with patch.object(main, "tg_call", side_effect=fake_tg):
+            ok = main.cleanup_live_retirements({"live": live})
+        self.assertTrue(ok)
+        self.assertEqual([100, 1], [len(ids) for _, ids in calls])
+        self.assertEqual([], live["retiring_message_ids"])
+
+    def test_live_retirement_cleanup_falls_back_per_id_when_batch_rejected(self):
+        live = {"retiring_message_ids": [101, 102, 103]}
+        def fake_tg(method, data=None, file_path="", file_field="photo"):
+            if method == "deleteMessages":
+                return {"ok": False, "description": "Bad Request: message to delete not found"}
+            return {"ok": True} if data["message_id"] != 103 else {"ok": False, "description": "Bad Request: message to delete not found"}
+        with patch.object(main, "tg_call", side_effect=fake_tg):
+            ok = main.cleanup_live_retirements({"live": live})
+        self.assertTrue(ok)
+        self.assertEqual([], live["retiring_message_ids"])
+
     def test_retire_live_pair_permanently_dry_run_makes_no_telegram_calls(self):
         vstate = {"live": {"schedule": {"message_id": 468, "target_date": "2026-10-22"}, "results": {"message_id": None, "target_date": ""}, "retiring_message_ids": []}}
         with patch.object(main, "tg_call", side_effect=AssertionError("dry run must not call Telegram")):
