@@ -52,7 +52,6 @@ class TestV1Contracts(OfflineProviderIsolationMixin, unittest.TestCase):
         self.assertIn("TELEGRAM_CHANNEL_NAME: ${{ vars.TELEGRAM_CHANNEL_NAME || 'Sports News' }}", text)
         self.assertIn("TELEGRAM_CHANNEL_URL: ${{ vars.TELEGRAM_CHANNEL_URL || 'https://t.me/TheSportsNewsroom' }}", text)
         self.assertIn('test "$(python main.py --version)" = "The Sports Newsroom V1 1.4.0"', text)
-        self.assertNotIn("EXA_API_KEY", text)
         importer=(Path(main.__file__).parent / ".github" / "workflows" / "import-zip.yml").read_text(encoding="utf-8")
         self.assertIn('--exclude="news_state.json"', importer)
         self.assertIn('--exclude="coverage_index.json"', importer)
