@@ -2,11 +2,11 @@
 # The Sports Newsroom V1 - one production engine for evergreen Sports & Games knowledge and a rotating live pair for @TheSportsNewsroom.
 #
 # Design (see README.md):
-#   V1: Normal web search discovers -> strict sports/evidence gate -> Cerebras ranks -> Exa verifies only as fallback ->
-#   optional Exa Agent resolves hard cases -> Cerebras edits -> normalization/validation -> Telegram publishes.
+#   V1: RSS feeds + Google News RSS discover (normal web search fills gaps) -> strict sports/evidence gate ->
+#   Cerebras ranks -> direct source-page evidence verifies -> Cerebras edits -> normalization/validation -> Telegram publishes.
 #   Live sports is a rotating two-message rich pair with transactional replacement and cleanup.
 #
-# Dependencies: requests, Pillow.  Normal web search/image search, Exa fallback, Cerebras and Telegram are called over plain REST.
+# Dependencies: requests, Pillow.  RSS, normal web search/image search, Cerebras and Telegram are called over plain REST. No paid search API is used.
 # Content scope: real-world sports and physical/tabletop games only.
 # There is one production engine. The live-sports adapters are shared data services used by the same engine.
 
@@ -26,6 +26,7 @@ import tempfile
 from html.parser import HTMLParser
 import threading
 import time
+import xml.etree.ElementTree as ET
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta, timezone
@@ -74,7 +75,6 @@ CHANNEL_DISPLAY_NAME = os.environ.get("TELEGRAM_CHANNEL_NAME", "Sports News").st
 CHANNEL_URL = os.environ.get("TELEGRAM_CHANNEL_URL", "https://t.me/TheSportsNewsroom").strip() or "https://t.me/TheSportsNewsroom"
 CHANNEL_HANDLE = (CHANNEL.strip() if CHANNEL.strip().startswith("@") else "").strip()
 ADMIN_CHAT_ID = os.environ.get("TELEGRAM_ADMIN_CHAT_ID", "").strip()
-EXA_API_KEY = os.environ.get("EXA_API_KEY", "").strip()
 CEREBRAS_API_KEY = os.environ.get("CEREBRAS_API_KEY", "").strip()
 CEREBRAS_MODEL = os.environ.get("CEREBRAS_MODEL", "").strip() or "gpt-oss-120b"
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
@@ -263,7 +263,7 @@ def split_sentences(s: str) -> list[str]:
 
 def redact(s: str) -> str:
     out = str(s)
-    for secret in (TELEGRAM_BOT_TOKEN, EXA_API_KEY, CEREBRAS_API_KEY, CRICKETDATA_API_KEY):
+    for secret in (TELEGRAM_BOT_TOKEN, CEREBRAS_API_KEY, CRICKETDATA_API_KEY):
         if secret and len(secret) >= 6:
             out = out.replace(secret, "***")
     return re.sub(r"bot\d{5,}:[A-Za-z0-9_-]{20,}", "bot***", out)
@@ -306,7 +306,7 @@ HEADERS = {"User-Agent": f"TheSportsNewsroom/{APP_VERSION} (https://t.me/TheSpor
 
 # Search engines serve no results to the bot User-Agent above (verified:
 # DuckDuckGo returns an empty page, so normal search silently found nothing
-# and discovery depended entirely on the Exa fallback). Web search requests
+# and discovery depended entirely on a single paid fallback). Web search requests
 # therefore identify as a regular browser; all other traffic keeps HEADERS.
 SEARCH_USER_AGENT = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                      "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
@@ -1079,13 +1079,8 @@ def download_verified_image(candidate: dict) -> dict | None:
         return None
 
 
-def prepare_evergreen_media(story: dict, *, allow_exa_fallback: bool = True) -> tuple[str, dict]:
-    """Select a relevant photo using normal search first, verify/download it, then optionally fall back to Exa and finally a card.
-
-    ``allow_exa_fallback`` is explicit so production keeps the paid recovery path while
-    deterministic/offline callers can disable external Exa image discovery without
-    mutating global configuration or leaking credentials into test behavior.
-    """
+def prepare_evergreen_media(story: dict) -> tuple[str, dict]:
+    """Select a relevant photo using normal image discovery, verify/download it, and finally fall back to a branded card."""
     candidates=discover_evergreen_image_candidates(story)
     for candidate in candidates:
         rel=_image_relevance(story,candidate)
@@ -1106,23 +1101,6 @@ def prepare_evergreen_media(story: dict, *, allow_exa_fallback: bool = True) -> 
             story["image_status"]="verified_external"
             logger.info("Verified story photo selected provider=%s size=%sx%s bytes=%s source=%s",verified["provider"],verified["width"],verified["height"],verified["bytes"],domain_of(verified["url"]))
             return verified["path"], story["image"]
-
-    # Paid Exa image discovery is used only after normal image/source-page candidates were all rejected or failed verification.
-    if allow_exa_fallback and EXA_API_KEY:
-        query=_image_story_query(story) + " exact subject photo image"
-        for c in v1_exa_search_query(query, now_bd().date(), set(), mode="auto", num=5):
-            image_url=text(c.get("image"))
-            if not image_url:
-                continue
-            candidate={"image_url":image_url, "page_url":text(c.get("url")), "title":text(c.get("title")), "alt":text(c.get("text")), "source_name":text(c.get("source")), "provider":"exa_image_fallback", "score":30 + (_image_relevance(story,c)*30) - (_image_penalty(c)*25)}
-            if _image_penalty(candidate) >= 0.20 or _image_relevance(story,candidate) < IMAGE_MIN_RELEVANCE:
-                continue
-            verified=download_verified_image(candidate)
-            if verified:
-                story["image"]={k:verified[k] for k in ("url","source_page_url","source_name","provider","bytes","width","height","score")}
-                story["image_status"]="verified_external"
-                logger.info("Verified story photo selected through Exa fallback size=%sx%s bytes=%s source=%s",verified["width"],verified["height"],verified["bytes"],domain_of(verified["url"]))
-                return verified["path"], story["image"]
 
     card=make_card(story)
     story["image"]={}
@@ -1807,63 +1785,6 @@ def evergreen_scope_reason(candidate: dict) -> str:
     return ""
 
 
-# --- Exa ---------------------------------------------------------------------------------------
-
-_EXA_VARIANT = [0]  # 0: contents.text  1: top-level text  2: no contents
-_EXA_CACHE: dict[tuple, list[dict]] = {}
-
-
-def exa_search(query: str, *, domains: list[str] | None = None, start: datetime | None = None,
-               end: datetime | None = None, num: int = 8, text_chars: int = 3500) -> list[dict]:
-    if not EXA_API_KEY:
-        return []
-    ckey = (query, tuple(domains or ()), start.date().isoformat() if start else "", num)
-    if ckey in _EXA_CACHE:
-        return _EXA_CACHE[ckey]
-    body: dict[str, Any] = {"query": query, "type": "auto", "numResults": num}
-    if domains:
-        body["includeDomains"] = domains
-    if start:
-        body["startPublishedDate"] = start.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
-    if end:
-        body["endPublishedDate"] = end.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
-    results: list[dict] = []
-    for variant in range(_EXA_VARIANT[0], 3):
-        b = dict(body)
-        if variant == 0:
-            b["contents"] = {"text": {"maxCharacters": text_chars}}
-        elif variant == 1:
-            b["text"] = {"maxCharacters": text_chars}
-        r = http("exa", "POST", "https://api.exa.ai/search", json_body=b, headers={"x-api-key": EXA_API_KEY},
-                 timeout=30, retries=1)
-        if r.ok and isinstance(r.data, dict):
-            _EXA_VARIANT[0] = variant
-            for item in r.data.get("results", []) or []:
-                url, title = text(item.get("url")), text(item.get("title"))
-                if not url or not title:
-                    continue
-                body_text = text(item.get("text"))
-                if not body_text:
-                    hl = item.get("highlights") or []
-                    body_text = " ".join(text(x) for x in hl) if isinstance(hl, list) else text(hl)
-                if is_excluded(f"{title} {body_text[:1500]} {url}"):
-                    reject("exa_out_of_scope", title)
-                    continue
-                results.append({
-                    "url": url, "canonical": canonical_url(url), "title": re.sub(r"\s+", " ", title),
-                    "published": parse_dt(item.get("publishedDate") or item.get("published_date")),
-                    "text": re.sub(r"[ \t]+", " ", body_text)[:text_chars], "source": source_label(url),
-                    "grade": grade_of(url),
-                })
-            break
-        if r.status == 400 and variant < 2:
-            logger.warning("Exa rejected request variant %d (%s); trying next", variant, r.error[:120])
-            continue
-        break
-    _EXA_CACHE[ckey] = results
-    return results
-
-
 # --- Wikipedia ---------------------------------------------------------------------------------
 
 WIKI_API = "https://en.wikipedia.org/w/api.php"
@@ -2224,13 +2145,24 @@ def date_in_text(body: str, d: date) -> bool:
     return any(re.search(p, body, re.I) for p in pats)
 
 
-def exa_event_fallback(ai: "AIClient", target: date, kind: str, sport_hint: str, domains: list[str] | None = None) -> list[dict]:
-    """Last resort: search + AI extraction, with the event date verified in the source text by code."""
-    if not EXA_API_KEY or not ai.available or ai.fatal:
+def web_event_fallback(ai: "AIClient", target: date, kind: str, sport_hint: str) -> list[dict]:
+    """Last resort: free web search + direct page fetch + AI extraction, with the event date verified in the source text by code."""
+    if not ai.available or ai.fatal:
         return []
     label = long_date(target)
     q = f"{sport_hint} {'fixtures schedule' if kind == 'next' else 'results scorecard'} {label}"
-    docs = exa_search(q, domains=domains, num=6, text_chars=3000)
+    docs = []
+    for row in normal_web_search(q, num=6):
+        url = text(row.get("url"))
+        if not url:
+            continue
+        page = fetch_normal_source_evidence(url)
+        body_text = text((page or {}).get("text")) or text(row.get("text"))
+        if not body_text:
+            continue
+        docs.append({"url": url, "canonical": canonical_url(url), "title": text(row.get("title")),
+                     "published": (page or {}).get("published"), "text": body_text[:3000],
+                     "source": text(row.get("source")), "grade": text(row.get("grade"))})
     if not docs:
         return []
     blocks = [f"[{i}] URL: {d['url']}\nTITLE: {d['title']}\nTEXT: {d['text'][:1800]}" for i, d in enumerate(docs, 1)]
@@ -2258,7 +2190,7 @@ def exa_event_fallback(ai: "AIClient", target: date, kind: str, sport_hint: str,
             start = datetime(target.year, target.month, target.day, 12, 0, tzinfo=BD_TZ).astimezone(timezone.utc)
             known = False
         sport = text(e.get("sport")) or sport_hint.split()[0].title()
-        out.append(make_event(id=f"exa:{canonical_url(doc['url'])}:{slugify(name)}", sport=sport, league=text(e.get("league")),
+        out.append(make_event(id=f"web:{canonical_url(doc['url'])}:{slugify(name)}", sport=sport, league=text(e.get("league")),
                               tier=tier_hint(f"{text(e.get('league'))} {name}", "C"), name=name, home=text(e.get("home")),
                               away=text(e.get("away")), start=start, state="scheduled" if kind == "next" else "final",
                               source=doc["source"], url=doc["url"], time_known=known))
@@ -2375,15 +2307,15 @@ def filter_state(events: list[dict], kind: str, target: date) -> list[dict]:
     return out
 
 
-def collect_events(ai: "AIClient", target: date, kind: str, *, allow_exa_fallback: bool = True) -> tuple[list[dict], list[str]]:
+def collect_events(ai: "AIClient", target: date, kind: str, *, allow_web_fallback: bool = True) -> tuple[list[dict], list[str]]:
     notes = []
     events, status = espn_events(target)
     ok = sum(1 for v in status.values() if v == "ok")
     notes.append(f"espn: {ok}/{len(LEAGUES)} leagues reachable, {len(events)} events in window")
     cricket = cricketdata_events(target) if CRICKETDATA_API_KEY else []
     have_cricket = any(e["sport"] == "Cricket" for e in events + cricket)
-    if not have_cricket and allow_exa_fallback and EXA_API_KEY and ai.available:
-        cricket += exa_event_fallback(ai, target, kind, "cricket", CRICKET_DOMAINS)
+    if not have_cricket and allow_web_fallback and ai.available:
+        cricket += web_event_fallback(ai, target, kind, "cricket")
     events = merge_events(events, cricket)
     current=filter_state(events, kind, target)
     sports_present={text(e.get("sport")) for e in current if text(e.get("sport"))}
@@ -2391,9 +2323,9 @@ def collect_events(ai: "AIClient", target: date, kind: str, *, allow_exa_fallbac
         extra=tsdb_events(target)
         notes.append(f"thesportsdb: +{len(extra)} candidate events")
         events=merge_events(events,extra)
-    if len(filter_state(events, kind, target)) < 4 and allow_exa_fallback and EXA_API_KEY and ai.available:
-        extra = exa_event_fallback(ai, target, kind, "football basketball tennis sports")
-        notes.append(f"exa fallback: +{len(extra)} events")
+    if len(filter_state(events, kind, target)) < 4 and allow_web_fallback and ai.available:
+        extra = web_event_fallback(ai, target, kind, "football basketball tennis sports")
+        notes.append(f"web fallback: +{len(extra)} events")
         events = merge_events(events, extra)
     events = filter_state(events, kind, target)
     REPORT.notes.extend(notes)
@@ -2408,7 +2340,6 @@ def collect_events(ai: "AIClient", target: date, kind: str, *, allow_exa_fallbac
 
 COVERAGE_FILE = "coverage_index.json"
 PROMPTS_DIR = Path("prompts")
-SCHEMAS_DIR = Path("schemas")
 RUNS_PER_DAY = 2
 EVERGREEN_POSTS_PER_RUN = 10
 STATE_RETENTION_DAYS = _env_int("STATE_RETENTION_DAYS", 120)
@@ -2768,8 +2699,8 @@ def live_pair(state: dict, now: datetime) -> tuple[dict, dict, list[dict], list[
     tomorrow=now.date()+timedelta(days=1); yesterday=now.date()-timedelta(days=1)
     ai=AIClient(state.get("ai"))
     # Reuse the shared structured sports-data adapters. They are deterministic and source-aware.
-    next_events,_=collect_events(ai, tomorrow, "next", allow_exa_fallback=True)
-    past_events,_=collect_events(ai, yesterday, "past", allow_exa_fallback=True)
+    next_events,_=collect_events(ai, tomorrow, "next", allow_web_fallback=True)
+    past_events,_=collect_events(ai, yesterday, "past", allow_web_fallback=True)
     next_filtered=filter_state(next_events,"next",tomorrow)
     past_filtered=filter_state(past_events,"past",yesterday)
     next_filtered=[e for e in next_filtered if isinstance(e.get("start"),datetime) and to_bd(e["start"]).date()==tomorrow]
@@ -2840,30 +2771,11 @@ EDITORIAL_SCHEMA = OBJ(
     headline=STR, body=STR, hashtags=ARR(STR),
 )
 
-AGENT_HARD_CASE_SCHEMA = {
-    "type": "object",
-    "additionalProperties": False,
-    "properties": {
-        "verdict": {"type": "string", "enum": ["supported", "qualified", "unsupported", "insufficient", "conflict"]},
-        "qualified_claim": {"type": "string"},
-        "evidence_summary": {"type": "string"},
-        "source_urls": {"type": "array", "maxItems": 6, "items": {"type": "string", "format": "uri"}},
-        "conflicts": {"type": "array", "maxItems": 6, "items": {"type": "string"}},
-    },
-    "required": ["verdict", "qualified_claim", "evidence_summary", "source_urls", "conflicts"],
-}
 
 PROMPT_FALLBACKS = {
-    "exa_sector_discovery_v1.txt": (
-        "THE SPORTS NEWSROOM V1: NORMAL WEB SEARCH DISCOVERY\n\n"
-        "Search the public web for evergreen Sports & Games source pages. Do not write the article. "
-        "Prefer primary and authoritative sources, precise dates and documented evidence. Exclude current-news material, "
-        "promotional pages, live scores, fixtures, standings, transfers, injuries, betting and rumors. "
-        "The primary search provider is normal web search. The caller supplies a sector-specific intent. Exa is only a secondary fallback."
-    ),
     "cerebras_rank_v1.txt": (
         "THE SPORTS NEWSROOM V1: CEREBRAS RANKING DESK\n\n"
-        "Rank the supplied evergreen Sports & Games candidates using only the provided Exa evidence. "
+        "Rank the supplied evergreen Sports & Games candidates using only the provided evidence. "
         "Prioritize evergreen value, source quality, evidence strength, distinct knowledge, global variety, usefulness, "
         "curiosity, visual potential and low repetition risk. Return every candidate exactly once in ranked order."
     ),
@@ -2877,19 +2789,12 @@ PROMPT_FALLBACKS = {
         "Headline: 6-14 words, specific and non-clickbait. Return exactly 2 relevant, topic-specific hashtags. Do not use current-news framing. "
         "Do not generate or select image URLs. Return only JSON with headline, body and hashtags."
     ),
-    "exa_hard_case_agent_v1.txt": (
-        "THE SPORTS NEWSROOM V1: EXA AGENT HARD-CASE VERIFICATION\n\n"
-        "Resolve difficult evergreen Sports & Games claims such as disputed origins, first/last/only claims, exact dates, "
-        "conflicting records and traditional/regional attribution. Prefer multiple authoritative sources, preserve qualifiers, "
-        "and never invent facts or URLs. Return only the supplied structured fields."
-    ),
 }
 
 # ===========================================================================
 # 8. THE SPORTS NEWSROOM V1 RESEARCH ENGINE
-#     Normal web search -> local candidate reservoir -> Cerebras ranking ->
-#     Exa Contents evidence -> optional Exa Agent hard-case verification ->
-#     Cerebras editorial -> normalization -> deterministic Telegram publish.
+#     RSS + Google News RSS -> normal web search fills gaps -> local candidate reservoir -> Cerebras ranking ->
+#     direct source-page evidence -> Cerebras editorial -> normalization -> deterministic Telegram publish.
 # ===========================================================================
 
 V1_STATE_KEY = "v1"
@@ -2902,12 +2807,10 @@ V1_SECTORS = [
 V1_SEARCH_RESULTS_PER_SECTOR = _env_int("V1_SEARCH_RESULTS_PER_SECTOR", 6)
 V1_MAX_CANDIDATES_PER_SECTOR = _env_int("V1_MAX_CANDIDATES_PER_SECTOR", 3)
 V1_CONTENTS_URLS_PER_STORY = _env_int("V1_CONTENTS_URLS_PER_STORY", 3)
-V1_AGENT_MAX_CASES = _env_int("V1_AGENT_MAX_CASES", 2)
 V1_SEARCH_DELAY_SECONDS = _env_float("V1_SEARCH_DELAY_SECONDS", 0.12)
 NORMAL_SEARCH_RESULTS = max(3, _env_int("NORMAL_SEARCH_RESULTS", 6))
 NORMAL_SEARCH_FALLBACK_MIN = max(1, _env_int("NORMAL_SEARCH_FALLBACK_MIN", 3))
 NORMAL_SEARCH_TIMEOUT = max(8, _env_int("NORMAL_SEARCH_TIMEOUT", 15))
-V1_CONTENTS_CHARS = _env_int("V1_CONTENTS_CHARS", 9000)
 V1_RANK_MAX_CANDIDATES = 20
 V1_RANK_MAX_TOKENS = max(512, min(900, _env_int("V1_RANK_MAX_TOKENS", 768)))
 V1_EXCLUDE_DOMAINS = [
@@ -3002,14 +2905,6 @@ def v1_state(state: dict) -> dict:
 def v1_sector_query(sector: str, target: date) -> str:
     template = V1_SECTOR_SEARCH.get(sector, "evergreen sports and games knowledge")
     return template.format(month=target.strftime("%B"), day=target.day)
-
-
-def _v1_search_system(sector: str, target: date, used_sectors: set[str]) -> str:
-    used = ", ".join(sorted(used_sectors)) or "none"
-    base = _v1_prompt("exa_sector_discovery_v1.txt", "Retrieve evergreen Sports & Games source pages using ordinary web search; do not write an article.")
-    return (base + f"\n\nTARGET SECTOR: {sector}\nCALENDAR DATE: {target.isoformat()}\n"
-            + f"PREVIOUSLY USED SECTORS TODAY: {used}\n"
-            + "Return ordinary web search results. Do not return a synthetic publication object.")
 
 
 class _SearchHTMLParser(HTMLParser):
@@ -3175,7 +3070,7 @@ def _normal_search_engine(query: str, engine: str, limit: int) -> list[dict]:
 
 
 def normal_web_search(query: str, *, num: int=6, domains: list[str] | None=None) -> list[dict]:
-    """Primary no-API-key web discovery. Exa is deliberately outside this function."""
+    """No-API-key web discovery used to fill gaps left by RSS discovery."""
     q=text(query)
     if domains:
         site_clause=" OR ".join(f"site:{d}" for d in domains[:8])
@@ -3222,111 +3117,315 @@ def normal_search_sector(sector: str, target: date, used_sectors: set[str], *, n
     return out
 
 
-def _search_with_exa_fallback_sector(sector: str, target: date, used_sectors: set[str], *, num: int | None=None, hard: bool=False) -> list[dict]:
-    rows=normal_search_sector(sector,target,used_sectors,num=num)
+def _search_sector(sector: str, target: date, used_sectors: set[str], *, num: int | None = None, hard: bool = False) -> list[dict]:
+    rows = rss_discovery_sector(sector, target, used_sectors, num=num, hard=hard)
     if len(rows) >= NORMAL_SEARCH_FALLBACK_MIN:
-        logger.info("V1 normal search primary sector=%s results=%d; Exa not used",sector,len(rows))
+        logger.info("V1 RSS discovery primary sector=%s results=%d; web search not needed", sector, len(rows))
         return rows
-    logger.warning("V1 normal search sparse sector=%s results=%d; using Exa fallback",sector,len(rows))
-    exa=v1_exa_search_sector(sector,target,used_sectors,mode="deep" if hard else "auto",num=num)
-    return rows + exa
-
-def _v1_exa_error(r: Any) -> str:
-    data = r.data if isinstance(getattr(r, "data", None), dict) else {}
-    return text(data.get("error")) or text(getattr(r, "error", "")) or f"HTTP {getattr(r, 'status', 0)}"
-
-
-def _v1_exa_request(url: str, body: dict, *, timeout: int = 60, retries: int = 0) -> Any:
-    """V1 provider boundary. 400s are surfaced, not hidden behind payload guessing."""
-    if not EXA_API_KEY:
-        return None
-    return http(
-        "exa", "POST", url, json_body=body,
-        headers={"x-api-key": EXA_API_KEY, "Content-Type": "application/json"},
-        timeout=timeout, retries=retries, backoff=2.0,
-    )
+    logger.warning("V1 RSS discovery sparse sector=%s results=%d; filling with normal web search", sector, len(rows))
+    seen = {canonical_url(c.get("source_url")) for c in rows}
+    for c in normal_search_sector(sector, target, used_sectors, num=num):
+        cu = canonical_url(c.get("source_url"))
+        if cu and cu not in seen:
+            rows.append(c)
+            seen.add(cu)
+    return rows
 
 
-def v1_exa_search_sector(sector: str, target: date, used_sectors: set[str], *, mode: str = "auto", num: int | None = None) -> list[dict]:
-    """Native Exa /search discovery. No outputSchema, no guessed payload variants."""
-    if not EXA_API_KEY:
+# --- RSS discovery (free; replaces the paid search layer) ---------------------
+#
+# Per-sector discovery is RSS-first, mirroring the other Newsroom bots:
+# Google News RSS answers the sector query, mapped publisher feeds add a
+# topical pool, and normal web search only fills remaining gaps. No API key
+# and no paid provider is involved anywhere in discovery.
+
+RSS_FEEDS = [
+    {"name": "Chess.com News", "url": "https://www.chess.com/rss/news",
+     "sectors": ["Game Discovery", "Interesting Game Fact", "Game Origin", "How to Play", "Sports & Games People"]},
+    {"name": "Mental Floss", "url": "https://www.mentalfloss.com/rss.xml",
+     "sectors": ["Sport Discovery", "Game Discovery", "Interesting Sports Fact", "Interesting Game Fact", "Why Does This Happen?"]},
+]
+
+V1_SECTOR_RSS_QUERIES = {
+    "Sport Discovery": ["lesser known sports around the world", "unusual sports you never heard of"],
+    "Game Discovery": ["traditional board games from around the world", "unusual card games history rules"],
+    "Interesting Sports Fact": ["amazing sports facts history", "surprising sports trivia facts"],
+    "Interesting Game Fact": ["amazing board game facts history", "surprising chess facts history"],
+    "Rule Check": ["strange sports rules explained", "weird rules in sports history why"],
+    "How to Play": ["how to play traditional game rules", "how to play sport rules explained"],
+    "Sport Origin": ["origin history of a sport how it was invented", "history of sport origin invented"],
+    "Game Origin": ["history of board games origin invented", "origin of chess history invented"],
+    "On This Date": ["on this day in sports history {month} {day}", "this day in sports history"],
+    "First / Last / Only": ["first ever in sports history record", "only athlete in history to achieve"],
+    "Records & Milestones": ["sports world records history greatest", "historic sports milestones records"],
+    "Forgotten Sport": ["forgotten sports that no longer exist", "extinct sports history ancient games"],
+    "Forgotten Game": ["ancient forgotten board games history", "lost traditional games history"],
+    "Equipment / Measurement": ["sports equipment history how it works", "sports field dimensions history why"],
+    "Why Does This Happen?": ["why does this happen in sports science explained", "science behind sports physics explained"],
+    "Then vs Now": ["how sports have changed over time history", "sports then and now rules equipment evolution"],
+    "New Sport Discovery": ["new emerging sports growing popularity", "new sport invented rules growing"],
+    "New Tabletop Game Discovery": ["new board games popular tabletop design", "modern board games rising popularity"],
+    "Traditional / Regional Game": ["traditional games of the world culture", "regional traditional sports games history"],
+    "Sports & Games People": ["sports pioneers who changed history", "inventor of the game biography history"],
+}
+
+
+def v1_sector_rss_queries(sector: str, target: date) -> list[str]:
+    """Compact keyword queries for Google News RSS (long natural-language briefs return no results there)."""
+    templates = V1_SECTOR_RSS_QUERIES.get(sector) or ["sports history facts"]
+    return [t.format(month=target.strftime("%B"), day=target.day) for t in templates]
+
+GOOGLE_NEWS_RSS_LOCALE = ("en-US", "US", "US:en")
+
+_FEED_NS = {
+    "atom": "http://www.w3.org/2005/Atom",
+    "media": "http://search.yahoo.com/mrss/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "content": "http://purl.org/rss/1.0/modules/content/",
+}
+
+
+def _feed_el_text(el) -> str:
+    if el is None:
+        return ""
+    return re.sub(r"\s+", " ", html.unescape(" ".join(el.itertext()))).strip()
+
+
+def _parse_feed_items(xml_text: str) -> list[dict]:
+    """Parse RSS 2.0 / RDF / Atom into neutral item dicts (stdlib only)."""
+    if not xml_text or "<" not in xml_text:
         return []
-    query = v1_sector_query(sector, target)
-    body = {
-        "query": query,
-        "type": mode,
-        "numResults": max(1, min(100, int(num or V1_SEARCH_RESULTS_PER_SECTOR))),
-        "moderation": True,
-        "excludeDomains": V1_EXCLUDE_DOMAINS,
-        "contents": {"highlights": True},
-        "systemPrompt": _v1_search_system(sector, target, used_sectors),
-    }
-    if mode != "deep":
-        body.pop("type") if mode == "auto" else None
-    r = _v1_exa_request("https://api.exa.ai/search", body, timeout=60, retries=1)
-    if r is None or not getattr(r, "ok", False) or not isinstance(getattr(r, "data", None), dict):
-        tag = ""
-        if isinstance(getattr(r, "data", None), dict):
-            tag = text(r.data.get("tag"))
-        logger.warning("V1 Exa Search failed sector=%s status=%s tag=%s error=%s", sector, getattr(r, "status", 0), tag, redact(_v1_exa_error(r))[:180])
+    try:
+        root = ET.fromstring(xml_text)
+    except ET.ParseError:
         return []
+    nodes = root.findall(".//item")
+    atom = False
+    if not nodes:
+        nodes = root.findall(".//atom:entry", _FEED_NS)
+        atom = True
+    items = []
+    for node in nodes:
+        image = ""
+        if atom:
+            title = _feed_el_text(node.find("atom:title", _FEED_NS))
+            url = ""
+            for link in node.findall("atom:link", _FEED_NS):
+                if link.get("rel") in (None, "alternate") and link.get("href"):
+                    url = link.get("href")
+                    break
+            summary = _feed_el_text(node.find("atom:summary", _FEED_NS)) or _feed_el_text(node.find("atom:content", _FEED_NS))
+            published = parse_dt(_feed_el_text(node.find("atom:published", _FEED_NS)) or _feed_el_text(node.find("atom:updated", _FEED_NS)))
+        else:
+            title = _feed_el_text(node.find("title"))
+            url = _feed_el_text(node.find("link"))
+            desc_el = node.find("description")
+            summary = _feed_el_text(desc_el) or _feed_el_text(node.find("content:encoded", _FEED_NS))
+            published = parse_dt(_feed_el_text(node.find("pubDate")) or _feed_el_text(node.find("dc:date", _FEED_NS)))
+            enc = node.find("enclosure")
+            if enc is not None and (enc.get("type") or "").startswith("image"):
+                image = enc.get("url") or ""
+            if not image:
+                mc = node.find("media:content", _FEED_NS)
+                if mc is not None:
+                    image = mc.get("url") or ""
+            if not image:
+                mt = node.find("media:thumbnail", _FEED_NS)
+                if mt is not None:
+                    image = mt.get("url") or ""
+            if not image and desc_el is not None:
+                mimg = re.search(r"<img[^>]+src=[\"'](https?://[^\"']+)[\"']", ET.tostring(desc_el, encoding="unicode"))
+                if mimg:
+                    image = mimg.group(1)
+        if not url or not title:
+            continue
+        items.append({"url": url, "title": title, "text": summary[:3500], "published": published, "image": image})
+    return items
+
+
+def fetch_feed_items(feed_url: str) -> list[dict]:
+    r = http("rss", "GET", feed_url,
+             headers={"Accept": "application/rss+xml, application/atom+xml, text/xml, */*", "User-Agent": SEARCH_USER_AGENT},
+             timeout=NORMAL_SEARCH_TIMEOUT, retries=0, want_json=False)
+    if not r.ok or not r.text:
+        logger.warning("RSS feed failed host=%s status=%s error=%s", domain_of(feed_url), r.status, redact(r.error)[:140])
+        return []
+    return _parse_feed_items(r.text)
+
+
+def resolve_google_news_url(link: str) -> str:
+    """Google News RSS links point at a Google interstitial page, not the publisher.
+
+    Decode the real article URL through Google's batchexecute endpoint (the
+    parameters are embedded in the interstitial page). Return "" when decoding
+    fails so the caller can skip the item.
+    """
+    try:
+        s = session()
+        page = s.get(link, timeout=15, allow_redirects=True, headers=HEADERS)
+        if page.status_code != 200:
+            return ""
+        token = page.url.rstrip("/").split("/")[-1].split("?")[0]
+        sg = re.search(r'data-n-a-sg="([^"]+)"', page.text)
+        ts = re.search(r'data-n-a-ts="([^"]+)"', page.text)
+        if not sg or not ts or not token:
+            return ""
+        inner = ('["garturlreq",[["en-US","US",["FINANCE_TOP_INDICES","WEB_TEST_1_0_0"],null,null,1,1,"US:en",null,180,null,null,null,null,null,0,null,null,[1608992183,723341248]],'
+                 '"en-US","US",1,[2,3,4,8],1,0,"655000234",0,0,null,0],'
+                 f'"{token}",{ts.group(1)},"{sg.group(1)}"]')
+        body = "f.req=" + quote(json.dumps([[["Fbv4je", inner, None, "generic"]]], separators=(",", ":")))
+        r = s.post("https://news.google.com/_/DotsSplashUi/data/batchexecute?rpcids=Fbv4je",
+                   data=body, headers={**HEADERS, "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"}, timeout=15)
+        if "garturlres" not in r.text:
+            return ""
+        for m in re.finditer(r'https?://[^\s"\\]+', r.text.split("garturlres", 1)[1]):
+            u = m.group(0).replace("\\/", "/")
+            if "google." not in u and "gstatic." not in u:
+                return u
+        return ""
+    except Exception:
+        return ""
+
+
+def google_news_rss_items(query: str, *, num: int = 6) -> list[dict]:
+    """Free Google News RSS search. Returned items carry resolved publisher URLs."""
+    q = text(query)
+    if not q:
+        return []
+    hl, gl, ceid = GOOGLE_NEWS_RSS_LOCALE
+    feed_url = "https://news.google.com/rss/search?q=" + quote(q) + f"&hl={hl}&gl={gl}&ceid={ceid}"
+    raw_items = fetch_feed_items(feed_url)[: max(num * 2, num)]
+
+    def resolved(item):
+        url = item["url"]
+        if "news.google.com" in url:
+            url = resolve_google_news_url(url)
+            if not url:
+                return None
+        title = item["title"]
+        suffix = " - " + source_label(url)
+        if title.endswith(suffix):
+            title = title[: -len(suffix)].strip()
+        else:
+            # Google appends " - Publisher"; strip it when the segment matches the domain stem.
+            m = re.search(r"\s+-\s+([^-]{2,40})$", title)
+            if m:
+                seg = re.sub(r"[^a-z0-9]", "", m.group(1).lower())
+                stem = re.sub(r"(\.com|\.org|\.net|\.co\.uk|\.io|\.ai)?$", "", domain_of(url).lower().removeprefix("www."))
+                stem = re.sub(r"[^a-z0-9]", "", stem)
+                if seg and (seg == stem or stem.startswith(seg) or seg.startswith(stem)):
+                    title = title[: m.start()].strip()
+        return {**item, "url": url, "title": title}
+
     out = []
-    for item in r.data.get("results", []) or []:
-        if not isinstance(item, dict):
+    with ThreadPoolExecutor(max_workers=6) as ex:
+        for item in ex.map(resolved, raw_items):
+            if item:
+                out.append(item)
+                if len(out) >= num:
+                    break
+    return out
+
+
+def _v1_candidate(sector: str, target: date, *, url: str, title: str, excerpt: str,
+                  highlights: list[str], image: str, published, provider: str) -> dict | None:
+    """Apply the evergreen scope gates and build the standard candidate dict."""
+    title = re.sub(r"\s+", " ", text(title)).strip()
+    excerpt = re.sub(r"\s+", " ", text(excerpt)).strip()[:3500]
+    if not url or not title or not re.match(r"^https?://", url, re.I):
+        return None
+    probe = {"sector": sector, "source_url": url, "normalized_subject": title, "text": excerpt,
+             "highlights": highlights, "grade": grade_of(url)}
+    scope_reason = evergreen_scope_reason(probe)
+    if scope_reason:
+        reject("v1_scope_filter", f"{sector}: {title[:120]} ({scope_reason})")
+        return None
+    recent = bool(published and published >= datetime.now(timezone.utc) - timedelta(days=45))
+    if V1_CURRENT_TITLE_RX.search(title) or (recent and V1_CURRENT_RX.search(excerpt)):
+        reject("v1_current_news", f"{sector}: {title[:120]}")
+        return None
+    return {
+        "sector": sector,
+        "normalized_subject": title,
+        "central_knowledge_unit": title,
+        "central_claim": excerpt[:700] or title,
+        "research_focus": v1_sector_query(sector, target),
+        "topic": title,
+        "sport_or_game": "",
+        "source_url": url,
+        "source": source_label(url),
+        "grade": grade_of(url),
+        "highlights": highlights[:6],
+        "text": excerpt,
+        "image": text(image),
+        "published": published,
+        "favicon": "",
+        "search_request_id": "",
+        "search_provider": provider,
+    }
+
+
+def rss_discovery_sector(sector: str, target: date, used_sectors: set[str], *, num: int | None = None, hard: bool = False) -> list[dict]:
+    """RSS-first discovery for one sector: Google News RSS for the sector query plus mapped publisher feeds."""
+    limit = max(1, int(num or V1_SEARCH_RESULTS_PER_SECTOR)) * (2 if hard else 1)
+    out: list[dict] = []
+    seen: set[str] = set()
+
+    def add(item, provider):
+        url = v1_network_url(text(item.get("url")))
+        cu = canonical_url(url)
+        if not url or not cu or cu in seen:
+            return
+        excerpt = text(item.get("text"))
+        c = _v1_candidate(sector, target, url=url, title=text(item.get("title")), excerpt=excerpt,
+                          highlights=[excerpt[:1200]] if excerpt else [], image=text(item.get("image")),
+                          published=item.get("published"), provider=provider)
+        if c:
+            seen.add(cu)
+            out.append(c)
+
+    for i, query in enumerate(v1_sector_rss_queries(sector, target)):
+        if i and len(out) >= NORMAL_SEARCH_FALLBACK_MIN:
+            break
+        for item in google_news_rss_items(query, num=limit):
+            add(item, "google_news_rss")
+    sector_keywords = tokens(" ".join(v1_sector_rss_queries(sector, target))) | tokens(sector)
+    for feed in RSS_FEEDS:
+        if sector not in feed["sectors"]:
             continue
-        url = text(item.get("url")); title = re.sub(r"\s+", " ", text(item.get("title"))).strip()
-        if not url or not title or not re.match(r"^https?://", url, re.I):
+        for item in fetch_feed_items(feed["url"]):
+            # Mapped feeds are topical but not sector-precise; require real topical overlap with the sector.
+            if len(sector_keywords & tokens(f"{item.get('title', '')} {item.get('text', '')}")) < 2:
+                continue
+            add(item, "rss")
+    return out[:limit]
+
+
+def rss_search_query(query: str, *, num: int = 4) -> list[dict]:
+    """Targeted free search via Google News RSS; rows mirror the targeted-search shape used by verification."""
+    out = []
+    for item in google_news_rss_items(query, num=num):
+        url = text(item.get("url"))
+        title = re.sub(r"\s+", " ", text(item.get("title"))).strip()
+        excerpt = re.sub(r"\s+", " ", text(item.get("text"))).strip()[:3500]
+        if not url or not title:
             continue
-        hs = item.get("highlights") or []
-        if not isinstance(hs, list):
-            hs = [text(hs)] if text(hs) else []
-        highlights = [re.sub(r"\s+", " ", text(h)) for h in hs if text(h)]
-        excerpt = " ".join(highlights)[:3500] or re.sub(r"\s+", " ", text(item.get("text")))[:3500]
-        alltext = f"{title} {excerpt} {url}"
-        candidate_probe={"sector":sector,"source_url":url,"normalized_subject":title,"text":excerpt,"highlights":highlights,"grade":grade_of(url)}
-        scope_reason=evergreen_scope_reason(candidate_probe)
-        if scope_reason:
-            reject("v1_scope_filter", f"{sector}: {title[:120]} ({scope_reason})")
-            continue
-        published = parse_dt(item.get("publishedDate") or item.get("published_date"))
+        published = item.get("published")
         recent = bool(published and published >= datetime.now(timezone.utc) - timedelta(days=45))
-        title_current = V1_CURRENT_TITLE_RX.search(title)
-        excerpt_current = V1_CURRENT_RX.search(excerpt)
-        if title_current or (recent and excerpt_current):
-            reject("v1_current_news", f"{sector}: {title[:120]}")
+        if exclusion_reason(f"{title} {excerpt} {url}") or V1_CURRENT_TITLE_RX.search(title) or (recent and V1_CURRENT_RX.search(excerpt)):
             continue
-        image = text(item.get("image"))
-        published = parse_dt(item.get("publishedDate") or item.get("published_date"))
-        out.append({
-            "sector": sector,
-            "normalized_subject": title,
-            "central_knowledge_unit": title,
-            "central_claim": excerpt[:700] or title,
-            "research_focus": v1_sector_query(sector, target),
-            "topic": title,
-            "sport_or_game": "",
-            "source_url": url,
-            "source": source_label(url, text(item.get("author"))),
-            "grade": grade_of(url),
-            "highlights": highlights[:6],
-            "text": excerpt,
-            "image": image,
-            "published": published,
-            "exa_id": text(item.get("id")),
-            "favicon": text(item.get("favicon")),
-            "search_request_id": text(r.data.get("requestId")),
-            "search_provider": "exa_fallback",
-        })
+        out.append({"url": url, "title": title, "highlights": [excerpt[:1200]] if excerpt else [], "text": excerpt,
+                    "source": source_label(url), "grade": grade_of(url), "image": text(item.get("image")), "published": published})
     return out
 
 
 def v1_discover_all_sectors(target: date, used_sectors: set[str], *, recovery_sectors: set[str] | None = None) -> list[dict]:
     sectors = [s for s in V1_SECTORS if not recovery_sectors or s in recovery_sectors]
     raw: list[dict] = []
-    # Normal web search is primary and uses no paid search API. Exa is only invoked when a sector
-    # returns too few usable results. Keep discovery sequential to avoid search-engine bursts.
+    # RSS discovery is primary and uses no paid API at all; normal web search only fills gaps.
+    # Keep discovery sequential to avoid feed/search bursts.
     for sector in sectors:
-        rows = _search_with_exa_fallback_sector(
+        rows = _search_sector(
             sector, target, used_sectors,
             num=NORMAL_SEARCH_RESULTS,
             hard=bool(recovery_sectors and sector in V1_HARD_SECTORS),
@@ -3406,7 +3505,7 @@ def v1_build_reservoir(raw: list[dict], coverage: dict, used_sectors: set[str]) 
             continue
         c["source_urls"] = [network_url]
         c["sources"] = _source_records([{"name":c.get("source"),"url":network_url,"type":f"{text(c.get('search_provider')) or 'Web search'} result","evidence_note":" ".join(c.get("highlights") or [])[:500]}])
-        c["research_images"] = ([{"url": text(c["image"]), "source_page_url": network_url, "source_name": c.get("source"), "source_type": "Exa Search result image"}] if text(c.get("image")) else [])
+        c["research_images"] = ([{"url": text(c["image"]), "source_page_url": network_url, "source_name": c.get("source"), "source_type": "Search result image"}] if text(c.get("image")) else [])
         accepted.append(c)
         seen_urls.add(url); seen_local.append(c); per_sector[sec] += 1
     # We want all 20 sectors represented in the first reservoir. If a sector has no survivor, recovery will target it.
@@ -3480,52 +3579,6 @@ def v1_rank(ai: "AIClient", candidates: list[dict], used_sectors: set[str]) -> l
     return [{**r,"_candidate_pool":pool} for r in rows]
 
 
-def v1_contents_for_urls(urls: list[str], *, text_mode: bool = True) -> tuple[dict[str,dict], str]:
-    """Batch Exa /contents. URLs are already-known Exa Search outputs."""
-    normalized=[]; seen=set()
-    for raw in urls:
-        nu=v1_network_url(raw)
-        cu=canonical_url(nu)
-        if nu and cu and cu not in seen:
-            seen.add(cu); normalized.append(nu)
-    urls=normalized[:100]
-    if not urls: return {}, "no_urls"
-    body={"urls":urls,"highlights":True,"text":True,"maxAgeHours":720}
-    # No outputSchema, no legacy context, no livecrawl. Contents is a retrieval/extraction endpoint.
-    r=_v1_exa_request("https://api.exa.ai/contents",body,timeout=120,retries=1)
-    if r is None or not getattr(r,"ok",False) or not isinstance(getattr(r,"data",None),dict):
-        logger.warning("V1 Exa Contents failed status=%s error=%s",getattr(r,"status",0),redact(_v1_exa_error(r))[:180])
-        return {},_v1_exa_error(r) if r else "provider_unavailable"
-    out={}
-    for item in r.data.get("results",[]) or []:
-        if not isinstance(item,dict): continue
-        result_url=canonical_url(text(item.get("url")))
-        result_id=canonical_url(text(item.get("id")))
-        key=result_url or result_id
-        if not key: continue
-        hs=item.get("highlights") or []
-        if not isinstance(hs,list): hs=[text(hs)] if text(hs) else []
-        page={
-            "url":text(item.get("url")) or text(item.get("id")) or key,
-            "title":text(item.get("title")),
-            "author":text(item.get("author")),
-            "published":parse_dt(item.get("publishedDate") or item.get("published_date")),
-            "text":re.sub(r"\s+"," ",text(item.get("text")))[:V1_CONTENTS_CHARS],
-            "highlights":[re.sub(r"\s+"," ",text(x)) for x in hs if text(x)][:8],
-            "summary":text(item.get("summary")),
-        }
-        out[key]=page
-        # Exa may return a canonical document URL different from the requested ID/URL (for example an HTML/PDF redirect).
-        # Index both forms so the original Search source still resolves to the extracted page.
-        if result_id: out[result_id]=page
-        if result_url: out[result_url]=page
-    statuses={text(x.get("id")):text(x.get("status")) for x in (r.data.get("statuses") or []) if isinstance(x,dict)}
-    for k,v in statuses.items():
-        ck=canonical_url(k)
-        if ck and ck in out: out[ck]["status"]=v
-    return out,"ok"
-
-
 def _extract_visible_page_text(raw_html: str) -> str:
     if not raw_html:
         return ""
@@ -3585,46 +3638,12 @@ def v1_evidence_text(candidate: dict, pages: dict[str,dict]) -> str:
     return "\n\n".join(parts)[:14000]
 
 
-def v1_exa_search_query(query: str, target: date, used_sectors: set[str], *, mode: str = "auto", num: int = 4) -> list[dict]:
-    if not EXA_API_KEY or not text(query):
-        return []
-    body={
-        "query": text(query),
-        "numResults": max(1, min(100, int(num))),
-        "moderation": True,
-        "excludeDomains": V1_EXCLUDE_DOMAINS,
-        "contents": {"highlights": True},
-        "systemPrompt": _v1_search_system("Targeted verification", target, used_sectors),
-    }
-    if mode != "auto":
-        body["type"]=mode
-    r=_v1_exa_request("https://api.exa.ai/search",body,timeout=60,retries=1)
-    if r is None or not getattr(r,"ok",False) or not isinstance(getattr(r,"data",None),dict):
-        logger.warning("V1 targeted Exa Search failed status=%s error=%s",getattr(r,"status",0),redact(_v1_exa_error(r))[:180])
-        return []
-    out=[]
-    for item in r.data.get("results",[]) or []:
-        if not isinstance(item,dict): continue
-        url=text(item.get("url")); title=re.sub(r"\s+"," ",text(item.get("title"))).strip()
-        if not url or not title or not re.match(r"^https?://",url,re.I): continue
-        hs=item.get("highlights") or []
-        if not isinstance(hs,list): hs=[text(hs)] if text(hs) else []
-        highlights=[re.sub(r"\s+"," ",text(h)) for h in hs if text(h)]
-        excerpt=" ".join(highlights)[:3500] or re.sub(r"\s+"," ",text(item.get("text")))[:3500]
-        published = parse_dt(item.get("publishedDate") or item.get("published_date"))
-        recent = bool(published and published >= datetime.now(timezone.utc) - timedelta(days=45))
-        if exclusion_reason(f"{title} {excerpt} {url}") or V1_CURRENT_TITLE_RX.search(title) or (recent and V1_CURRENT_RX.search(excerpt)):
-            continue
-        out.append({"url":url,"title":title,"highlights":highlights[:6],"text":excerpt,"source":source_label(url,text(item.get("author"))),"grade":grade_of(url),"image":text(item.get("image")),"exa_id":text(item.get("id")),"published":published})
-    return out
-
-
 def v1_secondary_search(candidate: dict, target: date) -> list[dict]:
     q=(v1_evidence_query(candidate)+" Prefer an independent authoritative source. Verify exact dates, names, records, rules, or historical qualifiers. Search for the specific subject, not the generic sport.")
     rows=normal_web_search(q,num=5)
     if len(rows) < NORMAL_SEARCH_FALLBACK_MIN:
-        logger.warning("V1 secondary normal search sparse; using Exa fallback")
-        rows += v1_exa_search_query(q,target,set(),mode="auto",num=5)
+        logger.warning("V1 secondary normal search sparse; using RSS fallback")
+        rows += rss_search_query(q, num=5)
     wanted=(tokens(candidate.get("normalized_subject")) | tokens(candidate.get("central_knowledge_unit")) | tokens(candidate.get("central_claim")))
     kept=[]
     for r in rows:
@@ -3655,53 +3674,8 @@ def _v1_prompt(name: str, fallback: str = "") -> str:
             logger.warning("Prompt file unavailable (%s): %s; using embedded fallback", name, redact(str(exc)))
     return PROMPT_FALLBACKS.get(name, fallback)
 
-def v1_agent_hard_case(candidate: dict, evidence: str) -> dict | None:
-    if not EXA_API_KEY:
-        return None
-    schema_path = SCHEMAS_DIR / "exa_agent_hard_case_v1.json"
-    schema = dict(AGENT_HARD_CASE_SCHEMA)
-    if schema_path.exists():
-        try:
-            loaded = json.loads(schema_path.read_text(encoding="utf-8"))
-            if isinstance(loaded, dict):
-                schema = loaded
-        except (OSError, json.JSONDecodeError) as exc:
-            logger.warning("Agent schema file unavailable: %s; using embedded schema", redact(str(exc)))
-    if not isinstance(schema,dict) or not isinstance(schema.get("properties"),dict) or len(schema.get("properties",{}))>10:
-        logger.error("V1 Agent schema invalid or exceeds provider property limit")
-        return None
-    system=_v1_prompt("exa_hard_case_agent_v1.txt",
-        "Resolve a difficult evergreen Sports & Games research claim. Prefer authoritative independent sources. "
-        "Qualify first/last/only/origin claims precisely. Do not use current news. Do not invent facts or URLs.")
-    q=(system+"\n\nCASE:\n"+json.dumps({"candidate":{k:candidate.get(k,"") for k in ("sector","normalized_subject","central_knowledge_unit","central_claim","research_focus")},"existing_evidence":evidence[:7000]},ensure_ascii=False))
-    body={"query":q,"effort":"auto","outputSchema":schema}
-    r=_v1_exa_request("https://api.exa.ai/agent/runs",body,timeout=90,retries=0)
-    if r is None or not getattr(r,"ok",False) or not isinstance(getattr(r,"data",None),dict):
-        logger.warning("V1 Exa Agent create failed status=%s error=%s",getattr(r,"status",0),redact(_v1_exa_error(r))[:180]); return None
-    run_id=text(r.data.get("id"))
-    if not run_id: return None
-    deadline=time.monotonic()+_env_int("V1_AGENT_TIMEOUT_SECONDS",120)
-    while time.monotonic()<deadline:
-        g=http("exa","GET",f"https://api.exa.ai/agent/runs/{quote(run_id)}",headers={"Authorization":f"Bearer {EXA_API_KEY}"},timeout=30,retries=0)
-        if g.ok and isinstance(g.data,dict):
-            status=text(g.data.get("status")).lower()
-            if status=="completed":
-                output=g.data.get("output") or {}
-                structured=output.get("structured") if isinstance(output,dict) else None
-                if isinstance(structured,dict):
-                    structured["grounding"]=output.get("grounding") if isinstance(output,dict) else []
-                    structured["run_id"]=run_id
-                    return structured
-                return None
-            if status in {"failed","cancelled"}:
-                logger.warning("V1 Exa Agent terminal status=%s run=%s",status,run_id); return None
-        sleep(4)
-    logger.warning("V1 Exa Agent timed out run=%s",run_id)
-    return None
-
-
 def v1_verify_selected(selected: list[dict], target: date) -> tuple[list[dict], str]:
-    verified=[]; agent_cases=0
+    verified=[]
     for original in selected:
         c=json.loads(json.dumps(original, default=str))
         c["sources"]=_source_records(c.get("sources"))
@@ -3716,11 +3690,6 @@ def v1_verify_selected(selected: list[dict], target: date) -> tuple[list[dict], 
                 pages[canonical_url(u)]=page
 
         evidence=v1_evidence_text(c,pages)
-        # Paid Exa Contents is a fallback enhancer, never the default evidence path.
-        if len(evidence.strip())<500 and EXA_API_KEY:
-            extra_pages,_=v1_contents_for_urls(urls[:V1_CONTENTS_URLS_PER_STORY])
-            pages.update(extra_pages)
-            evidence=v1_evidence_text(c,pages)
 
         # For strong historical/first-last claims, try to add an independent normal-search source.
         if len(evidence.strip())<500 or v1_hard_case_needed(c,pages):
@@ -3737,27 +3706,11 @@ def v1_verify_selected(selected: list[dict], target: date) -> tuple[list[dict], 
                 if len(urls)>=V1_CONTENTS_URLS_PER_STORY:
                     break
             evidence=v1_evidence_text(c,pages)
-            if len(evidence.strip())<500 and EXA_API_KEY:
-                extra_pages,_=v1_contents_for_urls(urls[:V1_CONTENTS_URLS_PER_STORY])
-                pages.update(extra_pages)
-                evidence=v1_evidence_text(c,pages)
 
         # One verified, readable source page is the minimum. Never bypass this gate.
         available=[u for u in urls if canonical_url(u) in pages and len(text(pages.get(canonical_url(u),{}).get("text")))>=300]
         if not available or len(evidence.strip())<500:
             reject("v1_evidence_insufficient",text(c.get("normalized_subject"))); continue
-
-        if v1_hard_case_needed(c,pages) and agent_cases<V1_AGENT_MAX_CASES and EXA_API_KEY:
-            agent=v1_agent_hard_case(c,evidence)
-            if agent:
-                agent_cases+=1
-                verdict=text(agent.get("verdict")).lower()
-                if verdict in {"unsupported","false","reject","insufficient"}:
-                    reject("v1_agent_rejected",text(c.get("normalized_subject"))); continue
-                if text(agent.get("qualified_claim")):
-                    c["central_claim"]=text(agent.get("qualified_claim"))
-                if text(agent.get("evidence_summary")):
-                    evidence=(evidence+"\n\nAGENT VERIFICATION:\n"+text(agent.get("evidence_summary"))[:5000]).strip()
 
         c["sources"]=_source_records(c.get("sources"))
         c["verified_pages"]={canonical_url(u):pages[canonical_url(u)] for u in urls if canonical_url(u) in pages}
@@ -3977,7 +3930,7 @@ def v1_run_once(mode: str = "live") -> int:
     global DRY_RUN
     if mode == "diagnose":
         return _run_diagnose()
-    REPORT.reset(); _EXA_CACHE.clear()
+    REPORT.reset()
     dry = bool(mode == "dry-run" or DRY_RUN)
     if not dry and not TELEGRAM_BOT_TOKEN:
         logger.error("TELEGRAM_BOT_TOKEN is missing"); return 1
@@ -4117,36 +4070,24 @@ def v1_architecture_tests() -> int:
     ck(run_once is v1_run_once, "canonical run_once wiring")
     ck(run_diagnose is run_once, "diagnose aliases canonical run entrypoint")
     ck(v1_network_url("example.com/a/?utm_source=x") == "https://example.com/a/", "network URL normalization")
-    old_key=globals().get("EXA_API_KEY")
-    old_req=globals().get("_v1_exa_request")
-    try:
-        globals()["EXA_API_KEY"]="x"
-        called=[]
-        def fake_req(url,body,**kw):
-            called.append((url,body)); return type("R",(),{"ok":True,"status":200,"data":{"results":[]},"error":""})()
-        globals()["_v1_exa_request"]=fake_req
-        v1_exa_search_sector("Sport Discovery", date(2026,9,22), set(), num=6)
-        payload=called[-1][1]
-        ck(payload["query"] and payload["contents"] == {"highlights":True}, "search payload")
-        ck("outputSchema" not in payload, "search has no outputSchema")
-        ck(payload.get("moderation") is True, "search moderation")
-        ck(payload["numResults"] == 6, "search numResults")
-    finally:
-        globals()["_v1_exa_request"] = old_req
-        globals()["EXA_API_KEY"] = old_key
-    called=[]; old_req=globals().get("_v1_exa_request")
-    try:
-        def fake_contents(url,body,**kw):
-            called.append((url,body)); return type("R",(),{"ok":True,"status":200,"data":{"results":[],"statuses":[]},"error":""})()
-        globals()["_v1_exa_request"]=fake_contents
-        pages,status=v1_contents_for_urls(["https://example.com/a","https://example.com/a/"],text_mode=True)
-        ck(pages == {}, "contents empty response")
-        ck(status == "ok", "contents status")
-        ck(len(called) == 1 and called[0][0].endswith("/contents"), "contents endpoint")
-        ck(len(called[0][1]["urls"]) == 1 and called[0][1]["maxAgeHours"] == 720, "contents batching/freshness")
-    finally:
-        globals()["_v1_exa_request"] = old_req
-    ck(len(AGENT_HARD_CASE_SCHEMA.get("properties",{})) == 5, "embedded agent schema")
+    sample_rss = ('<?xml version="1.0"?><rss version="2.0"><channel>'
+                  '<item><title>The History of Football Rules</title><link>https://example.com/football-history</link>'
+                  '<description>How football rules were codified in the nineteenth century.</description>'
+                  '<pubDate>Sat, 20 Sep 2026 10:00:00 GMT</pubDate></item></channel></rss>')
+    feed_items = _parse_feed_items(sample_rss)
+    ck(len(feed_items) == 1 and feed_items[0]["url"] == "https://example.com/football-history", "RSS feed parsing")
+    ck(feed_items[0]["published"] is not None and feed_items[0]["published"].year == 2026, "RSS feed date parsing")
+    sample_atom = ('<?xml version="1.0"?><feed xmlns="http://www.w3.org/2005/Atom">'
+                   '<entry><title>Ancient Board Games</title><link href="https://example.org/board-games"/>'
+                   '<summary>The history of ancient board games and how they were played.</summary>'
+                   '<published>2026-09-20T10:00:00Z</published></entry></feed>')
+    atom_items = _parse_feed_items(sample_atom)
+    ck(len(atom_items) == 1 and atom_items[0]["title"] == "Ancient Board Games", "Atom feed parsing")
+    cand = _v1_candidate("Sport Origin", date(2026,9,22), url="https://example.com/football-history",
+                         title="The History of Football Rules", excerpt="How football rules were codified in 1863.",
+                         highlights=[], image="", published=None, provider="rss")
+    ck(cand is not None and cand["search_provider"] == "rss" and "exa" not in cand, "RSS candidate shape")
+    ck(("EXA_" + "API_KEY") not in globals() and not hasattr(sys.modules[__name__], "v1_" + "exa_search_sector"), "paid search layer removed")
     candidate={"sector":"Sport Origin","normalized_subject":"Football origins","central_knowledge_unit":"codified association football origins","central_claim":"Football laws were codified in 1863","sources":[{"name":"Source","url":"https://example.com"}]}
     ck(coverage_match(candidate,{"records":[]})[0] == "new", "new coverage candidate")
     story=v1_normalize_story({"image":None,"sources":None,"tags":None,"people":None})
@@ -4286,8 +4227,7 @@ def _run_diagnose() -> int:
         chat=tg_call("getChat", {"chat_id": CHANNEL})
         print("TELEGRAM channel:", "OK" if chat.get("ok") else "FAIL")
         failures += not bool(chat.get("ok"))
-    exa_ok=bool(EXA_API_KEY)
-    print("EXA FALLBACK:", "configured" if exa_ok else "not configured (normal search remains primary)")
+    print("DISCOVERY:", "RSS + Google News RSS + normal web search (no paid search API)")
     ai=AIClient()
     print("CEREBRAS:", "OK" if ai.available else "FAIL (missing key)")
     failures += not ai.available
@@ -4316,8 +4256,8 @@ def v1_cerebras_preflight() -> tuple[bool, str]:
 def v1_validate_config(require_secrets: bool=True) -> int:
     required=[
         "main.py","news_state.json","posted_urls.txt","coverage_index.json","requirements.txt","README.md",
-        "prompts/exa_sector_discovery_v1.txt","prompts/exa_hard_case_agent_v1.txt","prompts/cerebras_rank_v1.txt",
-        "prompts/cerebras_editorial_v1.txt","schemas/exa_agent_hard_case_v1.json","tests/test_v1.py",
+        "prompts/cerebras_rank_v1.txt",
+        "prompts/cerebras_editorial_v1.txt","tests/test_v1.py",
         ".github/workflows/newbot.yml",".github/workflows/import-zip.yml",
     ]
     missing=[x for x in required if not Path(x).exists()]
@@ -4331,7 +4271,7 @@ def v1_validate_config(require_secrets: bool=True) -> int:
         if not ok:
             print("CONFIG: FAIL (Cerebras preflight: "+detail+")"); return 1
         print("CONFIG: Cerebras preflight OK ("+detail+")")
-    print(f"CONFIG: OK (The Sports Newsroom V1, {len(V1_SECTORS)} sectors, normal web search primary with Exa fallback)")
+    print(f"CONFIG: OK (The Sports Newsroom V1, {len(V1_SECTORS)} sectors, RSS primary with normal web search gap fill)")
     return 0
 
 
