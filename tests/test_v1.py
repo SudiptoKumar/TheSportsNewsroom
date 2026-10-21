@@ -383,6 +383,19 @@ class TestV1Contracts(OfflineProviderIsolationMixin, unittest.TestCase):
         self.assertEqual([55], json.loads(calls[0][1]["message_ids"]))
         self.assertEqual([], state["v1"]["live"]["retiring_message_ids"])
 
+    def test_live_retirement_cleanup_drops_undeletable_ids_from_queue(self):
+        live = {"retiring_message_ids": [101, 102]}
+        def fake_tg(method, data=None, file_path="", file_field="photo"):
+            if method == "deleteMessages":
+                return {"ok": False, "description": "Bad Request: message can't be deleted"}
+            if data["message_id"] == 101:
+                return {"ok": True}
+            return {"ok": False, "description": "Bad Request: message can't be deleted"}
+        with patch.object(main, "tg_call", side_effect=fake_tg):
+            ok = main.cleanup_live_retirements({"live": live})
+        self.assertTrue(ok)
+        self.assertEqual([], live["retiring_message_ids"])
+
     def test_retire_live_pair_permanently_dry_run_makes_no_telegram_calls(self):
         vstate = {"live": {"schedule": {"message_id": 468, "target_date": "2026-10-22"}, "results": {"message_id": None, "target_date": ""}, "retiring_message_ids": []}}
         with patch.object(main, "tg_call", side_effect=AssertionError("dry run must not call Telegram")):
