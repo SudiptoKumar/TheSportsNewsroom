@@ -1,15 +1,15 @@
 {
  "ai": {
-  "last_error": "",
-  "last_ok": "2026-10-21T18:39:00.742478+00:00",
-  "last_request_id": "a4e261ebefa38ad4-CMH",
+  "last_error": "Cerebras per-run call cap reached (16)",
+  "last_ok": "2026-10-22T18:34:14.780440+00:00",
+  "last_request_id": "a4ea9850ee9c21db-IAD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-21T18:39:03.993260+00:00",
+ "last_run_at": "2026-10-22T18:34:14.782394+00:00",
  "ledger": {},
  "posts": [
   {
@@ -5017,6 +5017,165 @@
    "urls": [
     "riverbender.com/news/details/this-day-in-sports-history-sept-22-and-the-long-count-fight-jackie-robinsons-pennant-and-more-96934.cfm"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "100 World Cup Facts and Trivia Every Fan Should Know",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMieEFVX3lxTFBSUmE1bmdxaC1QQ2RPUGx0emZCbWc3SFdWbUxyV1RxN2J2VWQyZFJoclhjQVMyclFjakVvXzVKeFVIXzZNUXpfd2JLdUNYMTlrNlU1aWxkXzN6cmlVTVFfS2tWMGhCMXRqTmtDYmpfcjVvcjVBVDRJNtIBeEFVX3lxTE9jNUFKWWpzOTMzOFUxWUZIdXpyRHU4WTV4QmFIbGp5RnIycFY0ZFFCbzRBRGwxMUo0aUowOWpUWk9Ka0hlOE90dXpaenBEM2tqZGNGbXN4Q0RqN1EyYlNnMGJvYy1PYWgzSlZxaGJIV1ZWa3lwZFZuUg?oc=5\" target=\"_blank\">100 World Cup Facts and Trivia Every Fan Should Know</a> <font color=\"#6f6f6f\">FOX Sports</font>",
+   "desk": "evergreen_v1",
+   "format": "Interesting Sports Fact",
+   "headline": "Cristiano Ronaldo Leads Scorers Across World Cup Editions",
+   "image_status": "verified_external",
+   "message_id": 480,
+   "normalized_subject": "100 World Cup Facts and Trivia Every Fan Should Know",
+   "posted_at": "2026-10-22T18:31:47.287158+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-23-AM",
+   "sector": "Interesting Sports Fact",
+   "topic": "100 World Cup Facts and Trivia Every Fan Should Know",
+   "urls": [
+    "foxsports.com/stories/soccer/world-cup-facts-stats-trivia"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Football (soccer) | History, 2026 FIFA World Cup, Game, Rules, & Significant Players",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMiXkFVX3lxTFA4NElISjFPV1BPSGl3RkRRWDFpaTI3WHJjSktYSWh3UW5YZmQ3MUJ2ZlZvamVicGhLanlUYXJpR1ljRDFXWmpkd3o2UWloZTNrYnZBT1ZVU0QtbEpYNmc?oc=5\" target=\"_blank\">Football (soccer) | History, 2026 FIFA World Cup, Game, Rules, & Significant Players</a> <font color=\"#6f6f6f\">Britannica</font>",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "Football’s Global Reach Highlighted by Upcoming 2026 World Cup",
+   "image_status": "card_fallback",
+   "message_id": 481,
+   "normalized_subject": "Football (soccer) | History, 2026 FIFA World Cup, Game, Rules, & Significant Players",
+   "posted_at": "2026-10-22T18:31:59.209127+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-23-AM",
+   "sector": "Sport Origin",
+   "topic": "Football (soccer) | History, 2026 FIFA World Cup, Game, Rules, & Significant Players",
+   "urls": [
+    "britannica.com/sports/football-soccer"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Lionel Messi's Farewell To Argentina: A Look At The GOAT's Historic World Cup Career",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMihwFBVV95cUxPT0dWZnRRMFFvVFNoNlZZRUZtcXFXSU5nVmstN2ZMNWc4MEpLdnBlSXp1cFJBTVlLaWx5WDRjUWkyX3EtMjM0Tzl5U0lFbXRKS3hHWE5zekgtMTVYNzdNbnY1YVNlZ2kyVDBWaG1BQXExNFdqTkhhVy0ySVM2SmplQTlrSUdYelU?oc=5\" target=\"_blank\">Lionel Messi's Farewell To Argentina: A Look At The GOAT's Historic World Cup Career</a> <font color=\"#6f6f6f\">FOX Sports</font>",
+   "desk": "evergreen_v1",
+   "format": "Records & Milestones",
+   "headline": "Lionel Messi Announces Retirement After Historic World Cup Legacy",
+   "image_status": "verified_external",
+   "message_id": 482,
+   "normalized_subject": "Lionel Messi's Farewell To Argentina: A Look At The GOAT's Historic World Cup Career",
+   "posted_at": "2026-10-22T18:32:11.971430+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-23-AM",
+   "sector": "Records & Milestones",
+   "topic": "Lionel Messi's Farewell To Argentina: A Look At The GOAT's Historic World Cup Career",
+   "urls": [
+    "foxsports.com/stories/soccer/lionel-messi-argentina-world-cup-legacy"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Super Bowl",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMiV0FVX3lxTE01WDhvLTlmeFktUVBGd1lSV2JiZWhJSkVyY0dWdzZ0YUpsQkc0WWlRSURwNkxxQjh6dENtR0pzRXQ1bnd3Mmowc2s0VjRIUkhBOGpCQTZoOA?oc=5\" target=\"_blank\">Super Bowl</a> <font color=\"#6f6f6f\">Britannica</font>",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "Britannica Provides Authoritative Definition of the Super Bowl",
+   "image_status": "card_fallback",
+   "message_id": 483,
+   "normalized_subject": "Super Bowl",
+   "posted_at": "2026-10-22T18:32:24.086094+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-23-AM",
+   "sector": "Then vs Now",
+   "topic": "Super Bowl",
+   "urls": [
+    "britannica.com/sports/Super-Bowl"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Losing to win: The strangest game in football history",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMinAFBVV95cUxQT1dFS2NUQUJINjJUR2VBWW41dzNUSU45c2xjZm1YNjV3NllON043OWJMc3g5MDJ4Y3VLZHU5RjJaemxKV0ZFc1Zsc0Z5SENEOUgwRFJaSFI2ZmhHSWl4ek9iMTBLSDB1a1hSWnh2UmxGMHB3el9HZEZhdkdwOTduWHlzZTZJY0FXMkZiVDFnVG9Jc3hFU3cwUGVFYmE?oc=5\" target=\"_blank\">Losing to win: The strangest game in football history</a> <font color=\"#6f6f6f\">BBC</font>",
+   "desk": "evergreen_v1",
+   "format": "Rule Check",
+   "headline": "Barbados and Grenada’s 1994 Qualifier Turned Into a Own‑Goal Spectacle",
+   "image_status": "verified_external",
+   "message_id": 484,
+   "normalized_subject": "Losing to win: The strangest game in football history",
+   "posted_at": "2026-10-22T18:32:49.183233+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-23-AM",
+   "sector": "Rule Check",
+   "topic": "Losing to win: The strangest game in football history",
+   "urls": [
+    "bbc.com/future/article/20260703-losing-to-win-the-strangest-game-in-football-history"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Valkyries make history as first-ever women’s sports team to generate over $100 million in revenue - Yahoo Sports",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMiiwFBVV95cUxNYVFBSkZ0NHJ5V0c0a1VNX0lna0JyWHdYQ1RPc0ZBTVB5bU5HMXcwNXQ2aFp1S2RGbVBrU0g4S25pYkNfNGxWQlR4TFQ3dUZEX0phbkN1R20weU9KM0ZJdi1wQS10anQ1VURyOEdGV2tUdV8yWDBNUmZSazNvLWdvS0w0bHpLdXJkcmEw?oc=5\" target=\"_blank\">Valkyries make history as first-ever women’s sports team to generate over $100 million in revenue</a> <font color=\"#6f6f6f\">Yahoo Sports</font>",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "Valkyries Become First Women’s Team to Surpass $100 Million in Revenue",
+   "image_status": "verified_external",
+   "message_id": 485,
+   "normalized_subject": "Valkyries make history as first-ever women’s sports team to generate over $100 million in revenue - Yahoo Sports",
+   "posted_at": "2026-10-22T18:33:26.599028+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-23-AM",
+   "sector": "First / Last / Only",
+   "topic": "Valkyries make history as first-ever women’s sports team to generate over $100 million in revenue - Yahoo Sports",
+   "urls": [
+    "sports.yahoo.com/articles/valkyries-history-first-ever-women-042654206.html"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Why Central Asia's sports hit the target with the world - ABC Asia - ABC News & Headlines – Australian Broadcasting Corporation",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMimgFBVV95cUxNNFdHdWZya3c3TFZwMlJwSkg1VTk0OHZINlhKeG90SElrbW91X1RXUk5VMW5LTWZMVVBwVGYtMDVjaHRLMURCREc0dXpFRGc3X3F3cjRsLURPb0lLdXYtY3M5TV9lNVN0VnAwZWxvZzd6U3VCaEYteGRaMmFmNjNNY0o5QXpKdlBERUdSdm9RcG1nOHI4VEd2MTVB?oc=5\" target=\"_blank\">Why Central Asia's sports hit the target with the world - ABC Asia</a> <font color=\"#6f6f6f\">ABC News & Headlines – Australian Broadcasting Corporation</font>",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "Australian Shaam Amirdeen shines at World Nomad Games",
+   "image_status": "verified_external",
+   "message_id": 486,
+   "normalized_subject": "Why Central Asia's sports hit the target with the world - ABC Asia - ABC News & Headlines – Australian Broadcasting Corporation",
+   "posted_at": "2026-10-22T18:34:08.211855+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-23-AM",
+   "sector": "Game Discovery",
+   "topic": "Why Central Asia's sports hit the target with the world - ABC Asia - ABC News & Headlines – Australian Broadcasting Corporation",
+   "urls": [
+    "abc.net.au/asia/world-nomad-games-kyrgyzstan-australians-archers-compete/107128616"
+   ]
   }
  ],
  "runs": [],
@@ -5061,22 +5220,36 @@
     "run_ids": [
      "2026-10-22-AM"
     ]
+   },
+   "2026-10-23": {
+    "published_sectors": [
+     "Interesting Sports Fact",
+     "Sport Origin",
+     "Records & Milestones",
+     "Then vs Now",
+     "Rule Check",
+     "First / Last / Only",
+     "Game Discovery"
+    ],
+    "run_ids": [
+     "2026-10-23-AM"
+    ]
    }
   },
-  "last_run_at": "2026-10-21T18:39:03.993242+00:00",
+  "last_run_at": "2026-10-22T18:34:14.782364+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-22T07:29:59.517463+00:00"
+    "updated_at": "2026-10-22T18:34:14.782340+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-22T07:29:59.517460+00:00"
+    "updated_at": "2026-10-22T18:34:14.782332+00:00"
    }
   },
   "publication": {
@@ -5179,6 +5352,41 @@
     "message_id": 476,
     "posted_at": "2026-10-21T18:38:26.956537+00:00",
     "status": "posted"
+   },
+   "2026-10-23-AM:evergreen:9687a1df5715f06c": {
+    "message_id": 481,
+    "posted_at": "2026-10-22T18:31:59.208810+00:00",
+    "status": "posted"
+   },
+   "2026-10-23-AM:evergreen:a92dd509d8f8a268": {
+    "message_id": 484,
+    "posted_at": "2026-10-22T18:32:49.182992+00:00",
+    "status": "posted"
+   },
+   "2026-10-23-AM:evergreen:b0b1e567167d6070": {
+    "message_id": 480,
+    "posted_at": "2026-10-22T18:31:47.286873+00:00",
+    "status": "posted"
+   },
+   "2026-10-23-AM:evergreen:bad4426f1187b099": {
+    "message_id": 486,
+    "posted_at": "2026-10-22T18:34:08.211478+00:00",
+    "status": "posted"
+   },
+   "2026-10-23-AM:evergreen:c44fd212672e4c92": {
+    "message_id": 485,
+    "posted_at": "2026-10-22T18:33:26.598703+00:00",
+    "status": "posted"
+   },
+   "2026-10-23-AM:evergreen:e2a402182c3cc442": {
+    "message_id": 482,
+    "posted_at": "2026-10-22T18:32:11.971139+00:00",
+    "status": "posted"
+   },
+   "2026-10-23-AM:evergreen:e7e0f8781664fbf2": {
+    "message_id": 483,
+    "posted_at": "2026-10-22T18:32:24.085844+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -5216,6 +5424,21 @@
      "Sport Discovery",
      "Sport Origin",
      "Sports & Games People"
+    ]
+   },
+   {
+    "at": "2026-10-22T18:34:14.782371+00:00",
+    "evergreen": 7,
+    "exit": 0,
+    "run_id": "2026-10-23-AM",
+    "used_sectors": [
+     "First / Last / Only",
+     "Game Discovery",
+     "Interesting Sports Fact",
+     "Records & Milestones",
+     "Rule Check",
+     "Sport Origin",
+     "Then vs Now"
     ]
    }
   ],
