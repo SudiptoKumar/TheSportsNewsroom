@@ -10950,8 +10950,397 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 486
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMieEFVX3lxTFBSUmE1bmdxaC1QQ2RPUGx0emZCbWc3SFdWbUxyV1RxN2J2VWQyZFJoclhjQVMyclFjakVvXzVKeFVIXzZNUXpfd2JLdUNYMTlrNlU1aWxkXzN6cmlVTVFfS2tWMGhCMXRqTmtDYmpfcjVvcjVBVDRJNtIBeEFVX3lxTE9jNUFKWWpzOTMzOFUxWUZIdXpyRHU4WTV4QmFIbGp5RnIycFY0ZFFCbzRBRGwxMUo0aUowOWpUWk9Ka0hlOE90dXpaenBEM2tqZGNGbXN4Q0RqN1EyYlNnMGJvYy1PYWgzSlZxaGJIV1ZWa3lwZFZuUg?oc=5\" target=\"_blank\">100 World Cup Facts and Trivia Every Fan Should Know</a> <font color=\"#6f6f6f\">FOX Sports</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmieefvx3lxtfbsume1bmdxac1qq2rpugx0emzcbwc3sfdwbuxyv1rxn2j2vwqyzfjoclhjqvmyclfjakvvxzvkefvixzznuxpfd2jldunymtlrnlu1awxkxzn6cmlvtvffs2twmghcmxrqtmtdympfcjvvcjvbvdrjntibeefvx3lxte",
+   "content_id": "f66a4b7ccc262fa3",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a775198a0e75f780",
+    "c081fa5b22019b02"
+   ],
+   "legacy": true,
+   "normalized_subject": "100 world cup facts and trivia every fan should know",
+   "people": [],
+   "published_at": "2026-10-22T18:31:47.287158+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Sports Fact",
+   "source_urls": [
+    "foxsports.com/stories/soccer/world-cup-facts-stats-trivia"
+   ],
+   "sport_or_game": "100 World Cup Facts and Trivia Every Fan Should Know",
+   "telegram_message_id": 480
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiXkFVX3lxTFA4NElISjFPV1BPSGl3RkRRWDFpaTI3WHJjSktYSWh3UW5YZmQ3MUJ2ZlZvamVicGhLanlUYXJpR1ljRDFXWmpkd3o2UWloZTNrYnZBT1ZVU0QtbEpYNmc?oc=5\" target=\"_blank\">Football (soccer) | History, 2026 FIFA World Cup, Game, Rules, & Significant Players</a> <font color=\"#6f6f6f\">Britannica</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmixkfvx3lxtfa4nelisjfpv1bpsgl3rkrrwdfpati3whjjsktyswh3uw5yzmq3muj2zlzvamvicghlanluyxjpr1ljrdfxwmpkd3o2uwloztnrynzbt1zvu0qtbepynmc oc 5 target blank football soccer history 2026",
+   "content_id": "37102f2faa989897",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "92888fa79962adf5",
+    "fca4355616be6477"
+   ],
+   "legacy": true,
+   "normalized_subject": "football soccer history 2026 fifa world cup game rules significant players",
+   "people": [],
+   "published_at": "2026-10-22T18:31:59.209127+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "britannica.com/sports/football-soccer"
+   ],
+   "sport_or_game": "Football (soccer) | History, 2026 FIFA World Cup, Game, Rules, & Significant Players",
+   "telegram_message_id": 481
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMihwFBVV95cUxPT0dWZnRRMFFvVFNoNlZZRUZtcXFXSU5nVmstN2ZMNWc4MEpLdnBlSXp1cFJBTVlLaWx5WDRjUWkyX3EtMjM0Tzl5U0lFbXRKS3hHWE5zekgtMTVYNzdNbnY1YVNlZ2kyVDBWaG1BQXExNFdqTkhhVy0ySVM2SmplQTlrSUdYelU?oc=5\" target=\"_blank\">Lionel Messi's Farewell To Argentina: A Look At The GOAT's Historic World Cup Career</a> <font color=\"#6f6f6f\">FOX Sports</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmihwfbvv95cuxpt0dwznrrmffvvfnonlzzruztcxfxsu5nvmstn2zmnwc4mepldnblsxp1cfjbtvllawx5wdrjuwkyx3etmjm0tzl5u0lfbxrks3hhwe5zekgtmtvynzdnbny1yvnlz2kyvdbwag1bqxexnfdqtkhhvy0ysvm2smplqt",
+   "content_id": "d7bb7780a6a56672",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9205593448c43859",
+    "3e70e66eedca8ebe"
+   ],
+   "legacy": true,
+   "normalized_subject": "lionel messi s farewell to argentina a look at the goat s historic world cup career",
+   "people": [],
+   "published_at": "2026-10-22T18:32:11.971430+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    "foxsports.com/stories/soccer/lionel-messi-argentina-world-cup-legacy"
+   ],
+   "sport_or_game": "Lionel Messi's Farewell To Argentina: A Look At The GOAT's Historic World Cup Career",
+   "telegram_message_id": 482
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiV0FVX3lxTE01WDhvLTlmeFktUVBGd1lSV2JiZWhJSkVyY0dWdzZ0YUpsQkc0WWlRSURwNkxxQjh6dENtR0pzRXQ1bnd3Mmowc2s0VjRIUkhBOGpCQTZoOA?oc=5\" target=\"_blank\">Super Bowl</a> <font color=\"#6f6f6f\">Britannica</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmiv0fvx3lxte01wdhvltlmefktuvbgd1lsv2jizwhjskvyy0dwdzz0yupsqkc0wwlrsurwnkxxqjh6dentr0pzrxq1bnd3mmowc2s0vjriukhbogpcqtzooa oc 5 target blank super bowl a font color 6f6f6f britan",
+   "content_id": "3175a408213f1332",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9a94ddfac5bb4126",
+    "2c4f98086fdd6c54"
+   ],
+   "legacy": true,
+   "normalized_subject": "super bowl",
+   "people": [],
+   "published_at": "2026-10-22T18:32:24.086094+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "britannica.com/sports/Super-Bowl"
+   ],
+   "sport_or_game": "Super Bowl",
+   "telegram_message_id": 483
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMinAFBVV95cUxQT1dFS2NUQUJINjJUR2VBWW41dzNUSU45c2xjZm1YNjV3NllON043OWJMc3g5MDJ4Y3VLZHU5RjJaemxKV0ZFc1Zsc0Z5SENEOUgwRFJaSFI2ZmhHSWl4ek9iMTBLSDB1a1hSWnh2UmxGMHB3el9HZEZhdkdwOTduWHlzZTZJY0FXMkZiVDFnVG9Jc3hFU3cwUGVFYmE?oc=5\" target=\"_blank\">Losing to win: The strangest game in football history</a> <font color=\"#6f6f6f\">BBC</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbminafbvv95cuxqt1dfs2nuqujinjjur2vbww41dznusu45c2xjzm1ynjv3nllon043owjmc3g5mdj4y3vlzhu5rjjaemxkv0zfc1zsc0z5seneougwrfjasfi2zmhhswl4ek9imtblsdb1a1hswnh2umxgmhb3el9hzezhdkdwotduwh",
+   "content_id": "5f4d6060a4027c1d",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "55756071a9fa2e59",
+    "07d8cd0023738e52"
+   ],
+   "legacy": true,
+   "normalized_subject": "losing to win the strangest game in football history",
+   "people": [],
+   "published_at": "2026-10-22T18:32:49.183233+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Rule Check",
+   "source_urls": [
+    "bbc.com/future/article/20260703-losing-to-win-the-strangest-game-in-football-history"
+   ],
+   "sport_or_game": "Losing to win: The strangest game in football history",
+   "telegram_message_id": 484
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiiwFBVV95cUxNYVFBSkZ0NHJ5V0c0a1VNX0lna0JyWHdYQ1RPc0ZBTVB5bU5HMXcwNXQ2aFp1S2RGbVBrU0g4S25pYkNfNGxWQlR4TFQ3dUZEX0phbkN1R20weU9KM0ZJdi1wQS10anQ1VURyOEdGV2tUdV8yWDBNUmZSazNvLWdvS0w0bHpLdXJkcmEw?oc=5\" target=\"_blank\">Valkyries make history as first-ever women’s sports team to generate over $100 million in revenue</a> <font color=\"#6f6f6f\">Yahoo Sports</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmiiwfbvv95cuxnyvfbskz0nhj5v0c0a1vnx0lna0jywhdyq1rpc0zbtvb5bu5hmxcwnxq2afp1s2rgbvbru0g4s25pyknfngxwqlr4tfq3duzex0phbkn1r20weu9km0zjdi1wqs10anq1vuryoedgv2tudv8ywdbnumzsaznvlwdvs0",
+   "content_id": "24bb737978af5185",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4675cb1d3bbc0460",
+    "8651d5a8ad358601"
+   ],
+   "legacy": true,
+   "normalized_subject": "valkyries make history as first ever women s sports team to generate over 100 million in revenue yahoo sports",
+   "people": [],
+   "published_at": "2026-10-22T18:33:26.599028+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "sports.yahoo.com/articles/valkyries-history-first-ever-women-042654206.html"
+   ],
+   "sport_or_game": "Valkyries make history as first-ever women’s sports team to generate over $100 million in revenue - Yahoo Sports",
+   "telegram_message_id": 485
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMimgFBVV95cUxNNFdHdWZya3c3TFZwMlJwSkg1VTk0OHZINlhKeG90SElrbW91X1RXUk5VMW5LTWZMVVBwVGYtMDVjaHRLMURCREc0dXpFRGc3X3F3cjRsLURPb0lLdXYtY3M5TV9lNVN0VnAwZWxvZzd6U3VCaEYteGRaMmFmNjNNY0o5QXpKdlBERUdSdm9RcG1nOHI4VEd2MTVB?oc=5\" target=\"_blank\">Why Central Asia's sports hit the target with the world - ABC Asia</a> <font color=\"#6f6f6f\">ABC News & Headlines – Australian Broadcasting Corporation</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmimgfbvv95cuxnnfdhdwzya3c3tfzwmljwskg1vtk0ohzinlhkeg90selrbw91x1rxuk5vmw5ltwzmvvbwvgytmdvjahrlmurcrec0dxpfrgc3x3f3cjrslurpb0lldxyty3m5tv9lnvn0vnawzwxvzzd6u3vcaeytegrammfmnjnny0",
+   "content_id": "c12a4727f41c8d3c",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b50cc8293aa7e0c2",
+    "17a635f22b32cf81"
+   ],
+   "legacy": true,
+   "normalized_subject": "why central asia s sports hit the target with the world abc asia abc news headlines australian broadcasting corporation",
+   "people": [],
+   "published_at": "2026-10-22T18:34:08.211855+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "abc.net.au/asia/world-nomad-games-kyrgyzstan-australians-archers-compete/107128616"
+   ],
+   "sport_or_game": "Why Central Asia's sports hit the target with the world - ABC Asia - ABC News & Headlines – Australian Broadcasting Corporation",
+   "telegram_message_id": 486
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMikgFBVV95cUxPU2E3XzM3aUFzdTNVbjZNNXFxX21mOVpwVUc4UFpVcGlpVUJwaElKZGl3ZVdzRUlUZHpfZkVBMUdxYVcweEJ1WFk0XzhXeDBreXhCeUhEeEE4cDVOSlMtV3dkbTg2MkZVVHN2NHk2T2FLanYzOVdlV0FhTmV5aXY4NDZNbHJWTmFzYnRwcWpmWVlwdw?oc=5\" target=\"_blank\">The women athletes who changed sports history</a> <font color=\"#6f6f6f\">ESPN</font>",
+   "central_knowledge_unit": "the women athletes who changed sports history",
+   "content_id": "4b15d52aac0a7358",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4b15d52aac0a7358",
+    "339d690ed70cab9a"
+   ],
+   "normalized_subject": "the women athletes who changed sports history",
+   "people": [],
+   "published_at": "2026-10-23T18:18:46.381550+00:00",
+   "region": "",
+   "run_id": "2026-10-24-AM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 487
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiYkFVX3lxTE9fdjhaTGlHQU54Z3ZHaGM1a1VRY2w0d0sxNXlmVnBVaW1qVUt5a2xMUC1CSndPTl9OYUVUMFB4VDYtdVFtYnFTNGN2SWVraXlwanVOWDBZUE9MN2JzV0RXUGln?oc=5\" target=\"_blank\">Ski mountaineering | Skimo, Olympics, Equipment, Course, Competition, Sport, Distance, & History</a> <font color=\"#6f6f6f\">Britannica</font>",
+   "central_knowledge_unit": "ski mountaineering skimo olympics equipment course competition sport distance history",
+   "content_id": "57018449d6665c46",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "57018449d6665c46",
+    "c3b4976a2b69a043"
+   ],
+   "normalized_subject": "ski mountaineering skimo olympics equipment course competition sport distance history",
+   "people": [],
+   "published_at": "2026-10-23T18:19:11.266990+00:00",
+   "region": "",
+   "run_id": "2026-10-24-AM",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 488
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiigFBVV95cUxQRFBYUzIwVEN5QUhiYzd3ajJZVVBhbXpDall2aXhkNzJtMUN4ZDdtR0NpcTFsSU5McExPZ1gyMU44cnlzbWJfcjlwbGFVSVJLVnJEN2JMZ2Z3QWNTNTNtcmVyRW5ZNDdhMkVCTG5nNUpFWEVnSnF5N0R5MW92TFl5Q2c5UDlQRlBFemfSAZIBQVVfeXFMTTQ2dWFQMVMwU0ltNnJfbHBEVE9mZ1kxRlN5Q29xcktOZGVLREw3cE91dXdDWEpVODVxQVBvcEh3RDJSNXFDQVIyT2V4YTRoRG9sZFZ2ejFoY0ljdEozNFFUbUdtREppaUVDcnhiaFN4OXVYSTFWR3RId29mejhyb2dVbDJCUkFwTXJsN0pmQU5IOEE?oc=5\" target=\"_blank\">Which country invented soccer? A look back at football's early history</a> <font color=\"#6f6f6f\">NBC Boston</font>",
+   "central_knowledge_unit": "which country invented soccer a look back at football s early history",
+   "content_id": "55b966e005bcb718",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "55b966e005bcb718",
+    "9e77ba7c8315c822"
+   ],
+   "normalized_subject": "which country invented soccer a look back at football s early history",
+   "people": [],
+   "published_at": "2026-10-23T18:19:35.887484+00:00",
+   "region": "",
+   "run_id": "2026-10-24-AM",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 489
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMikgFBVV95cUxObXhLT1htd05QZ0tWUUNPaVhHUURfZ1ZpbFFLWVhwcTJQejhvNG93azdKMU1zdlc3M1gtZlZ6UXk3VmJGM2JjaDJvZGdTVlRLUGRrbi1RQUljRWYtQk95bDZUNHRld2c5dWpQWWNSSFY2RVlZdTFDTXVLX3BUZ0dPTng2OVBZb3lHY1dLX2ZTYzZ6Zw?oc=5\" target=\"_blank\">Ancient Discovery Could Be a Board Game From 4,000 Years Ago</a> <font color=\"#6f6f6f\">ScienceAlert</font>",
+   "central_knowledge_unit": "ancient discovery could be a board game from 4 000 years ago",
+   "content_id": "bef568af131593ac",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "bef568af131593ac",
+    "e16677dc522d7390"
+   ],
+   "normalized_subject": "ancient discovery could be a board game from 4 000 years ago",
+   "people": [],
+   "published_at": "2026-10-23T18:19:48.481746+00:00",
+   "region": "",
+   "run_id": "2026-10-24-AM",
+   "sector": "Game Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 490
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiugFBVV95cUxPbDlpRlJiM2ZQTUlVWGNHdWFlSTBZZ3dEU2dlUTIxSzN2a1lLcEtaYjVlMXB1MTRQSEs4Nkd5ZjZnZWdtSVduVnZfWVpXcURxcll3MTYzeDhPZFJZdGFwNmpJTnhKcVpXMnpqUGVLaERIRXROMFRYY05QTUIwNGlwdU0yRGt4cDNuOVNncmFjbWd5XzM1cHZwb1pqZHEzU25vek55TEo1SExmU2RpZzZrZnJWTVNwWGVNQVE?oc=5\" target=\"_blank\">Archaeologists decode rules of an ancient Roman board game</a> <font color=\"#6f6f6f\">Inquirer.com</font>",
+   "central_knowledge_unit": "archaeologists decode rules of an ancient roman board game",
+   "content_id": "ec7d443ffe6f5bd1",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "ec7d443ffe6f5bd1",
+    "a85f38be242b3dee"
+   ],
+   "normalized_subject": "archaeologists decode rules of an ancient roman board game",
+   "people": [],
+   "published_at": "2026-10-23T18:20:01.008901+00:00",
+   "region": "",
+   "run_id": "2026-10-24-AM",
+   "sector": "Forgotten Game",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 491
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMidEFVX3lxTE84TFVpU1dQOFRnUWpTYjBSVlFPY1BMRV9NOENSUGRpNmh3Ym5XcTI2d0tFRVJXWHlTRm5oeVNkbWZlZ25vaUtiN1BYY2tLRFM3TUU2NnRKUzFpY2hCYkFCdFVBZ3JzZ3p0ZjNzX2ZJZXBNc3o5?oc=5\" target=\"_blank\">All the Sports You Won’t See at the 2026 Winter Olympics</a> <font color=\"#6f6f6f\">WIRED</font>",
+   "central_knowledge_unit": "all the sports you won t see at the 2026 winter olympics",
+   "content_id": "4a9067b83c255e42",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4a9067b83c255e42",
+    "1e7719ae9454f425"
+   ],
+   "normalized_subject": "all the sports you won t see at the 2026 winter olympics",
+   "people": [],
+   "published_at": "2026-10-23T18:20:27.397847+00:00",
+   "region": "",
+   "run_id": "2026-10-24-AM",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 492
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMisgFBVV95cUxQUFNtVGtLbklacDVwekc0RTdqV0d6Z0RNN3UtbXBVdTlyTm5vR3MtWERjc3h2enU1bnNrVHJaaDZNZkZZaFUzU2xkUzRPaGhxbHZIbGRzVlVWT3YyNU5aR2tQdzlzMVdHck9SOUlxZEFfaHJEMlJ2VlR4T3NZRXBxVGszTjBYR0E2WVF4MUNEU3lJV2xEZWc4MThHdkxxRXVIQ0Zxd0dhVGtQcXZnY213aE1R?oc=5\" target=\"_blank\">Women’s sports reach record NCAA participation as leadership roles keep rising</a> <font color=\"#6f6f6f\">NCAA.org</font>",
+   "central_knowledge_unit": "women s sports reach record ncaa participation as leadership roles keep rising",
+   "content_id": "2b5a6ef1aa4b6786",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "2b5a6ef1aa4b6786",
+    "c02b469c6f2a359f"
+   ],
+   "normalized_subject": "women s sports reach record ncaa participation as leadership roles keep rising",
+   "people": [],
+   "published_at": "2026-10-23T18:20:38.293639+00:00",
+   "region": "",
+   "run_id": "2026-10-24-AM",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 493
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiZ0FVX3lxTE16a2RGWWZHZjlUd0RqaHNfLTNVM2xURFgyYjNlTmpIV3RkWXcwOVM1bFZOei0wWjJDOEJXcEpOX0FfZDNTOExCcFlhUFBQR2M0RGF6M3UzUUJBb2h5dlk2XzRjbzJabmM?oc=5\" target=\"_blank\">6 Sports Inventions That Changed the Game</a> <font color=\"#6f6f6f\">The Old Farmer’s Almanac</font>",
+   "central_knowledge_unit": "6 sports inventions that changed the game the old farmer s almanac",
+   "content_id": "3934060f6ae5b4d5",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "3934060f6ae5b4d5",
+    "e581dcbf8e7395e2"
+   ],
+   "normalized_subject": "6 sports inventions that changed the game the old farmer s almanac",
+   "people": [],
+   "published_at": "2026-10-23T18:20:50.228843+00:00",
+   "region": "",
+   "run_id": "2026-10-24-AM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 494
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMitgFBVV95cUxQS1MtZEJEMGR5MzYxWDI1bmFmemdKNzM5cjVGYmRSb1FXZ3d0NnRieHo1eVJSUi1Ga3J3Y19WWm1DTVM2NWFsWVlRNlRhdm9RSUNkbWF6eEd1NDUtOGs3RldoZktuc0xOVVFXOHFCWk9TN1UyYXd2cXMwcmFhS1hjVGNZYThUMTdtUWotbTVYSmVtRkFsUDctT0g3cUxRNjZGUkkza0FqNXhINE9IN2NKNkFsaU9odw?oc=5\" target=\"_blank\">With most information hidden, the game Stratego had stumped AI—until now</a> <font color=\"#6f6f6f\">Ars Technica</font>",
+   "central_knowledge_unit": "with most information hidden the game stratego had stumped ai until now",
+   "content_id": "9fbf279a13ee30ac",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9fbf279a13ee30ac",
+    "056cb2dddb333d79"
+   ],
+   "normalized_subject": "with most information hidden the game stratego had stumped ai until now",
+   "people": [],
+   "published_at": "2026-10-23T18:21:06.579888+00:00",
+   "region": "",
+   "run_id": "2026-10-24-AM",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 495
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-22T18:34:08.211820+00:00"
+ "updated_at": "2026-10-23T18:21:06.580020+00:00"
 }

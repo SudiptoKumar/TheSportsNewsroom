@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "Cerebras per-run call cap reached (16)",
-  "last_ok": "2026-10-22T18:34:14.780440+00:00",
-  "last_request_id": "a4ea9850ee9c21db-IAD",
+  "last_ok": "2026-10-23T18:21:01.255752+00:00",
+  "last_request_id": "a4f2c24f88e3db5e-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-22T18:34:14.782394+00:00",
+ "last_run_at": "2026-10-23T18:21:09.598046+00:00",
  "ledger": {},
  "posts": [
   {
@@ -5176,6 +5176,209 @@
    "urls": [
     "abc.net.au/asia/world-nomad-games-kyrgyzstan-australians-archers-compete/107128616"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The women athletes who changed sports history",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMikgFBVV95cUxPU2E3XzM3aUFzdTNVbjZNNXFxX21mOVpwVUc4UFpVcGlpVUJwaElKZGl3ZVdzRUlUZHpfZkVBMUdxYVcweEJ1WFk0XzhXeDBreXhCeUhEeEE4cDVOSlMtV3dkbTg2MkZVVHN2NHk2T2FLanYzOVdlV0FhTmV5aXY4NDZNbHJWTmFzYnRwcWpmWVlwdw?oc=5\" target=\"_blank\">The women athletes who changed sports history</a> <font color=\"#6f6f6f\">ESPN</font>",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Trailblazing Women Who Redefined Their Sports",
+   "image_status": "card_fallback",
+   "message_id": 487,
+   "normalized_subject": "The women athletes who changed sports history",
+   "posted_at": "2026-10-23T18:18:46.381698+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-24-AM",
+   "sector": "Sports & Games People",
+   "topic": "The women athletes who changed sports history",
+   "urls": [
+    "espn.com/espn/story/_/id/28839500/notable-female-trailblazers-sports-history"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Ski mountaineering | Skimo, Olympics, Equipment, Course, Competition, Sport, Distance, & History",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMiYkFVX3lxTE9fdjhaTGlHQU54Z3ZHaGM1a1VRY2w0d0sxNXlmVnBVaW1qVUt5a2xMUC1CSndPTl9OYUVUMFB4VDYtdVFtYnFTNGN2SWVraXlwanVOWDBZUE9MN2JzV0RXUGln?oc=5\" target=\"_blank\">Ski mountaineering | Skimo, Olympics, Equipment, Course, Competition, Sport, Distance, & History</a> <font color=\"#6f6f6f\">Britannica</font>",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "Ski mountaineering demands lightweight, specialized gear for speed and safety",
+   "image_status": "card_fallback",
+   "message_id": 488,
+   "normalized_subject": "Ski mountaineering | Skimo, Olympics, Equipment, Course, Competition, Sport, Distance, & History",
+   "posted_at": "2026-10-23T18:19:11.267142+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-24-AM",
+   "sector": "Equipment / Measurement",
+   "topic": "Ski mountaineering | Skimo, Olympics, Equipment, Course, Competition, Sport, Distance, & History",
+   "urls": [
+    "britannica.com/sports/ski-mountaineering"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Which country invented soccer? A look back at football's early history",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMiigFBVV95cUxQRFBYUzIwVEN5QUhiYzd3ajJZVVBhbXpDall2aXhkNzJtMUN4ZDdtR0NpcTFsSU5McExPZ1gyMU44cnlzbWJfcjlwbGFVSVJLVnJEN2JMZ2Z3QWNTNTNtcmVyRW5ZNDdhMkVCTG5nNUpFWEVnSnF5N0R5MW92TFl5Q2c5UDlQRlBFemfSAZIBQVVfeXFMTTQ2dWFQMVMwU0ltNnJfbHBEVE9mZ1kxRlN5Q29xcktOZGVLREw3cE91dXdDWEpVODVxQVBvcEh3RDJSNXFDQVIyT2V4YTRoRG9sZFZ2ejFoY0ljdEozNFFUbUdtREppaUVDcnhiaFN4OXVYSTFWR3RId29mejhyb2dVbDJCUkFwTXJsN0pmQU5IOEE?oc=5\" target=\"_blank\">Which country invented soccer? A look back at football's early history</a> <font color=\"#6f6f6f\">NBC Boston</font>",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "England credited with inventing modern soccer in the 19th century",
+   "image_status": "card_fallback",
+   "message_id": 489,
+   "normalized_subject": "Which country invented soccer? A look back at football's early history",
+   "posted_at": "2026-10-23T18:19:35.887626+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-24-AM",
+   "sector": "Sport Origin",
+   "topic": "Which country invented soccer? A look back at football's early history",
+   "urls": [
+    "espn.com/"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Ancient Discovery Could Be a Board Game From 4,000 Years Ago",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMikgFBVV95cUxObXhLT1htd05QZ0tWUUNPaVhHUURfZ1ZpbFFLWVhwcTJQejhvNG93azdKMU1zdlc3M1gtZlZ6UXk3VmJGM2JjaDJvZGdTVlRLUGRrbi1RQUljRWYtQk95bDZUNHRld2c5dWpQWWNSSFY2RVlZdTFDTXVLX3BUZ0dPTng2OVBZb3lHY1dLX2ZTYzZ6Zw?oc=5\" target=\"_blank\">Ancient Discovery Could Be a Board Game From 4,000 Years Ago</a> <font color=\"#6f6f6f\">ScienceAlert</font>",
+   "desk": "evergreen_v1",
+   "format": "Game Origin",
+   "headline": "Ancient Azerbaijani Artifacts Push Board Game Origins Westward",
+   "image_status": "card_fallback",
+   "message_id": 490,
+   "normalized_subject": "Ancient Discovery Could Be a Board Game From 4,000 Years Ago",
+   "posted_at": "2026-10-23T18:19:48.481900+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-24-AM",
+   "sector": "Game Origin",
+   "topic": "Ancient Discovery Could Be a Board Game From 4,000 Years Ago",
+   "urls": [
+    "sciencealert.com/ancient-discovery-could-be-a-board-game-from-4000-years-ago"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Archaeologists decode rules of an ancient Roman board game",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMiugFBVV95cUxPbDlpRlJiM2ZQTUlVWGNHdWFlSTBZZ3dEU2dlUTIxSzN2a1lLcEtaYjVlMXB1MTRQSEs4Nkd5ZjZnZWdtSVduVnZfWVpXcURxcll3MTYzeDhPZFJZdGFwNmpJTnhKcVpXMnpqUGVLaERIRXROMFRYY05QTUIwNGlwdU0yRGt4cDNuOVNncmFjbWd5XzM1cHZwb1pqZHEzU25vek55TEo1SExmU2RpZzZrZnJWTVNwWGVNQVE?oc=5\" target=\"_blank\">Archaeologists decode rules of an ancient Roman board game</a> <font color=\"#6f6f6f\">Inquirer.com</font>",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Game",
+   "headline": "AI Reveals Rules of Forgotten Roman Board Game from Limestone Tablet",
+   "image_status": "card_fallback",
+   "message_id": 491,
+   "normalized_subject": "Archaeologists decode rules of an ancient Roman board game",
+   "posted_at": "2026-10-23T18:20:01.009054+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-24-AM",
+   "sector": "Forgotten Game",
+   "topic": "Archaeologists decode rules of an ancient Roman board game",
+   "urls": [
+    "inquirer.com/news/nation-world/ancient-roman-board-game-archaeologists-stone-etched-lines-ai-20260924.html"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "All the Sports You Won’t See at the 2026 Winter Olympics",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMidEFVX3lxTE84TFVpU1dQOFRnUWpTYjBSVlFPY1BMRV9NOENSUGRpNmh3Ym5XcTI2d0tFRVJXWHlTRm5oeVNkbWZlZ25vaUtiN1BYY2tLRFM3TUU2NnRKUzFpY2hCYkFCdFVBZ3JzZ3p0ZjNzX2ZJZXBNc3o5?oc=5\" target=\"_blank\">All the Sports You Won’t See at the 2026 Winter Olympics</a> <font color=\"#6f6f6f\">WIRED</font>",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Sport",
+   "headline": "Forgotten Winter Olympic Sports That Won’t Appear in 2026",
+   "image_status": "verified_external",
+   "message_id": 492,
+   "normalized_subject": "All the Sports You Won’t See at the 2026 Winter Olympics",
+   "posted_at": "2026-10-23T18:20:27.398002+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-24-AM",
+   "sector": "Forgotten Sport",
+   "topic": "All the Sports You Won’t See at the 2026 Winter Olympics",
+   "urls": [
+    "wired.com/story/winter-olympics-2026-long-lost-events"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Women’s sports reach record NCAA participation as leadership roles keep rising",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMisgFBVV95cUxQUFNtVGtLbklacDVwekc0RTdqV0d6Z0RNN3UtbXBVdTlyTm5vR3MtWERjc3h2enU1bnNrVHJaaDZNZkZZaFUzU2xkUzRPaGhxbHZIbGRzVlVWT3YyNU5aR2tQdzlzMVdHck9SOUlxZEFfaHJEMlJ2VlR4T3NZRXBxVGszTjBYR0E2WVF4MUNEU3lJV2xEZWc4MThHdkxxRXVIQ0Zxd0dhVGtQcXZnY213aE1R?oc=5\" target=\"_blank\">Women’s sports reach record NCAA participation as leadership roles keep rising</a> <font color=\"#6f6f6f\">NCAA.org</font>",
+   "desk": "evergreen_v1",
+   "format": "New Sport Discovery",
+   "headline": "Women’s Sports Hit Record NCAA Participation While Leadership Grows",
+   "image_status": "verified_external",
+   "message_id": 493,
+   "normalized_subject": "Women’s sports reach record NCAA participation as leadership roles keep rising",
+   "posted_at": "2026-10-23T18:20:38.293771+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-24-AM",
+   "sector": "New Sport Discovery",
+   "topic": "Women’s sports reach record NCAA participation as leadership roles keep rising",
+   "urls": [
+    "ncaa.org/media-center-womens-sports-reach-record-ncaa-participation-as-leadership-roles-keep-rising"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "6 Sports Inventions That Changed the Game - The Old Farmer’s Almanac",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMiZ0FVX3lxTE16a2RGWWZHZjlUd0RqaHNfLTNVM2xURFgyYjNlTmpIV3RkWXcwOVM1bFZOei0wWjJDOEJXcEpOX0FfZDNTOExCcFlhUFBQR2M0RGF6M3UzUUJBb2h5dlk2XzRjbzJabmM?oc=5\" target=\"_blank\">6 Sports Inventions That Changed the Game</a> <font color=\"#6f6f6f\">The Old Farmer’s Almanac</font>",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "Six Inventions That Revolutionized Sports, According to The Old Farmer’s Almanac",
+   "image_status": "verified_external",
+   "message_id": 494,
+   "normalized_subject": "6 Sports Inventions That Changed the Game - The Old Farmer’s Almanac",
+   "posted_at": "2026-10-23T18:20:50.228986+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-24-AM",
+   "sector": "Then vs Now",
+   "topic": "6 Sports Inventions That Changed the Game - The Old Farmer’s Almanac",
+   "urls": [
+    "almanac.com/6-sports-inventions-changed-game"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "With most information hidden, the game Stratego had stumped AI—until now",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMitgFBVV95cUxQS1MtZEJEMGR5MzYxWDI1bmFmemdKNzM5cjVGYmRSb1FXZ3d0NnRieHo1eVJSUi1Ga3J3Y19WWm1DTVM2NWFsWVlRNlRhdm9RSUNkbWF6eEd1NDUtOGs3RldoZktuc0xOVVFXOHFCWk9TN1UyYXd2cXMwcmFhS1hjVGNZYThUMTdtUWotbTVYSmVtRkFsUDctT0g3cUxRNjZGUkkza0FqNXhINE9IN2NKNkFsaU9odw?oc=5\" target=\"_blank\">With most information hidden, the game Stratego had stumped AI—until now</a> <font color=\"#6f6f6f\">Ars Technica</font>",
+   "desk": "evergreen_v1",
+   "format": "Interesting Game Fact",
+   "headline": "AI Ataraxos Defeats Top Stratego Champion Using Modest Resources",
+   "image_status": "verified_external",
+   "message_id": 495,
+   "normalized_subject": "With most information hidden, the game Stratego had stumped AI—until now",
+   "posted_at": "2026-10-23T18:21:06.580053+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-24-AM",
+   "sector": "Interesting Game Fact",
+   "topic": "With most information hidden, the game Stratego had stumped AI—until now",
+   "urls": [
+    "arstechnica.com/science/2026/10/ai-finally-beat-the-best-stratego-player-in-history-and-did-it-on-a-budget"
+   ]
   }
  ],
  "runs": [],
@@ -5234,22 +5437,38 @@
     "run_ids": [
      "2026-10-23-AM"
     ]
+   },
+   "2026-10-24": {
+    "published_sectors": [
+     "Sports & Games People",
+     "Equipment / Measurement",
+     "Sport Origin",
+     "Game Origin",
+     "Forgotten Game",
+     "Forgotten Sport",
+     "New Sport Discovery",
+     "Then vs Now",
+     "Interesting Game Fact"
+    ],
+    "run_ids": [
+     "2026-10-24-AM"
+    ]
    }
   },
-  "last_run_at": "2026-10-22T18:34:14.782364+00:00",
+  "last_run_at": "2026-10-23T18:21:09.598018+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-23T07:24:53.582866+00:00"
+    "updated_at": "2026-10-23T18:21:09.597997+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-23T07:24:53.582862+00:00"
+    "updated_at": "2026-10-23T18:21:09.597990+00:00"
    }
   },
   "publication": {
@@ -5387,6 +5606,51 @@
     "message_id": 483,
     "posted_at": "2026-10-22T18:32:24.085844+00:00",
     "status": "posted"
+   },
+   "2026-10-24-AM:evergreen:1a59861102283800": {
+    "message_id": 491,
+    "posted_at": "2026-10-23T18:20:01.008783+00:00",
+    "status": "posted"
+   },
+   "2026-10-24-AM:evergreen:24d4c837e3c4a9f9": {
+    "message_id": 488,
+    "posted_at": "2026-10-23T18:19:11.266868+00:00",
+    "status": "posted"
+   },
+   "2026-10-24-AM:evergreen:3fcb5ed38965c645": {
+    "message_id": 489,
+    "posted_at": "2026-10-23T18:19:35.887376+00:00",
+    "status": "posted"
+   },
+   "2026-10-24-AM:evergreen:8486c1ebe96220dd": {
+    "message_id": 495,
+    "posted_at": "2026-10-23T18:21:06.579766+00:00",
+    "status": "posted"
+   },
+   "2026-10-24-AM:evergreen:938ab3bf12385526": {
+    "message_id": 494,
+    "posted_at": "2026-10-23T18:20:50.228737+00:00",
+    "status": "posted"
+   },
+   "2026-10-24-AM:evergreen:9a2c8ff43bce4167": {
+    "message_id": 490,
+    "posted_at": "2026-10-23T18:19:48.481621+00:00",
+    "status": "posted"
+   },
+   "2026-10-24-AM:evergreen:b36f215aa2c50236": {
+    "message_id": 492,
+    "posted_at": "2026-10-23T18:20:27.397708+00:00",
+    "status": "posted"
+   },
+   "2026-10-24-AM:evergreen:b6a093bd304d8a4e": {
+    "message_id": 487,
+    "posted_at": "2026-10-23T18:18:46.381454+00:00",
+    "status": "posted"
+   },
+   "2026-10-24-AM:evergreen:b9e77e683afb4f3b": {
+    "message_id": 493,
+    "posted_at": "2026-10-23T18:20:38.293522+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -5438,6 +5702,23 @@
      "Records & Milestones",
      "Rule Check",
      "Sport Origin",
+     "Then vs Now"
+    ]
+   },
+   {
+    "at": "2026-10-23T18:21:09.598024+00:00",
+    "evergreen": 9,
+    "exit": 0,
+    "run_id": "2026-10-24-AM",
+    "used_sectors": [
+     "Equipment / Measurement",
+     "Forgotten Game",
+     "Forgotten Sport",
+     "Game Origin",
+     "Interesting Game Fact",
+     "New Sport Discovery",
+     "Sport Origin",
+     "Sports & Games People",
      "Then vs Now"
     ]
    }
