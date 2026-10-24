@@ -11339,8 +11339,347 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 495
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMikgFBVV95cUxPU2E3XzM3aUFzdTNVbjZNNXFxX21mOVpwVUc4UFpVcGlpVUJwaElKZGl3ZVdzRUlUZHpfZkVBMUdxYVcweEJ1WFk0XzhXeDBreXhCeUhEeEE4cDVOSlMtV3dkbTg2MkZVVHN2NHk2T2FLanYzOVdlV0FhTmV5aXY4NDZNbHJWTmFzYnRwcWpmWVlwdw?oc=5\" target=\"_blank\">The women athletes who changed sports history</a> <font color=\"#6f6f6f\">ESPN</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmikgfbvv95cuxpu2e3xzm3aufzdtnvbjznnxfxx21movpwvuc4ufpvcglpvujwaelkzgl3zvdzruluzhpfzkvbmudxyvcweej1wfk0xzhxedbrexhceuheeee4cdvoslmtv3dkbtg2mkzvvhn2nhk2t2flanyzovdlv0fhtmv5axy4nd",
+   "content_id": "37d1d5679d1807fe",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "339d690ed70cab9a",
+    "118b3740b5952f6d"
+   ],
+   "legacy": true,
+   "normalized_subject": "the women athletes who changed sports history",
+   "people": [],
+   "published_at": "2026-10-23T18:18:46.381698+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "espn.com/espn/story/_/id/28839500/notable-female-trailblazers-sports-history"
+   ],
+   "sport_or_game": "The women athletes who changed sports history",
+   "telegram_message_id": 487
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiYkFVX3lxTE9fdjhaTGlHQU54Z3ZHaGM1a1VRY2w0d0sxNXlmVnBVaW1qVUt5a2xMUC1CSndPTl9OYUVUMFB4VDYtdVFtYnFTNGN2SWVraXlwanVOWDBZUE9MN2JzV0RXUGln?oc=5\" target=\"_blank\">Ski mountaineering | Skimo, Olympics, Equipment, Course, Competition, Sport, Distance, & History</a> <font color=\"#6f6f6f\">Britannica</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmiykfvx3lxte9fdjhatglhqu54z3zhagm1a1vry2w0d0sxnxlmvnbvaw1qvut5a2xmuc1csndptl9oyuvumfb4vdytdvftynftngn2swvraxlwanvowdbzue9mn2jzv0rxugln oc 5 target blank ski mountaineering skim",
+   "content_id": "135e364301f9d806",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c3b4976a2b69a043",
+    "7c47c86a8e240778"
+   ],
+   "legacy": true,
+   "normalized_subject": "ski mountaineering skimo olympics equipment course competition sport distance history",
+   "people": [],
+   "published_at": "2026-10-23T18:19:11.267142+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "britannica.com/sports/ski-mountaineering"
+   ],
+   "sport_or_game": "Ski mountaineering | Skimo, Olympics, Equipment, Course, Competition, Sport, Distance, & History",
+   "telegram_message_id": 488
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiigFBVV95cUxQRFBYUzIwVEN5QUhiYzd3ajJZVVBhbXpDall2aXhkNzJtMUN4ZDdtR0NpcTFsSU5McExPZ1gyMU44cnlzbWJfcjlwbGFVSVJLVnJEN2JMZ2Z3QWNTNTNtcmVyRW5ZNDdhMkVCTG5nNUpFWEVnSnF5N0R5MW92TFl5Q2c5UDlQRlBFemfSAZIBQVVfeXFMTTQ2dWFQMVMwU0ltNnJfbHBEVE9mZ1kxRlN5Q29xcktOZGVLREw3cE91dXdDWEpVODVxQVBvcEh3RDJSNXFDQVIyT2V4YTRoRG9sZFZ2ejFoY0ljdEozNFFUbUdtREppaUVDcnhiaFN4OXVYSTFWR3RId29mejhyb2dVbDJCUkFwTXJsN0pmQU5IOEE?oc=5\" target=\"_blank\">Which country invented soccer? A look ba",
+   "central_knowledge_unit": "a href https news google com rss articles cbmiigfbvv95cuxqrfbyuziwven5quhiyzd3ajjzvvbhbxpdall2axhknzjtmun4zddtr0npctfssu5mcexpz1gymu44cnlzbwjfcjlwbgfvsvjlvnjen2jmz2z3qwntntntcmvyrw5znddhmkvctg5nnupfwevnsnf5n0r5mw92tfl5q2",
+   "content_id": "58cefab95208728d",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9e77ba7c8315c822",
+    "fb43940915e5440d"
+   ],
+   "legacy": true,
+   "normalized_subject": "which country invented soccer a look back at football s early history",
+   "people": [],
+   "published_at": "2026-10-23T18:19:35.887626+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "espn.com/"
+   ],
+   "sport_or_game": "Which country invented soccer? A look back at football's early history",
+   "telegram_message_id": 489
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMikgFBVV95cUxObXhLT1htd05QZ0tWUUNPaVhHUURfZ1ZpbFFLWVhwcTJQejhvNG93azdKMU1zdlc3M1gtZlZ6UXk3VmJGM2JjaDJvZGdTVlRLUGRrbi1RQUljRWYtQk95bDZUNHRld2c5dWpQWWNSSFY2RVlZdTFDTXVLX3BUZ0dPTng2OVBZb3lHY1dLX2ZTYzZ6Zw?oc=5\" target=\"_blank\">Ancient Discovery Could Be a Board Game From 4,000 Years Ago</a> <font color=\"#6f6f6f\">ScienceAlert</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmikgfbvv95cuxobxhlt1htd05qz0twuunpavhhuurfz1zpbfflwvhwctjqejhvng93azdkmu1zdlc3m1gtzlz6uxk3vmjgm2jjadjvzgdtvlrlugrrbi1rquljrwytqk95bdzunhrld2c5dwpqwwnssfy2rvlzdtfdtxvlx3buz0dptn",
+   "content_id": "3f98f453185f6166",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e16677dc522d7390",
+    "0339c8d274beaa6e"
+   ],
+   "legacy": true,
+   "normalized_subject": "ancient discovery could be a board game from 4 000 years ago",
+   "people": [],
+   "published_at": "2026-10-23T18:19:48.481900+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Origin",
+   "source_urls": [
+    "sciencealert.com/ancient-discovery-could-be-a-board-game-from-4000-years-ago"
+   ],
+   "sport_or_game": "Ancient Discovery Could Be a Board Game From 4,000 Years Ago",
+   "telegram_message_id": 490
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiugFBVV95cUxPbDlpRlJiM2ZQTUlVWGNHdWFlSTBZZ3dEU2dlUTIxSzN2a1lLcEtaYjVlMXB1MTRQSEs4Nkd5ZjZnZWdtSVduVnZfWVpXcURxcll3MTYzeDhPZFJZdGFwNmpJTnhKcVpXMnpqUGVLaERIRXROMFRYY05QTUIwNGlwdU0yRGt4cDNuOVNncmFjbWd5XzM1cHZwb1pqZHEzU25vek55TEo1SExmU2RpZzZrZnJWTVNwWGVNQVE?oc=5\" target=\"_blank\">Archaeologists decode rules of an ancient Roman board game</a> <font color=\"#6f6f6f\">Inquirer.com</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmiugfbvv95cuxpbdlprljim2zqtulvwgnhdwflstbzz3deu2dlutixszn2a1llcetayjvlmxb1mtrqses4nkd5zjznzwdtsvduvnzfwvpxcurxcll3mtyzedhpzfjzdgfwnmpjtnhkcvpxmnpqugvlaerirxromfryy05qtuiwnglwdu",
+   "content_id": "a5876090e220be2b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a85f38be242b3dee",
+    "c6d431031a489459"
+   ],
+   "legacy": true,
+   "normalized_subject": "archaeologists decode rules of an ancient roman board game",
+   "people": [],
+   "published_at": "2026-10-23T18:20:01.009054+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Game",
+   "source_urls": [
+    "inquirer.com/news/nation-world/ancient-roman-board-game-archaeologists-stone-etched-lines-ai-20260924.html"
+   ],
+   "sport_or_game": "Archaeologists decode rules of an ancient Roman board game",
+   "telegram_message_id": 491
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMidEFVX3lxTE84TFVpU1dQOFRnUWpTYjBSVlFPY1BMRV9NOENSUGRpNmh3Ym5XcTI2d0tFRVJXWHlTRm5oeVNkbWZlZ25vaUtiN1BYY2tLRFM3TUU2NnRKUzFpY2hCYkFCdFVBZ3JzZ3p0ZjNzX2ZJZXBNc3o5?oc=5\" target=\"_blank\">All the Sports You Won’t See at the 2026 Winter Olympics</a> <font color=\"#6f6f6f\">WIRED</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmidefvx3lxte84tfvpu1dqofrnuwptyjbsvlfpy1bmrv9noensugrpnmh3ym5xcti2d0tfrvjxwhltrm5oevnkbwzlz25vautin1byy2tlrfm3tuu2nnrkuzfpy2hcykfcdfvbz3jzz3p0zjnzx2zjzxbnc3o5 oc 5 target blank",
+   "content_id": "7a8f458feacbb830",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "1e7719ae9454f425",
+    "e8b3be212e371eaa"
+   ],
+   "legacy": true,
+   "normalized_subject": "all the sports you won t see at the 2026 winter olympics",
+   "people": [],
+   "published_at": "2026-10-23T18:20:27.398002+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    "wired.com/story/winter-olympics-2026-long-lost-events"
+   ],
+   "sport_or_game": "All the Sports You Won’t See at the 2026 Winter Olympics",
+   "telegram_message_id": 492
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMisgFBVV95cUxQUFNtVGtLbklacDVwekc0RTdqV0d6Z0RNN3UtbXBVdTlyTm5vR3MtWERjc3h2enU1bnNrVHJaaDZNZkZZaFUzU2xkUzRPaGhxbHZIbGRzVlVWT3YyNU5aR2tQdzlzMVdHck9SOUlxZEFfaHJEMlJ2VlR4T3NZRXBxVGszTjBYR0E2WVF4MUNEU3lJV2xEZWc4MThHdkxxRXVIQ0Zxd0dhVGtQcXZnY213aE1R?oc=5\" target=\"_blank\">Women’s sports reach record NCAA participation as leadership roles keep rising</a> <font color=\"#6f6f6f\">NCAA.org</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmisgfbvv95cuxqufntvgtlbklacdvwekc0rtdqv0d6z0rnn3utbxbvdtlytm5vr3mtwerjc3h2enu1bnnrvhjaadznzkzzafuzu2xkuzrpaghxbhzibgrzvlvwt3yynu5ar2tqdzlzmvdhck9soulxzeffahjemlj2vlr4t3nzrxbxvg",
+   "content_id": "d09b3fd828753dd1",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c02b469c6f2a359f",
+    "8fb424da1b8575af"
+   ],
+   "legacy": true,
+   "normalized_subject": "women s sports reach record ncaa participation as leadership roles keep rising",
+   "people": [],
+   "published_at": "2026-10-23T18:20:38.293771+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "ncaa.org/media-center-womens-sports-reach-record-ncaa-participation-as-leadership-roles-keep-rising"
+   ],
+   "sport_or_game": "Women’s sports reach record NCAA participation as leadership roles keep rising",
+   "telegram_message_id": 493
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiZ0FVX3lxTE16a2RGWWZHZjlUd0RqaHNfLTNVM2xURFgyYjNlTmpIV3RkWXcwOVM1bFZOei0wWjJDOEJXcEpOX0FfZDNTOExCcFlhUFBQR2M0RGF6M3UzUUJBb2h5dlk2XzRjbzJabmM?oc=5\" target=\"_blank\">6 Sports Inventions That Changed the Game</a> <font color=\"#6f6f6f\">The Old Farmer’s Almanac</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmiz0fvx3lxte16a2rgwwzhzjlud0rqahnfltnvm2xurfgyyjnltmpiv3rkwxcwovm1bfzoei0wwjjdoejxcepox0ffzdntoexccflhufbqr2m0rgf6m3uzuujbb2h5dlk2xzrjbzjabmm oc 5 target blank 6 sports inventi",
+   "content_id": "989ce4c2bc380cf8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e581dcbf8e7395e2",
+    "47e7e740a133ca2e"
+   ],
+   "legacy": true,
+   "normalized_subject": "6 sports inventions that changed the game the old farmer s almanac",
+   "people": [],
+   "published_at": "2026-10-23T18:20:50.228986+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "almanac.com/6-sports-inventions-changed-game"
+   ],
+   "sport_or_game": "6 Sports Inventions That Changed the Game - The Old Farmer’s Almanac",
+   "telegram_message_id": 494
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMitgFBVV95cUxQS1MtZEJEMGR5MzYxWDI1bmFmemdKNzM5cjVGYmRSb1FXZ3d0NnRieHo1eVJSUi1Ga3J3Y19WWm1DTVM2NWFsWVlRNlRhdm9RSUNkbWF6eEd1NDUtOGs3RldoZktuc0xOVVFXOHFCWk9TN1UyYXd2cXMwcmFhS1hjVGNZYThUMTdtUWotbTVYSmVtRkFsUDctT0g3cUxRNjZGUkkza0FqNXhINE9IN2NKNkFsaU9odw?oc=5\" target=\"_blank\">With most information hidden, the game Stratego had stumped AI—until now</a> <font color=\"#6f6f6f\">Ars Technica</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmitgfbvv95cuxqs1mtzejemgr5mzyxwdi1bmfmemdknzm5cjvgymrsb1fxz3d0nnrieho1evjsui1ga3j3y19wwm1dtvm2nwfswvlrnlrhdm9rsunkbwf6eed1ndutogs3rldozktuc0xovvfxohfcwk9tn1uyyxd2cxmwcmfhs1hjvg",
+   "content_id": "13795f1a4a7b312e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "056cb2dddb333d79",
+    "36a43785349eb007"
+   ],
+   "legacy": true,
+   "normalized_subject": "with most information hidden the game stratego had stumped ai until now",
+   "people": [],
+   "published_at": "2026-10-23T18:21:06.580053+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    "arstechnica.com/science/2026/10/ai-finally-beat-the-best-stratego-player-in-history-and-did-it-on-a-budget"
+   ],
+   "sport_or_game": "With most information hidden, the game Stratego had stumped AI—until now",
+   "telegram_message_id": 495
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMinAFBVV95cUxONy10c3IxNWw0Si1lb09yWkNhbG12WnhMWld2VFk1NVZubTV6RnJmRUczTUZ0Mklfdko2NVRGYWp1RVZsdjdVNWc3czRCc1ZIejNlQzhxRjJvZ2xRemROU2FfRHZzeXNaOTN3dVlwT3J5cjk2V2dMYzZVN0duSWxFQVhNQ3pnZzYtU3ZsZWI3SHkzclYwUDFuOFJMZUzSAZwBQVVfeXFMTTVROWNCcG5qRE12LVJzMEljMzhyS1FxZ19Rcmc3TzV2UVgwNjRpSnFOSjl5cmdxTjhOa3lKazQtRDBlWlBlX2w5WHpVNzFFZEJCYTRCX0VSZ0Z4dGxkUEd0dmdTblA5N05aamh0d04yaWVYTW9JRlBoR3V1Y0FVZUlXVDNMVk1ENllpNHk1eXV2VWhzWTkyMVFuN19t?oc=5\" target=\"_blank\">Spain vs. Argentina: The Best Facts From The 2026 World Cup Final</a> <font color=\"#6f6f6f\">FOX Sports</font>",
+   "central_knowledge_unit": "spain vs argentina the best facts from the 2026 world cup final",
+   "content_id": "724ae7b72d15a692",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "724ae7b72d15a692",
+    "0730177bcbdd2056"
+   ],
+   "normalized_subject": "spain vs argentina the best facts from the 2026 world cup final",
+   "people": [],
+   "published_at": "2026-10-24T17:28:05.810589+00:00",
+   "region": "",
+   "run_id": "2026-10-24-PM",
+   "sector": "Interesting Sports Fact",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 496
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMimgFBVV95cUxNY05MTzlaOTNhdlFEdEY4N29QTjlIU1BCVHZySHJ3QWppd0g3SDRnZWl3ejYtVF9FaUpFVUp2cTdFTHY0SFpXc1hPZFdCb2RtOEdQQndwU1hQbzFEM2R4TUtvOEJSWDc0cTR1SXdnV1ZxVUowTXJNZ19KQ0xQOS1EdXRETjk5TUVzN1puLV9vRGRROGFndlRDYzZn?oc=5\" target=\"_blank\">Who Is Tim Payne? How a New Zealand Defender Became a World Cup Folk Hero</a> <font color=\"#6f6f6f\">Sports Illustrated</font>",
+   "central_knowledge_unit": "who is tim payne how a new zealand defender became a world cup folk hero",
+   "content_id": "f6b1c81732fb284e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f6b1c81732fb284e",
+    "33b51674ed193906"
+   ],
+   "normalized_subject": "who is tim payne how a new zealand defender became a world cup folk hero",
+   "people": [],
+   "published_at": "2026-10-24T17:28:17.228937+00:00",
+   "region": "",
+   "run_id": "2026-10-24-PM",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 497
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMifEFVX3lxTE14RzdyRWMyajBlSk1GV05xS2ZfZHFycWtDR3NvanlzQkdSTzk0YlF2Q3daMlUyeWlFc0xpcDB4eFBpcDhGcU0tcWJJajFrQVhpYzM2SGRaU2Jab0xxblFkTUtScVM0T21jM2FReV9vUWZ2bzVrU3R0YUNjT04?oc=5\" target=\"_blank\">This Day in Sports History: September 24</a> <font color=\"#6f6f6f\">Q105 | Listen Live</font>",
+   "central_knowledge_unit": "this day in sports history september 24 q105 listen live",
+   "content_id": "32c098b57f3e7875",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "32c098b57f3e7875",
+    "4de3d090ec42f8b0"
+   ],
+   "normalized_subject": "this day in sports history september 24 q105 listen live",
+   "people": [],
+   "published_at": "2026-10-24T17:29:06.745134+00:00",
+   "region": "",
+   "run_id": "2026-10-24-PM",
+   "sector": "On This Date",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 498
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxQM08wU3VQLWYyeHVkM08xTHJvandDSjROUldLdExhZUdLWHBVa2ltSnUxcFM4aGVLSFpYcEhaU3JqQ1hBOUd2M0hhQ3RySDNLOS1qcWYxMFNZRW1ObTllLW5ma2pNNFhTVU1OdW5aRHpFWmhhTHlnMWVnR1owMUVZMVVEWUdlWko0Z3dYOU4yQjlHa1hhdkpjeEtZNm5Ia251cDZ3LXdvV2ZReDRXLVZTOU1MdGI4blB4?oc=5\" target=\"_blank\">Valkyries make history as first-ever women's sports team to generate over $100 million in revenue</a> <font color=\"#6f6f6f\">HITC</font>",
+   "central_knowledge_unit": "valkyries make history as first ever women s sports team to generate over 100 million in revenue",
+   "content_id": "283a1adcaa82f467",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "283a1adcaa82f467",
+    "68088b254c4946b5"
+   ],
+   "normalized_subject": "valkyries make history as first ever women s sports team to generate over 100 million in revenue",
+   "people": [],
+   "published_at": "2026-10-24T17:29:32.422906+00:00",
+   "region": "",
+   "run_id": "2026-10-24-PM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 499
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiV0FVX3lxTE5Sa3Q0YnNaZlJKN0RwZDM5UDZTbzBmTzdCSXdvWGdQazgtYWMwWExLRW5kajg4TEw2bGk0VGlvTFFNRjZYZFdFLVVuUHdNWG4yZHkzOW1Fcw?oc=5\" target=\"_blank\">Ice hockey | History, Rules, Equipment, Players, & Facts</a> <font color=\"#6f6f6f\">Britannica</font>",
+   "central_knowledge_unit": "ice hockey history rules equipment players facts",
+   "content_id": "71ff5fbe5947d6b4",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "71ff5fbe5947d6b4",
+    "aa65c908883b23f8"
+   ],
+   "normalized_subject": "ice hockey history rules equipment players facts",
+   "people": [],
+   "published_at": "2026-10-24T17:29:44.679603+00:00",
+   "region": "",
+   "run_id": "2026-10-24-PM",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 500
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-23T18:21:06.580020+00:00"
+ "updated_at": "2026-10-24T17:29:44.679712+00:00"
 }
