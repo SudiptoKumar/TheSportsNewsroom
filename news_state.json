@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "Cerebras per-run call cap reached (16)",
-  "last_ok": "2026-10-24T17:29:55.059537+00:00",
-  "last_request_id": "a4fab4d50fc1ffd7-IAD",
+  "last_ok": "2026-10-25T07:37:03.263882+00:00",
+  "last_request_id": "a4ff8dc23ec9ace2-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-24T17:29:55.061094+00:00",
+ "last_run_at": "2026-10-25T07:37:03.264796+00:00",
  "ledger": {},
  "posts": [
   {
@@ -5492,6 +5492,144 @@
    "urls": [
     "britannica.com/sports/ice-hockey"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "How Football Conquered Britain - And Then The World",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMitAFBVV95cUxPM0g2UGdKVmdjUlNXNXBkMWRFVFcxYWo0OWd6VWNpdkJERVFnRnU3UjZSYi1OMHVTX2N0S2doVkRMdGVJd0RiS25nMkZvMkM0a0lSWFVlMTd5LXF1V2ZNSjNESk1JSUZYdDZNOXJNSHlLX3ZhWWhybTlNM2FfX0owVVBIb0tFYUEwaUE3VjMxTGNUU2JnRUJQYkxScmdiLThyNnpXR0lwZHRNN2gzS0xaWDlJU3M?oc=5\" target=\"_blank\">How Football Conquered Britain - And Then The World</a> <font color=\"#6f6f6f\">BBC</font>",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "From British Roots to Global Obsession: Football’s Rise",
+   "image_status": "verified_external",
+   "message_id": 501,
+   "normalized_subject": "How Football Conquered Britain - And Then The World",
+   "posted_at": "2026-10-25T07:34:49.661262+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-25-AM",
+   "sector": "Sport Origin",
+   "topic": "How Football Conquered Britain - And Then The World",
+   "urls": [
+    "bbc.co.uk/programmes/articles/y2YWrnZXN8yVb6bznF3l8z/how-football-conquered-britain-and-then-the-world"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Erling Haaland Powers Norway Past Brazil In World Cup Win: 'Maybe This Will Write History'",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxOU2dMQmNmdVJBV2FwN2QzZVdiNjVzS0VSSTRRYmZFd1E3cWhUYjliR0xCcWxBS2h2azl6TWE3V0xIWmlRa3pacWk4MFRWUmxkMXhkaGJnODFZSFN3bEZUWG9KRkxNckJOWC00R2w3UDFtdk5hYXhYYjlEdHB2Tm9GalpzbTA1aGFud09GS1oteklRMXJsckVfMmNydmh2ZEVIYWlQbEtLcjljbTJDQ0xnVFhPdnhtMUc4Snh3N9IBvAFBVV95cUxNQTRqcFNWdGJqRU03Y0FkcVNMcXV3RW5sQnJFdFJfQ3MybkpuZXRNNG9wQXhjamREODhvejBQSjhBZWFIcmp5XzBfU2tGckw3YVZER3Q5M3hKYy1iMWktcW1mZzZaaW1rZ1FKTEtfN0hQdGRqWDk5cE81TGsyNHh3QkhOd1JYSXh0aDh4OEZwMmtsWGdSU0ZKbVFmWm5kR0lSdS1DNUhnMzNDZEFHanBpSk9DM2JBbGNuNEpBZQ?oc=5\" target=\"_blank\">Erling Haaland Powers Norway Past Brazil In World Cup Win: 'Maybe This Will Write History'</a> <font color=\"#6f6f6f\">",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "Haaland’s Double Sends Norway Past Brazil into World Cup Quarterfinals",
+   "image_status": "verified_external",
+   "message_id": 502,
+   "normalized_subject": "Erling Haaland Powers Norway Past Brazil In World Cup Win: 'Maybe This Will Write History'",
+   "posted_at": "2026-10-25T07:35:38.085435+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-25-AM",
+   "sector": "Then vs Now",
+   "topic": "Erling Haaland Powers Norway Past Brazil In World Cup Win: 'Maybe This Will Write History'",
+   "urls": [
+    "foxsports.com/stories/soccer/erling-haaland-powers-norway-past-brazil-world-cup-win-maybe-will-write-history"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Explained: Folarin Balogun’s World Cup red-card reversal, Trump’s phone calls and Fifa’s rationale",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxNM2h0djAzYk1FdGxKWmhRNzVkR1Eyd0lUUlJWTUFwUmJ4RWZiTnVQTGs2b096ekx2MDlaVHdrVUpUUkcwenBSVzg0QzBUb05UMkktVl9Kbk5faUNnRFJCTDFJcnppUEU4MkNobHVobjkzYlR6RDZtUEE0bjI1NnEtd0V4dVJmb1F3ZXpjU09lcXV0WXlWOHROaEYtcWswWERjY2thNVdTLXhMb19ESHc?oc=5\" target=\"_blank\">Explained: Folarin Balogun’s World Cup red-card reversal, Trump’s phone calls and Fifa’s rationale</a> <font color=\"#6f6f6f\">The Guardian</font>",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "FIFA lifts Balogun’s World Cup ban after presidential appeal",
+   "image_status": "card_fallback",
+   "message_id": 503,
+   "normalized_subject": "Explained: Folarin Balogun’s World Cup red-card reversal, Trump’s phone calls and Fifa’s rationale",
+   "posted_at": "2026-10-25T07:36:02.824176+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-25-AM",
+   "sector": "Game Discovery",
+   "topic": "Explained: Folarin Balogun’s World Cup red-card reversal, Trump’s phone calls and Fifa’s rationale",
+   "urls": [
+    "theguardian.com/football/2026/jul/06/folarin-balogun-red-card-reversal-trump-calls-fifa-explainer"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Archaeologists Decode Rules of an Ancient Roman Board Game - The New York Times",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMijAFBVV95cUxQU3RQcGZBcGRFa0Z5MUp3c3NCU0dheUNYSmhaUHZxMm01aHVvQUhvZUFqMUJLeTBDeGxHVk5CMThNZy1TVk5uMTloTzdKWXJWcVNqQV8xa2VNUlpmcThJV05nSGRPbEx6UzFnRjU0TUNESi1yQzdqU2loUUc5dTNKTl9rZVY1X1g3dHZBcg?oc=5\" target=\"_blank\">Archaeologists Decode Rules of an Ancient Roman Board Game</a> <font color=\"#6f6f6f\">The New York Times</font>",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Game",
+   "headline": "Archaeologists Reveal Rules of Ancient Roman Board Game",
+   "image_status": "card_fallback",
+   "message_id": 504,
+   "normalized_subject": "Archaeologists Decode Rules of an Ancient Roman Board Game - The New York Times",
+   "posted_at": "2026-10-25T07:36:16.355179+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-25-AM",
+   "sector": "Forgotten Game",
+   "topic": "Archaeologists Decode Rules of an Ancient Roman Board Game - The New York Times",
+   "urls": [
+    "nytimes.com/2026/09/20/science/ancient-roman-board-game-archaeology.html"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "From Craft to Combat: How Modern Buhurt Gear Is Redefining Medieval Sports in 2026",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMi1AFBVV95cUxPd2N1X2ZWR1RVUlBzY3pZX3JzUkp0dGFaZXhMUDdDb3hsb1NuUy1HdXdSR1lHbndHaGEzRGN0eTJkeXlja1VlSTZXWG5aUzZHZlc4a2ZlbW1ZczJTMFNkNnJhdzNYQkl5N0paU1EtOF8zUHFNZmZaU28tM0ZlNzY5alFKekJfNjRvMU1JemJ3MVh4czBXeDZqblF2RE4zRkI3dEg0ZzJ5ZFlTd3AtbnBJWTRiWjlxd3pUalYzeEFLT0stejJmWkNPZlFGZHIzWVJ6c3ljTw?oc=5\" target=\"_blank\">From Craft to Combat: How Modern Buhurt Gear Is Redefining Medieval Sports in 2026</a> <font color=\"#6f6f6f\">TNT Magazine</font>",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "Modern Buhurt Gear Marries History and Engineering to Elevate Combat Sport",
+   "image_status": "verified_external",
+   "message_id": 505,
+   "normalized_subject": "From Craft to Combat: How Modern Buhurt Gear Is Redefining Medieval Sports in 2026",
+   "posted_at": "2026-10-25T07:36:29.664945+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-25-AM",
+   "sector": "Equipment / Measurement",
+   "topic": "From Craft to Combat: How Modern Buhurt Gear Is Redefining Medieval Sports in 2026",
+   "urls": [
+    "tntmagazine.com/leisure-entertainment/sport/from-craft-to-combat-how-modern-buhurt-gear-is-redefining-medieval-sports-in-2026"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "GMercyU Adds Women’s Flag Football Amidst Sport’s Surge in Popularity",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMieEFVX3lxTFA4QVk1S3gtVUNmcGJNM2ZfR2hCU0pmdHJkZzZNajVsV3pYZXVOY1FudER1RjNXYmdEWG9PUmJrN2FwZXd5ejU2MnhPTUtENVBMbEh1Rl9kSjdFN0t3Z3V4SlZqbWVzMjJ3T2Vjb0t6T2QzRmxYVEJKaQ?oc=5\" target=\"_blank\">GMercyU Adds Women’s Flag Football Amidst Sport’s Surge in Popularity</a> <font color=\"#6f6f6f\">PHILADELPHIA.Today</font>",
+   "desk": "evergreen_v1",
+   "format": "New Sport Discovery",
+   "headline": "GMercyU Launches Women’s Flag Football as the Sport Booms",
+   "image_status": "verified_external",
+   "message_id": 506,
+   "normalized_subject": "GMercyU Adds Women’s Flag Football Amidst Sport’s Surge in Popularity",
+   "posted_at": "2026-10-25T07:36:39.864497+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-25-AM",
+   "sector": "New Sport Discovery",
+   "topic": "GMercyU Adds Women’s Flag Football Amidst Sport’s Surge in Popularity",
+   "urls": [
+    "philadelphia.today/2026/09/gmercyu-adds-womens-flag-football"
+   ]
   }
  ],
  "runs": [],
@@ -5571,22 +5709,35 @@
      "2026-10-24-AM",
      "2026-10-24-PM"
     ]
+   },
+   "2026-10-25": {
+    "published_sectors": [
+     "Sport Origin",
+     "Then vs Now",
+     "Game Discovery",
+     "Forgotten Game",
+     "Equipment / Measurement",
+     "New Sport Discovery"
+    ],
+    "run_ids": [
+     "2026-10-25-AM"
+    ]
    }
   },
-  "last_run_at": "2026-10-24T17:29:55.061069+00:00",
+  "last_run_at": "2026-10-25T07:37:03.264775+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-24T17:29:55.061046+00:00"
+    "updated_at": "2026-10-25T07:37:03.264760+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-24T17:29:55.061038+00:00"
+    "updated_at": "2026-10-25T07:37:03.264755+00:00"
    }
   },
   "publication": {
@@ -5794,6 +5945,36 @@
     "message_id": 497,
     "posted_at": "2026-10-24T17:28:17.228818+00:00",
     "status": "posted"
+   },
+   "2026-10-25-AM:evergreen:7383e42abe97b9ec": {
+    "message_id": 503,
+    "posted_at": "2026-10-25T07:36:02.823963+00:00",
+    "status": "posted"
+   },
+   "2026-10-25-AM:evergreen:8b88b056b1f60e2d": {
+    "message_id": 505,
+    "posted_at": "2026-10-25T07:36:29.664741+00:00",
+    "status": "posted"
+   },
+   "2026-10-25-AM:evergreen:af529223def721f9": {
+    "message_id": 504,
+    "posted_at": "2026-10-25T07:36:16.354993+00:00",
+    "status": "posted"
+   },
+   "2026-10-25-AM:evergreen:af7170a503b2a2dc": {
+    "message_id": 506,
+    "posted_at": "2026-10-25T07:36:39.864293+00:00",
+    "status": "posted"
+   },
+   "2026-10-25-AM:evergreen:baee1213f6feedd8": {
+    "message_id": 502,
+    "posted_at": "2026-10-25T07:35:38.085228+00:00",
+    "status": "posted"
+   },
+   "2026-10-25-AM:evergreen:d253e142e8b520ce": {
+    "message_id": 501,
+    "posted_at": "2026-10-25T07:34:49.661076+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -5876,6 +6057,20 @@
      "On This Date",
      "Sport Discovery",
      "Sport Origin"
+    ]
+   },
+   {
+    "at": "2026-10-25T07:37:03.264778+00:00",
+    "evergreen": 6,
+    "exit": 0,
+    "run_id": "2026-10-25-AM",
+    "used_sectors": [
+     "Equipment / Measurement",
+     "Forgotten Game",
+     "Game Discovery",
+     "New Sport Discovery",
+     "Sport Origin",
+     "Then vs Now"
     ]
    }
   ],

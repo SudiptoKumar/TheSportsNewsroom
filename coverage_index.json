@@ -11678,8 +11678,278 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 500
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMinAFBVV95cUxONy10c3IxNWw0Si1lb09yWkNhbG12WnhMWld2VFk1NVZubTV6RnJmRUczTUZ0Mklfdko2NVRGYWp1RVZsdjdVNWc3czRCc1ZIejNlQzhxRjJvZ2xRemROU2FfRHZzeXNaOTN3dVlwT3J5cjk2V2dMYzZVN0duSWxFQVhNQ3pnZzYtU3ZsZWI3SHkzclYwUDFuOFJMZUzSAZwBQVVfeXFMTTVROWNCcG5qRE12LVJzMEljMzhyS1FxZ19Rcmc3TzV2UVgwNjRpSnFOSjl5cmdxTjhOa3lKazQtRDBlWlBlX2w5WHpVNzFFZEJCYTRCX0VSZ0Z4dGxkUEd0dmdTblA5N05aamh0d04yaWVYTW9JRlBoR3V1Y0FVZUlXVDNMVk1ENllpNHk1eXV2VWhzWTkyMVFuN19t?oc=5\" target=\"_blank\">Spa",
+   "central_knowledge_unit": "a href https news google com rss articles cbminafbvv95cuxony10c3ixnww0si1lb09ywknhbg12wnhmwld2vfk1nvzubtv6rnjmrucztuz0mklfdko2nvrgywp1rvzsdjdvnwc3czrcc1ziejnlqzhxrjjvz2xremrou2ffrhzzexnaotn3dvlwt3j5cjk2v2dmyzzvn0duswxfqv",
+   "content_id": "f9789836333e1631",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "0730177bcbdd2056",
+    "b487706f0b097685"
+   ],
+   "legacy": true,
+   "normalized_subject": "spain vs argentina the best facts from the 2026 world cup final",
+   "people": [],
+   "published_at": "2026-10-24T17:28:05.810760+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Sports Fact",
+   "source_urls": [
+    "foxsports.com/stories/soccer/spain-vs-argentina-best-facts-from-2026-world-cup-final"
+   ],
+   "sport_or_game": "Spain vs. Argentina: The Best Facts From The 2026 World Cup Final",
+   "telegram_message_id": 496
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMimgFBVV95cUxNY05MTzlaOTNhdlFEdEY4N29QTjlIU1BCVHZySHJ3QWppd0g3SDRnZWl3ejYtVF9FaUpFVUp2cTdFTHY0SFpXc1hPZFdCb2RtOEdQQndwU1hQbzFEM2R4TUtvOEJSWDc0cTR1SXdnV1ZxVUowTXJNZ19KQ0xQOS1EdXRETjk5TUVzN1puLV9vRGRROGFndlRDYzZn?oc=5\" target=\"_blank\">Who Is Tim Payne? How a New Zealand Defender Became a World Cup Folk Hero</a> <font color=\"#6f6f6f\">Sports Illustrated</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmimgfbvv95cuxny05mtzlaotnhdlfedey4n29qtjliu1bcvhzyshj3qwppd0g3sdrnzwl3ejytvf9faupfvup2ctdfthy0sfpxc1hpzfdcb2rtoedqqndwu1hqbzfem2r4tutvoejswdc0ctr1sxdnv1zxvuowtxjnz19kq0xqos1edx",
+   "content_id": "4298e370c93495d2",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "33b51674ed193906",
+    "69f59d1edc65a8ec"
+   ],
+   "legacy": true,
+   "normalized_subject": "who is tim payne how a new zealand defender became a world cup folk hero",
+   "people": [],
+   "published_at": "2026-10-24T17:28:17.229076+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    "si.com/soccer/who-is-tim-payne-how-new-zealand-defender-became-world-cup-folk-hero"
+   ],
+   "sport_or_game": "Who Is Tim Payne? How a New Zealand Defender Became a World Cup Folk Hero",
+   "telegram_message_id": 497
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMifEFVX3lxTE14RzdyRWMyajBlSk1GV05xS2ZfZHFycWtDR3NvanlzQkdSTzk0YlF2Q3daMlUyeWlFc0xpcDB4eFBpcDhGcU0tcWJJajFrQVhpYzM2SGRaU2Jab0xxblFkTUtScVM0T21jM2FReV9vUWZ2bzVrU3R0YUNjT04?oc=5\" target=\"_blank\">This Day in Sports History: September 24</a> <font color=\"#6f6f6f\">Q105 | Listen Live</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmifefvx3lxte14rzdyrwmyajblsk1gv05xs2zfzhfycwtdr3nvanlzqkdstzk0ylf2q3damluyewlfc0xpcdb4efbpcdhgcu0tcwjjajfrqvhpyzm2sgrau2jab0xxblfktutscvm0t21jm2frev9vuwz2bzvru3r0yunjt04 oc 5 t",
+   "content_id": "84b7ebf5e0270573",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4de3d090ec42f8b0",
+    "ce6e221d41ebe1f6"
+   ],
+   "legacy": true,
+   "normalized_subject": "this day in sports history september 24 q105 listen live",
+   "people": [],
+   "published_at": "2026-10-24T17:29:06.745282+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "myq105.com/2026/09/24/this-day-in-sports-history-september-24-2"
+   ],
+   "sport_or_game": "This Day in Sports History: September 24 - Q105 | Listen Live",
+   "telegram_message_id": 498
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxQM08wU3VQLWYyeHVkM08xTHJvandDSjROUldLdExhZUdLWHBVa2ltSnUxcFM4aGVLSFpYcEhaU3JqQ1hBOUd2M0hhQ3RySDNLOS1qcWYxMFNZRW1ObTllLW5ma2pNNFhTVU1OdW5aRHpFWmhhTHlnMWVnR1owMUVZMVVEWUdlWko0Z3dYOU4yQjlHa1hhdkpjeEtZNm5Ia251cDZ3LXdvV2ZReDRXLVZTOU1MdGI4blB4?oc=5\" target=\"_blank\">Valkyries make history as first-ever women's sports team to generate over $100 million in revenue</a> <font color=\"#6f6f6f\">HITC</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmiuafbvv95cuxqm08wu3vqlwyyehvkm08xthjvanddsjrouldldexhzudlwhbva2ltsnuxcfm4agvlsfpycehau3jqq1hboud2m0hhq3rysdnlos1qcwyxmfnzrw1obtlllw5ma2pnnfhtvu1odw5arhpfwmhhthlnmwvnr1owmuvzmv",
+   "content_id": "5bcde7fa866814c7",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "68088b254c4946b5",
+    "1919a51803a7fe55"
+   ],
+   "legacy": true,
+   "normalized_subject": "valkyries make history as first ever women s sports team to generate over 100 million in revenue",
+   "people": [],
+   "published_at": "2026-10-24T17:29:32.423064+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "hitc.com/valkyries-make-history-as-first-ever-womens-sports-team-to-generate-over-100-million-in-revenue"
+   ],
+   "sport_or_game": "Valkyries make history as first-ever women's sports team to generate over $100 million in revenue",
+   "telegram_message_id": 499
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiV0FVX3lxTE5Sa3Q0YnNaZlJKN0RwZDM5UDZTbzBmTzdCSXdvWGdQazgtYWMwWExLRW5kajg4TEw2bGk0VGlvTFFNRjZYZFdFLVVuUHdNWG4yZHkzOW1Fcw?oc=5\" target=\"_blank\">Ice hockey | History, Rules, Equipment, Players, & Facts</a> <font color=\"#6f6f6f\">Britannica</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmiv0fvx3lxte5sa3q0ynnazljkn0rwzdm5udztbzbmtzdcsxdvwgdqazgtywmwwexlrw5kajg4tew2bgk0vglvtffnrjzyzfdflvvuuhdnwg4yzhkzow1fcw oc 5 target blank ice hockey history rules equipment pl",
+   "content_id": "84e173ba0b505563",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "aa65c908883b23f8",
+    "92ed5a2a98033d7c"
+   ],
+   "legacy": true,
+   "normalized_subject": "ice hockey history rules equipment players facts",
+   "people": [],
+   "published_at": "2026-10-24T17:29:44.679745+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "britannica.com/sports/ice-hockey"
+   ],
+   "sport_or_game": "Ice hockey | History, Rules, Equipment, Players, & Facts",
+   "telegram_message_id": 500
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMitAFBVV95cUxPM0g2UGdKVmdjUlNXNXBkMWRFVFcxYWo0OWd6VWNpdkJERVFnRnU3UjZSYi1OMHVTX2N0S2doVkRMdGVJd0RiS25nMkZvMkM0a0lSWFVlMTd5LXF1V2ZNSjNESk1JSUZYdDZNOXJNSHlLX3ZhWWhybTlNM2FfX0owVVBIb0tFYUEwaUE3VjMxTGNUU2JnRUJQYkxScmdiLThyNnpXR0lwZHRNN2gzS0xaWDlJU3M?oc=5\" target=\"_blank\">How Football Conquered Britain - And Then The World</a> <font color=\"#6f6f6f\">BBC</font>",
+   "central_knowledge_unit": "how football conquered britain and then the world",
+   "content_id": "febe034668202bbf",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "febe034668202bbf",
+    "9c1acada8687ae67"
+   ],
+   "normalized_subject": "how football conquered britain and then the world",
+   "people": [],
+   "published_at": "2026-10-25T07:34:49.661159+00:00",
+   "region": "",
+   "run_id": "2026-10-25-AM",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 501
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxOU2dMQmNmdVJBV2FwN2QzZVdiNjVzS0VSSTRRYmZFd1E3cWhUYjliR0xCcWxBS2h2azl6TWE3V0xIWmlRa3pacWk4MFRWUmxkMXhkaGJnODFZSFN3bEZUWG9KRkxNckJOWC00R2w3UDFtdk5hYXhYYjlEdHB2Tm9GalpzbTA1aGFud09GS1oteklRMXJsckVfMmNydmh2ZEVIYWlQbEtLcjljbTJDQ0xnVFhPdnhtMUc4Snh3N9IBvAFBVV95cUxNQTRqcFNWdGJqRU03Y0FkcVNMcXV3RW5sQnJFdFJfQ3MybkpuZXRNNG9wQXhjamREODhvejBQSjhBZWFIcmp5XzBfU2tGckw3YVZER3Q5M3hKYy1iMWktcW1mZzZaaW1rZ1FKTEtfN0hQdGRqWDk5cE81TGsyNHh3QkhOd1JYSXh0aDh4OEZwMmtsWGdSU0ZKbVFmWm5kR0lSdS1DNUhnMzNDZEFHanBpSk9DM2JBbGNuNEpBZQ?oc=5\" target=\"_blank\">Erling Haaland Powers Norway Past Brazil In World Cup Win: 'Maybe This Will Write History'</a> <font color=\"#6f6f6f\">",
+   "central_knowledge_unit": "erling haaland powers norway past brazil in world cup win maybe this will write history",
+   "content_id": "9e88a4c63df9e9fe",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9e88a4c63df9e9fe",
+    "8dae55596429ba22"
+   ],
+   "normalized_subject": "erling haaland powers norway past brazil in world cup win maybe this will write history",
+   "people": [],
+   "published_at": "2026-10-25T07:35:38.085328+00:00",
+   "region": "",
+   "run_id": "2026-10-25-AM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 502
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxNM2h0djAzYk1FdGxKWmhRNzVkR1Eyd0lUUlJWTUFwUmJ4RWZiTnVQTGs2b096ekx2MDlaVHdrVUpUUkcwenBSVzg0QzBUb05UMkktVl9Kbk5faUNnRFJCTDFJcnppUEU4MkNobHVobjkzYlR6RDZtUEE0bjI1NnEtd0V4dVJmb1F3ZXpjU09lcXV0WXlWOHROaEYtcWswWERjY2thNVdTLXhMb19ESHc?oc=5\" target=\"_blank\">Explained: Folarin Balogun’s World Cup red-card reversal, Trump’s phone calls and Fifa’s rationale</a> <font color=\"#6f6f6f\">The Guardian</font>",
+   "central_knowledge_unit": "explained folarin balogun s world cup red card reversal trump s phone calls and fifa s rationale",
+   "content_id": "a5e14dbaef651894",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a5e14dbaef651894",
+    "75b80e6b2216deed"
+   ],
+   "normalized_subject": "explained folarin balogun s world cup red card reversal trump s phone calls and fifa s rationale",
+   "people": [],
+   "published_at": "2026-10-25T07:36:02.824069+00:00",
+   "region": "",
+   "run_id": "2026-10-25-AM",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 503
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMijAFBVV95cUxQU3RQcGZBcGRFa0Z5MUp3c3NCU0dheUNYSmhaUHZxMm01aHVvQUhvZUFqMUJLeTBDeGxHVk5CMThNZy1TVk5uMTloTzdKWXJWcVNqQV8xa2VNUlpmcThJV05nSGRPbEx6UzFnRjU0TUNESi1yQzdqU2loUUc5dTNKTl9rZVY1X1g3dHZBcg?oc=5\" target=\"_blank\">Archaeologists Decode Rules of an Ancient Roman Board Game</a> <font color=\"#6f6f6f\">The New York Times</font>",
+   "central_knowledge_unit": "archaeologists decode rules of an ancient roman board game the new york times",
+   "content_id": "e30f6ed1fe39d0f4",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e30f6ed1fe39d0f4",
+    "abc922c6af35a69e"
+   ],
+   "normalized_subject": "archaeologists decode rules of an ancient roman board game the new york times",
+   "people": [],
+   "published_at": "2026-10-25T07:36:16.355081+00:00",
+   "region": "",
+   "run_id": "2026-10-25-AM",
+   "sector": "Forgotten Game",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 504
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMi1AFBVV95cUxPd2N1X2ZWR1RVUlBzY3pZX3JzUkp0dGFaZXhMUDdDb3hsb1NuUy1HdXdSR1lHbndHaGEzRGN0eTJkeXlja1VlSTZXWG5aUzZHZlc4a2ZlbW1ZczJTMFNkNnJhdzNYQkl5N0paU1EtOF8zUHFNZmZaU28tM0ZlNzY5alFKekJfNjRvMU1JemJ3MVh4czBXeDZqblF2RE4zRkI3dEg0ZzJ5ZFlTd3AtbnBJWTRiWjlxd3pUalYzeEFLT0stejJmWkNPZlFGZHIzWVJ6c3ljTw?oc=5\" target=\"_blank\">From Craft to Combat: How Modern Buhurt Gear Is Redefining Medieval Sports in 2026</a> <font color=\"#6f6f6f\">TNT Magazine</font>",
+   "central_knowledge_unit": "from craft to combat how modern buhurt gear is redefining medieval sports in 2026",
+   "content_id": "55c570f56d648e2f",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "55c570f56d648e2f",
+    "30b3f66998f1036d"
+   ],
+   "normalized_subject": "from craft to combat how modern buhurt gear is redefining medieval sports in 2026",
+   "people": [],
+   "published_at": "2026-10-25T07:36:29.664838+00:00",
+   "region": "",
+   "run_id": "2026-10-25-AM",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 505
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMieEFVX3lxTFA4QVk1S3gtVUNmcGJNM2ZfR2hCU0pmdHJkZzZNajVsV3pYZXVOY1FudER1RjNXYmdEWG9PUmJrN2FwZXd5ejU2MnhPTUtENVBMbEh1Rl9kSjdFN0t3Z3V4SlZqbWVzMjJ3T2Vjb0t6T2QzRmxYVEJKaQ?oc=5\" target=\"_blank\">GMercyU Adds Women’s Flag Football Amidst Sport’s Surge in Popularity</a> <font color=\"#6f6f6f\">PHILADELPHIA.Today</font>",
+   "central_knowledge_unit": "gmercyu adds women s flag football amidst sport s surge in popularity",
+   "content_id": "8fb878640fb4282f",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "8fb878640fb4282f",
+    "3c6a4c7e9a476879"
+   ],
+   "normalized_subject": "gmercyu adds women s flag football amidst sport s surge in popularity",
+   "people": [],
+   "published_at": "2026-10-25T07:36:39.864398+00:00",
+   "region": "",
+   "run_id": "2026-10-25-AM",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 506
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-24T17:29:44.679712+00:00"
+ "updated_at": "2026-10-25T07:36:39.864474+00:00"
 }
