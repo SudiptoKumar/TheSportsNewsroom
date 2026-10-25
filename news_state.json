@@ -1,15 +1,15 @@
 {
  "ai": {
-  "last_error": "Cerebras per-run call cap reached (16)",
+  "last_error": "HTTP 402: {\"message\":\"Payment required to access this resource. Visit your billing tab.\",\"type\":\"payment_required_error\",\"param\":\"quota\",\"code\":\"payment_required\"}",
   "last_ok": "2026-10-25T07:37:03.263882+00:00",
-  "last_request_id": "a4ff8dc23ec9ace2-CMH",
-  "last_status": 200,
+  "last_request_id": "",
+  "last_status": 402,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-25T07:37:03.264796+00:00",
+ "last_run_at": "2026-10-25T17:39:22.705759+00:00",
  "ledger": {},
  "posts": [
   {
@@ -5720,24 +5720,25 @@
      "New Sport Discovery"
     ],
     "run_ids": [
-     "2026-10-25-AM"
+     "2026-10-25-AM",
+     "2026-10-25-PM"
     ]
    }
   },
-  "last_run_at": "2026-10-25T07:37:03.264775+00:00",
+  "last_run_at": "2026-10-25T17:39:22.705740+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-25T07:37:03.264760+00:00"
+    "updated_at": "2026-10-25T17:39:22.705722+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-25T07:37:03.264755+00:00"
+    "updated_at": "2026-10-25T17:39:22.705715+00:00"
    }
   },
   "publication": {
@@ -6072,6 +6073,13 @@
      "Sport Origin",
      "Then vs Now"
     ]
+   },
+   {
+    "at": "2026-10-25T17:39:22.705744+00:00",
+    "evergreen": 0,
+    "exit": 0,
+    "run_id": "2026-10-25-PM",
+    "used_sectors": []
    }
   ],
   "schema": 1

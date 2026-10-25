@@ -11948,8 +11948,152 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 506
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMitAFBVV95cUxPM0g2UGdKVmdjUlNXNXBkMWRFVFcxYWo0OWd6VWNpdkJERVFnRnU3UjZSYi1OMHVTX2N0S2doVkRMdGVJd0RiS25nMkZvMkM0a0lSWFVlMTd5LXF1V2ZNSjNESk1JSUZYdDZNOXJNSHlLX3ZhWWhybTlNM2FfX0owVVBIb0tFYUEwaUE3VjMxTGNUU2JnRUJQYkxScmdiLThyNnpXR0lwZHRNN2gzS0xaWDlJU3M?oc=5\" target=\"_blank\">How Football Conquered Britain - And Then The World</a> <font color=\"#6f6f6f\">BBC</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmitafbvv95cuxpm0g2ugdkvmdjulnxnxbkmwrfvfcxywo0owd6vwnpdkjervfnrnu3ujzsyi1omhvtx2n0s2dovkrmdgvjd0ris25nmkzvmkm0a0lswfvlmtd5lxf1v2znsjnesk1jsuzyddznoxjnshllx3zhwwhybtlnm2ffx0owvv",
+   "content_id": "bf1656c21b2edb1b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9c1acada8687ae67",
+    "99d980d947a91705"
+   ],
+   "legacy": true,
+   "normalized_subject": "how football conquered britain and then the world",
+   "people": [],
+   "published_at": "2026-10-25T07:34:49.661262+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "bbc.co.uk/programmes/articles/y2YWrnZXN8yVb6bznF3l8z/how-football-conquered-britain-and-then-the-world"
+   ],
+   "sport_or_game": "How Football Conquered Britain - And Then The World",
+   "telegram_message_id": 501
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxOU2dMQmNmdVJBV2FwN2QzZVdiNjVzS0VSSTRRYmZFd1E3cWhUYjliR0xCcWxBS2h2azl6TWE3V0xIWmlRa3pacWk4MFRWUmxkMXhkaGJnODFZSFN3bEZUWG9KRkxNckJOWC00R2w3UDFtdk5hYXhYYjlEdHB2Tm9GalpzbTA1aGFud09GS1oteklRMXJsckVfMmNydmh2ZEVIYWlQbEtLcjljbTJDQ0xnVFhPdnhtMUc4Snh3N9IBvAFBVV95cUxNQTRqcFNWdGJqRU03Y0FkcVNMcXV3RW5sQnJFdFJfQ3MybkpuZXRNNG9wQXhjamREODhvejBQSjhBZWFIcmp5XzBfU2tGckw3YVZER3Q5M3hKYy1iMWktcW1mZzZaaW1rZ1FKTEtfN0hQdGRqWDk5cE81TGsyNHh3QkhOd1JYSXh0aDh4OEZwMm",
+   "central_knowledge_unit": "a href https news google com rss articles cbmivafbvv95cuxou2dmqmnmdvjbv2fwn2qzzvdinjvzs0vsstrrymzfd1e3cwhuyjlir0xccwxbs2h2azl6twe3v0xiwmlra3pacwk4mfrwumxkmxhkagjnodfzsfn3bezuwg9krkxnckjowc00r2w3udftdk5hyxhyyjledhb2tm9gal",
+   "content_id": "3517aede2e447312",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "8dae55596429ba22",
+    "db09119edd0fc08d"
+   ],
+   "legacy": true,
+   "normalized_subject": "erling haaland powers norway past brazil in world cup win maybe this will write history",
+   "people": [],
+   "published_at": "2026-10-25T07:35:38.085435+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "foxsports.com/stories/soccer/erling-haaland-powers-norway-past-brazil-world-cup-win-maybe-will-write-history"
+   ],
+   "sport_or_game": "Erling Haaland Powers Norway Past Brazil In World Cup Win: 'Maybe This Will Write History'",
+   "telegram_message_id": 502
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxNM2h0djAzYk1FdGxKWmhRNzVkR1Eyd0lUUlJWTUFwUmJ4RWZiTnVQTGs2b096ekx2MDlaVHdrVUpUUkcwenBSVzg0QzBUb05UMkktVl9Kbk5faUNnRFJCTDFJcnppUEU4MkNobHVobjkzYlR6RDZtUEE0bjI1NnEtd0V4dVJmb1F3ZXpjU09lcXV0WXlWOHROaEYtcWswWERjY2thNVdTLXhMb19ESHc?oc=5\" target=\"_blank\">Explained: Folarin Balogun’s World Cup red-card reversal, Trump’s phone calls and Fifa’s rationale</a> <font color=\"#6f6f6f\">The Guardian</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmirgfbvv95cuxnm2h0djazyk1fdgxkwmhrnzvkr1eyd0luuljwtufwumj4rwzitnvqtgs2b096ekx2mdlavhdrvupuukcwenbsvzg0qzbub05umkktvl9kbk5faunnrfjctdfjcnppueu4mknobhvobjkzylr6rdztuee0bji1nnetd0",
+   "content_id": "1d03b67da8bab02b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "75b80e6b2216deed",
+    "c74ab08c709307f2"
+   ],
+   "legacy": true,
+   "normalized_subject": "explained folarin balogun s world cup red card reversal trump s phone calls and fifa s rationale",
+   "people": [],
+   "published_at": "2026-10-25T07:36:02.824176+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "theguardian.com/football/2026/jul/06/folarin-balogun-red-card-reversal-trump-calls-fifa-explainer"
+   ],
+   "sport_or_game": "Explained: Folarin Balogun’s World Cup red-card reversal, Trump’s phone calls and Fifa’s rationale",
+   "telegram_message_id": 503
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMijAFBVV95cUxQU3RQcGZBcGRFa0Z5MUp3c3NCU0dheUNYSmhaUHZxMm01aHVvQUhvZUFqMUJLeTBDeGxHVk5CMThNZy1TVk5uMTloTzdKWXJWcVNqQV8xa2VNUlpmcThJV05nSGRPbEx6UzFnRjU0TUNESi1yQzdqU2loUUc5dTNKTl9rZVY1X1g3dHZBcg?oc=5\" target=\"_blank\">Archaeologists Decode Rules of an Ancient Roman Board Game</a> <font color=\"#6f6f6f\">The New York Times</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmijafbvv95cuxqu3rqcgzbcgrfa0z5mup3c3ncu0dheunysmhauhzxmm01ahvvquhvzufqmujletbdegxhvk5cmthnzy1tvk5umtlotzdkwxjwcvnqqv8xa2vnulpmcthjv05nsgrpbex6uzfnrju0tunesi1yqzdqu2louuc5dtnktl",
+   "content_id": "44c6b0ba47166ad9",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "abc922c6af35a69e",
+    "7588cf229293a734"
+   ],
+   "legacy": true,
+   "normalized_subject": "archaeologists decode rules of an ancient roman board game the new york times",
+   "people": [],
+   "published_at": "2026-10-25T07:36:16.355179+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Game",
+   "source_urls": [
+    "nytimes.com/2026/09/20/science/ancient-roman-board-game-archaeology.html"
+   ],
+   "sport_or_game": "Archaeologists Decode Rules of an Ancient Roman Board Game - The New York Times",
+   "telegram_message_id": 504
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMi1AFBVV95cUxPd2N1X2ZWR1RVUlBzY3pZX3JzUkp0dGFaZXhMUDdDb3hsb1NuUy1HdXdSR1lHbndHaGEzRGN0eTJkeXlja1VlSTZXWG5aUzZHZlc4a2ZlbW1ZczJTMFNkNnJhdzNYQkl5N0paU1EtOF8zUHFNZmZaU28tM0ZlNzY5alFKekJfNjRvMU1JemJ3MVh4czBXeDZqblF2RE4zRkI3dEg0ZzJ5ZFlTd3AtbnBJWTRiWjlxd3pUalYzeEFLT0stejJmWkNPZlFGZHIzWVJ6c3ljTw?oc=5\" target=\"_blank\">From Craft to Combat: How Modern Buhurt Gear Is Redefining Medieval Sports in 2026</a> <font color=\"#6f6f6f\">TNT Magazine</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmi1afbvv95cuxpd2n1x2zwr1rvulbzy3pzx3jzukp0dgfazxhmudddb3hsb1nuuy1hdxdsr1lhbndhagezrgn0etjkexlja1vlstzxwg5auzzhzlc4a2zlbw1zczjtmfnknnjhdznyqkl5n0pau1etof8zuhfnzmzau28tm0zlnzy5al",
+   "content_id": "ab2012795f16359b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "30b3f66998f1036d",
+    "a58fbabdf25e7ffd"
+   ],
+   "legacy": true,
+   "normalized_subject": "from craft to combat how modern buhurt gear is redefining medieval sports in 2026",
+   "people": [],
+   "published_at": "2026-10-25T07:36:29.664945+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "tntmagazine.com/leisure-entertainment/sport/from-craft-to-combat-how-modern-buhurt-gear-is-redefining-medieval-sports-in-2026"
+   ],
+   "sport_or_game": "From Craft to Combat: How Modern Buhurt Gear Is Redefining Medieval Sports in 2026",
+   "telegram_message_id": 505
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMieEFVX3lxTFA4QVk1S3gtVUNmcGJNM2ZfR2hCU0pmdHJkZzZNajVsV3pYZXVOY1FudER1RjNXYmdEWG9PUmJrN2FwZXd5ejU2MnhPTUtENVBMbEh1Rl9kSjdFN0t3Z3V4SlZqbWVzMjJ3T2Vjb0t6T2QzRmxYVEJKaQ?oc=5\" target=\"_blank\">GMercyU Adds Women’s Flag Football Amidst Sport’s Surge in Popularity</a> <font color=\"#6f6f6f\">PHILADELPHIA.Today</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmieefvx3lxtfa4qvk1s3gtvunmcgjnm2zfr2hcu0pmdhjkzzznajvsv3pyzxvoy1fuder1rjnxymdewg9pumjrn2fwzxd5eju2mnhptutenvbmbeh1rl9ksjdfn0t3z3v4slzqbwvzmjj3t2vjb0t6t2qzrmxyvejkaq oc 5 target",
+   "content_id": "f92a7f0c6b295386",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "3c6a4c7e9a476879",
+    "bc1fd9ada1f88262"
+   ],
+   "legacy": true,
+   "normalized_subject": "gmercyu adds women s flag football amidst sport s surge in popularity",
+   "people": [],
+   "published_at": "2026-10-25T07:36:39.864497+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "philadelphia.today/2026/09/gmercyu-adds-womens-flag-football"
+   ],
+   "sport_or_game": "GMercyU Adds Women’s Flag Football Amidst Sport’s Surge in Popularity",
+   "telegram_message_id": 506
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-25T07:36:39.864474+00:00"
+ "updated_at": "2026-10-25T17:37:36.963020+00:00"
 }
