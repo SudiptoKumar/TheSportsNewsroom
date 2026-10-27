@@ -1,15 +1,15 @@
 {
  "ai": {
-  "last_error": "Cerebras per-run call cap reached (16)",
-  "last_ok": "2026-10-27T14:51:10.114964+00:00",
-  "last_request_id": "a512846aad018ca0-IAD",
+  "last_error": "",
+  "last_ok": "2026-10-27T19:29:25.285683+00:00",
+  "last_request_id": "a5141bff3ae42b4b-ORD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-27T14:51:26.576797+00:00",
+ "last_run_at": "2026-10-27T19:29:29.875676+00:00",
  "ledger": {},
  "posts": [
   {
@@ -5766,6 +5766,155 @@
    "urls": [
     "cbc.ca/sports/olympics/summer/court-arbitration-sport-landmark-pregnancy-ruling-june-24-9.7246963"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Gender equality through time - www.olympics.com",
+   "claim": "Gender equality through time www.olympics.com",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "Understanding “Then”: The Word’s Role in Describing Time",
+   "image_status": "card_fallback",
+   "message_id": 513,
+   "normalized_subject": "Gender equality through time - www.olympics.com",
+   "posted_at": "2026-10-27T19:27:16.333324+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-28-AM",
+   "sector": "Then vs Now",
+   "topic": "Gender equality through time - www.olympics.com",
+   "urls": [
+    "olympics.com/ioc/gender-equality/gender-equality-through-time"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Botswana bring World Relays to epic close with historic men’s 4x400m win",
+   "claim": "Botswana bring World Relays to epic close with historic men’s 4x400m win worldathletics.org",
+   "desk": "evergreen_v1",
+   "format": "Records & Milestones",
+   "headline": "Botswana clinches historic men’s 4x400m win at World Relays",
+   "image_status": "verified_external",
+   "message_id": 514,
+   "normalized_subject": "Botswana bring World Relays to epic close with historic men’s 4x400m win",
+   "posted_at": "2026-10-27T19:27:21.569925+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-28-AM",
+   "sector": "Records & Milestones",
+   "topic": "Botswana bring World Relays to epic close with historic men’s 4x400m win",
+   "urls": [
+    "worldathletics.org/competitions/world-athletics-relays/world-athletics-relays-7216920/news/report/gaborone-26-report-men-4x400m-final"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "What Is Targeting? College Football's Most Controversial Rule, Explained",
+   "claim": "What Is Targeting? College Football's Most Controversial Rule, Explained FOX Sports",
+   "desk": "evergreen_v1",
+   "format": "How to Play",
+   "headline": "Targeting Remains College Football’s Most Controversial Rule Despite 2026 Tweaks",
+   "image_status": "verified_external",
+   "message_id": 515,
+   "normalized_subject": "What Is Targeting? College Football's Most Controversial Rule, Explained",
+   "posted_at": "2026-10-27T19:27:46.771935+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-28-AM",
+   "sector": "How to Play",
+   "topic": "What Is Targeting? College Football's Most Controversial Rule, Explained",
+   "urls": [
+    "foxsports.com/stories/college-football/what-is-targeting-2026-rule-changes"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Ranking the Worst Trades in Sports This Century",
+   "claim": "Ranking the Worst Trades in Sports This Century Bleacher Report",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "Bleacher Report Ranks the Century’s Worst Sports Trades",
+   "image_status": "card_fallback",
+   "message_id": 516,
+   "normalized_subject": "Ranking the Worst Trades in Sports This Century",
+   "posted_at": "2026-10-27T19:28:24.634121+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-28-AM",
+   "sector": "First / Last / Only",
+   "topic": "Ranking the Worst Trades in Sports This Century",
+   "urls": [
+    "bleacherreport.com/articles/25242743-worst-trades-in-sports-century"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Rules of mysterious ancient Roman board game decoded by AI",
+   "claim": "Rules of mysterious ancient Roman board game decoded by AI Scientific American",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Game",
+   "headline": "AI Deciphers Rules of Mysterious Ancient Roman Stone Game",
+   "image_status": "verified_external",
+   "message_id": 517,
+   "normalized_subject": "Rules of mysterious ancient Roman board game decoded by AI",
+   "posted_at": "2026-10-27T19:28:48.891326+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-28-AM",
+   "sector": "Forgotten Game",
+   "topic": "Rules of mysterious ancient Roman board game decoded by AI",
+   "urls": [
+    "scientificamerican.com/article/rules-of-mysterious-ancient-roman-board-game-decoded-by-ai"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Italy's Football Oratories: What the Game Has Lost Over Time",
+   "claim": "Italy's Football Oratories: What the Game Has Lost Over Time nss sports",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Sport",
+   "headline": "Italy’s Football Oratories Vanish, Leaving a Cultural Void",
+   "image_status": "verified_external",
+   "message_id": 518,
+   "normalized_subject": "Italy's Football Oratories: What the Game Has Lost Over Time",
+   "posted_at": "2026-10-27T19:29:16.384313+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-28-AM",
+   "sector": "Forgotten Sport",
+   "topic": "Italy's Football Oratories: What the Game Has Lost Over Time",
+   "urls": [
+    "nss-sports.com/en/long-form/46004/italy-football-oratories-childhood"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The Clash Royale Mobile Game Is Coming to the Tabletop With a New Kickstarter Campaign Launching This Month",
+   "claim": "The Clash Royale Mobile Game Is Coming to the Tabletop With a New Kickstarter Campaign Launching This Month IGN",
+   "desk": "evergreen_v1",
+   "format": "New Tabletop Game Discovery",
+   "headline": "Clash Royale Mobile Game Launches Tabletop Version on Kickstarter This Month",
+   "image_status": "verified_external",
+   "message_id": 519,
+   "normalized_subject": "The Clash Royale Mobile Game Is Coming to the Tabletop With a New Kickstarter Campaign Launching This Month",
+   "posted_at": "2026-10-27T19:29:26.857357+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-28-AM",
+   "sector": "New Tabletop Game Discovery",
+   "topic": "The Clash Royale Mobile Game Is Coming to the Tabletop With a New Kickstarter Campaign Launching This Month",
+   "urls": [
+    "ign.com/articles/clash-royale-the-grand-arena-board-game-kickstarter-reveal-and-interview"
+   ]
   }
  ],
  "runs": [],
@@ -5879,22 +6028,36 @@
      "2026-10-27-AM",
      "2026-10-27-PM"
     ]
+   },
+   "2026-10-28": {
+    "published_sectors": [
+     "Then vs Now",
+     "Records & Milestones",
+     "How to Play",
+     "First / Last / Only",
+     "Forgotten Game",
+     "Forgotten Sport",
+     "New Tabletop Game Discovery"
+    ],
+    "run_ids": [
+     "2026-10-28-AM"
+    ]
    }
   },
-  "last_run_at": "2026-10-27T14:51:26.576767+00:00",
+  "last_run_at": "2026-10-27T19:29:29.875648+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-27T14:57:28.731528+00:00"
+    "updated_at": "2026-10-27T19:29:29.875630+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-27T14:57:28.731523+00:00"
+    "updated_at": "2026-10-27T19:29:29.875625+00:00"
    }
   },
   "publication": {
@@ -6162,6 +6325,41 @@
     "message_id": 512,
     "posted_at": "2026-10-27T14:51:23.558402+00:00",
     "status": "posted"
+   },
+   "2026-10-28-AM:evergreen:48c91acb3d286543": {
+    "message_id": 519,
+    "posted_at": "2026-10-27T19:29:26.857157+00:00",
+    "status": "posted"
+   },
+   "2026-10-28-AM:evergreen:5c737701e25e8f97": {
+    "message_id": 514,
+    "posted_at": "2026-10-27T19:27:21.569720+00:00",
+    "status": "posted"
+   },
+   "2026-10-28-AM:evergreen:5d284053cd541541": {
+    "message_id": 518,
+    "posted_at": "2026-10-27T19:29:16.384130+00:00",
+    "status": "posted"
+   },
+   "2026-10-28-AM:evergreen:6e25022f03f79130": {
+    "message_id": 517,
+    "posted_at": "2026-10-27T19:28:48.891134+00:00",
+    "status": "posted"
+   },
+   "2026-10-28-AM:evergreen:d03cb79716e45a38": {
+    "message_id": 513,
+    "posted_at": "2026-10-27T19:27:16.333126+00:00",
+    "status": "posted"
+   },
+   "2026-10-28-AM:evergreen:eb48ce5a221b9628": {
+    "message_id": 515,
+    "posted_at": "2026-10-27T19:27:46.771744+00:00",
+    "status": "posted"
+   },
+   "2026-10-28-AM:evergreen:fedbd5d98d75cab6": {
+    "message_id": 516,
+    "posted_at": "2026-10-27T19:28:24.633946+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -6293,6 +6491,21 @@
      "New Sport Discovery",
      "Rule Check",
      "Traditional / Regional Game"
+    ]
+   },
+   {
+    "at": "2026-10-27T19:29:29.875652+00:00",
+    "evergreen": 7,
+    "exit": 0,
+    "run_id": "2026-10-28-AM",
+    "used_sectors": [
+     "First / Last / Only",
+     "Forgotten Game",
+     "Forgotten Sport",
+     "How to Play",
+     "New Tabletop Game Discovery",
+     "Records & Milestones",
+     "Then vs Now"
     ]
    }
   ],

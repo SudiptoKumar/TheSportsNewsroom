@@ -12240,8 +12240,315 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 512
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMigAFBVV95cUxNQlN5YjlVcEJ5UkItdlVpSU9RQmN1LTVsSkhKQkhmODR5T1d2UkhBRUYyNDZ5X2h6ZVJDbEJ3VUx5OGxWRXZUNXBJRnBWc09pRTVvRU9DLTloZXhGNXdYOUJ4ZEJtOXRmTFVVckNOQ0hJRnNjN3YycUEzbWhtRGNwQQ?oc=5\" target=\"_blank\">Football - Global Popularity, Rules, History</a> <font color=\"#6f6f6f\">Britannica</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmigafbvv95cuxnqln5yjlvcej5ukitdlvpsu9rqmn1ltvsskhkqkhmodr5t1d2ukhbruyyndz5x2h6zvjdbej3vux5ogxwrxzunxbjrnbwc09prtvvru9dltlozxhgnxdyouj4zejtoxrmtfvvcknoq0hjrnnjn3yycuezbwhtrgnwqq",
+   "content_id": "3927eebc36286c2b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "96de64ad62148ee2",
+    "bbf539612a241ee7"
+   ],
+   "legacy": true,
+   "normalized_subject": "football global popularity rules history",
+   "people": [],
+   "published_at": "2026-10-27T14:49:57.317923+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    "britannica.com/sports/football-soccer/Football-around-the-world"
+   ],
+   "sport_or_game": "Football - Global Popularity, Rules, History",
+   "telegram_message_id": 507
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMizAFBVV95cUxQeXEyOC1hZG01N0kySVVOa0hMR1BSRDJyX0FsVlFMZ0xwek82NjJzc1owaGt1NnlzX0Q0NjRQWk1faTEwcGYtWXdoeVBpOElVWG9BT2ZsbTJaa0ctMzFSa1phZ2pwVHdzVU8yLUJ1WEp5VUpDSGRhTE9sVWhxQkpySmEwcmhaRWRFOFBrVWxZU2VWZ0t5NmlteVN0Q1FUc1htREdQbm9FWk5VYmZBWmdIejlhUHFBT2ozb2Q4cHE1c190dzFIQWJZZ3p2MEzSAeABQVVfeXFMTzNUQkloTFpHNHBQdzdVSjFXTUl5RG1QZHp4dHVXTWlPVURicHRMVklVYVNtWXhxYnZYREYwczlobkdDcGJwT1FvU0g3VG4wSHVJQ0xLbTk1UVpsaFM4a1FWTTd0Nk9KdlI2dEYzVzVMOG5udjlfVG9FSkMta2Y3ZU",
+   "central_knowledge_unit": "a href https news google com rss articles cbmizafbvv95cuxqexeyoc1hzg01n0kysvvoa0hmr1bsrdjyx0fsvlfmz0xwek82njjzc1owagt1nnlzx0q0njrqwk1fatewcgytwxdoevbpoelvwg9bt2zsbtjaa0ctmzfsa1phz2pwvhdzvu8yluj1wep5vupdsgrhte9svwhxqkpysm",
+   "content_id": "2035b7e338c98052",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f4b3a3cd56de6a61",
+    "edb2c7f72356fc3d"
+   ],
+   "legacy": true,
+   "normalized_subject": "what is omegaball the unusual soccer variation with three teams that s rapidly gaining popularity diario as",
+   "people": [],
+   "published_at": "2026-10-27T14:50:16.837871+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "en.as.com/soccer/what-is-omegaball-the-unusual-soccer-variation-with-three-teams-thats-rapidly-gaining-popularity-f202608-n"
+   ],
+   "sport_or_game": "What is Omegaball? The unusual soccer variation with three teams that’s rapidly gaining popularity - Diario AS",
+   "telegram_message_id": 508
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiVEFVX3lxTE04ZzlfdFdnNWZOSWlJUlExNWlZelp0WFRwVzNtcVBweEdiMUNBbEdGblcxM1RucGxnMUNaeldaMUhsZVVJaVBuQUpQRjNrMnNfVHROOQ?oc=5\" target=\"_blank\">2026 World Nomad Games Celebrates the Sports and Heritage of Ethnic Nomadic Peoples</a> <font color=\"#6f6f6f\">My Modern Met</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmivefvx3lxte04zzlfdfdnnwzoswljulexnwlzelp0wfrwvzntcvbweedimunbbedgblcxm1rucgxnmunaeldamuhszvvjavbuqupqrjnrmnnfvhrooq oc 5 target blank 2026 world nomad games celebrates the spo",
+   "content_id": "d039821b24d7caea",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "2bc4b976d9f8e971",
+    "08845987b1dcf18e"
+   ],
+   "legacy": true,
+   "normalized_subject": "2026 world nomad games celebrates the sports and heritage of ethnic nomadic peoples",
+   "people": [],
+   "published_at": "2026-10-27T14:50:23.219742+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "mymodernmet.com/world-nomad-games"
+   ],
+   "sport_or_game": "2026 World Nomad Games Celebrates the Sports and Heritage of Ethnic Nomadic Peoples",
+   "telegram_message_id": 509
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMihAFBVV95cUxOcE82Q1J6T2VTZTlDbGVhOTN6RmxmVGFzUTc3ZW45bG52STI0SUJubXRYbHBRZ0ZMczd3OEQ3cVhpR1liVk9xLW03LU9XelJUeVpHZzZWcllwN3RTUDR2UnNVZEZVaWl5TWZaUmQ1bnZXV25JNS10MG91X0lYT09uaVRmeXk?oc=5\" target=\"_blank\">Padres’ Craig Stammen gets 100% real on roof robbing home run vs. Brewers</a> <font color=\"#6f6f6f\">Yahoo Sports</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmihafbvv95cuxoce82q1j6t2vtztldbgvhotn6rmxmvgfzutc3zw45bg52sti0sujubxrybhbrz0zmczd3oeq3cvhpr1livk9xlw03lu9xeljuevphzzzwcllwn3rtudr2unnvzezvawl5twzaumq1bnzxv25jns10mg91x0lyt09uav",
+   "content_id": "c56a5940a808234c",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "8e1c3bf1f481d810",
+    "2555d84094dd6f06"
+   ],
+   "legacy": true,
+   "normalized_subject": "padres craig stammen gets 100 real on roof robbing home run vs brewers yahoo sports",
+   "people": [],
+   "published_at": "2026-10-27T14:50:34.555955+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Rule Check",
+   "source_urls": [
+    "sports.yahoo.com/articles/padres-craig-stammen-gets-100-081934703.html"
+   ],
+   "sport_or_game": "Padres’ Craig Stammen gets 100% real on roof robbing home run vs. Brewers - Yahoo Sports",
+   "telegram_message_id": 510
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMiigFBVV95cUxOX2pqTkJNalh6SVo3TGJTV0MyaGM3Ry1FQmdQdTJnN0dFa0cyelJ6Vkl3bWtNRFNYY1lMOVVLcWM4UkNwdktoeS1hOElwaFVBWHRXQXR6Nl9hMkcxZ0dJdlQtd1hjYkI1cDh0eU1uSWNOUWxmQUZXRDIyOXpkd2ZYX2JnYUtuR0VzM1E?oc=5\" target=\"_blank\">B/R 99: Ranking the 99 Best Sports Teams of All Time</a> <font color=\"#6f6f6f\">Bleacher Report</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmiigfbvv95cuxox2pqtkjnalh6svo3tgjtv0myagm3ry1fqmdqdtjnn0dfa0cyelj6vkl3bwtnrfnyy1lmovvlcwm4uknwdktoes1hoelwafvbwhrxqxr6nl9hmkcxz0djdlqtd1hjyki1cdh0eu1uswnouwxmquzxrdiyoxpkd2zyx2",
+   "content_id": "b68aac39fd543c39",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "1eb5a558b794c65c",
+    "7ff0e5a1b7b017fd"
+   ],
+   "legacy": true,
+   "normalized_subject": "b r 99 ranking the 99 best sports teams of all time",
+   "people": [],
+   "published_at": "2026-10-27T14:51:00.623171+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "bleacherreport.com/articles/25488871-ranking-99-best-sports-teams-all-time"
+   ],
+   "sport_or_game": "B/R 99: Ranking the 99 Best Sports Teams of All Time",
+   "telegram_message_id": 511
+  },
+  {
+   "central_claim": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxPUWRuS3BvZUxIc2JLWkozNnRuM2NUTzJwVEMwbEJPa2prZ0tWcFRJWnVDeFRHTFp2Y1VybGRrTzlFNjZvTnllNHJlZnR1WVZ2UER6aUdLa2JOZW41NGpQYVQ4Vm1FU0ZHTWRXbkxmWmVkbG9UN0dZaVh0WDVXSUVqbWRIenlUemV6Q2M3dU1zckNtYnktNGV1Wi10cFhfX013SVg2QzBvNmZPYmFIUHc?oc=5\" target=\"_blank\">Landmark legal win compensates pregnant soccer player who lost contract</a> <font color=\"#6f6f6f\">CBC</font>",
+   "central_knowledge_unit": "a href https news google com rss articles cbmirgfbvv95cuxpuwrus3bvzuxic2jlwkoznnrum2nutzjwvemwbejpa2prz0twcfrjwnvdefrhtfp2y1vybgrrtzlfnjzvtnllnhjlznr1wvz2uer6audla2jozw41ngpqyvq4vm1fu0zhtwrxbkxmwmvkbg9un0dzavh0wdvxsuvqbw",
+   "content_id": "2270d4035ba0b6d3",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "13355c66f0a394ce",
+    "639fdc16e4affe94"
+   ],
+   "legacy": true,
+   "normalized_subject": "landmark legal win compensates pregnant soccer player who lost contract",
+   "people": [],
+   "published_at": "2026-10-27T14:51:23.558706+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    "cbc.ca/sports/olympics/summer/court-arbitration-sport-landmark-pregnancy-ruling-june-24-9.7246963"
+   ],
+   "sport_or_game": "Landmark legal win compensates pregnant soccer player who lost contract",
+   "telegram_message_id": 512
+  },
+  {
+   "central_claim": "Gender equality through time www.olympics.com",
+   "central_knowledge_unit": "gender equality through time www olympics com",
+   "content_id": "7aa50278614bb317",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7aa50278614bb317",
+    "c41390b81f99c29d"
+   ],
+   "normalized_subject": "gender equality through time www olympics com",
+   "people": [],
+   "published_at": "2026-10-27T19:27:16.333210+00:00",
+   "region": "",
+   "run_id": "2026-10-28-AM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 513
+  },
+  {
+   "central_claim": "Botswana bring World Relays to epic close with historic men’s 4x400m win worldathletics.org",
+   "central_knowledge_unit": "botswana bring world relays to epic close with historic men s 4x400m win",
+   "content_id": "1be18414672e34ee",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "1be18414672e34ee",
+    "9264380e2cd8d4d7"
+   ],
+   "normalized_subject": "botswana bring world relays to epic close with historic men s 4x400m win",
+   "people": [],
+   "published_at": "2026-10-27T19:27:21.569823+00:00",
+   "region": "",
+   "run_id": "2026-10-28-AM",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 514
+  },
+  {
+   "central_claim": "What Is Targeting? College Football's Most Controversial Rule, Explained FOX Sports",
+   "central_knowledge_unit": "what is targeting college football s most controversial rule explained",
+   "content_id": "279630a718cdce33",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "279630a718cdce33",
+    "f45830367e72bb72"
+   ],
+   "normalized_subject": "what is targeting college football s most controversial rule explained",
+   "people": [],
+   "published_at": "2026-10-27T19:27:46.771838+00:00",
+   "region": "",
+   "run_id": "2026-10-28-AM",
+   "sector": "How to Play",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 515
+  },
+  {
+   "central_claim": "Ranking the Worst Trades in Sports This Century Bleacher Report",
+   "central_knowledge_unit": "ranking the worst trades in sports this century",
+   "content_id": "0c48ec7298963ffc",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "0c48ec7298963ffc",
+    "d09eef22f05e71f5"
+   ],
+   "normalized_subject": "ranking the worst trades in sports this century",
+   "people": [],
+   "published_at": "2026-10-27T19:28:24.634032+00:00",
+   "region": "",
+   "run_id": "2026-10-28-AM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 516
+  },
+  {
+   "central_claim": "Rules of mysterious ancient Roman board game decoded by AI Scientific American",
+   "central_knowledge_unit": "rules of mysterious ancient roman board game decoded by ai",
+   "content_id": "62604b4b4fe277ae",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "62604b4b4fe277ae",
+    "d0746be5d9fdd4e3"
+   ],
+   "normalized_subject": "rules of mysterious ancient roman board game decoded by ai",
+   "people": [],
+   "published_at": "2026-10-27T19:28:48.891230+00:00",
+   "region": "",
+   "run_id": "2026-10-28-AM",
+   "sector": "Forgotten Game",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 517
+  },
+  {
+   "central_claim": "Italy's Football Oratories: What the Game Has Lost Over Time nss sports",
+   "central_knowledge_unit": "italy s football oratories what the game has lost over time",
+   "content_id": "46af691997f84ebb",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "46af691997f84ebb",
+    "ad69d3f442a5ccad"
+   ],
+   "normalized_subject": "italy s football oratories what the game has lost over time",
+   "people": [],
+   "published_at": "2026-10-27T19:29:16.384221+00:00",
+   "region": "",
+   "run_id": "2026-10-28-AM",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 518
+  },
+  {
+   "central_claim": "The Clash Royale Mobile Game Is Coming to the Tabletop With a New Kickstarter Campaign Launching This Month IGN",
+   "central_knowledge_unit": "the clash royale mobile game is coming to the tabletop with a new kickstarter campaign launching this month",
+   "content_id": "1bd2079b906a9cc8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "1bd2079b906a9cc8",
+    "95b5edda11a41312"
+   ],
+   "normalized_subject": "the clash royale mobile game is coming to the tabletop with a new kickstarter campaign launching this month",
+   "people": [],
+   "published_at": "2026-10-27T19:29:26.857255+00:00",
+   "region": "",
+   "run_id": "2026-10-28-AM",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 519
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-27T14:51:23.558630+00:00"
+ "updated_at": "2026-10-27T19:29:26.857330+00:00"
 }
