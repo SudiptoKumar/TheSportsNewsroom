@@ -1,15 +1,15 @@
 {
  "ai": {
-  "last_error": "HTTP 402: {\"message\":\"Payment required to access this resource. Visit your billing tab.\",\"type\":\"payment_required_error\",\"param\":\"quota\",\"code\":\"payment_required\"}",
-  "last_ok": "2026-10-25T07:37:03.263882+00:00",
-  "last_request_id": "",
-  "last_status": 402,
+  "last_error": "Cerebras per-run call cap reached (16)",
+  "last_ok": "2026-10-27T14:51:10.114964+00:00",
+  "last_request_id": "a512846aad018ca0-IAD",
+  "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-26T19:55:47.858681+00:00",
+ "last_run_at": "2026-10-27T14:51:26.576797+00:00",
  "ledger": {},
  "posts": [
   {
@@ -5630,6 +5630,142 @@
    "urls": [
     "philadelphia.today/2026/09/gmercyu-adds-womens-flag-football"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Football - Global Popularity, Rules, History",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMigAFBVV95cUxNQlN5YjlVcEJ5UkItdlVpSU9RQmN1LTVsSkhKQkhmODR5T1d2UkhBRUYyNDZ5X2h6ZVJDbEJ3VUx5OGxWRXZUNXBJRnBWc09pRTVvRU9DLTloZXhGNXdYOUJ4ZEJtOXRmTFVVckNOQ0hJRnNjN3YycUEzbWhtRGNwQQ?oc=5\" target=\"_blank\">Football - Global Popularity, Rules, History</a> <font color=\"#6f6f6f\">Britannica</font>",
+   "desk": "evergreen_v1",
+   "format": "Traditional / Regional Game",
+   "headline": "Football’s Worldwide Reach Stems From Its Traditional Roots",
+   "image_status": "card_fallback",
+   "message_id": 507,
+   "normalized_subject": "Football - Global Popularity, Rules, History",
+   "posted_at": "2026-10-27T14:49:57.317923+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-27-PM",
+   "sector": "Traditional / Regional Game",
+   "topic": "Football - Global Popularity, Rules, History",
+   "urls": [
+    "britannica.com/sports/football-soccer/Football-around-the-world"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "What is Omegaball? The unusual soccer variation with three teams that’s rapidly gaining popularity - Diario AS",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMizAFBVV95cUxQeXEyOC1hZG01N0kySVVOa0hMR1BSRDJyX0FsVlFMZ0xwek82NjJzc1owaGt1NnlzX0Q0NjRQWk1faTEwcGYtWXdoeVBpOElVWG9BT2ZsbTJaa0ctMzFSa1phZ2pwVHdzVU8yLUJ1WEp5VUpDSGRhTE9sVWhxQkpySmEwcmhaRWRFOFBrVWxZU2VWZ0t5NmlteVN0Q1FUc1htREdQbm9FWk5VYmZBWmdIejlhUHFBT2ozb2Q4cHE1c190dzFIQWJZZ3p2MEzSAeABQVVfeXFMTzNUQkloTFpHNHBQdzdVSjFXTUl5RG1QZHp4dHVXTWlPVURicHRMVklVYVNtWXhxYnZYREYwczlobkdDcGJwT1FvU0g3VG4wSHVJQ0xLbTk1UVpsaFM4a1FWTTd0Nk9KdlI2dEYzVzVMOG5udjlfVG9FSkMta2Y3ZUZkeTRMOXQtLWZhTzNlOUltQzQ5QXRXTkxaM0h2b3dkWktkZmpyZi1hdnhRdzBmU3ZiaXc5a3BWX1AtaGJUdHdDMVRsV2NlLWlySHJBX3gwY0g1ekVjUlhYRmZ0eDk4MGE?oc=5\" target=\"_blank\">What is Omegaball? The unusual soccer variation ",
+   "desk": "evergreen_v1",
+   "format": "New Sport Discovery",
+   "headline": "Omegaball Introduces Three‑Team Soccer on a Circular Pitch",
+   "image_status": "verified_external",
+   "message_id": 508,
+   "normalized_subject": "What is Omegaball? The unusual soccer variation with three teams that’s rapidly gaining popularity - Diario AS",
+   "posted_at": "2026-10-27T14:50:16.837871+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-27-PM",
+   "sector": "New Sport Discovery",
+   "topic": "What is Omegaball? The unusual soccer variation with three teams that’s rapidly gaining popularity - Diario AS",
+   "urls": [
+    "en.as.com/soccer/what-is-omegaball-the-unusual-soccer-variation-with-three-teams-thats-rapidly-gaining-popularity-f202608-n"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "2026 World Nomad Games Celebrates the Sports and Heritage of Ethnic Nomadic Peoples",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMiVEFVX3lxTE04ZzlfdFdnNWZOSWlJUlExNWlZelp0WFRwVzNtcVBweEdiMUNBbEdGblcxM1RucGxnMUNaeldaMUhsZVVJaVBuQUpQRjNrMnNfVHROOQ?oc=5\" target=\"_blank\">2026 World Nomad Games Celebrates the Sports and Heritage of Ethnic Nomadic Peoples</a> <font color=\"#6f6f6f\">My Modern Met</font>",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "World Nomad Games 2026 Showcases 43 Nomadic Sports",
+   "image_status": "verified_external",
+   "message_id": 509,
+   "normalized_subject": "2026 World Nomad Games Celebrates the Sports and Heritage of Ethnic Nomadic Peoples",
+   "posted_at": "2026-10-27T14:50:23.219742+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-27-PM",
+   "sector": "Game Discovery",
+   "topic": "2026 World Nomad Games Celebrates the Sports and Heritage of Ethnic Nomadic Peoples",
+   "urls": [
+    "mymodernmet.com/world-nomad-games"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Padres’ Craig Stammen gets 100% real on roof robbing home run vs. Brewers - Yahoo Sports",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMihAFBVV95cUxOcE82Q1J6T2VTZTlDbGVhOTN6RmxmVGFzUTc3ZW45bG52STI0SUJubXRYbHBRZ0ZMczd3OEQ3cVhpR1liVk9xLW03LU9XelJUeVpHZzZWcllwN3RTUDR2UnNVZEZVaWl5TWZaUmQ1bnZXV25JNS10MG91X0lYT09uaVRmeXk?oc=5\" target=\"_blank\">Padres’ Craig Stammen gets 100% real on roof robbing home run vs. Brewers</a> <font color=\"#6f6f6f\">Yahoo Sports</font>",
+   "desk": "evergreen_v1",
+   "format": "Rule Check",
+   "headline": "Craig Stammen’s Roof‑Robbing Home Run Stuns Brewers",
+   "image_status": "verified_external",
+   "message_id": 510,
+   "normalized_subject": "Padres’ Craig Stammen gets 100% real on roof robbing home run vs. Brewers - Yahoo Sports",
+   "posted_at": "2026-10-27T14:50:34.555955+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-27-PM",
+   "sector": "Rule Check",
+   "topic": "Padres’ Craig Stammen gets 100% real on roof robbing home run vs. Brewers - Yahoo Sports",
+   "urls": [
+    "sports.yahoo.com/articles/padres-craig-stammen-gets-100-081934703.html"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "B/R 99: Ranking the 99 Best Sports Teams of All Time",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMiigFBVV95cUxOX2pqTkJNalh6SVo3TGJTV0MyaGM3Ry1FQmdQdTJnN0dFa0cyelJ6Vkl3bWtNRFNYY1lMOVVLcWM4UkNwdktoeS1hOElwaFVBWHRXQXR6Nl9hMkcxZ0dJdlQtd1hjYkI1cDh0eU1uSWNOUWxmQUZXRDIyOXpkd2ZYX2JnYUtuR0VzM1E?oc=5\" target=\"_blank\">B/R 99: Ranking the 99 Best Sports Teams of All Time</a> <font color=\"#6f6f6f\">Bleacher Report</font>",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "Bleacher Report Ranks the 99 Most Dominant Sports Teams Ever",
+   "image_status": "card_fallback",
+   "message_id": 511,
+   "normalized_subject": "B/R 99: Ranking the 99 Best Sports Teams of All Time",
+   "posted_at": "2026-10-27T14:51:00.623171+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-27-PM",
+   "sector": "First / Last / Only",
+   "topic": "B/R 99: Ranking the 99 Best Sports Teams of All Time",
+   "urls": [
+    "bleacherreport.com/articles/25488871-ranking-99-best-sports-teams-all-time"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Landmark legal win compensates pregnant soccer player who lost contract",
+   "claim": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxPUWRuS3BvZUxIc2JLWkozNnRuM2NUTzJwVEMwbEJPa2prZ0tWcFRJWnVDeFRHTFp2Y1VybGRrTzlFNjZvTnllNHJlZnR1WVZ2UER6aUdLa2JOZW41NGpQYVQ4Vm1FU0ZHTWRXbkxmWmVkbG9UN0dZaVh0WDVXSUVqbWRIenlUemV6Q2M3dU1zckNtYnktNGV1Wi10cFhfX013SVg2QzBvNmZPYmFIUHc?oc=5\" target=\"_blank\">Landmark legal win compensates pregnant soccer player who lost contract</a> <font color=\"#6f6f6f\">CBC</font>",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Sport",
+   "headline": "Court Arbitration Grants Compensation to Pregnant Soccer Player After Contract Termination",
+   "image_status": "card_fallback",
+   "message_id": 512,
+   "normalized_subject": "Landmark legal win compensates pregnant soccer player who lost contract",
+   "posted_at": "2026-10-27T14:51:23.558706+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-10-27-PM",
+   "sector": "Forgotten Sport",
+   "topic": "Landmark legal win compensates pregnant soccer player who lost contract",
+   "urls": [
+    "cbc.ca/sports/olympics/summer/court-arbitration-sport-landmark-pregnancy-ruling-june-24-9.7246963"
+   ]
   }
  ],
  "runs": [],
@@ -5731,26 +5867,34 @@
     ]
    },
    "2026-10-27": {
-    "published_sectors": [],
+    "published_sectors": [
+     "Traditional / Regional Game",
+     "New Sport Discovery",
+     "Game Discovery",
+     "Rule Check",
+     "First / Last / Only",
+     "Forgotten Sport"
+    ],
     "run_ids": [
-     "2026-10-27-AM"
+     "2026-10-27-AM",
+     "2026-10-27-PM"
     ]
    }
   },
-  "last_run_at": "2026-10-26T19:55:47.858663+00:00",
+  "last_run_at": "2026-10-27T14:51:26.576767+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-27T07:45:03.586884+00:00"
+    "updated_at": "2026-10-27T14:51:26.576741+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-27T07:45:03.586881+00:00"
+    "updated_at": "2026-10-27T14:51:26.576731+00:00"
    }
   },
   "publication": {
@@ -5988,6 +6132,36 @@
     "message_id": 501,
     "posted_at": "2026-10-25T07:34:49.661076+00:00",
     "status": "posted"
+   },
+   "2026-10-27-PM:evergreen:3c3bc12a88a2a21d": {
+    "message_id": 509,
+    "posted_at": "2026-10-27T14:50:23.219417+00:00",
+    "status": "posted"
+   },
+   "2026-10-27-PM:evergreen:7e299b43ff981cca": {
+    "message_id": 511,
+    "posted_at": "2026-10-27T14:51:00.622889+00:00",
+    "status": "posted"
+   },
+   "2026-10-27-PM:evergreen:86daed0641839d94": {
+    "message_id": 508,
+    "posted_at": "2026-10-27T14:50:16.837541+00:00",
+    "status": "posted"
+   },
+   "2026-10-27-PM:evergreen:ba16af574fb475f1": {
+    "message_id": 507,
+    "posted_at": "2026-10-27T14:49:57.317606+00:00",
+    "status": "posted"
+   },
+   "2026-10-27-PM:evergreen:e10bdc494136fb3e": {
+    "message_id": 510,
+    "posted_at": "2026-10-27T14:50:34.555624+00:00",
+    "status": "posted"
+   },
+   "2026-10-27-PM:evergreen:fd8e10755579f8f2": {
+    "message_id": 512,
+    "posted_at": "2026-10-27T14:51:23.558402+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -6106,6 +6280,20 @@
     "exit": 0,
     "run_id": "2026-10-27-AM",
     "used_sectors": []
+   },
+   {
+    "at": "2026-10-27T14:51:26.576773+00:00",
+    "evergreen": 6,
+    "exit": 0,
+    "run_id": "2026-10-27-PM",
+    "used_sectors": [
+     "First / Last / Only",
+     "Forgotten Sport",
+     "Game Discovery",
+     "New Sport Discovery",
+     "Rule Check",
+     "Traditional / Regional Game"
+    ]
    }
   ],
   "schema": 1
