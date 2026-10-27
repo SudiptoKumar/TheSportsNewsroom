@@ -1102,6 +1102,17 @@ def prepare_evergreen_media(story: dict) -> tuple[str, dict]:
                 try: os.remove(verified["path"])
                 except OSError: pass
                 continue
+            std_path=standardize_photo_width(verified["path"])
+            if std_path != verified["path"]:
+                try:
+                    with Image.open(std_path) as _im:
+                        verified["width"], verified["height"]=_im.size
+                    verified["bytes"]=os.path.getsize(std_path)
+                except Exception:
+                    pass
+                try: os.remove(verified["path"])
+                except OSError: pass
+                verified["path"]=std_path
             story["image"]={k:verified[k] for k in ("url","source_page_url","source_name","provider","bytes","width","height","score")}
             story["image_status"]="verified_external"
             logger.info("Verified story photo selected provider=%s size=%sx%s bytes=%s source=%s",verified["provider"],verified["width"],verified["height"],verified["bytes"],domain_of(verified["url"]))
@@ -1168,70 +1179,211 @@ def _card_info_items(story: dict) -> list[tuple[str, str]]:
     return out
 
 
+# ---------------------------------------------------------------------------
+# Editorial card design system (shared visual language with the Vocabulary
+# channel): warm paper, ink, one red accent, serif display headline.
+# Every published image leaves at the standard width; cards use a fixed
+# 1200x675 (16:9) canvas so the channel feed has one consistent rhythm.
+# ---------------------------------------------------------------------------
+CARD_BG = (252, 251, 248)
+CARD_INK = (23, 23, 23)
+CARD_MUTED = (108, 104, 99)
+CARD_RED = (227, 27, 46)
+CARD_LINE = (238, 234, 228)
+STANDARD_IMAGE_WIDTH = 1200
+
+_CARD_FONT_URLS = {
+    "serif": "https://raw.githubusercontent.com/google/fonts/main/ofl/playfairdisplay/PlayfairDisplay%5Bwght%5D.ttf",
+    "sans": "https://raw.githubusercontent.com/google/fonts/main/ofl/plusjakartasans/PlusJakartaSans%5Bwght%5D.ttf",
+}
+_CARD_FONT_FILES: dict[str, str] = {}
+_DISPLAY_FONT_CACHE: dict[tuple, Any] = {}
+
+
+def _card_font_file(family: str) -> str:
+    """Download the display font once per process (same approach as the
+    Vocabulary bot); return "" when unavailable so callers can fall back."""
+    if family in _CARD_FONT_FILES:
+        return _CARD_FONT_FILES[family]
+    path = ""
+    url = _CARD_FONT_URLS.get(family)
+    if url:
+        target = os.path.join(tempfile.gettempdir(), f"sn_font_{family}.ttf")
+        try:
+            if os.path.isfile(target) and os.path.getsize(target) > 10000:
+                path = target
+            else:
+                r = session().get(url, timeout=30, headers={"User-Agent": "TheSportsNewsroom/1.0"})
+                r.raise_for_status()
+                with open(target, "wb") as fh:
+                    fh.write(r.content)
+                if os.path.getsize(target) > 10000:
+                    path = target
+        except Exception as exc:
+            logger.warning("Card font download failed (%s): %s", family, exc)
+            path = ""
+    _CARD_FONT_FILES[family] = path
+    return path
+
+
+def _display_font(family: str, size: int, weight: int = 700):
+    """Serif/sans display font at a variable weight, with system fallbacks."""
+    key = (family, size, weight)
+    if key in _DISPLAY_FONT_CACHE:
+        return _DISPLAY_FONT_CACHE[key]
+    font = None
+    path = _card_font_file(family)
+    if path:
+        try:
+            font = ImageFont.truetype(path, size=size)
+            try:
+                font.set_variation_by_axes([weight])
+            except Exception:
+                pass
+        except Exception:
+            font = None
+    if font is None:
+        fallbacks = (
+            ["/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",
+             "/usr/share/fonts/truetype/liberation2/LiberationSerif-Bold.ttf",
+             "/usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf"]
+            if family == "serif" else
+            ["/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+             "/usr/share/fonts/truetype/liberation2/LiberationSans-Bold.ttf"]
+        )
+        for p in fallbacks:
+            if Path(p).exists():
+                try:
+                    font = ImageFont.truetype(p, size=size)
+                    break
+                except Exception:
+                    font = None
+    if font is None:
+        font = card_font(size)
+    _DISPLAY_FONT_CACHE[key] = font
+    return font
+
+
+def _tracked_width(draw, s: str, font, tracking: int) -> float:
+    if not s:
+        return 0
+    return draw.textlength(s, font=font) + tracking * (len(s) - 1)
+
+
+def _draw_tracked(draw, cx: float, y: float, s: str, font, fill, tracking: int = 3) -> None:
+    """Draw letterspaced text centered at cx (top edge at y)."""
+    x = cx - _tracked_width(draw, s, font, tracking) / 2
+    for ch in s:
+        draw.text((x, y), ch, font=font, fill=fill)
+        x += draw.textlength(ch, font=font) + tracking
+
+
+def standardize_photo_width(path: str) -> str:
+    """Re-encode a photo at the standard channel width (1200px), preserving
+    its natural aspect ratio. Returns the new path, or the original path
+    when the photo already conforms or anything goes wrong."""
+    try:
+        with Image.open(path) as im:
+            im = im.convert("RGB")
+            w, h = im.size
+            if w == STANDARD_IMAGE_WIDTH:
+                return path
+            new_h = max(1, round(h * STANDARD_IMAGE_WIDTH / w))
+            im = im.resize((STANDARD_IMAGE_WIDTH, new_h), Image.Resampling.LANCZOS)
+            out = os.path.join(tempfile.gettempdir(), f"sn_photo_{int(time.time()*1000)}_{random.randint(0,9999)}.jpg")
+            im.save(out, "JPEG", quality=90)
+            return out
+    except Exception as exc:
+        logger.warning("Photo width standardization failed (%s): %s", path, exc)
+        return path
+
+
 def make_card(story: dict) -> str:
-    """Create one consistent 1200x675 branded card with a headline and up to three info columns."""
+    """Create one editorial branded card on the fixed 1200x675 canvas.
+
+    Design language mirrors the Vocabulary channel card: warm paper
+    background, hairline frame, slim red rule, letterspaced eyebrow,
+    Playfair serif headline, divider with a red dot, and a quiet
+    hairline-separated info strip. No gradients, no shadows.
+    """
     if Image is None:
         return ""
     try:
-        W,H=1200,675
-        fmt=story.get("format","fact")
-        top,bot=THEMES.get(fmt,THEMES["fact"])
-        img=Image.new("RGB",(W,H),top); draw=ImageDraw.Draw(img)
-        for y in range(H):
-            t=y/(H-1)
-            draw.line([(0,y),(W,y)],fill=tuple(int(top[i]+(bot[i]-top[i])*t) for i in range(3)))
-        # Subtle sports motif. Keep the central content area clean.
-        for k,rad in enumerate((260,205,150,95)):
-            cx,cy=W-175,125
-            draw.ellipse([cx-rad,cy-rad,cx+rad,cy+rad],outline=tuple(min(255,v+28+k*5) for v in top),width=5)
-        label=text(story.get("label") or FORMAT_LABELS.get(fmt,"SPORTS & GAMES"))
-        f_label=card_font(28)
-        lw=int(draw.textlength(label,font=f_label))
-        draw.rounded_rectangle([58,48,58+lw+50,106],radius=27,fill=(255,255,255))
-        draw.text((83,57),label,font=f_label,fill=top)
+        W, H = 1200, 675
+        fmt = story.get("format", "fact")
+        img = Image.new("RGB", (W, H), CARD_BG)
+        draw = ImageDraw.Draw(img)
 
-        headline=text(story.get("headline")) or "The Sports Newsroom"
-        chosen=None
-        for size in (66,58,52,46,42):
-            f=card_font(size); lines=_wrap(draw,headline,f,W-160)
-            if len(lines)<=3:
-                chosen=(size,f,lines); break
+        draw.rounded_rectangle((24, 24, W - 24, H - 24), radius=24, outline=CARD_LINE, width=2)
+        draw.rounded_rectangle((48, 150, 60, 590), radius=6, fill=CARD_RED)
+
+        f_eyebrow = _display_font("sans", 20, 700)
+        f_label = _display_font("sans", 24, 800)
+        f_meta = _display_font("sans", 19, 700)
+        f_value = _display_font("sans", 25, 600)
+        f_handle = _display_font("sans", 19, 500)
+
+        _draw_tracked(draw, W / 2, 58, "SPORTS NEWS", f_eyebrow, CARD_MUTED, tracking=4)
+
+        label = text(story.get("label") or FORMAT_LABELS.get(fmt, "SPORTS & GAMES"))
+        _draw_tracked(draw, W / 2, 118, label.upper(), f_label, CARD_RED, tracking=3)
+
+        headline = text(story.get("headline")) or "Sports News"
+        chosen = None
+        for size in (64, 58, 52, 46, 42, 38):
+            f = _display_font("serif", size, 700)
+            lines = _wrap(draw, headline, f, W - 220)
+            if len(lines) <= 3:
+                chosen = (f, lines, size)
+                break
         if chosen is None:
-            size=42; f=card_font(size); lines=_wrap(draw,clamp_words(headline,90),f,W-160)[:3]
-        else:
-            size,f,lines=chosen
-        y=150
-        for line in lines:
-            bbox=draw.textbbox((0,0),line,font=f); lh=bbox[3]-bbox[1]
-            draw.text((66,y+3),line,font=f,fill=(0,0,0))
-            draw.text((64,y),line,font=f,fill=(255,255,255))
-            y+=int(max(lh,size)*1.16)
+            f = _display_font("serif", 38, 700)
+            lines = _wrap(draw, clamp_words(headline, 90), f, W - 220)[:3]
+            chosen = (f, lines, 38)
+        f_head, head_lines, head_size = chosen
+        line_h = int(head_size * 1.18)
+        block_h = line_h * len(head_lines)
+        y = 178 + max(0, (238 - block_h) // 2)
+        for line in head_lines:
+            draw.text((W / 2, y), line, font=f_head, fill=CARD_INK, anchor="ma")
+            y += line_h
 
-        items=_card_info_items(story)
-        box_gap=22
-        box_x=60
-        box_w=(W-120-box_gap*(len(items)-1))//len(items)
-        box_y=455; box_h=112
-        f_k=card_font(22); f_v=card_font(25)
-        for i,(k,v) in enumerate(items):
-            x=box_x+i*(box_w+box_gap)
-            fill=tuple(min(255,vv+20) for vv in top)
-            draw.rounded_rectangle([x,box_y,x+box_w,box_y+box_h],radius=18,fill=fill,outline=(255,255,255),width=2)
-            draw.text((x+18,box_y+14),k,font=f_k,fill=(225,235,250))
-            lines=_wrap(draw,v,f_v,box_w-36)[:2]
-            vy=box_y+46
-            for line in lines:
-                draw.text((x+18,vy),line,font=f_v,fill=(255,255,255)); vy+=30
+        items = [(k, v) for k, v in _card_info_items(story) if v.strip()]
+        if items:
+            divider_y = 452
+            draw.line((330, divider_y, W - 330, divider_y), fill=CARD_LINE, width=2)
+            draw.ellipse((W / 2 - 5, divider_y - 5, W / 2 + 5, divider_y + 5), fill=CARD_RED)
 
-        handle=CHANNEL if CHANNEL.startswith("@") else "@TheSportsNewsroom"
-        f_handle=card_font(26)
-        draw.text((W-60-int(draw.textlength(handle,font=f_handle)),H-42),handle,font=f_handle,fill=(255,255,255))
-        path=os.path.join(tempfile.gettempdir(),f"sn_card_{int(time.time()*1000)}_{random.randint(0,9999)}.jpg")
-        img.save(path,"JPEG",quality=90)
+            strip_x, strip_w = 84, W - 168
+            col_w = strip_w // len(items)
+            for i, (k, v) in enumerate(items):
+                x = strip_x + i * col_w
+                if i:
+                    draw.line((x - 1, 492, x - 1, 596), fill=CARD_LINE, width=2)
+                pad = 26 if i else 6
+                draw.text((x + pad, 490), k.upper(), font=f_meta, fill=CARD_MUTED)
+                vraw = _wrap(draw, v, f_value, col_w - pad - 18)
+                vlines = vraw[:2]
+                if len(vraw) > 2 and vlines:
+                    last = vlines[-1].rstrip(" ,;:")
+                    while last and draw.textlength(last + "…", font=f_value) > col_w - pad - 18:
+                        last = last[:-1].rstrip()
+                    vlines[-1] = last + "…"
+                vy = 524
+                for line in vlines:
+                    draw.text((x + pad, vy), line, font=f_value, fill=CARD_INK)
+                    vy += 32
+
+        handle = CHANNEL if CHANNEL.startswith("@") else "@TheSportsNewsroom"
+        draw.text((W - 58, 624), handle, font=f_handle, fill=CARD_MUTED, anchor="ra")
+
+        path = os.path.join(tempfile.gettempdir(), f"sn_card_{int(time.time()*1000)}_{random.randint(0,9999)}.jpg")
+        img.save(path, "JPEG", quality=92)
         return path
     except Exception as exc:
-        logger.warning("Card generation failed (%s)",exc)
+        logger.warning("Card generation failed (%s)", exc)
         return ""
+
 
 # ===========================================================================
 # 6. AI CLIENT (Cerebras, plain REST). Never raises; returns None on failure.
@@ -4370,3 +4522,4 @@ main = v1_main
 
 if __name__ == "__main__":
     sys.exit(main())
+
