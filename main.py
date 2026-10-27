@@ -155,6 +155,14 @@ def text(v: Any) -> str:
     return "" if v is None else str(v).strip()
 
 
+def _strip_html(s: str) -> str:
+    """Remove markup from feed/search text. Google News RSS descriptions are
+    raw HTML anchors; left alone they leak tags into claims and cards."""
+    s = re.sub(r"<[^>]+>", " ", s or "")
+    s = html.unescape(s)
+    return re.sub(r"\s+", " ", s).strip()
+
+
 def normalize_text(v: Any) -> str:
     s = text(v).lower()
     s = re.sub(r"[^a-z0-9\s]", " ", s)
@@ -1168,14 +1176,19 @@ def _card_info_items(story: dict) -> list[tuple[str, str]]:
         ("WHERE", text(story.get("region") or story.get("country") or research.get("region") or research.get("country"))),
     ]
     out=[]
+    headline_n=normalize_text(story.get("headline"))
     for label,value in candidates:
-        value=re.sub(r"\s+", " ", value).strip()
+        value=_strip_html(value)
         if not value: continue
         if value.lower() in {"unknown","n/a","none"}: continue
+        if label=="KEY FACT" and headline_n:
+            value_n=normalize_text(value)
+            if value_n==headline_n or value_n.startswith(headline_n) or headline_n.startswith(value_n):
+                continue  # the "fact" is just the headline repeated (RSS description)
         out.append((label,value[:96]))
         if len(out)>=3: break
     if not out:
-        out=[("TOPIC", text(story.get("topic") or story.get("normalized_subject"))[:96])]
+        out=[("TOPIC", _strip_html(text(story.get("topic") or story.get("normalized_subject")))[:96])]
     return out
 
 
@@ -3301,7 +3314,7 @@ def _candidate_from_search_result(sector: str, target: date, item: dict, provide
     url=v1_network_url(text(item.get("url")))
     title=re.sub(r"\s+", " ", text(item.get("title"))).strip()
     highlights=[re.sub(r"\s+", " ", text(h)) for h in (item.get("highlights") or []) if text(h)]
-    excerpt=" ".join(highlights)[:3500] or re.sub(r"\s+", " ", text(item.get("text")))[:3500]
+    excerpt=_strip_html(" ".join(highlights)[:3500] or re.sub(r"\s+", " ", text(item.get("text")))[:3500])
     return {
         "sector":sector,"normalized_subject":title,"central_knowledge_unit":title,
         "central_claim":excerpt[:700] or title,"research_focus":v1_sector_query(sector,target),"topic":title,
@@ -3542,7 +3555,7 @@ def _v1_candidate(sector: str, target: date, *, url: str, title: str, excerpt: s
                   highlights: list[str], image: str, published, provider: str) -> dict | None:
     """Apply the evergreen scope gates and build the standard candidate dict."""
     title = re.sub(r"\s+", " ", text(title)).strip()
-    excerpt = re.sub(r"\s+", " ", text(excerpt)).strip()[:3500]
+    excerpt = _strip_html(re.sub(r"\s+", " ", text(excerpt)).strip())[:3500]
     if not url or not title or not re.match(r"^https?://", url, re.I):
         return None
     probe = {"sector": sector, "source_url": url, "normalized_subject": title, "text": excerpt,
