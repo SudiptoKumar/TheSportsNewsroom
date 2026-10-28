@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-10-27T19:29:25.285683+00:00",
-  "last_request_id": "a5141bff3ae42b4b-ORD",
+  "last_ok": "2026-10-28T08:26:00.841963+00:00",
+  "last_request_id": "a5188d99bb60ad18-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-27T19:29:29.875676+00:00",
+ "last_run_at": "2026-10-28T08:26:06.038670+00:00",
  "ledger": {},
  "posts": [
   {
@@ -5915,6 +5915,112 @@
    "urls": [
     "ign.com/articles/clash-royale-the-grand-arena-board-game-kickstarter-reveal-and-interview"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "What Are the Origins of Soccer's Red and Yellow Cards?",
+   "claim": "What Are the Origins of Soccer's Red and Yellow Cards? History.com",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "How Traffic‑Light Signals Inspired Soccer’s Red and Yellow Cards",
+   "image_status": "verified_external",
+   "message_id": 520,
+   "normalized_subject": "What Are the Origins of Soccer's Red and Yellow Cards?",
+   "posted_at": "2026-10-28T08:24:12.065640+00:00",
+   "research_urls": [
+    "",
+    ""
+   ],
+   "run_id": "2026-10-28-PM",
+   "sector": "Sport Origin",
+   "topic": "What Are the Origins of Soccer's Red and Yellow Cards?",
+   "urls": [
+    "foxsports.com/scores"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Weird rule from Saints-Lions wasn’t mentioned during AFC Championship",
+   "claim": "Weird rule from Saints-Lions wasn’t mentioned during AFC Championship NBC Sports",
+   "desk": "evergreen_v1",
+   "format": "Rule Check",
+   "headline": "Weird Saints‑Lions Rule Overlooked in AFC Championship Coverage",
+   "image_status": "verified_external",
+   "message_id": 521,
+   "normalized_subject": "Weird rule from Saints-Lions wasn’t mentioned during AFC Championship",
+   "posted_at": "2026-10-28T08:24:48.583351+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-28-PM",
+   "sector": "Rule Check",
+   "topic": "Weird rule from Saints-Lions wasn’t mentioned during AFC Championship",
+   "urls": [
+    "nbcsports.com/nfl/profootballtalk/rumor-mill/news/weird-rule-from-saints-lions-wasnt-mentioned-during-afc-championship"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Led by Girls Flag Football and Girls Wrestling, High School Sports Participation Increases for Fifth Consecutive Year",
+   "claim": "Led by Girls Flag Football and Girls Wrestling, High School Sports Participation Increases for Fifth Consecutive Year NFHS",
+   "desk": "evergreen_v1",
+   "format": "New Sport Discovery",
+   "headline": "Girls Flag Football and Wrestling Drive Fifth Year Rise in High School Sports Participation",
+   "image_status": "verified_external",
+   "message_id": 522,
+   "normalized_subject": "Led by Girls Flag Football and Girls Wrestling, High School Sports Participation Increases for Fifth Consecutive Year",
+   "posted_at": "2026-10-28T08:25:26.098301+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-28-PM",
+   "sector": "New Sport Discovery",
+   "topic": "Led by Girls Flag Football and Girls Wrestling, High School Sports Participation Increases for Fifth Consecutive Year",
+   "urls": [
+    "nfhs.org/stories/led-by-girls-flag-football-and-girls-wrestling-high-school-sports-participation-increases-for-fifth-consecutive-year"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Banned, Broken, and Brilliant: The Controversial Evolution of Winter Olympics Gear - Outside Magazine",
+   "claim": "Banned, Broken, and Brilliant: The Controversial Evolution of Winter Olympics Gear Outside Magazine",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "From Wool Sweaters to Aerodynamic Suits: A Century of Olympic Gear Change",
+   "image_status": "card_fallback",
+   "message_id": 523,
+   "normalized_subject": "Banned, Broken, and Brilliant: The Controversial Evolution of Winter Olympics Gear - Outside Magazine",
+   "posted_at": "2026-10-28T08:25:39.023704+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-28-PM",
+   "sector": "Then vs Now",
+   "topic": "Banned, Broken, and Brilliant: The Controversial Evolution of Winter Olympics Gear - Outside Magazine",
+   "urls": [
+    "outsideonline.com/outdoor-gear/snow-sports-gear/evolution-winter-olympics-gear"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Tabletop sexism, hidden women, and the myth of the 'wife board game' - www.wargamer.com",
+   "claim": "Tabletop sexism, hidden women, and the myth of the 'wife board game' www.wargamer.com",
+   "desk": "evergreen_v1",
+   "format": "New Tabletop Game Discovery",
+   "headline": "Board Game Sexism Persists Despite Growing Inclusivity",
+   "image_status": "verified_external",
+   "message_id": 524,
+   "normalized_subject": "Tabletop sexism, hidden women, and the myth of the 'wife board game' - www.wargamer.com",
+   "posted_at": "2026-10-28T08:26:03.026892+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-28-PM",
+   "sector": "New Tabletop Game Discovery",
+   "topic": "Tabletop sexism, hidden women, and the myth of the 'wife board game' - www.wargamer.com",
+   "urls": [
+    "wargamer.com/board-games/wife-board-game"
+   ]
   }
  ],
  "runs": [],
@@ -6037,27 +6143,31 @@
      "First / Last / Only",
      "Forgotten Game",
      "Forgotten Sport",
-     "New Tabletop Game Discovery"
+     "New Tabletop Game Discovery",
+     "Sport Origin",
+     "Rule Check",
+     "New Sport Discovery"
     ],
     "run_ids": [
-     "2026-10-28-AM"
+     "2026-10-28-AM",
+     "2026-10-28-PM"
     ]
    }
   },
-  "last_run_at": "2026-10-27T19:29:29.875648+00:00",
+  "last_run_at": "2026-10-28T08:26:06.038642+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-28T05:49:17.274239+00:00"
+    "updated_at": "2026-10-28T08:26:06.038625+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-28T05:49:17.274234+00:00"
+    "updated_at": "2026-10-28T08:26:06.038621+00:00"
    }
   },
   "publication": {
@@ -6360,6 +6470,31 @@
     "message_id": 516,
     "posted_at": "2026-10-27T19:28:24.633946+00:00",
     "status": "posted"
+   },
+   "2026-10-28-PM:evergreen:16bfd02afadc4d6e": {
+    "message_id": 523,
+    "posted_at": "2026-10-28T08:25:39.023505+00:00",
+    "status": "posted"
+   },
+   "2026-10-28-PM:evergreen:494807d6dd05794d": {
+    "message_id": 520,
+    "posted_at": "2026-10-28T08:24:12.065447+00:00",
+    "status": "posted"
+   },
+   "2026-10-28-PM:evergreen:80bdf09f9d53f1dd": {
+    "message_id": 524,
+    "posted_at": "2026-10-28T08:26:03.026721+00:00",
+    "status": "posted"
+   },
+   "2026-10-28-PM:evergreen:b32cf99bc455d059": {
+    "message_id": 522,
+    "posted_at": "2026-10-28T08:25:26.098140+00:00",
+    "status": "posted"
+   },
+   "2026-10-28-PM:evergreen:b92e3bff8e013787": {
+    "message_id": 521,
+    "posted_at": "2026-10-28T08:24:48.583178+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -6505,6 +6640,19 @@
      "How to Play",
      "New Tabletop Game Discovery",
      "Records & Milestones",
+     "Then vs Now"
+    ]
+   },
+   {
+    "at": "2026-10-28T08:26:06.038644+00:00",
+    "evergreen": 5,
+    "exit": 0,
+    "run_id": "2026-10-28-PM",
+    "used_sectors": [
+     "New Sport Discovery",
+     "New Tabletop Game Discovery",
+     "Rule Check",
+     "Sport Origin",
      "Then vs Now"
     ]
    }

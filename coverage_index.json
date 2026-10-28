@@ -12547,8 +12547,292 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 519
+  },
+  {
+   "central_claim": "Gender equality through time www.olympics.com",
+   "central_knowledge_unit": "gender equality through time www olympics com",
+   "content_id": "007f59d4e3e111e0",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c41390b81f99c29d",
+    "d03cb79716e45a38"
+   ],
+   "legacy": true,
+   "normalized_subject": "gender equality through time www olympics com",
+   "people": [],
+   "published_at": "2026-10-27T19:27:16.333324+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "olympics.com/ioc/gender-equality/gender-equality-through-time"
+   ],
+   "sport_or_game": "Gender equality through time - www.olympics.com",
+   "telegram_message_id": 513
+  },
+  {
+   "central_claim": "Botswana bring World Relays to epic close with historic men’s 4x400m win worldathletics.org",
+   "central_knowledge_unit": "botswana bring world relays to epic close with historic men s 4x400m win worldathletics org",
+   "content_id": "838e92ab086b2dbb",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9264380e2cd8d4d7",
+    "c608fc2e705dccf4"
+   ],
+   "legacy": true,
+   "normalized_subject": "botswana bring world relays to epic close with historic men s 4x400m win",
+   "people": [],
+   "published_at": "2026-10-27T19:27:21.569925+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    "worldathletics.org/competitions/world-athletics-relays/world-athletics-relays-7216920/news/report/gaborone-26-report-men-4x400m-final"
+   ],
+   "sport_or_game": "Botswana bring World Relays to epic close with historic men’s 4x400m win",
+   "telegram_message_id": 514
+  },
+  {
+   "central_claim": "What Is Targeting? College Football's Most Controversial Rule, Explained FOX Sports",
+   "central_knowledge_unit": "what is targeting college football s most controversial rule explained fox sports",
+   "content_id": "4f055613c4781f34",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f45830367e72bb72",
+    "ab1c97eac241cd2e"
+   ],
+   "legacy": true,
+   "normalized_subject": "what is targeting college football s most controversial rule explained",
+   "people": [],
+   "published_at": "2026-10-27T19:27:46.771935+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "How to Play",
+   "source_urls": [
+    "foxsports.com/stories/college-football/what-is-targeting-2026-rule-changes"
+   ],
+   "sport_or_game": "What Is Targeting? College Football's Most Controversial Rule, Explained",
+   "telegram_message_id": 515
+  },
+  {
+   "central_claim": "Ranking the Worst Trades in Sports This Century Bleacher Report",
+   "central_knowledge_unit": "ranking the worst trades in sports this century bleacher report",
+   "content_id": "3343ef5539f822ac",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "d09eef22f05e71f5",
+    "73edb6f2afbc4fc4"
+   ],
+   "legacy": true,
+   "normalized_subject": "ranking the worst trades in sports this century",
+   "people": [],
+   "published_at": "2026-10-27T19:28:24.634121+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "bleacherreport.com/articles/25242743-worst-trades-in-sports-century"
+   ],
+   "sport_or_game": "Ranking the Worst Trades in Sports This Century",
+   "telegram_message_id": 516
+  },
+  {
+   "central_claim": "Rules of mysterious ancient Roman board game decoded by AI Scientific American",
+   "central_knowledge_unit": "rules of mysterious ancient roman board game decoded by ai scientific american",
+   "content_id": "e685762082c71fce",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "d0746be5d9fdd4e3",
+    "ffb37e1d03d454ae"
+   ],
+   "legacy": true,
+   "normalized_subject": "rules of mysterious ancient roman board game decoded by ai",
+   "people": [],
+   "published_at": "2026-10-27T19:28:48.891326+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Game",
+   "source_urls": [
+    "scientificamerican.com/article/rules-of-mysterious-ancient-roman-board-game-decoded-by-ai"
+   ],
+   "sport_or_game": "Rules of mysterious ancient Roman board game decoded by AI",
+   "telegram_message_id": 517
+  },
+  {
+   "central_claim": "Italy's Football Oratories: What the Game Has Lost Over Time nss sports",
+   "central_knowledge_unit": "italy s football oratories what the game has lost over time nss sports",
+   "content_id": "ba94cf3f74b49da1",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "ad69d3f442a5ccad",
+    "52e8ab762758434f"
+   ],
+   "legacy": true,
+   "normalized_subject": "italy s football oratories what the game has lost over time",
+   "people": [],
+   "published_at": "2026-10-27T19:29:16.384313+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    "nss-sports.com/en/long-form/46004/italy-football-oratories-childhood"
+   ],
+   "sport_or_game": "Italy's Football Oratories: What the Game Has Lost Over Time",
+   "telegram_message_id": 518
+  },
+  {
+   "central_claim": "The Clash Royale Mobile Game Is Coming to the Tabletop With a New Kickstarter Campaign Launching This Month IGN",
+   "central_knowledge_unit": "the clash royale mobile game is coming to the tabletop with a new kickstarter campaign launching this month ign",
+   "content_id": "ab2f46ba1c8af135",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "95b5edda11a41312",
+    "0449010c70156f41"
+   ],
+   "legacy": true,
+   "normalized_subject": "the clash royale mobile game is coming to the tabletop with a new kickstarter campaign launching this month",
+   "people": [],
+   "published_at": "2026-10-27T19:29:26.857357+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    "ign.com/articles/clash-royale-the-grand-arena-board-game-kickstarter-reveal-and-interview"
+   ],
+   "sport_or_game": "The Clash Royale Mobile Game Is Coming to the Tabletop With a New Kickstarter Campaign Launching This Month",
+   "telegram_message_id": 519
+  },
+  {
+   "central_claim": "What Are the Origins of Soccer's Red and Yellow Cards? History.com",
+   "central_knowledge_unit": "what are the origins of soccer s red and yellow cards",
+   "content_id": "3ed79129cf0e95a0",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "3ed79129cf0e95a0",
+    "6674f002ff676fc4"
+   ],
+   "normalized_subject": "what are the origins of soccer s red and yellow cards",
+   "people": [],
+   "published_at": "2026-10-28T08:24:12.065526+00:00",
+   "region": "",
+   "run_id": "2026-10-28-PM",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 520
+  },
+  {
+   "central_claim": "Weird rule from Saints-Lions wasn’t mentioned during AFC Championship NBC Sports",
+   "central_knowledge_unit": "weird rule from saints lions wasn t mentioned during afc championship",
+   "content_id": "8ca609f3719c1629",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "8ca609f3719c1629",
+    "00410bd59e34288c"
+   ],
+   "normalized_subject": "weird rule from saints lions wasn t mentioned during afc championship",
+   "people": [],
+   "published_at": "2026-10-28T08:24:48.583272+00:00",
+   "region": "",
+   "run_id": "2026-10-28-PM",
+   "sector": "Rule Check",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 521
+  },
+  {
+   "central_claim": "Led by Girls Flag Football and Girls Wrestling, High School Sports Participation Increases for Fifth Consecutive Year NFHS",
+   "central_knowledge_unit": "led by girls flag football and girls wrestling high school sports participation increases for fifth consecutive year",
+   "content_id": "e45c1580ee38aab1",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e45c1580ee38aab1",
+    "b5eefb737205344b"
+   ],
+   "normalized_subject": "led by girls flag football and girls wrestling high school sports participation increases for fifth consecutive year",
+   "people": [],
+   "published_at": "2026-10-28T08:25:26.098227+00:00",
+   "region": "",
+   "run_id": "2026-10-28-PM",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 522
+  },
+  {
+   "central_claim": "Banned, Broken, and Brilliant: The Controversial Evolution of Winter Olympics Gear Outside Magazine",
+   "central_knowledge_unit": "banned broken and brilliant the controversial evolution of winter olympics gear outside magazine",
+   "content_id": "100c37d5d653c48c",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "100c37d5d653c48c",
+    "bfe291679ec88b32"
+   ],
+   "normalized_subject": "banned broken and brilliant the controversial evolution of winter olympics gear outside magazine",
+   "people": [],
+   "published_at": "2026-10-28T08:25:39.023625+00:00",
+   "region": "",
+   "run_id": "2026-10-28-PM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 523
+  },
+  {
+   "central_claim": "Tabletop sexism, hidden women, and the myth of the 'wife board game' www.wargamer.com",
+   "central_knowledge_unit": "tabletop sexism hidden women and the myth of the wife board game www wargamer com",
+   "content_id": "83d2637d5bd4739d",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "83d2637d5bd4739d",
+    "65616284e42b77a8"
+   ],
+   "normalized_subject": "tabletop sexism hidden women and the myth of the wife board game www wargamer com",
+   "people": [],
+   "published_at": "2026-10-28T08:26:03.026814+00:00",
+   "region": "",
+   "run_id": "2026-10-28-PM",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 524
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-27T19:29:26.857330+00:00"
+ "updated_at": "2026-10-28T08:26:03.026870+00:00"
 }
