@@ -74,12 +74,14 @@ class TestV1Contracts(OfflineProviderIsolationMixin, unittest.TestCase):
         for symbol in ("v3_run_once", "v3_self_test", "v4_run_once", "v4_diagnose", "v4_self_test", "V4_SECTORS"):
             self.assertNotIn(symbol, source)
 
-    def test_single_evergreen_renderer_is_the_only_text_renderer(self):
+    def test_evergreen_renderers_are_the_only_text_renderers(self):
         source = Path(main.__file__).read_text(encoding="utf-8")
         self.assertEqual(1, source.count("def render_evergreen_post("))
+        self.assertEqual(1, source.count("def render_evergreen_rich_html("))
         for symbol in ("def evergreen_rich(", "def knowledge_html(", "def fit_knowledge_html(", "def source_links("):
             self.assertNotIn(symbol, source)
         self.assertEqual(1, source.count("render_evergreen_post(story)"))
+        self.assertEqual(1, source.count("render_evergreen_rich_html(story)"))
 
     def test_feed_parser_handles_rss_and_atom(self):
         rss = ('<?xml version="1.0"?><rss version="2.0"><channel>'
@@ -481,12 +483,13 @@ class TestV1Contracts(OfflineProviderIsolationMixin, unittest.TestCase):
         with self.assertRaises(AssertionError):
             main.tg_call("sendMessage", {"chat_id":"@test","text":'<b>Headline</b>\nSource: <a href="https://example.com">Example</a>'})
 
-    def test_evergreen_external_photo_path_is_local_file_only(self):
+    def test_evergreen_publish_is_rich_first_with_local_file_only(self):
         publish = inspect.getsource(main.v1_publish_evergreen)
+        self.assertIn("send_rich_photo(chosen_path,rich_html)", publish)
         self.assertIn("tg_call(\"sendPhoto\",payload,chosen_path)", publish)
         self.assertIn("prepare_evergreen_media(story)", publish)
         self.assertNotIn("photo_url", publish)
-        self.assertNotIn("send_rich", publish)
+        self.assertLess(publish.index("send_rich_photo("), publish.index("tg_call(\"sendPhoto\""))
 
     def test_bing_image_parser_returns_original_murl_not_thumbnail(self):
         import html as html_mod
@@ -580,9 +583,10 @@ class TestV1Contracts(OfflineProviderIsolationMixin, unittest.TestCase):
         with patch.object(main, "session", return_value=FakeSession()):
             self.assertIsNone(main.download_verified_image({"image_url":"https://img.example/bad"}))
 
-    def test_publish_uses_selected_original_file_without_transform(self):
+    def test_publish_sends_rich_message_with_selected_file(self):
         from io import BytesIO
         from PIL import Image
+        import json as json_mod
         buf=BytesIO(); Image.new("RGB",(641,479),"white").save(buf,format="JPEG",quality=91); original=buf.getvalue()
         path=Path(main.tempfile.gettempdir())/"sports_test_original.jpg"; path.write_bytes(original)
         captured={}
@@ -596,12 +600,37 @@ class TestV1Contracts(OfflineProviderIsolationMixin, unittest.TestCase):
             with patch.object(main,"tg_call",side_effect=fake_tg):
                 result=main.v1_publish_evergreen(story,str(path))
             self.assertTrue(result["ok"])
-            self.assertEqual("sendPhoto",captured["method"])
+            self.assertEqual("sendRichMessage",captured["method"])
             self.assertEqual(original,captured["bytes"])
             self.assertEqual((641,479),captured["size"])
-            self.assertEqual("HTML",captured["data"]["parse_mode"])
+            rich=json_mod.loads(captured["data"]["rich_message"])
+            self.assertIn("<h1>Example sports story</h1>",rich["html"])
+            self.assertEqual("attach://photo",rich["media"][0]["media"]["media"])
         finally:
             path.unlink(missing_ok=True)
+
+    def test_brand_photo_outputs_fixed_1200x675(self):
+        from PIL import Image
+        src_path=Path(main.tempfile.gettempdir())/"sports_test_brand_src.jpg"
+        Image.new("RGB",(800,600),(30,60,120)).save(src_path,format="JPEG",quality=90)
+        try:
+            out=main.brand_photo(str(src_path))
+            self.assertNotEqual(str(src_path),out)
+            with Image.open(out) as im:
+                self.assertEqual((1200,675),im.size)
+            Path(out).unlink(missing_ok=True)
+        finally:
+            src_path.unlink(missing_ok=True)
+
+    def test_render_evergreen_rich_html_structure_and_escaping(self):
+        story={"headline":"A <b>Bold</b> Claim About Sport","body":EDITORIAL_BODY,"format":"Records & Milestones","sources":[("Example","https://example.com/story")],"tags":["#Sports"],"people":[],"central_claim":"A documented first occurrence in organised sport","historical_year":"1890","image_status":"pending"}
+        rich=main.render_evergreen_rich_html(story)
+        self.assertTrue(rich.startswith('<img src="tg://photo?id=newsphoto">'))
+        self.assertIn("<h1>A &lt;b&gt;Bold&lt;/b&gt; Claim About Sport</h1>",rich)
+        self.assertIn("<aside>Records &amp; Milestones</aside>",rich)
+        self.assertIn("<h2>KEY FACTS</h2>",rich)
+        self.assertIn("<footer><b>Source:</b> ",rich)
+        self.assertEqual(2,rich.count("<a href="))
 
     def test_image_search_success_needs_no_fallback(self):
         story={"headline":"Example football history","normalized_subject":"Example football history","central_knowledge_unit":"Example football history","topic":"Example football history","sector":"Sport Discovery","sources":[],"people":[]}
@@ -947,4 +976,5 @@ class TestV1SearchAndCard(OfflineProviderIsolationMixin, unittest.TestCase):
         finally:
             if path:
                 Path(path).unlink(missing_ok=True)
+
 
