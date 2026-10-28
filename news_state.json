@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-10-28T08:26:00.841963+00:00",
-  "last_request_id": "a5188d99bb60ad18-CMH",
+  "last_ok": "2026-10-28T19:58:51.332780+00:00",
+  "last_request_id": "a51c84818ec5acb1-ORD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-28T08:26:06.038670+00:00",
+ "last_run_at": "2026-10-28T19:58:57.032702+00:00",
  "ledger": {},
  "posts": [
   {
@@ -6021,6 +6021,27 @@
    "urls": [
     "wargamer.com/board-games/wife-board-game"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "World Cup 2026 new rules: The law changes explained - VAR, timewasting and substitutes",
+   "claim": "World Cup 2026 new rules: The law changes explained - VAR, timewasting and substitutes BBC",
+   "desk": "evergreen_v1",
+   "format": "How to Play",
+   "headline": "2026 World Cup Introduces 11 Law Changes to Speed Up Play",
+   "image_status": "verified_external",
+   "message_id": 525,
+   "normalized_subject": "World Cup 2026 new rules: The law changes explained - VAR, timewasting and substitutes",
+   "posted_at": "2026-10-28T19:58:54.020562+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-29-AM",
+   "sector": "How to Play",
+   "topic": "World Cup 2026 new rules: The law changes explained - VAR, timewasting and substitutes",
+   "urls": [
+    "bbc.com/sport/football/articles/ce8jv326d7vo"
+   ]
   }
  ],
  "runs": [],
@@ -6152,22 +6173,30 @@
      "2026-10-28-AM",
      "2026-10-28-PM"
     ]
+   },
+   "2026-10-29": {
+    "published_sectors": [
+     "How to Play"
+    ],
+    "run_ids": [
+     "2026-10-29-AM"
+    ]
    }
   },
-  "last_run_at": "2026-10-28T08:26:06.038642+00:00",
+  "last_run_at": "2026-10-28T19:58:57.032682+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-28T08:26:06.038625+00:00"
+    "updated_at": "2026-10-28T19:58:57.032664+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-28T08:26:06.038621+00:00"
+    "updated_at": "2026-10-28T19:58:57.032660+00:00"
    }
   },
   "publication": {
@@ -6495,6 +6524,11 @@
     "message_id": 521,
     "posted_at": "2026-10-28T08:24:48.583178+00:00",
     "status": "posted"
+   },
+   "2026-10-29-AM:evergreen:065f85088960d629": {
+    "message_id": 525,
+    "posted_at": "2026-10-28T19:58:54.020419+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -6654,6 +6688,15 @@
      "Rule Check",
      "Sport Origin",
      "Then vs Now"
+    ]
+   },
+   {
+    "at": "2026-10-28T19:58:57.032686+00:00",
+    "evergreen": 1,
+    "exit": 0,
+    "run_id": "2026-10-29-AM",
+    "used_sectors": [
+     "How to Play"
     ]
    }
   ],

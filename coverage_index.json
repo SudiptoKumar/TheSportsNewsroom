@@ -12831,8 +12831,151 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 524
+  },
+  {
+   "central_claim": "What Are the Origins of Soccer's Red and Yellow Cards? History.com",
+   "central_knowledge_unit": "what are the origins of soccer s red and yellow cards history com",
+   "content_id": "9349e0b43cfdf460",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "6674f002ff676fc4",
+    "aef9ff47ca616b6a"
+   ],
+   "legacy": true,
+   "normalized_subject": "what are the origins of soccer s red and yellow cards",
+   "people": [],
+   "published_at": "2026-10-28T08:24:12.065640+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "foxsports.com/scores"
+   ],
+   "sport_or_game": "What Are the Origins of Soccer's Red and Yellow Cards?",
+   "telegram_message_id": 520
+  },
+  {
+   "central_claim": "Weird rule from Saints-Lions wasn’t mentioned during AFC Championship NBC Sports",
+   "central_knowledge_unit": "weird rule from saints lions wasn t mentioned during afc championship nbc sports",
+   "content_id": "50ac1a6cc9fea022",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "00410bd59e34288c",
+    "8709f3c928e8d047"
+   ],
+   "legacy": true,
+   "normalized_subject": "weird rule from saints lions wasn t mentioned during afc championship",
+   "people": [],
+   "published_at": "2026-10-28T08:24:48.583351+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Rule Check",
+   "source_urls": [
+    "nbcsports.com/nfl/profootballtalk/rumor-mill/news/weird-rule-from-saints-lions-wasnt-mentioned-during-afc-championship"
+   ],
+   "sport_or_game": "Weird rule from Saints-Lions wasn’t mentioned during AFC Championship",
+   "telegram_message_id": 521
+  },
+  {
+   "central_claim": "Led by Girls Flag Football and Girls Wrestling, High School Sports Participation Increases for Fifth Consecutive Year NFHS",
+   "central_knowledge_unit": "led by girls flag football and girls wrestling high school sports participation increases for fifth consecutive year nfhs",
+   "content_id": "030aae7702ce6dbf",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b5eefb737205344b",
+    "1d4be2543f9c099b"
+   ],
+   "legacy": true,
+   "normalized_subject": "led by girls flag football and girls wrestling high school sports participation increases for fifth consecutive year",
+   "people": [],
+   "published_at": "2026-10-28T08:25:26.098301+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "nfhs.org/stories/led-by-girls-flag-football-and-girls-wrestling-high-school-sports-participation-increases-for-fifth-consecutive-year"
+   ],
+   "sport_or_game": "Led by Girls Flag Football and Girls Wrestling, High School Sports Participation Increases for Fifth Consecutive Year",
+   "telegram_message_id": 522
+  },
+  {
+   "central_claim": "Banned, Broken, and Brilliant: The Controversial Evolution of Winter Olympics Gear Outside Magazine",
+   "central_knowledge_unit": "banned broken and brilliant the controversial evolution of winter olympics gear outside magazine",
+   "content_id": "efbca72d547e3993",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "bfe291679ec88b32",
+    "16bfd02afadc4d6e"
+   ],
+   "legacy": true,
+   "normalized_subject": "banned broken and brilliant the controversial evolution of winter olympics gear outside magazine",
+   "people": [],
+   "published_at": "2026-10-28T08:25:39.023704+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "outsideonline.com/outdoor-gear/snow-sports-gear/evolution-winter-olympics-gear"
+   ],
+   "sport_or_game": "Banned, Broken, and Brilliant: The Controversial Evolution of Winter Olympics Gear - Outside Magazine",
+   "telegram_message_id": 523
+  },
+  {
+   "central_claim": "Tabletop sexism, hidden women, and the myth of the 'wife board game' www.wargamer.com",
+   "central_knowledge_unit": "tabletop sexism hidden women and the myth of the wife board game www wargamer com",
+   "content_id": "f8e562856930a523",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "65616284e42b77a8",
+    "80bdf09f9d53f1dd"
+   ],
+   "legacy": true,
+   "normalized_subject": "tabletop sexism hidden women and the myth of the wife board game www wargamer com",
+   "people": [],
+   "published_at": "2026-10-28T08:26:03.026892+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    "wargamer.com/board-games/wife-board-game"
+   ],
+   "sport_or_game": "Tabletop sexism, hidden women, and the myth of the 'wife board game' - www.wargamer.com",
+   "telegram_message_id": 524
+  },
+  {
+   "central_claim": "World Cup 2026 new rules: The law changes explained - VAR, timewasting and substitutes BBC",
+   "central_knowledge_unit": "world cup 2026 new rules the law changes explained var timewasting and substitutes",
+   "content_id": "5c6777b80729c12c",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "5c6777b80729c12c",
+    "b2f24a7f8ef07d82"
+   ],
+   "normalized_subject": "world cup 2026 new rules the law changes explained var timewasting and substitutes",
+   "people": [],
+   "published_at": "2026-10-28T19:58:54.020487+00:00",
+   "region": "",
+   "run_id": "2026-10-29-AM",
+   "sector": "How to Play",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 525
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-28T08:26:03.026870+00:00"
+ "updated_at": "2026-10-28T19:58:54.020542+00:00"
 }
