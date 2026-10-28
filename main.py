@@ -734,6 +734,75 @@ def render_evergreen_post(story: dict) -> dict:
 # --- publisher ---------------------------------------------------------------------------------
 
 
+def _bold_terms_html(raw: str, terms) -> str:
+    """Escape text for rich HTML, bolding the first occurrence of each term
+    (the Gaming channel's pattern, via collision-proof markers)."""
+    body = text(raw)
+    if not body:
+        return ""
+    result = body
+    replacements = []
+    unique = sorted({text(t) for t in (terms or []) if text(t)}, key=len, reverse=True)
+    for index, term in enumerate(unique):
+        marker = f"__SNBOLD_{chr(65 + (index % 26))}{index // 26}__"
+        match = re.search(re.escape(term), result, re.I)
+        if match:
+            replacements.append((marker, match.group(0)))
+            result = result[:match.start()] + marker + result[match.end():]
+    escaped = esc(result)
+    for marker, original in replacements:
+        escaped = escaped.replace(marker, "<b>" + esc(original) + "</b>")
+    return escaped
+
+
+def render_evergreen_rich_html(story: dict) -> str:
+    """Build the evergreen post as a Telegram rich message (HTML form), the
+    Gaming channel's layout system: photo, H1 headline, body with bolded
+    names, format chip, key facts, channel + hashtags, source footer."""
+    story = v1_normalize_story(story)
+    headline = text(story.get("headline")).strip()
+    body = text(story.get("body")).strip()
+    if not headline or not body:
+        raise ValueError("evergreen rich renderer requires headline and body")
+    source_name, source_url = _select_public_source(story)
+    tags = _public_hashtags(story)
+    active_handle = CHANNEL.strip() if CHANNEL.strip().startswith("@") else ""
+    if active_handle:
+        effective_channel_url = f"https://t.me/{active_handle[1:]}"
+        effective_channel_name = CHANNEL_DISPLAY_NAME if active_handle == "@TheSportsNewsroom" else active_handle.lstrip("@")
+    else:
+        effective_channel_url = CHANNEL_URL
+        effective_channel_name = CHANNEL_DISPLAY_NAME
+    channel_link = f'<b><a href="{esc_attr(effective_channel_url)}">{esc(effective_channel_name)}</a></b>'
+    parts = [
+        '<img src="tg://photo?id=newsphoto">',
+        f"<h1>{esc(headline)}</h1>",
+        f"<p>{_bold_terms_html(body, story.get('people'))}</p>",
+    ]
+    fmt = text(story.get("format")).strip()
+    if fmt:
+        parts.append(f"<aside>{esc(fmt)}</aside>")
+    items = _card_info_items(story)
+    if items:
+        lines = "<br>".join(f"• <b>{esc(label.title())}:</b> {esc(value)}" for label, value in items)
+        parts.append("<h2>KEY FACTS</h2>")
+        parts.append(f"<p>{lines}</p>")
+    parts.append(f"<p>{channel_link} " + " ".join(esc(tag) for tag in tags) + "</p>")
+    parts.append(f'<footer><b>Source:</b> <a href="{esc_attr(source_url)}">{esc(source_name)}</a></footer>')
+    return "\n".join(parts)
+
+
+def send_rich_photo(file_path: str, rich_html: str) -> dict:
+    """Send one rich message with a local photo as its media (attach://photo)."""
+    rich_message = {
+        "html": rich_html,
+        "media": [{"id": "newsphoto", "media": {"type": "photo", "media": "attach://photo"}}],
+        "skip_entity_detection": False,
+    }
+    payload = {"chat_id": CHANNEL, "rich_message": json.dumps(rich_message, ensure_ascii=False)}
+    return tg_call("sendRichMessage", payload, file_path)
+
+
 def tg_call(method: str, data: dict | None = None, file_path: str = "", file_field: str = "photo") -> dict:
     """Call a Bot API method and enforce HTML parse mode for any anchor-bearing payload."""
     data=data or {}
@@ -1110,7 +1179,7 @@ def prepare_evergreen_media(story: dict) -> tuple[str, dict]:
                 try: os.remove(verified["path"])
                 except OSError: pass
                 continue
-            std_path=standardize_photo_width(verified["path"])
+            std_path=brand_photo(verified["path"])
             if std_path != verified["path"]:
                 try:
                     with Image.open(std_path) as _im:
@@ -1195,8 +1264,9 @@ def _card_info_items(story: dict) -> list[tuple[str, str]]:
 # ---------------------------------------------------------------------------
 # Editorial card design system (shared visual language with the Vocabulary
 # channel): warm paper, ink, one red accent, serif display headline.
-# Every published image leaves at the standard width; cards use a fixed
-# 1200x675 (16:9) canvas so the channel feed has one consistent rhythm.
+# Every published photo is cover-cropped to the fixed 1200x675 (16:9) frame
+# and stamped with the channel chip; cards use the same 1200x675 canvas, so
+# every post in the feed has one consistent size and rhythm.
 # ---------------------------------------------------------------------------
 CARD_BG = (252, 251, 248)
 CARD_INK = (23, 23, 23)
@@ -1291,23 +1361,42 @@ def _draw_tracked(draw, cx: float, y: float, s: str, font, fill, tracking: int =
         x += draw.textlength(ch, font=font) + tracking
 
 
-def standardize_photo_width(path: str) -> str:
-    """Re-encode a photo at the standard channel width (1200px), preserving
-    its natural aspect ratio. Returns the new path, or the original path
-    when the photo already conforms or anything goes wrong."""
+def brand_photo(path: str) -> str:
+    """Cover-crop a verified photo to the fixed 1200x675 frame and stamp the
+    @TheSportsNewsroom chip bottom-right (the Gaming channel's treatment).
+    Returns the new path, or the original path when anything goes wrong so
+    publishing never blocks on branding."""
+    if Image is None:
+        return path
     try:
+        W, H = 1200, 675
         with Image.open(path) as im:
             im = im.convert("RGB")
-            w, h = im.size
-            if w == STANDARD_IMAGE_WIDTH:
-                return path
-            new_h = max(1, round(h * STANDARD_IMAGE_WIDTH / w))
-            im = im.resize((STANDARD_IMAGE_WIDTH, new_h), Image.Resampling.LANCZOS)
-            out = os.path.join(tempfile.gettempdir(), f"sn_photo_{int(time.time()*1000)}_{random.randint(0,9999)}.jpg")
-            im.save(out, "JPEG", quality=90)
-            return out
+            scale = max(W / im.width, H / im.height)
+            resized = im.resize((max(W, round(im.width * scale)), max(H, round(im.height * scale))), Image.Resampling.LANCZOS)
+            left = (resized.width - W) // 2
+            top = (resized.height - H) // 2
+            framed = resized.crop((left, top, left + W, top + H)).convert("RGBA")
+        brightness = framed.convert("L").resize((1, 1)).getpixel((0, 0))
+        if brightness < 125:
+            bg, fg = (245, 245, 245, 225), (20, 24, 28, 255)
+        else:
+            bg, fg = (18, 22, 28, 205), (245, 245, 245, 255)
+        overlay = Image.new("RGBA", framed.size, (0, 0, 0, 0))
+        draw = ImageDraw.Draw(overlay)
+        font = _display_font("sans", 24, 700)
+        label = "@TheSportsNewsroom"
+        bbox = draw.textbbox((0, 0), label, font=font)
+        chip_w = (bbox[2] - bbox[0]) + 44
+        chip_h = (bbox[3] - bbox[1]) + 20
+        x2, y2 = W - 28, H - 24
+        draw.rounded_rectangle((x2 - chip_w, y2 - chip_h, x2, y2), radius=18, fill=bg)
+        draw.text((x2 - chip_w + 22, y2 - chip_h + 10 - bbox[1]), label, font=font, fill=fg)
+        out = os.path.join(tempfile.gettempdir(), f"sn_photo_{int(time.time()*1000)}_{random.randint(0,9999)}.jpg")
+        Image.alpha_composite(framed, overlay).convert("RGB").save(out, "JPEG", quality=90)
+        return out
     except Exception as exc:
-        logger.warning("Photo width standardization failed (%s): %s", path, exc)
+        logger.warning("Photo branding failed (%s): %s", path, exc)
         return path
 
 
@@ -4021,6 +4110,16 @@ def v1_publish_evergreen(story: dict, media_path: str | None = None) -> dict:
     if not chosen_path:
         return {"ok":False,"description":"V1 evergreen publication failed: no usable media and card generation failed"}
     try:
+        rich_html=""
+        try:
+            rich_html=render_evergreen_rich_html(story)
+        except Exception as exc:
+            logger.warning("Rich HTML build failed; using caption photo: %s", exc)
+        if rich_html:
+            result=send_rich_photo(chosen_path,rich_html)
+            if result.get("ok"):
+                return result
+            logger.warning("Rich message send failed; falling back to caption photo: %s", redact(text(result.get("description")))[:180])
         payload={
             "chat_id":CHANNEL,
             "caption":rendered["html"],
@@ -4362,6 +4461,8 @@ def v1_architecture_tests() -> int:
     ck(public_html.splitlines()[-1].startswith("Source: <a href="), "source is final line")
     channel_tag_line=next((ln for ln in public_html.splitlines() if "<b><a href=" in ln and "Sports News" in ln), "")
     ck(len(re.findall(r"#[A-Za-z0-9]+", channel_tag_line)) == 2, "evergreen has exactly two hashtags")
+    rich_sample_html=render_evergreen_rich_html({**render_sample,"format":"Records & Milestones","central_claim":"A documented tradition with verified origins","historical_year":"1890"})
+    ck(rich_sample_html.startswith('<img src="tg://photo?id=newsphoto">') and "<h1>" in rich_sample_html and "<aside>" in rich_sample_html and "KEY FACTS" in rich_sample_html and "<footer>" in rich_sample_html, "evergreen rich HTML has photo, H1, format chip, key facts and source footer")
     ck("https://example.com/b" not in re.sub(r'href="[^"]+"', '', public_html), "non-public source URL hidden")
     ck(IMAGE_ALLOWED_MIME == {"image/jpeg","image/png","image/webp"}, "image MIME contract supports webp normalization")
     ck(IMAGE_MIN_ASPECT <= 0.75 and IMAGE_MAX_ASPECT >= 1.9, "image geometry guard")
@@ -4402,14 +4503,14 @@ def v1_architecture_tests() -> int:
                 return test_media, {"mode":"external"}
             def fake_tg(method,data=None,file_path="",file_field="photo"):
                 calls.append((method,file_path))
-                if len(calls)==1:
-                    return {"ok":False,"description":"telegram rejected photo"}
+                if len(calls)<=2:
+                    return {"ok":False,"description":"telegram rejected media"}
                 return {"ok":True,"result":{"message_id":123}}
             try:
                 globals()["prepare_evergreen_media"]=fake_prepare; globals()["tg_call"]=fake_tg
                 probe_story={"headline":render_sample["headline"],"body":render_sample["body"],"sources":[("Source A","https://example.com/a")],"tags":["#SportHistory","#AncientGames"],"image_status":"pending"}
                 result=v1_publish_evergreen(probe_story,None)
-                ck(result.get("ok") and len(calls)==2 and calls[0][0]=="sendPhoto" and calls[1][0]=="sendPhoto", "external photo upload failure falls back to branded card")
+                ck(result.get("ok") and len(calls)==3 and calls[0][0]=="sendRichMessage" and calls[1][0]=="sendPhoto" and calls[2][0]=="sendPhoto", "rich and photo send failures fall back to branded card")
                 # Prepared card must be reused, not trigger a second media search.
                 original_prepare=globals()["prepare_evergreen_media"]
                 prepared_calls=[]
