@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-10-29T08:28:16.662023+00:00",
-  "last_request_id": "a520ce4abde8eb36-CMH",
+  "last_ok": "2026-10-29T19:32:32.342945+00:00",
+  "last_request_id": "a5249b54ae08e1bd-ORD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-29T08:28:23.017021+00:00",
+ "last_run_at": "2026-10-29T19:32:32.343186+00:00",
  "ledger": {},
  "posts": [
   {
@@ -6189,6 +6189,69 @@
    "urls": [
     "openthemagazine.com/world/world-nomad-games-2026-explained-the-sports-the-stakes-and-what-survives-closing-night"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "NFC East makes unwanted history as first division ever to go winless in consecutive weeks",
+   "claim": "NFC East makes unwanted history as first division ever to go winless in consecutive weeks CBS Sports",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "NFC East Becomes First Division to Record Back‑to‑Back Winless Weeks",
+   "image_status": "verified_external",
+   "message_id": 533,
+   "normalized_subject": "NFC East makes unwanted history as first division ever to go winless in consecutive weeks",
+   "posted_at": "2026-10-29T19:31:57.307809+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-30-AM",
+   "sector": "First / Last / Only",
+   "topic": "NFC East makes unwanted history as first division ever to go winless in consecutive weeks",
+   "urls": [
+    "cbssports.com/nfl/news/nfc-east-makes-unwanted-history-nfl"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Observing history through sports: The importance and relevance of sports within a culture - Liberty University",
+   "claim": "Observing history through sports: The importance and relevance of sports within a culture Liberty University",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "Sports Shaped American Culture From Early 1900s to Today",
+   "image_status": "card_fallback",
+   "message_id": 534,
+   "normalized_subject": "Observing history through sports: The importance and relevance of sports within a culture - Liberty University",
+   "posted_at": "2026-10-29T19:32:11.596148+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-30-AM",
+   "sector": "Then vs Now",
+   "topic": "Observing history through sports: The importance and relevance of sports within a culture - Liberty University",
+   "urls": [
+    "liberty.edu/champion/2024/04/08/observing-history-through-sports-the-importance-and-relevance-of-sports-within-a-culture"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Where Basketball was Invented: The History of Basketball - Springfield College",
+   "claim": "Where Basketball was Invented: The History of Basketball Springfield College",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "James Naismith Invented Basketball at Springfield College in 1891",
+   "image_status": "verified_external",
+   "message_id": 535,
+   "normalized_subject": "Where Basketball was Invented: The History of Basketball - Springfield College",
+   "posted_at": "2026-10-29T19:32:21.290434+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-30-AM",
+   "sector": "Sport Origin",
+   "topic": "Where Basketball was Invented: The History of Basketball - Springfield College",
+   "urls": [
+    "springfield.edu/about/birthplace-of-basketball"
+   ]
   }
  ],
  "runs": [],
@@ -6335,22 +6398,32 @@
      "2026-10-29-AM",
      "2026-10-29-PM"
     ]
+   },
+   "2026-10-30": {
+    "published_sectors": [
+     "First / Last / Only",
+     "Then vs Now",
+     "Sport Origin"
+    ],
+    "run_ids": [
+     "2026-10-30-AM"
+    ]
    }
   },
-  "last_run_at": "2026-10-29T08:28:23.016973+00:00",
+  "last_run_at": "2026-10-29T19:32:32.343165+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-29T08:28:23.016942+00:00"
+    "updated_at": "2026-10-29T19:32:32.343147+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-29T08:28:23.016933+00:00"
+    "updated_at": "2026-10-29T19:32:32.343142+00:00"
    }
   },
   "publication": {
@@ -6718,6 +6791,21 @@
     "message_id": 528,
     "posted_at": "2026-10-29T08:27:07.293810+00:00",
     "status": "posted"
+   },
+   "2026-10-30-AM:evergreen:1f2cabc8966bf6c0": {
+    "message_id": 533,
+    "posted_at": "2026-10-29T19:31:57.307638+00:00",
+    "status": "posted"
+   },
+   "2026-10-30-AM:evergreen:4724784102ef4282": {
+    "message_id": 534,
+    "posted_at": "2026-10-29T19:32:11.595967+00:00",
+    "status": "posted"
+   },
+   "2026-10-30-AM:evergreen:9c5ea0a0e5c3dbd1": {
+    "message_id": 535,
+    "posted_at": "2026-10-29T19:32:21.290270+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -6901,6 +6989,17 @@
      "Sports & Games People",
      "Then vs Now",
      "Traditional / Regional Game"
+    ]
+   },
+   {
+    "at": "2026-10-29T19:32:32.343169+00:00",
+    "evergreen": 3,
+    "exit": 0,
+    "run_id": "2026-10-30-AM",
+    "used_sectors": [
+     "First / Last / Only",
+     "Sport Origin",
+     "Then vs Now"
     ]
    }
   ],

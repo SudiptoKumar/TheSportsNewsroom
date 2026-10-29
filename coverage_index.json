@@ -13159,8 +13159,245 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 532
+  },
+  {
+   "central_claim": "The 24 Craziest Trades In NFL History: Which moves are considered to be the wildest of all-time? A to Z Sports",
+   "central_knowledge_unit": "the 24 craziest trades in nfl history which moves are considered to be the wildest of all time a to z sports",
+   "content_id": "ebca05ff92103e46",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "871b4f2ac972bdf9",
+    "7350602c6c0f85c3"
+   ],
+   "legacy": true,
+   "normalized_subject": "the 24 craziest trades in nfl history which moves are considered to be the wildest of all time",
+   "people": [],
+   "published_at": "2026-10-29T08:26:16.641696+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "atozsports.com/nfl/24-craziest-trades-nfl-history"
+   ],
+   "sport_or_game": "The 24 Craziest Trades In NFL History: Which moves are considered to be the wildest of all-time?",
+   "telegram_message_id": 526
+  },
+  {
+   "central_claim": "10 Hispanic American Athletes Who Broke Records and Changed Their Sports Biography: Historical and Celebrity Profiles",
+   "central_knowledge_unit": "10 hispanic american athletes who broke records and changed their sports biography historical and celebrity profiles",
+   "content_id": "404136a2c8c7307e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "dd9d17938f262009",
+    "9dacd26e6a89e60e"
+   ],
+   "legacy": true,
+   "normalized_subject": "10 hispanic american athletes who broke records and changed their sports biography historical and celebrity profiles",
+   "people": [],
+   "published_at": "2026-10-29T08:26:31.046546+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "biography.com/athletes/g65890683/famous-hispanic-american-athletes"
+   ],
+   "sport_or_game": "10 Hispanic American Athletes Who Broke Records and Changed Their Sports - Biography: Historical and Celebrity Profiles",
+   "telegram_message_id": 527
+  },
+  {
+   "central_claim": "Brewers Record Final Out to Clinch FIRST World Series in Franchise History vs Rays FOX Sports",
+   "central_knowledge_unit": "brewers record final out to clinch first world series in franchise history vs rays fox sports",
+   "content_id": "853ce28421496f1e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "54751c8b889500c1",
+    "536dae6b9289dc54"
+   ],
+   "legacy": true,
+   "normalized_subject": "brewers record final out to clinch first world series in franchise history vs rays",
+   "people": [],
+   "published_at": "2026-10-29T08:27:07.294023+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "foxsports.com/watch/fmc-o0fayd0xhxwah3xn"
+   ],
+   "sport_or_game": "Brewers Record Final Out to Clinch FIRST World Series in Franchise History vs Rays",
+   "telegram_message_id": 528
+  },
+  {
+   "central_claim": "Pokémon meets Goita, a traditional game from the Noto region｜The Pokémon Company 株式会社ポケモン｜The Pokémon Company",
+   "central_knowledge_unit": "pok mon meets goita a traditional game from the noto region the pok mon company the pok mon company",
+   "content_id": "5395773001957351",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9a8914d1f893576d",
+    "3661232ab70c5c43"
+   ],
+   "legacy": true,
+   "normalized_subject": "pok mon meets goita a traditional game from the noto region the pok mon company the pok mon company",
+   "people": [],
+   "published_at": "2026-10-29T08:27:35.913767+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "How to Play",
+   "source_urls": [
+    "corporate.pokemon.co.jp/en/topics/detail/t-54"
+   ],
+   "sport_or_game": "Pokémon meets Goita, a traditional game from the Noto region｜The Pokémon Company - 株式会社ポケモン｜The Pokémon Company",
+   "telegram_message_id": 529
+  },
+  {
+   "central_claim": "This Day in Sports History: October 29 Country 103.7 Charlotte",
+   "central_knowledge_unit": "this day in sports history october 29 country 103 7 charlotte",
+   "content_id": "48b192585f3868ef",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "935f3073dd5eb1dc",
+    "a343c36ce9f1c192"
+   ],
+   "legacy": true,
+   "normalized_subject": "this day in sports history october 29 country 103 7 charlotte",
+   "people": [],
+   "published_at": "2026-10-29T08:27:53.998609+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "country1037fm.com/2026/10/29/this-day-in-sports-history-october-29-2"
+   ],
+   "sport_or_game": "This Day in Sports History: October 29 - Country 103.7 Charlotte",
+   "telegram_message_id": 530
+  },
+  {
+   "central_claim": "The Top 10 Board Games of 2025 Player Elimination",
+   "central_knowledge_unit": "the top 10 board games of 2025 player elimination",
+   "content_id": "929f10803ea6dfcd",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "54d597a30c733971",
+    "da579f16072ef2e5"
+   ],
+   "legacy": true,
+   "normalized_subject": "the top 10 board games of 2025",
+   "people": [],
+   "published_at": "2026-10-29T08:28:06.265971+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    "playerelimination.com/2025/12/29/the-top-10-board-games-of-2025"
+   ],
+   "sport_or_game": "The Top 10 Board Games of 2025",
+   "telegram_message_id": 531
+  },
+  {
+   "central_claim": "World Nomad Games 2026 Explained: The Sports, the Stakes and What Survives Closing Night Open Magazine",
+   "central_knowledge_unit": "world nomad games 2026 explained the sports the stakes and what survives closing night open magazine",
+   "content_id": "a9c2cd10038696ad",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "0316adbdc67bc435",
+    "4eecde5dbfbc4b6b"
+   ],
+   "legacy": true,
+   "normalized_subject": "world nomad games 2026 explained the sports the stakes and what survives closing night open magazine",
+   "people": [],
+   "published_at": "2026-10-29T08:28:19.998694+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    "openthemagazine.com/world/world-nomad-games-2026-explained-the-sports-the-stakes-and-what-survives-closing-night"
+   ],
+   "sport_or_game": "World Nomad Games 2026 Explained: The Sports, the Stakes and What Survives Closing Night - Open Magazine",
+   "telegram_message_id": 532
+  },
+  {
+   "central_claim": "NFC East makes unwanted history as first division ever to go winless in consecutive weeks CBS Sports",
+   "central_knowledge_unit": "nfc east makes unwanted history as first division ever to go winless in consecutive weeks",
+   "content_id": "1af78bc322f5a851",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "1af78bc322f5a851",
+    "76b4c3b6c03db890"
+   ],
+   "normalized_subject": "nfc east makes unwanted history as first division ever to go winless in consecutive weeks",
+   "people": [],
+   "published_at": "2026-10-29T19:31:57.307718+00:00",
+   "region": "",
+   "run_id": "2026-10-30-AM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 533
+  },
+  {
+   "central_claim": "Observing history through sports: The importance and relevance of sports within a culture Liberty University",
+   "central_knowledge_unit": "observing history through sports the importance and relevance of sports within a culture liberty university",
+   "content_id": "419d045c14896207",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "419d045c14896207",
+    "ac4c71e6c63aaa37"
+   ],
+   "normalized_subject": "observing history through sports the importance and relevance of sports within a culture liberty university",
+   "people": [],
+   "published_at": "2026-10-29T19:32:11.596060+00:00",
+   "region": "",
+   "run_id": "2026-10-30-AM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 534
+  },
+  {
+   "central_claim": "Where Basketball was Invented: The History of Basketball Springfield College",
+   "central_knowledge_unit": "where basketball was invented the history of basketball springfield college",
+   "content_id": "fd743d3f7bf99d2a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "fd743d3f7bf99d2a",
+    "33cbbf528fdeab01"
+   ],
+   "normalized_subject": "where basketball was invented the history of basketball springfield college",
+   "people": [],
+   "published_at": "2026-10-29T19:32:21.290356+00:00",
+   "region": "",
+   "run_id": "2026-10-30-AM",
+   "sector": "Sport Origin",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 535
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-29T08:28:19.998667+00:00"
+ "updated_at": "2026-10-29T19:32:21.290413+00:00"
 }
