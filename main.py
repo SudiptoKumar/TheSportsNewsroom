@@ -756,9 +756,10 @@ def _bold_terms_html(raw: str, terms) -> str:
 
 
 def render_evergreen_rich_html(story: dict) -> str:
-    """Build the evergreen post as a Telegram rich message (HTML form), the
-    Gaming channel's layout system: photo, H1 headline, body with bolded
-    names, format chip, key facts, channel + hashtags, source footer."""
+    """Build the evergreen post as a Telegram rich message (HTML form) in
+    the network POSTCARD format: photo, H1 headline, the story in one bold
+    line (the body's first sentence), then every remaining detail inside a
+    single tap-to-expand FULL STORY block, channel + hashtags, source footer."""
     story = v1_normalize_story(story)
     headline = text(story.get("headline")).strip()
     body = text(story.get("body")).strip()
@@ -774,19 +775,30 @@ def render_evergreen_rich_html(story: dict) -> str:
         effective_channel_url = CHANNEL_URL
         effective_channel_name = CHANNEL_DISPLAY_NAME
     channel_link = f'<b><a href="{esc_attr(effective_channel_url)}">{esc(effective_channel_name)}</a></b>'
+    sentences = re.split(r"(?<=[.!?])\s+", body, maxsplit=1)
+    essence = sentences[0]
+    rest = sentences[1] if len(sentences) > 1 else ""
     parts = [
         '<img src="tg://photo?id=newsphoto">',
         f"<h1>{esc(headline)}</h1>",
-        f"<p>{_bold_terms_html(body, story.get('people'))}</p>",
+        f"<p><b>{_bold_terms_html(essence, story.get('people'))}</b></p>",
     ]
+    story_blocks = []
     fmt = text(story.get("format")).strip()
     if fmt:
-        parts.append(f"<aside>{esc(fmt)}</aside>")
+        story_blocks.append(f"<b>{esc(fmt)}</b>")
+    if rest:
+        story_blocks.append(_bold_terms_html(rest, story.get('people')))
     items = _card_info_items(story)
     if items:
         lines = "<br>".join(f"• <b>{esc(label.title())}:</b> {esc(value)}" for label, value in items)
-        parts.append("<h2>KEY FACTS</h2>")
-        parts.append(f"<p>{lines}</p>")
+        story_blocks.append(lines)
+    if story_blocks:
+        parts.append(
+            "<blockquote expandable><b>FULL STORY</b><br>"
+            + "<br><br>".join(story_blocks)
+            + "</blockquote>"
+        )
     parts.append(f"<p>{channel_link} " + " ".join(esc(tag) for tag in tags) + "</p>")
     parts.append(f'<footer><b>Source:</b> <a href="{esc_attr(source_url)}">{esc(source_name)}</a></footer>')
     return "\n".join(parts)
