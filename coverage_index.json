@@ -12974,8 +12974,193 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 525
+  },
+  {
+   "central_claim": "World Cup 2026 new rules: The law changes explained - VAR, timewasting and substitutes BBC",
+   "central_knowledge_unit": "world cup 2026 new rules the law changes explained var timewasting and substitutes bbc",
+   "content_id": "17b790cc35e71abe",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b2f24a7f8ef07d82",
+    "1dac05c2c1f58b6f"
+   ],
+   "legacy": true,
+   "normalized_subject": "world cup 2026 new rules the law changes explained var timewasting and substitutes",
+   "people": [],
+   "published_at": "2026-10-28T19:58:54.020562+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "How to Play",
+   "source_urls": [
+    "bbc.com/sport/football/articles/ce8jv326d7vo"
+   ],
+   "sport_or_game": "World Cup 2026 new rules: The law changes explained - VAR, timewasting and substitutes",
+   "telegram_message_id": 525
+  },
+  {
+   "central_claim": "The 24 Craziest Trades In NFL History: Which moves are considered to be the wildest of all-time? A to Z Sports",
+   "central_knowledge_unit": "the 24 craziest trades in nfl history which moves are considered to be the wildest of all time",
+   "content_id": "28b8ed9d8b8450fc",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "28b8ed9d8b8450fc",
+    "871b4f2ac972bdf9"
+   ],
+   "normalized_subject": "the 24 craziest trades in nfl history which moves are considered to be the wildest of all time",
+   "people": [],
+   "published_at": "2026-10-29T08:26:16.641578+00:00",
+   "region": "",
+   "run_id": "2026-10-29-PM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 526
+  },
+  {
+   "central_claim": "10 Hispanic American Athletes Who Broke Records and Changed Their Sports Biography: Historical and Celebrity Profiles",
+   "central_knowledge_unit": "10 hispanic american athletes who broke records and changed their sports biography historical and celebrity profiles",
+   "content_id": "c4852b2f8112e573",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c4852b2f8112e573",
+    "dd9d17938f262009"
+   ],
+   "normalized_subject": "10 hispanic american athletes who broke records and changed their sports biography historical and celebrity profiles",
+   "people": [],
+   "published_at": "2026-10-29T08:26:31.046435+00:00",
+   "region": "",
+   "run_id": "2026-10-29-PM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 527
+  },
+  {
+   "central_claim": "Brewers Record Final Out to Clinch FIRST World Series in Franchise History vs Rays FOX Sports",
+   "central_knowledge_unit": "brewers record final out to clinch first world series in franchise history vs rays",
+   "content_id": "c00235651e0d200a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c00235651e0d200a",
+    "54751c8b889500c1"
+   ],
+   "normalized_subject": "brewers record final out to clinch first world series in franchise history vs rays",
+   "people": [],
+   "published_at": "2026-10-29T08:27:07.293911+00:00",
+   "region": "",
+   "run_id": "2026-10-29-PM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 528
+  },
+  {
+   "central_claim": "Pokémon meets Goita, a traditional game from the Noto region｜The Pokémon Company 株式会社ポケモン｜The Pokémon Company",
+   "central_knowledge_unit": "pok mon meets goita a traditional game from the noto region the pok mon company the pok mon company",
+   "content_id": "bc68e4e51160a1d3",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "bc68e4e51160a1d3",
+    "9a8914d1f893576d"
+   ],
+   "normalized_subject": "pok mon meets goita a traditional game from the noto region the pok mon company the pok mon company",
+   "people": [],
+   "published_at": "2026-10-29T08:27:35.913649+00:00",
+   "region": "",
+   "run_id": "2026-10-29-PM",
+   "sector": "How to Play",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 529
+  },
+  {
+   "central_claim": "This Day in Sports History: October 29 Country 103.7 Charlotte",
+   "central_knowledge_unit": "this day in sports history october 29 country 103 7 charlotte",
+   "content_id": "40ffdbd594a8bf7a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "40ffdbd594a8bf7a",
+    "935f3073dd5eb1dc"
+   ],
+   "normalized_subject": "this day in sports history october 29 country 103 7 charlotte",
+   "people": [],
+   "published_at": "2026-10-29T08:27:53.998506+00:00",
+   "region": "",
+   "run_id": "2026-10-29-PM",
+   "sector": "On This Date",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 530
+  },
+  {
+   "central_claim": "The Top 10 Board Games of 2025 Player Elimination",
+   "central_knowledge_unit": "the top 10 board games of 2025",
+   "content_id": "62049f5119526e9d",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "62049f5119526e9d",
+    "54d597a30c733971"
+   ],
+   "normalized_subject": "the top 10 board games of 2025",
+   "people": [],
+   "published_at": "2026-10-29T08:28:06.265880+00:00",
+   "region": "",
+   "run_id": "2026-10-29-PM",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 531
+  },
+  {
+   "central_claim": "World Nomad Games 2026 Explained: The Sports, the Stakes and What Survives Closing Night Open Magazine",
+   "central_knowledge_unit": "world nomad games 2026 explained the sports the stakes and what survives closing night open magazine",
+   "content_id": "659ee6b4b4072aa9",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "659ee6b4b4072aa9",
+    "0316adbdc67bc435"
+   ],
+   "normalized_subject": "world nomad games 2026 explained the sports the stakes and what survives closing night open magazine",
+   "people": [],
+   "published_at": "2026-10-29T08:28:19.998585+00:00",
+   "region": "",
+   "run_id": "2026-10-29-PM",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 532
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-28T19:58:54.020542+00:00"
+ "updated_at": "2026-10-29T08:28:19.998667+00:00"
 }
