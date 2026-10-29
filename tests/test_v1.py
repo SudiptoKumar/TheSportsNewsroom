@@ -636,6 +636,14 @@ class TestV1Contracts(OfflineProviderIsolationMixin, unittest.TestCase):
         self.assertIn("<footer><b>Source:</b> ",rich)
         self.assertEqual(2,rich.count("<a href="))
 
+    def test_postcard_preview_line_is_content_and_abbreviations_hold(self):
+        story={"headline":"Sports Shaped American Culture","body":"Sports have been a pillar of U.S. culture for over a century. It grew from college fields to national rituals.","format":"Then vs Now","sources":[("Example","https://example.com/story")],"tags":["#Sports"],"people":[],"central_claim":"A documented tradition","historical_year":"1890","image_status":"pending"}
+        rich=main.render_evergreen_rich_html(story)
+        self.assertIn("<p><b>Sports have been a pillar of U.S. culture for over a century.</b></p>",rich)
+        block=rich.split("<b>FULL STORY</b><br>",1)[1]
+        self.assertTrue(block.startswith("It grew from college fields"))
+        self.assertLess(block.index("It grew"),block.index("Then vs Now"))
+
     def test_image_search_success_needs_no_fallback(self):
         story={"headline":"Example football history","normalized_subject":"Example football history","central_knowledge_unit":"Example football history","topic":"Example football history","sector":"Sport Discovery","sources":[],"people":[]}
         candidate={"image_url":"https://img.example/original.jpg","page_url":"https://example.com/story","title":"Example football history photo","alt":"football history","source_name":"Example","provider":"bing_images","score":90}
