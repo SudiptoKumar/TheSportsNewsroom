@@ -755,6 +755,23 @@ def _bold_terms_html(raw: str, terms) -> str:
     return escaped
 
 
+_SENTENCE_ABBREVIATIONS = {"u.s", "u.k", "u.n", "e.g", "i.e", "mr", "mrs", "ms", "dr", "st", "vs", "jr", "sr", "prof", "no", "fig", "inc", "ltd", "co", "approx", "dept", "est", "gen", "sen", "rep", "gov"}
+
+
+def _split_first_sentence(body: str):
+    """Split BODY into (first sentence, remainder) without breaking on
+    abbreviations or acronyms such as "U.S." / "Dr." — a naive regex split
+    turned 'Sports have been a pillar of U.S. culture' into a broken
+    essence line ('...pillar of U.S.') on a live post, 2026-10-30."""
+    for match in re.finditer(r"[.!?]\s+", body):
+        head = body[:match.start() + 1]
+        token = head.rsplit(" ", 1)[-1].strip("()\"'\u201c\u201d").rstrip(".!?").lower()
+        if token in _SENTENCE_ABBREVIATIONS or len(token) <= 1 or "." in token:
+            continue
+        return head, body[match.end():].lstrip()
+    return body, ""
+
+
 def render_evergreen_rich_html(story: dict) -> str:
     """Build the evergreen post as a Telegram rich message (HTML form) in
     the network POSTCARD format: photo, H1 headline, the story in one bold
@@ -775,24 +792,25 @@ def render_evergreen_rich_html(story: dict) -> str:
         effective_channel_url = CHANNEL_URL
         effective_channel_name = CHANNEL_DISPLAY_NAME
     channel_link = f'<b><a href="{esc_attr(effective_channel_url)}">{esc(effective_channel_name)}</a></b>'
-    sentences = re.split(r"(?<=[.!?])\s+", body, maxsplit=1)
-    essence = sentences[0]
-    rest = sentences[1] if len(sentences) > 1 else ""
+    essence, rest = _split_first_sentence(body)
     parts = [
         '<img src="tg://photo?id=newsphoto">',
         f"<h1>{esc(headline)}</h1>",
         f"<p><b>{_bold_terms_html(essence, story.get('people'))}</b></p>",
     ]
+    # Collapsed, Telegram shows the FULL STORY header plus about one more
+    # line — that line must be real story text, never a label. Order:
+    # story text first, facts next, the format label last (Karn, 2026-10-30).
     story_blocks = []
-    fmt = text(story.get("format")).strip()
-    if fmt:
-        story_blocks.append(f"<b>{esc(fmt)}</b>")
     if rest:
         story_blocks.append(_bold_terms_html(rest, story.get('people')))
     items = _card_info_items(story)
     if items:
         lines = "<br>".join(f"• <b>{esc(label.title())}:</b> {esc(value)}" for label, value in items)
         story_blocks.append(lines)
+    fmt = text(story.get("format")).strip()
+    if fmt:
+        story_blocks.append(f"<b>{esc(fmt)}</b>")
     if story_blocks:
         parts.append(
             "<blockquote expandable><b>FULL STORY</b><br>"
