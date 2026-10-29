@@ -4474,7 +4474,7 @@ def v1_architecture_tests() -> int:
     channel_tag_line=next((ln for ln in public_html.splitlines() if "<b><a href=" in ln and "Sports News" in ln), "")
     ck(len(re.findall(r"#[A-Za-z0-9]+", channel_tag_line)) == 2, "evergreen has exactly two hashtags")
     rich_sample_html=render_evergreen_rich_html({**render_sample,"format":"Records & Milestones","central_claim":"A documented tradition with verified origins","historical_year":"1890"})
-    ck(rich_sample_html.startswith('<img src="tg://photo?id=newsphoto">') and "<h1>" in rich_sample_html and "<aside>" in rich_sample_html and "KEY FACTS" in rich_sample_html and "<footer>" in rich_sample_html, "evergreen rich HTML has photo, H1, format chip, key facts and source footer")
+    ck(rich_sample_html.startswith('<img src="tg://photo?id=newsphoto">') and "<h1>" in rich_sample_html and "<aside>" not in rich_sample_html and "<p><b>" in rich_sample_html and "<b>FULL STORY</b>" in rich_sample_html and rich_sample_html.count("<blockquote expandable>") == 1 and "Key Fact:" in rich_sample_html and "<footer>" in rich_sample_html, "evergreen rich HTML has photo, H1, bold essence line, expandable FULL STORY with key facts and source footer")
     ck("https://example.com/b" not in re.sub(r'href="[^"]+"', '', public_html), "non-public source URL hidden")
     ck(IMAGE_ALLOWED_MIME == {"image/jpeg","image/png","image/webp"}, "image MIME contract supports webp normalization")
     ck(IMAGE_MIN_ASPECT <= 0.75 and IMAGE_MAX_ASPECT >= 1.9, "image geometry guard")
