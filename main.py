@@ -26,6 +26,8 @@ import tempfile
 from html.parser import HTMLParser
 import threading
 import time
+
+import cerebras_keys
 import xml.etree.ElementTree as ET
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
@@ -1721,7 +1723,7 @@ class AIClient:
         if self._model_fallback_tried:
             return False
         self._model_fallback_tried = True
-        r = http("cerebras", "GET", self.MODELS_URL, headers={"Authorization": f"Bearer {CEREBRAS_API_KEY}"}, timeout=20, retries=1)
+        r = http("cerebras", "GET", self.MODELS_URL, headers={"Authorization": f"Bearer {cerebras_keys.active_key() or CEREBRAS_API_KEY}"}, timeout=20, retries=1)
         self._capture_headers(r)
         models=[]
         if r.ok and isinstance(r.data,dict):
@@ -1756,6 +1758,16 @@ class AIClient:
             self.last_error = self.last_error or "circuit open"
             return None
         out = self._json(*args, **kwargs)
+        # Multi-key failover (2026-10-31): a fatal quota/auth death (402,
+        # 401/403, quota-exhausted 429) retires the active key for the run
+        # and the call retries on the next key; the owner is alerted via
+        # the Newsroom bot. Plain rate-limit backoff above stays untouched.
+        while out is None and self.fatal and cerebras_keys.is_quota_status(self.last_status):
+            if not cerebras_keys.failover(self.last_status):
+                break
+            self.fatal = False
+            self.failures = 0
+            out = self._json(*args, **kwargs)
         self.failures = 0 if out is not None else self.failures + 1
         if self.failures == 3:
             logger.error("Cerebras failed 3 times in a row: %s", self.last_error)
@@ -1772,7 +1784,7 @@ class AIClient:
         budget = max(256, int(max_tokens))
         repaired = False
         payload_headers = {
-            "Authorization": f"Bearer {CEREBRAS_API_KEY}",
+            "Authorization": f"Bearer {cerebras_keys.active_key() or CEREBRAS_API_KEY}",
             "Content-Type": "application/json",
             "X-Cerebras-Version-Patch": CEREBRAS_API_VERSION,
         }
@@ -4600,7 +4612,7 @@ def _run_diagnose() -> int:
 def v1_cerebras_preflight() -> tuple[bool, str]:
     if not CEREBRAS_API_KEY:
         return False, "CEREBRAS_API_KEY is empty"
-    r=http("cerebras","GET",AIClient.MODELS_URL,headers={"Authorization":f"Bearer {CEREBRAS_API_KEY}","X-Cerebras-Version-Patch":CEREBRAS_API_VERSION},timeout=20,retries=1)
+    r=http("cerebras","GET",AIClient.MODELS_URL,headers={"Authorization":f"Bearer {cerebras_keys.active_key() or CEREBRAS_API_KEY}","X-Cerebras-Version-Patch":CEREBRAS_API_VERSION},timeout=20,retries=1)
     if not r.ok or not isinstance(r.data,dict):
         return False, AIClient._error_detail(r)
     ids=[text(x.get("id")) for x in (r.data.get("data") or []) if isinstance(x,dict)]
