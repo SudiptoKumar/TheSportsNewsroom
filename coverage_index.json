@@ -13396,8 +13396,173 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 535
+  },
+  {
+   "central_claim": "NFC East makes unwanted history as first division ever to go winless in consecutive weeks CBS Sports",
+   "central_knowledge_unit": "nfc east makes unwanted history as first division ever to go winless in consecutive weeks cbs sports",
+   "content_id": "dc88821945f16554",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "76b4c3b6c03db890",
+    "f9c561aa9581f86d"
+   ],
+   "legacy": true,
+   "normalized_subject": "nfc east makes unwanted history as first division ever to go winless in consecutive weeks",
+   "people": [],
+   "published_at": "2026-10-29T19:31:57.307809+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "cbssports.com/nfl/news/nfc-east-makes-unwanted-history-nfl"
+   ],
+   "sport_or_game": "NFC East makes unwanted history as first division ever to go winless in consecutive weeks",
+   "telegram_message_id": 533
+  },
+  {
+   "central_claim": "Observing history through sports: The importance and relevance of sports within a culture Liberty University",
+   "central_knowledge_unit": "observing history through sports the importance and relevance of sports within a culture liberty university",
+   "content_id": "d7de575ce6879cf1",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "ac4c71e6c63aaa37",
+    "4724784102ef4282"
+   ],
+   "legacy": true,
+   "normalized_subject": "observing history through sports the importance and relevance of sports within a culture liberty university",
+   "people": [],
+   "published_at": "2026-10-29T19:32:11.596148+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "liberty.edu/champion/2024/04/08/observing-history-through-sports-the-importance-and-relevance-of-sports-within-a-culture"
+   ],
+   "sport_or_game": "Observing history through sports: The importance and relevance of sports within a culture - Liberty University",
+   "telegram_message_id": 534
+  },
+  {
+   "central_claim": "Where Basketball was Invented: The History of Basketball Springfield College",
+   "central_knowledge_unit": "where basketball was invented the history of basketball springfield college",
+   "content_id": "619f6e1fcfc02b1b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "33cbbf528fdeab01",
+    "9c5ea0a0e5c3dbd1"
+   ],
+   "legacy": true,
+   "normalized_subject": "where basketball was invented the history of basketball springfield college",
+   "people": [],
+   "published_at": "2026-10-29T19:32:21.290434+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "springfield.edu/about/birthplace-of-basketball"
+   ],
+   "sport_or_game": "Where Basketball was Invented: The History of Basketball - Springfield College",
+   "telegram_message_id": 535
+  },
+  {
+   "central_claim": "Flag Football: The Complete Guide to Rules and the 2028 Olympics nss sports",
+   "central_knowledge_unit": "flag football the complete guide to rules and the 2028 olympics",
+   "content_id": "7fa9d716ba0341f5",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7fa9d716ba0341f5",
+    "e30ca9fb7721e50f"
+   ],
+   "normalized_subject": "flag football the complete guide to rules and the 2028 olympics",
+   "people": [],
+   "published_at": "2026-10-30T08:35:54.963408+00:00",
+   "region": "",
+   "run_id": "2026-10-30-PM",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 536
+  },
+  {
+   "central_claim": "How Did Ski Mountaineering Become an Olympic Sport? History.com",
+   "central_knowledge_unit": "how did ski mountaineering become an olympic sport",
+   "content_id": "20909a486efbd7d4",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "20909a486efbd7d4",
+    "9e3bb1ac0bce141e"
+   ],
+   "normalized_subject": "how did ski mountaineering become an olympic sport",
+   "people": [],
+   "published_at": "2026-10-30T08:36:04.856619+00:00",
+   "region": "",
+   "run_id": "2026-10-30-PM",
+   "sector": "Sport Origin",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 537
+  },
+  {
+   "central_claim": "Know Your Herstory: 10 sports pioneers to celebrate for Women's History Month Yahoo Sports",
+   "central_knowledge_unit": "know your herstory 10 sports pioneers to celebrate for women s history month yahoo sports",
+   "content_id": "8b71a7ada8767504",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "8b71a7ada8767504",
+    "8f1eb8334ae94bcf"
+   ],
+   "normalized_subject": "know your herstory 10 sports pioneers to celebrate for women s history month yahoo sports",
+   "people": [],
+   "published_at": "2026-10-30T08:36:30.633392+00:00",
+   "region": "",
+   "run_id": "2026-10-30-PM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 538
+  },
+  {
+   "central_claim": "This Day in Sports History: October 30 93.3 WMMR",
+   "central_knowledge_unit": "this day in sports history october 30 93 3 wmmr",
+   "content_id": "668d1cc5cdd291fe",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "668d1cc5cdd291fe",
+    "730face48577d22e"
+   ],
+   "normalized_subject": "this day in sports history october 30 93 3 wmmr",
+   "people": [],
+   "published_at": "2026-10-30T08:36:42.022830+00:00",
+   "region": "",
+   "run_id": "2026-10-30-PM",
+   "sector": "On This Date",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 539
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-29T19:32:21.290413+00:00"
+ "updated_at": "2026-10-30T08:36:42.022917+00:00"
 }

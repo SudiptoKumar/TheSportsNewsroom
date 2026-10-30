@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-10-29T19:32:32.342945+00:00",
-  "last_request_id": "a5249b54ae08e1bd-ORD",
+  "last_ok": "2026-10-30T08:36:51.782254+00:00",
+  "last_request_id": "a529183e6f04ec1f-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-29T19:32:32.343186+00:00",
+ "last_run_at": "2026-10-30T08:36:51.782529+00:00",
  "ledger": {},
  "posts": [
   {
@@ -6252,6 +6252,91 @@
    "urls": [
     "springfield.edu/about/birthplace-of-basketball"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Flag Football: The Complete Guide to Rules and the 2028 Olympics",
+   "claim": "Flag Football: The Complete Guide to Rules and the 2028 Olympics nss sports",
+   "desk": "evergreen_v1",
+   "format": "New Sport Discovery",
+   "headline": "Flag Football Set to Debut at the 2028 Los Angeles Olympics",
+   "image_status": "verified_external",
+   "message_id": 536,
+   "normalized_subject": "Flag Football: The Complete Guide to Rules and the 2028 Olympics",
+   "posted_at": "2026-10-30T08:35:54.963539+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-30-PM",
+   "sector": "New Sport Discovery",
+   "topic": "Flag Football: The Complete Guide to Rules and the 2028 Olympics",
+   "urls": [
+    "nss-sports.com/en/long-form/46509/flag-football-guide-rules-olympics-2028"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "How Did Ski Mountaineering Become an Olympic Sport?",
+   "claim": "How Did Ski Mountaineering Become an Olympic Sport? History.com",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "Ski Mountaineering Set to Debut at the 2026 Winter Olympics",
+   "image_status": "card_fallback",
+   "message_id": 537,
+   "normalized_subject": "How Did Ski Mountaineering Become an Olympic Sport?",
+   "posted_at": "2026-10-30T08:36:04.856735+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-30-PM",
+   "sector": "Sport Origin",
+   "topic": "How Did Ski Mountaineering Become an Olympic Sport?",
+   "urls": [
+    "history.com/articles/ski-mountaineering-origins-skimo-biathlon"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Know Your Herstory: 10 sports pioneers to celebrate for Women's History Month - Yahoo Sports",
+   "claim": "Know Your Herstory: 10 sports pioneers to celebrate for Women's History Month Yahoo Sports",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Yahoo Sports highlights ten women pioneers in sports",
+   "image_status": "verified_external",
+   "message_id": 538,
+   "normalized_subject": "Know Your Herstory: 10 sports pioneers to celebrate for Women's History Month - Yahoo Sports",
+   "posted_at": "2026-10-30T08:36:30.633532+00:00",
+   "research_urls": [
+    "",
+    ""
+   ],
+   "run_id": "2026-10-30-PM",
+   "sector": "Sports & Games People",
+   "topic": "Know Your Herstory: 10 sports pioneers to celebrate for Women's History Month - Yahoo Sports",
+   "urls": [
+    "sports.yahoo.com/womens-history-sports-pioneers-10-140838754.html"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "This Day in Sports History: October 30 - 93.3 WMMR",
+   "claim": "This Day in Sports History: October 30 93.3 WMMR",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "1954 NBA Introduces 24‑Second Shot Clock on October 30",
+   "image_status": "verified_external",
+   "message_id": 539,
+   "normalized_subject": "This Day in Sports History: October 30 - 93.3 WMMR",
+   "posted_at": "2026-10-30T08:36:42.022951+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-30-PM",
+   "sector": "On This Date",
+   "topic": "This Day in Sports History: October 30 - 93.3 WMMR",
+   "urls": [
+    "wmmr.com/2026/10/30/this-day-in-sports-history-october-30-2"
+   ]
   }
  ],
  "runs": [],
@@ -6403,27 +6488,31 @@
     "published_sectors": [
      "First / Last / Only",
      "Then vs Now",
-     "Sport Origin"
+     "Sport Origin",
+     "New Sport Discovery",
+     "Sports & Games People",
+     "On This Date"
     ],
     "run_ids": [
-     "2026-10-30-AM"
+     "2026-10-30-AM",
+     "2026-10-30-PM"
     ]
    }
   },
-  "last_run_at": "2026-10-29T19:32:32.343165+00:00",
+  "last_run_at": "2026-10-30T08:36:51.782496+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-29T19:36:39.961894+00:00"
+    "updated_at": "2026-10-30T08:36:51.782459+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-29T19:36:39.961889+00:00"
+    "updated_at": "2026-10-30T08:36:51.782451+00:00"
    }
   },
   "publication": {
@@ -6806,6 +6895,26 @@
     "message_id": 535,
     "posted_at": "2026-10-29T19:32:21.290270+00:00",
     "status": "posted"
+   },
+   "2026-10-30-PM:evergreen:1e29a63bdfd9013b": {
+    "message_id": 539,
+    "posted_at": "2026-10-30T08:36:42.022720+00:00",
+    "status": "posted"
+   },
+   "2026-10-30-PM:evergreen:1ea67968b39a52c7": {
+    "message_id": 538,
+    "posted_at": "2026-10-30T08:36:30.633271+00:00",
+    "status": "posted"
+   },
+   "2026-10-30-PM:evergreen:cc6382b85f5e3888": {
+    "message_id": 537,
+    "posted_at": "2026-10-30T08:36:04.856514+00:00",
+    "status": "posted"
+   },
+   "2026-10-30-PM:evergreen:e0a8883a02d5217b": {
+    "message_id": 536,
+    "posted_at": "2026-10-30T08:35:54.963291+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -7000,6 +7109,18 @@
      "First / Last / Only",
      "Sport Origin",
      "Then vs Now"
+    ]
+   },
+   {
+    "at": "2026-10-30T08:36:51.782504+00:00",
+    "evergreen": 4,
+    "exit": 0,
+    "run_id": "2026-10-30-PM",
+    "used_sectors": [
+     "New Sport Discovery",
+     "On This Date",
+     "Sport Origin",
+     "Sports & Games People"
     ]
    }
   ],
