@@ -13561,8 +13561,173 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 539
+  },
+  {
+   "central_claim": "Flag Football: The Complete Guide to Rules and the 2028 Olympics nss sports",
+   "central_knowledge_unit": "flag football the complete guide to rules and the 2028 olympics nss sports",
+   "content_id": "83e06600074e62a6",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e30ca9fb7721e50f",
+    "006273846da328fe"
+   ],
+   "legacy": true,
+   "normalized_subject": "flag football the complete guide to rules and the 2028 olympics",
+   "people": [],
+   "published_at": "2026-10-30T08:35:54.963539+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "nss-sports.com/en/long-form/46509/flag-football-guide-rules-olympics-2028"
+   ],
+   "sport_or_game": "Flag Football: The Complete Guide to Rules and the 2028 Olympics",
+   "telegram_message_id": 536
+  },
+  {
+   "central_claim": "How Did Ski Mountaineering Become an Olympic Sport? History.com",
+   "central_knowledge_unit": "how did ski mountaineering become an olympic sport history com",
+   "content_id": "c80e26b2444e5dd5",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9e3bb1ac0bce141e",
+    "0228ec9a38662aae"
+   ],
+   "legacy": true,
+   "normalized_subject": "how did ski mountaineering become an olympic sport",
+   "people": [],
+   "published_at": "2026-10-30T08:36:04.856735+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "history.com/articles/ski-mountaineering-origins-skimo-biathlon"
+   ],
+   "sport_or_game": "How Did Ski Mountaineering Become an Olympic Sport?",
+   "telegram_message_id": 537
+  },
+  {
+   "central_claim": "Know Your Herstory: 10 sports pioneers to celebrate for Women's History Month Yahoo Sports",
+   "central_knowledge_unit": "know your herstory 10 sports pioneers to celebrate for women s history month yahoo sports",
+   "content_id": "670f227e7c465fd5",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "8f1eb8334ae94bcf",
+    "1ea67968b39a52c7"
+   ],
+   "legacy": true,
+   "normalized_subject": "know your herstory 10 sports pioneers to celebrate for women s history month yahoo sports",
+   "people": [],
+   "published_at": "2026-10-30T08:36:30.633532+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "sports.yahoo.com/womens-history-sports-pioneers-10-140838754.html"
+   ],
+   "sport_or_game": "Know Your Herstory: 10 sports pioneers to celebrate for Women's History Month - Yahoo Sports",
+   "telegram_message_id": 538
+  },
+  {
+   "central_claim": "This Day in Sports History: October 30 93.3 WMMR",
+   "central_knowledge_unit": "this day in sports history october 30 93 3 wmmr",
+   "content_id": "2c0b76d118177d4a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "730face48577d22e",
+    "1e29a63bdfd9013b"
+   ],
+   "legacy": true,
+   "normalized_subject": "this day in sports history october 30 93 3 wmmr",
+   "people": [],
+   "published_at": "2026-10-30T08:36:42.022951+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "wmmr.com/2026/10/30/this-day-in-sports-history-october-30-2"
+   ],
+   "sport_or_game": "This Day in Sports History: October 30 - 93.3 WMMR",
+   "telegram_message_id": 539
+  },
+  {
+   "central_claim": "Q&A: 250 years of sports in the United States EurekAlert!",
+   "central_knowledge_unit": "q a 250 years of sports in the united states",
+   "content_id": "e3569a1dcc2c4adc",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e3569a1dcc2c4adc",
+    "5b010dc157bd9db6"
+   ],
+   "normalized_subject": "q a 250 years of sports in the united states",
+   "people": [],
+   "published_at": "2026-10-30T19:20:36.525774+00:00",
+   "region": "",
+   "run_id": "2026-10-31-AM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 540
+  },
+  {
+   "central_claim": "This Week in High School Sports History: On Halloween 1986, Russell Gunter Set a Record That Still Stands Sports Illustrated",
+   "central_knowledge_unit": "this week in high school sports history on halloween 1986 russell gunter set a record that still stands",
+   "content_id": "17d3519df4f25a23",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "17d3519df4f25a23",
+    "43e9103d5cea5b74"
+   ],
+   "normalized_subject": "this week in high school sports history on halloween 1986 russell gunter set a record that still stands",
+   "people": [],
+   "published_at": "2026-10-30T19:20:48.845508+00:00",
+   "region": "",
+   "run_id": "2026-10-31-AM",
+   "sector": "On This Date",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 541
+  },
+  {
+   "central_claim": "Impossible to Google: Indiana Completes Unlikeliest Turnaround in Sports History Sports Illustrated",
+   "central_knowledge_unit": "impossible to google indiana completes unlikeliest turnaround in sports history",
+   "content_id": "02af0888191e5786",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "02af0888191e5786",
+    "0e8412a04f5bb653"
+   ],
+   "normalized_subject": "impossible to google indiana completes unlikeliest turnaround in sports history",
+   "people": [],
+   "published_at": "2026-10-30T19:21:01.407075+00:00",
+   "region": "",
+   "run_id": "2026-10-31-AM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 542
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-30T08:36:42.022917+00:00"
+ "updated_at": "2026-10-30T19:21:01.407126+00:00"
 }

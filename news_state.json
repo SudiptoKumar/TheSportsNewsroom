@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-10-30T08:36:51.782254+00:00",
-  "last_request_id": "a529183e6f04ec1f-CMH",
+  "last_ok": "2026-10-30T19:21:23.771371+00:00",
+  "last_request_id": "a52cc8619c824660-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-30T08:36:51.782529+00:00",
+ "last_run_at": "2026-10-30T19:21:23.771910+00:00",
  "ledger": {},
  "posts": [
   {
@@ -6337,6 +6337,69 @@
    "urls": [
     "wmmr.com/2026/10/30/this-day-in-sports-history-october-30-2"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Q&A: 250 years of sports in the United States",
+   "claim": "Q&A: 250 years of sports in the United States EurekAlert!",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "Sports in America Evolved Over 250 Years, Yet Remain Cultural Core",
+   "image_status": "card_fallback",
+   "message_id": 540,
+   "normalized_subject": "Q&A: 250 years of sports in the United States",
+   "posted_at": "2026-10-30T19:20:36.525852+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-31-AM",
+   "sector": "Then vs Now",
+   "topic": "Q&A: 250 years of sports in the United States",
+   "urls": [
+    "eurekalert.org/news-releases/1131241"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "This Week in High School Sports History: On Halloween 1986, Russell Gunter Set a Record That Still Stands",
+   "claim": "This Week in High School Sports History: On Halloween 1986, Russell Gunter Set a Record That Still Stands Sports Illustrated",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "Russell Gunter’s 72‑Carry Game Sets Enduring High School Record",
+   "image_status": "verified_external",
+   "message_id": 541,
+   "normalized_subject": "This Week in High School Sports History: On Halloween 1986, Russell Gunter Set a Record That Still Stands",
+   "posted_at": "2026-10-30T19:20:48.845598+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-31-AM",
+   "sector": "On This Date",
+   "topic": "This Week in High School Sports History: On Halloween 1986, Russell Gunter Set a Record That Still Stands",
+   "urls": [
+    "si.com/high-school/football/this-week-in-high-school-sports-history-on-halloween-1986-russell-gunter-set-a-record-that-still-stands-01m60965tvgv"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Impossible to Google: Indiana Completes Unlikeliest Turnaround in Sports History",
+   "claim": "Impossible to Google: Indiana Completes Unlikeliest Turnaround in Sports History Sports Illustrated",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "Indiana Hoosiers Seal Perfect Season with Bold Fourth‑Down Call",
+   "image_status": "verified_external",
+   "message_id": 542,
+   "normalized_subject": "Impossible to Google: Indiana Completes Unlikeliest Turnaround in Sports History",
+   "posted_at": "2026-10-30T19:21:01.407149+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-31-AM",
+   "sector": "First / Last / Only",
+   "topic": "Impossible to Google: Indiana Completes Unlikeliest Turnaround in Sports History",
+   "urls": [
+    "si.com/college-football/indiana-completes-unlikeliest-turnaround-in-sports-history-wins-title-digital-cover"
+   ]
   }
  ],
  "runs": [],
@@ -6497,22 +6560,32 @@
      "2026-10-30-AM",
      "2026-10-30-PM"
     ]
+   },
+   "2026-10-31": {
+    "published_sectors": [
+     "Then vs Now",
+     "On This Date",
+     "First / Last / Only"
+    ],
+    "run_ids": [
+     "2026-10-31-AM"
+    ]
    }
   },
-  "last_run_at": "2026-10-30T08:36:51.782496+00:00",
+  "last_run_at": "2026-10-30T19:21:23.771889+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-30T08:36:51.782459+00:00"
+    "updated_at": "2026-10-30T19:21:23.771872+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-30T08:36:51.782451+00:00"
+    "updated_at": "2026-10-30T19:21:23.771867+00:00"
    }
   },
   "publication": {
@@ -6915,6 +6988,21 @@
     "message_id": 536,
     "posted_at": "2026-10-30T08:35:54.963291+00:00",
     "status": "posted"
+   },
+   "2026-10-31-AM:evergreen:2754c9ebbf7be236": {
+    "message_id": 542,
+    "posted_at": "2026-10-30T19:21:01.406989+00:00",
+    "status": "posted"
+   },
+   "2026-10-31-AM:evergreen:825caab6f7b743ba": {
+    "message_id": 540,
+    "posted_at": "2026-10-30T19:20:36.525700+00:00",
+    "status": "posted"
+   },
+   "2026-10-31-AM:evergreen:d15dd6491dbc18eb": {
+    "message_id": 541,
+    "posted_at": "2026-10-30T19:20:48.845400+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -7121,6 +7209,17 @@
      "On This Date",
      "Sport Origin",
      "Sports & Games People"
+    ]
+   },
+   {
+    "at": "2026-10-30T19:21:23.771893+00:00",
+    "evergreen": 3,
+    "exit": 0,
+    "run_id": "2026-10-31-AM",
+    "used_sectors": [
+     "First / Last / Only",
+     "On This Date",
+     "Then vs Now"
     ]
    }
   ],
