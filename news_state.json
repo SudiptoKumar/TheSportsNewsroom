@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-10-31T08:25:26.111401+00:00",
-  "last_request_id": "a53144e0abf510ea-ORD",
+  "last_ok": "2026-10-31T18:33:21.231009+00:00",
+  "last_request_id": "a534bf613de616d3-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-31T08:25:26.111670+00:00",
+ "last_run_at": "2026-10-31T18:33:27.242026+00:00",
  "ledger": {},
  "posts": [
   {
@@ -6506,6 +6506,69 @@
    "urls": [
     "sports.yahoo.com/articles/wnba-first-finals-game-7-143949166.html"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Man Utd v Leeds: The first soccer game between two English sides at Croke Park, Dublin",
+   "claim": "Man Utd v Leeds: The first soccer game between two English sides at Croke Park, Dublin BBC",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "Manchester United vs Leeds United Marks First English Club Match at Croke Park",
+   "image_status": "verified_external",
+   "message_id": 548,
+   "normalized_subject": "Man Utd v Leeds: The first soccer game between two English sides at Croke Park, Dublin",
+   "posted_at": "2026-10-31T18:32:22.610553+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-01-AM",
+   "sector": "Then vs Now",
+   "topic": "Man Utd v Leeds: The first soccer game between two English sides at Croke Park, Dublin",
+   "urls": [
+    "bbc.com/sport/football/articles/cy07d05ddr7o"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "This Day in Sports History: September 24 - 93.3 WMMR",
+   "claim": "This Day in Sports History: September 24 93.3 WMMR",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "September 24 Marks Historic Baseball Milestones",
+   "image_status": "verified_external",
+   "message_id": 549,
+   "normalized_subject": "This Day in Sports History: September 24 - 93.3 WMMR",
+   "posted_at": "2026-10-31T18:33:11.053789+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-01-AM",
+   "sector": "On This Date",
+   "topic": "This Day in Sports History: September 24 - 93.3 WMMR",
+   "urls": [
+    "wmmr.com/2026/09/24/this-day-in-sports-history-september-24-2"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "This Day in Sports History: October 12",
+   "claim": "This Day in Sports History: October 12 Backstage Country",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "October 12 Marks Historic First World Series Victory for the Cubs",
+   "image_status": "verified_external",
+   "message_id": 550,
+   "normalized_subject": "This Day in Sports History: October 12",
+   "posted_at": "2026-10-31T18:33:24.222534+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-01-AM",
+   "sector": "First / Last / Only",
+   "topic": "This Day in Sports History: October 12",
+   "urls": [
+    "backstagecountry.com/2026/10/12/this-day-in-sports-history-october-12-2"
+   ]
   }
  ],
  "runs": [],
@@ -6680,22 +6743,32 @@
      "2026-10-31-AM",
      "2026-10-31-PM"
     ]
+   },
+   "2026-11-01": {
+    "published_sectors": [
+     "Then vs Now",
+     "On This Date",
+     "First / Last / Only"
+    ],
+    "run_ids": [
+     "2026-11-01-AM"
+    ]
    }
   },
-  "last_run_at": "2026-10-31T08:25:26.111639+00:00",
+  "last_run_at": "2026-10-31T18:33:27.241983+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-31T08:25:26.111611+00:00"
+    "updated_at": "2026-10-31T18:33:27.241952+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-31T08:25:26.111598+00:00"
+    "updated_at": "2026-10-31T18:33:27.241942+00:00"
    }
   },
   "publication": {
@@ -7138,6 +7211,21 @@
     "message_id": 546,
     "posted_at": "2026-10-31T08:25:04.434337+00:00",
     "status": "posted"
+   },
+   "2026-11-01-AM:evergreen:068309782f09b380": {
+    "message_id": 550,
+    "posted_at": "2026-10-31T18:33:24.222264+00:00",
+    "status": "posted"
+   },
+   "2026-11-01-AM:evergreen:3ca1863f5fe888b3": {
+    "message_id": 548,
+    "posted_at": "2026-10-31T18:32:22.610309+00:00",
+    "status": "posted"
+   },
+   "2026-11-01-AM:evergreen:61b9ad114f1e0cc7": {
+    "message_id": 549,
+    "posted_at": "2026-10-31T18:33:11.053590+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -7367,6 +7455,17 @@
      "First / Last / Only",
      "Rule Check",
      "Sports & Games People",
+     "Then vs Now"
+    ]
+   },
+   {
+    "at": "2026-10-31T18:33:27.241992+00:00",
+    "evergreen": 3,
+    "exit": 0,
+    "run_id": "2026-11-01-AM",
+    "used_sectors": [
+     "First / Last / Only",
+     "On This Date",
      "Then vs Now"
     ]
    }
