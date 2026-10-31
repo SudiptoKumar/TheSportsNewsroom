@@ -13726,8 +13726,196 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 542
+  },
+  {
+   "central_claim": "Q&A: 250 years of sports in the United States EurekAlert!",
+   "central_knowledge_unit": "q a 250 years of sports in the united states eurekalert",
+   "content_id": "4af07e8714518a83",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "5b010dc157bd9db6",
+    "cfbab7a7ef9b7bae"
+   ],
+   "legacy": true,
+   "normalized_subject": "q a 250 years of sports in the united states",
+   "people": [],
+   "published_at": "2026-10-30T19:20:36.525852+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "eurekalert.org/news-releases/1131241"
+   ],
+   "sport_or_game": "Q&A: 250 years of sports in the United States",
+   "telegram_message_id": 540
+  },
+  {
+   "central_claim": "This Week in High School Sports History: On Halloween 1986, Russell Gunter Set a Record That Still Stands Sports Illustrated",
+   "central_knowledge_unit": "this week in high school sports history on halloween 1986 russell gunter set a record that still stands sports illustrated",
+   "content_id": "09c884863f8a08f6",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "43e9103d5cea5b74",
+    "f3023396a78c869e"
+   ],
+   "legacy": true,
+   "normalized_subject": "this week in high school sports history on halloween 1986 russell gunter set a record that still stands",
+   "people": [],
+   "published_at": "2026-10-30T19:20:48.845598+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "si.com/high-school/football/this-week-in-high-school-sports-history-on-halloween-1986-russell-gunter-set-a-record-that-still-stands-01m60965tvgv"
+   ],
+   "sport_or_game": "This Week in High School Sports History: On Halloween 1986, Russell Gunter Set a Record That Still Stands",
+   "telegram_message_id": 541
+  },
+  {
+   "central_claim": "Impossible to Google: Indiana Completes Unlikeliest Turnaround in Sports History Sports Illustrated",
+   "central_knowledge_unit": "impossible to google indiana completes unlikeliest turnaround in sports history sports illustrated",
+   "content_id": "c5ada484b73b79cf",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "0e8412a04f5bb653",
+    "f45a62203f2d4252"
+   ],
+   "legacy": true,
+   "normalized_subject": "impossible to google indiana completes unlikeliest turnaround in sports history",
+   "people": [],
+   "published_at": "2026-10-30T19:21:01.407149+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "si.com/college-football/indiana-completes-unlikeliest-turnaround-in-sports-history-wins-title-digital-cover"
+   ],
+   "sport_or_game": "Impossible to Google: Indiana Completes Unlikeliest Turnaround in Sports History",
+   "telegram_message_id": 542
+  },
+  {
+   "central_claim": "Explaining MLB’s Rules for Domed Stadiums and Retractable Roofs Sports Illustrated",
+   "central_knowledge_unit": "explaining mlb s rules for domed stadiums and retractable roofs",
+   "content_id": "c249c34ac985fcab",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c249c34ac985fcab",
+    "f1eb0943e9a68abf"
+   ],
+   "normalized_subject": "explaining mlb s rules for domed stadiums and retractable roofs",
+   "people": [],
+   "published_at": "2026-10-31T08:24:15.992025+00:00",
+   "region": "",
+   "run_id": "2026-10-31-PM",
+   "sector": "Rule Check",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 543
+  },
+  {
+   "central_claim": "Women Who Changed the Game: Celebrating Progress in Sports During Women’s History Month Learfield",
+   "central_knowledge_unit": "women who changed the game celebrating progress in sports during women s history month",
+   "content_id": "e027b5f38a07363e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e027b5f38a07363e",
+    "3fb892cd384bc894"
+   ],
+   "normalized_subject": "women who changed the game celebrating progress in sports during women s history month",
+   "people": [],
+   "published_at": "2026-10-31T08:24:38.281792+00:00",
+   "region": "",
+   "run_id": "2026-10-31-PM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 544
+  },
+  {
+   "central_claim": "Friday Round-Up: LB Shaquem Griffin Surprises Adaptive Athletes With New Sports Equipment Seattle Seahawks",
+   "central_knowledge_unit": "friday round up lb shaquem griffin surprises adaptive athletes with new sports equipment seattle seahawks",
+   "content_id": "bbf51da50119b6b0",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "bbf51da50119b6b0",
+    "97428c1d68a3b35e"
+   ],
+   "normalized_subject": "friday round up lb shaquem griffin surprises adaptive athletes with new sports equipment seattle seahawks",
+   "people": [],
+   "published_at": "2026-10-31T08:24:51.664153+00:00",
+   "region": "",
+   "run_id": "2026-10-31-PM",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 545
+  },
+  {
+   "central_claim": "35 Black Athletes Who Changed the World Complex",
+   "central_knowledge_unit": "35 black athletes who changed the world",
+   "content_id": "616008691659b449",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "616008691659b449",
+    "172a206ce68e9e5f"
+   ],
+   "normalized_subject": "35 black athletes who changed the world",
+   "people": [],
+   "published_at": "2026-10-31T08:25:04.434427+00:00",
+   "region": "",
+   "run_id": "2026-10-31-PM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 546
+  },
+  {
+   "central_claim": "WNBA’s First Finals Game 7 Comes With a Record Price Tag Yahoo Sports",
+   "central_knowledge_unit": "wnba s first finals game 7 comes with a record price tag yahoo sports",
+   "content_id": "2bc21723fcf3e6e6",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "2bc21723fcf3e6e6",
+    "14ee09a7db06216c"
+   ],
+   "normalized_subject": "wnba s first finals game 7 comes with a record price tag yahoo sports",
+   "people": [],
+   "published_at": "2026-10-31T08:25:15.980308+00:00",
+   "region": "",
+   "run_id": "2026-10-31-PM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 547
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-30T19:21:01.407126+00:00"
+ "updated_at": "2026-10-31T08:25:15.980401+00:00"
 }

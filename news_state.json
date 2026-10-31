@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-10-30T19:21:23.771371+00:00",
-  "last_request_id": "a52cc8619c824660-CMH",
+  "last_ok": "2026-10-31T08:25:26.111401+00:00",
+  "last_request_id": "a53144e0abf510ea-ORD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-30T19:21:23.771910+00:00",
+ "last_run_at": "2026-10-31T08:25:26.111670+00:00",
  "ledger": {},
  "posts": [
   {
@@ -6400,6 +6400,112 @@
    "urls": [
     "si.com/college-football/indiana-completes-unlikeliest-turnaround-in-sports-history-wins-title-digital-cover"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Explaining MLB’s Rules for Domed Stadiums and Retractable Roofs",
+   "claim": "Explaining MLB’s Rules for Domed Stadiums and Retractable Roofs Sports Illustrated",
+   "desk": "evergreen_v1",
+   "format": "Rule Check",
+   "headline": "MLB Rule Confirms Roof Hits Remain Live Ball in Fair Territory",
+   "image_status": "verified_external",
+   "message_id": 543,
+   "normalized_subject": "Explaining MLB’s Rules for Domed Stadiums and Retractable Roofs",
+   "posted_at": "2026-10-31T08:24:15.992162+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-31-PM",
+   "sector": "Rule Check",
+   "topic": "Explaining MLB’s Rules for Domed Stadiums and Retractable Roofs",
+   "urls": [
+    "si.com/mlb/explaining-mlb-rules-domed-stadiums-retractable-roofs"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Women Who Changed the Game: Celebrating Progress in Sports During Women’s History Month",
+   "claim": "Women Who Changed the Game: Celebrating Progress in Sports During Women’s History Month Learfield",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Learfield Honors Pioneering Women Shaping Sports During History Month",
+   "image_status": "verified_external",
+   "message_id": 544,
+   "normalized_subject": "Women Who Changed the Game: Celebrating Progress in Sports During Women’s History Month",
+   "posted_at": "2026-10-31T08:24:38.281935+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-31-PM",
+   "sector": "Sports & Games People",
+   "topic": "Women Who Changed the Game: Celebrating Progress in Sports During Women’s History Month",
+   "urls": [
+    "learfield.com/2026/03/womens-history-month-women-who-changed-the-game"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Friday Round-Up: LB Shaquem Griffin Surprises Adaptive Athletes With New Sports Equipment - Seattle Seahawks",
+   "claim": "Friday Round-Up: LB Shaquem Griffin Surprises Adaptive Athletes With New Sports Equipment Seattle Seahawks",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "Shaquem Griffin Gifts Adaptive Sports Gear to Tampa Bay Athletes",
+   "image_status": "verified_external",
+   "message_id": 545,
+   "normalized_subject": "Friday Round-Up: LB Shaquem Griffin Surprises Adaptive Athletes With New Sports Equipment - Seattle Seahawks",
+   "posted_at": "2026-10-31T08:24:51.664323+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-31-PM",
+   "sector": "Equipment / Measurement",
+   "topic": "Friday Round-Up: LB Shaquem Griffin Surprises Adaptive Athletes With New Sports Equipment - Seattle Seahawks",
+   "urls": [
+    "seahawks.com/news/friday-round-up-lb-shaquem-griffin-surprises-adaptive-athletes-with-new-sports-e"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "35 Black Athletes Who Changed the World",
+   "claim": "35 Black Athletes Who Changed the World Complex",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "35 Black Athletes Who Redefined Sports and Society",
+   "image_status": "verified_external",
+   "message_id": 546,
+   "normalized_subject": "35 Black Athletes Who Changed the World",
+   "posted_at": "2026-10-31T08:25:04.434527+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-10-31-PM",
+   "sector": "Then vs Now",
+   "topic": "35 Black Athletes Who Changed the World",
+   "urls": [
+    "complex.com/sports/a/jose-martinez/25-black-athletes-changed-the-world"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "WNBA’s First Finals Game 7 Comes With a Record Price Tag - Yahoo Sports",
+   "claim": "WNBA’s First Finals Game 7 Comes With a Record Price Tag Yahoo Sports",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "WNBA Holds First Finals Game 7 with Record Ticket Prices",
+   "image_status": "verified_external",
+   "message_id": 547,
+   "normalized_subject": "WNBA’s First Finals Game 7 Comes With a Record Price Tag - Yahoo Sports",
+   "posted_at": "2026-10-31T08:25:15.980435+00:00",
+   "research_urls": [
+    "",
+    ""
+   ],
+   "run_id": "2026-10-31-PM",
+   "sector": "First / Last / Only",
+   "topic": "WNBA’s First Finals Game 7 Comes With a Record Price Tag - Yahoo Sports",
+   "urls": [
+    "sports.yahoo.com/articles/wnba-first-finals-game-7-143949166.html"
+   ]
   }
  ],
  "runs": [],
@@ -6565,27 +6671,31 @@
     "published_sectors": [
      "Then vs Now",
      "On This Date",
-     "First / Last / Only"
+     "First / Last / Only",
+     "Rule Check",
+     "Sports & Games People",
+     "Equipment / Measurement"
     ],
     "run_ids": [
-     "2026-10-31-AM"
+     "2026-10-31-AM",
+     "2026-10-31-PM"
     ]
    }
   },
-  "last_run_at": "2026-10-30T19:21:23.771889+00:00",
+  "last_run_at": "2026-10-31T08:25:26.111639+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-30T19:21:23.771872+00:00"
+    "updated_at": "2026-10-31T08:25:26.111611+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-30T19:21:23.771867+00:00"
+    "updated_at": "2026-10-31T08:25:26.111598+00:00"
    }
   },
   "publication": {
@@ -7003,6 +7113,31 @@
     "message_id": 541,
     "posted_at": "2026-10-30T19:20:48.845400+00:00",
     "status": "posted"
+   },
+   "2026-10-31-PM:evergreen:803ddaefc00cb8e0": {
+    "message_id": 545,
+    "posted_at": "2026-10-31T08:24:51.664032+00:00",
+    "status": "posted"
+   },
+   "2026-10-31-PM:evergreen:9e7ca96a067eccb9": {
+    "message_id": 547,
+    "posted_at": "2026-10-31T08:25:15.980149+00:00",
+    "status": "posted"
+   },
+   "2026-10-31-PM:evergreen:b8405d93ba733589": {
+    "message_id": 544,
+    "posted_at": "2026-10-31T08:24:38.281664+00:00",
+    "status": "posted"
+   },
+   "2026-10-31-PM:evergreen:e0b70274f671707c": {
+    "message_id": 543,
+    "posted_at": "2026-10-31T08:24:15.991918+00:00",
+    "status": "posted"
+   },
+   "2026-10-31-PM:evergreen:e22dc00dc4204dc2": {
+    "message_id": 546,
+    "posted_at": "2026-10-31T08:25:04.434337+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -7219,6 +7354,19 @@
     "used_sectors": [
      "First / Last / Only",
      "On This Date",
+     "Then vs Now"
+    ]
+   },
+   {
+    "at": "2026-10-31T08:25:26.111646+00:00",
+    "evergreen": 5,
+    "exit": 0,
+    "run_id": "2026-10-31-PM",
+    "used_sectors": [
+     "Equipment / Measurement",
+     "First / Last / Only",
+     "Rule Check",
+     "Sports & Games People",
      "Then vs Now"
     ]
    }
