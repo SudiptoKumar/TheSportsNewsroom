@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-01T09:12:30.896680+00:00",
-  "last_request_id": "a539c7376c5f8bdc-CMH",
+  "last_ok": "2026-11-01T18:56:54.790278+00:00",
+  "last_request_id": "a53d1f450f3e34a5-IAD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-01T09:12:30.896905+00:00",
+ "last_run_at": "2026-11-01T18:56:54.790536+00:00",
  "ledger": {},
  "posts": [
   {
@@ -6611,6 +6611,69 @@
    "urls": [
     "opb.org/article/2026/09/30/oregon-experience-portland-womens-sports-epicenter"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Uzbekistan youngsters surprise winners of 44th Chess Olympiad – International Chess Federation",
+   "claim": "Uzbekistan youngsters surprise winners of 44th Chess Olympiad – International Chess Federation FIDE",
+   "desk": "evergreen_v1",
+   "format": "Interesting Game Fact",
+   "headline": "Uzbekistan's Young Team Stuns at 44th Chess Olympiad",
+   "image_status": "card_fallback",
+   "message_id": 553,
+   "normalized_subject": "Uzbekistan youngsters surprise winners of 44th Chess Olympiad – International Chess Federation",
+   "posted_at": "2026-11-01T18:55:43.261619+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-02-AM",
+   "sector": "Interesting Game Fact",
+   "topic": "Uzbekistan youngsters surprise winners of 44th Chess Olympiad – International Chess Federation",
+   "urls": [
+    "fide.com/uzbekistan-youngsters-surprise-winners-of-44th-chess-olympiad"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Nov 12 Birth of pro football - Pro Football Hall of Fame",
+   "claim": "Nov 12 Birth of pro football Pro Football Hall of Fame",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "November 12, 1892 Marks the First Paid Pro Football Game",
+   "image_status": "verified_external",
+   "message_id": 554,
+   "normalized_subject": "Nov 12 Birth of pro football - Pro Football Hall of Fame",
+   "posted_at": "2026-11-01T18:56:06.984128+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-02-AM",
+   "sector": "On This Date",
+   "topic": "Nov 12 Birth of pro football - Pro Football Hall of Fame",
+   "urls": [
+    "profootballhof.com/football-history/nov-12-birth-of-pro-football"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "20 Years of Data Reveals a Major Shift in U.S. Sports Popularity",
+   "claim": "20 Years of Data Reveals a Major Shift in U.S. Sports Popularity The Sporting Tribune",
+   "desk": "evergreen_v1",
+   "format": "New Sport Discovery",
+   "headline": "Formula 1 and Basketball Lead Two‑Decade Shift in U.S. Sports Popularity",
+   "image_status": "verified_external",
+   "message_id": 555,
+   "normalized_subject": "20 Years of Data Reveals a Major Shift in U.S. Sports Popularity",
+   "posted_at": "2026-11-01T18:56:45.519303+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-02-AM",
+   "sector": "New Sport Discovery",
+   "topic": "20 Years of Data Reveals a Major Shift in U.S. Sports Popularity",
+   "urls": [
+    "thesportingtribune.com/2026/08/13/data-reveals-major-shift-in-us-sports-popularity"
+   ]
   }
  ],
  "runs": [],
@@ -6796,22 +6859,32 @@
      "2026-11-01-AM",
      "2026-11-01-PM"
     ]
+   },
+   "2026-11-02": {
+    "published_sectors": [
+     "Interesting Game Fact",
+     "On This Date",
+     "New Sport Discovery"
+    ],
+    "run_ids": [
+     "2026-11-02-AM"
+    ]
    }
   },
-  "last_run_at": "2026-11-01T09:12:30.896882+00:00",
+  "last_run_at": "2026-11-01T18:56:54.790507+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-01T09:12:30.896860+00:00"
+    "updated_at": "2026-11-01T18:56:54.790482+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-01T09:12:30.896856+00:00"
+    "updated_at": "2026-11-01T18:56:54.790473+00:00"
    }
   },
   "publication": {
@@ -7279,6 +7352,21 @@
     "message_id": 551,
     "posted_at": "2026-11-01T09:12:09.420619+00:00",
     "status": "posted"
+   },
+   "2026-11-02-AM:evergreen:672b4ba8ae513f24": {
+    "message_id": 555,
+    "posted_at": "2026-11-01T18:56:45.519104+00:00",
+    "status": "posted"
+   },
+   "2026-11-02-AM:evergreen:997c85c6ab2832fc": {
+    "message_id": 553,
+    "posted_at": "2026-11-01T18:55:43.261377+00:00",
+    "status": "posted"
+   },
+   "2026-11-02-AM:evergreen:e77e87e28acf1c7f": {
+    "message_id": 554,
+    "posted_at": "2026-11-01T18:56:06.983905+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -7530,6 +7618,17 @@
     "used_sectors": [
      "First / Last / Only",
      "Then vs Now"
+    ]
+   },
+   {
+    "at": "2026-11-01T18:56:54.790515+00:00",
+    "evergreen": 3,
+    "exit": 0,
+    "run_id": "2026-11-02-AM",
+    "used_sectors": [
+     "Interesting Game Fact",
+     "New Sport Discovery",
+     "On This Date"
     ]
    }
   ],

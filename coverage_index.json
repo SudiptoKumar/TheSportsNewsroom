@@ -14221,8 +14221,125 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 552
+  },
+  {
+   "central_claim": "Premier League: Managerial debuts hit record high for 2026-27 Premier League season BBC",
+   "central_knowledge_unit": "premier league managerial debuts hit record high for 2026 27 premier league season bbc",
+   "content_id": "0e05845dccc09508",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "560f0b48a0ba08fb",
+    "c91a9d728441ee9c"
+   ],
+   "legacy": true,
+   "normalized_subject": "premier league managerial debuts hit record high for 2026 27 premier league season",
+   "people": [],
+   "published_at": "2026-11-01T09:12:09.420791+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "bbc.com/sport/football/articles/cddjmd6189yo"
+   ],
+   "sport_or_game": "Premier League: Managerial debuts hit record high for 2026-27 Premier League season",
+   "telegram_message_id": 551
+  },
+  {
+   "central_claim": "How did Portland become the global epicenter of women’s sports? Oregon Public Broadcasting - OPB",
+   "central_knowledge_unit": "how did portland become the global epicenter of women s sports oregon public broadcasting opb",
+   "content_id": "24c598fc2ec8b09c",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "d9c7998b0a596b1d",
+    "6889d8dfc2523c0c"
+   ],
+   "legacy": true,
+   "normalized_subject": "how did portland become the global epicenter of women s sports oregon public broadcasting",
+   "people": [],
+   "published_at": "2026-11-01T09:12:22.107287+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "opb.org/article/2026/09/30/oregon-experience-portland-womens-sports-epicenter"
+   ],
+   "sport_or_game": "How did Portland become the global epicenter of women’s sports? - Oregon Public Broadcasting",
+   "telegram_message_id": 552
+  },
+  {
+   "central_claim": "Uzbekistan youngsters surprise winners of 44th Chess Olympiad – International Chess Federation FIDE",
+   "central_knowledge_unit": "uzbekistan youngsters surprise winners of 44th chess olympiad international chess federation",
+   "content_id": "9af40ca066d0b93e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9af40ca066d0b93e",
+    "67d6ca4bb7e62c35"
+   ],
+   "normalized_subject": "uzbekistan youngsters surprise winners of 44th chess olympiad international chess federation",
+   "people": [],
+   "published_at": "2026-11-01T18:55:43.261485+00:00",
+   "region": "",
+   "run_id": "2026-11-02-AM",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 553
+  },
+  {
+   "central_claim": "Nov 12 Birth of pro football Pro Football Hall of Fame",
+   "central_knowledge_unit": "nov 12 birth of pro football pro football hall of fame",
+   "content_id": "5033cfae24e24fb5",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "5033cfae24e24fb5",
+    "2131a92363bca14d"
+   ],
+   "normalized_subject": "nov 12 birth of pro football pro football hall of fame",
+   "people": [],
+   "published_at": "2026-11-01T18:56:06.984009+00:00",
+   "region": "",
+   "run_id": "2026-11-02-AM",
+   "sector": "On This Date",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 554
+  },
+  {
+   "central_claim": "20 Years of Data Reveals a Major Shift in U.S. Sports Popularity The Sporting Tribune",
+   "central_knowledge_unit": "20 years of data reveals a major shift in u s sports popularity",
+   "content_id": "7fdfda00f0ebf773",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7fdfda00f0ebf773",
+    "47add6d4d66705de"
+   ],
+   "normalized_subject": "20 years of data reveals a major shift in u s sports popularity",
+   "people": [],
+   "published_at": "2026-11-01T18:56:45.519200+00:00",
+   "region": "",
+   "run_id": "2026-11-02-AM",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 555
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-01T09:12:22.107261+00:00"
+ "updated_at": "2026-11-01T18:56:45.519277+00:00"
 }
