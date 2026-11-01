@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-10-31T18:33:21.231009+00:00",
-  "last_request_id": "a534bf613de616d3-CMH",
+  "last_ok": "2026-11-01T09:12:30.896680+00:00",
+  "last_request_id": "a539c7376c5f8bdc-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-10-31T18:33:27.242026+00:00",
+ "last_run_at": "2026-11-01T09:12:30.896905+00:00",
  "ledger": {},
  "posts": [
   {
@@ -6569,6 +6569,48 @@
    "urls": [
     "backstagecountry.com/2026/10/12/this-day-in-sports-history-october-12-2"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Premier League: Managerial debuts hit record high for 2026-27 Premier League season",
+   "claim": "Premier League: Managerial debuts hit record high for 2026-27 Premier League season BBC",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "Nine New Managers Set Record for 2026‑27 Premier League Start",
+   "image_status": "verified_external",
+   "message_id": 551,
+   "normalized_subject": "Premier League: Managerial debuts hit record high for 2026-27 Premier League season",
+   "posted_at": "2026-11-01T09:12:09.420791+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-01-PM",
+   "sector": "Then vs Now",
+   "topic": "Premier League: Managerial debuts hit record high for 2026-27 Premier League season",
+   "urls": [
+    "bbc.com/sport/football/articles/cddjmd6189yo"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "How did Portland become the global epicenter of women’s sports? - Oregon Public Broadcasting",
+   "claim": "How did Portland become the global epicenter of women’s sports? Oregon Public Broadcasting - OPB",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "Portland’s Deep Roots Make It Women’s Sports Hub",
+   "image_status": "card_fallback",
+   "message_id": 552,
+   "normalized_subject": "How did Portland become the global epicenter of women’s sports? - Oregon Public Broadcasting",
+   "posted_at": "2026-11-01T09:12:22.107287+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-01-PM",
+   "sector": "First / Last / Only",
+   "topic": "How did Portland become the global epicenter of women’s sports? - Oregon Public Broadcasting",
+   "urls": [
+    "opb.org/article/2026/09/30/oregon-experience-portland-womens-sports-epicenter"
+   ]
   }
  ],
  "runs": [],
@@ -6751,24 +6793,25 @@
      "First / Last / Only"
     ],
     "run_ids": [
-     "2026-11-01-AM"
+     "2026-11-01-AM",
+     "2026-11-01-PM"
     ]
    }
   },
-  "last_run_at": "2026-10-31T18:33:27.241983+00:00",
+  "last_run_at": "2026-11-01T09:12:30.896882+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-31T18:33:27.241952+00:00"
+    "updated_at": "2026-11-01T09:12:30.896860+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-10-31T18:33:27.241942+00:00"
+    "updated_at": "2026-11-01T09:12:30.896856+00:00"
    }
   },
   "publication": {
@@ -7226,6 +7269,16 @@
     "message_id": 549,
     "posted_at": "2026-10-31T18:33:11.053590+00:00",
     "status": "posted"
+   },
+   "2026-11-01-PM:evergreen:77648251790798ba": {
+    "message_id": 552,
+    "posted_at": "2026-11-01T09:12:22.107090+00:00",
+    "status": "posted"
+   },
+   "2026-11-01-PM:evergreen:a6aa62b96c767df0": {
+    "message_id": 551,
+    "posted_at": "2026-11-01T09:12:09.420619+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -7466,6 +7519,16 @@
     "used_sectors": [
      "First / Last / Only",
      "On This Date",
+     "Then vs Now"
+    ]
+   },
+   {
+    "at": "2026-11-01T09:12:30.896887+00:00",
+    "evergreen": 2,
+    "exit": 0,
+    "run_id": "2026-11-01-PM",
+    "used_sectors": [
+     "First / Last / Only",
      "Then vs Now"
     ]
    }

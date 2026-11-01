@@ -14103,8 +14103,126 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 550
+  },
+  {
+   "central_claim": "Man Utd v Leeds: The first soccer game between two English sides at Croke Park, Dublin BBC",
+   "central_knowledge_unit": "man utd v leeds the first soccer game between two english sides at croke park dublin bbc",
+   "content_id": "1f6e0a6aab4cde45",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "53576f195dcd27b6",
+    "0a2f6a9055f9d0a2"
+   ],
+   "legacy": true,
+   "normalized_subject": "man utd v leeds the first soccer game between two english sides at croke park dublin",
+   "people": [],
+   "published_at": "2026-10-31T18:32:22.610553+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "bbc.com/sport/football/articles/cy07d05ddr7o"
+   ],
+   "sport_or_game": "Man Utd v Leeds: The first soccer game between two English sides at Croke Park, Dublin",
+   "telegram_message_id": 548
+  },
+  {
+   "central_claim": "This Day in Sports History: September 24 93.3 WMMR",
+   "central_knowledge_unit": "this day in sports history september 24 93 3 wmmr",
+   "content_id": "30af8492ef9adb8a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "61937c2de84dffa7",
+    "61b9ad114f1e0cc7"
+   ],
+   "legacy": true,
+   "normalized_subject": "this day in sports history september 24 93 3 wmmr",
+   "people": [],
+   "published_at": "2026-10-31T18:33:11.053789+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "wmmr.com/2026/09/24/this-day-in-sports-history-september-24-2"
+   ],
+   "sport_or_game": "This Day in Sports History: September 24 - 93.3 WMMR",
+   "telegram_message_id": 549
+  },
+  {
+   "central_claim": "This Day in Sports History: October 12 Backstage Country",
+   "central_knowledge_unit": "this day in sports history october 12 backstage country",
+   "content_id": "b888b44c6c90a81d",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "46085afc8ff67f5f",
+    "ad3bf07d57a0d5c3"
+   ],
+   "legacy": true,
+   "normalized_subject": "this day in sports history october 12",
+   "people": [],
+   "published_at": "2026-10-31T18:33:24.222534+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "backstagecountry.com/2026/10/12/this-day-in-sports-history-october-12-2"
+   ],
+   "sport_or_game": "This Day in Sports History: October 12",
+   "telegram_message_id": 550
+  },
+  {
+   "central_claim": "Premier League: Managerial debuts hit record high for 2026-27 Premier League season BBC",
+   "central_knowledge_unit": "premier league managerial debuts hit record high for 2026 27 premier league season",
+   "content_id": "306ae634ea3a229c",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "306ae634ea3a229c",
+    "560f0b48a0ba08fb"
+   ],
+   "normalized_subject": "premier league managerial debuts hit record high for 2026 27 premier league season",
+   "people": [],
+   "published_at": "2026-11-01T09:12:09.420699+00:00",
+   "region": "",
+   "run_id": "2026-11-01-PM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 551
+  },
+  {
+   "central_claim": "How did Portland become the global epicenter of women’s sports? Oregon Public Broadcasting - OPB",
+   "central_knowledge_unit": "how did portland become the global epicenter of women s sports oregon public broadcasting",
+   "content_id": "bbbd3bb1ee32b9c0",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "bbbd3bb1ee32b9c0",
+    "d9c7998b0a596b1d"
+   ],
+   "normalized_subject": "how did portland become the global epicenter of women s sports oregon public broadcasting",
+   "people": [],
+   "published_at": "2026-11-01T09:12:22.107192+00:00",
+   "region": "",
+   "run_id": "2026-11-01-PM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 552
   }
  ],
  "schema": 1,
- "updated_at": "2026-10-31T18:33:24.222501+00:00"
+ "updated_at": "2026-11-01T09:12:22.107261+00:00"
 }
