@@ -14479,8 +14479,174 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 558
+  },
+  {
+   "central_claim": "AI voice analysis could diagnose a concussion within seconds of a player going down Florida International University",
+   "central_knowledge_unit": "ai voice analysis could diagnose a concussion within seconds of a player going down florida international university",
+   "content_id": "67f9aca68092b194",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "8d981f79a072c853",
+    "ff820c978b7355be"
+   ],
+   "legacy": true,
+   "normalized_subject": "ai voice analysis could diagnose a concussion within seconds of a player going down florida international university",
+   "people": [],
+   "published_at": "2026-11-02T09:26:52.483264+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "news.fiu.edu/2026/ai-voice-analysis-could-diagnose-a-concussion-within-seconds-of-a-player-going-down"
+   ],
+   "sport_or_game": "AI voice analysis could diagnose a concussion within seconds of a player going down - Florida International University",
+   "telegram_message_id": 556
+  },
+  {
+   "central_claim": "10 of the Greatest Moments in Women's Sports History People.com",
+   "central_knowledge_unit": "10 of the greatest moments in women s sports history people com",
+   "content_id": "837eb238c421f05a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "fea746b437e4781d",
+    "e059f70a6275cbfe"
+   ],
+   "legacy": true,
+   "normalized_subject": "10 of the greatest moments in women s sports history",
+   "people": [],
+   "published_at": "2026-11-02T09:26:59.898051+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "people.com/greatest-moments-in-womens-sports-history-7749954"
+   ],
+   "sport_or_game": "10 of the Greatest Moments in Women's Sports History",
+   "telegram_message_id": 557
+  },
+  {
+   "central_claim": "Italian Grand Prix: Pierre Gasly has George Russell covered at Monza in biggest surprise pole in years BBC",
+   "central_knowledge_unit": "italian grand prix pierre gasly has george russell covered at monza in biggest surprise pole in years bbc",
+   "content_id": "8e91c32e2f149fba",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "170182b4825958d4",
+    "57b483e73c8fe32b"
+   ],
+   "legacy": true,
+   "normalized_subject": "italian grand prix pierre gasly has george russell covered at monza in biggest surprise pole in years",
+   "people": [],
+   "published_at": "2026-11-02T09:27:12.613676+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    "bbc.com/sport/formula1/articles/c3wjdn80g2jo"
+   ],
+   "sport_or_game": "Italian Grand Prix: Pierre Gasly has George Russell covered at Monza in biggest surprise pole in years",
+   "telegram_message_id": 558
+  },
+  {
+   "central_claim": "Who are the 10 best father-son sports duos of all time? FOX Sports",
+   "central_knowledge_unit": "who are the 10 best father son sports duos of all time",
+   "content_id": "920e466717c82926",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "920e466717c82926",
+    "b6397f431461a08a"
+   ],
+   "normalized_subject": "who are the 10 best father son sports duos of all time",
+   "people": [],
+   "published_at": "2026-11-02T22:47:20.514342+00:00",
+   "region": "",
+   "run_id": "2026-11-03-AM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 559
+  },
+  {
+   "central_claim": "Let Science Explain: Why Is Michael Phelps the Undisputed King of Swimming? ScienceABC",
+   "central_knowledge_unit": "let science explain why is michael phelps the undisputed king of swimming",
+   "content_id": "2d5d43c20f636da2",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "2d5d43c20f636da2",
+    "f9eebed297e9cb9c"
+   ],
+   "normalized_subject": "let science explain why is michael phelps the undisputed king of swimming",
+   "people": [],
+   "published_at": "2026-11-02T22:47:44.727976+00:00",
+   "region": "",
+   "run_id": "2026-11-03-AM",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 560
+  },
+  {
+   "central_claim": "GK Quiz on Asian Games 2026: 10 Surprising Asian Games Facts-Based Questions That Will Test Your Sports IQ Jagran Josh",
+   "central_knowledge_unit": "gk quiz on asian games 2026 10 surprising asian games facts based questions that will test your sports iq",
+   "content_id": "d5797b2eef3a51b8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "d5797b2eef3a51b8",
+    "bf35992521bb2596"
+   ],
+   "normalized_subject": "gk quiz on asian games 2026 10 surprising asian games facts based questions that will test your sports iq",
+   "people": [],
+   "published_at": "2026-11-02T22:47:58.643500+00:00",
+   "region": "",
+   "run_id": "2026-11-03-AM",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 561
+  },
+  {
+   "central_claim": "\"Pokémon Goita\" Board Game Fuses Traditional Japanese Strategy with Pocket Monsters 玩具人 TOY PEOPLE",
+   "central_knowledge_unit": "pok mon goita board game fuses traditional japanese strategy with pocket monsters",
+   "content_id": "191235903261f63f",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "191235903261f63f",
+    "23846b4358318852"
+   ],
+   "normalized_subject": "pok mon goita board game fuses traditional japanese strategy with pocket monsters",
+   "people": [],
+   "published_at": "2026-11-02T22:48:09.101638+00:00",
+   "region": "",
+   "run_id": "2026-11-03-AM",
+   "sector": "How to Play",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 562
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-02T09:27:12.613643+00:00"
+ "updated_at": "2026-11-02T22:48:09.101736+00:00"
 }

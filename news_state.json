@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-02T09:27:34.266118+00:00",
-  "last_request_id": "a5421aa5386faf49-CMH",
+  "last_ok": "2026-11-02T22:48:07.123750+00:00",
+  "last_request_id": "a546af52cd5a7a72-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-02T09:27:34.267399+00:00",
+ "last_run_at": "2026-11-02T22:48:12.123019+00:00",
  "ledger": {},
  "posts": [
   {
@@ -6737,6 +6737,92 @@
    "urls": [
     "bbc.com/sport/formula1/articles/c3wjdn80g2jo"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Who are the 10 best father-son sports duos of all time?",
+   "claim": "Who are the 10 best father-son sports duos of all time? FOX Sports",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "LeBron and Bronny James Lead Fox Sports’ Top Father‑Son Duos List",
+   "image_status": "verified_external",
+   "message_id": 559,
+   "normalized_subject": "Who are the 10 best father-son sports duos of all time?",
+   "posted_at": "2026-11-02T22:47:20.514511+00:00",
+   "research_urls": [
+    "",
+    ""
+   ],
+   "run_id": "2026-11-03-AM",
+   "sector": "First / Last / Only",
+   "topic": "Who are the 10 best father-son sports duos of all time?",
+   "urls": [
+    "foxsports.com/stories/nfl/who-10-best-father-son-duos-all-time"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Let Science Explain: Why Is Michael Phelps the Undisputed King of Swimming?",
+   "claim": "Let Science Explain: Why Is Michael Phelps the Undisputed King of Swimming? ScienceABC",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "Michael Phelps’s Unique Body Proportions Give Him a Swimming Edge",
+   "image_status": "verified_external",
+   "message_id": 560,
+   "normalized_subject": "Let Science Explain: Why Is Michael Phelps the Undisputed King of Swimming?",
+   "posted_at": "2026-11-02T22:47:44.728097+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-03-AM",
+   "sector": "Why Does This Happen?",
+   "topic": "Let Science Explain: Why Is Michael Phelps the Undisputed King of Swimming?",
+   "urls": [
+    "scienceabc.com/sports/michael-phelps-height-arms-torso-arm-span-feet-swimming"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "GK Quiz on Asian Games 2026: 10 Surprising Asian Games Facts-Based Questions That Will Test Your Sports IQ",
+   "claim": "GK Quiz on Asian Games 2026: 10 Surprising Asian Games Facts-Based Questions That Will Test Your Sports IQ Jagran Josh",
+   "desk": "evergreen_v1",
+   "format": "Interesting Game Fact",
+   "headline": "Inaugural Asian Games Launched in New Delhi, 1951",
+   "image_status": "verified_external",
+   "message_id": 561,
+   "normalized_subject": "GK Quiz on Asian Games 2026: 10 Surprising Asian Games Facts-Based Questions That Will Test Your Sports IQ",
+   "posted_at": "2026-11-02T22:47:58.643647+00:00",
+   "research_urls": [
+    "",
+    ""
+   ],
+   "run_id": "2026-11-03-AM",
+   "sector": "Interesting Game Fact",
+   "topic": "GK Quiz on Asian Games 2026: 10 Surprising Asian Games Facts-Based Questions That Will Test Your Sports IQ",
+   "urls": [
+    "jagranjosh.com/general-knowledge/gk-quiz-on-asian-games-question-and-answer-1820012410-1"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "\"Pokémon Goita\" Board Game Fuses Traditional Japanese Strategy with Pocket Monsters",
+   "claim": "\"Pokémon Goita\" Board Game Fuses Traditional Japanese Strategy with Pocket Monsters 玩具人 TOY PEOPLE",
+   "desk": "evergreen_v1",
+   "format": "How to Play",
+   "headline": "Pokémon Goita Board Game Merges Classic Japanese Strategy with Pocket Monsters",
+   "image_status": "card_fallback",
+   "message_id": 562,
+   "normalized_subject": "\"Pokémon Goita\" Board Game Fuses Traditional Japanese Strategy with Pocket Monsters",
+   "posted_at": "2026-11-02T22:48:09.101776+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-03-AM",
+   "sector": "How to Play",
+   "topic": "\"Pokémon Goita\" Board Game Fuses Traditional Japanese Strategy with Pocket Monsters",
+   "urls": [
+    "toy-people.com/en?p="
+   ]
   }
  ],
  "runs": [],
@@ -6935,22 +7021,33 @@
      "2026-11-02-AM",
      "2026-11-02-PM"
     ]
+   },
+   "2026-11-03": {
+    "published_sectors": [
+     "First / Last / Only",
+     "Why Does This Happen?",
+     "Interesting Game Fact",
+     "How to Play"
+    ],
+    "run_ids": [
+     "2026-11-03-AM"
+    ]
    }
   },
-  "last_run_at": "2026-11-02T09:27:34.267367+00:00",
+  "last_run_at": "2026-11-02T22:48:12.122978+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-02T09:27:34.267317+00:00"
+    "updated_at": "2026-11-02T22:48:12.122940+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-02T09:27:34.267308+00:00"
+    "updated_at": "2026-11-02T22:48:12.122932+00:00"
    }
   },
   "publication": {
@@ -7448,6 +7545,26 @@
     "message_id": 556,
     "posted_at": "2026-11-02T09:26:52.483049+00:00",
     "status": "posted"
+   },
+   "2026-11-03-AM:evergreen:07cfd61d37e36d9c": {
+    "message_id": 561,
+    "posted_at": "2026-11-02T22:47:58.643312+00:00",
+    "status": "posted"
+   },
+   "2026-11-03-AM:evergreen:8f97ceb63f5d4e34": {
+    "message_id": 559,
+    "posted_at": "2026-11-02T22:47:20.514249+00:00",
+    "status": "posted"
+   },
+   "2026-11-03-AM:evergreen:a499028652202c04": {
+    "message_id": 560,
+    "posted_at": "2026-11-02T22:47:44.727861+00:00",
+    "status": "posted"
+   },
+   "2026-11-03-AM:evergreen:ec9dc4cd0048332c": {
+    "message_id": 562,
+    "posted_at": "2026-11-02T22:48:09.101516+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -7719,6 +7836,18 @@
     "run_id": "2026-11-02-PM",
     "used_sectors": [
      "First / Last / Only",
+     "Interesting Game Fact",
+     "Why Does This Happen?"
+    ]
+   },
+   {
+    "at": "2026-11-02T22:48:12.122987+00:00",
+    "evergreen": 4,
+    "exit": 0,
+    "run_id": "2026-11-03-AM",
+    "used_sectors": [
+     "First / Last / Only",
+     "How to Play",
      "Interesting Game Fact",
      "Why Does This Happen?"
     ]
