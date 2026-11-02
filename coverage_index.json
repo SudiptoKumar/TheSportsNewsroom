@@ -14338,8 +14338,149 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 555
+  },
+  {
+   "central_claim": "Uzbekistan youngsters surprise winners of 44th Chess Olympiad – International Chess Federation FIDE",
+   "central_knowledge_unit": "uzbekistan youngsters surprise winners of 44th chess olympiad international chess federation fide",
+   "content_id": "46e851f7b0c0f35d",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "67d6ca4bb7e62c35",
+    "7775d2c967a250aa"
+   ],
+   "legacy": true,
+   "normalized_subject": "uzbekistan youngsters surprise winners of 44th chess olympiad international chess federation",
+   "people": [],
+   "published_at": "2026-11-01T18:55:43.261619+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    "fide.com/uzbekistan-youngsters-surprise-winners-of-44th-chess-olympiad"
+   ],
+   "sport_or_game": "Uzbekistan youngsters surprise winners of 44th Chess Olympiad – International Chess Federation",
+   "telegram_message_id": 553
+  },
+  {
+   "central_claim": "Nov 12 Birth of pro football Pro Football Hall of Fame",
+   "central_knowledge_unit": "nov 12 birth of pro football pro football hall of fame",
+   "content_id": "b16092c43048aeaa",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "2131a92363bca14d",
+    "e77e87e28acf1c7f"
+   ],
+   "legacy": true,
+   "normalized_subject": "nov 12 birth of pro football pro football hall of fame",
+   "people": [],
+   "published_at": "2026-11-01T18:56:06.984128+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "profootballhof.com/football-history/nov-12-birth-of-pro-football"
+   ],
+   "sport_or_game": "Nov 12 Birth of pro football - Pro Football Hall of Fame",
+   "telegram_message_id": 554
+  },
+  {
+   "central_claim": "20 Years of Data Reveals a Major Shift in U.S. Sports Popularity The Sporting Tribune",
+   "central_knowledge_unit": "20 years of data reveals a major shift in u s sports popularity the sporting tribune",
+   "content_id": "33e98d04831ed6f1",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "47add6d4d66705de",
+    "c7c99a5606af85b9"
+   ],
+   "legacy": true,
+   "normalized_subject": "20 years of data reveals a major shift in u s sports popularity",
+   "people": [],
+   "published_at": "2026-11-01T18:56:45.519303+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "thesportingtribune.com/2026/08/13/data-reveals-major-shift-in-us-sports-popularity"
+   ],
+   "sport_or_game": "20 Years of Data Reveals a Major Shift in U.S. Sports Popularity",
+   "telegram_message_id": 555
+  },
+  {
+   "central_claim": "AI voice analysis could diagnose a concussion within seconds of a player going down Florida International University",
+   "central_knowledge_unit": "ai voice analysis could diagnose a concussion within seconds of a player going down florida international university",
+   "content_id": "8e0c3c3e64d42c00",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "8e0c3c3e64d42c00",
+    "8d981f79a072c853"
+   ],
+   "normalized_subject": "ai voice analysis could diagnose a concussion within seconds of a player going down florida international university",
+   "people": [],
+   "published_at": "2026-11-02T09:26:52.483145+00:00",
+   "region": "",
+   "run_id": "2026-11-02-PM",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 556
+  },
+  {
+   "central_claim": "10 of the Greatest Moments in Women's Sports History People.com",
+   "central_knowledge_unit": "10 of the greatest moments in women s sports history",
+   "content_id": "2d0ab9c5970c2dde",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "2d0ab9c5970c2dde",
+    "fea746b437e4781d"
+   ],
+   "normalized_subject": "10 of the greatest moments in women s sports history",
+   "people": [],
+   "published_at": "2026-11-02T09:26:59.897947+00:00",
+   "region": "",
+   "run_id": "2026-11-02-PM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 557
+  },
+  {
+   "central_claim": "Italian Grand Prix: Pierre Gasly has George Russell covered at Monza in biggest surprise pole in years BBC",
+   "central_knowledge_unit": "italian grand prix pierre gasly has george russell covered at monza in biggest surprise pole in years",
+   "content_id": "d453e0f412f803cf",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "d453e0f412f803cf",
+    "170182b4825958d4"
+   ],
+   "normalized_subject": "italian grand prix pierre gasly has george russell covered at monza in biggest surprise pole in years",
+   "people": [],
+   "published_at": "2026-11-02T09:27:12.613543+00:00",
+   "region": "",
+   "run_id": "2026-11-02-PM",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 558
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-01T18:56:45.519277+00:00"
+ "updated_at": "2026-11-02T09:27:12.613643+00:00"
 }

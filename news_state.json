@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-01T18:56:54.790278+00:00",
-  "last_request_id": "a53d1f450f3e34a5-IAD",
+  "last_ok": "2026-11-02T09:27:34.266118+00:00",
+  "last_request_id": "a5421aa5386faf49-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-01T18:56:54.790536+00:00",
+ "last_run_at": "2026-11-02T09:27:34.267399+00:00",
  "ledger": {},
  "posts": [
   {
@@ -6674,6 +6674,69 @@
    "urls": [
     "thesportingtribune.com/2026/08/13/data-reveals-major-shift-in-us-sports-popularity"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "AI voice analysis could diagnose a concussion within seconds of a player going down - Florida International University",
+   "claim": "AI voice analysis could diagnose a concussion within seconds of a player going down Florida International University",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "AI Voice Analysis Promises Seconds-Long Concussion Diagnosis on the Field",
+   "image_status": "verified_external",
+   "message_id": 556,
+   "normalized_subject": "AI voice analysis could diagnose a concussion within seconds of a player going down - Florida International University",
+   "posted_at": "2026-11-02T09:26:52.483264+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-02-PM",
+   "sector": "Why Does This Happen?",
+   "topic": "AI voice analysis could diagnose a concussion within seconds of a player going down - Florida International University",
+   "urls": [
+    "news.fiu.edu/2026/ai-voice-analysis-could-diagnose-a-concussion-within-seconds-of-a-player-going-down"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "10 of the Greatest Moments in Women's Sports History",
+   "claim": "10 of the Greatest Moments in Women's Sports History People.com",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "Billie Jean King’s 1973 ‘Battle of the Sexes’ Victory",
+   "image_status": "verified_external",
+   "message_id": 557,
+   "normalized_subject": "10 of the Greatest Moments in Women's Sports History",
+   "posted_at": "2026-11-02T09:26:59.898051+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-02-PM",
+   "sector": "First / Last / Only",
+   "topic": "10 of the Greatest Moments in Women's Sports History",
+   "urls": [
+    "people.com/greatest-moments-in-womens-sports-history-7749954"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Italian Grand Prix: Pierre Gasly has George Russell covered at Monza in biggest surprise pole in years",
+   "claim": "Italian Grand Prix: Pierre Gasly has George Russell covered at Monza in biggest surprise pole in years BBC",
+   "desk": "evergreen_v1",
+   "format": "Interesting Game Fact",
+   "headline": "Pierre Gasly clinches surprise pole at Monza, beating George Russell",
+   "image_status": "verified_external",
+   "message_id": 558,
+   "normalized_subject": "Italian Grand Prix: Pierre Gasly has George Russell covered at Monza in biggest surprise pole in years",
+   "posted_at": "2026-11-02T09:27:12.613676+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-02-PM",
+   "sector": "Interesting Game Fact",
+   "topic": "Italian Grand Prix: Pierre Gasly has George Russell covered at Monza in biggest surprise pole in years",
+   "urls": [
+    "bbc.com/sport/formula1/articles/c3wjdn80g2jo"
+   ]
   }
  ],
  "runs": [],
@@ -6864,27 +6927,30 @@
     "published_sectors": [
      "Interesting Game Fact",
      "On This Date",
-     "New Sport Discovery"
+     "New Sport Discovery",
+     "Why Does This Happen?",
+     "First / Last / Only"
     ],
     "run_ids": [
-     "2026-11-02-AM"
+     "2026-11-02-AM",
+     "2026-11-02-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-01T18:56:54.790507+00:00",
+  "last_run_at": "2026-11-02T09:27:34.267367+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-01T18:56:54.790482+00:00"
+    "updated_at": "2026-11-02T09:27:34.267317+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-01T18:56:54.790473+00:00"
+    "updated_at": "2026-11-02T09:27:34.267308+00:00"
    }
   },
   "publication": {
@@ -7367,6 +7433,21 @@
     "message_id": 554,
     "posted_at": "2026-11-01T18:56:06.983905+00:00",
     "status": "posted"
+   },
+   "2026-11-02-PM:evergreen:0d3e4ab0e4bdde35": {
+    "message_id": 557,
+    "posted_at": "2026-11-02T09:26:59.897844+00:00",
+    "status": "posted"
+   },
+   "2026-11-02-PM:evergreen:81d5340e7a502ba8": {
+    "message_id": 558,
+    "posted_at": "2026-11-02T09:27:12.613410+00:00",
+    "status": "posted"
+   },
+   "2026-11-02-PM:evergreen:ff820c978b7355be": {
+    "message_id": 556,
+    "posted_at": "2026-11-02T09:26:52.483049+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -7629,6 +7710,17 @@
      "Interesting Game Fact",
      "New Sport Discovery",
      "On This Date"
+    ]
+   },
+   {
+    "at": "2026-11-02T09:27:34.267376+00:00",
+    "evergreen": 3,
+    "exit": 0,
+    "run_id": "2026-11-02-PM",
+    "used_sectors": [
+     "First / Last / Only",
+     "Interesting Game Fact",
+     "Why Does This Happen?"
     ]
    }
   ],
