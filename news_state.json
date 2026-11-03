@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-03T09:30:20.111854+00:00",
-  "last_request_id": "a54a5c12089d13ff-ORD",
+  "last_ok": "2026-11-03T20:32:20.366732+00:00",
+  "last_request_id": "a54e25cd68d3581c-SJC",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-03T09:30:20.112165+00:00",
+ "last_run_at": "2026-11-03T20:32:20.367008+00:00",
  "ledger": {},
  "posts": [
   {
@@ -6844,6 +6844,90 @@
    "urls": [
     "fide.com/the-world-celebrates-international-chess-day-2026"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Fifa World Cup plans: Pressure builds on Gianni Infantino as Concacaf call for 'full review'",
+   "claim": "Fifa World Cup plans: Pressure builds on Gianni Infantino as Concacaf call for 'full review' BBC",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Sport",
+   "headline": "UEFA and CONCACAF Demand Full Review After Infantino Drops Stake Sale Plan",
+   "image_status": "verified_external",
+   "message_id": 564,
+   "normalized_subject": "Fifa World Cup plans: Pressure builds on Gianni Infantino as Concacaf call for 'full review'",
+   "posted_at": "2026-11-03T20:31:20.865410+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-04-AM",
+   "sector": "Forgotten Sport",
+   "topic": "Fifa World Cup plans: Pressure builds on Gianni Infantino as Concacaf call for 'full review'",
+   "urls": [
+    "bbc.com/sport/football/articles/c04kr2nv3v3o"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Women’s Flag Football Rules, Explained: How the College Game Works - RallyFuel",
+   "claim": "Women’s Flag Football Rules, Explained: How the College Game Works RallyFuel",
+   "desk": "evergreen_v1",
+   "format": "How to Play",
+   "headline": "College Women’s Flag Football Introduces Seven‑Player, No‑Tackle Format",
+   "image_status": "verified_external",
+   "message_id": 565,
+   "normalized_subject": "Women’s Flag Football Rules, Explained: How the College Game Works - RallyFuel",
+   "posted_at": "2026-11-03T20:31:45.881880+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-04-AM",
+   "sector": "How to Play",
+   "topic": "Women’s Flag Football Rules, Explained: How the College Game Works - RallyFuel",
+   "urls": [
+    "blog.rallyfuel.com/womens-flag-football-rules-explained"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "A Roman Board Game Found in Ancient Coriovallum Rewrites the History of Strategy Games - La Brújula Verde",
+   "claim": "A Roman Board Game Found in Ancient Coriovallum Rewrites the History of Strategy Games La Brújula Verde",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Game",
+   "headline": "Roman Stone Game Pushes Blocking-Strategy Origins Back Centuries",
+   "image_status": "card_fallback",
+   "message_id": 566,
+   "normalized_subject": "A Roman Board Game Found in Ancient Coriovallum Rewrites the History of Strategy Games - La Brújula Verde",
+   "posted_at": "2026-11-03T20:31:58.085576+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-04-AM",
+   "sector": "Forgotten Game",
+   "topic": "A Roman Board Game Found in Ancient Coriovallum Rewrites the History of Strategy Games - La Brújula Verde",
+   "urls": [
+    "labrujulaverde.com/en/2026/02/a-roman-board-game-found-in-ancient-coriovallum-rewrites-the-history-of-strategy-games"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The 13 Biggest Buyouts College Football Teams Have Coughed Up To Fire A Head Coach",
+   "claim": "The 13 Biggest Buyouts College Football Teams Have Coughed Up To Fire A Head Coach BroBible",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "College Football’s 13 Largest Coach Buyouts Revealed",
+   "image_status": "verified_external",
+   "message_id": 567,
+   "normalized_subject": "The 13 Biggest Buyouts College Football Teams Have Coughed Up To Fire A Head Coach",
+   "posted_at": "2026-11-03T20:32:10.537548+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-04-AM",
+   "sector": "First / Last / Only",
+   "topic": "The 13 Biggest Buyouts College Football Teams Have Coughed Up To Fire A Head Coach",
+   "urls": [
+    "brobible.com/sports/article/largest-college-football-head-coach-buyouts-ever"
+   ]
   }
  ],
  "runs": [],
@@ -7055,22 +7139,33 @@
      "2026-11-03-AM",
      "2026-11-03-PM"
     ]
+   },
+   "2026-11-04": {
+    "published_sectors": [
+     "Forgotten Sport",
+     "How to Play",
+     "Forgotten Game",
+     "First / Last / Only"
+    ],
+    "run_ids": [
+     "2026-11-04-AM"
+    ]
    }
   },
-  "last_run_at": "2026-11-03T09:30:20.112141+00:00",
+  "last_run_at": "2026-11-03T20:32:20.366977+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-03T09:30:20.112113+00:00"
+    "updated_at": "2026-11-03T20:32:20.366950+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-03T09:30:20.112105+00:00"
+    "updated_at": "2026-11-03T20:32:20.366938+00:00"
    }
   },
   "publication": {
@@ -7593,6 +7688,26 @@
     "message_id": 563,
     "posted_at": "2026-11-03T09:29:46.275757+00:00",
     "status": "posted"
+   },
+   "2026-11-04-AM:evergreen:a4c6aee2065e2246": {
+    "message_id": 567,
+    "posted_at": "2026-11-03T20:32:10.537261+00:00",
+    "status": "posted"
+   },
+   "2026-11-04-AM:evergreen:e70d25f8f0255bc6": {
+    "message_id": 564,
+    "posted_at": "2026-11-03T20:31:20.865158+00:00",
+    "status": "posted"
+   },
+   "2026-11-04-AM:evergreen:eefd214b49f64778": {
+    "message_id": 565,
+    "posted_at": "2026-11-03T20:31:45.881661+00:00",
+    "status": "posted"
+   },
+   "2026-11-04-AM:evergreen:fc7d0121d6f73f07": {
+    "message_id": 566,
+    "posted_at": "2026-11-03T20:31:58.085278+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -7887,6 +8002,18 @@
     "run_id": "2026-11-03-PM",
     "used_sectors": [
      "Game Discovery"
+    ]
+   },
+   {
+    "at": "2026-11-03T20:32:20.366984+00:00",
+    "evergreen": 4,
+    "exit": 0,
+    "run_id": "2026-11-04-AM",
+    "used_sectors": [
+     "First / Last / Only",
+     "Forgotten Game",
+     "Forgotten Sport",
+     "How to Play"
     ]
    }
   ],

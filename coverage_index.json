@@ -14764,8 +14764,124 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 563
+  },
+  {
+   "central_claim": "The world celebrates International Chess Day 2026 FIDE",
+   "central_knowledge_unit": "the world celebrates international chess day 2026 fide",
+   "content_id": "64b5f0220adedc89",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c2e0ee533b4b1589",
+    "b1b9706c7e1fd134"
+   ],
+   "legacy": true,
+   "normalized_subject": "the world celebrates international chess day 2026",
+   "people": [],
+   "published_at": "2026-11-03T09:29:46.275971+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "fide.com/the-world-celebrates-international-chess-day-2026"
+   ],
+   "sport_or_game": "The world celebrates International Chess Day 2026",
+   "telegram_message_id": 563
+  },
+  {
+   "central_claim": "Fifa World Cup plans: Pressure builds on Gianni Infantino as Concacaf call for 'full review' BBC",
+   "central_knowledge_unit": "fifa world cup plans pressure builds on gianni infantino as concacaf call for full review",
+   "content_id": "d61831cf2ce7c58a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "d61831cf2ce7c58a",
+    "894f61f4d78a03d1"
+   ],
+   "normalized_subject": "fifa world cup plans pressure builds on gianni infantino as concacaf call for full review",
+   "people": [],
+   "published_at": "2026-11-03T20:31:20.865256+00:00",
+   "region": "",
+   "run_id": "2026-11-04-AM",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 564
+  },
+  {
+   "central_claim": "Women’s Flag Football Rules, Explained: How the College Game Works RallyFuel",
+   "central_knowledge_unit": "women s flag football rules explained how the college game works rallyfuel",
+   "content_id": "e8cb356c29b5aa1d",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e8cb356c29b5aa1d",
+    "8a9b22a7ab898d9d"
+   ],
+   "normalized_subject": "women s flag football rules explained how the college game works rallyfuel",
+   "people": [],
+   "published_at": "2026-11-03T20:31:45.881766+00:00",
+   "region": "",
+   "run_id": "2026-11-04-AM",
+   "sector": "How to Play",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 565
+  },
+  {
+   "central_claim": "A Roman Board Game Found in Ancient Coriovallum Rewrites the History of Strategy Games La Brújula Verde",
+   "central_knowledge_unit": "a roman board game found in ancient coriovallum rewrites the history of strategy games la br jula verde",
+   "content_id": "aadee1f0851712d8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "aadee1f0851712d8",
+    "16163dfadc5587ee"
+   ],
+   "normalized_subject": "a roman board game found in ancient coriovallum rewrites the history of strategy games la br jula verde",
+   "people": [],
+   "published_at": "2026-11-03T20:31:58.085448+00:00",
+   "region": "",
+   "run_id": "2026-11-04-AM",
+   "sector": "Forgotten Game",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 566
+  },
+  {
+   "central_claim": "The 13 Biggest Buyouts College Football Teams Have Coughed Up To Fire A Head Coach BroBible",
+   "central_knowledge_unit": "the 13 biggest buyouts college football teams have coughed up to fire a head coach",
+   "content_id": "9c0bd6cd004440d6",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9c0bd6cd004440d6",
+    "fef2dddbf94958d4"
+   ],
+   "normalized_subject": "the 13 biggest buyouts college football teams have coughed up to fire a head coach",
+   "people": [],
+   "published_at": "2026-11-03T20:32:10.537412+00:00",
+   "region": "",
+   "run_id": "2026-11-04-AM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 567
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-03T09:29:46.275941+00:00"
+ "updated_at": "2026-11-03T20:32:10.537515+00:00"
 }
