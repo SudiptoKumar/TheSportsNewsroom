@@ -14645,8 +14645,127 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 562
+  },
+  {
+   "central_claim": "Who are the 10 best father-son sports duos of all time? FOX Sports",
+   "central_knowledge_unit": "who are the 10 best father son sports duos of all time fox sports",
+   "content_id": "7a946c21daa144f2",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b6397f431461a08a",
+    "6ec8b3cb6b47a38d"
+   ],
+   "legacy": true,
+   "normalized_subject": "who are the 10 best father son sports duos of all time",
+   "people": [],
+   "published_at": "2026-11-02T22:47:20.514511+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "foxsports.com/stories/nfl/who-10-best-father-son-duos-all-time"
+   ],
+   "sport_or_game": "Who are the 10 best father-son sports duos of all time?",
+   "telegram_message_id": 559
+  },
+  {
+   "central_claim": "Let Science Explain: Why Is Michael Phelps the Undisputed King of Swimming? ScienceABC",
+   "central_knowledge_unit": "let science explain why is michael phelps the undisputed king of swimming scienceabc",
+   "content_id": "bb11d9b106b22347",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f9eebed297e9cb9c",
+    "0fa5db7879eb7ceb"
+   ],
+   "legacy": true,
+   "normalized_subject": "let science explain why is michael phelps the undisputed king of swimming",
+   "people": [],
+   "published_at": "2026-11-02T22:47:44.728097+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "scienceabc.com/sports/michael-phelps-height-arms-torso-arm-span-feet-swimming"
+   ],
+   "sport_or_game": "Let Science Explain: Why Is Michael Phelps the Undisputed King of Swimming?",
+   "telegram_message_id": 560
+  },
+  {
+   "central_claim": "GK Quiz on Asian Games 2026: 10 Surprising Asian Games Facts-Based Questions That Will Test Your Sports IQ Jagran Josh",
+   "central_knowledge_unit": "gk quiz on asian games 2026 10 surprising asian games facts based questions that will test your sports iq jagran josh",
+   "content_id": "a022500306bb911f",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "bf35992521bb2596",
+    "80cf4dec5391e0c7"
+   ],
+   "legacy": true,
+   "normalized_subject": "gk quiz on asian games 2026 10 surprising asian games facts based questions that will test your sports iq",
+   "people": [],
+   "published_at": "2026-11-02T22:47:58.643647+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    "jagranjosh.com/general-knowledge/gk-quiz-on-asian-games-question-and-answer-1820012410-1"
+   ],
+   "sport_or_game": "GK Quiz on Asian Games 2026: 10 Surprising Asian Games Facts-Based Questions That Will Test Your Sports IQ",
+   "telegram_message_id": 561
+  },
+  {
+   "central_claim": "\"Pokémon Goita\" Board Game Fuses Traditional Japanese Strategy with Pocket Monsters 玩具人 TOY PEOPLE",
+   "central_knowledge_unit": "pok mon goita board game fuses traditional japanese strategy with pocket monsters toy people",
+   "content_id": "6909f4236abbb2a0",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "23846b4358318852",
+    "7b09530f2e62ac30"
+   ],
+   "legacy": true,
+   "normalized_subject": "pok mon goita board game fuses traditional japanese strategy with pocket monsters",
+   "people": [],
+   "published_at": "2026-11-02T22:48:09.101776+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "How to Play",
+   "source_urls": [
+    "toy-people.com/en?p="
+   ],
+   "sport_or_game": "\"Pokémon Goita\" Board Game Fuses Traditional Japanese Strategy with Pocket Monsters",
+   "telegram_message_id": 562
+  },
+  {
+   "central_claim": "The world celebrates International Chess Day 2026 FIDE",
+   "central_knowledge_unit": "the world celebrates international chess day 2026",
+   "content_id": "b6aff8eadd2aabf1",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b6aff8eadd2aabf1",
+    "c2e0ee533b4b1589"
+   ],
+   "normalized_subject": "the world celebrates international chess day 2026",
+   "people": [],
+   "published_at": "2026-11-03T09:29:46.275834+00:00",
+   "region": "",
+   "run_id": "2026-11-03-PM",
+   "sector": "Game Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 563
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-02T22:48:09.101736+00:00"
+ "updated_at": "2026-11-03T09:29:46.275941+00:00"
 }

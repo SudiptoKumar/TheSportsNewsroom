@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-02T22:48:07.123750+00:00",
-  "last_request_id": "a546af52cd5a7a72-CMH",
+  "last_ok": "2026-11-03T09:30:20.111854+00:00",
+  "last_request_id": "a54a5c12089d13ff-ORD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-02T22:48:12.123019+00:00",
+ "last_run_at": "2026-11-03T09:30:20.112165+00:00",
  "ledger": {},
  "posts": [
   {
@@ -6823,6 +6823,27 @@
    "urls": [
     "toy-people.com/en?p="
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The world celebrates International Chess Day 2026",
+   "claim": "The world celebrates International Chess Day 2026 FIDE",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "International Chess Day Celebrated Worldwide on July 20, 2026",
+   "image_status": "card_fallback",
+   "message_id": 563,
+   "normalized_subject": "The world celebrates International Chess Day 2026",
+   "posted_at": "2026-11-03T09:29:46.275971+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-03-PM",
+   "sector": "Game Discovery",
+   "topic": "The world celebrates International Chess Day 2026",
+   "urls": [
+    "fide.com/the-world-celebrates-international-chess-day-2026"
+   ]
   }
  ],
  "runs": [],
@@ -7027,27 +7048,29 @@
      "First / Last / Only",
      "Why Does This Happen?",
      "Interesting Game Fact",
-     "How to Play"
+     "How to Play",
+     "Game Discovery"
     ],
     "run_ids": [
-     "2026-11-03-AM"
+     "2026-11-03-AM",
+     "2026-11-03-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-02T22:48:12.122978+00:00",
+  "last_run_at": "2026-11-03T09:30:20.112141+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-02T22:48:12.122940+00:00"
+    "updated_at": "2026-11-03T09:30:20.112113+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-02T22:48:12.122932+00:00"
+    "updated_at": "2026-11-03T09:30:20.112105+00:00"
    }
   },
   "publication": {
@@ -7565,6 +7588,11 @@
     "message_id": 562,
     "posted_at": "2026-11-02T22:48:09.101516+00:00",
     "status": "posted"
+   },
+   "2026-11-03-PM:evergreen:5bb4720e6597f8ca": {
+    "message_id": 563,
+    "posted_at": "2026-11-03T09:29:46.275757+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -7850,6 +7878,15 @@
      "How to Play",
      "Interesting Game Fact",
      "Why Does This Happen?"
+    ]
+   },
+   {
+    "at": "2026-11-03T09:30:20.112147+00:00",
+    "evergreen": 1,
+    "exit": 0,
+    "run_id": "2026-11-03-PM",
+    "used_sectors": [
+     "Game Discovery"
     ]
    }
   ],
