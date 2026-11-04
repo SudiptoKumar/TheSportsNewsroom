@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-03T20:32:20.366732+00:00",
-  "last_request_id": "a54e25cd68d3581c-SJC",
+  "last_ok": "2026-11-04T09:07:27.973096+00:00",
+  "last_request_id": "a55277f13f02b58e-IAD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-03T20:32:20.367008+00:00",
+ "last_run_at": "2026-11-04T09:07:35.832874+00:00",
  "ledger": {},
  "posts": [
   {
@@ -6928,6 +6928,28 @@
    "urls": [
     "brobible.com/sports/article/largest-college-football-head-coach-buyouts-ever"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "World Cup 2026: Ecuador 0-0 Curacao - Eloy Room makes history with incredible 15 saves to earn Blue Wave first ever point",
+   "claim": "World Cup 2026: Ecuador 0-0 Curacao - Eloy Room makes history with incredible 15 saves to earn Blue Wave first ever point Sky Sports",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "Eloy Room’s 15‑save masterpiece secures Curaçao’s first World Cup point",
+   "image_status": "verified_external",
+   "message_id": 568,
+   "normalized_subject": "World Cup 2026: Ecuador 0-0 Curacao - Eloy Room makes history with incredible 15 saves to earn Blue Wave first ever point",
+   "posted_at": "2026-11-04T09:07:32.811106+00:00",
+   "research_urls": [
+    "",
+    ""
+   ],
+   "run_id": "2026-11-04-PM",
+   "sector": "First / Last / Only",
+   "topic": "World Cup 2026: Ecuador 0-0 Curacao - Eloy Room makes history with incredible 15 saves to earn Blue Wave first ever point",
+   "urls": [
+    "skysports.com/football/news/13553789/world-cup-2026-ecuador-0-0-curacao-eloy-room-makes-history-with-incredible-15-saves-to-earn-blue-wave-first-ever-point"
+   ]
   }
  ],
  "runs": [],
@@ -7148,24 +7170,25 @@
      "First / Last / Only"
     ],
     "run_ids": [
-     "2026-11-04-AM"
+     "2026-11-04-AM",
+     "2026-11-04-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-03T20:32:20.366977+00:00",
+  "last_run_at": "2026-11-04T09:07:35.832813+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-03T20:32:20.366950+00:00"
+    "updated_at": "2026-11-04T09:07:35.832791+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-03T20:32:20.366938+00:00"
+    "updated_at": "2026-11-04T09:07:35.832784+00:00"
    }
   },
   "publication": {
@@ -7708,6 +7731,11 @@
     "message_id": 566,
     "posted_at": "2026-11-03T20:31:58.085278+00:00",
     "status": "posted"
+   },
+   "2026-11-04-PM:evergreen:cdce5969845f5090": {
+    "message_id": 568,
+    "posted_at": "2026-11-04T09:07:32.810809+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -8014,6 +8042,15 @@
      "Forgotten Game",
      "Forgotten Sport",
      "How to Play"
+    ]
+   },
+   {
+    "at": "2026-11-04T09:07:35.832818+00:00",
+    "evergreen": 1,
+    "exit": 0,
+    "run_id": "2026-11-04-PM",
+    "used_sectors": [
+     "First / Last / Only"
     ]
    }
   ],

@@ -14880,8 +14880,128 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 567
+  },
+  {
+   "central_claim": "Fifa World Cup plans: Pressure builds on Gianni Infantino as Concacaf call for 'full review' BBC",
+   "central_knowledge_unit": "fifa world cup plans pressure builds on gianni infantino as concacaf call for full review bbc",
+   "content_id": "8f3e42713b4e4cfb",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "894f61f4d78a03d1",
+    "9e3e286f52e62a71"
+   ],
+   "legacy": true,
+   "normalized_subject": "fifa world cup plans pressure builds on gianni infantino as concacaf call for full review",
+   "people": [],
+   "published_at": "2026-11-03T20:31:20.865410+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    "bbc.com/sport/football/articles/c04kr2nv3v3o"
+   ],
+   "sport_or_game": "Fifa World Cup plans: Pressure builds on Gianni Infantino as Concacaf call for 'full review'",
+   "telegram_message_id": 564
+  },
+  {
+   "central_claim": "Women’s Flag Football Rules, Explained: How the College Game Works RallyFuel",
+   "central_knowledge_unit": "women s flag football rules explained how the college game works rallyfuel",
+   "content_id": "c206b187bb898343",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "8a9b22a7ab898d9d",
+    "eefd214b49f64778"
+   ],
+   "legacy": true,
+   "normalized_subject": "women s flag football rules explained how the college game works rallyfuel",
+   "people": [],
+   "published_at": "2026-11-03T20:31:45.881880+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "How to Play",
+   "source_urls": [
+    "blog.rallyfuel.com/womens-flag-football-rules-explained"
+   ],
+   "sport_or_game": "Women’s Flag Football Rules, Explained: How the College Game Works - RallyFuel",
+   "telegram_message_id": 565
+  },
+  {
+   "central_claim": "A Roman Board Game Found in Ancient Coriovallum Rewrites the History of Strategy Games La Brújula Verde",
+   "central_knowledge_unit": "a roman board game found in ancient coriovallum rewrites the history of strategy games la br jula verde",
+   "content_id": "168b73cfae1944a9",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "16163dfadc5587ee",
+    "fc7d0121d6f73f07"
+   ],
+   "legacy": true,
+   "normalized_subject": "a roman board game found in ancient coriovallum rewrites the history of strategy games la br jula verde",
+   "people": [],
+   "published_at": "2026-11-03T20:31:58.085576+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Game",
+   "source_urls": [
+    "labrujulaverde.com/en/2026/02/a-roman-board-game-found-in-ancient-coriovallum-rewrites-the-history-of-strategy-games"
+   ],
+   "sport_or_game": "A Roman Board Game Found in Ancient Coriovallum Rewrites the History of Strategy Games - La Brújula Verde",
+   "telegram_message_id": 566
+  },
+  {
+   "central_claim": "The 13 Biggest Buyouts College Football Teams Have Coughed Up To Fire A Head Coach BroBible",
+   "central_knowledge_unit": "the 13 biggest buyouts college football teams have coughed up to fire a head coach brobible",
+   "content_id": "5621c908364a9a24",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "fef2dddbf94958d4",
+    "d29c6bdfa71f2094"
+   ],
+   "legacy": true,
+   "normalized_subject": "the 13 biggest buyouts college football teams have coughed up to fire a head coach",
+   "people": [],
+   "published_at": "2026-11-03T20:32:10.537548+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "brobible.com/sports/article/largest-college-football-head-coach-buyouts-ever"
+   ],
+   "sport_or_game": "The 13 Biggest Buyouts College Football Teams Have Coughed Up To Fire A Head Coach",
+   "telegram_message_id": 567
+  },
+  {
+   "central_claim": "World Cup 2026: Ecuador 0-0 Curacao - Eloy Room makes history with incredible 15 saves to earn Blue Wave first ever point Sky Sports",
+   "central_knowledge_unit": "world cup 2026 ecuador 0 0 curacao eloy room makes history with incredible 15 saves to earn blue wave first ever point",
+   "content_id": "499d7873a6191e3b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "499d7873a6191e3b",
+    "4a0d033b1ed5e877"
+   ],
+   "normalized_subject": "world cup 2026 ecuador 0 0 curacao eloy room makes history with incredible 15 saves to earn blue wave first ever point",
+   "people": [],
+   "published_at": "2026-11-04T09:07:32.810953+00:00",
+   "region": "",
+   "run_id": "2026-11-04-PM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 568
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-03T20:32:10.537515+00:00"
+ "updated_at": "2026-11-04T09:07:32.811073+00:00"
 }
