@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-04T09:07:27.973096+00:00",
-  "last_request_id": "a55277f13f02b58e-IAD",
+  "last_ok": "2026-11-04T20:51:25.177609+00:00",
+  "last_request_id": "a5567f20c9280d81-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-04T09:07:35.832874+00:00",
+ "last_run_at": "2026-11-04T20:51:30.730028+00:00",
  "ledger": {},
  "posts": [
   {
@@ -6950,6 +6950,91 @@
    "urls": [
     "skysports.com/football/news/13553789/world-cup-2026-ecuador-0-0-curacao-eloy-room-makes-history-with-incredible-15-saves-to-earn-blue-wave-first-ever-point"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "What are the 10 most unbreakable records in sports?",
+   "claim": "What are the 10 most unbreakable records in sports? FOX Sports",
+   "desk": "evergreen_v1",
+   "format": "Records & Milestones",
+   "headline": "Rickey Henderson’s 1,406 Career Stolen Bases Remain Untouchable",
+   "image_status": "verified_external",
+   "message_id": 569,
+   "normalized_subject": "What are the 10 most unbreakable records in sports?",
+   "posted_at": "2026-11-04T20:50:50.809435+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-05-AM",
+   "sector": "Records & Milestones",
+   "topic": "What are the 10 most unbreakable records in sports?",
+   "urls": [
+    "foxsports.com/stories/nfl/what-10-most-unbreakable-records-sports"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Bridge Card Game History: Why Contract Bridge Evades Most People",
+   "claim": "Bridge Card Game History: Why Contract Bridge Evades Most People Tedium.co",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "BBC’s 1980s Console Dedicated to Contract Bridge",
+   "image_status": "verified_external",
+   "message_id": 570,
+   "normalized_subject": "Bridge Card Game History: Why Contract Bridge Evades Most People",
+   "posted_at": "2026-11-04T20:51:04.430958+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-05-AM",
+   "sector": "Game Discovery",
+   "topic": "Bridge Card Game History: Why Contract Bridge Evades Most People",
+   "urls": [
+    "tedium.co/2023/02/08/bridge-card-game-history"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Women’s History Month: Black women transforming sports - The Bay State Banner",
+   "claim": "Women’s History Month: Black women transforming sports The Bay State Banner",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Black women reshape sports narratives during Women’s History Month",
+   "image_status": "card_fallback",
+   "message_id": 571,
+   "normalized_subject": "Women’s History Month: Black women transforming sports - The Bay State Banner",
+   "posted_at": "2026-11-04T20:51:15.105491+00:00",
+   "research_urls": [
+    "",
+    ""
+   ],
+   "run_id": "2026-11-05-AM",
+   "sector": "Sports & Games People",
+   "topic": "Women’s History Month: Black women transforming sports - The Bay State Banner",
+   "urls": [
+    "baystatebanner.com/2025/03/19/womens-history-month-black-women-transforming-sports"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "World Cup 2026: Curacao ready to take centre stage on world scene",
+   "claim": "World Cup 2026: Curacao ready to take centre stage on world scene BBC",
+   "desk": "evergreen_v1",
+   "format": "Sport Discovery",
+   "headline": "Curacao Set to Become Smallest Nation Ever at World Cup 2026",
+   "image_status": "verified_external",
+   "message_id": 572,
+   "normalized_subject": "World Cup 2026: Curacao ready to take centre stage on world scene",
+   "posted_at": "2026-11-04T20:51:27.708998+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-05-AM",
+   "sector": "Sport Discovery",
+   "topic": "World Cup 2026: Curacao ready to take centre stage on world scene",
+   "urls": [
+    "bbc.com/sport/football/articles/cn7p0d1mdrzo"
+   ]
   }
  ],
  "runs": [],
@@ -7173,22 +7258,33 @@
      "2026-11-04-AM",
      "2026-11-04-PM"
     ]
+   },
+   "2026-11-05": {
+    "published_sectors": [
+     "Records & Milestones",
+     "Game Discovery",
+     "Sports & Games People",
+     "Sport Discovery"
+    ],
+    "run_ids": [
+     "2026-11-05-AM"
+    ]
    }
   },
-  "last_run_at": "2026-11-04T09:07:35.832813+00:00",
+  "last_run_at": "2026-11-04T20:51:30.729997+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-04T09:07:35.832791+00:00"
+    "updated_at": "2026-11-04T20:51:30.729965+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-04T09:07:35.832784+00:00"
+    "updated_at": "2026-11-04T20:51:30.729960+00:00"
    }
   },
   "publication": {
@@ -7736,6 +7832,26 @@
     "message_id": 568,
     "posted_at": "2026-11-04T09:07:32.810809+00:00",
     "status": "posted"
+   },
+   "2026-11-05-AM:evergreen:43a8ef4c192afad3": {
+    "message_id": 572,
+    "posted_at": "2026-11-04T20:51:27.708783+00:00",
+    "status": "posted"
+   },
+   "2026-11-05-AM:evergreen:4f9438151cb38b23": {
+    "message_id": 571,
+    "posted_at": "2026-11-04T20:51:15.105239+00:00",
+    "status": "posted"
+   },
+   "2026-11-05-AM:evergreen:4f9545202f732151": {
+    "message_id": 569,
+    "posted_at": "2026-11-04T20:50:50.809213+00:00",
+    "status": "posted"
+   },
+   "2026-11-05-AM:evergreen:833ed26be0f2dae3": {
+    "message_id": 570,
+    "posted_at": "2026-11-04T20:51:04.430738+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -8051,6 +8167,18 @@
     "run_id": "2026-11-04-PM",
     "used_sectors": [
      "First / Last / Only"
+    ]
+   },
+   {
+    "at": "2026-11-04T20:51:30.730004+00:00",
+    "evergreen": 4,
+    "exit": 0,
+    "run_id": "2026-11-05-AM",
+    "used_sectors": [
+     "Game Discovery",
+     "Records & Milestones",
+     "Sport Discovery",
+     "Sports & Games People"
     ]
    }
   ],

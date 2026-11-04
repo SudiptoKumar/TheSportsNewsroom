@@ -15000,8 +15000,125 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 568
+  },
+  {
+   "central_claim": "World Cup 2026: Ecuador 0-0 Curacao - Eloy Room makes history with incredible 15 saves to earn Blue Wave first ever point Sky Sports",
+   "central_knowledge_unit": "world cup 2026 ecuador 0 0 curacao eloy room makes history with incredible 15 saves to earn blue wave first ever point sky sports",
+   "content_id": "8e9dde83be6a0afd",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4a0d033b1ed5e877",
+    "a0b18187accb5fdd"
+   ],
+   "legacy": true,
+   "normalized_subject": "world cup 2026 ecuador 0 0 curacao eloy room makes history with incredible 15 saves to earn blue wave first ever point",
+   "people": [],
+   "published_at": "2026-11-04T09:07:32.811106+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "skysports.com/football/news/13553789/world-cup-2026-ecuador-0-0-curacao-eloy-room-makes-history-with-incredible-15-saves-to-earn-blue-wave-first-ever-point"
+   ],
+   "sport_or_game": "World Cup 2026: Ecuador 0-0 Curacao - Eloy Room makes history with incredible 15 saves to earn Blue Wave first ever point",
+   "telegram_message_id": 568
+  },
+  {
+   "central_claim": "What are the 10 most unbreakable records in sports? FOX Sports",
+   "central_knowledge_unit": "what are the 10 most unbreakable records in sports",
+   "content_id": "041449bbcb1cd1e3",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "041449bbcb1cd1e3",
+    "7bcea22402fca5c8"
+   ],
+   "normalized_subject": "what are the 10 most unbreakable records in sports",
+   "people": [],
+   "published_at": "2026-11-04T20:50:50.809310+00:00",
+   "region": "",
+   "run_id": "2026-11-05-AM",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 569
+  },
+  {
+   "central_claim": "Bridge Card Game History: Why Contract Bridge Evades Most People Tedium.co",
+   "central_knowledge_unit": "bridge card game history why contract bridge evades most people",
+   "content_id": "d9c13bfa20ce02d3",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "d9c13bfa20ce02d3",
+    "b4aca07a976818a5"
+   ],
+   "normalized_subject": "bridge card game history why contract bridge evades most people",
+   "people": [],
+   "published_at": "2026-11-04T20:51:04.430841+00:00",
+   "region": "",
+   "run_id": "2026-11-05-AM",
+   "sector": "Game Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 570
+  },
+  {
+   "central_claim": "Women’s History Month: Black women transforming sports The Bay State Banner",
+   "central_knowledge_unit": "women s history month black women transforming sports the bay state banner",
+   "content_id": "be76ed810a4bfa12",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "be76ed810a4bfa12",
+    "f5e5b91c5847bcec"
+   ],
+   "normalized_subject": "women s history month black women transforming sports the bay state banner",
+   "people": [],
+   "published_at": "2026-11-04T20:51:15.105355+00:00",
+   "region": "",
+   "run_id": "2026-11-05-AM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 571
+  },
+  {
+   "central_claim": "World Cup 2026: Curacao ready to take centre stage on world scene BBC",
+   "central_knowledge_unit": "world cup 2026 curacao ready to take centre stage on world scene",
+   "content_id": "c65e1dbe6b70bd32",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c65e1dbe6b70bd32",
+    "af84150b2949c8a4"
+   ],
+   "normalized_subject": "world cup 2026 curacao ready to take centre stage on world scene",
+   "people": [],
+   "published_at": "2026-11-04T20:51:27.708882+00:00",
+   "region": "",
+   "run_id": "2026-11-05-AM",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 572
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-04T09:07:32.811073+00:00"
+ "updated_at": "2026-11-04T20:51:27.708967+00:00"
 }
