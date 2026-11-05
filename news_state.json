@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-04T20:51:25.177609+00:00",
-  "last_request_id": "a5567f20c9280d81-CMH",
+  "last_ok": "2026-11-05T09:26:52.516063+00:00",
+  "last_request_id": "a55ad1c07e78d86b-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-04T20:51:30.730028+00:00",
+ "last_run_at": "2026-11-05T09:26:59.154490+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7035,6 +7035,27 @@
    "urls": [
     "bbc.com/sport/football/articles/cn7p0d1mdrzo"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Lions Shock Sooners, Record First Ever SEC Win - East Texas A&M University Athletics",
+   "claim": "Lions Shock Sooners, Record First Ever SEC Win East Texas A&M University Athletics",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "Lions Secure First Ever SEC Victory Over Oklahoma",
+   "image_status": "verified_external",
+   "message_id": 573,
+   "normalized_subject": "Lions Shock Sooners, Record First Ever SEC Win - East Texas A&M University Athletics",
+   "posted_at": "2026-11-05T09:26:56.132872+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-05-PM",
+   "sector": "First / Last / Only",
+   "topic": "Lions Shock Sooners, Record First Ever SEC Win - East Texas A&M University Athletics",
+   "urls": [
+    "lionathletics.com/news/2026/11/3/mens-basketball-lions-shock-sooners-record-first-ever-sec-win.aspx"
+   ]
   }
  ],
  "runs": [],
@@ -7264,27 +7285,29 @@
      "Records & Milestones",
      "Game Discovery",
      "Sports & Games People",
-     "Sport Discovery"
+     "Sport Discovery",
+     "First / Last / Only"
     ],
     "run_ids": [
-     "2026-11-05-AM"
+     "2026-11-05-AM",
+     "2026-11-05-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-04T20:51:30.729997+00:00",
+  "last_run_at": "2026-11-05T09:26:59.154452+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-04T20:51:30.729965+00:00"
+    "updated_at": "2026-11-05T09:26:59.154421+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-04T20:51:30.729960+00:00"
+    "updated_at": "2026-11-05T09:26:59.154414+00:00"
    }
   },
   "publication": {
@@ -7852,6 +7875,11 @@
     "message_id": 570,
     "posted_at": "2026-11-04T20:51:04.430738+00:00",
     "status": "posted"
+   },
+   "2026-11-05-PM:evergreen:d4941be0c9abd05c": {
+    "message_id": 573,
+    "posted_at": "2026-11-05T09:26:56.132661+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -8179,6 +8207,15 @@
      "Records & Milestones",
      "Sport Discovery",
      "Sports & Games People"
+    ]
+   },
+   {
+    "at": "2026-11-05T09:26:59.154462+00:00",
+    "evergreen": 1,
+    "exit": 0,
+    "run_id": "2026-11-05-PM",
+    "used_sectors": [
+     "First / Last / Only"
     ]
    }
   ],
