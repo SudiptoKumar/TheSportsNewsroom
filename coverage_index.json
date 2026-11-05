@@ -15236,8 +15236,78 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 573
+  },
+  {
+   "central_claim": "Lions Shock Sooners, Record First Ever SEC Win East Texas A&M University Athletics",
+   "central_knowledge_unit": "lions shock sooners record first ever sec win east texas a m university athletics",
+   "content_id": "5269e9c02945076a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e31b95b68d9e9ee6",
+    "d4941be0c9abd05c"
+   ],
+   "legacy": true,
+   "normalized_subject": "lions shock sooners record first ever sec win east texas a m university athletics",
+   "people": [],
+   "published_at": "2026-11-05T09:26:56.132872+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "lionathletics.com/news/2026/11/3/mens-basketball-lions-shock-sooners-record-first-ever-sec-win.aspx"
+   ],
+   "sport_or_game": "Lions Shock Sooners, Record First Ever SEC Win - East Texas A&M University Athletics",
+   "telegram_message_id": 573
+  },
+  {
+   "central_claim": "Roll with it: the 30 best board games for Christmas 2025 The Guardian",
+   "central_knowledge_unit": "roll with it the 30 best board games for christmas 2025",
+   "content_id": "014c3747e0387474",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "014c3747e0387474",
+    "5d2f970b950e91d5"
+   ],
+   "normalized_subject": "roll with it the 30 best board games for christmas 2025",
+   "people": [],
+   "published_at": "2026-11-05T21:06:09.168533+00:00",
+   "region": "",
+   "run_id": "2026-11-06-AM",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 574
+  },
+  {
+   "central_claim": "Do you struggle to name the greatest athletes in history? Here is how sports legends changed the game forever Coeur d'Alene Press",
+   "central_knowledge_unit": "do you struggle to name the greatest athletes in history here is how sports legends changed the game forever coeur d alene press",
+   "content_id": "78de843b2bc2a624",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "78de843b2bc2a624",
+    "c8f0fb0b5d54fe59"
+   ],
+   "normalized_subject": "do you struggle to name the greatest athletes in history here is how sports legends changed the game forever coeur d alene press",
+   "people": [],
+   "published_at": "2026-11-05T21:06:22.361638+00:00",
+   "region": "",
+   "run_id": "2026-11-06-AM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 575
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-05T09:26:56.132841+00:00"
+ "updated_at": "2026-11-05T21:06:22.361701+00:00"
 }
