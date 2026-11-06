@@ -15377,8 +15377,32 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 576
+  },
+  {
+   "central_claim": "Ranking America’s Best Athletes from All 50 States Sports Illustrated",
+   "central_knowledge_unit": "ranking america s best athletes from all 50 states sports illustrated",
+   "content_id": "0de24bbb8af86df0",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "14cde8ade1872a4f",
+    "40fec6b85c90ab3e"
+   ],
+   "legacy": true,
+   "normalized_subject": "ranking america s best athletes from all 50 states",
+   "people": [],
+   "published_at": "2026-11-06T09:21:15.539953+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    "si.com/ranking-best-athletes-from-every-state-in-america"
+   ],
+   "sport_or_game": "Ranking America’s Best Athletes from All 50 States",
+   "telegram_message_id": 576
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-06T09:21:15.539929+00:00"
+ "updated_at": "2026-11-06T20:25:55.778472+00:00"
 }

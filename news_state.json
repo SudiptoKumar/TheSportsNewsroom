@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-06T09:21:34.280134+00:00",
-  "last_request_id": "a563075b5aabfb43-CMH",
+  "last_ok": "2026-11-06T20:28:27.036216+00:00",
+  "last_request_id": "a566d83bc8a0d6e7-IAD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-06T09:21:34.280353+00:00",
+ "last_run_at": "2026-11-06T20:28:27.036642+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7366,22 +7366,28 @@
      "2026-11-06-AM",
      "2026-11-06-PM"
     ]
+   },
+   "2026-11-07": {
+    "published_sectors": [],
+    "run_ids": [
+     "2026-11-07-AM"
+    ]
    }
   },
-  "last_run_at": "2026-11-06T09:21:34.280328+00:00",
+  "last_run_at": "2026-11-06T20:28:27.036624+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-06T09:21:34.280314+00:00"
+    "updated_at": "2026-11-06T20:28:27.036594+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-06T09:21:34.280310+00:00"
+    "updated_at": "2026-11-06T20:28:27.036588+00:00"
    }
   },
   "publication": {
@@ -8325,6 +8331,13 @@
     "used_sectors": [
      "Records & Milestones"
     ]
+   },
+   {
+    "at": "2026-11-06T20:28:27.036628+00:00",
+    "evergreen": 0,
+    "exit": 0,
+    "run_id": "2026-11-07-AM",
+    "used_sectors": []
    }
   ],
   "schema": 1
