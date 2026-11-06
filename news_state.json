@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-05T21:06:19.036321+00:00",
-  "last_request_id": "a55ed252feb55708-LAX",
+  "last_ok": "2026-11-06T09:21:34.280134+00:00",
+  "last_request_id": "a563075b5aabfb43-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-05T21:06:25.374983+00:00",
+ "last_run_at": "2026-11-06T09:21:34.280353+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7098,6 +7098,27 @@
    "urls": [
     "cdapress.com/news/2026/nov/03/do-you-struggle-to-name-the-greatest-athletes-in-history-here-is-how-sports-legends-changed-the-game-forever"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Ranking America’s Best Athletes from All 50 States",
+   "claim": "Ranking America’s Best Athletes from All 50 States Sports Illustrated",
+   "desk": "evergreen_v1",
+   "format": "Records & Milestones",
+   "headline": "Sports Illustrated Names Top Five Athletes From Every State",
+   "image_status": "verified_external",
+   "message_id": 576,
+   "normalized_subject": "Ranking America’s Best Athletes from All 50 States",
+   "posted_at": "2026-11-06T09:21:15.539953+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-06-PM",
+   "sector": "Records & Milestones",
+   "topic": "Ranking America’s Best Athletes from All 50 States",
+   "urls": [
+    "si.com/ranking-best-athletes-from-every-state-in-america"
+   ]
   }
  ],
  "runs": [],
@@ -7338,27 +7359,29 @@
    "2026-11-06": {
     "published_sectors": [
      "New Tabletop Game Discovery",
-     "Then vs Now"
+     "Then vs Now",
+     "Records & Milestones"
     ],
     "run_ids": [
-     "2026-11-06-AM"
+     "2026-11-06-AM",
+     "2026-11-06-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-05T21:06:25.374958+00:00",
+  "last_run_at": "2026-11-06T09:21:34.280328+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-05T21:06:25.374938+00:00"
+    "updated_at": "2026-11-06T09:21:34.280314+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-05T21:06:25.374933+00:00"
+    "updated_at": "2026-11-06T09:21:34.280310+00:00"
    }
   },
   "publication": {
@@ -7941,6 +7964,11 @@
     "message_id": 574,
     "posted_at": "2026-11-05T21:06:09.168457+00:00",
     "status": "posted"
+   },
+   "2026-11-06-PM:evergreen:152a7ce0513d842f": {
+    "message_id": 576,
+    "posted_at": "2026-11-06T09:21:15.539780+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -8287,6 +8315,15 @@
     "used_sectors": [
      "New Tabletop Game Discovery",
      "Then vs Now"
+    ]
+   },
+   {
+    "at": "2026-11-06T09:21:34.280335+00:00",
+    "evergreen": 1,
+    "exit": 0,
+    "run_id": "2026-11-06-PM",
+    "used_sectors": [
+     "Records & Milestones"
     ]
    }
   ],

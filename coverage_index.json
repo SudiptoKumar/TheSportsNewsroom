@@ -15306,8 +15306,79 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 575
+  },
+  {
+   "central_claim": "Roll with it: the 30 best board games for Christmas 2025 The Guardian",
+   "central_knowledge_unit": "roll with it the 30 best board games for christmas 2025 the guardian",
+   "content_id": "ec9ef7b6ee6bb88b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "5d2f970b950e91d5",
+    "85e15edcbf92b1d2"
+   ],
+   "legacy": true,
+   "normalized_subject": "roll with it the 30 best board games for christmas 2025",
+   "people": [],
+   "published_at": "2026-11-05T21:06:09.168609+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    "theguardian.com/lifeandstyle/2025/dec/07/best-board-games-christmas-gifts-2025"
+   ],
+   "sport_or_game": "Roll with it: the 30 best board games for Christmas 2025",
+   "telegram_message_id": 574
+  },
+  {
+   "central_claim": "Do you struggle to name the greatest athletes in history? Here is how sports legends changed the game forever Coeur d'Alene Press",
+   "central_knowledge_unit": "do you struggle to name the greatest athletes in history here is how sports legends changed the game forever coeur d alene press",
+   "content_id": "2ade9c21821a193a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c8f0fb0b5d54fe59",
+    "a1c88ec84b757431"
+   ],
+   "legacy": true,
+   "normalized_subject": "do you struggle to name the greatest athletes in history here is how sports legends changed the game forever coeur d alene press",
+   "people": [],
+   "published_at": "2026-11-05T21:06:22.361722+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "cdapress.com/news/2026/nov/03/do-you-struggle-to-name-the-greatest-athletes-in-history-here-is-how-sports-legends-changed-the-game-forever"
+   ],
+   "sport_or_game": "Do you struggle to name the greatest athletes in history? Here is how sports legends changed the game forever - Coeur d'Alene Press",
+   "telegram_message_id": 575
+  },
+  {
+   "central_claim": "Ranking America’s Best Athletes from All 50 States Sports Illustrated",
+   "central_knowledge_unit": "ranking america s best athletes from all 50 states",
+   "content_id": "611efdbc725de849",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "611efdbc725de849",
+    "14cde8ade1872a4f"
+   ],
+   "normalized_subject": "ranking america s best athletes from all 50 states",
+   "people": [],
+   "published_at": "2026-11-06T09:21:15.539863+00:00",
+   "region": "",
+   "run_id": "2026-11-06-PM",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 576
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-05T21:06:22.361701+00:00"
+ "updated_at": "2026-11-06T09:21:15.539929+00:00"
 }
