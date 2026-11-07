@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-06T20:28:27.036216+00:00",
-  "last_request_id": "a566d83bc8a0d6e7-IAD",
+  "last_ok": "2026-11-07T08:44:32.075328+00:00",
+  "last_request_id": "a56b0e7a4cb01ed6-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-06T20:28:27.036642+00:00",
+ "last_run_at": "2026-11-07T08:44:38.919844+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7119,6 +7119,27 @@
    "urls": [
     "si.com/ranking-best-athletes-from-every-state-in-america"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "18 Obscure Sports That Are Well Worth Rooting For",
+   "claim": "18 Obscure Sports That Are Well Worth Rooting For Atlas Obscura",
+   "desk": "evergreen_v1",
+   "format": "Sport Discovery",
+   "headline": "Discover 18 Obscure Sports Worth Cheering From Around the World",
+   "image_status": "verified_external",
+   "message_id": 577,
+   "normalized_subject": "18 Obscure Sports That Are Well Worth Rooting For",
+   "posted_at": "2026-11-07T08:44:35.898229+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-07-PM",
+   "sector": "Sport Discovery",
+   "topic": "18 Obscure Sports That Are Well Worth Rooting For",
+   "urls": [
+    "atlasobscura.com/articles/18-obscure-sports-worth-rooting-for"
+   ]
   }
  ],
  "runs": [],
@@ -7368,26 +7389,29 @@
     ]
    },
    "2026-11-07": {
-    "published_sectors": [],
+    "published_sectors": [
+     "Sport Discovery"
+    ],
     "run_ids": [
-     "2026-11-07-AM"
+     "2026-11-07-AM",
+     "2026-11-07-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-06T20:28:27.036624+00:00",
+  "last_run_at": "2026-11-07T08:44:38.919814+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-06T20:28:27.036594+00:00"
+    "updated_at": "2026-11-07T08:44:38.919785+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-06T20:28:27.036588+00:00"
+    "updated_at": "2026-11-07T08:44:38.919776+00:00"
    }
   },
   "publication": {
@@ -7975,6 +7999,11 @@
     "message_id": 576,
     "posted_at": "2026-11-06T09:21:15.539780+00:00",
     "status": "posted"
+   },
+   "2026-11-07-PM:evergreen:87d59bfbd70df122": {
+    "message_id": 577,
+    "posted_at": "2026-11-07T08:44:35.898022+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -8338,6 +8367,15 @@
     "exit": 0,
     "run_id": "2026-11-07-AM",
     "used_sectors": []
+   },
+   {
+    "at": "2026-11-07T08:44:38.919820+00:00",
+    "evergreen": 1,
+    "exit": 0,
+    "run_id": "2026-11-07-PM",
+    "used_sectors": [
+     "Sport Discovery"
+    ]
    }
   ],
   "schema": 1
