@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-07T08:44:32.075328+00:00",
-  "last_request_id": "a56b0e7a4cb01ed6-CMH",
+  "last_ok": "2026-11-07T18:44:44.552319+00:00",
+  "last_request_id": "a56e7dadd95b6c2b-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-07T08:44:38.919844+00:00",
+ "last_run_at": "2026-11-07T18:45:10.083990+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7396,22 +7396,28 @@
      "2026-11-07-AM",
      "2026-11-07-PM"
     ]
+   },
+   "2026-11-08": {
+    "published_sectors": [],
+    "run_ids": [
+     "2026-11-08-AM"
+    ]
    }
   },
-  "last_run_at": "2026-11-07T08:44:38.919814+00:00",
+  "last_run_at": "2026-11-07T18:45:10.083974+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-07T08:44:38.919785+00:00"
+    "updated_at": "2026-11-07T18:45:10.083958+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-07T08:44:38.919776+00:00"
+    "updated_at": "2026-11-07T18:45:10.083953+00:00"
    }
   },
   "publication": {
@@ -8376,6 +8382,13 @@
     "used_sectors": [
      "Sport Discovery"
     ]
+   },
+   {
+    "at": "2026-11-07T18:45:10.083978+00:00",
+    "evergreen": 0,
+    "exit": 0,
+    "run_id": "2026-11-08-AM",
+    "used_sectors": []
    }
   ],
   "schema": 1

@@ -15424,8 +15424,32 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 577
+  },
+  {
+   "central_claim": "18 Obscure Sports That Are Well Worth Rooting For Atlas Obscura",
+   "central_knowledge_unit": "18 obscure sports that are well worth rooting for atlas obscura",
+   "content_id": "747c6b451777a67f",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "28f3bb7911e4cff9",
+    "57de37fb441dc18c"
+   ],
+   "legacy": true,
+   "normalized_subject": "18 obscure sports that are well worth rooting for",
+   "people": [],
+   "published_at": "2026-11-07T08:44:35.898229+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Discovery",
+   "source_urls": [
+    "atlasobscura.com/articles/18-obscure-sports-worth-rooting-for"
+   ],
+   "sport_or_game": "18 Obscure Sports That Are Well Worth Rooting For",
+   "telegram_message_id": 577
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-07T08:44:35.898196+00:00"
+ "updated_at": "2026-11-07T18:43:27.298890+00:00"
 }
