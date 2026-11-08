@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-08T08:57:19.817391+00:00",
-  "last_request_id": "a5735e98be2aad08-CMH",
+  "last_ok": "2026-11-08T18:51:06.101048+00:00",
+  "last_request_id": "a576c4617df41fa1-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-08T08:57:25.859924+00:00",
+ "last_run_at": "2026-11-08T18:51:06.101261+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7426,22 +7426,28 @@
      "2026-11-08-AM",
      "2026-11-08-PM"
     ]
+   },
+   "2026-11-09": {
+    "published_sectors": [],
+    "run_ids": [
+     "2026-11-09-AM"
+    ]
    }
   },
-  "last_run_at": "2026-11-08T08:57:25.859900+00:00",
+  "last_run_at": "2026-11-08T18:51:06.101242+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-08T08:57:25.859878+00:00"
+    "updated_at": "2026-11-08T18:51:06.101228+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-08T08:57:25.859874+00:00"
+    "updated_at": "2026-11-08T18:51:06.101223+00:00"
    }
   },
   "publication": {
@@ -8427,6 +8433,13 @@
     "used_sectors": [
      "Game Discovery"
     ]
+   },
+   {
+    "at": "2026-11-08T18:51:06.101245+00:00",
+    "evergreen": 0,
+    "exit": 0,
+    "run_id": "2026-11-09-AM",
+    "used_sectors": []
    }
   ],
   "schema": 1

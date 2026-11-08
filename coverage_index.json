@@ -15471,8 +15471,32 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 578
+  },
+  {
+   "central_claim": "EVE Online player uses obscure rule to pull off the biggest heist in the game's history PC Gamer",
+   "central_knowledge_unit": "eve online player uses obscure rule to pull off the biggest heist in the game s history pc gamer",
+   "content_id": "c477e6067cc62f35",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "ce77b3d961ce4f06",
+    "0768a0f2d50b63cd"
+   ],
+   "legacy": true,
+   "normalized_subject": "eve online player uses obscure rule to pull off the biggest heist in the game s history",
+   "people": [],
+   "published_at": "2026-11-08T08:57:22.845810+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "pcgamer.com/eve-online-player-uses-obscure-rule-to-pull-off-the-biggest-heist-in-the-games-history"
+   ],
+   "sport_or_game": "EVE Online player uses obscure rule to pull off the biggest heist in the game's history",
+   "telegram_message_id": 578
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-08T08:57:22.845789+00:00"
+ "updated_at": "2026-11-08T18:48:40.056082+00:00"
 }
