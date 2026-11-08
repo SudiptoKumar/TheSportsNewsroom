@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-07T18:44:44.552319+00:00",
-  "last_request_id": "a56e7dadd95b6c2b-CMH",
+  "last_ok": "2026-11-08T08:57:19.817391+00:00",
+  "last_request_id": "a5735e98be2aad08-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-07T18:45:10.083990+00:00",
+ "last_run_at": "2026-11-08T08:57:25.859924+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7140,6 +7140,27 @@
    "urls": [
     "atlasobscura.com/articles/18-obscure-sports-worth-rooting-for"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "EVE Online player uses obscure rule to pull off the biggest heist in the game's history",
+   "claim": "EVE Online player uses obscure rule to pull off the biggest heist in the game's history PC Gamer",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "EVE Online Player Exploits Obscure Rule for Record Heist",
+   "image_status": "verified_external",
+   "message_id": 578,
+   "normalized_subject": "EVE Online player uses obscure rule to pull off the biggest heist in the game's history",
+   "posted_at": "2026-11-08T08:57:22.845810+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-08-PM",
+   "sector": "Game Discovery",
+   "topic": "EVE Online player uses obscure rule to pull off the biggest heist in the game's history",
+   "urls": [
+    "pcgamer.com/eve-online-player-uses-obscure-rule-to-pull-off-the-biggest-heist-in-the-games-history"
+   ]
   }
  ],
  "runs": [],
@@ -7398,26 +7419,29 @@
     ]
    },
    "2026-11-08": {
-    "published_sectors": [],
+    "published_sectors": [
+     "Game Discovery"
+    ],
     "run_ids": [
-     "2026-11-08-AM"
+     "2026-11-08-AM",
+     "2026-11-08-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-07T18:45:10.083974+00:00",
+  "last_run_at": "2026-11-08T08:57:25.859900+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-07T18:45:10.083958+00:00"
+    "updated_at": "2026-11-08T08:57:25.859878+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-07T18:45:10.083953+00:00"
+    "updated_at": "2026-11-08T08:57:25.859874+00:00"
    }
   },
   "publication": {
@@ -8010,6 +8034,11 @@
     "message_id": 577,
     "posted_at": "2026-11-07T08:44:35.898022+00:00",
     "status": "posted"
+   },
+   "2026-11-08-PM:evergreen:8ba5f473c95ef08f": {
+    "message_id": 578,
+    "posted_at": "2026-11-08T08:57:22.845645+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -8389,6 +8418,15 @@
     "exit": 0,
     "run_id": "2026-11-08-AM",
     "used_sectors": []
+   },
+   {
+    "at": "2026-11-08T08:57:25.859904+00:00",
+    "evergreen": 1,
+    "exit": 0,
+    "run_id": "2026-11-08-PM",
+    "used_sectors": [
+     "Game Discovery"
+    ]
    }
   ],
   "schema": 1

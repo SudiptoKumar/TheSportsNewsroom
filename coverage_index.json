@@ -15448,8 +15448,31 @@
    ],
    "sport_or_game": "18 Obscure Sports That Are Well Worth Rooting For",
    "telegram_message_id": 577
+  },
+  {
+   "central_claim": "EVE Online player uses obscure rule to pull off the biggest heist in the game's history PC Gamer",
+   "central_knowledge_unit": "eve online player uses obscure rule to pull off the biggest heist in the game s history",
+   "content_id": "034387e6baca91b5",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "034387e6baca91b5",
+    "ce77b3d961ce4f06"
+   ],
+   "normalized_subject": "eve online player uses obscure rule to pull off the biggest heist in the game s history",
+   "people": [],
+   "published_at": "2026-11-08T08:57:22.845727+00:00",
+   "region": "",
+   "run_id": "2026-11-08-PM",
+   "sector": "Game Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 578
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-07T18:43:27.298890+00:00"
+ "updated_at": "2026-11-08T08:57:22.845789+00:00"
 }
