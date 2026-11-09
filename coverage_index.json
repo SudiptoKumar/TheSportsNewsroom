@@ -15495,8 +15495,31 @@
    ],
    "sport_or_game": "EVE Online player uses obscure rule to pull off the biggest heist in the game's history",
    "telegram_message_id": 578
+  },
+  {
+   "central_claim": "'Holy grail' long lost board game found in attic BBC",
+   "central_knowledge_unit": "holy grail long lost board game found in attic",
+   "content_id": "3248b0f4e8ce79e5",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "3248b0f4e8ce79e5",
+    "78449de39c31593c"
+   ],
+   "normalized_subject": "holy grail long lost board game found in attic",
+   "people": [],
+   "published_at": "2026-11-09T09:44:40.610219+00:00",
+   "region": "",
+   "run_id": "2026-11-09-PM",
+   "sector": "Forgotten Game",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 579
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-08T18:48:40.056082+00:00"
+ "updated_at": "2026-11-09T09:44:40.610319+00:00"
 }

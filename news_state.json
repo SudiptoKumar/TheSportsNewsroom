@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-08T18:51:06.101048+00:00",
-  "last_request_id": "a576c4617df41fa1-CMH",
+  "last_ok": "2026-11-09T09:44:37.553108+00:00",
+  "last_request_id": "a57be140bd599dfc-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-08T18:51:06.101261+00:00",
+ "last_run_at": "2026-11-09T09:44:43.628837+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7161,6 +7161,27 @@
    "urls": [
     "pcgamer.com/eve-online-player-uses-obscure-rule-to-pull-off-the-biggest-heist-in-the-games-history"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "'Holy grail' long lost board game found in attic",
+   "claim": "'Holy grail' long lost board game found in attic BBC",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Game",
+   "headline": "Rare Pepys ‘Stop or Go’ Prototype Unearthed in Attic",
+   "image_status": "verified_external",
+   "message_id": 579,
+   "normalized_subject": "'Holy grail' long lost board game found in attic",
+   "posted_at": "2026-11-09T09:44:40.610344+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-09-PM",
+   "sector": "Forgotten Game",
+   "topic": "'Holy grail' long lost board game found in attic",
+   "urls": [
+    "bbc.co.uk/news/articles/c6vg7ly3105qo"
+   ]
   }
  ],
  "runs": [],
@@ -7428,26 +7449,29 @@
     ]
    },
    "2026-11-09": {
-    "published_sectors": [],
+    "published_sectors": [
+     "Forgotten Game"
+    ],
     "run_ids": [
-     "2026-11-09-AM"
+     "2026-11-09-AM",
+     "2026-11-09-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-08T18:51:06.101242+00:00",
+  "last_run_at": "2026-11-09T09:44:43.628811+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-08T18:51:06.101228+00:00"
+    "updated_at": "2026-11-09T09:44:43.628784+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-08T18:51:06.101223+00:00"
+    "updated_at": "2026-11-09T09:44:43.628779+00:00"
    }
   },
   "publication": {
@@ -8045,6 +8069,11 @@
     "message_id": 578,
     "posted_at": "2026-11-08T08:57:22.845645+00:00",
     "status": "posted"
+   },
+   "2026-11-09-PM:evergreen:fc4252bfce7fa99b": {
+    "message_id": 579,
+    "posted_at": "2026-11-09T09:44:40.610144+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -8440,6 +8469,15 @@
     "exit": 0,
     "run_id": "2026-11-09-AM",
     "used_sectors": []
+   },
+   {
+    "at": "2026-11-09T09:44:43.628816+00:00",
+    "evergreen": 1,
+    "exit": 0,
+    "run_id": "2026-11-09-PM",
+    "used_sectors": [
+     "Forgotten Game"
+    ]
    }
   ],
   "schema": 1
