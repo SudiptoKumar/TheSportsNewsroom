@@ -15518,8 +15518,78 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 579
+  },
+  {
+   "central_claim": "'Holy grail' long lost board game found in attic BBC",
+   "central_knowledge_unit": "holy grail long lost board game found in attic bbc",
+   "content_id": "44315b141cdd7a30",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "78449de39c31593c",
+    "ce33f8b5c6251f33"
+   ],
+   "legacy": true,
+   "normalized_subject": "holy grail long lost board game found in attic",
+   "people": [],
+   "published_at": "2026-11-09T09:44:40.610344+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Game",
+   "source_urls": [
+    "bbc.co.uk/news/articles/c6vg7ly3105qo"
+   ],
+   "sport_or_game": "'Holy grail' long lost board game found in attic",
+   "telegram_message_id": 579
+  },
+  {
+   "central_claim": "How Cindy Chang, M.D. rewrote the history of sports medicine University of California",
+   "central_knowledge_unit": "how cindy chang m d rewrote the history of sports medicine",
+   "content_id": "f2c525e14bfdea18",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f2c525e14bfdea18",
+    "28c2987fdde1f6e7"
+   ],
+   "normalized_subject": "how cindy chang m d rewrote the history of sports medicine",
+   "people": [],
+   "published_at": "2026-11-09T23:27:26.274756+00:00",
+   "region": "",
+   "run_id": "2026-11-10-AM",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 580
+  },
+  {
+   "central_claim": "How These 10 Black Athletes Changed The Face Of Modern Sports Biography: Historical and Celebrity Profiles",
+   "central_knowledge_unit": "how these 10 black athletes changed the face of modern sports biography historical and celebrity profiles",
+   "content_id": "77d542d14d0b3b4e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "77d542d14d0b3b4e",
+    "f2d37b79e46ccfd8"
+   ],
+   "normalized_subject": "how these 10 black athletes changed the face of modern sports biography historical and celebrity profiles",
+   "people": [],
+   "published_at": "2026-11-09T23:27:51.236424+00:00",
+   "region": "",
+   "run_id": "2026-11-10-AM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 581
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-09T09:44:40.610319+00:00"
+ "updated_at": "2026-11-09T23:27:51.236489+00:00"
 }

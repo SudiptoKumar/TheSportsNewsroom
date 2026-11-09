@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-09T09:44:37.553108+00:00",
-  "last_request_id": "a57be140bd599dfc-CMH",
+  "last_ok": "2026-11-09T23:28:01.274050+00:00",
+  "last_request_id": "a5809766ca3bd62d-IAD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-09T09:44:43.628837+00:00",
+ "last_run_at": "2026-11-09T23:28:01.274293+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7182,6 +7182,48 @@
    "urls": [
     "bbc.co.uk/news/articles/c6vg7ly3105qo"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "How Cindy Chang, M.D. rewrote the history of sports medicine",
+   "claim": "How Cindy Chang, M.D. rewrote the history of sports medicine University of California",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "Cindy Chang Overcame Bias to Transform Sports Medicine",
+   "image_status": "card_fallback",
+   "message_id": 580,
+   "normalized_subject": "How Cindy Chang, M.D. rewrote the history of sports medicine",
+   "posted_at": "2026-11-09T23:27:26.274845+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-10-AM",
+   "sector": "Equipment / Measurement",
+   "topic": "How Cindy Chang, M.D. rewrote the history of sports medicine",
+   "urls": [
+    "universityofcalifornia.edu/news/how-cindy-chang-md-rewrote-history-sports-medicine"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "How These 10 Black Athletes Changed The Face Of Modern Sports - Biography: Historical and Celebrity Profiles",
+   "claim": "How These 10 Black Athletes Changed The Face Of Modern Sports Biography: Historical and Celebrity Profiles",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Ten African American Pioneers Who Shattered Sports Barriers",
+   "image_status": "card_fallback",
+   "message_id": 581,
+   "normalized_subject": "How These 10 Black Athletes Changed The Face Of Modern Sports - Biography: Historical and Celebrity Profiles",
+   "posted_at": "2026-11-09T23:27:51.236512+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-10-AM",
+   "sector": "Sports & Games People",
+   "topic": "How These 10 Black Athletes Changed The Face Of Modern Sports - Biography: Historical and Celebrity Profiles",
+   "urls": [
+    "biography.com/athletes/a70466539/pioneer-black-athletes"
+   ]
   }
  ],
  "runs": [],
@@ -7456,22 +7498,31 @@
      "2026-11-09-AM",
      "2026-11-09-PM"
     ]
+   },
+   "2026-11-10": {
+    "published_sectors": [
+     "Equipment / Measurement",
+     "Sports & Games People"
+    ],
+    "run_ids": [
+     "2026-11-10-AM"
+    ]
    }
   },
-  "last_run_at": "2026-11-09T09:44:43.628811+00:00",
+  "last_run_at": "2026-11-09T23:28:01.274271+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-09T09:44:43.628784+00:00"
+    "updated_at": "2026-11-09T23:28:01.274252+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-09T09:44:43.628779+00:00"
+    "updated_at": "2026-11-09T23:28:01.274246+00:00"
    }
   },
   "publication": {
@@ -8074,6 +8125,16 @@
     "message_id": 579,
     "posted_at": "2026-11-09T09:44:40.610144+00:00",
     "status": "posted"
+   },
+   "2026-11-10-AM:evergreen:17cbf885274d41c7": {
+    "message_id": 581,
+    "posted_at": "2026-11-09T23:27:51.236330+00:00",
+    "status": "posted"
+   },
+   "2026-11-10-AM:evergreen:2eb0155519bdbdf0": {
+    "message_id": 580,
+    "posted_at": "2026-11-09T23:27:26.274676+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -8477,6 +8538,16 @@
     "run_id": "2026-11-09-PM",
     "used_sectors": [
      "Forgotten Game"
+    ]
+   },
+   {
+    "at": "2026-11-09T23:28:01.274275+00:00",
+    "evergreen": 2,
+    "exit": 0,
+    "run_id": "2026-11-10-AM",
+    "used_sectors": [
+     "Equipment / Measurement",
+     "Sports & Games People"
     ]
    }
   ],
