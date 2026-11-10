@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-10T09:44:22.468426+00:00",
-  "last_request_id": "a5841e42afe04138-ORD",
+  "last_ok": "2026-11-10T20:49:31.274822+00:00",
+  "last_request_id": "a587ec989919f091-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-10T09:44:22.468647+00:00",
+ "last_run_at": "2026-11-10T20:49:37.729849+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7266,6 +7266,69 @@
    "urls": [
     "cincinnatimagazine.com/article/the-family-history-of-koch-sporting-goods"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Belgium and the origins of cyclocross: how the sport developed",
+   "claim": "Belgium and the origins of cyclocross: how the sport developed ProCyclingUK",
+   "desk": "evergreen_v1",
+   "format": "Sport Origin",
+   "headline": "How Belgium Shaped Cyclocross Into a Winter Sporting Tradition",
+   "image_status": "verified_external",
+   "message_id": 584,
+   "normalized_subject": "Belgium and the origins of cyclocross: how the sport developed",
+   "posted_at": "2026-11-10T20:48:43.877012+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-11-AM",
+   "sector": "Sport Origin",
+   "topic": "Belgium and the origins of cyclocross: how the sport developed",
+   "urls": [
+    "procyclinguk.com/belgium-and-origins-of-cyclocross-how-the-sport-developed"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The Strange Philly History of the Monopoly Board Game - Philadelphia Magazine",
+   "claim": "The Strange Philly History of the Monopoly Board Game Philadelphia Magazine",
+   "desk": "evergreen_v1",
+   "format": "Game Origin",
+   "headline": "Philadelphia’s Charles Darrow Turned a Socialist Parable into Monopoly",
+   "image_status": "verified_external",
+   "message_id": 585,
+   "normalized_subject": "The Strange Philly History of the Monopoly Board Game - Philadelphia Magazine",
+   "posted_at": "2026-11-10T20:48:56.806392+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-11-AM",
+   "sector": "Game Origin",
+   "topic": "The Strange Philly History of the Monopoly Board Game - Philadelphia Magazine",
+   "urls": [
+    "phillymag.com/news/2021/02/06/monopoly-philadelphia-germantown-inventor"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "India Celebrates 100th Chess Grandmaster With Anuj Shrivatri's Achievement",
+   "claim": "India Celebrates 100th Chess Grandmaster With Anuj Shrivatri's Achievement Rediff",
+   "desk": "evergreen_v1",
+   "format": "New Sport Discovery",
+   "headline": "Anuj Shrivatri Becomes India’s 100th Chess Grandmaster",
+   "image_status": "verified_external",
+   "message_id": 586,
+   "normalized_subject": "India Celebrates 100th Chess Grandmaster With Anuj Shrivatri's Achievement",
+   "posted_at": "2026-11-10T20:49:34.716299+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-11-AM",
+   "sector": "New Sport Discovery",
+   "topic": "India Celebrates 100th Chess Grandmaster With Anuj Shrivatri's Achievement",
+   "urls": [
+    "rediff.com/sports/report/india-now-home-to-100-chess-grandmasters/20261110.htm"
+   ]
   }
  ],
  "runs": [],
@@ -7551,22 +7614,32 @@
      "2026-11-10-AM",
      "2026-11-10-PM"
     ]
+   },
+   "2026-11-11": {
+    "published_sectors": [
+     "Sport Origin",
+     "Game Origin",
+     "New Sport Discovery"
+    ],
+    "run_ids": [
+     "2026-11-11-AM"
+    ]
    }
   },
-  "last_run_at": "2026-11-10T09:44:22.468631+00:00",
+  "last_run_at": "2026-11-10T20:49:37.729822+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-10T09:44:22.468618+00:00"
+    "updated_at": "2026-11-10T20:49:37.729802+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-10T09:44:22.468614+00:00"
+    "updated_at": "2026-11-10T20:49:37.729796+00:00"
    }
   },
   "publication": {
@@ -8189,6 +8262,21 @@
     "message_id": 583,
     "posted_at": "2026-11-10T09:44:14.221343+00:00",
     "status": "posted"
+   },
+   "2026-11-11-AM:evergreen:2d156bd69de1e26d": {
+    "message_id": 586,
+    "posted_at": "2026-11-10T20:49:34.716145+00:00",
+    "status": "posted"
+   },
+   "2026-11-11-AM:evergreen:70a244188185f3ff": {
+    "message_id": 584,
+    "posted_at": "2026-11-10T20:48:43.876861+00:00",
+    "status": "posted"
+   },
+   "2026-11-11-AM:evergreen:b18a06c060ef775b": {
+    "message_id": 585,
+    "posted_at": "2026-11-10T20:48:56.806233+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -8612,6 +8700,17 @@
     "used_sectors": [
      "Equipment / Measurement",
      "Game Origin"
+    ]
+   },
+   {
+    "at": "2026-11-10T20:49:37.729825+00:00",
+    "evergreen": 3,
+    "exit": 0,
+    "run_id": "2026-11-11-AM",
+    "used_sectors": [
+     "Game Origin",
+     "New Sport Discovery",
+     "Sport Origin"
     ]
    }
   ],
