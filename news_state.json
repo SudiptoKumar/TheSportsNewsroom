@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-09T23:28:01.274050+00:00",
-  "last_request_id": "a5809766ca3bd62d-IAD",
+  "last_ok": "2026-11-10T09:44:22.468426+00:00",
+  "last_request_id": "a5841e42afe04138-ORD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-09T23:28:01.274293+00:00",
+ "last_run_at": "2026-11-10T09:44:22.468647+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7224,6 +7224,48 @@
    "urls": [
     "biography.com/athletes/a70466539/pioneer-black-athletes"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "'I wanted the game to feel unlike anything else': How I invented hit board game League of Lexicon",
+   "claim": "'I wanted the game to feel unlike anything else': How I invented hit board game League of Lexicon Big Issue",
+   "desk": "evergreen_v1",
+   "format": "Game Origin",
+   "headline": "Inventor Created League of Lexicon to Distract Lockdown Kids",
+   "image_status": "verified_external",
+   "message_id": 582,
+   "normalized_subject": "'I wanted the game to feel unlike anything else': How I invented hit board game League of Lexicon",
+   "posted_at": "2026-11-10T09:44:00.791588+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-10-PM",
+   "sector": "Game Origin",
+   "topic": "'I wanted the game to feel unlike anything else': How I invented hit board game League of Lexicon",
+   "urls": [
+    "bigissue.com/culture/books/league-of-lexicon-board-game-inventor-joshua-blackburn"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The Family History of Koch Sporting Goods",
+   "claim": "The Family History of Koch Sporting Goods Cincinnati Magazine",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "Koch Sporting Goods Traces Five Generations Back to 1888",
+   "image_status": "card_fallback",
+   "message_id": 583,
+   "normalized_subject": "The Family History of Koch Sporting Goods",
+   "posted_at": "2026-11-10T09:44:14.221501+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-10-PM",
+   "sector": "Equipment / Measurement",
+   "topic": "The Family History of Koch Sporting Goods",
+   "urls": [
+    "cincinnatimagazine.com/article/the-family-history-of-koch-sporting-goods"
+   ]
   }
  ],
  "runs": [],
@@ -7502,27 +7544,29 @@
    "2026-11-10": {
     "published_sectors": [
      "Equipment / Measurement",
-     "Sports & Games People"
+     "Sports & Games People",
+     "Game Origin"
     ],
     "run_ids": [
-     "2026-11-10-AM"
+     "2026-11-10-AM",
+     "2026-11-10-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-09T23:28:01.274271+00:00",
+  "last_run_at": "2026-11-10T09:44:22.468631+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-09T23:28:01.274252+00:00"
+    "updated_at": "2026-11-10T09:44:22.468618+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-09T23:28:01.274246+00:00"
+    "updated_at": "2026-11-10T09:44:22.468614+00:00"
    }
   },
   "publication": {
@@ -8135,6 +8179,16 @@
     "message_id": 580,
     "posted_at": "2026-11-09T23:27:26.274676+00:00",
     "status": "posted"
+   },
+   "2026-11-10-PM:evergreen:795f0d8591eaf83a": {
+    "message_id": 582,
+    "posted_at": "2026-11-10T09:44:00.791413+00:00",
+    "status": "posted"
+   },
+   "2026-11-10-PM:evergreen:99622eaeff840a26": {
+    "message_id": 583,
+    "posted_at": "2026-11-10T09:44:14.221343+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -8548,6 +8602,16 @@
     "used_sectors": [
      "Equipment / Measurement",
      "Sports & Games People"
+    ]
+   },
+   {
+    "at": "2026-11-10T09:44:22.468633+00:00",
+    "evergreen": 2,
+    "exit": 0,
+    "run_id": "2026-11-10-PM",
+    "used_sectors": [
+     "Equipment / Measurement",
+     "Game Origin"
     ]
    }
   ],

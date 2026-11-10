@@ -15588,8 +15588,102 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 581
+  },
+  {
+   "central_claim": "How Cindy Chang, M.D. rewrote the history of sports medicine University of California",
+   "central_knowledge_unit": "how cindy chang m d rewrote the history of sports medicine university of california",
+   "content_id": "eb75f15e77c1d16e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "28c2987fdde1f6e7",
+    "8b8daf3436d0d3bf"
+   ],
+   "legacy": true,
+   "normalized_subject": "how cindy chang m d rewrote the history of sports medicine",
+   "people": [],
+   "published_at": "2026-11-09T23:27:26.274845+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "universityofcalifornia.edu/news/how-cindy-chang-md-rewrote-history-sports-medicine"
+   ],
+   "sport_or_game": "How Cindy Chang, M.D. rewrote the history of sports medicine",
+   "telegram_message_id": 580
+  },
+  {
+   "central_claim": "How These 10 Black Athletes Changed The Face Of Modern Sports Biography: Historical and Celebrity Profiles",
+   "central_knowledge_unit": "how these 10 black athletes changed the face of modern sports biography historical and celebrity profiles",
+   "content_id": "36e82f399c0f9699",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f2d37b79e46ccfd8",
+    "17cbf885274d41c7"
+   ],
+   "legacy": true,
+   "normalized_subject": "how these 10 black athletes changed the face of modern sports biography historical and celebrity profiles",
+   "people": [],
+   "published_at": "2026-11-09T23:27:51.236512+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "biography.com/athletes/a70466539/pioneer-black-athletes"
+   ],
+   "sport_or_game": "How These 10 Black Athletes Changed The Face Of Modern Sports - Biography: Historical and Celebrity Profiles",
+   "telegram_message_id": 581
+  },
+  {
+   "central_claim": "'I wanted the game to feel unlike anything else': How I invented hit board game League of Lexicon Big Issue",
+   "central_knowledge_unit": "i wanted the game to feel unlike anything else how i invented hit board game league of lexicon",
+   "content_id": "13a3e4b16d64af51",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "13a3e4b16d64af51",
+    "a80d289675f2599d"
+   ],
+   "normalized_subject": "i wanted the game to feel unlike anything else how i invented hit board game league of lexicon",
+   "people": [],
+   "published_at": "2026-11-10T09:44:00.791503+00:00",
+   "region": "",
+   "run_id": "2026-11-10-PM",
+   "sector": "Game Origin",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 582
+  },
+  {
+   "central_claim": "The Family History of Koch Sporting Goods Cincinnati Magazine",
+   "central_knowledge_unit": "the family history of koch sporting goods",
+   "content_id": "f5138f54e3d3bb3a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f5138f54e3d3bb3a",
+    "e8bee1e3b1293bad"
+   ],
+   "normalized_subject": "the family history of koch sporting goods",
+   "people": [],
+   "published_at": "2026-11-10T09:44:14.221430+00:00",
+   "region": "",
+   "run_id": "2026-11-10-PM",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 583
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-09T23:27:51.236489+00:00"
+ "updated_at": "2026-11-10T09:44:14.221480+00:00"
 }
