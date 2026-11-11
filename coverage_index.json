@@ -15871,8 +15871,32 @@
    ],
    "sport_or_game": "India Celebrates 100th Chess Grandmaster With Anuj Shrivatri's Achievement",
    "telegram_message_id": 586
+  },
+  {
+   "central_claim": "MLB Rule Sparks Rare Red Sox Four-Out Inning Lyndy's Sports Annuals",
+   "central_knowledge_unit": "mlb rule sparks rare red sox four out inning lyndy s sports annuals",
+   "content_id": "5147986c4d5c4c43",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "5147986c4d5c4c43",
+    "b6618a15b8aa4537"
+   ],
+   "normalized_subject": "mlb rule sparks rare red sox four out inning lyndy s sports annuals",
+   "people": [],
+   "published_at": "2026-11-11T21:23:49.199342+00:00",
+   "region": "",
+   "run_id": "2026-11-12-AM",
+   "sector": "Rule Check",
+   "source_urls": [
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 587
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-11T09:17:54.336175+00:00"
+ "updated_at": "2026-11-11T21:23:49.199458+00:00"
 }

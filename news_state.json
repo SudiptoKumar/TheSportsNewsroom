@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-11T09:20:06.407945+00:00",
-  "last_request_id": "a58c38162bfe5527-SJC",
+  "last_ok": "2026-11-11T21:23:46.535838+00:00",
+  "last_request_id": "a5905c2589761601-SJC",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-11T09:20:06.408181+00:00",
+ "last_run_at": "2026-11-11T21:23:52.222629+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7329,6 +7329,28 @@
    "urls": [
     "rediff.com/sports/report/india-now-home-to-100-chess-grandmasters/20261110.htm"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "MLB Rule Sparks Rare Red Sox Four-Out Inning - Lyndy's Sports Annuals",
+   "claim": "MLB Rule Sparks Rare Red Sox Four-Out Inning Lyndy's Sports Annuals",
+   "desk": "evergreen_v1",
+   "format": "Rule Check",
+   "headline": "Red Sox Record Rare Four‑Out Inning Under Unusual MLB Rule",
+   "image_status": "card_fallback",
+   "message_id": 587,
+   "normalized_subject": "MLB Rule Sparks Rare Red Sox Four-Out Inning - Lyndy's Sports Annuals",
+   "posted_at": "2026-11-11T21:23:49.199495+00:00",
+   "research_urls": [
+    "",
+    ""
+   ],
+   "run_id": "2026-11-12-AM",
+   "sector": "Rule Check",
+   "topic": "MLB Rule Sparks Rare Red Sox Four-Out Inning - Lyndy's Sports Annuals",
+   "urls": [
+    "lindyssports.com/mlb/rare-mlb-rule-sparks-chaos-in-red-sox-shocking-four-out-inning"
+   ]
   }
  ],
  "runs": [],
@@ -7625,22 +7647,30 @@
      "2026-11-11-AM",
      "2026-11-11-PM"
     ]
+   },
+   "2026-11-12": {
+    "published_sectors": [
+     "Rule Check"
+    ],
+    "run_ids": [
+     "2026-11-12-AM"
+    ]
    }
   },
-  "last_run_at": "2026-11-11T09:20:06.408145+00:00",
+  "last_run_at": "2026-11-11T21:23:52.222608+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-11T09:20:06.408126+00:00"
+    "updated_at": "2026-11-11T21:23:52.222588+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-11T09:20:06.408120+00:00"
+    "updated_at": "2026-11-11T21:23:52.222583+00:00"
    }
   },
   "publication": {
@@ -8278,6 +8308,11 @@
     "message_id": 585,
     "posted_at": "2026-11-10T20:48:56.806233+00:00",
     "status": "posted"
+   },
+   "2026-11-12-AM:evergreen:aab3ae4c55b99a3d": {
+    "message_id": 587,
+    "posted_at": "2026-11-11T21:23:49.199230+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -8720,6 +8755,15 @@
     "exit": 0,
     "run_id": "2026-11-11-PM",
     "used_sectors": []
+   },
+   {
+    "at": "2026-11-11T21:23:52.222612+00:00",
+    "evergreen": 1,
+    "exit": 0,
+    "run_id": "2026-11-12-AM",
+    "used_sectors": [
+     "Rule Check"
+    ]
    }
   ],
   "schema": 1
