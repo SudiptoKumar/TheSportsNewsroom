@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-10T20:49:31.274822+00:00",
-  "last_request_id": "a587ec989919f091-CMH",
+  "last_ok": "2026-11-11T09:20:06.407945+00:00",
+  "last_request_id": "a58c38162bfe5527-SJC",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-10T20:49:37.729849+00:00",
+ "last_run_at": "2026-11-11T09:20:06.408181+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7622,24 +7622,25 @@
      "New Sport Discovery"
     ],
     "run_ids": [
-     "2026-11-11-AM"
+     "2026-11-11-AM",
+     "2026-11-11-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-10T20:49:37.729822+00:00",
+  "last_run_at": "2026-11-11T09:20:06.408145+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-10T20:49:37.729802+00:00"
+    "updated_at": "2026-11-11T09:20:06.408126+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-10T20:49:37.729796+00:00"
+    "updated_at": "2026-11-11T09:20:06.408120+00:00"
    }
   },
   "publication": {
@@ -8712,6 +8713,13 @@
      "New Sport Discovery",
      "Sport Origin"
     ]
+   },
+   {
+    "at": "2026-11-11T09:20:06.408162+00:00",
+    "evergreen": 0,
+    "exit": 0,
+    "run_id": "2026-11-11-PM",
+    "used_sectors": []
    }
   ],
   "schema": 1

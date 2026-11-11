@@ -15799,8 +15799,80 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 586
+  },
+  {
+   "central_claim": "Belgium and the origins of cyclocross: how the sport developed ProCyclingUK",
+   "central_knowledge_unit": "belgium and the origins of cyclocross how the sport developed procyclinguk",
+   "content_id": "699e5cb66ce86c1d",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9e7552fec979188d",
+    "05a40bbb3795b518"
+   ],
+   "legacy": true,
+   "normalized_subject": "belgium and the origins of cyclocross how the sport developed",
+   "people": [],
+   "published_at": "2026-11-10T20:48:43.877012+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sport Origin",
+   "source_urls": [
+    "procyclinguk.com/belgium-and-origins-of-cyclocross-how-the-sport-developed"
+   ],
+   "sport_or_game": "Belgium and the origins of cyclocross: how the sport developed",
+   "telegram_message_id": 584
+  },
+  {
+   "central_claim": "The Strange Philly History of the Monopoly Board Game Philadelphia Magazine",
+   "central_knowledge_unit": "the strange philly history of the monopoly board game philadelphia magazine",
+   "content_id": "f21946f903dd5112",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7342061efa7fc79f",
+    "b18a06c060ef775b"
+   ],
+   "legacy": true,
+   "normalized_subject": "the strange philly history of the monopoly board game philadelphia magazine",
+   "people": [],
+   "published_at": "2026-11-10T20:48:56.806392+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Origin",
+   "source_urls": [
+    "phillymag.com/news/2021/02/06/monopoly-philadelphia-germantown-inventor"
+   ],
+   "sport_or_game": "The Strange Philly History of the Monopoly Board Game - Philadelphia Magazine",
+   "telegram_message_id": 585
+  },
+  {
+   "central_claim": "India Celebrates 100th Chess Grandmaster With Anuj Shrivatri's Achievement Rediff",
+   "central_knowledge_unit": "india celebrates 100th chess grandmaster with anuj shrivatri s achievement rediff",
+   "content_id": "5e8ce6cd166005ca",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "8b678b5923a5cfb9",
+    "67ac7de7d74bbd55"
+   ],
+   "legacy": true,
+   "normalized_subject": "india celebrates 100th chess grandmaster with anuj shrivatri s achievement",
+   "people": [],
+   "published_at": "2026-11-10T20:49:34.716299+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "rediff.com/sports/report/india-now-home-to-100-chess-grandmasters/20261110.htm"
+   ],
+   "sport_or_game": "India Celebrates 100th Chess Grandmaster With Anuj Shrivatri's Achievement",
+   "telegram_message_id": 586
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-10T20:49:34.716279+00:00"
+ "updated_at": "2026-11-11T09:17:54.336175+00:00"
 }
