@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-11T21:23:46.535838+00:00",
-  "last_request_id": "a5905c2589761601-SJC",
+  "last_ok": "2026-11-12T09:46:45.329146+00:00",
+  "last_request_id": "a5949c7eea773ccc-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-11T21:23:52.222629+00:00",
+ "last_run_at": "2026-11-12T09:46:50.815826+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7351,6 +7351,48 @@
    "urls": [
     "lindyssports.com/mlb/rare-mlb-rule-sparks-chaos-in-red-sox-shocking-four-out-inning"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Brewers chasing rare feat in quest for 1st WS title",
+   "claim": "Brewers chasing rare feat in quest for 1st WS title MLB.com",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "Brewers Poised for Historic First World Series Amid Rare Top-Seed Matchup",
+   "image_status": "verified_external",
+   "message_id": 588,
+   "normalized_subject": "Brewers chasing rare feat in quest for 1st WS title",
+   "posted_at": "2026-11-12T09:46:36.002260+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-12-PM",
+   "sector": "First / Last / Only",
+   "topic": "Brewers chasing rare feat in quest for 1st WS title",
+   "urls": [
+    "mlb.com/news/brewers-seeking-unique-history-across-north-american-sports"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "This Day in Sports History: November 12 - 93.3 WMMR",
+   "claim": "This Day in Sports History: November 12 93.3 WMMR",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "November 12 Marks Milestones From Iron Bowl to NHL Debut",
+   "image_status": "verified_external",
+   "message_id": 589,
+   "normalized_subject": "This Day in Sports History: November 12 - 93.3 WMMR",
+   "posted_at": "2026-11-12T09:46:47.797130+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-12-PM",
+   "sector": "On This Date",
+   "topic": "This Day in Sports History: November 12 - 93.3 WMMR",
+   "urls": [
+    "wmmr.com/2026/11/12/this-day-in-sports-history-november-12-2"
+   ]
   }
  ],
  "runs": [],
@@ -7650,27 +7692,30 @@
    },
    "2026-11-12": {
     "published_sectors": [
-     "Rule Check"
+     "Rule Check",
+     "First / Last / Only",
+     "On This Date"
     ],
     "run_ids": [
-     "2026-11-12-AM"
+     "2026-11-12-AM",
+     "2026-11-12-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-11T21:23:52.222608+00:00",
+  "last_run_at": "2026-11-12T09:46:50.815796+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-11T21:23:52.222588+00:00"
+    "updated_at": "2026-11-12T09:46:50.815778+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-11T21:23:52.222583+00:00"
+    "updated_at": "2026-11-12T09:46:50.815773+00:00"
    }
   },
   "publication": {
@@ -8313,6 +8358,16 @@
     "message_id": 587,
     "posted_at": "2026-11-11T21:23:49.199230+00:00",
     "status": "posted"
+   },
+   "2026-11-12-PM:evergreen:9fefef7d78e05a13": {
+    "message_id": 589,
+    "posted_at": "2026-11-12T09:46:47.796959+00:00",
+    "status": "posted"
+   },
+   "2026-11-12-PM:evergreen:ad8d74200a034b49": {
+    "message_id": 588,
+    "posted_at": "2026-11-12T09:46:36.002099+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -8763,6 +8818,16 @@
     "run_id": "2026-11-12-AM",
     "used_sectors": [
      "Rule Check"
+    ]
+   },
+   {
+    "at": "2026-11-12T09:46:50.815800+00:00",
+    "evergreen": 2,
+    "exit": 0,
+    "run_id": "2026-11-12-PM",
+    "used_sectors": [
+     "First / Last / Only",
+     "On This Date"
     ]
    }
   ],

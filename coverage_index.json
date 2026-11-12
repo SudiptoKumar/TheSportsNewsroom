@@ -15895,8 +15895,78 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 587
+  },
+  {
+   "central_claim": "MLB Rule Sparks Rare Red Sox Four-Out Inning Lyndy's Sports Annuals",
+   "central_knowledge_unit": "mlb rule sparks rare red sox four out inning lyndy s sports annuals",
+   "content_id": "a14578a1e7dd22c4",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b6618a15b8aa4537",
+    "aab3ae4c55b99a3d"
+   ],
+   "legacy": true,
+   "normalized_subject": "mlb rule sparks rare red sox four out inning lyndy s sports annuals",
+   "people": [],
+   "published_at": "2026-11-11T21:23:49.199495+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Rule Check",
+   "source_urls": [
+    "lindyssports.com/mlb/rare-mlb-rule-sparks-chaos-in-red-sox-shocking-four-out-inning"
+   ],
+   "sport_or_game": "MLB Rule Sparks Rare Red Sox Four-Out Inning - Lyndy's Sports Annuals",
+   "telegram_message_id": 587
+  },
+  {
+   "central_claim": "Brewers chasing rare feat in quest for 1st WS title MLB.com",
+   "central_knowledge_unit": "brewers chasing rare feat in quest for 1st ws title",
+   "content_id": "2fa68b3737a3df4c",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "2fa68b3737a3df4c",
+    "0457a6651aa6680e"
+   ],
+   "normalized_subject": "brewers chasing rare feat in quest for 1st ws title",
+   "people": [],
+   "published_at": "2026-11-12T09:46:36.002173+00:00",
+   "region": "",
+   "run_id": "2026-11-12-PM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 588
+  },
+  {
+   "central_claim": "This Day in Sports History: November 12 93.3 WMMR",
+   "central_knowledge_unit": "this day in sports history november 12 93 3 wmmr",
+   "content_id": "5885c4025dd3fbde",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "5885c4025dd3fbde",
+    "87ff24f1ee3ecc94"
+   ],
+   "normalized_subject": "this day in sports history november 12 93 3 wmmr",
+   "people": [],
+   "published_at": "2026-11-12T09:46:47.797043+00:00",
+   "region": "",
+   "run_id": "2026-11-12-PM",
+   "sector": "On This Date",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 589
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-11T21:23:49.199458+00:00"
+ "updated_at": "2026-11-12T09:46:47.797106+00:00"
 }
