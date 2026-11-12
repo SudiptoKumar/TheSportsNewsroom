@@ -976,7 +976,7 @@ class TestV1SearchAndCard(OfflineProviderIsolationMixin, unittest.TestCase):
         self.assertEqual("WHEN",items[1][0])
         self.assertEqual("WHERE",items[2][0])
 
-    def test_card_is_fixed_1200x675(self):
+    def test_card_is_specimen_label_1200_wide(self):
         if main.Image is None:
             self.skipTest("Pillow unavailable")
         story={"format":"history","label":"GAME / SPORTS HISTORY","headline":"A Short Sports History Headline","central_claim":"Rules became standardized in the nineteenth century.","historical_year":"1863","country":"England"}
@@ -984,7 +984,8 @@ class TestV1SearchAndCard(OfflineProviderIsolationMixin, unittest.TestCase):
         self.assertTrue(path and Path(path).exists())
         try:
             with main.Image.open(path) as im:
-                self.assertEqual((1200,675),im.size)
+                self.assertEqual(1200,im.size[0])
+                self.assertIn(im.size[1],main.CARD_HEIGHTS)
         finally:
             if path:
                 Path(path).unlink(missing_ok=True)

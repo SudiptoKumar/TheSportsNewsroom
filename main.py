@@ -1294,22 +1294,30 @@ def _card_info_items(story: dict) -> list[tuple[str, str]]:
 
 
 # ---------------------------------------------------------------------------
-# Editorial card design system (shared visual language with the Vocabulary
-# channel): warm paper, ink, one red accent, serif display headline.
-# Every published photo is cover-cropped to the fixed 1200x675 (16:9) frame
-# and stamped with the channel chip; cards use the same 1200x675 canvas, so
-# every post in the feed has one consistent size and rhythm.
+# Card design system. Every published photo is cover-cropped to the fixed
+# 1200x675 (16:9) frame and stamped with the channel chip (brand_photo,
+# unchanged). The no-photo fallback card uses the network specimen-label
+# template (Karn's final design, 2026-11-12, first shipped in DailyFacts):
+# cream paper, dashed ink border, badge + channel-name header, red section
+# kicker, DM Serif Display headline with Archivo label type, and content-
+# fit heights — 1200 (1:1), 1500 (4:5), 1800 (2:3); width always 1200.
 # ---------------------------------------------------------------------------
-CARD_BG = (252, 251, 248)
-CARD_INK = (23, 23, 23)
-CARD_MUTED = (108, 104, 99)
-CARD_RED = (227, 27, 46)
-CARD_LINE = (238, 234, 228)
+CARD_PAPER = (247, 242, 231)
+CARD_INK = (24, 22, 19)
+CARD_TEXT_INK = (28, 25, 21)
+CARD_MUTED = (110, 100, 86)
+CARD_RED = (224, 26, 44)
+CARD_HEIGHTS = (1200, 1500, 1800)
 STANDARD_IMAGE_WIDTH = 1200
 
 _CARD_FONT_URLS = {
     "serif": "https://raw.githubusercontent.com/google/fonts/main/ofl/playfairdisplay/PlayfairDisplay%5Bwght%5D.ttf",
     "sans": "https://raw.githubusercontent.com/google/fonts/main/ofl/plusjakartasans/PlusJakartaSans%5Bwght%5D.ttf",
+    # Specimen-label card type (2026-11-12 rollout, same files as DailyFacts).
+    "display": "https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFnOHM81r4j6k0gjAW3mujVU2B2K_c.ttf",
+    "archivo": "https://fonts.gstatic.com/s/archivo/v25/k3k6o8UDI-1M0wlSV9XAw6lQkqWY8Q82sJaRE-NWIDdgffTT0zRp8A.ttf",
+    "archivo_medium": "https://fonts.gstatic.com/s/archivo/v25/k3k6o8UDI-1M0wlSV9XAw6lQkqWY8Q82sJaRE-NWIDdgffTTBjNp8A.ttf",
+    "archivo_black": "https://fonts.gstatic.com/s/archivo/v25/k3k6o8UDI-1M0wlSV9XAw6lQkqWY8Q82sJaRE-NWIDdgffTTnTRp8A.ttf",
 }
 _CARD_FONT_FILES: dict[str, str] = {}
 _DISPLAY_FONT_CACHE: dict[tuple, Any] = {}
@@ -1393,6 +1401,46 @@ def _draw_tracked(draw, cx: float, y: float, s: str, font, fill, tracking: int =
         x += draw.textlength(ch, font=font) + tracking
 
 
+def _label_tracked_width(draw, s: str, font, tracking: int) -> float:
+    return sum(draw.textlength(ch, font=font) + tracking for ch in s) - (tracking if s else 0)
+
+
+def _label_draw_tracked(draw, x: float, y: float, s: str, font, fill, tracking: int) -> float:
+    """Draw letterspaced text left-aligned at (x, y); return the end x."""
+    for ch in s:
+        draw.text((x, y), ch, font=font, fill=fill)
+        x += draw.textlength(ch, font=font) + tracking
+    return x
+
+
+def _label_strip(text: str, font, fill, tracking: int):
+    """Render tracked text on its own strip, cropped to the real pixel
+    box, so callers can align it by measured height (e.g. centered on a
+    badge's midline) instead of guessing from font metrics."""
+    probe = ImageDraw.Draw(Image.new("RGB", (8, 8)))
+    w = int(_label_tracked_width(probe, text, font, tracking)) + 8
+    strip = Image.new("RGBA", (w, font.size * 2), (0, 0, 0, 0))
+    _label_draw_tracked(ImageDraw.Draw(strip), 4, font.size // 2, text, font, fill, tracking)
+    bbox = strip.getbbox()
+    return strip.crop(bbox) if bbox else strip
+
+
+def _dashed_rectangle(draw, box, fill, width: int = 3, dash: int = 18, gap: int = 12) -> None:
+    x0, y0, x1, y1 = box
+    x = x0
+    while x < x1:
+        nxt = min(x + dash, x1)
+        draw.line((x, y0, nxt, y0), fill=fill, width=width)
+        draw.line((x, y1, nxt, y1), fill=fill, width=width)
+        x += dash + gap
+    y = y0
+    while y < y1:
+        nxt = min(y + dash, y1)
+        draw.line((x0, y, x0, nxt), fill=fill, width=width)
+        draw.line((x1, y, x1, nxt), fill=fill, width=width)
+        y += dash + gap
+
+
 def brand_photo(path: str) -> str:
     """Cover-crop a verified photo to the fixed 1200x675 frame and stamp the
     @TheSportsNewsroom chip bottom-right (the Gaming channel's treatment).
@@ -1433,83 +1481,116 @@ def brand_photo(path: str) -> str:
 
 
 def make_card(story: dict) -> str:
-    """Create one editorial branded card on the fixed 1200x675 canvas.
-
-    Design language mirrors the Vocabulary channel card: warm paper
-    background, hairline frame, slim red rule, letterspaced eyebrow,
-    Playfair serif headline, divider with a red dot, and a quiet
-    hairline-separated info strip. No gradients, no shadows.
-    """
+    """Create one fallback card in the network specimen-label template
+    (Karn's final design, 2026-11-12): a cream label with a dashed ink
+    border — a monogram badge beside the channel name, the story's
+    section alone in red, the headline in DM Serif Display, the card's
+    KEY FACT / WHEN / WHERE items in clean smaller type, and a handle
+    footer. Used only when no verified story photo is available; photo
+    posts keep the 1200x675 brand_photo treatment."""
     if Image is None:
         return ""
     try:
-        W, H = 1200, 675
+        W = STANDARD_IMAGE_WIDTH
         fmt = story.get("format", "fact")
-        img = Image.new("RGB", (W, H), CARD_BG)
+        headline = text(story.get("headline")) or "Sports News"
+        label = text(story.get("label") or FORMAT_LABELS.get(fmt, "SPORTS & GAMES"))
+        items = [(k, v) for k, v in _card_info_items(story) if v.strip()]
+
+        probe = ImageDraw.Draw(Image.new("RGB", (8, 8)))
+        text_w = W - 92 - 92
+
+        # Headline: auto-fit the largest DM Serif size that fits the zone.
+        head_size, head_lines = 40, []
+        for candidate in range(88, 39, -2):
+            f = _display_font("display", candidate)
+            lines = _wrap(probe, headline, f, text_w)
+            if len(lines) * candidate * 1.24 <= 470:
+                head_size, head_lines = candidate, lines
+                break
+        else:
+            f = _display_font("display", 40)
+            trimmed = headline
+            while trimmed and len(_wrap(probe, trimmed, f, text_w)) * 40 * 1.24 > 470:
+                trimmed = trimmed[: trimmed.rfind(" ", 0, len(trimmed) - 8)].rstrip(" ,.;") if " " in trimmed else ""
+            head_lines = _wrap(probe, (trimmed + "…") if trimmed else headline[:80] + "…", f, text_w)
+        head_font = _display_font("display", head_size)
+        head_lh = head_size * 1.24
+
+        # Info items: small tracked label + up to two value lines each,
+        # with the same ellipsis trim the old card applied.
+        f_item_label = _display_font("archivo", 24)
+        f_item_value = _display_font("archivo_medium", 28)
+        item_blocks = []
+        for k, v in items:
+            vraw = _wrap(probe, v, f_item_value, text_w)
+            vlines = vraw[:2]
+            if len(vraw) > 2 and vlines:
+                last = vlines[-1].rstrip(" ,;:")
+                while last and probe.textlength(last + "…", font=f_item_value) > text_w:
+                    last = last[:-1].rstrip()
+                vlines[-1] = last + "…"
+            item_blocks.append((k, vlines))
+
+        content_h = len(head_lines) * head_lh
+        if item_blocks:
+            content_h += 44 + sum(34 + len(vlines) * 38 + 26 for _, vlines in item_blocks)
+        needed = 292 + content_h + 214 + 24
+        H = next((h for h in CARD_HEIGHTS if h >= needed), CARD_HEIGHTS[-1])
+
+        img = Image.new("RGB", (W, H), CARD_PAPER)
         draw = ImageDraw.Draw(img)
 
-        draw.rounded_rectangle((24, 24, W - 24, H - 24), radius=24, outline=CARD_LINE, width=2)
-        draw.rounded_rectangle((48, 150, 60, 590), radius=6, fill=CARD_RED)
+        # Dashed label border.
+        _dashed_rectangle(draw, (44, 44, W - 44, H - 44), CARD_INK)
 
-        f_eyebrow = _display_font("sans", 20, 700)
-        f_label = _display_font("sans", 24, 800)
-        f_meta = _display_font("sans", 19, 700)
-        f_value = _display_font("sans", 25, 600)
-        f_handle = _display_font("sans", 19, 500)
+        # Header: a monogram badge (the channel has no logo asset) with
+        # the channel name centered on the badge's midline by its
+        # measured pixel box.
+        badge_x, badge_y, badge_h = 84, 72, 88
+        initials = "".join(part[0] for part in CHANNEL_DISPLAY_NAME.split()[:2]).upper() or "SN"
+        mf = _display_font("archivo_black", 34)
+        mb = probe.textbbox((0, 0), initials, font=mf)
+        badge_w = (mb[2] - mb[0]) + 44
+        badge = Image.new("RGBA", (badge_w, badge_h), (0, 0, 0, 0))
+        bd = ImageDraw.Draw(badge)
+        bd.rounded_rectangle((1, 1, badge_w - 2, badge_h - 2), radius=20, fill=(255, 255, 255), outline=CARD_INK, width=3)
+        bd.text(((badge_w - (mb[2] - mb[0])) / 2 - mb[0], (badge_h - (mb[3] - mb[1])) / 2 - mb[1]), initials, font=mf, fill=CARD_RED)
+        base = img.convert("RGBA")
+        base.alpha_composite(badge, (badge_x, badge_y))
+        name = _label_strip(CHANNEL_DISPLAY_NAME.upper(), _display_font("archivo_black", 46), CARD_INK, 9)
+        base.alpha_composite(name, (badge_x + badge_w + 42, badge_y + badge_h // 2 - name.height // 2))
+        img = base.convert("RGB")
+        draw = ImageDraw.Draw(img)
 
-        _draw_tracked(draw, W / 2, 58, "SPORTS NEWS", f_eyebrow, CARD_MUTED, tracking=4)
+        # Header rule, then the story's section alone in red.
+        draw.line((92, 200, W - 92, 200), fill=CARD_INK, width=3)
+        _label_draw_tracked(draw, 92, 238, label.title(), _display_font("archivo", 32), CARD_RED, 5)
 
-        label = text(story.get("label") or FORMAT_LABELS.get(fmt, "SPORTS & GAMES"))
-        _draw_tracked(draw, W / 2, 118, label.upper(), f_label, CARD_RED, tracking=3)
-
-        headline = text(story.get("headline")) or "Sports News"
-        chosen = None
-        for size in (64, 58, 52, 46, 42, 38):
-            f = _display_font("serif", size, 700)
-            lines = _wrap(draw, headline, f, W - 220)
-            if len(lines) <= 3:
-                chosen = (f, lines, size)
-                break
-        if chosen is None:
-            f = _display_font("serif", 38, 700)
-            lines = _wrap(draw, clamp_words(headline, 90), f, W - 220)[:3]
-            chosen = (f, lines, 38)
-        f_head, head_lines, head_size = chosen
-        line_h = int(head_size * 1.18)
-        block_h = line_h * len(head_lines)
-        y = 178 + max(0, (238 - block_h) // 2)
+        # Headline in DM Serif Display.
+        y = 292
         for line in head_lines:
-            draw.text((W / 2, y), line, font=f_head, fill=CARD_INK, anchor="ma")
-            y += line_h
+            draw.text((92, y), line, font=head_font, fill=CARD_TEXT_INK)
+            y += head_lh
 
-        items = [(k, v) for k, v in _card_info_items(story) if v.strip()]
-        if items:
-            divider_y = 452
-            draw.line((330, divider_y, W - 330, divider_y), fill=CARD_LINE, width=2)
-            draw.ellipse((W / 2 - 5, divider_y - 5, W / 2 + 5, divider_y + 5), fill=CARD_RED)
-
-            strip_x, strip_w = 84, W - 168
-            col_w = strip_w // len(items)
-            for i, (k, v) in enumerate(items):
-                x = strip_x + i * col_w
-                if i:
-                    draw.line((x - 1, 492, x - 1, 596), fill=CARD_LINE, width=2)
-                pad = 26 if i else 6
-                draw.text((x + pad, 490), k.upper(), font=f_meta, fill=CARD_MUTED)
-                vraw = _wrap(draw, v, f_value, col_w - pad - 18)
-                vlines = vraw[:2]
-                if len(vraw) > 2 and vlines:
-                    last = vlines[-1].rstrip(" ,;:")
-                    while last and draw.textlength(last + "…", font=f_value) > col_w - pad - 18:
-                        last = last[:-1].rstrip()
-                    vlines[-1] = last + "…"
-                vy = 524
+        # Info items in clean smaller type.
+        if item_blocks:
+            y += 44
+            for k, vlines in item_blocks:
+                _label_draw_tracked(draw, 92, y, k.upper(), f_item_label, CARD_MUTED, 4)
+                y += 34
                 for line in vlines:
-                    draw.text((x + pad, vy), line, font=f_value, fill=CARD_INK)
-                    vy += 32
+                    draw.text((92, y), line, font=f_item_value, fill=CARD_TEXT_INK)
+                    y += 38
+                y += 26
 
+        # Footer: ink rule, handle right on the baseline.
+        rule_y = H - 214
+        draw.line((92, rule_y, W - 92, rule_y), fill=CARD_INK, width=3)
+        baseline = rule_y + 74
+        hf = _display_font("archivo_black", 38)
         handle = CHANNEL if CHANNEL.startswith("@") else "@TheSportsNewsroom"
-        draw.text((W - 58, 624), handle, font=f_handle, fill=CARD_MUTED, anchor="ra")
+        draw.text((W - 92 - draw.textlength(handle, font=hf), baseline - hf.getmetrics()[0]), handle, font=hf, fill=CARD_INK)
 
         path = os.path.join(tempfile.gettempdir(), f"sn_card_{int(time.time()*1000)}_{random.randint(0,9999)}.jpg")
         img.save(path, "JPEG", quality=92)
