@@ -15965,8 +15965,102 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 589
+  },
+  {
+   "central_claim": "Brewers chasing rare feat in quest for 1st WS title MLB.com",
+   "central_knowledge_unit": "brewers chasing rare feat in quest for 1st ws title mlb com",
+   "content_id": "0309924931ccbad8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "0457a6651aa6680e",
+    "cac541496b7e174d"
+   ],
+   "legacy": true,
+   "normalized_subject": "brewers chasing rare feat in quest for 1st ws title",
+   "people": [],
+   "published_at": "2026-11-12T09:46:36.002260+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "mlb.com/news/brewers-seeking-unique-history-across-north-american-sports"
+   ],
+   "sport_or_game": "Brewers chasing rare feat in quest for 1st WS title",
+   "telegram_message_id": 588
+  },
+  {
+   "central_claim": "This Day in Sports History: November 12 93.3 WMMR",
+   "central_knowledge_unit": "this day in sports history november 12 93 3 wmmr",
+   "content_id": "ebdcc47c659b8cc9",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "87ff24f1ee3ecc94",
+    "9fefef7d78e05a13"
+   ],
+   "legacy": true,
+   "normalized_subject": "this day in sports history november 12 93 3 wmmr",
+   "people": [],
+   "published_at": "2026-11-12T09:46:47.797130+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "wmmr.com/2026/11/12/this-day-in-sports-history-november-12-2"
+   ],
+   "sport_or_game": "This Day in Sports History: November 12 - 93.3 WMMR",
+   "telegram_message_id": 589
+  },
+  {
+   "central_claim": "This Day in Sports History: November 11 Boston's ROCK 92.9",
+   "central_knowledge_unit": "this day in sports history november 11 boston s rock 92 9",
+   "content_id": "40e623e58bf17482",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "40e623e58bf17482",
+    "7507a13a8fc258ff"
+   ],
+   "normalized_subject": "this day in sports history november 11 boston s rock 92 9",
+   "people": [],
+   "published_at": "2026-11-12T21:29:33.760744+00:00",
+   "region": "",
+   "run_id": "2026-11-13-AM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 590
+  },
+  {
+   "central_claim": "Explaining the controversy that caused a lengthy delay in the Red Sox-Blue Jays game Boston.com",
+   "central_knowledge_unit": "explaining the controversy that caused a lengthy delay in the red sox blue jays game",
+   "content_id": "53853cce8787866e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "53853cce8787866e",
+    "44c9d07cd85e6765"
+   ],
+   "normalized_subject": "explaining the controversy that caused a lengthy delay in the red sox blue jays game",
+   "people": [],
+   "published_at": "2026-11-12T21:29:45.772980+00:00",
+   "region": "",
+   "run_id": "2026-11-13-AM",
+   "sector": "Rule Check",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 591
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-12T09:46:47.797106+00:00"
+ "updated_at": "2026-11-12T21:29:45.773035+00:00"
 }

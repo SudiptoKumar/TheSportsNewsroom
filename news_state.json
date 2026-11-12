@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-12T09:46:45.329146+00:00",
-  "last_request_id": "a5949c7eea773ccc-CMH",
+  "last_ok": "2026-11-12T21:30:08.021044+00:00",
+  "last_request_id": "a598a2d69c74393c-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-12T09:46:50.815826+00:00",
+ "last_run_at": "2026-11-12T21:30:08.021532+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7393,6 +7393,48 @@
    "urls": [
     "wmmr.com/2026/11/12/this-day-in-sports-history-november-12-2"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "This Day in Sports History: November 11 - Boston's ROCK 92.9",
+   "claim": "This Day in Sports History: November 11 Boston's ROCK 92.9",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "1943: Dual MVP Honors for Chandler and Musial on November 11",
+   "image_status": "verified_external",
+   "message_id": 590,
+   "normalized_subject": "This Day in Sports History: November 11 - Boston's ROCK 92.9",
+   "posted_at": "2026-11-12T21:29:33.760824+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-13-AM",
+   "sector": "First / Last / Only",
+   "topic": "This Day in Sports History: November 11 - Boston's ROCK 92.9",
+   "urls": [
+    "rock929rocks.com/2026/11/11/this-day-in-sports-history-november-11-2"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Explaining the controversy that caused a lengthy delay in the Red Sox-Blue Jays game",
+   "claim": "Explaining the controversy that caused a lengthy delay in the Red Sox-Blue Jays game Boston.com",
+   "desk": "evergreen_v1",
+   "format": "Rule Check",
+   "headline": "Umpire Review Sparks Fourth‑Out Controversy in Red Sox‑Blue Jays Game",
+   "image_status": "verified_external",
+   "message_id": 591,
+   "normalized_subject": "Explaining the controversy that caused a lengthy delay in the Red Sox-Blue Jays game",
+   "posted_at": "2026-11-12T21:29:45.773056+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-13-AM",
+   "sector": "Rule Check",
+   "topic": "Explaining the controversy that caused a lengthy delay in the Red Sox-Blue Jays game",
+   "urls": [
+    "boston.com/sports/morning-sports-update/2026/08/11/red-sox-blue-jays-fourth-out-rule-controversy"
+   ]
   }
  ],
  "runs": [],
@@ -7700,22 +7742,31 @@
      "2026-11-12-AM",
      "2026-11-12-PM"
     ]
+   },
+   "2026-11-13": {
+    "published_sectors": [
+     "First / Last / Only",
+     "Rule Check"
+    ],
+    "run_ids": [
+     "2026-11-13-AM"
+    ]
    }
   },
-  "last_run_at": "2026-11-12T09:46:50.815796+00:00",
+  "last_run_at": "2026-11-12T21:30:08.021512+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-12T09:46:50.815778+00:00"
+    "updated_at": "2026-11-12T21:30:08.021496+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-12T09:46:50.815773+00:00"
+    "updated_at": "2026-11-12T21:30:08.021491+00:00"
    }
   },
   "publication": {
@@ -8368,6 +8419,16 @@
     "message_id": 588,
     "posted_at": "2026-11-12T09:46:36.002099+00:00",
     "status": "posted"
+   },
+   "2026-11-13-AM:evergreen:0344a80feff92ba0": {
+    "message_id": 590,
+    "posted_at": "2026-11-12T21:29:33.760665+00:00",
+    "status": "posted"
+   },
+   "2026-11-13-AM:evergreen:c825cec79d68aba7": {
+    "message_id": 591,
+    "posted_at": "2026-11-12T21:29:45.772890+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -8828,6 +8889,16 @@
     "used_sectors": [
      "First / Last / Only",
      "On This Date"
+    ]
+   },
+   {
+    "at": "2026-11-12T21:30:08.021515+00:00",
+    "evergreen": 2,
+    "exit": 0,
+    "run_id": "2026-11-13-AM",
+    "used_sectors": [
+     "First / Last / Only",
+     "Rule Check"
     ]
    }
   ],
