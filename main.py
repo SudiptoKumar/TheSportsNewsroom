@@ -1300,14 +1300,23 @@ def _card_info_items(story: dict) -> list[tuple[str, str]]:
 # template (Karn's final design, 2026-11-12, first shipped in DailyFacts):
 # cream paper, dashed ink border, badge + channel-name header, red section
 # kicker, DM Serif Display headline with Archivo label type, and content-
-# fit heights — 1200 (1:1), 1500 (4:5), 1800 (2:3); width always 1200.
+# fit heights — 800 (3:2) for short cards, then 1200 (1:1), 1500 (4:5),
+# 1800 (2:3); width always 1200. The 800 tier (Karn, 2026-11-12) uses
+# the compact geometry of the approved sample; taller tiers keep the
+# original layout.
 # ---------------------------------------------------------------------------
 CARD_PAPER = (247, 242, 231)
 CARD_INK = (24, 22, 19)
 CARD_TEXT_INK = (28, 25, 21)
 CARD_MUTED = (110, 100, 86)
 CARD_RED = (224, 26, 44)
-CARD_HEIGHTS = (1200, 1500, 1800)
+CARD_HEIGHTS = (800, 1200, 1500, 1800)
+# Compact (800) tier: content zone between the kicker and the footer
+# rule. A card only earns the tier if its whole stack fits this zone
+# with the headline at 56px or larger.
+COMPACT_TEXT_TOP = 262
+COMPACT_TEXT_BOTTOM = 800 - 144 - 32
+COMPACT_MIN_FONT = 56
 STANDARD_IMAGE_WIDTH = 1200
 
 _CARD_FONT_URLS = {
@@ -1536,61 +1545,96 @@ def make_card(story: dict) -> str:
         if item_blocks:
             content_h += 44 + sum(34 + len(vlines) * 38 + 26 for _, vlines in item_blocks)
         needed = 292 + content_h + 214 + 24
-        H = next((h for h in CARD_HEIGHTS if h >= needed), CARD_HEIGHTS[-1])
+
+        # Compact (800) tier: re-measure the headline at the compact
+        # width against the compact middle zone (tightened gap before the
+        # items); the card earns the tier only if the whole stack fits
+        # with the headline still at a readable size (>= 56px).
+        c_text_w = W - 80 - 80
+        c_items_h = 0
+        if item_blocks:
+            c_items_h = 30 + sum(34 + len(vlines) * 38 + 26 for _, vlines in item_blocks)
+        c_zone_h = COMPACT_TEXT_BOTTOM - COMPACT_TEXT_TOP
+        c_head_size, c_head_lines = 40, []
+        for candidate in range(88, COMPACT_MIN_FONT - 1, -2):
+            f = _display_font("display", candidate)
+            lines = _wrap(probe, headline, f, c_text_w)
+            if len(lines) * candidate * 1.24 <= c_zone_h - c_items_h:
+                c_head_size, c_head_lines = candidate, lines
+                break
+        compact = bool(c_head_lines)
+        if compact:
+            head_size, head_lines = c_head_size, c_head_lines
+            head_font = _display_font("display", head_size)
+            head_lh = head_size * 1.24
+            content_h = len(head_lines) * head_lh + c_items_h
+            H = CARD_HEIGHTS[0]
+        else:
+            H = next((h for h in CARD_HEIGHTS[1:] if h >= needed), CARD_HEIGHTS[-1])
+
+        # Per-tier geometry: the compact tier tightens every spacing
+        # (Karn's approved sample); taller tiers keep the original layout.
+        inset = 36 if compact else 44
+        badge_x, badge_y, badge_h = (72, 56, 78) if compact else (84, 72, 88)
+        mx = 80 if compact else 92
+        items_gap = 30 if compact else 44
 
         img = Image.new("RGB", (W, H), CARD_PAPER)
         draw = ImageDraw.Draw(img)
 
         # Dashed label border.
-        _dashed_rectangle(draw, (44, 44, W - 44, H - 44), CARD_INK)
+        _dashed_rectangle(draw, (inset, inset, W - inset, H - inset), CARD_INK)
 
         # Header: a monogram badge (the channel has no logo asset) with
         # the channel name centered on the badge's midline by its
         # measured pixel box.
-        badge_x, badge_y, badge_h = 84, 72, 88
         initials = "".join(part[0] for part in CHANNEL_DISPLAY_NAME.split()[:2]).upper() or "SN"
-        mf = _display_font("archivo_black", 34)
+        mf = _display_font("archivo_black", 30 if compact else 34)
         mb = probe.textbbox((0, 0), initials, font=mf)
         badge_w = (mb[2] - mb[0]) + 44
         badge = Image.new("RGBA", (badge_w, badge_h), (0, 0, 0, 0))
         bd = ImageDraw.Draw(badge)
-        bd.rounded_rectangle((1, 1, badge_w - 2, badge_h - 2), radius=20, fill=(255, 255, 255), outline=CARD_INK, width=3)
+        bd.rounded_rectangle((1, 1, badge_w - 2, badge_h - 2), radius=18 if compact else 20, fill=(255, 255, 255), outline=CARD_INK, width=3)
         bd.text(((badge_w - (mb[2] - mb[0])) / 2 - mb[0], (badge_h - (mb[3] - mb[1])) / 2 - mb[1]), initials, font=mf, fill=CARD_RED)
         base = img.convert("RGBA")
         base.alpha_composite(badge, (badge_x, badge_y))
-        name = _label_strip(CHANNEL_DISPLAY_NAME.upper(), _display_font("archivo_black", 46), CARD_INK, 9)
-        base.alpha_composite(name, (badge_x + badge_w + 42, badge_y + badge_h // 2 - name.height // 2))
+        name = _label_strip(CHANNEL_DISPLAY_NAME.upper(), _display_font("archivo_black", 42 if compact else 46), CARD_INK, 9)
+        base.alpha_composite(name, (badge_x + badge_w + (38 if compact else 42), badge_y + badge_h // 2 - name.height // 2))
         img = base.convert("RGB")
         draw = ImageDraw.Draw(img)
 
         # Header rule, then the story's section alone in red.
-        draw.line((92, 200, W - 92, 200), fill=CARD_INK, width=3)
-        _label_draw_tracked(draw, 92, 238, label.title(), _display_font("archivo", 32), CARD_RED, 5)
+        draw.line((mx, 168 if compact else 200, W - mx, 168 if compact else 200), fill=CARD_INK, width=3)
+        _label_draw_tracked(draw, mx, 196 if compact else 238, label.title(), _display_font("archivo", 30 if compact else 32), CARD_RED, 5)
 
-        # Headline in DM Serif Display.
-        y = 292
+        # Headline in DM Serif Display. The compact tier centers the
+        # whole stack in its middle zone; taller tiers start at the top.
+        if compact:
+            y = COMPACT_TEXT_TOP + (c_zone_h - content_h) / 2
+        else:
+            y = 292
         for line in head_lines:
-            draw.text((92, y), line, font=head_font, fill=CARD_TEXT_INK)
+            draw.text((mx, y), line, font=head_font, fill=CARD_TEXT_INK)
             y += head_lh
 
         # Info items in clean smaller type.
         if item_blocks:
-            y += 44
+            y += items_gap
             for k, vlines in item_blocks:
-                _label_draw_tracked(draw, 92, y, k.upper(), f_item_label, CARD_MUTED, 4)
+                _label_draw_tracked(draw, mx, y, k.upper(), f_item_label, CARD_MUTED, 4)
                 y += 34
                 for line in vlines:
-                    draw.text((92, y), line, font=f_item_value, fill=CARD_TEXT_INK)
+                    draw.text((mx, y), line, font=f_item_value, fill=CARD_TEXT_INK)
                     y += 38
                 y += 26
 
         # Footer: ink rule, handle right on the baseline.
-        rule_y = H - 214
-        draw.line((92, rule_y, W - 92, rule_y), fill=CARD_INK, width=3)
-        baseline = rule_y + 74
-        hf = _display_font("archivo_black", 38)
+        rule_y = H - 144 if compact else H - 214
+        draw.line((mx, rule_y, W - mx, rule_y), fill=CARD_INK, width=3)
+        baseline = rule_y + (62 if compact else 74)
+        hf = _display_font("archivo_black", 34 if compact else 38)
         handle = CHANNEL if CHANNEL.startswith("@") else "@TheSportsNewsroom"
-        draw.text((W - 92 - draw.textlength(handle, font=hf), baseline - hf.getmetrics()[0]), handle, font=hf, fill=CARD_INK)
+        draw.text((W - mx - draw.textlength(handle, font=hf), baseline - hf.getmetrics()[0]), handle, font=hf, fill=CARD_INK)
 
         path = os.path.join(tempfile.gettempdir(), f"sn_card_{int(time.time()*1000)}_{random.randint(0,9999)}.jpg")
         img.save(path, "JPEG", quality=92)
