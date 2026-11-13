@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-12T21:30:08.021044+00:00",
-  "last_request_id": "a598a2d69c74393c-CMH",
+  "last_ok": "2026-11-13T09:30:28.369900+00:00",
+  "last_request_id": "a59cc20559105131-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-12T21:30:08.021532+00:00",
+ "last_run_at": "2026-11-13T09:30:35.058413+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7435,6 +7435,71 @@
    "urls": [
     "boston.com/sports/morning-sports-update/2026/08/11/red-sox-blue-jays-fourth-out-rule-controversy"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The evolution of sports equipment at the Olympic Winter Games - www.olympics.com",
+   "claim": "The evolution of sports equipment at the Olympic Winter Games www.olympics.com",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "Evolution of Winter Olympic Equipment Highlights Technological Progress",
+   "image_status": "card_fallback",
+   "message_id": 592,
+   "normalized_subject": "The evolution of sports equipment at the Olympic Winter Games - www.olympics.com",
+   "posted_at": "2026-11-13T09:30:12.527418+00:00",
+   "research_urls": [
+    "",
+    "",
+    ""
+   ],
+   "run_id": "2026-11-13-PM",
+   "sector": "Equipment / Measurement",
+   "topic": "The evolution of sports equipment at the Olympic Winter Games - www.olympics.com",
+   "urls": [
+    "olympics.com/en/news/the-evolution-of-sports-equipment-at-the-olympic-winter-games"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Stories of Sports Champions in the African American History Museum Prove the Goal Posts Were Set Higher",
+   "claim": "Stories of Sports Champions in the African American History Museum Prove the Goal Posts Were Set Higher Smithsonian Magazine",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "African American Sports Champions Faced Higher Goal Posts, Museum Shows",
+   "image_status": "verified_external",
+   "message_id": 593,
+   "normalized_subject": "Stories of Sports Champions in the African American History Museum Prove the Goal Posts Were Set Higher",
+   "posted_at": "2026-11-13T09:30:19.687699+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-13-PM",
+   "sector": "Sports & Games People",
+   "topic": "Stories of Sports Champions in the African American History Museum Prove the Goal Posts Were Set Higher",
+   "urls": [
+    "smithsonianmag.com/smithsonian-institution/new-african-american-history-museum-new-african-american-history-museum-goal-posts-prove-higher-sports-champions-180961735"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "50 greatest girls athletes in Oregon high school sports history",
+   "claim": "50 greatest girls athletes in Oregon high school sports history Sports Illustrated",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "Sports Illustrated Ranks Oregon’s 50 Greatest High School Girls Athletes",
+   "image_status": "verified_external",
+   "message_id": 594,
+   "normalized_subject": "50 greatest girls athletes in Oregon high school sports history",
+   "posted_at": "2026-11-13T09:30:32.038385+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-13-PM",
+   "sector": "First / Last / Only",
+   "topic": "50 greatest girls athletes in Oregon high school sports history",
+   "urls": [
+    "si.com/high-school/oregon/50-greatest-girls-athletes-in-oregon-high-school-sports-history-01jjbg69c5bk"
+   ]
   }
  ],
  "runs": [],
@@ -7746,27 +7811,30 @@
    "2026-11-13": {
     "published_sectors": [
      "First / Last / Only",
-     "Rule Check"
+     "Rule Check",
+     "Equipment / Measurement",
+     "Sports & Games People"
     ],
     "run_ids": [
-     "2026-11-13-AM"
+     "2026-11-13-AM",
+     "2026-11-13-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-12T21:30:08.021512+00:00",
+  "last_run_at": "2026-11-13T09:30:35.058363+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-12T21:30:08.021496+00:00"
+    "updated_at": "2026-11-13T09:30:35.058333+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-12T21:30:08.021491+00:00"
+    "updated_at": "2026-11-13T09:30:35.058325+00:00"
    }
   },
   "publication": {
@@ -8429,6 +8497,21 @@
     "message_id": 591,
     "posted_at": "2026-11-12T21:29:45.772890+00:00",
     "status": "posted"
+   },
+   "2026-11-13-PM:evergreen:003904ee7af436cc": {
+    "message_id": 594,
+    "posted_at": "2026-11-13T09:30:32.038217+00:00",
+    "status": "posted"
+   },
+   "2026-11-13-PM:evergreen:587b1e1c78f86cdd": {
+    "message_id": 593,
+    "posted_at": "2026-11-13T09:30:19.687496+00:00",
+    "status": "posted"
+   },
+   "2026-11-13-PM:evergreen:e3f3e7aeadb4ad62": {
+    "message_id": 592,
+    "posted_at": "2026-11-13T09:30:12.527204+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -8899,6 +8982,17 @@
     "used_sectors": [
      "First / Last / Only",
      "Rule Check"
+    ]
+   },
+   {
+    "at": "2026-11-13T09:30:35.058372+00:00",
+    "evergreen": 3,
+    "exit": 0,
+    "run_id": "2026-11-13-PM",
+    "used_sectors": [
+     "Equipment / Measurement",
+     "First / Last / Only",
+     "Sports & Games People"
     ]
    }
   ],

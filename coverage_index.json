@@ -16059,8 +16059,127 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 591
+  },
+  {
+   "central_claim": "This Day in Sports History: November 11 Boston's ROCK 92.9",
+   "central_knowledge_unit": "this day in sports history november 11 boston s rock 92 9",
+   "content_id": "23fdb9b1b9ee3131",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7507a13a8fc258ff",
+    "0344a80feff92ba0"
+   ],
+   "legacy": true,
+   "normalized_subject": "this day in sports history november 11 boston s rock 92 9",
+   "people": [],
+   "published_at": "2026-11-12T21:29:33.760824+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "rock929rocks.com/2026/11/11/this-day-in-sports-history-november-11-2"
+   ],
+   "sport_or_game": "This Day in Sports History: November 11 - Boston's ROCK 92.9",
+   "telegram_message_id": 590
+  },
+  {
+   "central_claim": "Explaining the controversy that caused a lengthy delay in the Red Sox-Blue Jays game Boston.com",
+   "central_knowledge_unit": "explaining the controversy that caused a lengthy delay in the red sox blue jays game boston com",
+   "content_id": "81d09b5d5cefdd1b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "44c9d07cd85e6765",
+    "533c218c87cb95bd"
+   ],
+   "legacy": true,
+   "normalized_subject": "explaining the controversy that caused a lengthy delay in the red sox blue jays game",
+   "people": [],
+   "published_at": "2026-11-12T21:29:45.773056+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Rule Check",
+   "source_urls": [
+    "boston.com/sports/morning-sports-update/2026/08/11/red-sox-blue-jays-fourth-out-rule-controversy"
+   ],
+   "sport_or_game": "Explaining the controversy that caused a lengthy delay in the Red Sox-Blue Jays game",
+   "telegram_message_id": 591
+  },
+  {
+   "central_claim": "The evolution of sports equipment at the Olympic Winter Games www.olympics.com",
+   "central_knowledge_unit": "the evolution of sports equipment at the olympic winter games www olympics com",
+   "content_id": "860eee79e9964ed2",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "860eee79e9964ed2",
+    "a10b4de757beddde"
+   ],
+   "normalized_subject": "the evolution of sports equipment at the olympic winter games www olympics com",
+   "people": [],
+   "published_at": "2026-11-13T09:30:12.527296+00:00",
+   "region": "",
+   "run_id": "2026-11-13-PM",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "",
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 592
+  },
+  {
+   "central_claim": "Stories of Sports Champions in the African American History Museum Prove the Goal Posts Were Set Higher Smithsonian Magazine",
+   "central_knowledge_unit": "stories of sports champions in the african american history museum prove the goal posts were set higher",
+   "content_id": "c24f3cec18663d67",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c24f3cec18663d67",
+    "9933d0e61a184770"
+   ],
+   "normalized_subject": "stories of sports champions in the african american history museum prove the goal posts were set higher",
+   "people": [],
+   "published_at": "2026-11-13T09:30:19.687598+00:00",
+   "region": "",
+   "run_id": "2026-11-13-PM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 593
+  },
+  {
+   "central_claim": "50 greatest girls athletes in Oregon high school sports history Sports Illustrated",
+   "central_knowledge_unit": "50 greatest girls athletes in oregon high school sports history",
+   "content_id": "051d99326515a884",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "051d99326515a884",
+    "d5537f2b272cce42"
+   ],
+   "normalized_subject": "50 greatest girls athletes in oregon high school sports history",
+   "people": [],
+   "published_at": "2026-11-13T09:30:32.038301+00:00",
+   "region": "",
+   "run_id": "2026-11-13-PM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 594
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-12T21:29:45.773035+00:00"
+ "updated_at": "2026-11-13T09:30:32.038362+00:00"
 }
