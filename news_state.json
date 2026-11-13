@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-13T09:30:28.369900+00:00",
-  "last_request_id": "a59cc20559105131-CMH",
+  "last_ok": "2026-11-13T20:54:51.662097+00:00",
+  "last_request_id": "a5a0ac8b6b42cba6-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-13T09:30:35.058413+00:00",
+ "last_run_at": "2026-11-13T20:54:56.869831+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7500,6 +7500,48 @@
    "urls": [
     "si.com/high-school/oregon/50-greatest-girls-athletes-in-oregon-high-school-sports-history-01jjbg69c5bk"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Biggest Blown Calls in NFL History: Which mistakes changed the course of league history for good or bad or both?",
+   "claim": "Biggest Blown Calls in NFL History: Which mistakes changed the course of league history for good or bad or both? A to Z Sports",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "The NFL’s Biggest Blown Calls That Shifted League History",
+   "image_status": "card_fallback",
+   "message_id": 595,
+   "normalized_subject": "Biggest Blown Calls in NFL History: Which mistakes changed the course of league history for good or bad or both?",
+   "posted_at": "2026-11-13T20:54:42.201803+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-14-AM",
+   "sector": "Then vs Now",
+   "topic": "Biggest Blown Calls in NFL History: Which mistakes changed the course of league history for good or bad or both?",
+   "urls": [
+    "atozsports.com/nfl/what-are-the-biggest-blown-calls-in-nfl-history"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Brewers catch massive break as bizarre roof rule sparks NLDS controversy",
+   "claim": "Brewers catch massive break as bizarre roof rule sparks NLDS controversy USA Today",
+   "desk": "evergreen_v1",
+   "format": "Rule Check",
+   "headline": "Brewers Benefit from Roof Ground Rule in NLDS Thriller",
+   "image_status": "card_fallback",
+   "message_id": 596,
+   "normalized_subject": "Brewers catch massive break as bizarre roof rule sparks NLDS controversy",
+   "posted_at": "2026-11-13T20:54:53.854780+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-14-AM",
+   "sector": "Rule Check",
+   "topic": "Brewers catch massive break as bizarre roof rule sparks NLDS controversy",
+   "urls": [
+    "usatoday.com/story/sports/mlb/2026/10/04/mlb-brewers-padres-ground-rules-roof-nlds/92087946007"
+   ]
   }
  ],
  "runs": [],
@@ -7819,22 +7861,31 @@
      "2026-11-13-AM",
      "2026-11-13-PM"
     ]
+   },
+   "2026-11-14": {
+    "published_sectors": [
+     "Then vs Now",
+     "Rule Check"
+    ],
+    "run_ids": [
+     "2026-11-14-AM"
+    ]
    }
   },
-  "last_run_at": "2026-11-13T09:30:35.058363+00:00",
+  "last_run_at": "2026-11-13T20:54:56.869803+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-13T09:30:35.058333+00:00"
+    "updated_at": "2026-11-13T20:54:56.869782+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-13T09:30:35.058325+00:00"
+    "updated_at": "2026-11-13T20:54:56.869777+00:00"
    }
   },
   "publication": {
@@ -8512,6 +8563,16 @@
     "message_id": 592,
     "posted_at": "2026-11-13T09:30:12.527204+00:00",
     "status": "posted"
+   },
+   "2026-11-14-AM:evergreen:23f23bdfe0d67fa9": {
+    "message_id": 596,
+    "posted_at": "2026-11-13T20:54:53.854617+00:00",
+    "status": "posted"
+   },
+   "2026-11-14-AM:evergreen:4df9db51fd0e377d": {
+    "message_id": 595,
+    "posted_at": "2026-11-13T20:54:42.201629+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -8993,6 +9054,16 @@
      "Equipment / Measurement",
      "First / Last / Only",
      "Sports & Games People"
+    ]
+   },
+   {
+    "at": "2026-11-13T20:54:56.869807+00:00",
+    "evergreen": 2,
+    "exit": 0,
+    "run_id": "2026-11-14-AM",
+    "used_sectors": [
+     "Rule Check",
+     "Then vs Now"
     ]
    }
   ],

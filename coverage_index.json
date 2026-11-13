@@ -16178,8 +16178,126 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 594
+  },
+  {
+   "central_claim": "The evolution of sports equipment at the Olympic Winter Games www.olympics.com",
+   "central_knowledge_unit": "the evolution of sports equipment at the olympic winter games www olympics com",
+   "content_id": "52a0ca09c7a5f198",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a10b4de757beddde",
+    "e3f3e7aeadb4ad62"
+   ],
+   "legacy": true,
+   "normalized_subject": "the evolution of sports equipment at the olympic winter games www olympics com",
+   "people": [],
+   "published_at": "2026-11-13T09:30:12.527418+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "olympics.com/en/news/the-evolution-of-sports-equipment-at-the-olympic-winter-games"
+   ],
+   "sport_or_game": "The evolution of sports equipment at the Olympic Winter Games - www.olympics.com",
+   "telegram_message_id": 592
+  },
+  {
+   "central_claim": "Stories of Sports Champions in the African American History Museum Prove the Goal Posts Were Set Higher Smithsonian Magazine",
+   "central_knowledge_unit": "stories of sports champions in the african american history museum prove the goal posts were set higher smithsonian magazine",
+   "content_id": "fadb5c996b98389a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9933d0e61a184770",
+    "b7dd725b8c6a9e8e"
+   ],
+   "legacy": true,
+   "normalized_subject": "stories of sports champions in the african american history museum prove the goal posts were set higher",
+   "people": [],
+   "published_at": "2026-11-13T09:30:19.687699+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "smithsonianmag.com/smithsonian-institution/new-african-american-history-museum-new-african-american-history-museum-goal-posts-prove-higher-sports-champions-180961735"
+   ],
+   "sport_or_game": "Stories of Sports Champions in the African American History Museum Prove the Goal Posts Were Set Higher",
+   "telegram_message_id": 593
+  },
+  {
+   "central_claim": "50 greatest girls athletes in Oregon high school sports history Sports Illustrated",
+   "central_knowledge_unit": "50 greatest girls athletes in oregon high school sports history sports illustrated",
+   "content_id": "b8d3ee5150c36f20",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "d5537f2b272cce42",
+    "978d481621904507"
+   ],
+   "legacy": true,
+   "normalized_subject": "50 greatest girls athletes in oregon high school sports history",
+   "people": [],
+   "published_at": "2026-11-13T09:30:32.038385+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "si.com/high-school/oregon/50-greatest-girls-athletes-in-oregon-high-school-sports-history-01jjbg69c5bk"
+   ],
+   "sport_or_game": "50 greatest girls athletes in Oregon high school sports history",
+   "telegram_message_id": 594
+  },
+  {
+   "central_claim": "Biggest Blown Calls in NFL History: Which mistakes changed the course of league history for good or bad or both? A to Z Sports",
+   "central_knowledge_unit": "biggest blown calls in nfl history which mistakes changed the course of league history for good or bad or both",
+   "content_id": "d8a855bbfbc80232",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "d8a855bbfbc80232",
+    "7ae18faaa1b3af3c"
+   ],
+   "normalized_subject": "biggest blown calls in nfl history which mistakes changed the course of league history for good or bad or both",
+   "people": [],
+   "published_at": "2026-11-13T20:54:42.201716+00:00",
+   "region": "",
+   "run_id": "2026-11-14-AM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 595
+  },
+  {
+   "central_claim": "Brewers catch massive break as bizarre roof rule sparks NLDS controversy USA Today",
+   "central_knowledge_unit": "brewers catch massive break as bizarre roof rule sparks nlds controversy",
+   "content_id": "ee9de71c2972f3b9",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "ee9de71c2972f3b9",
+    "97836a0bb9be890c"
+   ],
+   "normalized_subject": "brewers catch massive break as bizarre roof rule sparks nlds controversy",
+   "people": [],
+   "published_at": "2026-11-13T20:54:53.854705+00:00",
+   "region": "",
+   "run_id": "2026-11-14-AM",
+   "sector": "Rule Check",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 596
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-13T09:30:32.038362+00:00"
+ "updated_at": "2026-11-13T20:54:53.854758+00:00"
 }
