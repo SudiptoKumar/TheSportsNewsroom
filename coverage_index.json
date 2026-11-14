@@ -16413,8 +16413,103 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 599
+  },
+  {
+   "central_claim": "Just sixth overall and first-ever in Pakistan's history: Saud Shakeel joins rare Test batting record list The Times of India",
+   "central_knowledge_unit": "just sixth overall and first ever in pakistan s history saud shakeel joins rare test batting record list the times of india",
+   "content_id": "d20cb112536b1b76",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "17dc9c5ca4327e5f",
+    "95f71dce198f33c0"
+   ],
+   "legacy": true,
+   "normalized_subject": "just sixth overall and first ever in pakistan s history saud shakeel joins rare test batting record list the times of india",
+   "people": [],
+   "published_at": "2026-11-14T08:57:55.703982+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "timesofindia.indiatimes.com/sports/cricket/news/just-sixth-overall-and-first-ever-in-pakistans-history-saud-shakeel-joins-rare-test-batting-record-list-which-includes-mahela-jayawardene-and-gordon-greenidge/articleshow/135820141.cms"
+   ],
+   "sport_or_game": "Just sixth overall and first-ever in Pakistan's history: Saud Shakeel joins rare Test batting record list - The Times of India",
+   "telegram_message_id": 597
+  },
+  {
+   "central_claim": "This Day in Sports History: November 14 94.7 WCSX",
+   "central_knowledge_unit": "this day in sports history november 14 94 7 wcsx",
+   "content_id": "466525aa77a65f33",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "0ec9078f1f295b6d",
+    "d8f6d00d3cdb0728"
+   ],
+   "legacy": true,
+   "normalized_subject": "this day in sports history november 14 94 7 wcsx",
+   "people": [],
+   "published_at": "2026-11-14T08:58:08.335642+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "wcsx.com/2026/11/14/this-day-in-sports-history-november-14-2"
+   ],
+   "sport_or_game": "This Day in Sports History: November 14 - 94.7 WCSX",
+   "telegram_message_id": 598
+  },
+  {
+   "central_claim": "World Cup 2026: Julian Nagelsmann faces pressure as Germany bow out BBC",
+   "central_knowledge_unit": "world cup 2026 julian nagelsmann faces pressure as germany bow out bbc",
+   "content_id": "a38f5b7551bc83ac",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "78fc713835c1b091",
+    "abd478bd9fd8541c"
+   ],
+   "legacy": true,
+   "normalized_subject": "world cup 2026 julian nagelsmann faces pressure as germany bow out",
+   "people": [],
+   "published_at": "2026-11-14T08:58:33.142292+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    "bbc.com/sport/football/articles/c992kzk00kzo"
+   ],
+   "sport_or_game": "World Cup 2026: Julian Nagelsmann faces pressure as Germany bow out",
+   "telegram_message_id": 599
+  },
+  {
+   "central_claim": "Ethnosport Culture Festival expands global reach with Riyadh debut | Daily Sabah Daily Sabah",
+   "central_knowledge_unit": "ethnosport culture festival expands global reach with riyadh debut daily sabah",
+   "content_id": "b9039d73138d2da4",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b9039d73138d2da4",
+    "e7b2106f5fe078fe"
+   ],
+   "normalized_subject": "ethnosport culture festival expands global reach with riyadh debut daily sabah",
+   "people": [],
+   "published_at": "2026-11-14T19:11:36.390042+00:00",
+   "region": "",
+   "run_id": "2026-11-15-AM",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 602
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-14T08:58:33.142267+00:00"
+ "updated_at": "2026-11-14T19:11:36.390130+00:00"
 }
