@@ -16296,8 +16296,125 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 596
+  },
+  {
+   "central_claim": "Biggest Blown Calls in NFL History: Which mistakes changed the course of league history for good or bad or both? A to Z Sports",
+   "central_knowledge_unit": "biggest blown calls in nfl history which mistakes changed the course of league history for good or bad or both a to z sports",
+   "content_id": "89e488275f7ac957",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7ae18faaa1b3af3c",
+    "78262cd87349b20d"
+   ],
+   "legacy": true,
+   "normalized_subject": "biggest blown calls in nfl history which mistakes changed the course of league history for good or bad or both",
+   "people": [],
+   "published_at": "2026-11-13T20:54:42.201803+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "atozsports.com/nfl/what-are-the-biggest-blown-calls-in-nfl-history"
+   ],
+   "sport_or_game": "Biggest Blown Calls in NFL History: Which mistakes changed the course of league history for good or bad or both?",
+   "telegram_message_id": 595
+  },
+  {
+   "central_claim": "Brewers catch massive break as bizarre roof rule sparks NLDS controversy USA Today",
+   "central_knowledge_unit": "brewers catch massive break as bizarre roof rule sparks nlds controversy usa today",
+   "content_id": "e8df052248c382a8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "97836a0bb9be890c",
+    "269c822e1d1fc3ce"
+   ],
+   "legacy": true,
+   "normalized_subject": "brewers catch massive break as bizarre roof rule sparks nlds controversy",
+   "people": [],
+   "published_at": "2026-11-13T20:54:53.854780+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Rule Check",
+   "source_urls": [
+    "usatoday.com/story/sports/mlb/2026/10/04/mlb-brewers-padres-ground-rules-roof-nlds/92087946007"
+   ],
+   "sport_or_game": "Brewers catch massive break as bizarre roof rule sparks NLDS controversy",
+   "telegram_message_id": 596
+  },
+  {
+   "central_claim": "Just sixth overall and first-ever in Pakistan's history: Saud Shakeel joins rare Test batting record list The Times of India",
+   "central_knowledge_unit": "just sixth overall and first ever in pakistan s history saud shakeel joins rare test batting record list the times of india",
+   "content_id": "312cb5937192d707",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "312cb5937192d707",
+    "17dc9c5ca4327e5f"
+   ],
+   "normalized_subject": "just sixth overall and first ever in pakistan s history saud shakeel joins rare test batting record list the times of india",
+   "people": [],
+   "published_at": "2026-11-14T08:57:55.703851+00:00",
+   "region": "",
+   "run_id": "2026-11-14-PM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 597
+  },
+  {
+   "central_claim": "This Day in Sports History: November 14 94.7 WCSX",
+   "central_knowledge_unit": "this day in sports history november 14 94 7 wcsx",
+   "content_id": "539d1f68d1fde241",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "539d1f68d1fde241",
+    "0ec9078f1f295b6d"
+   ],
+   "normalized_subject": "this day in sports history november 14 94 7 wcsx",
+   "people": [],
+   "published_at": "2026-11-14T08:58:08.335540+00:00",
+   "region": "",
+   "run_id": "2026-11-14-PM",
+   "sector": "On This Date",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 598
+  },
+  {
+   "central_claim": "World Cup 2026: Julian Nagelsmann faces pressure as Germany bow out BBC",
+   "central_knowledge_unit": "world cup 2026 julian nagelsmann faces pressure as germany bow out",
+   "content_id": "8fe27bc79ccbdb37",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "8fe27bc79ccbdb37",
+    "78fc713835c1b091"
+   ],
+   "normalized_subject": "world cup 2026 julian nagelsmann faces pressure as germany bow out",
+   "people": [],
+   "published_at": "2026-11-14T08:58:33.142192+00:00",
+   "region": "",
+   "run_id": "2026-11-14-PM",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 599
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-13T20:54:53.854758+00:00"
+ "updated_at": "2026-11-14T08:58:33.142267+00:00"
 }

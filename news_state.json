@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-13T20:54:51.662097+00:00",
-  "last_request_id": "a5a0ac8b6b42cba6-CMH",
+  "last_ok": "2026-11-14T08:58:30.602572+00:00",
+  "last_request_id": "a5a4d094182b8b02-IAD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-13T20:54:56.869831+00:00",
+ "last_run_at": "2026-11-14T08:58:36.169729+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7542,6 +7542,69 @@
    "urls": [
     "usatoday.com/story/sports/mlb/2026/10/04/mlb-brewers-padres-ground-rules-roof-nlds/92087946007"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Just sixth overall and first-ever in Pakistan's history: Saud Shakeel joins rare Test batting record list - The Times of India",
+   "claim": "Just sixth overall and first-ever in Pakistan's history: Saud Shakeel joins rare Test batting record list The Times of India",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "Saud Shakeel Becomes First Pakistani in Elite Test Batting Club",
+   "image_status": "card_fallback",
+   "message_id": 597,
+   "normalized_subject": "Just sixth overall and first-ever in Pakistan's history: Saud Shakeel joins rare Test batting record list - The Times of India",
+   "posted_at": "2026-11-14T08:57:55.703982+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-14-PM",
+   "sector": "First / Last / Only",
+   "topic": "Just sixth overall and first-ever in Pakistan's history: Saud Shakeel joins rare Test batting record list - The Times of India",
+   "urls": [
+    "timesofindia.indiatimes.com/sports/cricket/news/just-sixth-overall-and-first-ever-in-pakistans-history-saud-shakeel-joins-rare-test-batting-record-list-which-includes-mahela-jayawardene-and-gordon-greenidge/articleshow/135820141.cms"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "This Day in Sports History: November 14 - 94.7 WCSX",
+   "claim": "This Day in Sports History: November 14 94.7 WCSX",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "Bill Russell’s 49‑Rebound Game Marked November 14, 1957",
+   "image_status": "verified_external",
+   "message_id": 598,
+   "normalized_subject": "This Day in Sports History: November 14 - 94.7 WCSX",
+   "posted_at": "2026-11-14T08:58:08.335642+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-14-PM",
+   "sector": "On This Date",
+   "topic": "This Day in Sports History: November 14 - 94.7 WCSX",
+   "urls": [
+    "wcsx.com/2026/11/14/this-day-in-sports-history-november-14-2"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "World Cup 2026: Julian Nagelsmann faces pressure as Germany bow out",
+   "claim": "World Cup 2026: Julian Nagelsmann faces pressure as Germany bow out BBC",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Sport",
+   "headline": "Paraguay Upset Germany in World Cup 2026 Penalty Shootout",
+   "image_status": "verified_external",
+   "message_id": 599,
+   "normalized_subject": "World Cup 2026: Julian Nagelsmann faces pressure as Germany bow out",
+   "posted_at": "2026-11-14T08:58:33.142292+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-14-PM",
+   "sector": "Forgotten Sport",
+   "topic": "World Cup 2026: Julian Nagelsmann faces pressure as Germany bow out",
+   "urls": [
+    "bbc.com/sport/football/articles/c992kzk00kzo"
+   ]
   }
  ],
  "runs": [],
@@ -7865,27 +7928,31 @@
    "2026-11-14": {
     "published_sectors": [
      "Then vs Now",
-     "Rule Check"
+     "Rule Check",
+     "First / Last / Only",
+     "On This Date",
+     "Forgotten Sport"
     ],
     "run_ids": [
-     "2026-11-14-AM"
+     "2026-11-14-AM",
+     "2026-11-14-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-13T20:54:56.869803+00:00",
+  "last_run_at": "2026-11-14T08:58:36.169654+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-13T20:54:56.869782+00:00"
+    "updated_at": "2026-11-14T08:58:36.169625+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-13T20:54:56.869777+00:00"
+    "updated_at": "2026-11-14T08:58:36.169618+00:00"
    }
   },
   "publication": {
@@ -8573,6 +8640,21 @@
     "message_id": 595,
     "posted_at": "2026-11-13T20:54:42.201629+00:00",
     "status": "posted"
+   },
+   "2026-11-14-PM:evergreen:581b1458ae47b954": {
+    "message_id": 599,
+    "posted_at": "2026-11-14T08:58:33.142099+00:00",
+    "status": "posted"
+   },
+   "2026-11-14-PM:evergreen:95f71dce198f33c0": {
+    "message_id": 597,
+    "posted_at": "2026-11-14T08:57:55.703739+00:00",
+    "status": "posted"
+   },
+   "2026-11-14-PM:evergreen:d8f6d00d3cdb0728": {
+    "message_id": 598,
+    "posted_at": "2026-11-14T08:58:08.335449+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -9064,6 +9146,17 @@
     "used_sectors": [
      "Rule Check",
      "Then vs Now"
+    ]
+   },
+   {
+    "at": "2026-11-14T08:58:36.169664+00:00",
+    "evergreen": 3,
+    "exit": 0,
+    "run_id": "2026-11-14-PM",
+    "used_sectors": [
+     "First / Last / Only",
+     "Forgotten Sport",
+     "On This Date"
     ]
    }
   ],
