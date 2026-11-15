@@ -16508,8 +16508,78 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 602
+  },
+  {
+   "central_claim": "Ethnosport Culture Festival expands global reach with Riyadh debut | Daily Sabah Daily Sabah",
+   "central_knowledge_unit": "ethnosport culture festival expands global reach with riyadh debut daily sabah daily sabah",
+   "content_id": "2441d03ade19e3a8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e7b2106f5fe078fe",
+    "f2a0eacb443892a7"
+   ],
+   "legacy": true,
+   "normalized_subject": "ethnosport culture festival expands global reach with riyadh debut daily sabah",
+   "people": [],
+   "published_at": "2026-11-14T19:11:36.390158+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    "dailysabah.com/sports/ethnosport-culture-festival-expands-global-reach-with-riyadh-debut/news"
+   ],
+   "sport_or_game": "Ethnosport Culture Festival expands global reach with Riyadh debut | Daily Sabah",
+   "telegram_message_id": 602
+  },
+  {
+   "central_claim": "Discovering the Science of Clutch Performance and Measuring Pressure Resilience in Athletes Samford University",
+   "central_knowledge_unit": "discovering the science of clutch performance and measuring pressure resilience in athletes samford university",
+   "content_id": "872c54f206976600",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "872c54f206976600",
+    "4924b1a5ec85b71e"
+   ],
+   "normalized_subject": "discovering the science of clutch performance and measuring pressure resilience in athletes samford university",
+   "people": [],
+   "published_at": "2026-11-15T09:17:22.446628+00:00",
+   "region": "",
+   "run_id": "2026-11-15-PM",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 603
+  },
+  {
+   "central_claim": "How did Portland become the global epicenter of women’s sports? OPB",
+   "central_knowledge_unit": "how did portland become the global epicenter of women s sports",
+   "content_id": "c39aba69a86b1240",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c39aba69a86b1240",
+    "75fe57ddf939dcef"
+   ],
+   "normalized_subject": "how did portland become the global epicenter of women s sports",
+   "people": [],
+   "published_at": "2026-11-15T09:18:01.564778+00:00",
+   "region": "",
+   "run_id": "2026-11-15-PM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 604
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-14T19:11:36.390130+00:00"
+ "updated_at": "2026-11-15T09:18:01.564842+00:00"
 }

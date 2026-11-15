@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-14T19:11:24.814779+00:00",
-  "last_request_id": "a5a85262795358dc-CMH",
+  "last_ok": "2026-11-15T09:18:09.106882+00:00",
+  "last_request_id": "a5ad2ab9cbbc391a-IAD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-14T19:11:39.414044+00:00",
+ "last_run_at": "2026-11-15T09:18:09.107113+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7626,6 +7626,48 @@
    "urls": [
     "dailysabah.com/sports/ethnosport-culture-festival-expands-global-reach-with-riyadh-debut/news"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Discovering the Science of Clutch Performance and Measuring Pressure Resilience in Athletes - Samford University",
+   "claim": "Discovering the Science of Clutch Performance and Measuring Pressure Resilience in Athletes Samford University",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "Clutch Performance Defined: How Science Measures Pressure Resilience",
+   "image_status": "verified_external",
+   "message_id": 603,
+   "normalized_subject": "Discovering the Science of Clutch Performance and Measuring Pressure Resilience in Athletes - Samford University",
+   "posted_at": "2026-11-15T09:17:22.446722+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-15-PM",
+   "sector": "Why Does This Happen?",
+   "topic": "Discovering the Science of Clutch Performance and Measuring Pressure Resilience in Athletes - Samford University",
+   "urls": [
+    "samford.edu/sports-analytics/fans/2026/Discovering-the-Science-of-Clutch-Performance-and-Measuring-Pressure-Resilience-in-Athletes"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "How did Portland become the global epicenter of women’s sports?",
+   "claim": "How did Portland become the global epicenter of women’s sports? OPB",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "Portland’s Deep Roots Make It the Global Hub of Women’s Sports",
+   "image_status": "card_fallback",
+   "message_id": 604,
+   "normalized_subject": "How did Portland become the global epicenter of women’s sports?",
+   "posted_at": "2026-11-15T09:18:01.564865+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-15-PM",
+   "sector": "First / Last / Only",
+   "topic": "How did Portland become the global epicenter of women’s sports?",
+   "urls": [
+    "opb.org/article/2026/09/30/oregon-experience-portland-womens-sports-epicenter"
+   ]
   }
  ],
  "runs": [],
@@ -7961,27 +8003,30 @@
    },
    "2026-11-15": {
     "published_sectors": [
-     "Traditional / Regional Game"
+     "Traditional / Regional Game",
+     "Why Does This Happen?",
+     "First / Last / Only"
     ],
     "run_ids": [
-     "2026-11-15-AM"
+     "2026-11-15-AM",
+     "2026-11-15-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-14T19:11:39.414011+00:00",
+  "last_run_at": "2026-11-15T09:18:09.107091+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-14T19:11:39.413978+00:00"
+    "updated_at": "2026-11-15T09:18:09.107070+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-14T19:11:39.413968+00:00"
+    "updated_at": "2026-11-15T09:18:09.107063+00:00"
    }
   },
   "publication": {
@@ -8685,14 +8730,19 @@
     "posted_at": "2026-11-14T08:58:08.335449+00:00",
     "status": "posted"
    },
-   "2026-11-15-AM:evergreen:0f0ba7a5b17f8d24": {
-    "error": "Internal Server Error",
-    "status": "failed",
-    "updated_at": "2026-11-14T19:11:12.051992+00:00"
-   },
    "2026-11-15-AM:evergreen:943166f436c5122c": {
     "message_id": 602,
     "posted_at": "2026-11-14T19:11:36.389937+00:00",
+    "status": "posted"
+   },
+   "2026-11-15-PM:evergreen:0f0ba7a5b17f8d24": {
+    "message_id": 603,
+    "posted_at": "2026-11-15T09:17:22.446546+00:00",
+    "status": "posted"
+   },
+   "2026-11-15-PM:evergreen:74ca6fb7c1d31d0f": {
+    "message_id": 604,
+    "posted_at": "2026-11-15T09:18:01.564683+00:00",
     "status": "posted"
    }
   },
@@ -9205,6 +9255,16 @@
     "run_id": "2026-11-15-AM",
     "used_sectors": [
      "Traditional / Regional Game"
+    ]
+   },
+   {
+    "at": "2026-11-15T09:18:09.107095+00:00",
+    "evergreen": 2,
+    "exit": 0,
+    "run_id": "2026-11-15-PM",
+    "used_sectors": [
+     "First / Last / Only",
+     "Why Does This Happen?"
     ]
    }
   ],
