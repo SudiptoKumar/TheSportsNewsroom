@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-15T09:18:09.106882+00:00",
-  "last_request_id": "a5ad2ab9cbbc391a-IAD",
+  "last_ok": "2026-11-15T19:47:27.745596+00:00",
+  "last_request_id": "a5b0c490a9c3ff19-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-15T09:18:09.107113+00:00",
+ "last_run_at": "2026-11-15T19:47:34.035747+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7668,6 +7668,48 @@
    "urls": [
     "opb.org/article/2026/09/30/oregon-experience-portland-womens-sports-epicenter"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Now You Know: Why Is Tennis Scored So Weirdly?",
+   "claim": "Now You Know: Why Is Tennis Scored So Weirdly? Time Magazine",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "Why Tennis Scoring Uses Love, 15, 30, and 40",
+   "image_status": "verified_external",
+   "message_id": 605,
+   "normalized_subject": "Now You Know: Why Is Tennis Scored So Weirdly?",
+   "posted_at": "2026-11-15T19:46:45.244381+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-16-AM",
+   "sector": "Game Discovery",
+   "topic": "Now You Know: Why Is Tennis Scored So Weirdly?",
+   "urls": [
+    "time.com/5040182/tennis-scoring-system-history"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "UAB Women’s Soccer seizes title; Football bowl eligible",
+   "claim": "UAB Women’s Soccer seizes title; Football bowl eligible Bham Now",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "UAB Women’s Soccer Wins Conference Title as Football Becomes Bowl Eligible",
+   "image_status": "verified_external",
+   "message_id": 606,
+   "normalized_subject": "UAB Women’s Soccer seizes title; Football bowl eligible",
+   "posted_at": "2026-11-15T19:47:31.018949+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-16-AM",
+   "sector": "On This Date",
+   "topic": "UAB Women’s Soccer seizes title; Football bowl eligible",
+   "urls": [
+    "bhamnow.com/2026/11/15/uab-womens-soccer-seizes-title-football-bowl-eligible"
+   ]
   }
  ],
  "runs": [],
@@ -8011,22 +8053,31 @@
      "2026-11-15-AM",
      "2026-11-15-PM"
     ]
+   },
+   "2026-11-16": {
+    "published_sectors": [
+     "Game Discovery",
+     "On This Date"
+    ],
+    "run_ids": [
+     "2026-11-16-AM"
+    ]
    }
   },
-  "last_run_at": "2026-11-15T09:18:09.107091+00:00",
+  "last_run_at": "2026-11-15T19:47:34.035701+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-15T09:18:09.107070+00:00"
+    "updated_at": "2026-11-15T19:47:34.035684+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-15T09:18:09.107063+00:00"
+    "updated_at": "2026-11-15T19:47:34.035680+00:00"
    }
   },
   "publication": {
@@ -8744,6 +8795,16 @@
     "message_id": 604,
     "posted_at": "2026-11-15T09:18:01.564683+00:00",
     "status": "posted"
+   },
+   "2026-11-16-AM:evergreen:ddee1e90626cfdef": {
+    "message_id": 606,
+    "posted_at": "2026-11-15T19:47:31.018799+00:00",
+    "status": "posted"
+   },
+   "2026-11-16-AM:evergreen:e47796f11598632c": {
+    "message_id": 605,
+    "posted_at": "2026-11-15T19:46:45.244250+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -9265,6 +9326,16 @@
     "used_sectors": [
      "First / Last / Only",
      "Why Does This Happen?"
+    ]
+   },
+   {
+    "at": "2026-11-15T19:47:34.035705+00:00",
+    "evergreen": 2,
+    "exit": 0,
+    "run_id": "2026-11-16-AM",
+    "used_sectors": [
+     "Game Discovery",
+     "On This Date"
     ]
    }
   ],

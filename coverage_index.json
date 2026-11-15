@@ -16578,8 +16578,102 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 604
+  },
+  {
+   "central_claim": "Discovering the Science of Clutch Performance and Measuring Pressure Resilience in Athletes Samford University",
+   "central_knowledge_unit": "discovering the science of clutch performance and measuring pressure resilience in athletes samford university",
+   "content_id": "e4b29a1aa9bd5ecd",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4924b1a5ec85b71e",
+    "0f0ba7a5b17f8d24"
+   ],
+   "legacy": true,
+   "normalized_subject": "discovering the science of clutch performance and measuring pressure resilience in athletes samford university",
+   "people": [],
+   "published_at": "2026-11-15T09:17:22.446722+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "samford.edu/sports-analytics/fans/2026/Discovering-the-Science-of-Clutch-Performance-and-Measuring-Pressure-Resilience-in-Athletes"
+   ],
+   "sport_or_game": "Discovering the Science of Clutch Performance and Measuring Pressure Resilience in Athletes - Samford University",
+   "telegram_message_id": 603
+  },
+  {
+   "central_claim": "How did Portland become the global epicenter of women’s sports? OPB",
+   "central_knowledge_unit": "how did portland become the global epicenter of women s sports opb",
+   "content_id": "77cf4ab3acecf172",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "75fe57ddf939dcef",
+    "de301185cda4ff0c"
+   ],
+   "legacy": true,
+   "normalized_subject": "how did portland become the global epicenter of women s sports",
+   "people": [],
+   "published_at": "2026-11-15T09:18:01.564865+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "opb.org/article/2026/09/30/oregon-experience-portland-womens-sports-epicenter"
+   ],
+   "sport_or_game": "How did Portland become the global epicenter of women’s sports?",
+   "telegram_message_id": 604
+  },
+  {
+   "central_claim": "Now You Know: Why Is Tennis Scored So Weirdly? Time Magazine",
+   "central_knowledge_unit": "now you know why is tennis scored so weirdly",
+   "content_id": "942376bc54aa0c92",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "942376bc54aa0c92",
+    "e99e944524683dec"
+   ],
+   "normalized_subject": "now you know why is tennis scored so weirdly",
+   "people": [],
+   "published_at": "2026-11-15T19:46:45.244311+00:00",
+   "region": "",
+   "run_id": "2026-11-16-AM",
+   "sector": "Game Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 605
+  },
+  {
+   "central_claim": "UAB Women’s Soccer seizes title; Football bowl eligible Bham Now",
+   "central_knowledge_unit": "uab women s soccer seizes title football bowl eligible",
+   "content_id": "3d999e4ae03c82a8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "3d999e4ae03c82a8",
+    "2fce36959c416f0d"
+   ],
+   "normalized_subject": "uab women s soccer seizes title football bowl eligible",
+   "people": [],
+   "published_at": "2026-11-15T19:47:31.018876+00:00",
+   "region": "",
+   "run_id": "2026-11-16-AM",
+   "sector": "On This Date",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 606
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-15T09:18:01.564842+00:00"
+ "updated_at": "2026-11-15T19:47:31.018930+00:00"
 }
