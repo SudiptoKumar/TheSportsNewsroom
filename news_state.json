@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-15T19:47:27.745596+00:00",
-  "last_request_id": "a5b0c490a9c3ff19-CMH",
+  "last_ok": "2026-11-16T09:35:36.641335+00:00",
+  "last_request_id": "a5b581ac9b536a42-MSP",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-15T19:47:34.035747+00:00",
+ "last_run_at": "2026-11-16T09:35:42.918094+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7710,6 +7710,91 @@
    "urls": [
     "bhamnow.com/2026/11/15/uab-womens-soccer-seizes-title-football-bowl-eligible"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Why Norway is dominating the Winter Olympics and what could US learn",
+   "claim": "Why Norway is dominating the Winter Olympics and what could US learn CNN",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "Norway’s Wellness‑Driven Edge Powers Winter Olympic Dominance",
+   "image_status": "verified_external",
+   "message_id": 607,
+   "normalized_subject": "Why Norway is dominating the Winter Olympics and what could US learn",
+   "posted_at": "2026-11-16T09:34:49.354405+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-16-PM",
+   "sector": "Why Does This Happen?",
+   "topic": "Why Norway is dominating the Winter Olympics and what could US learn",
+   "urls": [
+    "cnn.com/2026/02/22/sport/norway-dominating-sports-winter-olympics-wellness"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "JAPAN BIZ: Emerging sports gain popularity in Japan, draw people of all ages - Japan Wire by Kyodo News",
+   "claim": "JAPAN BIZ: Emerging sports gain popularity in Japan, draw people of all ages Japan Wire by Kyodo News",
+   "desk": "evergreen_v1",
+   "format": "New Sport Discovery",
+   "headline": "Emerging Sports Attract Diverse Audiences Across Japan",
+   "image_status": "verified_external",
+   "message_id": 608,
+   "normalized_subject": "JAPAN BIZ: Emerging sports gain popularity in Japan, draw people of all ages - Japan Wire by Kyodo News",
+   "posted_at": "2026-11-16T09:35:04.845444+00:00",
+   "research_urls": [
+    "",
+    ""
+   ],
+   "run_id": "2026-11-16-PM",
+   "sector": "New Sport Discovery",
+   "topic": "JAPAN BIZ: Emerging sports gain popularity in Japan, draw people of all ages - Japan Wire by Kyodo News",
+   "urls": [
+    "english.kyodonews.net/articles/-/80297"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Historic Milestone: IBSA Awards Its First-Ever Sports Equipment Certificates to Goalfix Sports - International Blind Sports Federation",
+   "claim": "Historic Milestone: IBSA Awards Its First-Ever Sports Equipment Certificates to Goalfix Sports International Blind Sports Federation",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "IBSA Grants First Sports Equipment Certificates to Goalfix Sports",
+   "image_status": "card_fallback",
+   "message_id": 609,
+   "normalized_subject": "Historic Milestone: IBSA Awards Its First-Ever Sports Equipment Certificates to Goalfix Sports - International Blind Sports Federation",
+   "posted_at": "2026-11-16T09:35:14.608752+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-16-PM",
+   "sector": "Equipment / Measurement",
+   "topic": "Historic Milestone: IBSA Awards Its First-Ever Sports Equipment Certificates to Goalfix Sports - International Blind Sports Federation",
+   "urls": [
+    "ibsasport.org/news/historic-milestone-ibsa-awards-its-first-ever-sports-equipment-certificates-to-goalfix-sports"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Ain Khaled - Wikipedia",
+   "claim": "Ain Khaled (Arabic: عين خالد, romanized: ‘Ayn Khālid) is a Qatari district in the municipality of Al Rayyan. [3] Located on the outskirts of …",
+   "desk": "evergreen_v1",
+   "format": "New Tabletop Game Discovery",
+   "headline": "Ain Khaled: Growing District on the Outskirts of Al Rayyan",
+   "image_status": "verified_external",
+   "message_id": 610,
+   "normalized_subject": "Ain Khaled - Wikipedia",
+   "posted_at": "2026-11-16T09:35:39.898721+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-16-PM",
+   "sector": "New Tabletop Game Discovery",
+   "topic": "Ain Khaled - Wikipedia",
+   "urls": [
+    "en.wikipedia.org/wiki/Ain_Khaled"
+   ]
   }
  ],
  "runs": [],
@@ -8057,27 +8142,32 @@
    "2026-11-16": {
     "published_sectors": [
      "Game Discovery",
-     "On This Date"
+     "On This Date",
+     "Why Does This Happen?",
+     "New Sport Discovery",
+     "Equipment / Measurement",
+     "New Tabletop Game Discovery"
     ],
     "run_ids": [
-     "2026-11-16-AM"
+     "2026-11-16-AM",
+     "2026-11-16-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-15T19:47:34.035701+00:00",
+  "last_run_at": "2026-11-16T09:35:42.918060+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-15T19:47:34.035684+00:00"
+    "updated_at": "2026-11-16T09:35:42.918036+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-15T19:47:34.035680+00:00"
+    "updated_at": "2026-11-16T09:35:42.918026+00:00"
    }
   },
   "publication": {
@@ -8805,6 +8895,26 @@
     "message_id": 605,
     "posted_at": "2026-11-15T19:46:45.244250+00:00",
     "status": "posted"
+   },
+   "2026-11-16-PM:evergreen:0243dc89ddea2378": {
+    "message_id": 609,
+    "posted_at": "2026-11-16T09:35:14.608575+00:00",
+    "status": "posted"
+   },
+   "2026-11-16-PM:evergreen:7d69fedc3580d500": {
+    "message_id": 608,
+    "posted_at": "2026-11-16T09:35:04.845255+00:00",
+    "status": "posted"
+   },
+   "2026-11-16-PM:evergreen:b423aca14f5d1861": {
+    "message_id": 610,
+    "posted_at": "2026-11-16T09:35:39.898530+00:00",
+    "status": "posted"
+   },
+   "2026-11-16-PM:evergreen:f2eee55429ab9d53": {
+    "message_id": 607,
+    "posted_at": "2026-11-16T09:34:49.354237+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -9336,6 +9446,18 @@
     "used_sectors": [
      "Game Discovery",
      "On This Date"
+    ]
+   },
+   {
+    "at": "2026-11-16T09:35:42.918064+00:00",
+    "evergreen": 4,
+    "exit": 0,
+    "run_id": "2026-11-16-PM",
+    "used_sectors": [
+     "Equipment / Measurement",
+     "New Sport Discovery",
+     "New Tabletop Game Discovery",
+     "Why Does This Happen?"
     ]
    }
   ],

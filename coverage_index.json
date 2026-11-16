@@ -16672,8 +16672,149 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 606
+  },
+  {
+   "central_claim": "Now You Know: Why Is Tennis Scored So Weirdly? Time Magazine",
+   "central_knowledge_unit": "now you know why is tennis scored so weirdly time magazine",
+   "content_id": "17e2abe6db46fd4a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e99e944524683dec",
+    "9eb32d5991ced8b4"
+   ],
+   "legacy": true,
+   "normalized_subject": "now you know why is tennis scored so weirdly",
+   "people": [],
+   "published_at": "2026-11-15T19:46:45.244381+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "time.com/5040182/tennis-scoring-system-history"
+   ],
+   "sport_or_game": "Now You Know: Why Is Tennis Scored So Weirdly?",
+   "telegram_message_id": 605
+  },
+  {
+   "central_claim": "UAB Women’s Soccer seizes title; Football bowl eligible Bham Now",
+   "central_knowledge_unit": "uab women s soccer seizes title football bowl eligible bham now",
+   "content_id": "08a82cdd4df8f3f8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "2fce36959c416f0d",
+    "a8a09d6dba250b21"
+   ],
+   "legacy": true,
+   "normalized_subject": "uab women s soccer seizes title football bowl eligible",
+   "people": [],
+   "published_at": "2026-11-15T19:47:31.018949+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "bhamnow.com/2026/11/15/uab-womens-soccer-seizes-title-football-bowl-eligible"
+   ],
+   "sport_or_game": "UAB Women’s Soccer seizes title; Football bowl eligible",
+   "telegram_message_id": 606
+  },
+  {
+   "central_claim": "Why Norway is dominating the Winter Olympics and what could US learn CNN",
+   "central_knowledge_unit": "why norway is dominating the winter olympics and what could us learn",
+   "content_id": "3f8f3b04d82895b4",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "3f8f3b04d82895b4",
+    "536465a2f28d2c01"
+   ],
+   "normalized_subject": "why norway is dominating the winter olympics and what could us learn",
+   "people": [],
+   "published_at": "2026-11-16T09:34:49.354317+00:00",
+   "region": "",
+   "run_id": "2026-11-16-PM",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 607
+  },
+  {
+   "central_claim": "JAPAN BIZ: Emerging sports gain popularity in Japan, draw people of all ages Japan Wire by Kyodo News",
+   "central_knowledge_unit": "japan biz emerging sports gain popularity in japan draw people of all ages japan wire by kyodo news",
+   "content_id": "ca9af7d82362c28e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "ca9af7d82362c28e",
+    "5aadcc6829dc7d05"
+   ],
+   "normalized_subject": "japan biz emerging sports gain popularity in japan draw people of all ages japan wire by kyodo news",
+   "people": [],
+   "published_at": "2026-11-16T09:35:04.845348+00:00",
+   "region": "",
+   "run_id": "2026-11-16-PM",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 608
+  },
+  {
+   "central_claim": "Historic Milestone: IBSA Awards Its First-Ever Sports Equipment Certificates to Goalfix Sports International Blind Sports Federation",
+   "central_knowledge_unit": "historic milestone ibsa awards its first ever sports equipment certificates to goalfix sports international blind sports federation",
+   "content_id": "bf1a035688e6f489",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "bf1a035688e6f489",
+    "9492a930d4fc0c17"
+   ],
+   "normalized_subject": "historic milestone ibsa awards its first ever sports equipment certificates to goalfix sports international blind sports federation",
+   "people": [],
+   "published_at": "2026-11-16T09:35:14.608667+00:00",
+   "region": "",
+   "run_id": "2026-11-16-PM",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 609
+  },
+  {
+   "central_claim": "Ain Khaled (Arabic: عين خالد, romanized: ‘Ayn Khālid) is a Qatari district in the municipality of Al Rayyan. [3] Located on the outskirts of …",
+   "central_knowledge_unit": "ain khaled wikipedia",
+   "content_id": "4bf82b1025448565",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4bf82b1025448565",
+    "6b9b050cc5784bd7"
+   ],
+   "normalized_subject": "ain khaled wikipedia",
+   "people": [],
+   "published_at": "2026-11-16T09:35:39.898629+00:00",
+   "region": "",
+   "run_id": "2026-11-16-PM",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 610
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-15T19:47:31.018930+00:00"
+ "updated_at": "2026-11-16T09:35:39.898698+00:00"
 }
