@@ -16813,8 +16813,196 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 610
+  },
+  {
+   "central_claim": "Why Norway is dominating the Winter Olympics and what could US learn CNN",
+   "central_knowledge_unit": "why norway is dominating the winter olympics and what could us learn cnn",
+   "content_id": "6a94fac516f22e35",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "536465a2f28d2c01",
+    "4ed3b9a4b4725039"
+   ],
+   "legacy": true,
+   "normalized_subject": "why norway is dominating the winter olympics and what could us learn",
+   "people": [],
+   "published_at": "2026-11-16T09:34:49.354405+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "cnn.com/2026/02/22/sport/norway-dominating-sports-winter-olympics-wellness"
+   ],
+   "sport_or_game": "Why Norway is dominating the Winter Olympics and what could US learn",
+   "telegram_message_id": 607
+  },
+  {
+   "central_claim": "JAPAN BIZ: Emerging sports gain popularity in Japan, draw people of all ages Japan Wire by Kyodo News",
+   "central_knowledge_unit": "japan biz emerging sports gain popularity in japan draw people of all ages japan wire by kyodo news",
+   "content_id": "38508b6387925dd4",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "5aadcc6829dc7d05",
+    "7d69fedc3580d500"
+   ],
+   "legacy": true,
+   "normalized_subject": "japan biz emerging sports gain popularity in japan draw people of all ages japan wire by kyodo news",
+   "people": [],
+   "published_at": "2026-11-16T09:35:04.845444+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "english.kyodonews.net/articles/-/80297"
+   ],
+   "sport_or_game": "JAPAN BIZ: Emerging sports gain popularity in Japan, draw people of all ages - Japan Wire by Kyodo News",
+   "telegram_message_id": 608
+  },
+  {
+   "central_claim": "Historic Milestone: IBSA Awards Its First-Ever Sports Equipment Certificates to Goalfix Sports International Blind Sports Federation",
+   "central_knowledge_unit": "historic milestone ibsa awards its first ever sports equipment certificates to goalfix sports international blind sports federation",
+   "content_id": "adaa0a7f5b2c3b93",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9492a930d4fc0c17",
+    "0243dc89ddea2378"
+   ],
+   "legacy": true,
+   "normalized_subject": "historic milestone ibsa awards its first ever sports equipment certificates to goalfix sports international blind sports federation",
+   "people": [],
+   "published_at": "2026-11-16T09:35:14.608752+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "ibsasport.org/news/historic-milestone-ibsa-awards-its-first-ever-sports-equipment-certificates-to-goalfix-sports"
+   ],
+   "sport_or_game": "Historic Milestone: IBSA Awards Its First-Ever Sports Equipment Certificates to Goalfix Sports - International Blind Sports Federation",
+   "telegram_message_id": 609
+  },
+  {
+   "central_claim": "Ain Khaled (Arabic: عين خالد, romanized: ‘Ayn Khālid) is a Qatari district in the municipality of Al Rayyan. [3] Located on the outskirts of …",
+   "central_knowledge_unit": "ain khaled arabic romanized ayn kh lid is a qatari district in the municipality of al rayyan 3 located on the outskirts of",
+   "content_id": "f46cd2d3cfe64122",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "6b9b050cc5784bd7",
+    "d0aa0634539d3077"
+   ],
+   "legacy": true,
+   "normalized_subject": "ain khaled wikipedia",
+   "people": [],
+   "published_at": "2026-11-16T09:35:39.898721+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    "en.wikipedia.org/wiki/Ain_Khaled"
+   ],
+   "sport_or_game": "Ain Khaled - Wikipedia",
+   "telegram_message_id": 610
+  },
+  {
+   "central_claim": "The Ouija board's mysterious origins: war, spirits, and a strange death The Guardian",
+   "central_knowledge_unit": "the ouija board s mysterious origins war spirits and a strange death",
+   "content_id": "894ad26fdf8c0513",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "894ad26fdf8c0513",
+    "2f604a64129b390f"
+   ],
+   "normalized_subject": "the ouija board s mysterious origins war spirits and a strange death",
+   "people": [],
+   "published_at": "2026-11-16T23:23:32.320841+00:00",
+   "region": "",
+   "run_id": "2026-11-17-AM",
+   "sector": "Game Origin",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 611
+  },
+  {
+   "central_claim": "Appreciating John Brodie, the only athlete of his kind in NFL history The New York Times",
+   "central_knowledge_unit": "appreciating john brodie the only athlete of his kind in nfl history the new york times",
+   "content_id": "b9fa8aa2afe763bd",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b9fa8aa2afe763bd",
+    "337d1ed9e4967dff"
+   ],
+   "normalized_subject": "appreciating john brodie the only athlete of his kind in nfl history the new york times",
+   "people": [],
+   "published_at": "2026-11-16T23:23:57.812755+00:00",
+   "region": "",
+   "run_id": "2026-11-17-AM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 612
+  },
+  {
+   "central_claim": "Corkball: The Mutant Baseball Game That’s a St. Louis Tradition The Art of Manliness",
+   "central_knowledge_unit": "corkball the mutant baseball game that s a st louis tradition the art of manliness",
+   "content_id": "362650d89bc39321",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "362650d89bc39321",
+    "f99277fbec88ec79"
+   ],
+   "normalized_subject": "corkball the mutant baseball game that s a st louis tradition the art of manliness",
+   "people": [],
+   "published_at": "2026-11-16T23:24:09.384064+00:00",
+   "region": "",
+   "run_id": "2026-11-17-AM",
+   "sector": "Game Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 613
+  },
+  {
+   "central_claim": "Board Game Statistics 2026: The Market’s Big Winners SQ Magazine",
+   "central_knowledge_unit": "board game statistics 2026 the market s big winners",
+   "content_id": "847748484cea52b8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "847748484cea52b8",
+    "6daeb30b80d19bb3"
+   ],
+   "normalized_subject": "board game statistics 2026 the market s big winners",
+   "people": [],
+   "published_at": "2026-11-16T23:24:21.402602+00:00",
+   "region": "",
+   "run_id": "2026-11-17-AM",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 614
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-16T09:35:39.898698+00:00"
+ "updated_at": "2026-11-16T23:24:21.402671+00:00"
 }

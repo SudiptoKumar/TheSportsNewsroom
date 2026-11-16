@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-16T09:35:36.641335+00:00",
-  "last_request_id": "a5b581ac9b536a42-MSP",
+  "last_ok": "2026-11-16T23:24:31.820016+00:00",
+  "last_request_id": "a5ba3fe96c4aad26-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-16T09:35:42.918094+00:00",
+ "last_run_at": "2026-11-16T23:24:31.820508+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7795,6 +7795,90 @@
    "urls": [
     "en.wikipedia.org/wiki/Ain_Khaled"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The Ouija board's mysterious origins: war, spirits, and a strange death",
+   "claim": "The Ouija board's mysterious origins: war, spirits, and a strange death The Guardian",
+   "desk": "evergreen_v1",
+   "format": "Game Origin",
+   "headline": "Medium Names the Ouija Board in 1890, Linking It to War and Commerce",
+   "image_status": "card_fallback",
+   "message_id": 611,
+   "normalized_subject": "The Ouija board's mysterious origins: war, spirits, and a strange death",
+   "posted_at": "2026-11-16T23:23:32.320927+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-17-AM",
+   "sector": "Game Origin",
+   "topic": "The Ouija board's mysterious origins: war, spirits, and a strange death",
+   "urls": [
+    "theguardian.com/lifeandstyle/2016/oct/30/ouija-board-mystery-history"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Appreciating John Brodie, the only athlete of his kind in NFL history - The New York Times",
+   "claim": "Appreciating John Brodie, the only athlete of his kind in NFL history The New York Times",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "John Brodie Remains NFL’s Only MVP‑Golf Dual‑Sport Star",
+   "image_status": "verified_external",
+   "message_id": 612,
+   "normalized_subject": "Appreciating John Brodie, the only athlete of his kind in NFL history - The New York Times",
+   "posted_at": "2026-11-16T23:23:57.812837+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-17-AM",
+   "sector": "First / Last / Only",
+   "topic": "Appreciating John Brodie, the only athlete of his kind in NFL history - The New York Times",
+   "urls": [
+    "nytimes.com/athletic/6998773/2026/01/26/john-brodie-49ers-mvp-golf"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Corkball: The Mutant Baseball Game That’s a St. Louis Tradition - The Art of Manliness",
+   "claim": "Corkball: The Mutant Baseball Game That’s a St. Louis Tradition The Art of Manliness",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "Corkball: St. Louis’ Slim‑Bat Baseball Variant Originated in Early‑20th‑Century Workplaces",
+   "image_status": "verified_external",
+   "message_id": 613,
+   "normalized_subject": "Corkball: The Mutant Baseball Game That’s a St. Louis Tradition - The Art of Manliness",
+   "posted_at": "2026-11-16T23:24:09.384142+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-17-AM",
+   "sector": "Game Discovery",
+   "topic": "Corkball: The Mutant Baseball Game That’s a St. Louis Tradition - The Art of Manliness",
+   "urls": [
+    "artofmanliness.com/culture/games-tricks/corkball-the-mutant-baseball-game-thats-a-st-louis-tradition"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Board Game Statistics 2026: The Market’s Big Winners",
+   "claim": "Board Game Statistics 2026: The Market’s Big Winners SQ Magazine",
+   "desk": "evergreen_v1",
+   "format": "New Tabletop Game Discovery",
+   "headline": "Board Game Market Set to Surge Beyond $22 Billion Next Year",
+   "image_status": "verified_external",
+   "message_id": 614,
+   "normalized_subject": "Board Game Statistics 2026: The Market’s Big Winners",
+   "posted_at": "2026-11-16T23:24:21.402697+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-17-AM",
+   "sector": "New Tabletop Game Discovery",
+   "topic": "Board Game Statistics 2026: The Market’s Big Winners",
+   "urls": [
+    "sqmagazine.co.uk/board-game-statistics"
+   ]
   }
  ],
  "runs": [],
@@ -8152,22 +8236,33 @@
      "2026-11-16-AM",
      "2026-11-16-PM"
     ]
+   },
+   "2026-11-17": {
+    "published_sectors": [
+     "Game Origin",
+     "First / Last / Only",
+     "Game Discovery",
+     "New Tabletop Game Discovery"
+    ],
+    "run_ids": [
+     "2026-11-17-AM"
+    ]
    }
   },
-  "last_run_at": "2026-11-16T09:35:42.918060+00:00",
+  "last_run_at": "2026-11-16T23:24:31.820485+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-16T09:35:42.918036+00:00"
+    "updated_at": "2026-11-16T23:24:31.820469+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-16T09:35:42.918026+00:00"
+    "updated_at": "2026-11-16T23:24:31.820464+00:00"
    }
   },
   "publication": {
@@ -8915,6 +9010,26 @@
     "message_id": 607,
     "posted_at": "2026-11-16T09:34:49.354237+00:00",
     "status": "posted"
+   },
+   "2026-11-17-AM:evergreen:3cdb84c5eacbfd34": {
+    "message_id": 612,
+    "posted_at": "2026-11-16T23:23:57.812634+00:00",
+    "status": "posted"
+   },
+   "2026-11-17-AM:evergreen:433e0cc792510fd1": {
+    "message_id": 611,
+    "posted_at": "2026-11-16T23:23:32.320753+00:00",
+    "status": "posted"
+   },
+   "2026-11-17-AM:evergreen:b64c502043243fb8": {
+    "message_id": 613,
+    "posted_at": "2026-11-16T23:24:09.383963+00:00",
+    "status": "posted"
+   },
+   "2026-11-17-AM:evergreen:c632e11d166cdca5": {
+    "message_id": 614,
+    "posted_at": "2026-11-16T23:24:21.402511+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -9458,6 +9573,18 @@
      "New Sport Discovery",
      "New Tabletop Game Discovery",
      "Why Does This Happen?"
+    ]
+   },
+   {
+    "at": "2026-11-16T23:24:31.820489+00:00",
+    "evergreen": 4,
+    "exit": 0,
+    "run_id": "2026-11-17-AM",
+    "used_sectors": [
+     "First / Last / Only",
+     "Game Discovery",
+     "Game Origin",
+     "New Tabletop Game Discovery"
     ]
    }
   ],
