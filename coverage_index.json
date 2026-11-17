@@ -17166,8 +17166,103 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 617
+  },
+  {
+   "central_claim": "Ask the expert: What’s the physics behind soccer’s greatest plays? MSUToday",
+   "central_knowledge_unit": "ask the expert what s the physics behind soccer s greatest plays msutoday",
+   "content_id": "3633a87572e78606",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9cddfc4063b25671",
+    "61471017f89859bd"
+   ],
+   "legacy": true,
+   "normalized_subject": "ask the expert what s the physics behind soccer s greatest plays",
+   "people": [],
+   "published_at": "2026-11-17T10:40:04.915597+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "msutoday.msu.edu/news/2026/06/ate-what-is-the-physics-behind-soccers-greatest-plays"
+   ],
+   "sport_or_game": "Ask the expert: What’s the physics behind soccer’s greatest plays?",
+   "telegram_message_id": 615
+  },
+  {
+   "central_claim": "2026 Global Sports Industry Outlook Deloitte",
+   "central_knowledge_unit": "2026 global sports industry outlook deloitte",
+   "content_id": "548ee2fd8d7522bc",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "79b7598a85c177f1",
+    "f740f56ba83cb624"
+   ],
+   "legacy": true,
+   "normalized_subject": "2026 global sports industry outlook",
+   "people": [],
+   "published_at": "2026-11-17T10:40:17.172182+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "deloitte.com/us/en/insights/industry/technology/technology-media-telecom-outlooks/sports-industry-outlook.html"
+   ],
+   "sport_or_game": "2026 Global Sports Industry Outlook",
+   "telegram_message_id": 616
+  },
+  {
+   "central_claim": "Whether Colorado Rockies make history or not, change is in the air Mile High Sports",
+   "central_knowledge_unit": "whether colorado rockies make history or not change is in the air mile high sports",
+   "content_id": "7373fed46aa79dc2",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "50a51178d03d7c55",
+    "672c18b76778076d"
+   ],
+   "legacy": true,
+   "normalized_subject": "whether colorado rockies make history or not change is in the air",
+   "people": [],
+   "published_at": "2026-11-17T10:40:28.594423+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "milehighsports.com/whether-colorado-rockies-make-history-or-not-change-is-in-the-air"
+   ],
+   "sport_or_game": "Whether Colorado Rockies make history or not, change is in the air",
+   "telegram_message_id": 617
+  },
+  {
+   "central_claim": "The hidden forces behind winter sports | UDaily University of Delaware",
+   "central_knowledge_unit": "the hidden forces behind winter sports udaily university of delaware",
+   "content_id": "57da5ced1f95ebbb",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "57da5ced1f95ebbb",
+    "3e2e22aef10d5001"
+   ],
+   "normalized_subject": "the hidden forces behind winter sports udaily university of delaware",
+   "people": [],
+   "published_at": "2026-11-17T22:19:34.504555+00:00",
+   "region": "",
+   "run_id": "2026-11-18-AM",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 618
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-17T10:40:28.594402+00:00"
+ "updated_at": "2026-11-17T22:19:34.504620+00:00"
 }

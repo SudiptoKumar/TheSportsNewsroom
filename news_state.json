@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-17T10:40:25.858617+00:00",
-  "last_request_id": "a5be1e004a1f9a25-IAD",
+  "last_ok": "2026-11-17T22:19:32.368908+00:00",
+  "last_request_id": "a5c21e155fffd6e0-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-17T10:40:31.612367+00:00",
+ "last_run_at": "2026-11-17T22:19:37.523109+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7942,6 +7942,27 @@
    "urls": [
     "milehighsports.com/whether-colorado-rockies-make-history-or-not-change-is-in-the-air"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The hidden forces behind winter sports | UDaily - University of Delaware",
+   "claim": "The hidden forces behind winter sports | UDaily University of Delaware",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "Physics Behind Winter Sports Revealed in UDaily Feature",
+   "image_status": "verified_external",
+   "message_id": 618,
+   "normalized_subject": "The hidden forces behind winter sports | UDaily - University of Delaware",
+   "posted_at": "2026-11-17T22:19:34.504643+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-18-AM",
+   "sector": "Why Does This Happen?",
+   "topic": "The hidden forces behind winter sports | UDaily - University of Delaware",
+   "urls": [
+    "udel.edu/udaily/2026/february/physics-winter-olympics-sports-alfredo-sanchez-cas"
+   ]
   }
  ],
  "runs": [],
@@ -8314,22 +8335,30 @@
      "2026-11-17-AM",
      "2026-11-17-PM"
     ]
+   },
+   "2026-11-18": {
+    "published_sectors": [
+     "Why Does This Happen?"
+    ],
+    "run_ids": [
+     "2026-11-18-AM"
+    ]
    }
   },
-  "last_run_at": "2026-11-17T10:40:31.612342+00:00",
+  "last_run_at": "2026-11-17T22:19:37.523088+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-17T10:40:31.612319+00:00"
+    "updated_at": "2026-11-17T22:19:37.523070+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-17T10:40:31.612313+00:00"
+    "updated_at": "2026-11-17T22:19:37.523065+00:00"
    }
   },
   "publication": {
@@ -9112,6 +9141,11 @@
     "message_id": 615,
     "posted_at": "2026-11-17T10:40:04.915372+00:00",
     "status": "posted"
+   },
+   "2026-11-18-AM:evergreen:537795bbce83351b": {
+    "message_id": 618,
+    "posted_at": "2026-11-17T22:19:34.504475+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -9677,6 +9711,15 @@
     "used_sectors": [
      "New Sport Discovery",
      "Then vs Now",
+     "Why Does This Happen?"
+    ]
+   },
+   {
+    "at": "2026-11-17T22:19:37.523091+00:00",
+    "evergreen": 1,
+    "exit": 0,
+    "run_id": "2026-11-18-AM",
+    "used_sectors": [
      "Why Does This Happen?"
     ]
    }
