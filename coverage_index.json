@@ -17001,8 +17001,173 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 614
+  },
+  {
+   "central_claim": "The Ouija board's mysterious origins: war, spirits, and a strange death The Guardian",
+   "central_knowledge_unit": "the ouija board s mysterious origins war spirits and a strange death the guardian",
+   "content_id": "06e251bdc4e3c4cd",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "2f604a64129b390f",
+    "03c8068c763cd1ce"
+   ],
+   "legacy": true,
+   "normalized_subject": "the ouija board s mysterious origins war spirits and a strange death",
+   "people": [],
+   "published_at": "2026-11-16T23:23:32.320927+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Origin",
+   "source_urls": [
+    "theguardian.com/lifeandstyle/2016/oct/30/ouija-board-mystery-history"
+   ],
+   "sport_or_game": "The Ouija board's mysterious origins: war, spirits, and a strange death",
+   "telegram_message_id": 611
+  },
+  {
+   "central_claim": "Appreciating John Brodie, the only athlete of his kind in NFL history The New York Times",
+   "central_knowledge_unit": "appreciating john brodie the only athlete of his kind in nfl history the new york times",
+   "content_id": "9990ef260d0cc050",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "337d1ed9e4967dff",
+    "3cdb84c5eacbfd34"
+   ],
+   "legacy": true,
+   "normalized_subject": "appreciating john brodie the only athlete of his kind in nfl history the new york times",
+   "people": [],
+   "published_at": "2026-11-16T23:23:57.812837+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "nytimes.com/athletic/6998773/2026/01/26/john-brodie-49ers-mvp-golf"
+   ],
+   "sport_or_game": "Appreciating John Brodie, the only athlete of his kind in NFL history - The New York Times",
+   "telegram_message_id": 612
+  },
+  {
+   "central_claim": "Corkball: The Mutant Baseball Game That’s a St. Louis Tradition The Art of Manliness",
+   "central_knowledge_unit": "corkball the mutant baseball game that s a st louis tradition the art of manliness",
+   "content_id": "6692f174efc2a564",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f99277fbec88ec79",
+    "b64c502043243fb8"
+   ],
+   "legacy": true,
+   "normalized_subject": "corkball the mutant baseball game that s a st louis tradition the art of manliness",
+   "people": [],
+   "published_at": "2026-11-16T23:24:09.384142+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "artofmanliness.com/culture/games-tricks/corkball-the-mutant-baseball-game-thats-a-st-louis-tradition"
+   ],
+   "sport_or_game": "Corkball: The Mutant Baseball Game That’s a St. Louis Tradition - The Art of Manliness",
+   "telegram_message_id": 613
+  },
+  {
+   "central_claim": "Board Game Statistics 2026: The Market’s Big Winners SQ Magazine",
+   "central_knowledge_unit": "board game statistics 2026 the market s big winners sq magazine",
+   "content_id": "1c8f80f23b266217",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "6daeb30b80d19bb3",
+    "5f1b57b30d6e603d"
+   ],
+   "legacy": true,
+   "normalized_subject": "board game statistics 2026 the market s big winners",
+   "people": [],
+   "published_at": "2026-11-16T23:24:21.402697+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    "sqmagazine.co.uk/board-game-statistics"
+   ],
+   "sport_or_game": "Board Game Statistics 2026: The Market’s Big Winners",
+   "telegram_message_id": 614
+  },
+  {
+   "central_claim": "Ask the expert: What’s the physics behind soccer’s greatest plays? MSUToday",
+   "central_knowledge_unit": "ask the expert what s the physics behind soccer s greatest plays",
+   "content_id": "3e128a6a92af6720",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "3e128a6a92af6720",
+    "9cddfc4063b25671"
+   ],
+   "normalized_subject": "ask the expert what s the physics behind soccer s greatest plays",
+   "people": [],
+   "published_at": "2026-11-17T10:40:04.915461+00:00",
+   "region": "",
+   "run_id": "2026-11-17-PM",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 615
+  },
+  {
+   "central_claim": "2026 Global Sports Industry Outlook Deloitte",
+   "central_knowledge_unit": "2026 global sports industry outlook",
+   "content_id": "6155f2ed5abd3730",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "6155f2ed5abd3730",
+    "79b7598a85c177f1"
+   ],
+   "normalized_subject": "2026 global sports industry outlook",
+   "people": [],
+   "published_at": "2026-11-17T10:40:17.172105+00:00",
+   "region": "",
+   "run_id": "2026-11-17-PM",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 616
+  },
+  {
+   "central_claim": "Whether Colorado Rockies make history or not, change is in the air Mile High Sports",
+   "central_knowledge_unit": "whether colorado rockies make history or not change is in the air",
+   "content_id": "e4c170cdeec4c365",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e4c170cdeec4c365",
+    "50a51178d03d7c55"
+   ],
+   "normalized_subject": "whether colorado rockies make history or not change is in the air",
+   "people": [],
+   "published_at": "2026-11-17T10:40:28.594343+00:00",
+   "region": "",
+   "run_id": "2026-11-17-PM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 617
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-16T23:24:21.402671+00:00"
+ "updated_at": "2026-11-17T10:40:28.594402+00:00"
 }
