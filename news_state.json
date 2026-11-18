@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-17T22:19:32.368908+00:00",
-  "last_request_id": "a5c21e155fffd6e0-CMH",
+  "last_ok": "2026-11-18T10:06:31.605808+00:00",
+  "last_request_id": "a5c629b5faddeb43-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-17T22:19:37.523109+00:00",
+ "last_run_at": "2026-11-18T10:06:37.633991+00:00",
  "ledger": {},
  "posts": [
   {
@@ -7963,6 +7963,69 @@
    "urls": [
     "udel.edu/udaily/2026/february/physics-winter-olympics-sports-alfredo-sanchez-cas"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Study explores wellbeing impact of board games",
+   "claim": "Study explores wellbeing impact of board games BBC",
+   "desk": "evergreen_v1",
+   "format": "New Tabletop Game Discovery",
+   "headline": "Board Games Boost Confidence and Social Skills, Study Finds",
+   "image_status": "verified_external",
+   "message_id": 619,
+   "normalized_subject": "Study explores wellbeing impact of board games",
+   "posted_at": "2026-11-18T10:06:09.575842+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-18-PM",
+   "sector": "New Tabletop Game Discovery",
+   "topic": "Study explores wellbeing impact of board games",
+   "urls": [
+    "bbc.com/news/articles/c75v54k6y7go"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Business casual: Suits and ties out as pro leagues embrace relaxed dress codes",
+   "claim": "Business casual: Suits and ties out as pro leagues embrace relaxed dress codes Cronkite News",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "Pro Coaches Ditch Suits for Athletic Wear After Belichick Shift",
+   "image_status": "verified_external",
+   "message_id": 620,
+   "normalized_subject": "Business casual: Suits and ties out as pro leagues embrace relaxed dress codes",
+   "posted_at": "2026-11-18T10:06:21.727892+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-18-PM",
+   "sector": "Then vs Now",
+   "topic": "Business casual: Suits and ties out as pro leagues embrace relaxed dress codes",
+   "urls": [
+    "cronkitenews.azpbs.org/2026/11/17/us-pro-sports-leagues-dress-codes"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Let’s learn how to make a sports ball soar - Science News Explores",
+   "claim": "Let’s learn how to make a sports ball soar Science News Explores",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "How Spin and Shape Control a Sports Ball’s Flight",
+   "image_status": "verified_external",
+   "message_id": 621,
+   "normalized_subject": "Let’s learn how to make a sports ball soar - Science News Explores",
+   "posted_at": "2026-11-18T10:06:34.615781+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-18-PM",
+   "sector": "Why Does This Happen?",
+   "topic": "Let’s learn how to make a sports ball soar - Science News Explores",
+   "urls": [
+    "snexplores.org/article/lets-learn-how-sports-ball-soar-physics"
+   ]
   }
  ],
  "runs": [],
@@ -8338,27 +8401,30 @@
    },
    "2026-11-18": {
     "published_sectors": [
-     "Why Does This Happen?"
+     "Why Does This Happen?",
+     "New Tabletop Game Discovery",
+     "Then vs Now"
     ],
     "run_ids": [
-     "2026-11-18-AM"
+     "2026-11-18-AM",
+     "2026-11-18-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-17T22:19:37.523088+00:00",
+  "last_run_at": "2026-11-18T10:06:37.633965+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-17T22:19:37.523070+00:00"
+    "updated_at": "2026-11-18T10:06:37.633944+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-17T22:19:37.523065+00:00"
+    "updated_at": "2026-11-18T10:06:37.633939+00:00"
    }
   },
   "publication": {
@@ -9146,6 +9212,21 @@
     "message_id": 618,
     "posted_at": "2026-11-17T22:19:34.504475+00:00",
     "status": "posted"
+   },
+   "2026-11-18-PM:evergreen:69a0b8476f22e3c4": {
+    "message_id": 619,
+    "posted_at": "2026-11-18T10:06:09.575641+00:00",
+    "status": "posted"
+   },
+   "2026-11-18-PM:evergreen:d556bda00dcb3060": {
+    "message_id": 621,
+    "posted_at": "2026-11-18T10:06:34.615562+00:00",
+    "status": "posted"
+   },
+   "2026-11-18-PM:evergreen:ffe1bc610b5d0b35": {
+    "message_id": 620,
+    "posted_at": "2026-11-18T10:06:21.727719+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -9720,6 +9801,17 @@
     "exit": 0,
     "run_id": "2026-11-18-AM",
     "used_sectors": [
+     "Why Does This Happen?"
+    ]
+   },
+   {
+    "at": "2026-11-18T10:06:37.633969+00:00",
+    "evergreen": 3,
+    "exit": 0,
+    "run_id": "2026-11-18-PM",
+    "used_sectors": [
+     "New Tabletop Game Discovery",
+     "Then vs Now",
      "Why Does This Happen?"
     ]
    }

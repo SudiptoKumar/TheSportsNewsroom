@@ -17261,8 +17261,101 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 618
+  },
+  {
+   "central_claim": "The hidden forces behind winter sports | UDaily University of Delaware",
+   "central_knowledge_unit": "the hidden forces behind winter sports udaily university of delaware",
+   "content_id": "f2a1b4f8c942a480",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "3e2e22aef10d5001",
+    "537795bbce83351b"
+   ],
+   "legacy": true,
+   "normalized_subject": "the hidden forces behind winter sports udaily university of delaware",
+   "people": [],
+   "published_at": "2026-11-17T22:19:34.504643+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "udel.edu/udaily/2026/february/physics-winter-olympics-sports-alfredo-sanchez-cas"
+   ],
+   "sport_or_game": "The hidden forces behind winter sports | UDaily - University of Delaware",
+   "telegram_message_id": 618
+  },
+  {
+   "central_claim": "Study explores wellbeing impact of board games BBC",
+   "central_knowledge_unit": "study explores wellbeing impact of board games",
+   "content_id": "1c9cc3e683b1d1c7",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "1c9cc3e683b1d1c7",
+    "4d98c608927b3440"
+   ],
+   "normalized_subject": "study explores wellbeing impact of board games",
+   "people": [],
+   "published_at": "2026-11-18T10:06:09.575760+00:00",
+   "region": "",
+   "run_id": "2026-11-18-PM",
+   "sector": "New Tabletop Game Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 619
+  },
+  {
+   "central_claim": "Business casual: Suits and ties out as pro leagues embrace relaxed dress codes Cronkite News",
+   "central_knowledge_unit": "business casual suits and ties out as pro leagues embrace relaxed dress codes",
+   "content_id": "ca6bd60996aaa712",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "ca6bd60996aaa712",
+    "4718d859c45a6a99"
+   ],
+   "normalized_subject": "business casual suits and ties out as pro leagues embrace relaxed dress codes",
+   "people": [],
+   "published_at": "2026-11-18T10:06:21.727815+00:00",
+   "region": "",
+   "run_id": "2026-11-18-PM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 620
+  },
+  {
+   "central_claim": "Let’s learn how to make a sports ball soar Science News Explores",
+   "central_knowledge_unit": "let s learn how to make a sports ball soar science news explores",
+   "content_id": "8a8338cc00ecb01f",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "8a8338cc00ecb01f",
+    "c01b2215327b2e53"
+   ],
+   "normalized_subject": "let s learn how to make a sports ball soar science news explores",
+   "people": [],
+   "published_at": "2026-11-18T10:06:34.615667+00:00",
+   "region": "",
+   "run_id": "2026-11-18-PM",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 621
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-17T22:19:34.504620+00:00"
+ "updated_at": "2026-11-18T10:06:34.615759+00:00"
 }
