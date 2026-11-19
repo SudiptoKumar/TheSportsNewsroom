@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-18T21:55:51.529112+00:00",
-  "last_request_id": "a5ca38c4d8a8c994-IAD",
+  "last_ok": "2026-11-19T10:16:18.620648+00:00",
+  "last_request_id": "a5ce756a1d940eda-PDX",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-18T21:57:52.722200+00:00",
+ "last_run_at": "2026-11-19T10:16:23.855169+00:00",
  "ledger": {},
  "posts": [
   {
@@ -8026,6 +8026,48 @@
    "urls": [
     "snexplores.org/article/lets-learn-how-sports-ball-soar-physics"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The last undefeated NFL team in 2026 has lost",
+   "claim": "The last undefeated NFL team in 2026 has lost NBC News",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Sport",
+   "headline": "Detroit Lions End Vikings’ Undefeated Run with 19-15 Victory",
+   "image_status": "verified_external",
+   "message_id": 624,
+   "normalized_subject": "The last undefeated NFL team in 2026 has lost",
+   "posted_at": "2026-11-19T10:16:09.567969+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-19-PM",
+   "sector": "Forgotten Sport",
+   "topic": "The last undefeated NFL team in 2026 has lost",
+   "urls": [
+    "nbcnews.com/sports/nfl/nfl-undefeated-team-minnesota-vikings-detroit-lions-rcna606888"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Celebrate Women's History Month with female-owned WEAR by Erin Andrews",
+   "claim": "Celebrate Women's History Month with female-owned WEAR by Erin Andrews USA Today",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "Celebrate Women’s History Month with Erin Andrews’ Fashion‑Forward Fan Gear",
+   "image_status": "card_fallback",
+   "message_id": 625,
+   "normalized_subject": "Celebrate Women's History Month with female-owned WEAR by Erin Andrews",
+   "posted_at": "2026-11-19T10:16:20.837286+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-19-PM",
+   "sector": "Equipment / Measurement",
+   "topic": "Celebrate Women's History Month with female-owned WEAR by Erin Andrews",
+   "urls": [
+    "usatoday.com/story/shopping/sports/fan-gear/2026/03/11/shop-wear-by-erin-andrews-nfl-nba-mlb-nhl-wnba-womens-sports-gear/89100517007"
+   ]
   }
  ],
  "runs": [],
@@ -8411,26 +8453,30 @@
     ]
    },
    "2026-11-19": {
-    "published_sectors": [],
+    "published_sectors": [
+     "Forgotten Sport",
+     "Equipment / Measurement"
+    ],
     "run_ids": [
-     "2026-11-19-AM"
+     "2026-11-19-AM",
+     "2026-11-19-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-18T21:57:52.722152+00:00",
+  "last_run_at": "2026-11-19T10:16:23.855147+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-18T21:57:52.722135+00:00"
+    "updated_at": "2026-11-19T10:16:23.855129+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-18T21:57:52.722131+00:00"
+    "updated_at": "2026-11-19T10:16:23.855125+00:00"
    }
   },
   "publication": {
@@ -9234,10 +9280,15 @@
     "posted_at": "2026-11-18T10:06:21.727719+00:00",
     "status": "posted"
    },
-   "2026-11-19-AM:evergreen:d8779b4f1a95daad": {
-    "error": "ReadTimeout: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=60)",
-    "status": "uncertain",
-    "updated_at": "2026-11-18T21:57:52.721922+00:00"
+   "2026-11-19-PM:evergreen:67840a362d4e8045": {
+    "message_id": 625,
+    "posted_at": "2026-11-19T10:16:20.837099+00:00",
+    "status": "posted"
+   },
+   "2026-11-19-PM:evergreen:aa3dd4b96a15c013": {
+    "message_id": 624,
+    "posted_at": "2026-11-19T10:16:09.567756+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -9832,6 +9883,16 @@
     "exit": 0,
     "run_id": "2026-11-19-AM",
     "used_sectors": []
+   },
+   {
+    "at": "2026-11-19T10:16:23.855149+00:00",
+    "evergreen": 2,
+    "exit": 0,
+    "run_id": "2026-11-19-PM",
+    "used_sectors": [
+     "Equipment / Measurement",
+     "Forgotten Sport"
+    ]
    }
   ],
   "schema": 1

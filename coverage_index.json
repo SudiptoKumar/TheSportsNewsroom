@@ -17426,8 +17426,54 @@
    ],
    "sport_or_game": "Let’s learn how to make a sports ball soar - Science News Explores",
    "telegram_message_id": 621
+  },
+  {
+   "central_claim": "The last undefeated NFL team in 2026 has lost NBC News",
+   "central_knowledge_unit": "the last undefeated nfl team in 2026 has lost",
+   "content_id": "4a15882f3ac859a4",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4a15882f3ac859a4",
+    "832209fe6527392e"
+   ],
+   "normalized_subject": "the last undefeated nfl team in 2026 has lost",
+   "people": [],
+   "published_at": "2026-11-19T10:16:09.567881+00:00",
+   "region": "",
+   "run_id": "2026-11-19-PM",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 624
+  },
+  {
+   "central_claim": "Celebrate Women's History Month with female-owned WEAR by Erin Andrews USA Today",
+   "central_knowledge_unit": "celebrate women s history month with female owned wear by erin andrews",
+   "content_id": "f0b6af56117c66f1",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f0b6af56117c66f1",
+    "b7b8a332960b0c7a"
+   ],
+   "normalized_subject": "celebrate women s history month with female owned wear by erin andrews",
+   "people": [],
+   "published_at": "2026-11-19T10:16:20.837198+00:00",
+   "region": "",
+   "run_id": "2026-11-19-PM",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 625
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-18T21:53:31.232315+00:00"
+ "updated_at": "2026-11-19T10:16:20.837262+00:00"
 }
