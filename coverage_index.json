@@ -17472,8 +17472,150 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 625
+  },
+  {
+   "central_claim": "The last undefeated NFL team in 2026 has lost NBC News",
+   "central_knowledge_unit": "the last undefeated nfl team in 2026 has lost nbc news",
+   "content_id": "97565a54573ab484",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "832209fe6527392e",
+    "dcb8f12df99f0eab"
+   ],
+   "legacy": true,
+   "normalized_subject": "the last undefeated nfl team in 2026 has lost",
+   "people": [],
+   "published_at": "2026-11-19T10:16:09.567969+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    "nbcnews.com/sports/nfl/nfl-undefeated-team-minnesota-vikings-detroit-lions-rcna606888"
+   ],
+   "sport_or_game": "The last undefeated NFL team in 2026 has lost",
+   "telegram_message_id": 624
+  },
+  {
+   "central_claim": "Celebrate Women's History Month with female-owned WEAR by Erin Andrews USA Today",
+   "central_knowledge_unit": "celebrate women s history month with female owned wear by erin andrews usa today",
+   "content_id": "dc20786c1cb32514",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b7b8a332960b0c7a",
+    "6b3428f4947023ad"
+   ],
+   "legacy": true,
+   "normalized_subject": "celebrate women s history month with female owned wear by erin andrews",
+   "people": [],
+   "published_at": "2026-11-19T10:16:20.837286+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "usatoday.com/story/shopping/sports/fan-gear/2026/03/11/shop-wear-by-erin-andrews-nfl-nba-mlb-nhl-wnba-womens-sports-gear/89100517007"
+   ],
+   "sport_or_game": "Celebrate Women's History Month with female-owned WEAR by Erin Andrews",
+   "telegram_message_id": 625
+  },
+  {
+   "central_claim": "Trivial Pursuit | Game Origins, Play, & References in Popular Culture Britannica",
+   "central_knowledge_unit": "trivial pursuit game origins play references in popular culture",
+   "content_id": "d82547e8f7ea5cb7",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "d82547e8f7ea5cb7",
+    "a1ef60031fdfd3d2"
+   ],
+   "normalized_subject": "trivial pursuit game origins play references in popular culture",
+   "people": [],
+   "published_at": "2026-11-19T22:11:15.329350+00:00",
+   "region": "",
+   "run_id": "2026-11-20-AM",
+   "sector": "Game Origin",
+   "source_urls": [
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 626
+  },
+  {
+   "central_claim": "Australia’s Rebecca Henderson claims historic race walk world record The Guardian",
+   "central_knowledge_unit": "australia s rebecca henderson claims historic race walk world record",
+   "content_id": "16e9175933da8eda",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "16e9175933da8eda",
+    "b9fc39e980f5c67f"
+   ],
+   "normalized_subject": "australia s rebecca henderson claims historic race walk world record",
+   "people": [],
+   "published_at": "2026-11-19T22:11:28.240114+00:00",
+   "region": "",
+   "run_id": "2026-11-20-AM",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 627
+  },
+  {
+   "central_claim": "This Day in Sports History: November 19 92.5 XTU",
+   "central_knowledge_unit": "this day in sports history november 19",
+   "content_id": "0536f028c78cc166",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "0536f028c78cc166",
+    "e71b0a8886f504ef"
+   ],
+   "normalized_subject": "this day in sports history november 19",
+   "people": [],
+   "published_at": "2026-11-19T22:11:40.336047+00:00",
+   "region": "",
+   "run_id": "2026-11-20-AM",
+   "sector": "On This Date",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 628
+  },
+  {
+   "central_claim": "Editorial: 5 things I learned as a football equipment manager The Miami Student",
+   "central_knowledge_unit": "editorial 5 things i learned as a football equipment manager the miami student",
+   "content_id": "a1fa1a2e9699502d",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a1fa1a2e9699502d",
+    "32f808c0945a318e"
+   ],
+   "normalized_subject": "editorial 5 things i learned as a football equipment manager the miami student",
+   "people": [],
+   "published_at": "2026-11-19T22:11:52.571705+00:00",
+   "region": "",
+   "run_id": "2026-11-20-AM",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 629
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-19T10:16:20.837262+00:00"
+ "updated_at": "2026-11-19T22:11:52.571767+00:00"
 }

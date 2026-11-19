@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-19T10:16:18.620648+00:00",
-  "last_request_id": "a5ce756a1d940eda-PDX",
+  "last_ok": "2026-11-19T22:11:49.936961+00:00",
+  "last_request_id": "a5d28d8b2db2fef0-ORD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-19T10:16:23.855169+00:00",
+ "last_run_at": "2026-11-19T22:11:55.589701+00:00",
  "ledger": {},
  "posts": [
   {
@@ -8068,6 +8068,92 @@
    "urls": [
     "usatoday.com/story/shopping/sports/fan-gear/2026/03/11/shop-wear-by-erin-andrews-nfl-nba-mlb-nhl-wnba-womens-sports-gear/89100517007"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Trivial Pursuit | Game Origins, Play, & References in Popular Culture",
+   "claim": "Trivial Pursuit | Game Origins, Play, & References in Popular Culture Britannica",
+   "desk": "evergreen_v1",
+   "format": "Game Origin",
+   "headline": "Trivial Pursuit: Origins and Cultural Impact",
+   "image_status": "card_fallback",
+   "message_id": 626,
+   "normalized_subject": "Trivial Pursuit | Game Origins, Play, & References in Popular Culture",
+   "posted_at": "2026-11-19T22:11:15.329449+00:00",
+   "research_urls": [
+    "",
+    ""
+   ],
+   "run_id": "2026-11-20-AM",
+   "sector": "Game Origin",
+   "topic": "Trivial Pursuit | Game Origins, Play, & References in Popular Culture",
+   "urls": [
+    "britannica.com/topic/Trivial-Pursuit"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Australia’s Rebecca Henderson claims historic race walk world record",
+   "claim": "Australia’s Rebecca Henderson claims historic race walk world record The Guardian",
+   "desk": "evergreen_v1",
+   "format": "Records & Milestones",
+   "headline": "Rebecca Henderson Sets New Marathon Walk World Record in Japan",
+   "image_status": "card_fallback",
+   "message_id": 627,
+   "normalized_subject": "Australia’s Rebecca Henderson claims historic race walk world record",
+   "posted_at": "2026-11-19T22:11:28.240210+00:00",
+   "research_urls": [
+    "",
+    ""
+   ],
+   "run_id": "2026-11-20-AM",
+   "sector": "Records & Milestones",
+   "topic": "Australia’s Rebecca Henderson claims historic race walk world record",
+   "urls": [
+    "theguardian.com/sport/2026/oct/26/australian-rebecca-henderson-breaks-athletics-world-record-race-walk-marathon-japan"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "This Day in Sports History: November 19",
+   "claim": "This Day in Sports History: November 19 92.5 XTU",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "Nov 19 Highlights Multiple Historic Sports Milestones",
+   "image_status": "verified_external",
+   "message_id": 628,
+   "normalized_subject": "This Day in Sports History: November 19",
+   "posted_at": "2026-11-19T22:11:40.336121+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-20-AM",
+   "sector": "On This Date",
+   "topic": "This Day in Sports History: November 19",
+   "urls": [
+    "925xtu.com/2026/11/19/this-day-in-sports-history-november-19-2"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Editorial: 5 things I learned as a football equipment manager - The Miami Student",
+   "claim": "Editorial: 5 things I learned as a football equipment manager The Miami Student",
+   "desk": "evergreen_v1",
+   "format": "Equipment / Measurement",
+   "headline": "Five Key Lessons From My Time as a College Football Equipment Manager",
+   "image_status": "verified_external",
+   "message_id": 629,
+   "normalized_subject": "Editorial: 5 things I learned as a football equipment manager - The Miami Student",
+   "posted_at": "2026-11-19T22:11:52.571789+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-20-AM",
+   "sector": "Equipment / Measurement",
+   "topic": "Editorial: 5 things I learned as a football equipment manager - The Miami Student",
+   "urls": [
+    "miamistudent.net/article/2025/02/editorial-5-things-i-learned-as-a-football-equipment-manager"
+   ]
   }
  ],
  "runs": [],
@@ -8461,22 +8547,33 @@
      "2026-11-19-AM",
      "2026-11-19-PM"
     ]
+   },
+   "2026-11-20": {
+    "published_sectors": [
+     "Game Origin",
+     "Records & Milestones",
+     "On This Date",
+     "Equipment / Measurement"
+    ],
+    "run_ids": [
+     "2026-11-20-AM"
+    ]
    }
   },
-  "last_run_at": "2026-11-19T10:16:23.855147+00:00",
+  "last_run_at": "2026-11-19T22:11:55.589677+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-19T10:16:23.855129+00:00"
+    "updated_at": "2026-11-19T22:11:55.589661+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-19T10:16:23.855125+00:00"
+    "updated_at": "2026-11-19T22:11:55.589656+00:00"
    }
   },
   "publication": {
@@ -9289,6 +9386,26 @@
     "message_id": 624,
     "posted_at": "2026-11-19T10:16:09.567756+00:00",
     "status": "posted"
+   },
+   "2026-11-20-AM:evergreen:0e53747d9adab816": {
+    "message_id": 628,
+    "posted_at": "2026-11-19T22:11:40.335964+00:00",
+    "status": "posted"
+   },
+   "2026-11-20-AM:evergreen:248a698026323740": {
+    "message_id": 627,
+    "posted_at": "2026-11-19T22:11:28.240016+00:00",
+    "status": "posted"
+   },
+   "2026-11-20-AM:evergreen:298889da8ec1cce0": {
+    "message_id": 626,
+    "posted_at": "2026-11-19T22:11:15.329227+00:00",
+    "status": "posted"
+   },
+   "2026-11-20-AM:evergreen:dfcd88ad8cf65e0e": {
+    "message_id": 629,
+    "posted_at": "2026-11-19T22:11:52.571608+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -9892,6 +10009,18 @@
     "used_sectors": [
      "Equipment / Measurement",
      "Forgotten Sport"
+    ]
+   },
+   {
+    "at": "2026-11-19T22:11:55.589680+00:00",
+    "evergreen": 4,
+    "exit": 0,
+    "run_id": "2026-11-20-AM",
+    "used_sectors": [
+     "Equipment / Measurement",
+     "Game Origin",
+     "On This Date",
+     "Records & Milestones"
     ]
    }
   ],
