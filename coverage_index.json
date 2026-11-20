@@ -17710,8 +17710,77 @@
    ],
    "sport_or_game": "Editorial: 5 things I learned as a football equipment manager - The Miami Student",
    "telegram_message_id": 629
+  },
+  {
+   "central_claim": "The growing popularity of girls flag football in Oregon and beyond Oregon Public Broadcasting - OPB",
+   "central_knowledge_unit": "the growing popularity of girls flag football in oregon and beyond oregon public broadcasting",
+   "content_id": "58d8c8bf7c7b2cc9",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "58d8c8bf7c7b2cc9",
+    "a8b3f46dc46e98af"
+   ],
+   "normalized_subject": "the growing popularity of girls flag football in oregon and beyond oregon public broadcasting",
+   "people": [],
+   "published_at": "2026-11-20T21:49:48.470004+00:00",
+   "region": "",
+   "run_id": "2026-11-21-AM",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 630
+  },
+  {
+   "central_claim": "Get the Facts: Trans Inclusion in Sports Gender Justice",
+   "central_knowledge_unit": "get the facts trans inclusion in sports",
+   "content_id": "45e7d4ccf497f1fb",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "45e7d4ccf497f1fb",
+    "ac949b1a21a63ffa"
+   ],
+   "normalized_subject": "get the facts trans inclusion in sports",
+   "people": [],
+   "published_at": "2026-11-20T21:50:00.086391+00:00",
+   "region": "",
+   "run_id": "2026-11-21-AM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 631
+  },
+  {
+   "central_claim": "This Day in Sports History: November 3 105.7 WROR",
+   "central_knowledge_unit": "this day in sports history november 3 105 7 wror",
+   "content_id": "0e593972fd0d6c60",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "0e593972fd0d6c60",
+    "4139eeb22ea36151"
+   ],
+   "normalized_subject": "this day in sports history november 3 105 7 wror",
+   "people": [],
+   "published_at": "2026-11-20T21:50:13.375305+00:00",
+   "region": "",
+   "run_id": "2026-11-21-AM",
+   "sector": "On This Date",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 632
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-20T09:57:28.331147+00:00"
+ "updated_at": "2026-11-20T21:50:13.375363+00:00"
 }

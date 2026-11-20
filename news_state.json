@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-19T22:11:49.936961+00:00",
-  "last_request_id": "",
-  "last_status": 0,
+  "last_ok": "2026-11-20T21:50:10.152766+00:00",
+  "last_request_id": "a5daab2ec866efc2-PDX",
+  "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-20T10:07:42.292145+00:00",
+ "last_run_at": "2026-11-20T21:50:16.393853+00:00",
  "ledger": {},
  "posts": [
   {
@@ -8154,6 +8154,69 @@
    "urls": [
     "miamistudent.net/article/2025/02/editorial-5-things-i-learned-as-a-football-equipment-manager"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The growing popularity of girls flag football in Oregon and beyond - Oregon Public Broadcasting",
+   "claim": "The growing popularity of girls flag football in Oregon and beyond Oregon Public Broadcasting - OPB",
+   "desk": "evergreen_v1",
+   "format": "New Sport Discovery",
+   "headline": "Oregon Sanctions Girls Flag Football, Doubling Team Participation in Two Years",
+   "image_status": "card_fallback",
+   "message_id": 630,
+   "normalized_subject": "The growing popularity of girls flag football in Oregon and beyond - Oregon Public Broadcasting",
+   "posted_at": "2026-11-20T21:49:48.470098+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-21-AM",
+   "sector": "New Sport Discovery",
+   "topic": "The growing popularity of girls flag football in Oregon and beyond - Oregon Public Broadcasting",
+   "urls": [
+    "opb.org/article/2026/10/29/the-growing-popularity-of-girls-flag-football-in-oregon-and-beyond"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Get the Facts: Trans Inclusion in Sports",
+   "claim": "Get the Facts: Trans Inclusion in Sports Gender Justice",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "Trans Athletes Have Competed for Decades, Inclusion Remains Essential",
+   "image_status": "verified_external",
+   "message_id": 631,
+   "normalized_subject": "Get the Facts: Trans Inclusion in Sports",
+   "posted_at": "2026-11-20T21:50:00.086468+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-21-AM",
+   "sector": "Then vs Now",
+   "topic": "Get the Facts: Trans Inclusion in Sports",
+   "urls": [
+    "genderjustice.us/toolkits/trans-inclusion-sports"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "This Day in Sports History: November 3 - 105.7 WROR",
+   "claim": "This Day in Sports History: November 3 105.7 WROR",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "Lou Gehrig Secured the American League Triple Crown on November 3, 1934",
+   "image_status": "verified_external",
+   "message_id": 632,
+   "normalized_subject": "This Day in Sports History: November 3 - 105.7 WROR",
+   "posted_at": "2026-11-20T21:50:13.375383+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-21-AM",
+   "sector": "On This Date",
+   "topic": "This Day in Sports History: November 3 - 105.7 WROR",
+   "urls": [
+    "wror.com/2026/11/03/this-day-in-sports-history-november-3-2"
+   ]
   }
  ],
  "runs": [],
@@ -8559,22 +8622,32 @@
      "2026-11-20-AM",
      "2026-11-20-PM"
     ]
+   },
+   "2026-11-21": {
+    "published_sectors": [
+     "New Sport Discovery",
+     "Then vs Now",
+     "On This Date"
+    ],
+    "run_ids": [
+     "2026-11-21-AM"
+    ]
    }
   },
-  "last_run_at": "2026-11-20T10:07:42.292128+00:00",
+  "last_run_at": "2026-11-20T21:50:16.393830+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-20T10:07:42.292109+00:00"
+    "updated_at": "2026-11-20T21:50:16.393813+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-20T10:07:42.292103+00:00"
+    "updated_at": "2026-11-20T21:50:16.393809+00:00"
    }
   },
   "publication": {
@@ -9407,6 +9480,21 @@
     "message_id": 629,
     "posted_at": "2026-11-19T22:11:52.571608+00:00",
     "status": "posted"
+   },
+   "2026-11-21-AM:evergreen:2bd9f4626e267af1": {
+    "message_id": 630,
+    "posted_at": "2026-11-20T21:49:48.469920+00:00",
+    "status": "posted"
+   },
+   "2026-11-21-AM:evergreen:87c51a0868ec020e": {
+    "message_id": 632,
+    "posted_at": "2026-11-20T21:50:13.375214+00:00",
+    "status": "posted"
+   },
+   "2026-11-21-AM:evergreen:aa41548f1fcc7d9e": {
+    "message_id": 631,
+    "posted_at": "2026-11-20T21:50:00.086303+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -10030,6 +10118,17 @@
     "exit": 0,
     "run_id": "2026-11-20-PM",
     "used_sectors": []
+   },
+   {
+    "at": "2026-11-20T21:50:16.393833+00:00",
+    "evergreen": 3,
+    "exit": 0,
+    "run_id": "2026-11-21-AM",
+    "used_sectors": [
+     "New Sport Discovery",
+     "On This Date",
+     "Then vs Now"
+    ]
    }
   ],
   "schema": 1
