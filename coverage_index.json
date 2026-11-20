@@ -17614,8 +17614,104 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 629
+  },
+  {
+   "central_claim": "Trivial Pursuit | Game Origins, Play, & References in Popular Culture Britannica",
+   "central_knowledge_unit": "trivial pursuit game origins play references in popular culture britannica",
+   "content_id": "c942765335efd99a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a1ef60031fdfd3d2",
+    "568d8f0563e4d467"
+   ],
+   "legacy": true,
+   "normalized_subject": "trivial pursuit game origins play references in popular culture",
+   "people": [],
+   "published_at": "2026-11-19T22:11:15.329449+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Origin",
+   "source_urls": [
+    "britannica.com/topic/Trivial-Pursuit"
+   ],
+   "sport_or_game": "Trivial Pursuit | Game Origins, Play, & References in Popular Culture",
+   "telegram_message_id": 626
+  },
+  {
+   "central_claim": "Australia’s Rebecca Henderson claims historic race walk world record The Guardian",
+   "central_knowledge_unit": "australia s rebecca henderson claims historic race walk world record the guardian",
+   "content_id": "81733a0fbc63fd3d",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b9fc39e980f5c67f",
+    "6a0b71d8725d8801"
+   ],
+   "legacy": true,
+   "normalized_subject": "australia s rebecca henderson claims historic race walk world record",
+   "people": [],
+   "published_at": "2026-11-19T22:11:28.240210+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Records & Milestones",
+   "source_urls": [
+    "theguardian.com/sport/2026/oct/26/australian-rebecca-henderson-breaks-athletics-world-record-race-walk-marathon-japan"
+   ],
+   "sport_or_game": "Australia’s Rebecca Henderson claims historic race walk world record",
+   "telegram_message_id": 627
+  },
+  {
+   "central_claim": "This Day in Sports History: November 19 92.5 XTU",
+   "central_knowledge_unit": "this day in sports history november 19 92 5 xtu",
+   "content_id": "7a29712d36d177c7",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e71b0a8886f504ef",
+    "915979a9e265c176"
+   ],
+   "legacy": true,
+   "normalized_subject": "this day in sports history november 19",
+   "people": [],
+   "published_at": "2026-11-19T22:11:40.336121+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "925xtu.com/2026/11/19/this-day-in-sports-history-november-19-2"
+   ],
+   "sport_or_game": "This Day in Sports History: November 19",
+   "telegram_message_id": 628
+  },
+  {
+   "central_claim": "Editorial: 5 things I learned as a football equipment manager The Miami Student",
+   "central_knowledge_unit": "editorial 5 things i learned as a football equipment manager the miami student",
+   "content_id": "23b7c5eca4704097",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "32f808c0945a318e",
+    "dfcd88ad8cf65e0e"
+   ],
+   "legacy": true,
+   "normalized_subject": "editorial 5 things i learned as a football equipment manager the miami student",
+   "people": [],
+   "published_at": "2026-11-19T22:11:52.571789+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Equipment / Measurement",
+   "source_urls": [
+    "miamistudent.net/article/2025/02/editorial-5-things-i-learned-as-a-football-equipment-manager"
+   ],
+   "sport_or_game": "Editorial: 5 things I learned as a football equipment manager - The Miami Student",
+   "telegram_message_id": 629
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-19T22:11:52.571767+00:00"
+ "updated_at": "2026-11-20T09:57:28.331147+00:00"
 }
