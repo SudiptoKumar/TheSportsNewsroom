@@ -17897,8 +17897,148 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 634
+  },
+  {
+   "central_claim": "16 Shocking Olympic Moments That Changed History Reader's Digest",
+   "central_knowledge_unit": "16 shocking olympic moments that changed history reader s digest",
+   "content_id": "4ef179636ccfe347",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a0ca30456d393ec0",
+    "7fa6c1ec00a15943"
+   ],
+   "legacy": true,
+   "normalized_subject": "16 shocking olympic moments that changed history reader s digest",
+   "people": [],
+   "published_at": "2026-11-21T09:44:13.926876+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "rd.com/list/13-olympic-moments-that-changed-history"
+   ],
+   "sport_or_game": "16 Shocking Olympic Moments That Changed History - Reader's Digest",
+   "telegram_message_id": 633
+  },
+  {
+   "central_claim": "This Day in Sports History: November 19 102.7 Coyote Country",
+   "central_knowledge_unit": "this day in sports history november 19 102 7 coyote country",
+   "content_id": "44b42a88de1b8d5d",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7e74aa0c65e662cf",
+    "f573c034018dfa2f"
+   ],
+   "legacy": true,
+   "normalized_subject": "this day in sports history november 19 102 7 coyote country",
+   "people": [],
+   "published_at": "2026-11-21T09:44:26.017403+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "coyotecountrylv.com/2026/11/19/this-day-in-sports-history-november-19-2"
+   ],
+   "sport_or_game": "This Day in Sports History: November 19 - 102.7 Coyote Country",
+   "telegram_message_id": 634
+  },
+  {
+   "central_claim": "Luge 101: Olympic History NBC Olympics",
+   "central_knowledge_unit": "luge 101 olympic history",
+   "content_id": "28d772bf845574bd",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "28d772bf845574bd",
+    "37968066efafae16"
+   ],
+   "normalized_subject": "luge 101 olympic history",
+   "people": [],
+   "published_at": "2026-11-21T20:32:02.911088+00:00",
+   "region": "",
+   "run_id": "2026-11-22-AM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 635
+  },
+  {
+   "central_claim": "USWNT and Japan set record for largest crowd in Seattle women’s sports history All For XI",
+   "central_knowledge_unit": "uswnt and japan set record for largest crowd in seattle women s sports history",
+   "content_id": "dcad4b261ec3dca3",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "dcad4b261ec3dca3",
+    "22e4b2e0b63523b9"
+   ],
+   "normalized_subject": "uswnt and japan set record for largest crowd in seattle women s sports history",
+   "people": [],
+   "published_at": "2026-11-21T20:32:27.039769+00:00",
+   "region": "",
+   "run_id": "2026-11-22-AM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 636
+  },
+  {
+   "central_claim": "This Day in Sports History: November 19 Q105 | Listen Live",
+   "central_knowledge_unit": "this day in sports history november 19 q105 listen live",
+   "content_id": "32ec7a19ddf46670",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "32ec7a19ddf46670",
+    "45d751c45c1c696c"
+   ],
+   "normalized_subject": "this day in sports history november 19 q105 listen live",
+   "people": [],
+   "published_at": "2026-11-21T20:32:37.530197+00:00",
+   "region": "",
+   "run_id": "2026-11-22-AM",
+   "sector": "On This Date",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 637
+  },
+  {
+   "central_claim": "ⓘ) is a rapid, fleeting mental and physiological state. It is related to the startle response experienced by animals and humans as the …",
+   "central_knowledge_unit": "surprise wikipedia",
+   "content_id": "9d27bcb1ddabaefb",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9d27bcb1ddabaefb",
+    "6586e99e9ea599a0"
+   ],
+   "normalized_subject": "surprise wikipedia",
+   "people": [],
+   "published_at": "2026-11-21T20:32:51.616478+00:00",
+   "region": "",
+   "run_id": "2026-11-22-AM",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 638
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-21T09:44:26.017381+00:00"
+ "updated_at": "2026-11-21T20:32:51.616538+00:00"
 }

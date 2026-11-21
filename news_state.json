@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-21T09:44:23.884547+00:00",
-  "last_request_id": "a5dec16b8d8aa870-CMH",
+  "last_ok": "2026-11-21T20:32:48.648347+00:00",
+  "last_request_id": "a5e2773e0cedefc9-PDX",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-21T09:44:29.035757+00:00",
+ "last_run_at": "2026-11-21T20:32:54.634265+00:00",
  "ledger": {},
  "posts": [
   {
@@ -8259,6 +8259,90 @@
    "urls": [
     "coyotecountrylv.com/2026/11/19/this-day-in-sports-history-november-19-2"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Luge 101: Olympic History",
+   "claim": "Luge 101: Olympic History NBC Olympics",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "Luge Joined the Olympics in 1964 and Evolved Through Precision and Team Events",
+   "image_status": "verified_external",
+   "message_id": 635,
+   "normalized_subject": "Luge 101: Olympic History",
+   "posted_at": "2026-11-21T20:32:02.911169+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-22-AM",
+   "sector": "Then vs Now",
+   "topic": "Luge 101: Olympic History",
+   "urls": [
+    "nbcolympics.com/news/luge-101-olympic-history"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "USWNT and Japan set record for largest crowd in Seattle women’s sports history",
+   "claim": "USWNT and Japan set record for largest crowd in Seattle women’s sports history All For XI",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "USWNT and Japan Break Seattle Women’s Sports Attendance Record",
+   "image_status": "verified_external",
+   "message_id": 636,
+   "normalized_subject": "USWNT and Japan set record for largest crowd in Seattle women’s sports history",
+   "posted_at": "2026-11-21T20:32:27.039863+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-22-AM",
+   "sector": "First / Last / Only",
+   "topic": "USWNT and Japan set record for largest crowd in Seattle women’s sports history",
+   "urls": [
+    "allforxi.com/nwsl/14295/uswnt-and-japan-set-record-for-largest-crowd-in-seattle-womens-sports-history-nadeshiko"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "This Day in Sports History: November 19 - Q105 | Listen Live",
+   "claim": "This Day in Sports History: November 19 Q105 | Listen Live",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "George Blanda Threw Seven Touchdowns on November 19, 1961",
+   "image_status": "verified_external",
+   "message_id": 637,
+   "normalized_subject": "This Day in Sports History: November 19 - Q105 | Listen Live",
+   "posted_at": "2026-11-21T20:32:37.530275+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-22-AM",
+   "sector": "On This Date",
+   "topic": "This Day in Sports History: November 19 - Q105 | Listen Live",
+   "urls": [
+    "myq105.com/2026/11/19/this-day-in-sports-history-november-19-2"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Surprise - Wikipedia",
+   "claim": "ⓘ) is a rapid, fleeting mental and physiological state. It is related to the startle response experienced by animals and humans as the …",
+   "desk": "evergreen_v1",
+   "format": "Interesting Game Fact",
+   "headline": "Surprise Is a Quick, Fleeting Mental and Physiological State",
+   "image_status": "verified_external",
+   "message_id": 638,
+   "normalized_subject": "Surprise - Wikipedia",
+   "posted_at": "2026-11-21T20:32:51.616558+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-22-AM",
+   "sector": "Interesting Game Fact",
+   "topic": "Surprise - Wikipedia",
+   "urls": [
+    "en.m.wikipedia.org/wiki/Surprise"
+   ]
   }
  ],
  "runs": [],
@@ -8675,22 +8759,33 @@
      "2026-11-21-AM",
      "2026-11-21-PM"
     ]
+   },
+   "2026-11-22": {
+    "published_sectors": [
+     "Then vs Now",
+     "First / Last / Only",
+     "On This Date",
+     "Interesting Game Fact"
+    ],
+    "run_ids": [
+     "2026-11-22-AM"
+    ]
    }
   },
-  "last_run_at": "2026-11-21T09:44:29.035735+00:00",
+  "last_run_at": "2026-11-21T20:32:54.634240+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-21T09:44:29.035718+00:00"
+    "updated_at": "2026-11-21T20:32:54.634223+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-21T09:44:29.035713+00:00"
+    "updated_at": "2026-11-21T20:32:54.634219+00:00"
    }
   },
   "publication": {
@@ -9548,6 +9643,26 @@
     "message_id": 634,
     "posted_at": "2026-11-21T09:44:26.017213+00:00",
     "status": "posted"
+   },
+   "2026-11-22-AM:evergreen:009d982ac522cb13": {
+    "message_id": 636,
+    "posted_at": "2026-11-21T20:32:27.039614+00:00",
+    "status": "posted"
+   },
+   "2026-11-22-AM:evergreen:1202191bacb94a9f": {
+    "message_id": 635,
+    "posted_at": "2026-11-21T20:32:02.911015+00:00",
+    "status": "posted"
+   },
+   "2026-11-22-AM:evergreen:3d96522a0477a382": {
+    "message_id": 638,
+    "posted_at": "2026-11-21T20:32:51.616388+00:00",
+    "status": "posted"
+   },
+   "2026-11-22-AM:evergreen:cd70c5aa1c855e8f": {
+    "message_id": 637,
+    "posted_at": "2026-11-21T20:32:37.530109+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -10189,6 +10304,18 @@
     "exit": 0,
     "run_id": "2026-11-21-PM",
     "used_sectors": [
+     "On This Date",
+     "Then vs Now"
+    ]
+   },
+   {
+    "at": "2026-11-21T20:32:54.634243+00:00",
+    "evergreen": 4,
+    "exit": 0,
+    "run_id": "2026-11-22-AM",
+    "used_sectors": [
+     "First / Last / Only",
+     "Interesting Game Fact",
      "On This Date",
      "Then vs Now"
     ]
