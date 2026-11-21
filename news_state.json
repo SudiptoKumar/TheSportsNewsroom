@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-20T21:50:10.152766+00:00",
-  "last_request_id": "a5daab2ec866efc2-PDX",
+  "last_ok": "2026-11-21T09:44:23.884547+00:00",
+  "last_request_id": "a5dec16b8d8aa870-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-20T21:50:16.393853+00:00",
+ "last_run_at": "2026-11-21T09:44:29.035757+00:00",
  "ledger": {},
  "posts": [
   {
@@ -8217,6 +8217,48 @@
    "urls": [
     "wror.com/2026/11/03/this-day-in-sports-history-november-3-2"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "16 Shocking Olympic Moments That Changed History - Reader's Digest",
+   "claim": "16 Shocking Olympic Moments That Changed History Reader's Digest",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "Reader's Digest Highlights 16 Olympic Moments That Shifted History",
+   "image_status": "verified_external",
+   "message_id": 633,
+   "normalized_subject": "16 Shocking Olympic Moments That Changed History - Reader's Digest",
+   "posted_at": "2026-11-21T09:44:13.926876+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-21-PM",
+   "sector": "Then vs Now",
+   "topic": "16 Shocking Olympic Moments That Changed History - Reader's Digest",
+   "urls": [
+    "rd.com/list/13-olympic-moments-that-changed-history"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "This Day in Sports History: November 19 - 102.7 Coyote Country",
+   "claim": "This Day in Sports History: November 19 102.7 Coyote Country",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "Nov 19 Marks Historic Milestones From Olympics to Record‑Setting Games",
+   "image_status": "verified_external",
+   "message_id": 634,
+   "normalized_subject": "This Day in Sports History: November 19 - 102.7 Coyote Country",
+   "posted_at": "2026-11-21T09:44:26.017403+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-21-PM",
+   "sector": "On This Date",
+   "topic": "This Day in Sports History: November 19 - 102.7 Coyote Country",
+   "urls": [
+    "coyotecountrylv.com/2026/11/19/this-day-in-sports-history-november-19-2"
+   ]
   }
  ],
  "runs": [],
@@ -8630,24 +8672,25 @@
      "On This Date"
     ],
     "run_ids": [
-     "2026-11-21-AM"
+     "2026-11-21-AM",
+     "2026-11-21-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-20T21:50:16.393830+00:00",
+  "last_run_at": "2026-11-21T09:44:29.035735+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-20T21:50:16.393813+00:00"
+    "updated_at": "2026-11-21T09:44:29.035718+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-20T21:50:16.393809+00:00"
+    "updated_at": "2026-11-21T09:44:29.035713+00:00"
    }
   },
   "publication": {
@@ -9495,6 +9538,16 @@
     "message_id": 631,
     "posted_at": "2026-11-20T21:50:00.086303+00:00",
     "status": "posted"
+   },
+   "2026-11-21-PM:evergreen:7fa6c1ec00a15943": {
+    "message_id": 633,
+    "posted_at": "2026-11-21T09:44:13.926709+00:00",
+    "status": "posted"
+   },
+   "2026-11-21-PM:evergreen:f573c034018dfa2f": {
+    "message_id": 634,
+    "posted_at": "2026-11-21T09:44:26.017213+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -10126,6 +10179,16 @@
     "run_id": "2026-11-21-AM",
     "used_sectors": [
      "New Sport Discovery",
+     "On This Date",
+     "Then vs Now"
+    ]
+   },
+   {
+    "at": "2026-11-21T09:44:29.035738+00:00",
+    "evergreen": 2,
+    "exit": 0,
+    "run_id": "2026-11-21-PM",
+    "used_sectors": [
      "On This Date",
      "Then vs Now"
     ]

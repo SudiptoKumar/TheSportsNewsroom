@@ -17779,8 +17779,126 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 632
+  },
+  {
+   "central_claim": "The growing popularity of girls flag football in Oregon and beyond Oregon Public Broadcasting - OPB",
+   "central_knowledge_unit": "the growing popularity of girls flag football in oregon and beyond oregon public broadcasting opb",
+   "content_id": "8e7be4d8b3de1ed8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a8b3f46dc46e98af",
+    "1561882e681f93cf"
+   ],
+   "legacy": true,
+   "normalized_subject": "the growing popularity of girls flag football in oregon and beyond oregon public broadcasting",
+   "people": [],
+   "published_at": "2026-11-20T21:49:48.470098+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "opb.org/article/2026/10/29/the-growing-popularity-of-girls-flag-football-in-oregon-and-beyond"
+   ],
+   "sport_or_game": "The growing popularity of girls flag football in Oregon and beyond - Oregon Public Broadcasting",
+   "telegram_message_id": 630
+  },
+  {
+   "central_claim": "Get the Facts: Trans Inclusion in Sports Gender Justice",
+   "central_knowledge_unit": "get the facts trans inclusion in sports gender justice",
+   "content_id": "9d5d68e095622a28",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "ac949b1a21a63ffa",
+    "34cc986ead79086d"
+   ],
+   "legacy": true,
+   "normalized_subject": "get the facts trans inclusion in sports",
+   "people": [],
+   "published_at": "2026-11-20T21:50:00.086468+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "genderjustice.us/toolkits/trans-inclusion-sports"
+   ],
+   "sport_or_game": "Get the Facts: Trans Inclusion in Sports",
+   "telegram_message_id": 631
+  },
+  {
+   "central_claim": "This Day in Sports History: November 3 105.7 WROR",
+   "central_knowledge_unit": "this day in sports history november 3 105 7 wror",
+   "content_id": "c6195b73a701952f",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4139eeb22ea36151",
+    "87c51a0868ec020e"
+   ],
+   "legacy": true,
+   "normalized_subject": "this day in sports history november 3 105 7 wror",
+   "people": [],
+   "published_at": "2026-11-20T21:50:13.375383+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "wror.com/2026/11/03/this-day-in-sports-history-november-3-2"
+   ],
+   "sport_or_game": "This Day in Sports History: November 3 - 105.7 WROR",
+   "telegram_message_id": 632
+  },
+  {
+   "central_claim": "16 Shocking Olympic Moments That Changed History Reader's Digest",
+   "central_knowledge_unit": "16 shocking olympic moments that changed history reader s digest",
+   "content_id": "3cd9da0ca5b94020",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "3cd9da0ca5b94020",
+    "a0ca30456d393ec0"
+   ],
+   "normalized_subject": "16 shocking olympic moments that changed history reader s digest",
+   "people": [],
+   "published_at": "2026-11-21T09:44:13.926790+00:00",
+   "region": "",
+   "run_id": "2026-11-21-PM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 633
+  },
+  {
+   "central_claim": "This Day in Sports History: November 19 102.7 Coyote Country",
+   "central_knowledge_unit": "this day in sports history november 19 102 7 coyote country",
+   "content_id": "27d2855f34bf49e8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "27d2855f34bf49e8",
+    "7e74aa0c65e662cf"
+   ],
+   "normalized_subject": "this day in sports history november 19 102 7 coyote country",
+   "people": [],
+   "published_at": "2026-11-21T09:44:26.017316+00:00",
+   "region": "",
+   "run_id": "2026-11-21-PM",
+   "sector": "On This Date",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 634
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-20T21:50:13.375363+00:00"
+ "updated_at": "2026-11-21T09:44:26.017381+00:00"
 }
