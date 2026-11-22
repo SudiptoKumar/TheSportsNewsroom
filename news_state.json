@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-21T20:32:48.648347+00:00",
-  "last_request_id": "a5e2773e0cedefc9-PDX",
+  "last_ok": "2026-11-22T09:50:35.210394+00:00",
+  "last_request_id": "a5e707db9e5231df-PDX",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-21T20:32:54.634265+00:00",
+ "last_run_at": "2026-11-22T09:50:40.344454+00:00",
  "ledger": {},
  "posts": [
   {
@@ -8343,6 +8343,69 @@
    "urls": [
     "en.m.wikipedia.org/wiki/Surprise"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Finding Peace in an Anti-Fascist Jewish Board Game",
+   "claim": "Finding Peace in an Anti-Fascist Jewish Board Game Hey Alma",
+   "desk": "evergreen_v1",
+   "format": "Game Origin",
+   "headline": "Rummikub’s Jewish Roots Reveal an Anti‑Fascist Legacy",
+   "image_status": "verified_external",
+   "message_id": 639,
+   "normalized_subject": "Finding Peace in an Anti-Fascist Jewish Board Game",
+   "posted_at": "2026-11-22T09:49:35.475813+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-22-PM",
+   "sector": "Game Origin",
+   "topic": "Finding Peace in an Anti-Fascist Jewish Board Game",
+   "urls": [
+    "heyalma.com/finding-peace-in-an-anti-fascist-jewish-board-game"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "What are the 10 best individual rivalries in sports history?",
+   "claim": "What are the 10 best individual rivalries in sports history? FOX Sports",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "Josh Allen vs Patrick Mahomes: NFL’s Premier Quarterback Rivalry",
+   "image_status": "verified_external",
+   "message_id": 640,
+   "normalized_subject": "What are the 10 best individual rivalries in sports history?",
+   "posted_at": "2026-11-22T09:50:13.142956+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-22-PM",
+   "sector": "First / Last / Only",
+   "topic": "What are the 10 best individual rivalries in sports history?",
+   "urls": [
+    "foxsports.com/stories/nfl/what-10-best-individual-rivalries-sports-history"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "This Day in Sports History: July 22",
+   "claim": "This Day in Sports History: July 22 97.5 The Fanatic",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "Walter Johnson Records First 3,000th Strikeout on July 22, 1923",
+   "image_status": "verified_external",
+   "message_id": 641,
+   "normalized_subject": "This Day in Sports History: July 22",
+   "posted_at": "2026-11-22T09:50:37.324877+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-22-PM",
+   "sector": "On This Date",
+   "topic": "This Day in Sports History: July 22",
+   "urls": [
+    "975thefanatic.com/2026/07/22/this-day-in-sports-history-july-22-2"
+   ]
   }
  ],
  "runs": [],
@@ -8765,27 +8828,29 @@
      "Then vs Now",
      "First / Last / Only",
      "On This Date",
-     "Interesting Game Fact"
+     "Interesting Game Fact",
+     "Game Origin"
     ],
     "run_ids": [
-     "2026-11-22-AM"
+     "2026-11-22-AM",
+     "2026-11-22-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-21T20:32:54.634240+00:00",
+  "last_run_at": "2026-11-22T09:50:40.344425+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-21T20:32:54.634223+00:00"
+    "updated_at": "2026-11-22T09:50:40.344401+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-21T20:32:54.634219+00:00"
+    "updated_at": "2026-11-22T09:50:40.344395+00:00"
    }
   },
   "publication": {
@@ -9663,6 +9728,21 @@
     "message_id": 637,
     "posted_at": "2026-11-21T20:32:37.530109+00:00",
     "status": "posted"
+   },
+   "2026-11-22-PM:evergreen:2e5f015266bbb1ab": {
+    "message_id": 641,
+    "posted_at": "2026-11-22T09:50:37.324685+00:00",
+    "status": "posted"
+   },
+   "2026-11-22-PM:evergreen:b8a13a57a5b80aa4": {
+    "message_id": 640,
+    "posted_at": "2026-11-22T09:50:13.142733+00:00",
+    "status": "posted"
+   },
+   "2026-11-22-PM:evergreen:f84b88f31c47ef17": {
+    "message_id": 639,
+    "posted_at": "2026-11-22T09:49:35.475654+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -10318,6 +10398,17 @@
      "Interesting Game Fact",
      "On This Date",
      "Then vs Now"
+    ]
+   },
+   {
+    "at": "2026-11-22T09:50:40.344429+00:00",
+    "evergreen": 3,
+    "exit": 0,
+    "run_id": "2026-11-22-PM",
+    "used_sectors": [
+     "First / Last / Only",
+     "Game Origin",
+     "On This Date"
     ]
    }
   ],

@@ -18037,8 +18037,173 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 638
+  },
+  {
+   "central_claim": "Luge 101: Olympic History NBC Olympics",
+   "central_knowledge_unit": "luge 101 olympic history nbc olympics",
+   "content_id": "3bb531529e658ff3",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "37968066efafae16",
+    "a10c0b2f3e0a151c"
+   ],
+   "legacy": true,
+   "normalized_subject": "luge 101 olympic history",
+   "people": [],
+   "published_at": "2026-11-21T20:32:02.911169+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "nbcolympics.com/news/luge-101-olympic-history"
+   ],
+   "sport_or_game": "Luge 101: Olympic History",
+   "telegram_message_id": 635
+  },
+  {
+   "central_claim": "USWNT and Japan set record for largest crowd in Seattle women’s sports history All For XI",
+   "central_knowledge_unit": "uswnt and japan set record for largest crowd in seattle women s sports history all for xi",
+   "content_id": "64f6a623996ce1a5",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "22e4b2e0b63523b9",
+    "69d042cbc60c0d2f"
+   ],
+   "legacy": true,
+   "normalized_subject": "uswnt and japan set record for largest crowd in seattle women s sports history",
+   "people": [],
+   "published_at": "2026-11-21T20:32:27.039863+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "allforxi.com/nwsl/14295/uswnt-and-japan-set-record-for-largest-crowd-in-seattle-womens-sports-history-nadeshiko"
+   ],
+   "sport_or_game": "USWNT and Japan set record for largest crowd in Seattle women’s sports history",
+   "telegram_message_id": 636
+  },
+  {
+   "central_claim": "This Day in Sports History: November 19 Q105 | Listen Live",
+   "central_knowledge_unit": "this day in sports history november 19 q105 listen live",
+   "content_id": "585d121ad4255284",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "45d751c45c1c696c",
+    "cd70c5aa1c855e8f"
+   ],
+   "legacy": true,
+   "normalized_subject": "this day in sports history november 19 q105 listen live",
+   "people": [],
+   "published_at": "2026-11-21T20:32:37.530275+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "myq105.com/2026/11/19/this-day-in-sports-history-november-19-2"
+   ],
+   "sport_or_game": "This Day in Sports History: November 19 - Q105 | Listen Live",
+   "telegram_message_id": 637
+  },
+  {
+   "central_claim": "ⓘ) is a rapid, fleeting mental and physiological state. It is related to the startle response experienced by animals and humans as the …",
+   "central_knowledge_unit": "is a rapid fleeting mental and physiological state it is related to the startle response experienced by animals and humans as the",
+   "content_id": "c02a7fd62b2f57e7",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "6586e99e9ea599a0",
+    "13259b7d58217c61"
+   ],
+   "legacy": true,
+   "normalized_subject": "surprise wikipedia",
+   "people": [],
+   "published_at": "2026-11-21T20:32:51.616558+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Interesting Game Fact",
+   "source_urls": [
+    "en.m.wikipedia.org/wiki/Surprise"
+   ],
+   "sport_or_game": "Surprise - Wikipedia",
+   "telegram_message_id": 638
+  },
+  {
+   "central_claim": "Finding Peace in an Anti-Fascist Jewish Board Game Hey Alma",
+   "central_knowledge_unit": "finding peace in an anti fascist jewish board game",
+   "content_id": "01667d9bf53b3879",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "01667d9bf53b3879",
+    "a29d7cc2defaaaff"
+   ],
+   "normalized_subject": "finding peace in an anti fascist jewish board game",
+   "people": [],
+   "published_at": "2026-11-22T09:49:35.475732+00:00",
+   "region": "",
+   "run_id": "2026-11-22-PM",
+   "sector": "Game Origin",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 639
+  },
+  {
+   "central_claim": "What are the 10 best individual rivalries in sports history? FOX Sports",
+   "central_knowledge_unit": "what are the 10 best individual rivalries in sports history",
+   "content_id": "f30b45dbb760c735",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f30b45dbb760c735",
+    "a6d9ea9fb93e51f7"
+   ],
+   "normalized_subject": "what are the 10 best individual rivalries in sports history",
+   "people": [],
+   "published_at": "2026-11-22T09:50:13.142833+00:00",
+   "region": "",
+   "run_id": "2026-11-22-PM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 640
+  },
+  {
+   "central_claim": "This Day in Sports History: July 22 97.5 The Fanatic",
+   "central_knowledge_unit": "this day in sports history july 22",
+   "content_id": "74a2392d2c1f9ada",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "74a2392d2c1f9ada",
+    "5e2c9786bae7b2b2"
+   ],
+   "normalized_subject": "this day in sports history july 22",
+   "people": [],
+   "published_at": "2026-11-22T09:50:37.324790+00:00",
+   "region": "",
+   "run_id": "2026-11-22-PM",
+   "sector": "On This Date",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 641
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-21T20:32:51.616538+00:00"
+ "updated_at": "2026-11-22T09:50:37.324854+00:00"
 }
