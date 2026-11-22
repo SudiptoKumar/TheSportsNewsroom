@@ -18202,8 +18202,126 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 641
+  },
+  {
+   "central_claim": "Finding Peace in an Anti-Fascist Jewish Board Game Hey Alma",
+   "central_knowledge_unit": "finding peace in an anti fascist jewish board game hey alma",
+   "content_id": "f4c5293feb450e0a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a29d7cc2defaaaff",
+    "31ddfc323d4ddaa8"
+   ],
+   "legacy": true,
+   "normalized_subject": "finding peace in an anti fascist jewish board game",
+   "people": [],
+   "published_at": "2026-11-22T09:49:35.475813+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Origin",
+   "source_urls": [
+    "heyalma.com/finding-peace-in-an-anti-fascist-jewish-board-game"
+   ],
+   "sport_or_game": "Finding Peace in an Anti-Fascist Jewish Board Game",
+   "telegram_message_id": 639
+  },
+  {
+   "central_claim": "What are the 10 best individual rivalries in sports history? FOX Sports",
+   "central_knowledge_unit": "what are the 10 best individual rivalries in sports history fox sports",
+   "content_id": "4405236a46c2e7be",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a6d9ea9fb93e51f7",
+    "950c2ef7b38cef54"
+   ],
+   "legacy": true,
+   "normalized_subject": "what are the 10 best individual rivalries in sports history",
+   "people": [],
+   "published_at": "2026-11-22T09:50:13.142956+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "foxsports.com/stories/nfl/what-10-best-individual-rivalries-sports-history"
+   ],
+   "sport_or_game": "What are the 10 best individual rivalries in sports history?",
+   "telegram_message_id": 640
+  },
+  {
+   "central_claim": "This Day in Sports History: July 22 97.5 The Fanatic",
+   "central_knowledge_unit": "this day in sports history july 22 97 5 the fanatic",
+   "content_id": "de57512a713991cb",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "5e2c9786bae7b2b2",
+    "5762faa4f4a7b84f"
+   ],
+   "legacy": true,
+   "normalized_subject": "this day in sports history july 22",
+   "people": [],
+   "published_at": "2026-11-22T09:50:37.324877+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "975thefanatic.com/2026/07/22/this-day-in-sports-history-july-22-2"
+   ],
+   "sport_or_game": "This Day in Sports History: July 22",
+   "telegram_message_id": 641
+  },
+  {
+   "central_claim": "How Title IX Transformed Women’s Sports History.com",
+   "central_knowledge_unit": "how title ix transformed women s sports",
+   "content_id": "e6182085c56cade3",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e6182085c56cade3",
+    "4b23bf8b65ab49d5"
+   ],
+   "normalized_subject": "how title ix transformed women s sports",
+   "people": [],
+   "published_at": "2026-11-22T20:45:04.817321+00:00",
+   "region": "",
+   "run_id": "2026-11-23-AM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 642
+  },
+  {
+   "central_claim": "This Day in Sports History: August 20 97.5 The Fanatic",
+   "central_knowledge_unit": "this day in sports history august 20",
+   "content_id": "ef79674b7135c19e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "ef79674b7135c19e",
+    "f02dbf1d3883996f"
+   ],
+   "normalized_subject": "this day in sports history august 20",
+   "people": [],
+   "published_at": "2026-11-22T20:45:29.091284+00:00",
+   "region": "",
+   "run_id": "2026-11-23-AM",
+   "sector": "On This Date",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 643
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-22T09:50:37.324854+00:00"
+ "updated_at": "2026-11-22T20:45:29.091333+00:00"
 }

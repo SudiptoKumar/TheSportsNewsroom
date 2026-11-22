@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-22T09:50:35.210394+00:00",
-  "last_request_id": "a5e707db9e5231df-PDX",
+  "last_ok": "2026-11-22T20:45:26.785288+00:00",
+  "last_request_id": "a5eac720ab3496d5-IAD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-22T09:50:40.344454+00:00",
+ "last_run_at": "2026-11-22T20:45:32.112530+00:00",
  "ledger": {},
  "posts": [
   {
@@ -8406,6 +8406,48 @@
    "urls": [
     "975thefanatic.com/2026/07/22/this-day-in-sports-history-july-22-2"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "How Title IX Transformed Women’s Sports",
+   "claim": "How Title IX Transformed Women’s Sports History.com",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "Title IX’s Mandate Sparked a Revolution in Women’s Sports",
+   "image_status": "card_fallback",
+   "message_id": 642,
+   "normalized_subject": "How Title IX Transformed Women’s Sports",
+   "posted_at": "2026-11-22T20:45:04.817398+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-23-AM",
+   "sector": "Then vs Now",
+   "topic": "How Title IX Transformed Women’s Sports",
+   "urls": [
+    "history.com/articles/title-nine-womens-sports"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "This Day in Sports History: August 20",
+   "claim": "This Day in Sports History: August 20 97.5 The Fanatic",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "Walter Johnson Sets AL Record with 15th Straight Win on August 20, 1912",
+   "image_status": "verified_external",
+   "message_id": 643,
+   "normalized_subject": "This Day in Sports History: August 20",
+   "posted_at": "2026-11-22T20:45:29.091354+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-23-AM",
+   "sector": "On This Date",
+   "topic": "This Day in Sports History: August 20",
+   "urls": [
+    "975thefanatic.com/2026/08/20/this-day-in-sports-history-august-20-2"
+   ]
   }
  ],
  "runs": [],
@@ -8835,22 +8877,31 @@
      "2026-11-22-AM",
      "2026-11-22-PM"
     ]
+   },
+   "2026-11-23": {
+    "published_sectors": [
+     "Then vs Now",
+     "On This Date"
+    ],
+    "run_ids": [
+     "2026-11-23-AM"
+    ]
    }
   },
-  "last_run_at": "2026-11-22T09:50:40.344425+00:00",
+  "last_run_at": "2026-11-22T20:45:32.112509+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-22T09:50:40.344401+00:00"
+    "updated_at": "2026-11-22T20:45:32.112490+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-22T09:50:40.344395+00:00"
+    "updated_at": "2026-11-22T20:45:32.112485+00:00"
    }
   },
   "publication": {
@@ -9743,6 +9794,16 @@
     "message_id": 639,
     "posted_at": "2026-11-22T09:49:35.475654+00:00",
     "status": "posted"
+   },
+   "2026-11-23-AM:evergreen:1d796c5cdd281fa3": {
+    "message_id": 642,
+    "posted_at": "2026-11-22T20:45:04.817237+00:00",
+    "status": "posted"
+   },
+   "2026-11-23-AM:evergreen:6fa70e7598203b07": {
+    "message_id": 643,
+    "posted_at": "2026-11-22T20:45:29.091204+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -10409,6 +10470,16 @@
      "First / Last / Only",
      "Game Origin",
      "On This Date"
+    ]
+   },
+   {
+    "at": "2026-11-22T20:45:32.112513+00:00",
+    "evergreen": 2,
+    "exit": 0,
+    "run_id": "2026-11-23-AM",
+    "used_sectors": [
+     "On This Date",
+     "Then vs Now"
     ]
    }
   ],
