@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-22T20:45:26.785288+00:00",
-  "last_request_id": "a5eac720ab3496d5-IAD",
+  "last_ok": "2026-11-23T10:43:13.735744+00:00",
+  "last_request_id": "a5ef925889e49bf9-PDX",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-22T20:45:32.112530+00:00",
+ "last_run_at": "2026-11-23T10:43:20.565234+00:00",
  "ledger": {},
  "posts": [
   {
@@ -8448,6 +8448,48 @@
    "urls": [
     "975thefanatic.com/2026/08/20/this-day-in-sports-history-august-20-2"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Famous Black Figure Skaters Who Changed The Sport Forever",
+   "claim": "Famous Black Figure Skaters Who Changed The Sport Forever MadameNoire",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Black Figure Skaters Who Redefined the Sport’s Narrative",
+   "image_status": "verified_external",
+   "message_id": 644,
+   "normalized_subject": "Famous Black Figure Skaters Who Changed The Sport Forever",
+   "posted_at": "2026-11-23T10:43:03.765193+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-23-PM",
+   "sector": "Sports & Games People",
+   "topic": "Famous Black Figure Skaters Who Changed The Sport Forever",
+   "urls": [
+    "madamenoire.com/1614904/black-figure-skaters-list"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "A brief history of the Commonwealth Games",
+   "claim": "A brief history of the Commonwealth Games HistoryExtra",
+   "desk": "evergreen_v1",
+   "format": "Then vs Now",
+   "headline": "The Commonwealth Games Originated to Promote Friendly Competition Among Nations",
+   "image_status": "verified_external",
+   "message_id": 645,
+   "normalized_subject": "A brief history of the Commonwealth Games",
+   "posted_at": "2026-11-23T10:43:17.546868+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-23-PM",
+   "sector": "Then vs Now",
+   "topic": "A brief history of the Commonwealth Games",
+   "urls": [
+    "historyextra.com/period/20th-century/commonwealth-games-history-facts-countries-sports"
+   ]
   }
  ],
  "runs": [],
@@ -8881,27 +8923,29 @@
    "2026-11-23": {
     "published_sectors": [
      "Then vs Now",
-     "On This Date"
+     "On This Date",
+     "Sports & Games People"
     ],
     "run_ids": [
-     "2026-11-23-AM"
+     "2026-11-23-AM",
+     "2026-11-23-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-22T20:45:32.112509+00:00",
+  "last_run_at": "2026-11-23T10:43:20.565206+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-22T20:45:32.112490+00:00"
+    "updated_at": "2026-11-23T10:43:20.565186+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-22T20:45:32.112485+00:00"
+    "updated_at": "2026-11-23T10:43:20.565182+00:00"
    }
   },
   "publication": {
@@ -9804,6 +9848,16 @@
     "message_id": 643,
     "posted_at": "2026-11-22T20:45:29.091204+00:00",
     "status": "posted"
+   },
+   "2026-11-23-PM:evergreen:50d7fd13f0eddd6a": {
+    "message_id": 645,
+    "posted_at": "2026-11-23T10:43:17.546702+00:00",
+    "status": "posted"
+   },
+   "2026-11-23-PM:evergreen:fdf0db36ac467988": {
+    "message_id": 644,
+    "posted_at": "2026-11-23T10:43:03.765031+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -10479,6 +10533,16 @@
     "run_id": "2026-11-23-AM",
     "used_sectors": [
      "On This Date",
+     "Then vs Now"
+    ]
+   },
+   {
+    "at": "2026-11-23T10:43:20.565210+00:00",
+    "evergreen": 2,
+    "exit": 0,
+    "run_id": "2026-11-23-PM",
+    "used_sectors": [
+     "Sports & Games People",
      "Then vs Now"
     ]
    }

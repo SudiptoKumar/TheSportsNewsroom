@@ -18320,8 +18320,102 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 643
+  },
+  {
+   "central_claim": "How Title IX Transformed Women’s Sports History.com",
+   "central_knowledge_unit": "how title ix transformed women s sports history com",
+   "content_id": "44d9c60519df5b56",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "4b23bf8b65ab49d5",
+    "d327ac2361072c25"
+   ],
+   "legacy": true,
+   "normalized_subject": "how title ix transformed women s sports",
+   "people": [],
+   "published_at": "2026-11-22T20:45:04.817398+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "history.com/articles/title-nine-womens-sports"
+   ],
+   "sport_or_game": "How Title IX Transformed Women’s Sports",
+   "telegram_message_id": 642
+  },
+  {
+   "central_claim": "This Day in Sports History: August 20 97.5 The Fanatic",
+   "central_knowledge_unit": "this day in sports history august 20 97 5 the fanatic",
+   "content_id": "891510c2ed4bb55f",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "f02dbf1d3883996f",
+    "f9dc745be27f132c"
+   ],
+   "legacy": true,
+   "normalized_subject": "this day in sports history august 20",
+   "people": [],
+   "published_at": "2026-11-22T20:45:29.091354+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "975thefanatic.com/2026/08/20/this-day-in-sports-history-august-20-2"
+   ],
+   "sport_or_game": "This Day in Sports History: August 20",
+   "telegram_message_id": 643
+  },
+  {
+   "central_claim": "Famous Black Figure Skaters Who Changed The Sport Forever MadameNoire",
+   "central_knowledge_unit": "famous black figure skaters who changed the sport forever",
+   "content_id": "66ccfb4619a345fd",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "66ccfb4619a345fd",
+    "3a2a08dea5113973"
+   ],
+   "normalized_subject": "famous black figure skaters who changed the sport forever",
+   "people": [],
+   "published_at": "2026-11-23T10:43:03.765108+00:00",
+   "region": "",
+   "run_id": "2026-11-23-PM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 644
+  },
+  {
+   "central_claim": "A brief history of the Commonwealth Games HistoryExtra",
+   "central_knowledge_unit": "a brief history of the commonwealth games",
+   "content_id": "1c60966be2ec7f31",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "1c60966be2ec7f31",
+    "8a06cd5311527625"
+   ],
+   "normalized_subject": "a brief history of the commonwealth games",
+   "people": [],
+   "published_at": "2026-11-23T10:43:17.546790+00:00",
+   "region": "",
+   "run_id": "2026-11-23-PM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 645
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-22T20:45:29.091333+00:00"
+ "updated_at": "2026-11-23T10:43:17.546844+00:00"
 }
