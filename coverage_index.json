@@ -18649,8 +18649,150 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 651
+  },
+  {
+   "central_claim": "Olympic women's sport limited to biological females BBC",
+   "central_knowledge_unit": "olympic women s sport limited to biological females bbc",
+   "content_id": "e34430d3f627a726",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "2976e624225f2a94",
+    "fe8fafa1025b4d4e"
+   ],
+   "legacy": true,
+   "normalized_subject": "olympic women s sport limited to biological females",
+   "people": [],
+   "published_at": "2026-11-24T12:25:33.103257+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    "bbc.com/sport/olympics/articles/cdj7dgvlj0no"
+   ],
+   "sport_or_game": "Olympic women's sport limited to biological females",
+   "telegram_message_id": 648
+  },
+  {
+   "central_claim": "Today in sports history, November 24 USA Today",
+   "central_knowledge_unit": "today in sports history november 24 usa today",
+   "content_id": "41529dc09d983b8b",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7aadd65c42861624",
+    "68f7a1cf70dab7cc"
+   ],
+   "legacy": true,
+   "normalized_subject": "today in sports history november 24",
+   "people": [],
+   "published_at": "2026-11-24T12:25:56.485115+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "usatoday.com/story/sports/history/2026/09/25/today-in-sports-history-november-24/91566883007"
+   ],
+   "sport_or_game": "Today in sports history, November 24",
+   "telegram_message_id": 649
+  },
+  {
+   "central_claim": "Kenya's Sawe breaks two-hour mark for first time in marathon history Le Monde.fr",
+   "central_knowledge_unit": "kenya s sawe breaks two hour mark for first time in marathon history le monde fr",
+   "content_id": "fa6494c14b2fb86d",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b5cfa0ff30d06132",
+    "65f445bdd4b56b63"
+   ],
+   "legacy": true,
+   "normalized_subject": "kenya s sawe breaks two hour mark for first time in marathon history",
+   "people": [],
+   "published_at": "2026-11-24T12:26:10.859079+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "lemonde.fr/en/sports/article/2026/04/26/kenya-s-sawe-breaks-two-hour-mark-for-first-time-in-marathon-history_6752849_9.html"
+   ],
+   "sport_or_game": "Kenya's Sawe breaks two-hour mark for first time in marathon history",
+   "telegram_message_id": 650
+  },
+  {
+   "central_claim": "Virginia Outslugs Southern Miss in Instant Classic at Hattiesburg Regional Virginia Sports",
+   "central_knowledge_unit": "virginia outslugs southern miss in instant classic at hattiesburg regional virginia sports",
+   "content_id": "8c2d95150d8e5bf4",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "38632a1458cc54a1",
+    "36afc27803e24745"
+   ],
+   "legacy": true,
+   "normalized_subject": "virginia outslugs southern miss in instant classic at hattiesburg regional",
+   "people": [],
+   "published_at": "2026-11-24T12:26:22.499784+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    "virginiasports.com/news/2026/05/30/virginia-outslugs-southern-miss-in-instant-classic-at-hattiesburg-regional"
+   ],
+   "sport_or_game": "Virginia Outslugs Southern Miss in Instant Classic at Hattiesburg Regional",
+   "telegram_message_id": 651
+  },
+  {
+   "central_claim": "GM Javokhir Sindarov seemed to get the better of a tense opening battle in game one of the Salesforce FIDE World Championship 2026, but World Champion Gukesh Dommaraju survived pressure on the board and clock to make a draw. Sindarov, who faced th...",
+   "central_knowledge_unit": "gukesh survives pressure to hold sindarov to draw in world championship game 1",
+   "content_id": "63f392eb4c5d2fa9",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "63f392eb4c5d2fa9",
+    "6933e9b9b30d5baf"
+   ],
+   "normalized_subject": "gukesh survives pressure to hold sindarov to draw in world championship game 1",
+   "people": [],
+   "published_at": "2026-11-24T23:29:45.972795+00:00",
+   "region": "",
+   "run_id": "2026-11-25-AM",
+   "sector": "Game Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 652
+  },
+  {
+   "central_claim": "NCCU women’s flag football team pushes for varsity status Campus Echo Online",
+   "central_knowledge_unit": "nccu women s flag football team pushes for varsity status",
+   "content_id": "872f35f6bdbb9ab0",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "872f35f6bdbb9ab0",
+    "1c29f18b0895f29c"
+   ],
+   "normalized_subject": "nccu women s flag football team pushes for varsity status",
+   "people": [],
+   "published_at": "2026-11-24T23:29:57.891397+00:00",
+   "region": "",
+   "run_id": "2026-11-25-AM",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 653
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-24T12:26:22.499762+00:00"
+ "updated_at": "2026-11-24T23:29:57.891458+00:00"
 }

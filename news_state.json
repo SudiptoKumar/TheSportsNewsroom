@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-24T12:26:19.228876+00:00",
-  "last_request_id": "a5f866bc0c5dda91-CMH",
+  "last_ok": "2026-11-24T23:29:55.901881+00:00",
+  "last_request_id": "a5fc32d21cf48e97-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-24T12:26:25.520153+00:00",
+ "last_run_at": "2026-11-24T23:30:00.911052+00:00",
  "ledger": {},
  "posts": [
   {
@@ -8617,6 +8617,48 @@
    "urls": [
     "virginiasports.com/news/2026/05/30/virginia-outslugs-southern-miss-in-instant-classic-at-hattiesburg-regional"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Gukesh Survives Pressure To Hold Sindarov To Draw In World Championship Game 1",
+   "claim": "GM Javokhir Sindarov seemed to get the better of a tense opening battle in game one of the Salesforce FIDE World Championship 2026, but World Champion Gukesh Dommaraju survived pressure on the board and clock to make a draw. Sindarov, who faced th...",
+   "desk": "evergreen_v1",
+   "format": "Game Discovery",
+   "headline": "Gukesh Holds Sindarov to a Draw After Tense Opening Battle",
+   "image_status": "verified_external",
+   "message_id": 652,
+   "normalized_subject": "Gukesh Survives Pressure To Hold Sindarov To Draw In World Championship Game 1",
+   "posted_at": "2026-11-24T23:29:45.972896+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-25-AM",
+   "sector": "Game Discovery",
+   "topic": "Gukesh Survives Pressure To Hold Sindarov To Draw In World Championship Game 1",
+   "urls": [
+    "chess.com/news/view/2026-fide-world-chess-championship-game-1"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "NCCU women’s flag football team pushes for varsity status",
+   "claim": "NCCU women’s flag football team pushes for varsity status Campus Echo Online",
+   "desk": "evergreen_v1",
+   "format": "New Sport Discovery",
+   "headline": "NCCU Women’s Flag Football Gains Path to Varsity Status",
+   "image_status": "card_fallback",
+   "message_id": 653,
+   "normalized_subject": "NCCU women’s flag football team pushes for varsity status",
+   "posted_at": "2026-11-24T23:29:57.891480+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-25-AM",
+   "sector": "New Sport Discovery",
+   "topic": "NCCU women’s flag football team pushes for varsity status",
+   "urls": [
+    "campusecho.com/nccu-womens-flag-football-team-pushes-for-varsity-status"
+   ]
   }
  ],
  "runs": [],
@@ -9071,22 +9113,31 @@
      "2026-11-24-AM",
      "2026-11-24-PM"
     ]
+   },
+   "2026-11-25": {
+    "published_sectors": [
+     "Game Discovery",
+     "New Sport Discovery"
+    ],
+    "run_ids": [
+     "2026-11-25-AM"
+    ]
    }
   },
-  "last_run_at": "2026-11-24T12:26:25.520123+00:00",
+  "last_run_at": "2026-11-24T23:30:00.911030+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-24T12:26:25.520100+00:00"
+    "updated_at": "2026-11-24T23:30:00.911010+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-24T12:26:25.520094+00:00"
+    "updated_at": "2026-11-24T23:30:00.911005+00:00"
    }
   },
   "publication": {
@@ -10029,6 +10080,16 @@
     "message_id": 648,
     "posted_at": "2026-11-24T12:25:33.103056+00:00",
     "status": "posted"
+   },
+   "2026-11-25-AM:evergreen:0ca7c88a7e17e9e4": {
+    "message_id": 653,
+    "posted_at": "2026-11-24T23:29:57.891298+00:00",
+    "status": "posted"
+   },
+   "2026-11-25-AM:evergreen:2024b54d26f26ba2": {
+    "message_id": 652,
+    "posted_at": "2026-11-24T23:29:45.972706+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -10737,6 +10798,16 @@
      "On This Date",
      "Traditional / Regional Game",
      "Why Does This Happen?"
+    ]
+   },
+   {
+    "at": "2026-11-24T23:30:00.911033+00:00",
+    "evergreen": 2,
+    "exit": 0,
+    "run_id": "2026-11-25-AM",
+    "used_sectors": [
+     "Game Discovery",
+     "New Sport Discovery"
     ]
    }
   ],
