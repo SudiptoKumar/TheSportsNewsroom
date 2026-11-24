@@ -18414,8 +18414,102 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 645
+  },
+  {
+   "central_claim": "Famous Black Figure Skaters Who Changed The Sport Forever MadameNoire",
+   "central_knowledge_unit": "famous black figure skaters who changed the sport forever madamenoire",
+   "content_id": "2aae6fc22c48a980",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "3a2a08dea5113973",
+    "068465e7292c89ed"
+   ],
+   "legacy": true,
+   "normalized_subject": "famous black figure skaters who changed the sport forever",
+   "people": [],
+   "published_at": "2026-11-23T10:43:03.765193+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "madamenoire.com/1614904/black-figure-skaters-list"
+   ],
+   "sport_or_game": "Famous Black Figure Skaters Who Changed The Sport Forever",
+   "telegram_message_id": 644
+  },
+  {
+   "central_claim": "A brief history of the Commonwealth Games HistoryExtra",
+   "central_knowledge_unit": "a brief history of the commonwealth games historyextra",
+   "content_id": "49694f52a16d2539",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "8a06cd5311527625",
+    "d782b0575c1e97e3"
+   ],
+   "legacy": true,
+   "normalized_subject": "a brief history of the commonwealth games",
+   "people": [],
+   "published_at": "2026-11-23T10:43:17.546868+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "historyextra.com/period/20th-century/commonwealth-games-history-facts-countries-sports"
+   ],
+   "sport_or_game": "A brief history of the Commonwealth Games",
+   "telegram_message_id": 645
+  },
+  {
+   "central_claim": "What Are the World Nomad Games? Kyrgyzstan Revives Traditional Sports on a Global Stage ColombiaOne.com",
+   "central_knowledge_unit": "what are the world nomad games kyrgyzstan revives traditional sports on a global stage",
+   "content_id": "e9c11346c3d259e4",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "e9c11346c3d259e4",
+    "c3c62cdffc44162e"
+   ],
+   "normalized_subject": "what are the world nomad games kyrgyzstan revives traditional sports on a global stage",
+   "people": [],
+   "published_at": "2026-11-24T01:44:16.610480+00:00",
+   "region": "",
+   "run_id": "2026-11-24-AM",
+   "sector": "Game Discovery",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 646
+  },
+  {
+   "central_claim": "How Entertainment Is Changing The Game For Sports Audiences USC Annenberg",
+   "central_knowledge_unit": "how entertainment is changing the game for sports audiences usc annenberg",
+   "content_id": "751da83a660e8173",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "751da83a660e8173",
+    "70da6a80859f1ff0"
+   ],
+   "normalized_subject": "how entertainment is changing the game for sports audiences usc annenberg",
+   "people": [],
+   "published_at": "2026-11-24T01:44:54.191441+00:00",
+   "region": "",
+   "run_id": "2026-11-24-AM",
+   "sector": "Then vs Now",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 647
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-23T10:43:17.546844+00:00"
+ "updated_at": "2026-11-24T01:44:54.191500+00:00"
 }
