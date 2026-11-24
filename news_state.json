@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-24T01:45:03.673340+00:00",
-  "last_request_id": "a5f4bb637a14c36d-PDX",
+  "last_ok": "2026-11-24T12:26:19.228876+00:00",
+  "last_request_id": "a5f866bc0c5dda91-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-24T01:45:03.673584+00:00",
+ "last_run_at": "2026-11-24T12:26:25.520153+00:00",
  "ledger": {},
  "posts": [
   {
@@ -8532,6 +8532,91 @@
    "urls": [
     "annenberg.usc.edu/research/center-public-relations/usc-annenberg-relevance-report/how-entertainment-changing-game"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Olympic women's sport limited to biological females",
+   "claim": "Olympic women's sport limited to biological females BBC",
+   "desk": "evergreen_v1",
+   "format": "Why Does This Happen?",
+   "headline": "IOC to Restrict Women’s Olympic Events to Biological Females from 2028",
+   "image_status": "verified_external",
+   "message_id": 648,
+   "normalized_subject": "Olympic women's sport limited to biological females",
+   "posted_at": "2026-11-24T12:25:33.103257+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-24-PM",
+   "sector": "Why Does This Happen?",
+   "topic": "Olympic women's sport limited to biological females",
+   "urls": [
+    "bbc.com/sport/olympics/articles/cdj7dgvlj0no"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Today in sports history, November 24",
+   "claim": "Today in sports history, November 24 USA Today",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "Wilt Chamberlain’s 55‑Rebound Game Remains NBA Record",
+   "image_status": "card_fallback",
+   "message_id": 649,
+   "normalized_subject": "Today in sports history, November 24",
+   "posted_at": "2026-11-24T12:25:56.485115+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-24-PM",
+   "sector": "On This Date",
+   "topic": "Today in sports history, November 24",
+   "urls": [
+    "usatoday.com/story/sports/history/2026/09/25/today-in-sports-history-november-24/91566883007"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Kenya's Sawe breaks two-hour mark for first time in marathon history",
+   "claim": "Kenya's Sawe breaks two-hour mark for first time in marathon history Le Monde.fr",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "Sabastian Sawe Breaks Two‑Hour Barrier at London Marathon",
+   "image_status": "card_fallback",
+   "message_id": 650,
+   "normalized_subject": "Kenya's Sawe breaks two-hour mark for first time in marathon history",
+   "posted_at": "2026-11-24T12:26:10.859079+00:00",
+   "research_urls": [
+    "",
+    ""
+   ],
+   "run_id": "2026-11-24-PM",
+   "sector": "First / Last / Only",
+   "topic": "Kenya's Sawe breaks two-hour mark for first time in marathon history",
+   "urls": [
+    "lemonde.fr/en/sports/article/2026/04/26/kenya-s-sawe-breaks-two-hour-mark-for-first-time-in-marathon-history_6752849_9.html"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Virginia Outslugs Southern Miss in Instant Classic at Hattiesburg Regional",
+   "claim": "Virginia Outslugs Southern Miss in Instant Classic at Hattiesburg Regional Virginia Sports",
+   "desk": "evergreen_v1",
+   "format": "Traditional / Regional Game",
+   "headline": "Virginia Dominates Southern Miss in Hattiesburg Regional Classic",
+   "image_status": "verified_external",
+   "message_id": 651,
+   "normalized_subject": "Virginia Outslugs Southern Miss in Instant Classic at Hattiesburg Regional",
+   "posted_at": "2026-11-24T12:26:22.499784+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-24-PM",
+   "sector": "Traditional / Regional Game",
+   "topic": "Virginia Outslugs Southern Miss in Instant Classic at Hattiesburg Regional",
+   "urls": [
+    "virginiasports.com/news/2026/05/30/virginia-outslugs-southern-miss-in-instant-classic-at-hattiesburg-regional"
+   ]
   }
  ],
  "runs": [],
@@ -8976,27 +9061,32 @@
    "2026-11-24": {
     "published_sectors": [
      "Game Discovery",
-     "Then vs Now"
+     "Then vs Now",
+     "Why Does This Happen?",
+     "On This Date",
+     "First / Last / Only",
+     "Traditional / Regional Game"
     ],
     "run_ids": [
-     "2026-11-24-AM"
+     "2026-11-24-AM",
+     "2026-11-24-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-24T01:45:03.673567+00:00",
+  "last_run_at": "2026-11-24T12:26:25.520123+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-24T01:45:03.673554+00:00"
+    "updated_at": "2026-11-24T12:26:25.520100+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-24T01:45:03.673550+00:00"
+    "updated_at": "2026-11-24T12:26:25.520094+00:00"
    }
   },
   "publication": {
@@ -9919,6 +10009,26 @@
     "message_id": 646,
     "posted_at": "2026-11-24T01:44:16.610393+00:00",
     "status": "posted"
+   },
+   "2026-11-24-PM:evergreen:1ffc76908a48d331": {
+    "message_id": 650,
+    "posted_at": "2026-11-24T12:26:10.858890+00:00",
+    "status": "posted"
+   },
+   "2026-11-24-PM:evergreen:24209316603cd72d": {
+    "message_id": 651,
+    "posted_at": "2026-11-24T12:26:22.499611+00:00",
+    "status": "posted"
+   },
+   "2026-11-24-PM:evergreen:b4423028fa5b6d96": {
+    "message_id": 649,
+    "posted_at": "2026-11-24T12:25:56.484951+00:00",
+    "status": "posted"
+   },
+   "2026-11-24-PM:evergreen:e2bf3dd1e9accd9c": {
+    "message_id": 648,
+    "posted_at": "2026-11-24T12:25:33.103056+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -10615,6 +10725,18 @@
     "used_sectors": [
      "Game Discovery",
      "Then vs Now"
+    ]
+   },
+   {
+    "at": "2026-11-24T12:26:25.520127+00:00",
+    "evergreen": 4,
+    "exit": 0,
+    "run_id": "2026-11-24-PM",
+    "used_sectors": [
+     "First / Last / Only",
+     "On This Date",
+     "Traditional / Regional Game",
+     "Why Does This Happen?"
     ]
    }
   ],

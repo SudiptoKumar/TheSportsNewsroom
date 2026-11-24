@@ -18508,8 +18508,149 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 647
+  },
+  {
+   "central_claim": "What Are the World Nomad Games? Kyrgyzstan Revives Traditional Sports on a Global Stage ColombiaOne.com",
+   "central_knowledge_unit": "what are the world nomad games kyrgyzstan revives traditional sports on a global stage colombiaone com",
+   "content_id": "357d0187abb657e4",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c3c62cdffc44162e",
+    "9d968b1dfb2df56b"
+   ],
+   "legacy": true,
+   "normalized_subject": "what are the world nomad games kyrgyzstan revives traditional sports on a global stage",
+   "people": [],
+   "published_at": "2026-11-24T01:44:16.610564+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "colombiaone.com/2026/09/11/world-nomad-games-kyrgyzstan"
+   ],
+   "sport_or_game": "What Are the World Nomad Games? Kyrgyzstan Revives Traditional Sports on a Global Stage",
+   "telegram_message_id": 646
+  },
+  {
+   "central_claim": "How Entertainment Is Changing The Game For Sports Audiences USC Annenberg",
+   "central_knowledge_unit": "how entertainment is changing the game for sports audiences usc annenberg",
+   "content_id": "b48f24482677702e",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "70da6a80859f1ff0",
+    "8a6becd148b5f2e1"
+   ],
+   "legacy": true,
+   "normalized_subject": "how entertainment is changing the game for sports audiences usc annenberg",
+   "people": [],
+   "published_at": "2026-11-24T01:44:54.191522+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Then vs Now",
+   "source_urls": [
+    "annenberg.usc.edu/research/center-public-relations/usc-annenberg-relevance-report/how-entertainment-changing-game"
+   ],
+   "sport_or_game": "How Entertainment Is Changing The Game For Sports Audiences - USC Annenberg",
+   "telegram_message_id": 647
+  },
+  {
+   "central_claim": "Olympic women's sport limited to biological females BBC",
+   "central_knowledge_unit": "olympic women s sport limited to biological females",
+   "content_id": "7a49a4ae6695b8bc",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7a49a4ae6695b8bc",
+    "2976e624225f2a94"
+   ],
+   "normalized_subject": "olympic women s sport limited to biological females",
+   "people": [],
+   "published_at": "2026-11-24T12:25:33.103135+00:00",
+   "region": "",
+   "run_id": "2026-11-24-PM",
+   "sector": "Why Does This Happen?",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 648
+  },
+  {
+   "central_claim": "Today in sports history, November 24 USA Today",
+   "central_knowledge_unit": "today in sports history november 24",
+   "content_id": "7a43a7ff4544af14",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7a43a7ff4544af14",
+    "7aadd65c42861624"
+   ],
+   "normalized_subject": "today in sports history november 24",
+   "people": [],
+   "published_at": "2026-11-24T12:25:56.485038+00:00",
+   "region": "",
+   "run_id": "2026-11-24-PM",
+   "sector": "On This Date",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 649
+  },
+  {
+   "central_claim": "Kenya's Sawe breaks two-hour mark for first time in marathon history Le Monde.fr",
+   "central_knowledge_unit": "kenya s sawe breaks two hour mark for first time in marathon history",
+   "content_id": "8b5bdf8cda01c017",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "8b5bdf8cda01c017",
+    "b5cfa0ff30d06132"
+   ],
+   "normalized_subject": "kenya s sawe breaks two hour mark for first time in marathon history",
+   "people": [],
+   "published_at": "2026-11-24T12:26:10.858986+00:00",
+   "region": "",
+   "run_id": "2026-11-24-PM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 650
+  },
+  {
+   "central_claim": "Virginia Outslugs Southern Miss in Instant Classic at Hattiesburg Regional Virginia Sports",
+   "central_knowledge_unit": "virginia outslugs southern miss in instant classic at hattiesburg regional",
+   "content_id": "7a9e49ae8d3ddf76",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "7a9e49ae8d3ddf76",
+    "38632a1458cc54a1"
+   ],
+   "normalized_subject": "virginia outslugs southern miss in instant classic at hattiesburg regional",
+   "people": [],
+   "published_at": "2026-11-24T12:26:22.499704+00:00",
+   "region": "",
+   "run_id": "2026-11-24-PM",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 651
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-24T01:44:54.191500+00:00"
+ "updated_at": "2026-11-24T12:26:22.499762+00:00"
 }
