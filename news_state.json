@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-24T23:29:55.901881+00:00",
-  "last_request_id": "",
-  "last_status": 0,
+  "last_ok": "2026-11-25T23:06:04.091345+00:00",
+  "last_request_id": "a6044d3d6dad4cbd-CMH",
+  "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-25T11:14:28.069554+00:00",
+ "last_run_at": "2026-11-25T23:06:09.844697+00:00",
  "ledger": {},
  "posts": [
   {
@@ -8659,6 +8659,27 @@
    "urls": [
     "campusecho.com/nccu-womens-flag-football-team-pushes-for-varsity-status"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "This Day in Sports History: November 25 - 95.9 The Rat",
+   "claim": "This Day in Sports History: November 25 95.9 The Rat",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "Nov 25 Marks Historic Wins in Tennis and Canadian Football",
+   "image_status": "verified_external",
+   "message_id": 654,
+   "normalized_subject": "This Day in Sports History: November 25 - 95.9 The Rat",
+   "posted_at": "2026-11-25T23:06:06.819193+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-26-AM",
+   "sector": "On This Date",
+   "topic": "This Day in Sports History: November 25 - 95.9 The Rat",
+   "urls": [
+    "wrat.com/2026/11/25/this-day-in-sports-history-november-25-2"
+   ]
   }
  ],
  "runs": [],
@@ -9123,22 +9144,30 @@
      "2026-11-25-AM",
      "2026-11-25-PM"
     ]
+   },
+   "2026-11-26": {
+    "published_sectors": [
+     "On This Date"
+    ],
+    "run_ids": [
+     "2026-11-26-AM"
+    ]
    }
   },
-  "last_run_at": "2026-11-25T11:14:28.069541+00:00",
+  "last_run_at": "2026-11-25T23:06:09.844668+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-25T11:14:28.069528+00:00"
+    "updated_at": "2026-11-25T23:06:09.844643+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-25T11:14:28.069524+00:00"
+    "updated_at": "2026-11-25T23:06:09.844636+00:00"
    }
   },
   "publication": {
@@ -10091,6 +10120,11 @@
     "message_id": 652,
     "posted_at": "2026-11-24T23:29:45.972706+00:00",
     "status": "posted"
+   },
+   "2026-11-26-AM:evergreen:a6226b347bea14c9": {
+    "message_id": 654,
+    "posted_at": "2026-11-25T23:06:06.818977+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -10817,6 +10851,15 @@
     "exit": 0,
     "run_id": "2026-11-25-PM",
     "used_sectors": []
+   },
+   {
+    "at": "2026-11-25T23:06:09.844673+00:00",
+    "evergreen": 1,
+    "exit": 0,
+    "run_id": "2026-11-26-AM",
+    "used_sectors": [
+     "On This Date"
+    ]
    }
   ],
   "schema": 1

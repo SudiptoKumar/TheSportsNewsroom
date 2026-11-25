@@ -18839,8 +18839,31 @@
    ],
    "sport_or_game": "NCCU women’s flag football team pushes for varsity status",
    "telegram_message_id": 653
+  },
+  {
+   "central_claim": "This Day in Sports History: November 25 95.9 The Rat",
+   "central_knowledge_unit": "this day in sports history november 25 95 9 the rat",
+   "content_id": "265674dc2c168f6a",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "265674dc2c168f6a",
+    "b9b42a5ba5759d7b"
+   ],
+   "normalized_subject": "this day in sports history november 25 95 9 the rat",
+   "people": [],
+   "published_at": "2026-11-25T23:06:06.819065+00:00",
+   "region": "",
+   "run_id": "2026-11-26-AM",
+   "sector": "On This Date",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 654
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-25T11:12:12.504117+00:00"
+ "updated_at": "2026-11-25T23:06:06.819168+00:00"
 }
