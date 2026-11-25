@@ -18791,8 +18791,56 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 653
+  },
+  {
+   "central_claim": "GM Javokhir Sindarov seemed to get the better of a tense opening battle in game one of the Salesforce FIDE World Championship 2026, but World Champion Gukesh Dommaraju survived pressure on the board and clock to make a draw. Sindarov, who faced th...",
+   "central_knowledge_unit": "gm javokhir sindarov seemed to get the better of a tense opening battle in game one of the salesforce fide world championship 2026 but world champion gukesh dommaraju survived pressure on the board and clock to make a dr",
+   "content_id": "369b848f29aa03b0",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "6933e9b9b30d5baf",
+    "dee1c12c3d19a0a9"
+   ],
+   "legacy": true,
+   "normalized_subject": "gukesh survives pressure to hold sindarov to draw in world championship game 1",
+   "people": [],
+   "published_at": "2026-11-24T23:29:45.972896+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Game Discovery",
+   "source_urls": [
+    "chess.com/news/view/2026-fide-world-chess-championship-game-1"
+   ],
+   "sport_or_game": "Gukesh Survives Pressure To Hold Sindarov To Draw In World Championship Game 1",
+   "telegram_message_id": 652
+  },
+  {
+   "central_claim": "NCCU women’s flag football team pushes for varsity status Campus Echo Online",
+   "central_knowledge_unit": "nccu women s flag football team pushes for varsity status campus echo online",
+   "content_id": "d2a1b21acc318e47",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "1c29f18b0895f29c",
+    "71878ef3e143f13e"
+   ],
+   "legacy": true,
+   "normalized_subject": "nccu women s flag football team pushes for varsity status",
+   "people": [],
+   "published_at": "2026-11-24T23:29:57.891480+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "New Sport Discovery",
+   "source_urls": [
+    "campusecho.com/nccu-womens-flag-football-team-pushes-for-varsity-status"
+   ],
+   "sport_or_game": "NCCU women’s flag football team pushes for varsity status",
+   "telegram_message_id": 653
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-24T23:29:57.891458+00:00"
+ "updated_at": "2026-11-25T11:12:12.504117+00:00"
 }
