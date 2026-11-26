@@ -18862,8 +18862,55 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 654
+  },
+  {
+   "central_claim": "This Day in Sports History: November 25 95.9 The Rat",
+   "central_knowledge_unit": "this day in sports history november 25 95 9 the rat",
+   "content_id": "780aefe5718fef32",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b9b42a5ba5759d7b",
+    "a6226b347bea14c9"
+   ],
+   "legacy": true,
+   "normalized_subject": "this day in sports history november 25 95 9 the rat",
+   "people": [],
+   "published_at": "2026-11-25T23:06:06.819193+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "wrat.com/2026/11/25/this-day-in-sports-history-november-25-2"
+   ],
+   "sport_or_game": "This Day in Sports History: November 25 - 95.9 The Rat",
+   "telegram_message_id": 654
+  },
+  {
+   "central_claim": "Why the SEC Lost Its Dominant Position Over College Football boardroom.tv",
+   "central_knowledge_unit": "why the sec lost its dominant position over college football",
+   "content_id": "c8057b36b76fb918",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "c8057b36b76fb918",
+    "74d925fd122dc1d0"
+   ],
+   "normalized_subject": "why the sec lost its dominant position over college football",
+   "people": [],
+   "published_at": "2026-11-26T10:49:35.454479+00:00",
+   "region": "",
+   "run_id": "2026-11-26-PM",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 655
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-25T23:06:06.819168+00:00"
+ "updated_at": "2026-11-26T10:49:35.454542+00:00"
 }

@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-25T23:06:04.091345+00:00",
-  "last_request_id": "a6044d3d6dad4cbd-CMH",
+  "last_ok": "2026-11-26T10:49:32.873539+00:00",
+  "last_request_id": "a60853bb389d6aed-IAD",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-25T23:06:09.844697+00:00",
+ "last_run_at": "2026-11-26T10:49:38.474595+00:00",
  "ledger": {},
  "posts": [
   {
@@ -8680,6 +8680,27 @@
    "urls": [
     "wrat.com/2026/11/25/this-day-in-sports-history-november-25-2"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Why the SEC Lost Its Dominant Position Over College Football",
+   "claim": "Why the SEC Lost Its Dominant Position Over College Football boardroom.tv",
+   "desk": "evergreen_v1",
+   "format": "Forgotten Sport",
+   "headline": "SEC’s Decline Evident as No Teams Reach CFP Finals",
+   "image_status": "verified_external",
+   "message_id": 655,
+   "normalized_subject": "Why the SEC Lost Its Dominant Position Over College Football",
+   "posted_at": "2026-11-26T10:49:35.454564+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-26-PM",
+   "sector": "Forgotten Sport",
+   "topic": "Why the SEC Lost Its Dominant Position Over College Football",
+   "urls": [
+    "boardroom.tv/sec-college-football-playoff-nil-cfp"
+   ]
   }
  ],
  "runs": [],
@@ -9147,27 +9168,29 @@
    },
    "2026-11-26": {
     "published_sectors": [
-     "On This Date"
+     "On This Date",
+     "Forgotten Sport"
     ],
     "run_ids": [
-     "2026-11-26-AM"
+     "2026-11-26-AM",
+     "2026-11-26-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-25T23:06:09.844668+00:00",
+  "last_run_at": "2026-11-26T10:49:38.474574+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-25T23:06:09.844643+00:00"
+    "updated_at": "2026-11-26T10:49:38.474556+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-25T23:06:09.844636+00:00"
+    "updated_at": "2026-11-26T10:49:38.474552+00:00"
    }
   },
   "publication": {
@@ -10125,6 +10148,11 @@
     "message_id": 654,
     "posted_at": "2026-11-25T23:06:06.818977+00:00",
     "status": "posted"
+   },
+   "2026-11-26-PM:evergreen:a2cd7aa46773e3f5": {
+    "message_id": 655,
+    "posted_at": "2026-11-26T10:49:35.454401+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -10859,6 +10887,15 @@
     "run_id": "2026-11-26-AM",
     "used_sectors": [
      "On This Date"
+    ]
+   },
+   {
+    "at": "2026-11-26T10:49:38.474576+00:00",
+    "evergreen": 1,
+    "exit": 0,
+    "run_id": "2026-11-26-PM",
+    "used_sectors": [
+     "Forgotten Sport"
     ]
    }
   ],
