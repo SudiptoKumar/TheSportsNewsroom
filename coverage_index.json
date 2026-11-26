@@ -18909,8 +18909,78 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 655
+  },
+  {
+   "central_claim": "Why the SEC Lost Its Dominant Position Over College Football boardroom.tv",
+   "central_knowledge_unit": "why the sec lost its dominant position over college football boardroom tv",
+   "content_id": "9d5f07c25b42b847",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "74d925fd122dc1d0",
+    "60069b1c689b7378"
+   ],
+   "legacy": true,
+   "normalized_subject": "why the sec lost its dominant position over college football",
+   "people": [],
+   "published_at": "2026-11-26T10:49:35.454564+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Forgotten Sport",
+   "source_urls": [
+    "boardroom.tv/sec-college-football-playoff-nil-cfp"
+   ],
+   "sport_or_game": "Why the SEC Lost Its Dominant Position Over College Football",
+   "telegram_message_id": 655
+  },
+  {
+   "central_claim": "She Came First: Black Women Transforming Sports Word In Black",
+   "central_knowledge_unit": "she came first black women transforming sports",
+   "content_id": "9c7bf81f5eb9fd93",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9c7bf81f5eb9fd93",
+    "764e74aa09e9c746"
+   ],
+   "normalized_subject": "she came first black women transforming sports",
+   "people": [],
+   "published_at": "2026-11-26T22:59:15.789576+00:00",
+   "region": "",
+   "run_id": "2026-11-27-AM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 656
+  },
+  {
+   "central_claim": "This Day in Sports History: October 19 Q105 | Listen Live",
+   "central_knowledge_unit": "this day in sports history october 19 q105 listen live",
+   "content_id": "a32db269ecd1c281",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "a32db269ecd1c281",
+    "1eca9ff9421cbba6"
+   ],
+   "normalized_subject": "this day in sports history october 19 q105 listen live",
+   "people": [],
+   "published_at": "2026-11-26T22:59:40.020269+00:00",
+   "region": "",
+   "run_id": "2026-11-27-AM",
+   "sector": "On This Date",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 657
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-26T10:49:35.454542+00:00"
+ "updated_at": "2026-11-26T22:59:40.020327+00:00"
 }
