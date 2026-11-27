@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-27T10:50:04.602045+00:00",
-  "last_request_id": "a61091e0ef63201b-IAD",
+  "last_ok": "2026-11-27T22:42:21.262300+00:00",
+  "last_request_id": "a614a540bf9427b0-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-27T10:50:10.258104+00:00",
+ "last_run_at": "2026-11-27T22:42:26.885576+00:00",
  "ledger": {},
  "posts": [
   {
@@ -8786,6 +8786,48 @@
    "urls": [
     "nevadasportsnet.com/news/reporters/previews-and-predictions-ahead-of-northern-5a4a-high-school-football-regional-semifinals"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "Pétanque in France: rules, etiquette and phrases to know",
+   "claim": "Pétanque in France: rules, etiquette and phrases to know connexionfrance",
+   "desk": "evergreen_v1",
+   "format": "How to Play",
+   "headline": "Pétanque Gains Momentum Among Young Players and American Visitors in France",
+   "image_status": "verified_external",
+   "message_id": 660,
+   "normalized_subject": "Pétanque in France: rules, etiquette and phrases to know",
+   "posted_at": "2026-11-27T22:42:12.900272+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-28-AM",
+   "sector": "How to Play",
+   "topic": "Pétanque in France: rules, etiquette and phrases to know",
+   "urls": [
+    "connexionfrance.com/news/petanque-explained-rules-equipment-and-why-french-sport-is-booming-with-americans/810647"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "This Day in Sports History: September 28",
+   "claim": "This Day in Sports History: September 28 97.5 The Fanatic",
+   "desk": "evergreen_v1",
+   "format": "On This Date",
+   "headline": "1919 Giants Set Record for Fastest Nine‑Inning Game",
+   "image_status": "verified_external",
+   "message_id": 661,
+   "normalized_subject": "This Day in Sports History: September 28",
+   "posted_at": "2026-11-27T22:42:23.851503+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-28-AM",
+   "sector": "On This Date",
+   "topic": "This Day in Sports History: September 28",
+   "urls": [
+    "975thefanatic.com/2026/09/28/this-day-in-sports-history-september-28-2"
+   ]
   }
  ],
  "runs": [],
@@ -9272,22 +9314,31 @@
      "2026-11-27-AM",
      "2026-11-27-PM"
     ]
+   },
+   "2026-11-28": {
+    "published_sectors": [
+     "How to Play",
+     "On This Date"
+    ],
+    "run_ids": [
+     "2026-11-28-AM"
+    ]
    }
   },
-  "last_run_at": "2026-11-27T10:50:10.258071+00:00",
+  "last_run_at": "2026-11-27T22:42:26.885547+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-27T10:50:10.258053+00:00"
+    "updated_at": "2026-11-27T22:42:26.885525+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-27T10:50:10.258048+00:00"
+    "updated_at": "2026-11-27T22:42:26.885519+00:00"
    }
   },
   "publication": {
@@ -10270,6 +10321,16 @@
     "message_id": 658,
     "posted_at": "2026-11-27T10:49:56.673309+00:00",
     "status": "posted"
+   },
+   "2026-11-28-AM:evergreen:7e474a49670a8cef": {
+    "message_id": 661,
+    "posted_at": "2026-11-27T22:42:23.851293+00:00",
+    "status": "posted"
+   },
+   "2026-11-28-AM:evergreen:986b4dc2c2219503": {
+    "message_id": 660,
+    "posted_at": "2026-11-27T22:42:12.900099+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -11033,6 +11094,16 @@
     "used_sectors": [
      "First / Last / Only",
      "Traditional / Regional Game"
+    ]
+   },
+   {
+    "at": "2026-11-27T22:42:26.885553+00:00",
+    "evergreen": 2,
+    "exit": 0,
+    "run_id": "2026-11-28-AM",
+    "used_sectors": [
+     "How to Play",
+     "On This Date"
     ]
    }
   ],

@@ -19074,8 +19074,102 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 659
+  },
+  {
+   "central_claim": "Top ten highest goalscorers of all time: Cristiano Ronaldo eyes 1000 career goals talkSPORT",
+   "central_knowledge_unit": "top ten highest goalscorers of all time cristiano ronaldo eyes 1000 career goals talksport",
+   "content_id": "f09221e08a9a3799",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b25735982e97e0f3",
+    "53231690ae540c6c"
+   ],
+   "legacy": true,
+   "normalized_subject": "top ten highest goalscorers of all time cristiano ronaldo eyes 1000 career goals",
+   "people": [],
+   "published_at": "2026-11-27T10:49:56.673494+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "talksport.com/football/691008/highest-goalscorers-ever-ronaldo-messi-josef-bican-pele"
+   ],
+   "sport_or_game": "Top ten highest goalscorers of all time: Cristiano Ronaldo eyes 1000 career goals",
+   "telegram_message_id": 658
+  },
+  {
+   "central_claim": "Previews and predictions ahead of Northern 5A/4A high school football regional semifinals Nevada Sports Net",
+   "central_knowledge_unit": "previews and predictions ahead of northern 5a 4a high school football regional semifinals nevada sports net",
+   "content_id": "9f2f1ff6f11678d6",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "36e59f68ed0eec1a",
+    "43d55ff1862ad5a1"
+   ],
+   "legacy": true,
+   "normalized_subject": "previews and predictions ahead of northern 5a 4a high school football regional semifinals",
+   "people": [],
+   "published_at": "2026-11-27T10:50:07.236691+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    "nevadasportsnet.com/news/reporters/previews-and-predictions-ahead-of-northern-5a4a-high-school-football-regional-semifinals"
+   ],
+   "sport_or_game": "Previews and predictions ahead of Northern 5A/4A high school football regional semifinals",
+   "telegram_message_id": 659
+  },
+  {
+   "central_claim": "Pétanque in France: rules, etiquette and phrases to know connexionfrance",
+   "central_knowledge_unit": "p tanque in france rules etiquette and phrases to know",
+   "content_id": "2135d17050a810f8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "2135d17050a810f8",
+    "5b748c6a624c9c44"
+   ],
+   "normalized_subject": "p tanque in france rules etiquette and phrases to know",
+   "people": [],
+   "published_at": "2026-11-27T22:42:12.900181+00:00",
+   "region": "",
+   "run_id": "2026-11-28-AM",
+   "sector": "How to Play",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 660
+  },
+  {
+   "central_claim": "This Day in Sports History: September 28 97.5 The Fanatic",
+   "central_knowledge_unit": "this day in sports history september 28",
+   "content_id": "d0677bce05719a92",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "d0677bce05719a92",
+    "9f322881a40e6d8f"
+   ],
+   "normalized_subject": "this day in sports history september 28",
+   "people": [],
+   "published_at": "2026-11-27T22:42:23.851416+00:00",
+   "region": "",
+   "run_id": "2026-11-28-AM",
+   "sector": "On This Date",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 661
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-27T10:50:07.236667+00:00"
+ "updated_at": "2026-11-27T22:42:23.851480+00:00"
 }
