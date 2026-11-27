@@ -18979,8 +18979,103 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 657
+  },
+  {
+   "central_claim": "She Came First: Black Women Transforming Sports Word In Black",
+   "central_knowledge_unit": "she came first black women transforming sports word in black",
+   "content_id": "74cd7369e4b52c21",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "764e74aa09e9c746",
+    "467113e641d3aae4"
+   ],
+   "legacy": true,
+   "normalized_subject": "she came first black women transforming sports",
+   "people": [],
+   "published_at": "2026-11-26T22:59:15.789661+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    "wordinblack.com/2025/03/she-came-first-black-women-transforming-sports"
+   ],
+   "sport_or_game": "She Came First: Black Women Transforming Sports",
+   "telegram_message_id": 656
+  },
+  {
+   "central_claim": "This Day in Sports History: October 19 Q105 | Listen Live",
+   "central_knowledge_unit": "this day in sports history october 19 q105 listen live",
+   "content_id": "6ef8ee01fe8c28b5",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "1eca9ff9421cbba6",
+    "08b53cda5194068a"
+   ],
+   "legacy": true,
+   "normalized_subject": "this day in sports history october 19 q105 listen live",
+   "people": [],
+   "published_at": "2026-11-26T22:59:40.020350+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "myq105.com/2026/10/19/this-day-in-sports-history-october-19-2"
+   ],
+   "sport_or_game": "This Day in Sports History: October 19 - Q105 | Listen Live",
+   "telegram_message_id": 657
+  },
+  {
+   "central_claim": "Top ten highest goalscorers of all time: Cristiano Ronaldo eyes 1000 career goals talkSPORT",
+   "central_knowledge_unit": "top ten highest goalscorers of all time cristiano ronaldo eyes 1000 career goals",
+   "content_id": "90a04db947a013e8",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "90a04db947a013e8",
+    "b25735982e97e0f3"
+   ],
+   "normalized_subject": "top ten highest goalscorers of all time cristiano ronaldo eyes 1000 career goals",
+   "people": [],
+   "published_at": "2026-11-27T10:49:56.673392+00:00",
+   "region": "",
+   "run_id": "2026-11-27-PM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    "",
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 658
+  },
+  {
+   "central_claim": "Previews and predictions ahead of Northern 5A/4A high school football regional semifinals Nevada Sports Net",
+   "central_knowledge_unit": "previews and predictions ahead of northern 5a 4a high school football regional semifinals",
+   "content_id": "14dc54a56ae26f5f",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "14dc54a56ae26f5f",
+    "36e59f68ed0eec1a"
+   ],
+   "normalized_subject": "previews and predictions ahead of northern 5a 4a high school football regional semifinals",
+   "people": [],
+   "published_at": "2026-11-27T10:50:07.236575+00:00",
+   "region": "",
+   "run_id": "2026-11-27-PM",
+   "sector": "Traditional / Regional Game",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 659
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-26T22:59:40.020327+00:00"
+ "updated_at": "2026-11-27T10:50:07.236667+00:00"
 }
