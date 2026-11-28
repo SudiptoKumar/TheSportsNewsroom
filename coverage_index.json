@@ -19168,8 +19168,102 @@
    ],
    "sport_or_game": "",
    "telegram_message_id": 661
+  },
+  {
+   "central_claim": "Pétanque in France: rules, etiquette and phrases to know connexionfrance",
+   "central_knowledge_unit": "p tanque in france rules etiquette and phrases to know connexionfrance",
+   "content_id": "962bfe82bfbf43e9",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "5b748c6a624c9c44",
+    "ad6451d28c3bfa62"
+   ],
+   "legacy": true,
+   "normalized_subject": "p tanque in france rules etiquette and phrases to know",
+   "people": [],
+   "published_at": "2026-11-27T22:42:12.900272+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "How to Play",
+   "source_urls": [
+    "connexionfrance.com/news/petanque-explained-rules-equipment-and-why-french-sport-is-booming-with-americans/810647"
+   ],
+   "sport_or_game": "Pétanque in France: rules, etiquette and phrases to know",
+   "telegram_message_id": 660
+  },
+  {
+   "central_claim": "This Day in Sports History: September 28 97.5 The Fanatic",
+   "central_knowledge_unit": "this day in sports history september 28 97 5 the fanatic",
+   "content_id": "522511cabe1db20d",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "9f322881a40e6d8f",
+    "fc46063dd286feb4"
+   ],
+   "legacy": true,
+   "normalized_subject": "this day in sports history september 28",
+   "people": [],
+   "published_at": "2026-11-27T22:42:23.851503+00:00",
+   "region": "",
+   "run_id": "legacy-archive",
+   "sector": "On This Date",
+   "source_urls": [
+    "975thefanatic.com/2026/09/28/this-day-in-sports-history-september-28-2"
+   ],
+   "sport_or_game": "This Day in Sports History: September 28",
+   "telegram_message_id": 661
+  },
+  {
+   "central_claim": "9 Black Athletes Who Integrated Professional Sports History.com",
+   "central_knowledge_unit": "9 black athletes who integrated professional sports",
+   "content_id": "d1f2ecb32145c6ba",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "d1f2ecb32145c6ba",
+    "d5f2b60d1aafc85e"
+   ],
+   "normalized_subject": "9 black athletes who integrated professional sports",
+   "people": [],
+   "published_at": "2026-11-28T10:19:25.456419+00:00",
+   "region": "",
+   "run_id": "2026-11-28-PM",
+   "sector": "Sports & Games People",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 662
+  },
+  {
+   "central_claim": "The 25 Greatest Brothers in Sports History Complex",
+   "central_knowledge_unit": "the 25 greatest brothers in sports history",
+   "content_id": "b875085615642356",
+   "content_type": "evergreen",
+   "country": "",
+   "editorial_angle": "",
+   "fingerprints": [
+    "b875085615642356",
+    "d95efbec3f88a060"
+   ],
+   "normalized_subject": "the 25 greatest brothers in sports history",
+   "people": [],
+   "published_at": "2026-11-28T10:19:37.671901+00:00",
+   "region": "",
+   "run_id": "2026-11-28-PM",
+   "sector": "First / Last / Only",
+   "source_urls": [
+    ""
+   ],
+   "sport_or_game": "",
+   "telegram_message_id": 663
   }
  ],
  "schema": 1,
- "updated_at": "2026-11-27T22:42:23.851480+00:00"
+ "updated_at": "2026-11-28T10:19:37.671959+00:00"
 }

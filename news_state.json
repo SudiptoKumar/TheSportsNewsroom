@@ -1,15 +1,15 @@
 {
  "ai": {
   "last_error": "",
-  "last_ok": "2026-11-27T22:42:21.262300+00:00",
-  "last_request_id": "a614a540bf9427b0-CMH",
+  "last_ok": "2026-11-28T10:20:00.436843+00:00",
+  "last_request_id": "a618a3352d8025db-CMH",
   "last_status": 200,
   "mode": "json_schema",
   "model": "gpt-oss-120b"
  },
  "alerts": {},
  "created_at": "2026-09-25T08:19:10.901191+00:00",
- "last_run_at": "2026-11-27T22:42:26.885576+00:00",
+ "last_run_at": "2026-11-28T10:20:00.437523+00:00",
  "ledger": {},
  "posts": [
   {
@@ -8828,6 +8828,48 @@
    "urls": [
     "975thefanatic.com/2026/09/28/this-day-in-sports-history-september-28-2"
    ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "9 Black Athletes Who Integrated Professional Sports",
+   "claim": "9 Black Athletes Who Integrated Professional Sports History.com",
+   "desk": "evergreen_v1",
+   "format": "Sports & Games People",
+   "headline": "Nine Black Athletes Who Broke Color Barriers in Professional Sports",
+   "image_status": "card_fallback",
+   "message_id": 662,
+   "normalized_subject": "9 Black Athletes Who Integrated Professional Sports",
+   "posted_at": "2026-11-28T10:19:25.456506+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-28-PM",
+   "sector": "Sports & Games People",
+   "topic": "9 Black Athletes Who Integrated Professional Sports",
+   "urls": [
+    "history.com/articles/black-athletes-who-integrated-their-sports"
+   ]
+  },
+  {
+   "angle": "",
+   "central_knowledge_unit": "The 25 Greatest Brothers in Sports History",
+   "claim": "The 25 Greatest Brothers in Sports History Complex",
+   "desk": "evergreen_v1",
+   "format": "First / Last / Only",
+   "headline": "Stephen and Seth Curry Join Forces as One of NBA’s Top Brother Duos",
+   "image_status": "verified_external",
+   "message_id": 663,
+   "normalized_subject": "The 25 Greatest Brothers in Sports History",
+   "posted_at": "2026-11-28T10:19:37.671983+00:00",
+   "research_urls": [
+    ""
+   ],
+   "run_id": "2026-11-28-PM",
+   "sector": "First / Last / Only",
+   "topic": "The 25 Greatest Brothers in Sports History",
+   "urls": [
+    "complex.com/sports/a/doug-sibor/the-25-greatest-brothers-in-sports-history"
+   ]
   }
  ],
  "runs": [],
@@ -9318,27 +9360,30 @@
    "2026-11-28": {
     "published_sectors": [
      "How to Play",
-     "On This Date"
+     "On This Date",
+     "Sports & Games People",
+     "First / Last / Only"
     ],
     "run_ids": [
-     "2026-11-28-AM"
+     "2026-11-28-AM",
+     "2026-11-28-PM"
     ]
    }
   },
-  "last_run_at": "2026-11-27T22:42:26.885547+00:00",
+  "last_run_at": "2026-11-28T10:20:00.437500+00:00",
   "live": {
    "results": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-27T22:42:26.885525+00:00"
+    "updated_at": "2026-11-28T10:20:00.437482+00:00"
    },
    "retiring_message_ids": [],
    "schedule": {
     "event_ids": [],
     "message_id": null,
     "target_date": "",
-    "updated_at": "2026-11-27T22:42:26.885519+00:00"
+    "updated_at": "2026-11-28T10:20:00.437475+00:00"
    }
   },
   "publication": {
@@ -10331,6 +10376,16 @@
     "message_id": 660,
     "posted_at": "2026-11-27T22:42:12.900099+00:00",
     "status": "posted"
+   },
+   "2026-11-28-PM:evergreen:0106bc004fd4516f": {
+    "message_id": 662,
+    "posted_at": "2026-11-28T10:19:25.456344+00:00",
+    "status": "posted"
+   },
+   "2026-11-28-PM:evergreen:cfd8086cf39acedc": {
+    "message_id": 663,
+    "posted_at": "2026-11-28T10:19:37.671815+00:00",
+    "status": "posted"
    }
   },
   "runs": [
@@ -11104,6 +11159,16 @@
     "used_sectors": [
      "How to Play",
      "On This Date"
+    ]
+   },
+   {
+    "at": "2026-11-28T10:20:00.437505+00:00",
+    "evergreen": 2,
+    "exit": 0,
+    "run_id": "2026-11-28-PM",
+    "used_sectors": [
+     "First / Last / Only",
+     "Sports & Games People"
     ]
    }
   ],
